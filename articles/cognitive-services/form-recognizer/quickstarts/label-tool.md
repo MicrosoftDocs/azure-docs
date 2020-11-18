@@ -64,7 +64,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-    # [v2.1 preview 2](#tab/v2-1)    
+    # [v2.1 preview](#tab/v2-1)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
     ```
@@ -77,7 +77,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
-    # [v2.1 preview 2](#tab/v2-1)    
+    # [v2.1 preview](#tab/v2-1)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
     ```
@@ -176,7 +176,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
 
 
-# [v2.1 preview 2](#tab/v2-1) 
+# [v2.1 preview](#tab/v2-1) 
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Click **+** to create a new tag.
    1. Enter the tag name.
@@ -265,7 +265,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 This feature is currently available in v2.1. preview. 
 
-# [v2.1 preview 2](#tab/v2-1) 
+# [v2.1 preview](#tab/v2-1) 
 
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with this composed model ID, Form Recognizer will first classify the form you submitted, matching it to the best matching model, and then return results for that model. This is useful when incoming forms may belong to one of several templates.
 

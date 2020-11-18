@@ -48,7 +48,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     ```bash
     curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
     ```
-    # [v2.1 preview 2](#tab/v2-1)    
+    # [v2.1 preview](#tab/v2-1)    
     ```bash
     curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.1/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
     ```
@@ -73,7 +73,7 @@ After you've started the train operation, you use a new operation, **[Get Custom
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
-# [v2.1 preview 2](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1)    
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.1/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```ce\": \""<SAS URL>"\"}"
@@ -164,7 +164,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 ```bash
 curl -v "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
-# [v2.1 preview 2](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1)    
 ```bash
 ```bash
 curl -v "https://<Endpoint>/formrecognizer/v2.1-preview.1/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
@@ -189,7 +189,7 @@ Use the following API to query the results of the Analyze operation.
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
-# [v2.1 preview 2](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1)    
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
@@ -329,7 +329,7 @@ This sample JSON output has been shortened for simplicity.
   }
 }
 ```    
-# [v2.1 preview 2](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1)    
 ```JSON
 {
   "status": "succeeded",

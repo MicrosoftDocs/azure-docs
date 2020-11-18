@@ -75,7 +75,7 @@ Follow these steps to create a new resource using the Azure portal:
    * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
    * Startup command - Set this to `./run.sh eula=accept`
 
-    # [v2.1 preview 2](#tab/v2-1) 
+    # [v2.1 preview](#tab/v2-1) 
    * Options - Select **Single Container**
    * Image Source - Select **Private Registry** 
    * Server URL - Set this to `https://mcr.microsoft.com`
@@ -124,7 +124,7 @@ az container create \
   --memory 8 \
   --command-line "./run.sh eula=accept"
 ``` 
-# [v2.1 preview 2](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1)    
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

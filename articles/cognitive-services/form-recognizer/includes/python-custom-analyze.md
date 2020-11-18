@@ -53,7 +53,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
         print("POST analyze failed:\n%s" % str(e))
         quit() 
     ```    
-    # [v2.1 preview 2](#tab/v2-1)
+    # [v2.1 preview](#tab/v2-1)
     ```python
     ########### Python Form Recognizer Async Analyze #############
     import json

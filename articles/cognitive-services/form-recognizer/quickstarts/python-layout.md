@@ -75,7 +75,7 @@ To start analyzing the layout, you call the **[Analyze Layout](https://westus2.d
         print("POST analyze failed:\n%s" % str(e))
         quit()
     ```   
-    # [v2.1 preview 2](#tab/v2-1)  
+    # [v2.1 preview](#tab/v2-1)  
     ```python
     ########### Python Form Recognizer Async Layout #############
     
@@ -124,7 +124,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 ```console
 https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ``` 
-# [v2.1 preview 2](#tab/v2-1)  
+# [v2.1 preview](#tab/v2-1)  
 ```console
 https://cognitiveservice/formrecognizer/v2.1-preview.1/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```  
@@ -170,7 +170,7 @@ while n_try < n_tries:
 
 ### Examine the response
 
-The script will print responses to the console until the **Analyze Layout** operation completes. Then, it will print the extracted data in JSON format. The `"readResults"` node contains every line of text with its respective bounding box placement on the page. The `"selectionMarks"` node (in v2.1 preview 2) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The `"pageResults"` field shows every piece of text within tables, each with its row-column coordinate.
+The script will print responses to the console until the **Analyze Layout** operation completes. Then, it will print the extracted data in JSON format. The `"readResults"` node contains every line of text with its respective bounding box placement on the page. The `"selectionMarks"` node (in v2.1 preview) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The `"pageResults"` field shows every piece of text within tables, each with its row-column coordinate.
 
 See the following invoice image and its corresponding JSON output. The output has been shortened for simplicity.
 
@@ -278,7 +278,7 @@ See the following invoice image and its corresponding JSON output. The output ha
 }
 ```
 
-# [v2.1 preview 2](#tab/v2-1)   
+# [v2.1 preview](#tab/v2-1)   
 ```json
 {
     "status": "succeeded",

@@ -114,7 +114,7 @@ You need OCR result files in order for the service to consider the corresponding
                     },
                     ...
     ```    
-    # [v2.1 preview 2](#tab/v2-1)
+    # [v2.1 preview](#tab/v2-1)
     ```json
     {
     "status": "succeeded",
@@ -295,7 +295,7 @@ except Exception as e:
     print("POST model failed:\n%s" % str(e))
     quit() 
 ```    
-# [v2.1 preview 2](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1)    
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
 import json
@@ -447,7 +447,7 @@ Copy the `"modelId"` value for use in the following steps.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-When the process is completed, you'll receive a `202 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The `"selectionMarks"` node (in v2.1 preview 2) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
+When the process is completed, you'll receive a `202 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The `"selectionMarks"` node (in v2.1 preview) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
 
 # [v2.0](#tab/v2-0)
 ```json

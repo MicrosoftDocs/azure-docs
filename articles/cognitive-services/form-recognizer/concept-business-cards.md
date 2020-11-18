@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Business card concepts
 
-Azure Form Recognizer can analyze and extract contact information from business cards using one of its prebuilt models. The Business Card API combines powerful Optical Character Recognition (OCR) capabilities with our Business Card Understanding model to extract key information from business cards in English. It extracts personal contact info, company name, job title, and more. The Prebuilt Business Card API is publicly available in the Form Recognizer v2.1 preview 2. 
+Azure Form Recognizer can analyze and extract contact information from business cards using one of its prebuilt models. The Business Card API combines powerful Optical Character Recognition (OCR) capabilities with our Business Card Understanding model to extract key information from business cards in English. It extracts personal contact info, company name, job title, and more. The Prebuilt Business Card API is publicly available in the Form Recognizer v2.1 preview. 
 
 ## What does the Business Card API do?
 
