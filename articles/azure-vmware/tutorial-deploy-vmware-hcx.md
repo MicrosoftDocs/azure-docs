@@ -2,7 +2,7 @@
 title: Tutorial - Deploy and configure VMware HCX
 description: Learn how to deploy and configure a VMware HCX solution for your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 11/18/2020
 ---
 
 # Deploy and configure VMware HCX
@@ -70,7 +70,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 1. Select **Manage** > **Identity** and select **vCenter admin password** to identify the password.
 
    > [!TIP]
-   > The vCenter password was defined when you set up the private cloud and is the same password you will use to log into Azure VMware Solution HCX Manager.
+   > The vCenter password was defined when you set up the private cloud, It's the same password you'll use to sign in to Azure VMware Solution HCX Manager.
 
    :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="find hcx password." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
 
@@ -145,7 +145,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
    > [!NOTE]
    > Typically, this entry is the same as your vCenter FQDN or IP address.
 
-1. Verify that all the inputs are correct, and select **Restart**.
+1. Verify that the information entered is correct, and select **Restart**.
     
    > [!NOTE]
    > You'll experience a delay after restarting before being prompted for the next step.
