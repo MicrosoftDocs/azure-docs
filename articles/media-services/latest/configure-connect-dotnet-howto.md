@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: "has-adal-ref, devx-track-csharp"
 ---
@@ -131,9 +131,9 @@ namespace ConsoleApp1
             get { return new Uri(_config["ArmEndpoint"]); }
         }
 
-        public string Region
+        public string Location
         {
-            get { return _config["Region"]; }
+            get { return _config["Location"]; }
         }
     }
 }
