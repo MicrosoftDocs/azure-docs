@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Lighthouse
 
-This security baseline applies guidance from the [Azure Security Benchmark version 2.0](overview.md) to Azure Lighthouse. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Lighthouse. **Controls** not applicable to Azure Lighthouse have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 2.0](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Lighthouse. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Lighthouse. **Controls** not applicable to Azure Lighthouse have been excluded.
 
 To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see the [full Azure Lighthouse security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -33,7 +33,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network, and does not allows for its management endpoints to be secured via Private Link. The Azure Lighthouse service simply provides delegated resource management capabilities and a cross-tenant experience for enterprise IT organizations managing Azure resources from multiple tenants.
+**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network, and does not allow for its management endpoints to be secured via Private Link. The Azure Lighthouse service simply provides delegated resource management capabilities and a cross-tenant experience for enterprise IT organizations managing Azure resources from multiple tenants.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -75,7 +75,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network. Customers can not, and do not need to configure any additional network protection features like Azure DDoS Standard for the Azure Lighthouse service.
+**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network. Customers cannot, and do not need to configure any additional network protection features like Azure DDoS Standard for the Azure Lighthouse service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -136,20 +136,15 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 - Your organization's resources, such as applications on Azure or your corporate network resources.
 
-Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to 
-Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
-
-Note that Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
-
 With Azure Lighthouse, designated users in a managing tenant have an Azure built-in role which lets them access delegated subscriptions and/or resource groups in a customer's tenant. All built-in roles are currently supported except for Owner or any built-in roles with DataActions permission. The User Access Administrator role is supported only for limited use in assigning roles to managed identities. Custom roles and classic subscription administrator roles are not supported.
 
-- [Tenancy in Azure Active Directory](../../active-directory/develop/single-and-multi-tenant-apps.md) 
+- [Tenancy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps) 
 
-- [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
+- [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) 
 
-- [Use external identity providers for application](/azure/active-directory/b2b/identity-providers) 
+- [Use external identity providers for application](https://docs.microsoft.com/azure/active-directory/b2b/identity-providers) 
 
-- [What is the identity secure score in Azure Active Directory](../../active-directory/fundamentals/identity-secure-score.md)
+- [What is the identity secure score in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score)
 
 **Azure Security Center monitoring**: Yes
 
@@ -164,17 +159,13 @@ With Azure Lighthouse, designated users in a managing tenant have an Azure built
 
 For services that do not support managed identities, use Azure AD to create a service principal with restricted permissions at the resource level instead. Azure Lighthouse allows service principals to access customer resources according to the roles they are granted during the onboarding process. It is recommended to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used in conjunction with Azure managed identities, so that the runtime environment (such as an Azure function) can retrieve the credential from the key vault.
 
-- [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
+- [Azure managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-- [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
+- [Azure service principal](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
 
-- [Azure service principal](/powershell/azure/create-azure-service-principal-azureps)
+- [Use Azure Key Vault for security principal registration](https://docs.microsoft.com/azure/key-vault/general/authentication#authorize-a-security-principal-to-access-key-vault)
 
-- [Create a service principal with certificates](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-
-- [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md#authorize-a-security-principal-to-access-key-vault)
-
-- [Create a user who can assign roles to a managed identity in a customer tenant](../../lighthouse/how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)
+- [Create a user who can assign roles to a managed identity in a customer tenant](https://docs.microsoft.com/azure/lighthouse/how-to/deploy-policy-remediation#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -190,7 +181,7 @@ For services that do not support managed identities, use Azure AD to create a se
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. Azure AD enables single sign-on (SSO) to manage the App Lighthouse service, and other delegated resources through the Azure portal using your synced enterprise identities.
 
-- [Understand Application SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Understand Application SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -203,7 +194,7 @@ For services that do not support managed identities, use Azure AD to create a se
 
 **Guidance**: Require Multi-Factor Authentication (MFA) for all users in your managing tenant, including users who will have access to delegated customer resources. We suggest that you ask your customers to implement MFA in their tenants as well.
 
-- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -214,29 +205,46 @@ For services that do not support managed identities, use Azure AD to create a se
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40224).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Azure AD provides the following data sources: 
 
-**Guidance**: Not applicable; Azure Lighthouse does not use any sensitive accounts or there is no account activity logs or logs are not exportable by customers.
+-	Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+
+-	Audit logs - Provides traceability through logs for all changes made through various features in Azure AD. Examples of logged changes audit logs include adding or removing users, apps, groups, roles, and policies.
+
+-	Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+
+-	Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+
+These data sources can be integrated with Azure Monitor, Azure Sentinel or third party SIEM systems.
+
+Service providers using Azure Lighthouse can forward Azure AD logs to Azure Sentinel and view/set alerts across tenants to monitor and alert on account anomalies.
+
+- [Audit activity reports in Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs)
+
+- [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+
+- [Manage Azure Sentinel workspaces at scale](https://docs.microsoft.com/azure/lighthouse/how-to/manage-sentinel-workspaces)
+
+- [Connect data from Azure AD to Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-active-directory)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-6: Restrict Azure resource access based on conditions
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40225).
 
-**Guidance**: Azure Lighthouse does not support capability conditional access for delegated customer resources. In the managing tenant, use Azure AD conditional access for more granular access control based on user-defined conditions, such as requiring user logins from certain IP ranges to using Multi-Factor Authentication (MFA). A granular authentication session management can also be used through Azure AD conditional access policy for different use cases. 
+**Guidance**: Azure Lighthouse does not support a conditional access capability for delegated customer resources. In the managing tenant, use Azure AD conditional access for more granular access control based on user-defined conditions, such as requiring user logins from certain IP ranges to using Multi-Factor Authentication (MFA). A granular authentication session management can also be used through Azure AD conditional access policy for different use cases. 
 
 You should require MFA for all users in your managing tenant, including users who will have access to delegated customer resources. We suggest that you ask your customers to implement MFA in their tenants as well.
 
-- [Azure Conditional Access overview](../../active-directory/conditional-access/overview.md)
+- [Azure Conditional Access overview](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Common Conditional Access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+- [Common Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
-- [Configure authentication session management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+- [Configure authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -281,11 +289,11 @@ You should require MFA for all users in your managing tenant, including users wh
 
 **Guidance**: Limit the number of highly privileged user accounts, and protect these accounts at an elevated level. A Global Administrator account is not required to enable and use Azure Lighthouse.
 
-To access tenant-level Activity Log data, an account must be assigned the Monitoring Reader Azure built-in role at root scope (/). Because the Monitoring Reader role at root scope, is a broad level of access, we recommend that you assign this role to a service principal account, rather than to an individual user or to a group. This assignment must be performed by a user who has the Global Administrator role with additional elevated access. This elevated access should be added immediately before making the role assignment, then removed when the assignment is complete. 
+To access tenant-level Activity Log data, an account must be assigned the Monitoring Reader Azure built-in role at root scope (/). Because the Monitoring Reader role at root scope is a broad level of access, we recommend that you assign this role to a service principal account, rather than to an individual user or to a group. This assignment must be performed by a user who has the Global Administrator role with additional elevated access. This elevated access should be added immediately before making the role assignment, then removed when the assignment is complete.
 
-- [Administrator role permissions in Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [Administrator role permissions in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
-- [Assigning access to monitor tenant-level Activity Log data](../../lighthouse/how-to/monitor-delegation-changes.md)
+- [Assigning access to monitor tenant-level Activity Log data](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-delegation-changes)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -298,15 +306,19 @@ To access tenant-level Activity Log data, an account must be assigned the Monito
 
 **Guidance**: Azure Lighthouse uses Azure role-based access control (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
+Be sure to follow the principle of least privilege so that users only have the permissions needed to perform their specific tasks.
+
 Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
-- [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
+- [Azure Components and Reference model](https://docs.microsoft.com/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Management Group Access](../../governance/management-groups/overview.md#management-group-access) 
+- [Management Group Access](https://docs.microsoft.com/azure/governance/management-groups/overview#management-group-access)
 
-- [Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md)
+- [Azure subscription administrators](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator)
+
+- [Best practices for defining users and roles for Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/tenants-users-roles#best-practices-for-defining-users-and-roles)
 
 **Azure Security Center monitoring**: Yes
 
@@ -325,13 +337,13 @@ In addition, Azure Privileged Identity Management can also be configured to aler
 
 Note: that some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
 
-- [Create an access review of Azure resource roles in Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
+- [Create an access review of Azure resource roles in Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review) 
 
-- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+- [Removing access to a delegation](https://docs.microsoft.com/azure/lighthouse/how-to/remove-delegation)
 
-- [Viewing the Service providers page in the Azure portal](../../lighthouse/how-to/view-manage-service-providers.md)
+- [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
-- [Removing access to a delegation](../../lighthouse/how-to/remove-delegation.md)
+- [Viewing the Service providers page in the Azure portal](https://docs.microsoft.com/azure/lighthouse/how-to/view-manage-service-providers)
 
 **Azure Security Center monitoring**: Yes
 
@@ -346,7 +358,7 @@ Note: that some Azure services support local users and roles which not managed t
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 **Azure Security Center monitoring**: Yes
 
@@ -359,9 +371,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD)  to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
-- [What are Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) 
+- [What are Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) 
 
-- [What is Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md)
+- [What is Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -372,14 +384,15 @@ You should ensure that the credentials (such as password, certificate, or smart 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40232).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Depending on your requirements, you can use highly secured user workstations and/or Azure Bastion for performing administrative tasks with Azure Lighthouse in production environments. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access. 
 
-**Guidance**: Not applicable; Azure Lighthouse does not support management from a customer workstation.
+- [Understand privileged access workstations](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+
+- [Deploy a privileged access workstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
@@ -388,19 +401,17 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Azure Lighthouse is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these built-in roles to users, groups, service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically. Use built-in roles to allocate permission and only create custom roles when required.
 
-Azure Lighthouse allows access to delegated customer resources using Azure built-in roles. In most case, you'll want to assign these roles to a group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
+Azure Lighthouse allows access to delegated customer resources using Azure built-in roles. In most case, you'll want to assign these roles to a group or service principal, rather than to many individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
 
 To delegate customer resources to a managing tenant, a deployment must be done by a non-guest account in the customer's tenant who has the Owner built-in role for the subscription being onboarded (or which contains the resource groups that are being onboarded).
 
-- [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
+- [Understand tenants, users, and roles in Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/tenants-users-roles)
 
-- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
+- [How to apply the principle of least privilege to Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/recommended-security-practices#assign-permissions-to-groups-using-the-principle-of-least-privilege)
 
-- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+- [What is Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 
 
-- [Understand tenants, users, and roles in Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md)
-
-- [How to apply the principle of least privilege to Azure Lighthouse](../../lighthouse/concepts/recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege)
+- [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -512,9 +523,9 @@ Security Reader permissions can be applied broadly to an entire tenant (Root Man
 
 Note: Additional permissions might be required to get visibility into workloads and services. 
 
-- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
+- [Overview of Security Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)
 
-- [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
+- [Overview of Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/overview)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -525,14 +536,17 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40264).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Customers' security teams can review activity logs to see activity taken by service providers who use Azure Lighthouse. 
 
-**Guidance**: Not applicable; Azure Lighthouse does not allow for automated asset discovery for access by security teams. Thus it cannot be used with any asset inventory and metadata processes.
+If a service provider wants to allow their security team to review delegated customer resources, the security team's authorizations should include the Reader built-in role.
+
+- [How a customer can review service provider activity](https://docs.microsoft.com/azure/lighthouse/how-to/view-service-provider-activity)
+
+- [How to specify roles when onboarding a customer to Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#define-roles-and-permissions)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### AM-3: Use only approved Azure services
 
@@ -541,11 +555,11 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
-- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
+- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
 
-- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general) 
+- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general) 
 
-- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -556,9 +570,11 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40266).
 
-**Guidance**: Not applicable. The Azure Lighthouse can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
+**Guidance**: Remove access to resources that have been delegated through Azure Lighthouse once they are no are no longer needed, so that service providers no longer have access. Access can be removed by either the customer or by the service provider. 
 
-**Azure Security Center monitoring**: Yes
+- [Remove access to a delegation](https://docs.microsoft.com/azure/lighthouse/how-to/remove-delegation)
+
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -569,7 +585,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD) for identity and authentication. You can use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
+- [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
 **Azure Security Center monitoring**: Yes
 
@@ -604,13 +620,13 @@ Use the Azure Security Center built-in threat detection capability, which is bas
 
 In addition, use Azure Sentinel to build analytics rules, which hunt threats that match specific criteria across your customer's environment. The rules generate incidents when the criteria are matched, so that you can investigate each incident. Azure Sentinel can also import third party threat intelligence to enhance its threat detection capability. 
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
 
-- [Azure Security Center security alerts reference guide](../../security-center/alerts-reference.md)
+- [Azure Security Center security alerts reference guide](https://docs.microsoft.com/azure/security-center/alerts-reference)
 
-- [Create custom analytics rules to detect threats](../../sentinel/tutorial-detect-threats-custom.md)
+- [Create custom analytics rules to detect threats](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats-custom)
 
-- [Manage Azure Sentinel workspaces at scale](../../lighthouse/how-to/manage-sentinel-workspaces.md)
+- [Manage Azure Sentinel workspaces at scale](https://docs.microsoft.com/azure/lighthouse/how-to/manage-sentinel-workspaces)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -630,15 +646,15 @@ In addition, use Azure Sentinel to build analytics rules, which hunt threats tha
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources. 
 
-Azure Lighthouse lets you 
+Through Azure Lighthouse, you can use Azure Security Center to alert on certain suspicious activities in the customer tenants you manage, such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. 
 
-- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
+- [Audit activity reports in the Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) 
 
-- [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
+- [Enable Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) 
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
 
-- [Enhanced services and scenarios with Azure Lighthouse](../../lighthouse/concepts/cross-tenant-management-experience.md#enhanced-services-and-scenarios)
+- [Enhanced services and scenarios with Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cross-tenant-management-experience#enhanced-services-and-scenarios)
 
 **Azure Security Center monitoring**: Yes
 
@@ -669,13 +685,13 @@ With Azure Lighthouse, you can use Azure Monitor Logs in a scalable way across t
 
 Customers who have delegated subscriptions for Azure Lighthouse can view Azure Activity log data to see all actions taken. This gives customers full visibility into operations that service providers are performing, along with operations done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
 
-- [Monitor delegated resources at scale](../../lighthouse/how-to/monitor-at-scale.md)
+- [Monitor delegated resources at scale](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale)
 
-- [View service provider activity](../../lighthouse/how-to/view-service-provider-activity.md)
+- [View service provider activity](https://docs.microsoft.com/azure/lighthouse/how-to/view-service-provider-activity)
 
 **Azure Security Center monitoring**: Yes
 
@@ -698,15 +714,13 @@ Customers who have delegated subscriptions for Azure Lighthouse can view Azure A
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Monitor delegated resources at scale](../../lighthouse/how-to/monitor-at-scale.md)
+- [Monitor delegated resources at scale](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale)
 
-- [View service provider activity](../../lighthouse/how-to/view-service-provider-activity.md)
+- [How customers can view service provider activity](https://docs.microsoft.com/azure/lighthouse/how-to/view-service-provider-activity)
 
-- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
-
-- [Manage Azure Sentinel workspaces at scale](../../lighthouse/how-to/manage-sentinel-workspaces.md)
+- [Manage Azure Sentinel workspaces at scale](https://docs.microsoft.com/azure/lighthouse/how-to/manage-sentinel-workspaces)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -717,14 +731,22 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40251).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Azure Lighthouse does not currently produce any security-related logs. Customers who want to view service provider activity can configure log retention according to compliance, regulation, and business requirements. 
 
-**Guidance**: Not applicable; Azure Lighthouse does not currently produce any security-related logs, and the customer is unable to set any log retention.
+In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
+
+- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+
+- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+
+- [Azure Security Center alerts and recommendations export](https://docs.microsoft.com/azure/security-center/continuous-export)
+configure  and the customer is unable to set any log retention.
+
+- [How a customer can review activity log data for service providers](https://docs.microsoft.com/azure/lighthouse/how-to/view-service-provider-activity)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### LT-7: Use approved time synchronization sources
 
@@ -751,9 +773,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
-- [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Implement security across the enterprise environment](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
+- [Incident response reference guide](https://docs.microsoft.com/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -766,7 +788,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
-- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
 **Azure Security Center monitoring**: Yes
 
@@ -785,9 +807,9 @@ Azure Security Center provides high quality alerts across many Azure assets. You
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-- [How to configure export](../../security-center/continuous-export.md)
+- [How to configure export](https://docs.microsoft.com/azure/security-center/continuous-export)
 
-- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -814,13 +836,13 @@ The data sources for investigation include the centralized logging sources that 
 
 Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine's disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
+- [Snapshot a Windows machine's disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk)
 
-- [Snapshot a Linux machine's disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Snapshot a Linux machine's disk](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+- [Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -837,9 +859,9 @@ Azure Security Center assigns a severity to each alert to help you prioritize wh
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
+- [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -853,11 +875,11 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
+- [Configure workflow automation in Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
+- [Set up automated threat responses in Azure Security Center](https://docs.microsoft.com/azure/security-center/tutorial-security-incident#triage-security-alerts)
 
-- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+- [Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -874,17 +896,17 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
+- Allow managing tenant ids to onboard through Azure Lighthouse
+
+- Audit delegation of scopes to a managing tenant
+
 You can use Azure Blueprints to automate deployment and configuration of services and application environments including Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition.
 
-- [Azure Lighthouse Policies](../../lighthouse/samples/policy-reference.md)
+- [Azure Lighthouse Policies](https://docs.microsoft.com/azure/lighthouse/samples/policy-reference)
 
-- [Working with security policies in Azure Security Center](../../security-center/tutorial-security-policy.md) 
+- [Tutorial - Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
 
-- [Illustration of Guardrails implementation in Enterprise Scale Landing Zone](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition) 
-
-- [Tutorial - Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md) 
-
-- [Azure Blueprints](../../governance/blueprints/overview.md)
+- [Azure Blueprints](https://docs.microsoft.com/azure/governance/blueprints/overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -897,7 +919,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
-- [Azure Lighthouse Policies](../../lighthouse/samples/policy-reference.md)
+- [Azure Lighthouse Policies](https://docs.microsoft.com/azure/lighthouse/samples/policy-reference)
 
 **Azure Security Center monitoring**: Yes
 
@@ -910,9 +932,9 @@ You can use Azure Blueprints to automate deployment and configuration of service
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
 
-- [How to monitor Azure Security Center recommendations](../../security-center/security-center-recommendations.md) 
+- [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations) 
 
-- [Security recommendations - a reference guide](../../security-center/recommendations-reference.md)
+- [Security recommendations - a reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
 **Azure Security Center monitoring**: Yes
 
@@ -982,7 +1004,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-- [Penetration testing in Azure](../fundamentals/pen-testing.md)
+- [Penetration testing in Azure](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)
 
 - [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
@@ -1130,13 +1152,13 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
-- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../fundamentals/encryption-overview.md)
+- [Azure Security Fundamentals - Azure Data security, encryption, and storage](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview)
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - Asset management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1153,11 +1175,11 @@ Carefully balance the need for security separation with the need to enable daily
 
 Ensure that the segmentation strategy is implemented consistently across control types including network security, identity and access models, and application permission/access models, and human process controls.
 
-- [Guidance on segmentation strategy in Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+- [Guidance on segmentation strategy in Azure (video)](https://docs.microsoft.com/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Guidance on segmentation strategy in Azure (document)](/security/compass/governance#enterprise-segmentation-strategy)
+- [Guidance on segmentation strategy in Azure (document)](https://docs.microsoft.com/security/compass/governance#enterprise-segmentation-strategy)
 
-- [Align network segmentation with enterprise segmentation strategy](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+- [Align network segmentation with enterprise segmentation strategy](https://docs.microsoft.com/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1170,7 +1192,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1183,11 +1205,11 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
-- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1215,13 +1237,13 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
 For more information, see the following references:
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-network-security)
 
-- [Azure network security overview](../fundamentals/network-overview.md)
+- [Azure network security overview](https://docs.microsoft.com/azure/security/fundamentals/network-overview)
 
-- [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [Enterprise network architecture strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1248,13 +1270,13 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Identity management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure identity management security overview](../fundamentals/identity-management-overview.md)
+- [Azure identity management security overview](https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1285,15 +1307,15 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+- [Azure Adoption Framework, logging, and reporting decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
-- [Azure enterprise scale, management, and monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Azure enterprise scale, management, and monitoring](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
 **Azure Security Center monitoring**: Not applicable
 
