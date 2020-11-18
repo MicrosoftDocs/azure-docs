@@ -28,7 +28,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Overview
 
-This tutorial uses C# and the Azure Cognitive Search REST APIs to create a data source, index, indexer, and skillset. You'll start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage, and then run them through a skillset to extract entities, key phrases, and other text in the conten tfiles.
+This tutorial uses C# and the Azure Cognitive Search REST APIs to create a data source, index, indexer, and skillset. You'll start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage, and then run them through a skillset to extract entities, key phrases, and other text in the content files.
 
 This skillset uses built-in skills based on Cognitive Services APIs. Steps in the pipeline include language detection on text, key phrase extraction, and entity recognition (organizations). New information is stored in new fields that you can leverage in queries, facets, and filters.
 

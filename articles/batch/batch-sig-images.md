@@ -2,7 +2,7 @@
 title: Use the Shared Image Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -213,7 +213,7 @@ Use the following steps to create a pool from a Shared Image in the Azure portal
 
 If you plan to create a pool with hundreds or thousands of VMs or more using a Shared Image, use the following guidance.
 
-- **Shared Image Gallery replica numbers.**  For every pool with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 5 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
+- **Shared Image Gallery replica numbers.**  For every pool with up to 300 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 10 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
 
 - **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
 
