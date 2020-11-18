@@ -13493,6 +13493,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-cli.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-errors.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-overview.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-plan.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-ps.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-errors.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-overview.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-plan.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-plan",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-faq.md",
       "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-faq",
       "redirect_document_id": false

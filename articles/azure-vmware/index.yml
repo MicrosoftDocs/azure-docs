@@ -30,8 +30,10 @@ landingContent:
             url: concepts-storage.md
           - text: Access and identity for private clouds
             url: concepts-identity.md
-          - text: Role-based access control 
+          - text: vSphere role-based access control 
             url: concepts-role-based-access-control.md
+          - text: Monitor and repair private clouds
+            url: concepts-monitor-repair-private-cloud.md
           - text: Private cloud upgrades
             url: concepts-upgrades.md
 
