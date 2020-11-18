@@ -247,19 +247,7 @@ Like the temporary disk, an ephemeral OS disk is included in the price of the vi
 
 When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series.md) in parentheses next to IO throughput ("cache size in GiB").
 
-Ephemeral OS requires at least version 0.4.63 of the aks-preview CLI extension.
-
-To install the aks-preview CLI extension, use the following Azure CLI commands:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-To update the aks-preview CLI extension, use the following Azure CLI commands:
-
-```azurecli
-az extension update --name aks-preview
-```
+Ephemeral OS requires at least version 2.15.0 of the Azure CLI.
 
 ### Use Ephemeral OS on new clusters
 
