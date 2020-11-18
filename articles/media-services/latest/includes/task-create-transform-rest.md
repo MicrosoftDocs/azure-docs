@@ -9,7 +9,7 @@ ms.custom: REST
 
 <!--Create a basic transform REST-->
 
-The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `amsAccountName` with values you are currently working with. Give your transform a name by setting `transformName` here.
+The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `accountName` with values you are currently working with. Give your transform a name by setting `transformName` here.
 
 Change the `@odata.type` to one of the [available presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#definitions), such as `#Microsoft.Media.AudioAnalyzerPreset`.
 
