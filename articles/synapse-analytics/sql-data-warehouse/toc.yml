@@ -424,3 +424,5 @@
       href: sql-data-warehouse-partner-machine-learning-ai.md
     - name: Public Preview partners
       href: sql-data-warehouse-partner-launch.md
+    - name: Compatibility issues with third-party applications
+      href: sql-data-warehouse-partner-compatibility-issues.md
