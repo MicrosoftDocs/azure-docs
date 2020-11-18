@@ -124,7 +124,7 @@ By default, the agent emits minimal error messages and stack trace information. 
 
 To gather additional details for troubleshooting agent-related problems, follow these steps.
 
-1.  Install the AADCloudSyncTools PowerShell module as described here.
+1.  Install the AADCloudSyncTools PowerShell module as described [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
 2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information.  You can use the following switches to fine tune your data collection.
       - SkipVerboseTrace to only export current logs without capturing verbose logs (default = false)
       - TracingDurationMins to specify a different capture duration (default = 3 mins)
