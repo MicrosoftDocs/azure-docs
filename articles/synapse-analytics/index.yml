@@ -53,23 +53,6 @@ landingContent:
           - text: STEP 9 - Explore the Knowledge center
             url: get-started-knowledge-center.md
 
-
-  # Card (optional)
-  - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is dedicated SQL pool (formerly SQL DW)?
-            url: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
-          - text: Tips and best practices
-            url: ./sql-data-warehouse/cheat-sheet.md
-      - linkListType: architecture
-        links:
-          - text: Dedicated SQL pool (formerly SQL DW) architecture
-            url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
-          - text: Reference Architecture
-            url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-
   # Card
   - title: Synapse SQL
     linkLists:
@@ -96,19 +79,7 @@ landingContent:
           - text: Create a serverless Apache Spark pool using Synapse Studio
             url: quickstart-create-apache-spark-pool-studio.md
 
-  # Card
-  - title: Synapse Link
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure Synapse Link for Azure Cosmos DB
-            url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - linkListType: quickstart
-        links:
-          - text: Connect to Azure Synapse Link for Azure Cosmos DB
-            url: quickstart-connect-synapse-link-cosmos-db.md
-
-  # Card
+              # Card
   - title: Pipeline and data flow
     linkLists:
       - linkListType: concept
@@ -123,6 +94,18 @@ landingContent:
             url: quickstart-copy-activity-load-sql-pool.md
 
   # Card
+  - title: Synapse Link
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Synapse Link for Azure Cosmos DB
+            url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - linkListType: quickstart
+        links:
+          - text: Connect to Azure Synapse Link for Azure Cosmos DB
+            url: quickstart-connect-synapse-link-cosmos-db.md
+
+  # Card
   - title: Machine Learning
     linkLists:
       - linkListType: overview
@@ -133,6 +116,26 @@ landingContent:
         links:
           - text: Model scoring wizard fro SQL pools
             url: ./machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+
+  # Card (optional)
+  - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is dedicated SQL pool (formerly SQL DW)?
+            url: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
+          - text: Tips and best practices
+            url: ./sql-data-warehouse/cheat-sheet.md
+      - linkListType: architecture
+        links:
+          - text: Dedicated SQL pool (formerly SQL DW) architecture
+            url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
+          - text: Reference Architecture
+            url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+
+
+
+
 
 
   # # Card (optional)
