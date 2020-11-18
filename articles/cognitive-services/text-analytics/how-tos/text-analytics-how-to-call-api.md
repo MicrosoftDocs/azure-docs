@@ -144,18 +144,27 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 
 #### [Text Analytics for health](#tab/health)
 
-For the health API, ....
+
+The format for Text Analytics for health requests is the same as the synchronous operations. Documents are submitted in a JSON object as raw unstructured text. XML is not supported. The JSON schema consists of the elements described below.
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
+|`id` |The data type is string, but in practice document IDs tend to be integers. | Required | The system uses the IDs you provide to structure the output. Language codes, key phrases, and sentiment scores are generated for each ID in the request.|
+|`text` | Unstructured raw text, up to 5,120 characters. | Required | For language detection, text can be expressed in any language. For sentiment analysis, key phrase extraction and entity identification, the text must be in a [supported language](../language-support.md). |
+|`language` | 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](../language-support.md) | Varies | Required for sentiment analysis, key phrase extraction, and entity linking; optional for language detection. There is no error if you exclude it, but the analysis is weakened without it. The language code should correspond to the `text` you provide. |
 
-The following is an example of an API request for the Text Analytics for health synchronous endpoints. 
+The following is an example of an API request for the synchronous Text Analytics endpoints. 
 
 ```json
 {
-  "to be added"
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Subject is taking 100mg of ibuprofen twice daily."
+    }
+  ]
 }
-
 ```
 
 ---
@@ -252,7 +261,7 @@ The synchronous endpoint responses will vary depending on the endpoint you use. 
 
 # [Analyze](#tab/analyze)
 
-If successful, the `/analyze` endpoint will return an object containing the assigned tasks. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
+If successful, the GET request to the `/analyze` endpoint will return an object containing the assigned tasks. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
 
 + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Entity recognition](text-analytics-how-to-entity-linking.md#view-results)
@@ -309,6 +318,8 @@ If successful, the `/analyze` endpoint will return an object containing the assi
 ```
 
 # [Text Analytics for health](#tab/health)
+
+If successful, the GET request to the `/health` endpoint will return an object containing the results. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
 
 ```json
 {
