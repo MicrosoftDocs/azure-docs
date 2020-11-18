@@ -6,31 +6,28 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/17/2020
 ---
 
 # Pick initial size for Hyperscale (Citus) server group
 
-The size of a server group, in terms of number of nodes and their hardware
-capacity, is easy to change (see [scaling a server
-group](howto-hyperscale-scaling-grow.md)). However you still need to choose an
-initial size for a new server group. Here are some tips for a reasonable
-choice.
+The size of a server group, both its number of nodes and their hardware
+capacity, is [easy to change](howto-hyperscale-scaling-grow.md)). However you
+still need to choose an initial size for a new server group. Here are some tips for a reasonable choice.
 
 ## Multi-tenant SaaS use-case
 
-For those migrating to Hyperscale (Citus) from an existing single-node
-PostgreSQL database instance, we recommend choosing a cluster where the number
+When migrating to Hyperscale (Citus) from an existing single-node
+PostgreSQL database instance, choose a cluster where the number
 of worker vCores and RAM in total equals that of the original instance. In such
 scenarios we have seen 2-3x performance improvements because sharding improves
 resource utilization, allowing smaller indices etc.
 
-The number of vCores required for the coordinator node depends on your existing
-workload (write/read throughput). The coordinator node doesn't require as much
-RAM as worker nodes, but RAM allocation is determined based on vCore count (as
-described in the [Hyperscale (Citus) configuration
-options](concepts-hyperscale-configuration-options.md)) so the vCore count is
-essentially the real decision.
+The vCore count is actually the only decision. RAM allocation is currently
+determined based on vCore count, as described in the [Hyperscale (Citus)
+configuration options](concepts-hyperscale-configuration-options.md) page.
+The coordinator node doesn't require as much RAM as workers, but there's
+no way to choose RAM and vCores independently.
 
 ## Real-time analytics use-case
 
