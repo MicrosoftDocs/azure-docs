@@ -30,9 +30,17 @@ ExpressRoute has three different circuit SKU: [*Local*](./expressroute-faqs.md#e
 
 ## Estimate costs
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you create an ExpressRoute circuit. On the left, select **Networking**, then select **Azure ExpressRoute** to begin. 
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you create an ExpressRoute circuit. 
 
-Refer to [ExpressRoute connectivity providers](./expressroute-locations-providers.md#partners) to select the appropriate *Zone* in the drop-down. Then select the *SKU*, *Circuit Speed*, and the *Data Plan* you would like an estimate for. In the *Additional outbound data transfer*, enter an estimate of how much outbound data you might use over the course of a month (720 hours = 30 days). Lastly, you can add the *Global Reach Add-on* to the estimate.
+1. On the left, select **Networking**, then select **Azure ExpressRoute** to begin. 
+
+1. Select the appropriate *Zone* depending on your peering location. Refer to [ExpressRoute connectivity providers](./expressroute-locations-providers.md#partners) to select the appropriate *Zone* in the drop-down. 
+
+1. Then select the *SKU*, *Circuit Speed*, and the *Data Plan* you would like an estimate for. 
+
+1. In the *Additional outbound data transfer*, enter an estimate in GB of how much outbound data you might use over the course of a month. 
+
+1. Lastly, you can add the *Global Reach Add-on* to the estimate.
 
 The following screenshot shows the cost estimation by using the calculator:
 
