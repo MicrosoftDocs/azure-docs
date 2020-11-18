@@ -18,7 +18,7 @@ Using a customer-managed key doesn't affect how data on the device is encrypted.
 
 To keep this level of control throughout the order process, use a customer-managed key when you create your order. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
-This article shows how to change the type of encryption key for an existing Data Box order or change the customer-managed key currently in use via the [Azure portal](https://portal.azure.com/). You can change the key vault, key, or key version or change the user identity or identity type you're using to manage the key.
+This article shows how to enable a customer-managed key for your existing Data Box order in the [Azure portal](https://portal.azure.com/) or change the key vault, key, version, or identity for the current customer-managed key. You can also switch back to using a system-managed key.
 
 This article applies to Azure Data Box and Azure Data Box Heavy devices.
 
@@ -138,7 +138,7 @@ To change the identity you're using to manage access to the customer-managed key
 
 1. On the **Overview** screen for your completed Data Box order, go to **Settings** > **Encryption**.
 
-2. To change the identity, do one of the following:
+2. Make one of the following changes:
 
    - To change from the system-assigned identity to a user-assigned identity, select **User assigned** as the identity type, choose **Select a user identity**, and then select the user identity that you want to use in the panel on the right side of your screen.  
  
@@ -150,7 +150,7 @@ To change the identity you're using to manage access to the customer-managed key
 
 ## Use system-managed key
 
-To switch back to using a system-managed encryption key for your order, do this:
+To switch back to using a system-managed encryption key for your order, complete this step:
 
 - On the **Overview** screen for your completed Data Box order, select **System managed** by **Key type**.
 
