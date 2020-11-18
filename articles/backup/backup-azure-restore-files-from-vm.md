@@ -15,7 +15,7 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 > File recovery from an encrypted VM backup isn't supported.
 >
 
-![File folder recovery workflow](./media/backup-azure-restore-files-from-vm/file-recovery1.png)
+![File folder recovery workflow](./media/backup-azure-restore-files-from-vm/file-recovery-1.png)
 
 ## Step 1: Generate and download script to browse and recover files
 
@@ -154,8 +154,8 @@ When you run the executable, the operating system mounts the new volumes and ass
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
   
-- Ensure that the OS is WS 2012 or higher.
-- Ensure the registry keys are set as suggested below in the restore server and make sure to reboot the server. The number beside the GUID can range from 0001-0005. In the following example, it's 0004. Navigate through the registry key path until the parameters section.
+1. Ensure that the OS is WS 2012 or higher.
+2. Ensure the registry keys are set as suggested below in the restore server and make sure to reboot the server. The number beside the GUID can range from 0001-0005. In the following example, it's 0004. Navigate through the registry key path until the parameters section.
 
     ![Registry key changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
@@ -180,10 +180,10 @@ In Linux, the volumes of the recovery point are mounted to the folder where the 
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
 
-- In the file /etc/iscsi/iscsid.conf, change the setting from:
+1. In the file /etc/iscsi/iscsid.conf, change the setting from:
     - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 30`
-- After making the above changes, rerun the script. If there are transient failures, ensure there is a gap of 20 to 30 minitues between reruns to avoid successive bursts of requests impacting the target preparation. This interval between re-runs will ensure the target is ready for connection from the script.
-- After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
+2. After making the above changes, rerun the script. If there are transient failures, ensure there is a gap of 20 to 30 minitues between reruns to avoid successive bursts of requests impacting the target preparation. This interval between re-runs will ensure the target is ready for connection from the script.
+3. After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 
 
 #### LVM/RAID arrays (For Linux VMs)
