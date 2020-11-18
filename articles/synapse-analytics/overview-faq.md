@@ -2,12 +2,12 @@
 title: FAQ - Azure Synapse Analytics (workspaces preview)
 description: FAQ for Azure Synapse Analytics  (workspaces preview)
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
