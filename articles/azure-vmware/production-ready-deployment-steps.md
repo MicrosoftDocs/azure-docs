@@ -88,14 +88,6 @@ Keep in mind that:
 - If you plan to extend networks from on-premises, those networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
 - If the network(s) you wish to extend live on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), then they can't be extended.
 
-## ExpressRoute Global Reach peering network
-
-Identify a `/29` CIDR network address block required for the ExpressRoute Global Reach peering. Remember, any IP segments created must be unique across your Azure VMware Solution and on-premises footprint. The IPs in this segment are used at each end of the ExpressRoute Global Reach connection to connect the Azure VMware Solution ExpressRoute circuit with the on-premises ExpressRoute circuit. 
-
-**Example:** 10.1.0.0/29
-
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identify - ExpressRoute Global Reach peering network" border="false":::
-
 ## Azure Virtual Network to attach Azure VMware Solution
 
 To access your Azure VMware Solution private cloud, the ExpressRoute circuit, which comes with Azure VMware Solution, must attach to an Azure Virtual Network.  During deployment, you can define a new virtual network or choose an existing one.
@@ -115,7 +107,7 @@ So, in summary, do you want to connect Azure VMware Solution to an existing Expr
 Either way, document what you want to do in this step.
 
 >[!NOTE]
->This virtual network is seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
+>* This virtual network is seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identity - Azure Virtual Network to attach Azure VMware Solution" border="false":::
 
