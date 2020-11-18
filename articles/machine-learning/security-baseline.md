@@ -532,6 +532,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Guidance**: Azure Machine Learning supports using Azure Active Directory (Azure AD) to authorize requests to Machine Learning resources. With Azure AD, you can use Azure role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
 - [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md)
+- [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -914,6 +915,8 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 - [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
+
+- [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 
 **Azure Security Center monitoring**: Not Applicable
 

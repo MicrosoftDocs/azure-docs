@@ -154,7 +154,7 @@ Error message: VM creation failed as VM size selected is not available.
 
 This error occurs because the VM size selected during the restore operation is an unsupported size. <br>
 
-To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md#restore-disks) option during the restore operation. Use those disks to create a VM from the list of [available supported VM sizes](./backup-support-matrix-iaas.md#vm-compute-support) using [Powershell cmdlets](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md#restore-disks) option during the restore operation. Use those disks to create a VM from the list of [available supported VM sizes](./backup-support-matrix-iaas.md#vm-compute-support) using [PowerShell cmdlets](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ### UserErrorMarketPlaceVMNotSupported - VM creation failed due to Market Place purchase request being not present
 
@@ -243,7 +243,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 This will ensure the snapshots are taken through host instead of Guest. Retry the backup operation.
 
-**Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOps)
+**Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
 
 **Step 3**: Try [increasing the size of the VM](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) and retry the operation
 
@@ -320,8 +320,8 @@ If you have an Azure Policy that [governs tags within your environment](../gover
 
 If after restore, you notice the disks are offline then:
 
-* Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#system-requirements).  
-* Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
+* Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 
