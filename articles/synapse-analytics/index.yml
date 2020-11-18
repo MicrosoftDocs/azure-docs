@@ -111,7 +111,7 @@ landingContent:
   # Card
   - title: Pipeline and data flow
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Pipeline and activities
             url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
