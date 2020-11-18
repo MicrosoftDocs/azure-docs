@@ -44,7 +44,7 @@ Before you start the migration:
 * Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
 * Download the current configuration of your VMs by using PowerShell, command-line interface (CLI) commands, or REST APIs to make it easier for validation after the prepare step is complete.
 * Update your automation and operationalization scripts to handle the Resource Manager deployment model, before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
-* Evaluate the Role-Based Access Control (RBAC) policies that are configured on the IaaS resources in the classic deployment model, and plan for after the migration is complete.
+* Evaluate the Azure role-based access control (Azure RBAC) policies that are configured on the IaaS resources in the classic deployment model, and plan for after the migration is complete.
 
 The migration workflow is as follows:
 
