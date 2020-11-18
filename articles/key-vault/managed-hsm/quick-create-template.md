@@ -77,7 +77,6 @@ You may also need your tenant ID. To find it, use the Azure CLI [az ad user show
     - **Resource group**: Select **Create new**, enter a unique name for the resource group, and then click **OK**.
     - **Location**: Select a location. For example, **South Central US**.
     - **managedHSMName**: Enter a name for your managed HSM.
-    - **SKU**: Enter the Name and Family of the managed HSM you wish to create.  For this quickstart, enter "Standard_B1" for the Name and "B" for the Family.
     - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved in [Prerequisites](#prerequisites).
     * **initialAdminObjectIds**: Enter the Object ID that you retrieved in [Prerequisites](#prerequisites).
 
