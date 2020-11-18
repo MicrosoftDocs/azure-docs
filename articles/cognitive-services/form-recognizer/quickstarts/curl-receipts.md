@@ -31,7 +31,7 @@ To complete this quickstart, you must have:
 
 ## Analyze a receipt
 
-To start analyzing a receipt, you call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing a receipt, you call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
@@ -49,7 +49,7 @@ https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/receipt/operatio
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<operationId>` with the operation ID from the previous step.
@@ -399,4 +399,4 @@ The `"readResults"` node contains all of the recognized text (if you set the opt
 In this quickstart, you used the Form Recognizer REST API with cURL to extract the content of a sales receipt. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)
+> [REST API reference documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)

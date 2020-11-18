@@ -35,7 +35,7 @@ To complete this quickstart, you must have:
 
 ## Analyze a business card
 
-To start analyzing a business card, you call the **[Analyze Business Card](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)** API using the Python script below. Before you run the script, make these changes:
+To start analyzing a business card, you call the **[Analyze Business Card](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** API using the Python script below. Before you run the script, make these changes:
 
 1. Replace `<endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<path to your business card>` with the local path to your business card image or PDF.
@@ -93,7 +93,7 @@ https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/ana
 
 ## Get the business card results
 
-After you've called the **Analyze Business Card** API, you call the **[Get Analyze Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the result ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've called the **Analyze Business Card** API, you call the **[Get Analyze Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the result ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python
 n_tries = 10
@@ -251,4 +251,4 @@ The `"readResults"` node contains all of the recognized text. Text is organized 
 In this quickstart, you used the Form Recognizer REST API with Python to extract the content of a business card. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+> [REST API reference documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
