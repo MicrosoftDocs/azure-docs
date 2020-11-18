@@ -297,11 +297,11 @@ External accounts with owner permissions should be removed from your subscriptio
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
-**Guidance**: When you perform critical operations in Azure Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
+**Guidance**: When you perform critical operations in Azure Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure AD Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
 
 - [Multi-Factor Authentication in Azure Backup](./backup-azure-security-feature.md)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -309,11 +309,11 @@ External accounts with owner permissions should be removed from your subscriptio
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) configured to log into and configure your Azure Backup-enabled resources.
+**Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) configured to log into and configure your Azure Backup-enabled resources.
 
 - [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -48,7 +48,7 @@ The available built-in Azure Policy and Initiative definitions can be found unde
 
 Using the library of built-in definitions, you can quickly search for Policies that meet an organisational requirement, review the policy definition, and assign the Policy to the appropriate resources. For example, the ISM requires multi-factor authentication (MFA) for all privileged users, and for all users with access to important data repositories. In Azure Policy you can search for "MFA" amongst the Azure Policy definitions:
 
-![Azure MFA Policies](media/mfa-policies.png)
+![Azure AD MFA Policies](media/mfa-policies.png)
 
 Once a suitable policy is identified, you assign the policy to the desired scope. If there is no built-in policy that meets your requirements, you can duplicate the existing policy and make the desired changes:
 

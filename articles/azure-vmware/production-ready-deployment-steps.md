@@ -34,6 +34,9 @@ Identify the region you want Azure VMware Solution deployed.  For more informati
 
 Define the resource name you'll use during deployment.  The resource name is a friendly and descriptive name in which you title your Azure VMware Solution private cloud.
 
+>[!IMPORTANT]
+>The name must not exceed 40 characters. If the name exceeds this limit, you won't be able to create public IP addresses for use with the private cloud. 
+
 ## Size hosts
 
 Identify the size hosts that you want to use when deploying Azure VMware Solution.  For a complete list, see the [Azure VMware Solution private clouds and clusters](concepts-private-clouds-clusters.md#hosts) documentation.
