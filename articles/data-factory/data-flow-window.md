@@ -18,7 +18,7 @@ The Window transformation is where you will define window-based aggregations of 
 
 ![Screenshot shows Windowing selected from the menu.](media/data-flow/windows1.png "windows 1")
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IAVu]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IAVu]
 
 ## Over
 Set the partitioning of column data for your window transformation. The SQL equivalent is the ```Partition By``` in the Over clause in SQL. If you wish to create a calculation or create an expression to use for the partitioning, you can do that by hovering over the column name and select "computed column".
