@@ -41,7 +41,7 @@ need the following read-access permissions:
 
 You can open Azure Monitor for Windows Virtual Desktop with one of the following methods:
 
-- Go to [aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)).
+- Go to [aka.ms/azmonwvdi](https://portal.azure.com/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
 
 - Search for and select **Windows Virtual Desktop** from the Azure Portal, then select **Insights**.
 
@@ -80,7 +80,7 @@ If you already have performance counters enabled want to remove them, follow the
 
 If you haven't already set up performance counters, here's how to configure them for Azure Monitor for Windows Virtual Desktop:
 
-1. Go to [aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select the **Configuration Workbook** bottom of the window.
+1. Go to [aka.ms/azmonwvdi](https://portal.azure.com/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), then select the **Configuration Workbook** bottom of the window.
 
 2. Under **Log Analytics Configuration**, select the workspace you've set up for your subscription.
 
@@ -107,7 +107,7 @@ To set up Windows Events:
 
 1. If you have Windows Events enabled already and want to remove them, remove the events you don't want before using the configuration workbook to enable the set required for monitoring.
 
-2. Go to Azure Monitor for Windows Virtual Desktop at ([aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select **Configuration workbook** at the bottom of the window.
+2. Go to Azure Monitor for Windows Virtual Desktop at [aka.ms/azmonwvdi](https://portal.azure.com/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), then select **Configuration workbook** at the bottom of the window.
 
 3. In **Windows Events configuration**, there's a list of Windows Events required for monitoring. On the right side of that list is the **Missing events** list, where you'll find the required event names and event types that aren't currently enabled for your workspace. Record each of these names for later.
 
@@ -129,14 +129,14 @@ After that, you'll need to configure your VMs to send data to the Log Analytics 
 
 To configure VMs:
 
-1. Go to ([aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)) to open Insights, then select **Configuration Workbook**.
+1. Go to [aka.ms/azmonwvdi](https://portal.azure.com/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks) to open Insights, then select **Configuration Workbook**.
 2. Follow the instructions in [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
 
 ## Set up diagnostics
 
 Finally, you'll need to enable Azure Monitor diagnostic settings on all objects within the Windows Virtual Desktop environment that support this feature.
 
-1. Open Azure Monitor for Windows Virtual Desktop at ([aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select **Configuration Workbook**.
+1. Open Azure Monitor for Windows Virtual Desktop at [aka.ms/azmonwvdi](https://portal.azure.com/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), then select **Configuration Workbook**.
 
 2. Under **Host Pool Diagnostic Settings**, check to see whether Windows Virtual Desktop diagnostics are enabled for the host pool. If they aren't, an error will appear that says "No existing Diagnostic configuration was found for the selected host pool." When that happens, go to step 3. If you don't see the error, you don't need to do anything else.
 

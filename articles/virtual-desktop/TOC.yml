@@ -106,6 +106,8 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
+  - name: Use Azure Monitor for Windows Virtual Desktop
+    href: azure-monitor.md
   - name: Set up a disaster recovery plan
     href: disaster-recovery.md
 - name: Concepts
