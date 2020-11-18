@@ -73,3 +73,15 @@ landingContent:
             url: sample-update-cloud-service.md
           - text: Reset a Cloud Service deployment
             url: sample-reset-cloud-service.md
+
+  # Card
+  - title: Schema Information
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Config Schema
+            url: schema-cscfg-file.md
+          - text: Definition Schema
+            url: schema-csdef-file.md
+          - text: Config Role Schema
+            url: schema-cscfg-role.md
