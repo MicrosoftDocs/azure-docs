@@ -143,7 +143,7 @@ Ensure that your directory has at least as many Azure AD Premium P2 licenses as 
 
 - Member users who **can** request an access package.
 - Member and guest users who <u>request</u> an access package.
-- Member and guest users who <u>approve</u> requests for an access package.
+- Member and guest users who <u>approve requests</u> for an access package.
 - Member users who <u>review assignments</u> for an access package. 
 - Member and guest users who have a <u>direct assignment</u> to an access package.
 
@@ -158,8 +158,6 @@ Azure AD Premium P2 licenses are **not** required for the following tasks:
 - No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
 - No licenses are required for guests who **can** request access packages, but do **not** request an access package.
-
-Azure AD External Identities (guest user) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to five guest users for each Azure AD Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model. For more information, see Billing model for [Azure AD External Identities](../external-identities/external-identities-pricing.md).
 
 For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
