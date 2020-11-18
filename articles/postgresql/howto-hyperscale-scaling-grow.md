@@ -31,10 +31,11 @@ Click the **Save** button to make the changed value take effect.
 > Once increased and saved, the number of worker nodes cannot be decreased
 > using the slider.
 
-To take advantage of newly added nodes you must [rebalance distributed table
-shards](howto-hyperscale-scaling-rebalance.md), which means moving some
-[shards](concepts-hyperscale-distributed-data.md#shards) from existing nodes to
-the new ones.
+> [!NOTE]
+> To take advantage of newly added nodes you must [rebalance distributed table
+> shards](howto-hyperscale-scaling-rebalance.md), which means moving some
+> [shards](concepts-hyperscale-distributed-data.md#shards) from existing nodes
+> to the new ones.
 
 ## Increase or decrease vCores on nodes
 
