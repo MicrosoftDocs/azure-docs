@@ -97,7 +97,7 @@ For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one o
 > [!NOTE]
 > The SQL Server Contributor role does not have permission to delete LTR backups.
 
-RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
+Azure RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
