@@ -22,14 +22,14 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 * A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md&tabs=analyze#api-request-format), which supports batch processing for NER, PII, and key phrase extraction operations.
 * A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous [Text Analytics for health](how-tos/text-analytics-for-health.md) hosted API with support for batch processing.
-* Both new features listed above are available in:  West US2, East US2, Central US, North Europe and West Europe regions.
-* pt-BR (Portuguese) support for [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing pt-PT support for Portuguese.
+* Both new features listed above are only available in the following regions: `West US 2`, `East US 2`, `Central US`, `North Europe` and `West Europe` regions.
+* Portuguese (Brazil) pt-BR is now supported in [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing pt-PT support for Portuguese.
 * [Updated quickstarts](quickstarts/text-analytics-sdk.md) for v3.1-preview.3 of the API. 
 
 ## October 2020
 
 * Hindi support for Sentiment Analysis v3.x, starting with model version `2020-04-01`. 
-* Model verion `2020-09-01` for the v3 /languages endpoint, which adds increased language detection and accuracy improvements.
+* Model version `2020-09-01` for the v3 /languages endpoint, which adds increased language detection and accuracy improvements.
 * v3 availability in Central India and UAE North.
 
 ## September 2020
