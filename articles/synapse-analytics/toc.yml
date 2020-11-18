@@ -1032,6 +1032,9 @@
     href: https://github.com/Azure-Samples/Synapse
   - name: System views
     href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
   - name: T-SQL
     items:
     - name: Full reference
