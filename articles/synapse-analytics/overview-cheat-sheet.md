@@ -23,6 +23,8 @@ A **Synapse workspace** is a securable collaboration boundary for doing cloud-ba
 
 A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are organized into SQL and Spark **pools**. 
 
+A workspace can contain any number of **Linked service**, essentially connection strings that define the connection information needed for the workspace to connect to external resources.
+
 ## Synapse SQL Terminology
 
 **Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
@@ -50,15 +52,9 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 * **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
 * **Integration dataset** -   Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 
-## General Terminology
-
-* **Artifacts** - Concept that encapsulates all objects necessary for a user to manage data sources, develop, orchestrate, and visualize.
-* **Linked service** - Connection strings that define the connection information needed for the workspace to connect to external resources.
-
 ## Next steps
 
 - [Create a workspace](quickstart-create-workspace.md)
-- [Use Synapse Studio](quickstart-synapse-studio.md)
 - [Create a dedicated SQL pool](quickstart-create-sql-pool-portal.md)
 - [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
 - [Use serverless SQL pool](quickstart-sql-on-demand.md)
