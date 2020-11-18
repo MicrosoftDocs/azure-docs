@@ -79,7 +79,7 @@ landingContent:
           - text: Create a serverless Apache Spark pool using Synapse Studio
             url: quickstart-create-apache-spark-pool-studio.md
 
-              # Card
+  # Card
   - title: Pipeline and data flow
     linkLists:
       - linkListType: concept
@@ -124,8 +124,6 @@ landingContent:
         links:
           - text: What is dedicated SQL pool (formerly SQL DW)?
             url: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
-          - text: Tips and best practices
-            url: ./sql-data-warehouse/cheat-sheet.md
       - linkListType: architecture
         links:
           - text: Dedicated SQL pool (formerly SQL DW) architecture
