@@ -65,7 +65,7 @@ Build succeeded.
 Within the application directory, install the [Product Name] client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.0.0
+dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 
 > [!TIP]
