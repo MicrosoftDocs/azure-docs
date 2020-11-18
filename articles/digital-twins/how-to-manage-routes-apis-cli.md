@@ -241,7 +241,11 @@ To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins
     "filter": "<filter-text>"
 }
 ``` 
-Note that, you can add multiple filters to send a request like this: 
+Here are the supported route filters. Use the detail in the *Filter text schema* column to replace the `<filter-text>` placeholder in the request body above.
+
+[!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
+
+Note that you can add multiple filters to a request like this: 
 
 ```json  
 {
@@ -252,9 +256,6 @@ Note that, you can add multiple filters to send a request like this:
     "filter": "specversion = '1.0'"
 }
 ```
-Here are the supported route filters. Use the detail in the *Filter text schema* column to replace the `<filter-text>` placeholder in the request body above.
-
-[!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
 
 ## Manage endpoints and routes with CLI
 

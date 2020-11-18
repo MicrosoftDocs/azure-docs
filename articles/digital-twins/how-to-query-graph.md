@@ -28,7 +28,7 @@ The rest of this article provides examples of how to use these operations.
 This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
 > [!TIP]
-> Run the below SQL queries in a single row for both API and SDK calls.
+> If you're running the queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
 ### Show all existing digital twins
 
@@ -283,9 +283,9 @@ You can **combine** any of the above types of query using combination operators 
 
 | Description | Query |
 | --- | --- |
-| Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
+| Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
 | Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
-| Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
+| Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contoso:com:DigitalTwins:Room;1')​` |
 
 ## Reference: Expressions and conditions
 
@@ -335,20 +335,20 @@ The following code snippet illustrates this call from the client app:
     DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceEndpoint), credential);
 
     // Run a query for all twins   
-    string query = "SELECT * FROM digitaltwins";
+    string query = "SELECT * FROM DIGITALTWINS";
+    AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
 ```
-This call returns query results in the form of a string object.
+This call returns query results in the form of a [BasicDigitalTwin](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet) object.
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
 ```csharp
 try
 {
-    AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
     await foreach(BasicDigitalTwin twin in result)
         {
             // You can include your own logic to print the result
-            // Below logic prints twin ID's and its contents
+            // The below logic prints twin ID's and its contents
             Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
             IDictionary<string, object> contents = twin.Contents;
             foreach (KeyValuePair<string, object> kvp in contents)
@@ -369,7 +369,7 @@ There may be a delay of up to 10 seconds before changes in your instance are ref
 
 There are additional limitations on using `JOIN`.
 
-* No subqueries are supported within the `FROM` statement.
+* No sub queries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * Graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
