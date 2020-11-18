@@ -53,6 +53,13 @@ The Receipt API also returns the following information:
 * OCR raw text (OCR-extracted text output for the entire receipt)
 * Bounding box for each value, line and word
 
+## Try it out
+
+To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
+
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+
 ## Input requirements
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
