@@ -28,7 +28,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * An installed [Python](https://www.python.org/downloads/) distribution, for local testing.
-* The [Azure](https://pypi.org/project/azure/) `pip` package.
+* The [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) `pip` package.
 * The [iris.csv dataset](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * An Azure Batch account and a linked Azure Storage account. See [Create a Batch account](quick-create-portal.md#create-a-batch-account) for more information on how to create and link Batch accounts to storage accounts.
 * An Azure Data Factory account. See [Create a data factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) for more information on how to create a data factory through the Azure portal.
@@ -52,7 +52,7 @@ In this section, you'll use Batch Explorer to create the Batch pool that your Az
     1. Set the scale type to **Fixed size**, and set the dedicated node count to 2.
     1. Under **Data science**, select **Dsvm Windows** as the operating system.
     1. Choose `Standard_f2s_v2` as the virtual machine size.
-    1. Enable the start task and add the command `cmd /c "pip install pandas"`. The user identity can remain as the default **Pool user**.
+    1. Enable the start task and add the command `cmd /c "pip install azure-storage-blob pandas"`. The user identity can remain as the default **Pool user**.
     1. Select **OK**.
 
 ## Create blob containers
@@ -70,17 +70,17 @@ The following Python script loads the `iris.csv` dataset from your `input` conta
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
 
 # Define parameters
-storageAccountName = "<storage-account-name>"
+storageAccountURL = "<storage-account-url>"
 storageKey         = "<storage-account-key>"
 containerName      = "output"
 
 # Establish connection with the blob storage account
-blobService = BlockBlobService(account_name=storageAccountName,
-                               account_key=storageKey
+blob_service_client = BlockBlobService(account_url=storageAccountURL,
+                               credential=storageKey
                                )
 
 # Load iris dataset from the task node
@@ -93,10 +93,12 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
+container_client = blob_service_client.get_container_client(containerName)
+with open("iris_setosa.csv", "rb") as data:
+    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
 ```
 
-Save the script as `main.py` and upload it to the **Azure Storage** container. Be sure to test and validate its functionality locally before uploading it to your blob container:
+Save the script as `main.py` and upload it to the **Azure Storage** `input` container. Be sure to test and validate its functionality locally before uploading it to your blob container:
 
 ``` bash
 python main.py
