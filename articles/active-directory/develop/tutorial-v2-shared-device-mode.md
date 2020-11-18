@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Use shared-device mode in your Android application
 
-This tutorial provides guidance for both developers and tenant administrators in setting up and supporting shared-device mode for an Android app.
+In this tutorial, you download a code sample that demonstrates how an Android app can be set up to support shared-device mode.
 
 In this tutorial:
 
