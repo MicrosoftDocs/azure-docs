@@ -206,6 +206,6 @@ View the FAQ details for additional information about VNet-to-VNet connections.
 
 ## Next steps
 
-* For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/security-overview.md).
+* For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/network-security-groups-overview.md).
 
 * For information about how Azure routes traffic between Azure, on-premises, and Internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).

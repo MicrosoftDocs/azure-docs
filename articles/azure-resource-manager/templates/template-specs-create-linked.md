@@ -2,7 +2,7 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 
 ---
 
@@ -15,7 +15,7 @@ Learn how to create a [template spec](template-specs.md) with a main template an
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/templateSpecOnboarding).
+> Template Specs is currently in preview. To use it, you must install the latest version of PowerShell or Azure CLI. For Azure PowerShell, use [version 5.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create linked templates
 

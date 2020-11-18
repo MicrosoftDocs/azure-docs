@@ -30,15 +30,15 @@ Many options exist for creating a VHD from a physical lab environment. The follo
        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
     1. Image the VM as you normally would.
-1. [Connect to the VM and prepare it for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
-    1. [Set Windows configurations for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure)
-    1. [Check the Windows Services that are the minimum needed to ensure VM connectivity](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services)
-    1. [Update remote desktop registry settings](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings)
-    1. [Configure Windows Firewall rules](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules)
+1. [Connect to the VM and prepare it for Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+    1. [Set Windows configurations for Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure)
+    1. [Check the Windows Services that are the minimum needed to ensure VM connectivity](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)
+    1. [Update remote desktop registry settings](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)
+    1. [Configure Windows Firewall rules](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)
     1. Install Windows Updates
-    1. [Install Azure VM Agent and additional configuration as shown here](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations) 
+    1. [Install Azure VM Agent and additional configuration as shown here](../virtual-machines/windows/prepare-for-upload-vhd-image.md#complete-the-recommended-configurations) 
     
-	Above steps will create a specialized image. If creating a generalized image, you also will need to run [SysPrep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). <br/>
+	Above steps will create a specialized image. If creating a generalized image, you also will need to run [SysPrep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep). <br/>
         You should create a specialized image if you want to maintain the User directory (which may contain files, user account info, etc.) that is needed by software included in the image.
 1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
     1. Navigate to **Hyper-V Manager** -> **Action** -> **Edit Disk**.
@@ -46,20 +46,20 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. When trying to expand the disk size, make sure to not exceed 128 GB.        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Choose action":::   
 1. Upload VHD to Azure to create a managed disk.
-    1. You can use either Storage Explorer or AzCopy from the command line, as described in [Upload a VHD to Azure or copy a managed disk to another region](https://docs.microsoft.com/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell).        
+    1. You can use either Storage Explorer or AzCopy from the command line, as described in [Upload a VHD to Azure or copy a managed disk to another region](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).        
 	If your machine goes to sleep or locks, the upload process may get interrupted and fail.
     1. The result of this step is that you now have a managed disk that you can see in the Azure portal. 
         You can use the Azure portal's "Size\Performance” tab to choose your disk size. As mentioned before, the size has to be no > 128 GB.
 1. Take a snapshot of the managed disk.
-	This can be done either from PowerShell, using the Azure portal, or from within Storage Explorer, as described in [Create a snapshot using the portal or PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+	This can be done either from PowerShell, using the Azure portal, or from within Storage Explorer, as described in [Create a snapshot using the portal or PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md).
 1. In Shared Image Gallery, create an image definition and version:
-    1. [Create an image definition](https://docs.microsoft.com/azure/virtual-machines/windows/shared-images-portal#create-an-image-definition).
+    1. [Create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).
     1. You need to also specify here whether you are creating a specialized/generalized image.
 1. Create the lab in Azure Lab Services and select the custom image from the Shared Image Gallery.
 
-    If you expanded disk after the OS was installed on the original Hyper-V VM, you also will need to extend the C drive in Windows to use the unallocated disk space. To do this, log into the template VM after the lab is created, then follow steps similar to what is shown in [Extend a basic volume](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). There are options to do this through the UI as well as using PowerShell.
+    If you expanded disk after the OS was installed on the original Hyper-V VM, you also will need to extend the C drive in Windows to use the unallocated disk space. To do this, log into the template VM after the lab is created, then follow steps similar to what is shown in [Extend a basic volume](/windows-server/storage/disk-management/extend-a-basic-volume). There are options to do this through the UI as well as using PowerShell.
 
 ## Next steps
 
-* [Shared Image Gallery overview](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+* [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
 * [How to use shared image gallery](how-to-use-shared-image-gallery.md)

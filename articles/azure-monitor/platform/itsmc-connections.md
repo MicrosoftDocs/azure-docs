@@ -182,6 +182,7 @@ The following sections provide details about how to connect your ServiceNow prod
 Ensure the following prerequisites are met:
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - ServiceNow supported versions: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- Today the alerts that are sent from Azure Monitor can create in ServiceNow one of teh following elements: Events, Incedents or Alerts.
 > [!NOTE]
 > ITSMC supports only the official SaaS offering from Service Now. Private deployments of Service Now are not supported. 
 

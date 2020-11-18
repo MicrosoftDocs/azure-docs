@@ -153,9 +153,9 @@ Security-oriented companies should focus on giving employees the exact permissio
 
 ![Secured resource access](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions. For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL databases within the same subscription.
+Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions. For example, use Azure RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL databases within the same subscription.
 
-![Secured resource access in Azure (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Secured resource access using Azure RBAC](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## Data security and encryption
 
@@ -419,7 +419,7 @@ Resource Manager provides several benefits:
 
 - You can define the dependencies between resources, so they are deployed in the correct order.
 
-- You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.
+- You can apply access control to all services in your resource group because Azure role-based access control (Azure RBAC) is natively integrated into the management platform.
 
 - You can apply tags to resources to logically organize all the resources in your subscription.
 

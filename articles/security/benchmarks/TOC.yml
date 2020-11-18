@@ -66,6 +66,8 @@
     href: ../../application-gateway/security-baseline.md
   - name: Automation security baseline
     href: ../../automation/security-baseline.md
+  - name: Azure Advisor security baseline
+    href: ../../advisor/security-baseline.md
   - name: Azure Backup security baseline
     href: ../../backup/security-baseline.md
   - name: Azure Cache for Redis security baseline
@@ -94,6 +96,8 @@
     href: ../../devtest-labs/security-baseline.md
   - name: Azure Firewall security baseline
     href: ../../firewall/security-baseline.md
+  - name: Azure Front Door security baseline
+    href: ../../frontdoor/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
   - name: Azure IoT Hub security baseline
@@ -138,8 +142,12 @@
     href: ../../container-instances/security-baseline.md
   - name: Container Registry security baseline
     href: ../../container-registry/security-baseline.md
+  - name: Content Delivery Network security baseline
+    href: ../../cdn/security-baseline.md
   - name: Cosmos DB security baseline
-    href: ../../cosmos-db/security-baseline.md  
+    href: ../../cosmos-db/security-baseline.md
+  - name: Cost Management security baseline
+    href: ../../cost-management-billing/security-baseline.md
   - name: Customer Lockbox security baseline
     href: ../fundamentals/customer-lockbox-security-baseline.md
   - name: Data Lake Analytics security baseline
