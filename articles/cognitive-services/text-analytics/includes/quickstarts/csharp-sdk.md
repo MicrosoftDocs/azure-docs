@@ -887,7 +887,7 @@ Key phrases:
 
 ---
 
-## Recognize healthcare entities
+## Recognize healthcare entities with Text Analytics for health 
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -936,7 +936,7 @@ static void RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 > [!NOTE]
-> To keep the output short, the Links are omitted and are showing max 2 Links objects.
+> To keep the output short, only the first two links in the response are shown below. The rest are omitted.
 
 ```console
 Test Name:	Healthcare
@@ -968,13 +968,18 @@ Results of Azure Text Analytics "Healthcare" Model, version: "2020-09-03"
     IsNegated: False
     Links:
 ```
+
 # [Version 3.0](#tab/version-3)
+
 This feature is not available in version 3.0.
+
 # [Version 2.1](#tab/version-2)
+
 This feature is not available in version 2.1.
+
 ---
 
-## Run Analyze Operation
+## Use the API asynchronously with the Analyze operation
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -1112,7 +1117,11 @@ Key Phrases
 ```
 
 # [Version 3.0](#tab/version-3)
+
 This feature is not available in version 3.0.
+
 # [Version 2.1](#tab/version-2)
+
 This feature is not available in version 2.1.
+
 ---
