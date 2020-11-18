@@ -40,7 +40,7 @@ PATRICK Please Update this one - The [client libraries](quickstarts/client-libra
 - **Quality improvements** - Extraction improvements including single digit extraction improvements.
 - **New try-it-out feature in the Form Recognizer Sample Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-  > [Try out the Sample Labeling Tool](https://fott-preview.azurewebsites.net/)
+  > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
 
   ![FOTT example](./media/fott-preview.jpg)
 
