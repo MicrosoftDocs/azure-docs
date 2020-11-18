@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate LinkedIn Talent Solutions with A
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* LinkedIn speak as “Access to Account Center in your LinkedIn Talent Solutions dashboard” as the process outlined in the document is to enable SSO
+* Access to Account Center in your LinkedIn Talent Solutions dashboard
 
 ## Scenario description
 
@@ -72,21 +72,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://www.linkedin.com/recruiter/<ID>`
+	a. Click **Upload metadata file**.
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://www.linkedin.com/checkpoint/enterprise/saml/<ID>?application=recruiter&appInstanceId=<INSTANCE_ID>`
+    ![image](common/upload-metadata.png)
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	![image](common/browse-upload-metadata.png)
+
+	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section:
+
+	![image](common/idp-intiated.png)
+
+	> [!Note]
+	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type the URL:
     `https://www.linkedin.com/talent/`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [LinkedIn Talent Solutions Client support team](mailto:recruiter-pmms@linkedin.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
