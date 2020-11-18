@@ -122,8 +122,8 @@ Consult the pre-upgrade report for details and possible remediation.
 ============================================================
 ```
 **Solution**\
-Enable root access in `/etc/sshd_conf`.
-This is caused by not enabling root ssh access in `/etc/sshd_conf` as per the “[Preparations for the upgrade](#preparations-for-the-upgrade)” section. 
+Enable root access in `/etc/sshd_config`.
+This is caused by not enabling root ssh access in `/etc/sshd_config` as per the “[Preparations for the upgrade](#preparations-for-the-upgrade)” section. 
 
 ## Next steps
 * Learn more about the [Red Hat images in Azure](./redhat-images.md).
