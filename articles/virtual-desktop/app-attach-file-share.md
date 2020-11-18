@@ -3,11 +3,11 @@ title: Windows Virtual Desktop set up file share MSIX app attach preview - Azure
 description: How to set up a file share for MSIX app attach for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ---
-# Set up a file share for MSIX app attach preview
+# Set up a file share for MSIX app attach (preview)
 
 > [!IMPORTANT]
 > MSIX app attach is currently in public preview.

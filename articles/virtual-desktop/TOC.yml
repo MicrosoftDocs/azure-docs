@@ -98,6 +98,8 @@
           href: app-attach-azure-portal.md
         - name: Configure PowerShell scripts
           href: app-attach.md
+        - name: Set up a file share
+          href: app-attach-file-share.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
   - name: Set up Azure Multi-Factor Authentication
