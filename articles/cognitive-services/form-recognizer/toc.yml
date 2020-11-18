@@ -38,6 +38,10 @@
       items:
       - name: Python
         href: quickstarts/python-business-cards.md
+    - name: Use prebuilt invoice model
+      items:
+      - name: Python
+        href: quickstarts/python-invoices.md
     - name: Get text layout information
       items:
       - name: Python
@@ -50,10 +54,14 @@
     href: tutorial-ai-builder.md
 - name: Concepts
   items:
+  - name: Layout extraction
+    href: concept-layout.md
   - name: Receipts
     href: concept-receipts.md
   - name: Business cards
     href: concept-business-cards.md
+  - name: Invoices
+    href: concept-invoices.md
 - name: How-to guides
   items:
   - name: Build a training data set

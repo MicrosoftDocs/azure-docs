@@ -104,6 +104,10 @@ landingContent:
 
   - title: Get text layout information
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Layout concepts
+            url: concept-layout.md?
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
