@@ -43,13 +43,7 @@ You can mount a container in Blob storage from a Windows or Linux-based Azure Vi
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. Register the `PremiumHns` feature by using the following command as well.
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
-
-6. Register the resource provider by using the following command.
+5. Register the resource provider by using the following command.
     
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
@@ -61,7 +55,6 @@ Registration approval can take up to an hour. To verify that the registration is
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
 ## Step 3: Create an Azure Virtual Network (VNet)
@@ -81,20 +74,20 @@ To secure the data in your account, see these recommendations: [Network security
 
 To mount a container by using NFS 3.0, You must create a storage account **after** you register the feature with your subscription. You can't enable accounts that existed before you registered the feature. 
 
-In the preview release of this feature, NFS 3.0 protocol is supported only in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) accounts.
+In the preview release of this feature, NFS 3.0 protocol is supported in [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) or [general-purpose V2](../common/storage-account-overview.md#general-purpose-v2-accounts) accounts.
 
 As you configure the account, choose these values:
 
-|Setting | Value|
-|----|---|
-|Location|One of the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central |
-|Performance|Premium|
-|Account kind|BlockBlobStorage|
-|Replication|Locally-redundant storage (LRS)|
-|Connectivity method|Public endpoint (selected networks) or Private endpoint|
-|Secure transfer required|Disabled|
-|Hierarchical namespace|Enabled|
-|NFS V3|Enabled|
+|Setting | Premium Performance | Standard Performance  
+|----|---|---|
+|Location|All available regions |One of the following regions: Australia East, Korea Central, and South Central US   
+|Performance|Premium| Standard
+|Account kind|BlockBlobStorage| General-purpose V2
+|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS)
+|Connectivity method|Public endpoint (selected networks) or Private endpoint |Public endpoint (selected networks) or Private endpoint
+|Secure transfer required|Disabled|Disabled
+|Hierarchical namespace|Enabled|Enabled
+|NFS V3|Enabled |Enabled 
 
 You can accept the default values for all other settings. 
 
