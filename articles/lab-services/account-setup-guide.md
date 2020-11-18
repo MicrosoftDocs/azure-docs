@@ -14,7 +14,7 @@ This guide includes three sections:
 -  Set up your lab account
 
 ## Prerequisites
-This section outlines what you need to do before you can set up a lab account.
+The following sections outline what you need to do before you can set up a lab account.
 
 
 ### Access your Azure subscription
@@ -40,8 +40,8 @@ For more information, see [VM subscription limits and regional capacity](https:/
 To get started quickly, create a single lab account within its own resource group.  Later, you can create additional lab accounts and resource groups, as needed. For example, you might eventually have one lab account and resource group per department as a way to clearly separate costs. 
 
 For more information about lab accounts, resource groups, and separating costs, see:
-- "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#resource-group)
-- "Lab account" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab-account) 
+- The "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#resource-group)
+- The "Lab account" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab-account) 
 - [Cost management for Azure Lab Services](./cost-management-guide.md)
 
 ## Plan your lab account settings
@@ -79,8 +79,8 @@ You might want to create your images in your physical environment and then impor
 If you decide to use the Shared Image Gallery service, you'll need to create or attach a shared image gallery to your lab account. You can postpone this decision for now, because a shared image gallery can be attached to a lab account at any time.  
 
 For more information, see:
-- "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#shared-image-gallery)
-- "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#pricing)
+- The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#shared-image-gallery)
+- The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#pricing)
 
 ### Which images in Azure Marketplace will your labs use?
 
@@ -94,11 +94,11 @@ For more information, see [Specify the Azure Marketplace images that are availab
 
 When you set up a lab account, you also can peer your lab account with a virtual network.  Keep in mind that both your virtual network and the lab account must be located in the same region.  To decide whether you need to peer with a virtual network, consider the following scenarios:
 
-- **Access to a licensing server**
+- **Access to a license server**
   
-   When you use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. However, you don't need to provide licenses for the operating system itself. For additional software and applications that are installed, you do need to provide a license, as appropriate.  To access a licensing server:
-   - You may choose to connect to an on-premises licensing server.  Connecting to an on-premises licensing server requires additional setup.
-   - Another option, which is faster to set up, is to create a licensing server that you host on an Azure VM.  The Azure VM is located within a virtual network that you peer with your lab account.
+   When you use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. However, you don't need to provide licenses for the operating system itself. For additional software and applications that are installed, you do need to provide a license, as appropriate.  To access a license server:
+   - You may choose to connect to an on-premises license server.  Connecting to an on-premises license server requires additional setup.
+   - Another option, which is faster to set up, is to create a license server that you host on an Azure VM.  The Azure VM is located within a virtual network that you peer with your lab account.
 
 - **Access to other on-premises resources such as a file share or database**
 
@@ -109,7 +109,7 @@ When you set up a lab account, you also can peer your lab account with a virtual
    If you need access to Azure resources that are *not* secured within a virtual network, you can access them through the public internet, without having to do any peering.
 
    For more information about virtual networks, see:
-   - "Virtual network" section of [Architecture fundamentals in Azure Lab Services](./classroom-labs-fundamentals.md#virtual-network)
+   - The "Virtual network" section of [Architecture fundamentals in Azure Lab Services](./classroom-labs-fundamentals.md#virtual-network)
    - [Connect your lab network with a peer virtual network in Azure Lab Services](./how-to-connect-peer-virtual-network.md)
    - [Create a lab with a shared resource in Azure Lab Services](./how-to-create-a-lab-with-shared-resource.md)
 
@@ -129,7 +129,7 @@ After you've finished planning, you're ready to set up your lab account. You can
 
 1. **Enable and review images**. For instructions, see [Specify which Azure Marketplace images are available to Lab Creators](./specify-marketplace-images.md).
 
-   To review the contents of each Azure Marketplace image, select the image name. For example, the following screenshot shows the details for the Ubuntu Data Science VM image:
+   To review the contents of each Azure Marketplace image, select the image name. For example, the following screenshot shows the details of the Ubuntu Data Science VM image:
 
    ![Screenshot of a list of images available for review in Azure Marketplace.](./media/setup-guide/review-marketplace-images.png)
 
