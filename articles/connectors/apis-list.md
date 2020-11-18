@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 11/17/2020
 ---
 
 # Connectors for Azure Logic Apps
@@ -24,7 +24,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 <a name="built-in"></a>
 
-* [**Built-in**](#built-ins): Built-in triggers and actions are "native" to Azure Logic Apps and help you perform these tasks for your logic apps:
+* [**Built-in**](#built-ins): Built-in triggers and actions run natively in Azure Logic Apps so they don't require creating a connection before you use them and help you perform these tasks for your logic apps:
 
   * Run on custom and advanced schedules.
 
@@ -389,6 +389,18 @@ Each connector's triggers and actions provide their own properties for you to co
 For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Office 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
 
 Connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Azure Logic Apps can use a token without refreshing. Generally, some actions invalidate all access tokens, such as changing your password.
+
+<a name="recurrence-behavior"></a>
+
+## Recurrence behavior
+
+Connection-based triggers, such as the SQL Server or SFTP-SSH trigger, differ from built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), that run natively in Azure Logic Apps. Recurrence-based built-in triggers always honor the schedule that you set, including any time zones. However, in recurrence-based connection triggers, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
+
+* Any failures or retries that a connection-based trigger incurs.
+
+* Whether the connection-based trigger accesses a server that has more data, which the trigger immediately tries to fetch.
+
+* Other factors that can affect when the next run time happens.
 
 <a name="custom"></a>
 

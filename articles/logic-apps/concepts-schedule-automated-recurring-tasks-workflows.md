@@ -119,6 +119,13 @@ Here's how this recurrence looks:
 
 So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run always uses the specified start time.
 
+<a name="daylight-savings-standard-time"></a>
+
+## Daylight savings time and standard time
+
+
+
+
 <a name="example-recurrences"></a>
 
 ## Example recurrences

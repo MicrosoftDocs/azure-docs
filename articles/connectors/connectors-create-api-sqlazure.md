@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 tags: connectors
 ---
 
@@ -209,6 +209,18 @@ In this example, the logic app starts with the [Recurrence trigger](../connector
 1. When you're done, on the designer toolbar, select **Save**.
 
    This step automatically enables and publishes your logic app live in Azure.
+
+<a name="recurrence-behavior"></a>
+
+## Recurrence behavior
+
+Connection-based triggers, such as the SQL Server trigger, differ from built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), that run natively in Azure Logic Apps. Recurrence-based built-in triggers always honor the schedule that you set, including any time zones. However, in recurrence-based connection triggers, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
+
+* Any failures or retries that a connection-based trigger incurs.
+
+* Whether the SQL server has more data, which a SQL Server trigger immediately tries to fetch.
+
+* Other factors that can affect when the next run time happens.
 
 <a name="handle-bulk-data"></a>
 

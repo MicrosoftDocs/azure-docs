@@ -112,15 +112,19 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 ## How SFTP-SSH triggers work
 
+<a name="recurrence-behavior"></a>
+
 ### Recurrence behavior
 
-SFTP-SSH triggers differ from built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), that run natively in Azure Logic Apps. Built-in recurrence-based triggers always honor the schedule that you set, including any time zones. However, in recurrence-based SFTP-SSH triggers, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
+Connection-based triggers, such as the SFTP-SSH trigger, differ from built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), that run natively in Azure Logic Apps. Recurrence-based built-in triggers always honor the schedule that you set, including any time zones. However, in recurrence-based connection triggers, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
 
-* Any failures or retries that an SFTP-SSH trigger incurs.
+* Any failures or retries that a connection-based trigger incurs.
 
 * Whether the SFTP server has more data, which an SFTP-SSH trigger immediately tries to fetch.
 
 * Other factors that can affect when the next run time happens.
+
+<a name="polling-behavior"></a>
 
 ### Polling behavior
 
