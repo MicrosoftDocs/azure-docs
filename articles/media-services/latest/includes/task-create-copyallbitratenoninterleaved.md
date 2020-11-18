@@ -26,9 +26,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
     "id": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/inhenkelRG/providers/Microsoft.Media/mediaservices/inhenkel/transforms/myTransform",
     "type": "Microsoft.Media/mediaservices/transforms",
     "properties": {
-        "created": "2020-11-18T19:19:27.4405209Z",
         "description": "Basic Transform using a copyAllBitrateNonInterleaved encoding preset from the library of built-in Standard Encoder presets",
-        "lastModified": "2020-11-18T19:19:27.4405209Z",
         "outputs": [
             {
                 "onError": "StopProcessingJob",
