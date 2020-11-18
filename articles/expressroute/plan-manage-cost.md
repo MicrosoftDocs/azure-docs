@@ -48,6 +48,18 @@ The following screenshot shows the cost estimation by using the calculator:
 
 For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
+### ExpressRoute gateway estimated cost
+
+If you're using an ExpressRoute gateway to link a virtual network to the ExpressRoute circuit. Use the following steps to estimate cost for gateway usage.
+
+1. On the left, select **Networking**, then select **VPN Gateway** to begin. 
+
+1. Select the *Region* for the gateway and then change *Type* to **ExpressRoute Gateways**.
+
+1. Select the *Gateway Type* from the drop down.
+
+1. Enter the *Gateway hours*. (720 hours = 30 days)
+
 ## Understand the full billing model for ExpressRoute
 
 ExpressRoute runs on Azure infrastructure that accrues costs along with ExpressRoute when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources. 
@@ -78,17 +90,14 @@ To view ExpressRoute costs in cost analysis:
 
     Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-    <!--
-    :::image type="content" source="media/plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing accumulated costs for a subscription":::
-    -->
+    :::image type="content" source="media/plan-manage-cost/cost-analysis-pane.png" alt-text="Example showing accumulated costs for a subscription":::
+    
 
 1.  To narrow costs for a single service, like Expressroute, select **Add filter** and then select **Service name**. Then, select **ExpressRoute**.
 
     Here's an example showing costs for just ExpressRoute.
 
-    <!--
-    :::image type="content" source="media/plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing accumulated costs for ExpressRoute":::
-    -->
+    :::image type="content" source="media/plan-manage-cost/cost-analysis-pane-expressroute.png" alt-text="Example showing accumulated costs for ExpressRoute":::
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and ExpressRoute costs by resource group are also shown. From here, you can explore costs on your own.
 
