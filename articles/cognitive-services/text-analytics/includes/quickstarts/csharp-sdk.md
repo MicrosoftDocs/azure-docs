@@ -668,7 +668,7 @@ Create a new function called `RecognizePIIExample()` that takes the client that 
 ```csharp
 static void RecognizePIIExample(TextAnalyticsClient client)
 {
-    string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
+    string document = "A developer with SSN 123-12-1234 whose phone number is 312-555-0100 is building tools with our APIs.";
 
     PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
 
@@ -693,7 +693,7 @@ static void RecognizePIIExample(TextAnalyticsClient client)
 ```console
 Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
 Recognized 2 PII entities:
-Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
+Text: 859-98-1234, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
 Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
 ```
 
