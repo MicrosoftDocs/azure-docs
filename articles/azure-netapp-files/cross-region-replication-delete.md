@@ -41,7 +41,7 @@ If you want to delete the source or destination volume, you must perform the fol
 
 1. From the destination volume, [break the replication peering](cross-region-replication-manage-disaster-recovery.md#break-replication-peering) and then [delete the volume replication](#delete-volume-replications).   
 
-2. Delete the destination or source volume as needed by right-click the volume name and select **Delete**.   
+2. Delete the destination or source volume as needed by right-clicking the volume name and select **Delete**.   
 
     ![Screenshot that shows right-click menu of a volume.](../media/azure-netapp-files/cross-region-replication-delete-volume.png)
 
