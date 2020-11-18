@@ -968,10 +968,15 @@ Results of Azure Text Analytics "Healthcare" Model, version: "2020-09-03"
     IsNegated: False
     Links:
 ```
+
 # [Version 3.0](#tab/version-3)
+
 This feature is not available in version 3.0.
+
 # [Version 2.1](#tab/version-2)
+
 This feature is not available in version 2.1.
+
 ---
 
 ## Run Analyze Operation
@@ -1112,7 +1117,11 @@ Key Phrases
 ```
 
 # [Version 3.0](#tab/version-3)
+
 This feature is not available in version 3.0.
+
 # [Version 2.1](#tab/version-2)
+
 This feature is not available in version 2.1.
+
 ---
