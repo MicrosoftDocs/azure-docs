@@ -186,7 +186,7 @@ Declares the optional claims requested by an application. An application can con
 
 ### OptionalClaim type
 
-Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) type is a collection of OptionalClaim.
+Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](/graph/api/resources/optionalclaims) type is a collection of OptionalClaim.
 If supported by a specific claim, you can also modify the behavior of the OptionalClaim using the AdditionalProperties field.
 
 **Table 6: OptionalClaim type properties**
@@ -200,7 +200,7 @@ If supported by a specific claim, you can also modify the behavior of the Option
 
 ## Configuring directory extension optional claims
 
-In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [the Microsoft Graph extensionProperty documentation](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+In addition to the standard optional claims set, you can also configure tokens to include extensions. For more info, see [the Microsoft Graph extensionProperty documentation](/graph/api/resources/extensionproperty).
 
 Schema and open extensions are not supported by optional claims, only the AAD-Graph style directory extensions. This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
 
@@ -359,7 +359,7 @@ There are multiple options available for updating the properties on an applicati
 
 - You can use the **Token configuration** UI (see example below)
 - You can use the **Manifest** (see example below). Read the [Understanding the Azure AD application manifest document](./reference-app-manifest.md) first for an introduction to the manifest.
-- It's also possible to write an application that uses the [Microsoft Graph API](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) to update your application. The [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) type in the Microsoft Graph API reference guide can help you with configuring the optional claims.
+- It's also possible to write an application that uses the [Microsoft Graph API](/graph/use-the-api) to update your application. The [OptionalClaims](/graph/api/resources/optionalclaims) type in the Microsoft Graph API reference guide can help you with configuring the optional claims.
 
 **Example:**
 
