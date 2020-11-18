@@ -38,16 +38,17 @@ To install the agent, follow these steps.
  7. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
    ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/how-to-install/install-1.png)</br>
  8. After this operation finishes, the configuration wizard starts. Sign in with your Azure AD global administrator account.
- 9. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
- 10. Optionally, you can manage the preference of domain controllers the agent will use by selecting **Select domain controller priority** and ordering the list of domain controllers.   Click **OK**.
+ 9. On the **Configure Service Account screen** select either **create gMSA** or **Use custom gMSA**.  If you allow the agent to create the account it will be named provAgentgMSA$. If you specify **Use custom gMSA** you will be prompted to provide this account.
+ 10. Enter the domain admin credentials to create the group Managed Service account that will be used to run the agent service.   
+   ![Create gMSA](media/how-to-install/install-12.png)</br>
+ 11. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
+ 12. Optionally, you can manage the preference of domain controllers the agent will use by selecting **Select domain controller priority** and ordering the list of domain controllers.   Click **OK**.
   ![Order domain controlllers](media/how-to-install/install-2a.png)</br>
- 11. Select **Next**.
+ 13. Select **Next**.
   ![Connect Active Directory screen](media/how-to-install/install-3.png)</br>
- 12. On the **Configure Service Account screen** enter the domain admin credentials to create the group Managed Service account that will be used to run the agent service.  This account will be named provAgentgMSA$.
-   ![Create gMSA](media/how-to-install/install-10.png)</br>
- 13.  On the **Agent Installation** screen confirm settings and the account that will be created and click **Confirm**.
+ 14.  On the **Agent Installation** screen confirm settings and the account that will be created and click **Confirm**.
   ![Confirm settngs](media/how-to-install/install-11.png)</br>
- 14. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
+ 15. After this operation finishes, you should see **Your agent installation is complete.** Select **Exit**.
   ![Configuration complete screen](media/how-to-install/install-4a.png)</br>
 1. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
 
