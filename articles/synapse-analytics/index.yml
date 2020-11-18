@@ -30,6 +30,9 @@ landingContent:
             url: overview-cheat-sheet.md
           - text: FAQ
             url: overview-faq.md
+
+  - title: Get started with Azure Synapse Analytics
+    linkLists:
       - linkListType: get-started
         links:
           - text: Step-by-step to getting started
