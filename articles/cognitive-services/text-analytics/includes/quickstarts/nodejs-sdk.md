@@ -85,7 +85,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 Install the `@azure/cognitiveservices-textanalytics` NPM packages:
 
 ```console
-npm install --save @azure/cognitiveservices-textanalytics
+npm install --save @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 ```
 
 > [!TIP]
@@ -117,7 +117,9 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 ```javascript
 "use strict";
 
-const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cognitiveservices-textanalytics");
+const os = require("os");
+const CognitiveServicesCredentials = require("@azure/ms-rest-js");
+const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
 ```
 ---
 
