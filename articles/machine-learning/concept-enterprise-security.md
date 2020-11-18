@@ -82,7 +82,7 @@ To restrict network access to Azure Machine Learning resources, you can use Azur
 
 You might use a virtual private network (VPN) gateway to connect individual clients, or your own network, to the VNet
 
-The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview) to create a private endpoint behind the VNET. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
+The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview.md) to create a private endpoint behind the VNET. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
 
 For more information, see the following documents:
 
