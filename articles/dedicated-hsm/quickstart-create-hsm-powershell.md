@@ -23,7 +23,7 @@ before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-* > [!IMPORTANT]
+  > [!IMPORTANT]
   > While the **Az.DedicatedHsm** PowerShell module is in preview, you must install it separately
   > using the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it
   > will be part of future Az PowerShell module releases and available by default from within Azure
