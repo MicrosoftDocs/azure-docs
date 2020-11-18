@@ -11,7 +11,8 @@ ms.author: midesa
 ms.reviewer: jrasnick
 ---
 
-# Machine learning overview
+# Machine learning with Apache Spark
+
 Apache Spark in Azure Synapse Analytics enables machine learning with big data, providing the ability to obtain valuable insight from large amounts of structured, unstructured, and fast-moving data. 
 
 This section includes an overview and tutorials for machine learning workflows, including exploratory data analysis, feature engineering, model training, model scoring, and deployment.  
