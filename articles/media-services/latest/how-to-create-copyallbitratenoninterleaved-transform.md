@@ -1,6 +1,6 @@
 ---
 title: Create a CopyAllBitrateNonInterleaved transform
-description: Create a basic audio transform using Media Services API.
+description: Create a CopyAllBitrateNonInterleaved transform using Media Services API.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
