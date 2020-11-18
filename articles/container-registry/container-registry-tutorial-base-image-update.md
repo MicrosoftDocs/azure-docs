@@ -24,20 +24,16 @@ In this tutorial:
 > * Display the triggered task
 > * Verify updated application image
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you'd like to use the Azure CLI locally, you must have the Azure CLI version **2.0.46** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
-
 ## Prerequisites
 
 ### Complete the previous tutorials
 
 This tutorial assumes you've already completed the steps in the first two tutorials in the series, in which you:
 
-* Create Azure container registry
-* Fork sample repository
-* Clone sample repository
-* Create GitHub personal access token
+- Create Azure container registry
+- Fork sample repository
+- Clone sample repository
+- Create GitHub personal access token
 
 If you haven't already done so, complete the following tutorials before proceeding:
 
@@ -47,9 +43,10 @@ If you haven't already done so, complete the following tutorials before proceedi
 
 ### Configure the environment
 
-Populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+Populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
