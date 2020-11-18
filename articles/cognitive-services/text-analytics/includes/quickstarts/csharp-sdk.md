@@ -885,6 +885,8 @@ Key phrases:
     veterinarian
 ```
 
+---
+
 ## Recognize healthcare entities
 
 # [Version 3.1 preview](#tab/version-3-1)
