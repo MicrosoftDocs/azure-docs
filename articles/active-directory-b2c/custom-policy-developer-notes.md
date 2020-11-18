@@ -94,7 +94,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone factor authentication](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | Azure email subsystem for email verification |  |  | X |  |

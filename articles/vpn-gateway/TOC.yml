@@ -175,8 +175,6 @@
         href: ikev2-openvpn-from-sstp.md
     - name: P2S session management
       href: p2s-session-management.md      
-    - name: Transition to a public CA gateway certificate for P2S
-      href: ./point-to-site-about.md
     - name: Configure an Always On VPN device tunnel
       href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Configure an Always On VPN user tunnel

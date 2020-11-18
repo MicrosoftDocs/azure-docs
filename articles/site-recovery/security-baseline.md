@@ -213,7 +213,7 @@ Create a process to track identity and access control for administrative account
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 **Guidance**: Enable Azure AD, multifactor authentication and follow Security Center's Identity and Access recommendations. 
-- [Plan an Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Plan an Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Monitor identity and access](../security-center/security-center-identity-access.md)
 
@@ -227,7 +227,7 @@ Create a process to track identity and access control for administrative account
 
 - [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -591,7 +591,7 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 
 **Guidance**: Customer should manage Site Recovery secrets integrated with Azure Key vault, while enabling Disaster Recovery for Azure Disk Encryption-enabled virtual machines. 
 
-- [How to create a Key vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key vault](../key-vault/general/quick-create-portal.md)
 
 - [How to authenticate to Key vault](../key-vault/general/authentication.md)
 
