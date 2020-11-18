@@ -38,6 +38,12 @@ To verify your matching condition is correct, you can validate the output schema
 
 ![Screenshot shows the Output schema tab.](media/data-flow/columnpattern3.png "Column Patterns")
 
+### Hierarchical pattern matching
+
+You can build pattern matching inside of complex hierarchical structures as well. Expand the section `Each MoviesStruct that matches` where you will be prompted for each hierarchy in your data stream. You can then build matching patterns for properties within that chosen hierarchy.
+
+![Screenshot shows hierarchical column pattern.](media/data-flow/patterns-hierarchy.png "Column Patterns in Hierarchies")
+
 ## Rule-based mapping in select and sink
 
 When mapping columns in source and select transformations, you can add either fixed mapping or rule-based mappings. Match based on the `name`, `type`, `stream`, `origin`, and `position` of columns. You can have any combination of fixed and rule-based mappings. By default, all projections with greater than 50 columns will default to a rule-based mapping that matches on every column and outputs the inputted name. 
@@ -72,7 +78,7 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 
 ## Pattern matching expression values.
 
-* `$$` translates to the name or value of each match at run time
+* `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`.
 * `name` represents the name of each incoming column
 * `type` represents the data type of each incoming column
 * `stream` represents the name associated with each stream, or transformation in your flow
