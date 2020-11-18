@@ -265,7 +265,6 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
 
 
 ## Examples
-Here's an example of creating a SQL filter programmatically in C#. 
 
 ### Set rule action for a SQL filter
 
@@ -289,27 +288,31 @@ var filterActionRule = new RuleDescription
 
 // create the rule on Service Bus
 await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
-
 ```
 
 ### SQL filter on a system property
 
 ```csharp
-new SqlFilter("sys.To = 'TestMe'"));
+sys.Label LIKE '%bus%'`
 ```
 
-### SQL filter on custom properties
+### Using OR 
 
 ```csharp
-static IDictionary<string, string[]> SubscriptionFilters = new Dictionary<string, string[]> {
-    { "S1", new[] { "StoreId IN('Store1', 'Store2', 'Store3')", "StoreId = 'Store4'"} },
-    { "S2", new[] { "sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'" } },
-    { "S3", new[] { "sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')" } }
-};
+ sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
 ```
 
-For the full sample code, see [Topic Filters sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+### Using IN and NOT IN
 
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
 
 
 ## Next steps
