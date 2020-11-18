@@ -317,7 +317,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 Use the `mstts:silence` element to insert pauses before or after text, or between the 2 adjacent sentences. 
 
 > [!NOTE]
->The difference between `mstts:silence` and `break` is break can be added to any place in the text, but silence works only at the beginning or in the end of the input text, or at the boundary of 2 adjacent sentences.  
+>The difference between `mstts:silence` and `break` is that `break` can be added to any place in the text, but silence only works at the beginning or end of input text, or at the boundary of 2 adjacent sentences.  
 
 
 **Syntax**
