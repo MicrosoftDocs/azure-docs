@@ -20,9 +20,19 @@ This document walks you through the installation process for the Azure Active Di
 >The following installation instructions assume that all of the [Prerequisites](how-to-prerequisites.md) have been met.
 
 Installing and configuring Azure AD Connect provisioning is accomplished in the following steps:
-	
+
+- [Group Managed Service Accounts](#group-managed-service-accounts)	
 - [Install the agent](#install-the-agent)
 - [Verify agent installation](#verify-agent-installation)
+
+
+## Group Managed Service Accounts
+A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and recommends the use of a group Managed Service Account for running the agent.  For more information on a gMSA, see [Group Managed Service Accounts](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+
+### Upgrading an existing agent to use the gMSA account
+To upgrade an existing agent to use the gMSA account created during installation, simply update the agent service to the latest version by running the AADConnectProvisioningAgent.msi.  This will upgrade the service to the latest version.  Now run through the installation wizard again and provide the credentials to create the account when prompted.
+
 
 
 ## Install the agent
@@ -84,13 +94,6 @@ To verify that the agent is running, follow these steps.
 
 >[!IMPORTANT]
 >The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud-based provisioning](how-to-configure.md).
-
-## Group Managed Service Accounts
-A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and recommends the use of a group Managed Service Account for running the agent.  For more information on a gMSA, see [Group Managed Service Accounts](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
-
-
-### Upgrading an existing agent to use the gMSA account
-To upgrade an existing agent to use the gMSA account created during installation, simply update the agent service to the latest version by running the AADConnectProvisioningAgent.msi.  This will upgrade the service to the latest version.  Now run through the installation wizard again and provide the credentials to create the account when prompted.
 
 
 
