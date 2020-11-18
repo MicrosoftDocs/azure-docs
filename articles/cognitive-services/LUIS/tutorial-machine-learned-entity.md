@@ -68,7 +68,7 @@ To extract details about a pizza order, create a top level, machine-learning `Or
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Begin selecting just before the left-most text of `pickup` (#1), then go just beyond the right-most text, `anchovies` (#2 - this ends the labeling process). A pop-up menu appears. In the pop-up box, enter the name of the entity as `Order` (#3). Then select `Order Create new entity` from the list (#4).
+    Click and drag your cursor over the text for the first example intent. in the menu that appears, enter the name of the entity as `Order`. Then select `Order Create new entity` from the list.
 
     ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 

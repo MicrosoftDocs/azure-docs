@@ -10,6 +10,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 # Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multiregional environments
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes the behavior of the latest version of Azure Cosmos SDKs when you see a connectivity issue to a particular region or when a region failover occurs.
 

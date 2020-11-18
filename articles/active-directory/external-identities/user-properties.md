@@ -68,6 +68,8 @@ This property indicates the relationship of the user to the host tenancy. This p
   > [!NOTE]
   > The UserType has no relation to how the user signs in, the directory role of the user, and so on. This property simply indicates the user's relationship to the host organization and allows the organization to enforce policies that depend on this property.
 
+For pricing related details please reference [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory).
+
 ### Source
 This property indicates how the user signs in.
 

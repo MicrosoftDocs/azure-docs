@@ -157,7 +157,7 @@ conceptualContent:
           text: Key Vault with Virtual Machine Scale Sets
     - title: Key Vault Integration
       links:
-        - url: https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+        - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
           itemType: overview
           text: Azure Dev Ops - Reference Key Vault secrets in Azure Pipelines
         - url: ../app-service/app-service-key-vault-references.md
@@ -169,6 +169,6 @@ conceptualContent:
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
           itemType: overview
           text: Azure Kubernetes Service - Use Key Vault secrets, certificates, keys in AKS
-        - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
+        - url: /azure/databricks/security/secrets/secret-scopes
           itemType: overview
           text: Azure Databricks - Secrets Management with Key Vault

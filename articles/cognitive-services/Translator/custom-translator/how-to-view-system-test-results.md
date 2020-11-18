@@ -104,6 +104,6 @@ To update deployment settings:
 
 ## Next steps
 
-- Start using your deployed custom translation model via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Start using your deployed custom translation model via [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).
 - Learn [how to manage settings](how-to-manage-settings.md) to share your workspace, manage subscription key.
 - Learn [how to migrate your workspace and project](how-to-migrate.md) from [Microsoft Translator Hub](https://hub.microsofttranslator.com)

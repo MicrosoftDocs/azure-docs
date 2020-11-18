@@ -7,7 +7,7 @@ ms.date: 10/16/2020
 author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, red hat, cli, azure file
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create a StorageClass on Azure Red Hat OpenShift using Azure File dynamic provisioner
 ---
 
@@ -28,7 +28,7 @@ Deploy an Azure Red Hat OpenShift 4 cluster into your subscription, see [Create 
 
 ### Set up Azure storage account
 
-This step will create a resource group outside of the Azure Red Hat OpenShift cluster’s resource group. This resource group will contain the Azure Files shares that are created by Azure Red Hat OpenShift’s dynamic provisioner.
+This step will create a resource group outside of the Azure Red Hat OpenShift (ARO) cluster’s resource group. This resource group will contain the Azure Files shares that are created by Azure Red Hat OpenShift’s dynamic provisioner.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

@@ -15,7 +15,7 @@
 | Sync groups per Storage Sync Service | 200 sync groups | Yes |
 | Registered servers per Storage Sync Service | 99 servers | Yes |
 | Cloud endpoints per sync group | 1 cloud endpoint | Yes |
-| Server endpoints per sync group | 50 server endpoints | No |
+| Server endpoints per sync group | 100 server endpoints | Yes |
 | Server endpoints per server | 30 server endpoints | Yes |
 | File system objects (directories and files) per sync group | 100 million objects | No |
 | Maximum number of file system objects (directories and files) in a directory | 5 million objects | Yes |

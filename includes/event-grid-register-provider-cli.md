@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 08/17/2018
  ms.author: tomfitz
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 ## Enable the Event Grid resource provider
