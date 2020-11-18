@@ -50,4 +50,4 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Next steps
 
-[az ams transform (CLI)](/cli/azure/ams/transform?view=azure-cli-latest&preserve-view=true)
+[More about transforms and jobs](transforms-jobs-concept.md)
