@@ -1392,11 +1392,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/saas-apps/rstudio-server-pro-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/rstudio-connect-tutorial",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/automation/change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking/overview",
       "redirect_document": false
