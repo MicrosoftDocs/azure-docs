@@ -233,7 +233,7 @@ Yes, customers can deploy Azure VMware Solution within an Azure subscription man
 
 Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-For CSP managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
+For CSP-managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
@@ -249,9 +249,9 @@ VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a 
 
 #### How do I request a host quota increase for Azure VMware Solution?
 
-For CSP managed subscriptions, customer must perform the request to the partner and the partner team will engage with Microsoft to get the quota increased for the subscription. For more information, see [How to enable Azure VMware Solution resource article](enable-azure-vmware-solution.md) for the details. 
+For CSP-managed subscriptions, the customer must submit the request to the partner. The partner team then engages with Microsoft to get the quota increased for the subscription. See [How to enable Azure VMware Solution resource article](enable-azure-vmware-solution.md) for the details. 
 
-For EA subscriptions, customer must follow this procedure.
+For EA subscriptions, customer must follow this procedure:
 
 * You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * You'll need an Azure account in an Azure subscription.
@@ -294,11 +294,15 @@ Before you create your Azure VMware Solution resource, you must submit a support
 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
-Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
 
 #### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
 
-No. Currently Azure VMware Solution does not offer multi-tenancy.
+No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+
+#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
 
 ## Customer communication
