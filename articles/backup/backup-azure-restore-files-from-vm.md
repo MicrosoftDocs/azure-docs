@@ -364,7 +364,7 @@ To browse files and folders, the script uses the iSCSI initiator in the machine 
 
 We use a mutual CHAP authentication mechanism so that each component authenticates the other. This means it's extremely difficult for a fake initiator to connect to the iSCSI target and for a fake target to be connected to the machine where the script is run.
 
-The data flow between the recovery service and the machine is protected by building a secure TLS tunnel over TCP ([TLS 1.2 should be supported](#step-3-os-requirements-to-succesfully-run-the-script) in the machine where script is run).
+The data flow between the recovery service and the machine is protected by building a secure TLS tunnel over TCP ([TLS 1.2 should be supported](#step-3-os-requirements-to-successfully-run-the-script) in the machine where script is run).
 
 Any file Access Control List (ACL) present in the parent/backed up VM is preserved in the mounted file system as well.
 
