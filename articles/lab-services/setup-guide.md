@@ -85,7 +85,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 
 1. **Create a lab**. See the following tutorials:
     - [Create a classroom lab](./tutorial-setup-classroom-lab.md#create-a-classroom-lab)
-    - [Create a lab on Teams](./how-to-get-started-create-lab-within-teams.md)
+    - [Create a lab in Teams](./how-to-get-started-create-lab-within-teams.md)
 
     > [!NOTE]
     > If your class requires nested virtualization, see [Enable nested virtualization](./how-to-enable-nested-virtualization-template-vm.md).
