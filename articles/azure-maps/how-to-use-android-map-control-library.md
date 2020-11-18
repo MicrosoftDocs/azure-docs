@@ -39,25 +39,11 @@ See the [Android Studio documentation](https://developer.android.com/studio/intr
 
 ![Create a project in Android studio ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
-## Set up a virtual device
+## Set up a device
 
-To test your application during development, Android Studio lets you set up a virtual Android device on your computer.
+To test your application during development, you can use an Android phone or an Android emulator.
 
-Complete these steps to set up a virtual device:
-
-1. Click the Android Virtual Device (AVD) Manager icon in the upper-right corner of your project screen.
-
-2. Click **Create Virtual Device** on the bottom-left corner.  
-
-3. In the **Phones** category, select **Nexus 5X**. Click **Next**.
-
-    ![Android Emulator](./media/how-to-use-android-map-control-library/android-emulator.png)
-
-4. Click on the x86 Images tab. Download one of the recommended system images. Follow the directions of the installer. Click **Next**.
-
-5. Choose the desired settings and click **Finish**.
-
-You can learn more about setting up an AVD in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
+You can learn more about setting up an AVD (Android Virtual Device) in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
 
 ## Install the Azure Maps Android SDK
 
@@ -97,7 +83,6 @@ Complete these steps to install the SDK:
 7. Open `activity_main.xml` (res \> layout \> activity_main.xml). Click on `Code` view in the upper right hand corner. Add the following XML inside the `<androidx.constraintlayout.widget.ConstraintLayout>` element.
     
     ```XML
-    <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -113,27 +98,27 @@ Complete these steps to install the SDK:
     </FrameLayout>
     ```
 
-8. In the **MainActivity.java** file you'll need to:
-    
-    * add imports for the Azure Maps SDK
-    * set your Azure Maps authentication information
-    * get the map control instance in the **onCreate** method
+8. In the **MainActivity.java** file ((java \> com.example.myapplication \> MainActivity.java) you'll need to:
 
-    Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won't have to add your authentication information on every view. 
+    * Add imports for the Azure Maps SDK.
+    * Set your Azure Maps authentication information.
+    * Get the map control instance in the **onCreate** method.
 
-    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method. 
+    To avoid having to add your authentication information for every application view, we'll set authentication information globally in the `AzureMaps` class by using either the `setSubscriptionKey` or `setAadProperties` methods.
 
-    * onCreate(Bundle) 
-    * onStart() 
-    * onResume() 
-    * onPause() 
-    * onStop() 
-    * onDestroy() 
-    * onSaveInstanceState(Bundle) 
-    * onLowMemory() 
+    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For the app to correctly call the map control's lifecycle methods, we'll override the following lifecycle methods in the Activity that contains the map control.
+
+    * onCreate(Bundle)
+    * onStart()
+    * onResume()
+    * onPause()
+    * onStop()
+    * onDestroy()
+    * onSaveInstanceState(Bundle)
+    * onLowMemory()
 
     Edit the **MainActivity.java** file as follows:
-    
+
     ```java
     package com.example.myapplication;
 
@@ -146,7 +131,7 @@ Complete these steps to install the SDK:
     import com.microsoft.azure.maps.mapcontrol.source.DataSource;
 
     public class MainActivity extends AppCompatActivity {
-        
+
         static {
             AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
@@ -161,11 +146,11 @@ Complete these steps to install the SDK:
             mapControl = findViewById(R.id.mapcontrol);
 
             mapControl.onCreate(savedInstanceState);
-    
+
             //Wait until the map resources are ready.
             mapControl.onReady(map -> {
                 //Add your post map load code here.
-    
+
             });
         }
 
@@ -213,25 +198,13 @@ Complete these steps to install the SDK:
     }
     ```
 
-## Import classes
-
-After you complete the preceding steps, you'll probably get warnings from Android Studio about some of the code. To resolve these warnings, import the classes referenced in `MainActivity.java`.
-
-You can automatically import these classes by selecting Alt+Enter (Option+Return on a Mac).
-
-Select the run button, as shown in the following graphic (or press Control+R on a Mac), to build your application.
-
-![Click Run](./media/how-to-use-android-map-control-library/run-app.png)
-
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
-<center>
-
-![Azure Maps in Android application](./media/how-to-use-android-map-control-library/android-map.png)</center>
+:::image type="content" source="./media/how-to-use-android-map-control-library/android-map.png" border="true" alt-text="Azure Maps in Android application":::
 
 ## Localizing the map
 
-The Azure Maps Android SDK provides three different ways of setting the language and regional view of the map. The following code shows how to set the language to French ("fr-FR") and the regional view to "auto". 
+The Azure Maps Android SDK provides three different ways of setting the language and regional view of the map. The following code shows how to set the language to French ("fr-FR") and the regional view to "auto".
 
 The first option is to pass the language and view regional information into the `AzureMaps` class using the static `setLanguage` and `setView` methods globally. This will set the default language and regional view across all Azure Maps controls loaded in your app.
 
@@ -271,10 +244,7 @@ mapControl.onReady(map -> {
 
 Here is an example of Azure Maps with the language set to "fr-FR" and regional view set to "auto".
 
-<center>
-
-![Azure Maps, map image showing labels in French](./media/how-to-use-android-map-control-library/android-localization.png)
-</center>
+:::image type="content" source="./media/how-to-use-android-map-control-library/android-localization.png" border="true" alt-text="Azure Maps, map image showing labels in French":::
 
 A complete list of supported languages and regional views is documented [here](supported-languages.md).
 
