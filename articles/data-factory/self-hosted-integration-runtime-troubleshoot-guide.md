@@ -427,7 +427,7 @@ The error information shows as below:
 
 `Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
 
-![Failed to grant IR service account certificate access](media/self-hosted-integration-runtime-troubleshoot-guide/failed-to-grant-IR-service-account-certificate-access.png)
+![Failed to grant IR service account certificate access](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
 
 #### Cause
 
