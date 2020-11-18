@@ -21,20 +21,23 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the create new New Project window within Xcode.":::
 
-### Install the package and dependencies with Cocoapods
+### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile for your application like this
-```
-platform :ios, '13.0'
-use_frameworks!
-target 'AzureCommunicationCallingSample' do
-  pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
-  pod 'AzureCommunication', '~> 1.0.0-beta.5'
-  pod 'AzureCore', '~> 1.0.0-beta.5'
-end
-```
-2. Run `pod install`
-3. Open the `.xcworkspace` with XCode
+1. Create a Podfile for your application, like this:
+
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
+
+2. Run `pod install`.
+3. Open the `.xcworkspace` with XCode.
+
 ### Request access to the microphone
 
 In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog the system uses to request request access from the user.
