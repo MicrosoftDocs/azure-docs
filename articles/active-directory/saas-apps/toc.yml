@@ -2155,6 +2155,8 @@
         href: pingboard-provisioning-tutorial.md
       - name: Promapp
         href: promapp-provisioning-tutorial.md
+      - name: PrinterLogic SaaS
+        href: printer-logic-saas-provisioning-tutorial.md
       - name: Priority Matrix
         href: priority-matrix-provisioning-tutorial.md
       - name: Proxyclick
