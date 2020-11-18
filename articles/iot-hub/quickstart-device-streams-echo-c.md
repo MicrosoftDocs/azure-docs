@@ -1,4 +1,5 @@
 ---
+
 title: Quickstart - Communicate to device app in C with Azure IoT Hub device streams
 description: In this quickstart, you run a C device-side application that communicates with an IoT device via a device stream.
 author: robinsh
@@ -9,6 +10,7 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
+
 ---
 
 # Quickstart: Communicate to a device application in C via IoT Hub device streams (preview)

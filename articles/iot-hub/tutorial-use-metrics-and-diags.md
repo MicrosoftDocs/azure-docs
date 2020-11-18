@@ -345,9 +345,6 @@ Download the solution for the [IoT Device Simulation](https://github.com/Azure-S
 
 Let the application run for at least 10-15 minutes. Ideally, let it run until it stops sending messages (about 20-30 minutes). This will happen when you've exceeded the daily message quota for your IoT hub, and it has stopped accepting any more messages.
 
-<<<<<<< HEAD
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command.
-=======
 > [!NOTE]
 > If you leave the device app running for an extended period after it stops sending messages, you may get an exception. You can safely ignore this exception and close the app window.
 
@@ -405,7 +402,6 @@ In the [Collect logs for connections and device telemetry](#collect-logs-for-con
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics charts to the dashboard, you'll have to remove them manually by clicking on the three dots in the upper right-hand corner of each chart and selecting **Remove**. Be sure to save your changes after doing deleting the charts.
 
 To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command.
->>>>>>> 9681f287a3d031c7393de59769cf33785e70bfbe
 
 ```azurecli-interactive
 az group delete --name ContosoResources
