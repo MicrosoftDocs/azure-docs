@@ -25,7 +25,7 @@ Microsoft hosts a public DMR with these characteristics:
 
 ## Custom device model repository
 
-You can use the same DMR pattern in any storage medium, such as local file system or custom HTTP web servers, to create a custom DMR. You can retrieve device models from the custom DMR in the same way as from the public DMR simply by changing the base URL used to access the DMR.
+Use the same DMR pattern to create a custom DMR in any storage medium, such as local file system or custom HTTP web servers. You can retrieve device models from the custom DMR in the same way as from the public DMR by changing the base URL used to access the DMR.
 
 > [!NOTE]
 > Microsoft provides tools to validate device models in the public DMR. You can reuse these tools in custom repositories.
@@ -42,9 +42,9 @@ All interfaces in the `dtmi` folders are also available from the public endpoint
 
 ### Resolve models
 
-To programmatically access these interfaces, you need to convert a DTMI to a relative path that you can use to query the public endpoint. The following code sample shows you how to do this:
+To programmatically access these interfaces, you need to convert a DTMI to a relative path that you can use to query the public endpoint.
 
-To convert a DTMI to an absolute path we use the `DtmiToPath` function, with `IsValidDtmi`:
+To convert a DTMI to an absolute path, use the `DtmiToPath` function with `IsValidDtmi`:
 
 ```cs
 static string DtmiToPath(string dtmi)
@@ -80,79 +80,78 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 > [!Important]
 > You must have a GitHub account to be able to submit models to the public DMR.
 
-1. Fork the public GitHub repo: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models).
-1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
-1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [import-a-model-to-the-dtmi-folder](#import-a-model-to-the-dtmi-folder) section.
-1. Validate the models locally using the `dmr-client` tool. See the [validate](#validate-models) section.
+1. Fork the public GitHub repository: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models).
+1. Clone the forked repository. Optionally create a new branch to keep your changes isolated from the `main` branch.
+1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. To learn more, see [Import a Model to the `dtmi/` folder](#import-a-model-to-the-dtmi-folder).
+1. Validate the models locally using the `dmr-client` tool. To learn more, see [validate models](#validate-models).
 1. Commit the changes locally and push to your fork.
 1. From your fork, create a pull request that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
 1. Review the [pull request requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-The pull request triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your pull request satisfies all the checks.
+The pull request triggers a set of GitHub actions that validate the submitted interfaces, and makes sure your pull request satisfies all the requirements.
 
 Microsoft will respond to a pull request with all checks in three business days.
 
-### `dmr-client` Tool
+### `dmr-client` tools
 
 The tools used to validate the models during the PR checks can also be used to add and validate the DTDL interfaces locally.
 
-> Note: This tool requires the [.NET SDK](https://dotnet.microsoft.com/download) (3.1 or greater)
+> [!NOTE]
+> This tool requires the [.NET SDK](https://dotnet.microsoft.com/download) version 3.1 or greater.
 
-#### Install `dmr-client`
-
-##### Linux/Bash
+### Install `dmr-client`
 
 ```bash
 curl -L https://aka.ms/install-dmr-client-linux | bash
 ```
 
-##### Windows/Powershell
-
 ```powershell
 iwr https://aka.ms/install-dmr-client-windows -UseBasicParsing | iex
 ```
 
-#### Import a Model to the `dtmi/` folder
+### Import a model to the `dtmi/` folder
 
-If you have your model already stored in json files, you can use the `dmr-client import` command to add those to the `dtmi/` folder with the right file name.
+If you have your model already stored in json files, you can use the `dmr-client import` command to add them to the `dtmi/` folder with the correct file names:
 
 ```bash
 # from the local repo root folder
 dmr-client import --model-file "MyThermostat.json"
 ```
 
->Note: You can use the `--local-repo` argument to specify the local repo root folder
+> [!TIP]
+> You can use the `--local-repo` argument to specify the local repository root folder.
 
-#### Validate Models
+### Validate models
 
-You can validate your models with the `dmr-client validate` command.
+You can validate your models with the `dmr-client validate` command:
 
 ```bash
 dmr-client validate --model-file ./my/model/file.json
 ```
 
->Note: The validation uses the latest DTDL parser version to ensure all the interfaces are compatible with the DTDL language spec.
+> [!NOTE]
+> The validation uses the latest DTDL parser version to ensure all the interfaces are compatible with the DTDL language specification.
 
-To validate external dependencies those must exist in the local repo. To validate models you can use the `--repo` option to specify a `local` or `remote` folder to resolve dependencies.
+To validate external dependencies, they must exist in the local repository. To validate models, use the `--repo` option to specify a `local` or `remote` folder to resolve dependencies:
 
 ```bash
 # from the repo root folder
 dmr-client validate --model-file ./my/model/file.json --repo .
 ```
 
-##### Strict validation
+### Strict validation
 
-The Device Model Repo includes additional [requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md), these can be validated with the `strict` flag.
+The DMR includes additional [requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md), use the `stict` flag to validate your model against them:
 
 ```bash
 dmr-client validate --model-file ./my/model/file.json --repo . --strict true
 ```
 
-Watch the console output for any error messages.
+Check the console output for any error messages.
 
-#### Export models
+### Export models
 
-Models can be exported from a given repo (local or remote) to a single file using a JSON Array. 
+Models can be exported from a given repository (local or remote) to a single file using a JSON Array:
 
 ```bash
 dmr-client export --dtmi "dtmi:com:example:TemperatureController;1" -o TemperatureController.expanded.json
