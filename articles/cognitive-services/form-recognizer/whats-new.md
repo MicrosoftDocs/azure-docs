@@ -21,31 +21,28 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 
-- **New Prebuilt Invoice** 
- The new prebuilt Invoice enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, and more. 
-![Invoice example](./media/invoice-example.jpg)
+- **New prebuilt invoice model** - The new prebuilt Invoice model enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, amount due, tax amount, ship to, bill to, and more.
 
-> [Learn more about Prebuilt Invoice](concept-invoices.md)
+  > [Learn more about the prebuilt invoice model](concept-invoices.md)
 
-- **Enhanced table extraction** 
- Form Recognizer now includes an enhanced tables extraction which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model enabling Form Recognizer to extract data from tables including complex tables with merged columns, rows, no borders and lots more. 
+  ![Invoice example](./media/invoice-example.jpg)
+
+- **Enhanced table extraction** - Form Recognizer now provides enhanced table extraction, which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model. Form Recognizer can extract data from tables, including complex tables with merged columns, rows, no borders and more. 
  
- <<< add tables examples image>>>
+  <<< add tables examples image>>>
  
- > [Learn more about Layout](concept-layout.md)
+  > [Learn more about Layout extraction](concept-layout.md)
 
-- **SDK Client Libraries for the 2.1 release**
+- **SDK client libraries version 2.1 release**
 PATRICK Please Update this one - The [client libraries](quickstarts/client-library-21.md) for NET, Python, Java, and JavaScript have entered General Availability. 
-- **New language supported Japanese **, the following new [languages](language-support.md) are now supported: for `Layout` and `Custom`: Japanese (`ja`) 
-- **Text line style Handwritten indication (Latin languages only)**
-Form Recognizer now utputs an appearance object classifying whether each text line is handwriting style or not, along with a confidence score. This feature is supported only for Latin languages.
-- **Quality improvements** for extraction improvements including single digit extraction improvements. 
-- **New Try it out on the Form Recognizer Sample Labeling Tool** 
-Ability to try out Prebuilt Invoice, Receipt, Business Card and Layout via the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code. 
+- **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
+- **Text line style indication (handwritten/print) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
+- **Quality improvements** - Extraction improvements including single digit extraction improvements.
+- **New try-it-out feature in the Form Recognizer Sample Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-> [Try out Form Recognizer](https://fott-preview.azurewebsites.net/)
+  > [Try out the Sample Labeling Tool](https://fott-preview.azurewebsites.net/)
 
-![FOTT example](./media/fott-preview.jpg)
+  ![FOTT example](./media/fott-preview.jpg)
 
 ## August 2020
 
