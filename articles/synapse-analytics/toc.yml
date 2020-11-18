@@ -465,61 +465,70 @@
       href: quickstart-create-apache-spark-pool-studio.md
   - name: Tutorials
     items:
-    - name: Run Apache Spark applications
-      href: ./spark/intellij-tool-synapse.md
-      displayname: intellij
-    - name: Run PySpark applications for Spark pools
-      href: ./spark/vscode-tool-synapse.md
-    - name: Spark job definitions
+    - name: Data visualization with Apache Spark
+      href: ./spark/apache-spark-data-visualization-tutorial.md
+    - name: Create machine learning models
+      href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+    - name: Submit Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
   - name: Concepts
     items:
-    - name: Apache Spark concepts
+    - name: Apache Spark 
       href: ./spark/apache-spark-concepts.md
-    - name: What is Delta Lake
+    - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
-    - name: Delta Lake functional overview
-      href: ./spark/apache-spark-delta-lake-overview.md
-    - name: Apache Spark performance
-      href: ./spark/apache-spark-performance.md
-    - name: Performance optimization for Apache Spark using Hyperspace indexes
-      href: ./spark/apache-spark-performance-hyperspace.md
     - name: Apache Spark Auto Scale behavior
       href: ./spark/apache-spark-autoscale.md
-    - name: Development
+    - name: Synapse runtimes
+      href: ./spark/apache-spark-version-support.md
+    - name: Machine Learning
+      href: ./spark/apache-spark-machine-learning-concept.md
+    - name: Notebooks
+      href: ./spark/apache-spark-notebook-concept.md
+    - name: Monitoring tools
+      href: monitoring/how-to-monitor-spark-applications.md
+  - name: How-to guides
+    items:
+    - name: Work with Delta Lake 
+      href: ./spark/apache-spark-delta-lake-overview.md
+    - name: Manage libraries
+      href: ./spark/apache-spark-azure-portal-add-libraries.md
+    - name: Use Notebooks
       items:
-      - name: Libraries 
-        items:
-        - name: Add and manage libraries
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
-        - name: Runtime language and library support
-          href: ./spark/apache-spark-version-support.md
-      - name: Azure Synapse Studio notebooks
+      - name: Manage notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
-      - name: Securing credentials using TokenLibrary
-        href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
+      - name: Visualize data
+        href: ./spark/apache-spark-data-visualization.md
+      - name: Connect to Spark with IntelliJ plug-in
+        href: ./spark/intellij-tool-synapse.md
+      - name: Connect to Spark pools with VSCode
+        href: ./spark/vscode-tool-synapse.md
+    - name: Explore languages
+      items:
       - name: .NET for Apache Spark
         href: ./spark/spark-dotnet.md
-    - name: Monitoring
+    - name: Security
+      items: 
+      - name: Securing credentials using TokenLibrary
+        href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
+    - name: Optimize Performance
+      items:
+        - name: Apache Spark performance
+          href: ./spark/apache-spark-performance.md
+        - name: Performance optimization for Apache Spark using Hyperspace indexes
+          href: ./spark/apache-spark-performance-hyperspace.md
+    - name: Manage and monitor
       items:
       - name: Spark pool history server
         href: ./spark/apache-spark-history-server.md
-  - name: How-to guides
-    items:
-    - name: Manage and monitor
-      items:
-      - name: Apache Spark applications
-        href: monitoring/how-to-monitor-spark-applications.md
-      - name: Apache Spark application details
+      - name: Monitor Spark applications
         href: monitoring/apache-spark-applications.md
-      - name: Analyze JSON with Apache Spark
-        href: how-to-analyze-complex-schema.md
     - name: Ingest and prepare data
       items:
-      - name: Into the data warehouse
-        items:
-        - name: Import and export data with Apache Spark
+        - name: SQL Data Warehouse
           href: ./spark/synapse-spark-sql-pool-import-export.md
+        - name: Analyze JSON
+          href: how-to-analyze-complex-schema.md
 - name: Synapse Link
   items:
   # - name: Overview
