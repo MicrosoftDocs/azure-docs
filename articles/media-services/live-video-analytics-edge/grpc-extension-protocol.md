@@ -137,7 +137,7 @@ Here's what this might look like in the device twin using the first option from 
 
 For more information on IPC modes, see https://docs.docker.com/engine/reference/run/#ipc-settings---ipc.
 
-## Media graph gRPC extension contract definitions
+## MediaGraph gRPC extension contract definitions
 
 This section defines the gRPC contract that defines the data flow.
 
@@ -171,6 +171,31 @@ Username/password credentials can be used to accomplish this. When creating a gR
 When the gRPC request is sent, the following header will be included in the request metadata, mimicking HTTP Basic authentication.
 
 `x-ms-authentication: Basic (Base64 Encoded username:password)`
+
+
+## Configuring inference server for each MediaGraph over gRPC extension
+When configuring your inference server, you do not need to expose expose a node for every AI model that is packaged within the inference server. Instead, for a graph instance, you can use the `extensionConfiguration` property of the `MediaGraphGrpcExtension` node and define how to select the AI model(s). During execution, LVA will pass this string to the inferencing server which can use it to invoke the desired AI model. This `extensionConfiguration` property is an optional property and is server specific. The property can be used like below:
+```
+{
+  "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+  "name": "{moduleIdentifier}",
+  "endpoint": {
+    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+    "url": "${grpcExtensionAddress}",
+    "credentials": {
+      "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+      "username": "${grpcExtensionUserName}",
+      "password": "${grpcExtensionPassword}"
+    }
+  },
+    // Optional server configuration string. This is server specific 
+  "extensionConfiguration": "{Optional extension specific string}",
+  "dataTransfer": {
+    "mode": "sharedMemory",
+    "SharedMemorySizeMiB": "5"
+  }
+    //Other fields omitted
+```
 
 ## Using gRPC over TLS
 
