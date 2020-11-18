@@ -261,6 +261,8 @@
     href: install-vm-agent-offline.md
   - name: Troubleshoot Windows VM agent
     href: windows-azure-guest-agent.md
+  - name: Troubleshoot Linux VM agent
+    href: linux-azure-guest-agent.md
 - name: Backup and restore
   items:
   - name: Troubleshoot backup failures on Azure VM
