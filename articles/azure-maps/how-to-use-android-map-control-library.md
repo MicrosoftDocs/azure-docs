@@ -41,9 +41,9 @@ See the [Android Studio documentation](https://developer.android.com/studio/intr
 
 ## Set up a device
 
-To test your application during development, you can use an Android phone or an Android emulator.
+To test your application during development, you may use either an Android phone or an Android emulator.
 
-You can learn more about setting up an AVD (Android Virtual Device) in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
+To learn more about setting up an AVD (Android Virtual Device), see the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
 
 ## Install the Azure Maps Android SDK
 
@@ -104,7 +104,7 @@ Complete these steps to install the SDK:
     * Set your Azure Maps authentication information.
     * Get the map control instance in the **onCreate** method.
 
-    To avoid having to add your authentication information for every application view, we'll set authentication information globally in the `AzureMaps` class by using either the `setSubscriptionKey` or `setAadProperties` methods.
+    To avoid having to add authentication information for every application view, we'll set authentication information globally by calling `AzureMaps.setSubscriptionKey`. You can also call `AzureMaps.setAadProperties`, if you wish to authenticate using Azure Active Directory.
 
     The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For the app to correctly call the map control's lifecycle methods, we'll override the following lifecycle methods in the Activity that contains the map control.
 
@@ -204,45 +204,47 @@ Android Studio will take a few seconds to build the application. After the build
 
 ## Localizing the map
 
-The Azure Maps Android SDK provides three different ways of setting the language and regional view of the map. The following code shows how to set the language to French ("fr-FR") and the regional view to "auto".
+The Azure Maps Android SDK provides three different ways of setting the language and regional settings of the map.
 
-The first option is to pass the language and view regional information into the `AzureMaps` class using the static `setLanguage` and `setView` methods globally. This will set the default language and regional view across all Azure Maps controls loaded in your app.
+1. Set language and regional settings by calling static methods on the AzureMaps class.
 
-```Java
-static {
-    //Set your Azure Maps Key.
-    AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+    ```Java
+    static {
+        //Set your Azure Maps Key.
+        AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
 
-    //Set the language to be used by Azure Maps.
-    AzureMaps.setLanguage("fr-FR");
+        //Set the language to be used by Azure Maps.
+        AzureMaps.setLanguage("fr-FR");
 
-    //Set the regional view to be used by Azure Maps.
-    AzureMaps.setView("auto");
-}
-```
+        //Set the regional view.
+        AzureMaps.setLanguage("Auto");
+    
+    }
+    ```
 
-The second option is to pass the language and view information into the map control XML.
+2. Define the language and regional settings settings in the map control XML.
 
-```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
-    android:id="@+id/myMap"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="auto"
-    />
-```
+    ```XML
+    <com.microsoft.azure.maps.mapcontrol.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mapcontrol_language="fr-FR"
+        app:mapcontrol_view="Auto"
+        />
+    ```
 
-The third option is to programmatically set the language and regional view of the map using the maps `setStyle` method. This can be done at any time to change the language and regional view of the map.
+3. Set language and regional settings by calling methods on the map control. This option allows you to change the settings during runtime.
 
-```Java
-mapControl.onReady(map -> {
-    map.setStyle(StyleOptions.language("fr-FR"));
-    map.setStyle(StyleOptions.view("auto"));
-});
-```
+    ```JavaScript
+    mapControl.onReady(map -> {
+        map.setStyle(StyleOptions.language("fr-FR"));
+        map.setStyle(StyleOptions.view("Auto"));
+    
+    });
+    ```
 
-Here is an example of Azure Maps with the language set to "fr-FR" and regional view set to "auto".
+Here is an example of Azure Maps with the language set to `fr-FR`.
 
 :::image type="content" source="./media/how-to-use-android-map-control-library/android-localization.png" border="true" alt-text="Azure Maps, map image showing labels in French":::
 
