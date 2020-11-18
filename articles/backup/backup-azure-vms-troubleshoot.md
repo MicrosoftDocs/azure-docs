@@ -320,7 +320,7 @@ If you have an Azure Policy that [governs tags within your environment](../gover
 
 If after restore, you notice the disks are offline then:
 
-* Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-succesfully-run-the-script).  
+* Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
