@@ -12,7 +12,7 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics) frequently asked questions
+# Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics frequently asked questions
 
 ## General
 
