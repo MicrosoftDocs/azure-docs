@@ -18,7 +18,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 
 # Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform
 
-In this tutorial, you learn how to use the Microsoft identity platform to access the data of Microsoft business customers in a long-running, non-interactive process. The sample daemon uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token. The daemon then uses the token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
+In this tutorial, you download a daemon code sample that uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
+
+In this tutorial:
 
 > [!div class="checklist"]
 > * Integrate a daemon app with the Microsoft identity platform
