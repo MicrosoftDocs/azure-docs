@@ -36,10 +36,11 @@ Note the following requirements and considerations about [using the volume cross
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
 
 ## Next steps
-* [Create replication peering](cross-region-replication-create-peering.md)
+* [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
+* [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 
 
