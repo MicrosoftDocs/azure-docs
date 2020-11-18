@@ -166,7 +166,48 @@ module.exports = function(context) {
     context.done();
 };
 ```
+# [PowerShell](#tab/powershell)
 
+<!--Same example for input and output. -->
+
+The following example shows blob trigger and output bindings in a *function.json* file and [PowerShell code](functions-reference-powershell.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a blob trigger that matches blobs under the *samples-workitems* container. The new blob is named *samples-workitems/copy/{originalblobname}*.
+
+In the *function.json* file, the `trigger` metadata property is used to specify the output blob name in the `path` properties:
+
+When using blob triggers, to avoid an infinite loop, care must be taken to ensure the trigger condition doesn't match the output blob name.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myInputBlob",
+      "path": "samples-workitems/{trigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in",
+      "type": "blobTrigger"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/copy/{trigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the PowerShell code:
+
+```powershell
+# Input bindings are passed in via param block.
+param([byte[]] $myInputBlob, $TriggerMetadata)
+Write-Host "PowerShell Blob trigger function Processed blob Name: $($TriggerMetadata.Name)"
+Push-OutputBinding -Name myOutputBlob -Value $myInputBlob
+```
 # [Python](#tab/python)
 
 <!--Same example for input and output. -->
@@ -327,6 +368,10 @@ Attributes are not supported by C# Script.
 
 Attributes are not supported by JavaScript.
 
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
@@ -369,6 +414,10 @@ The following table explains the binding configuration properties that you set i
 # [JavaScript](#tab/javascript)
 
 In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
+
+# [PowerShell](#tab/powershell)
+
+In PowerShell, access the blog data using either the byte array passed by the trigger to the param or as a named input binding.
 
 # [Python](#tab/python)
 
