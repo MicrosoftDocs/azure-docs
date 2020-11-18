@@ -7,18 +7,17 @@ ms.author: inhenkel
 ms.custom: CLI
 ---
 
-<!--Create a basic audio transform REST-->
+<!--Create a basic transform REST-->
 
-The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `amsAccountName` with values you are currently working with. Give your transform a name by setting `transformName`.
+The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `amsAccountName` with values you are currently working with. Give your transform a name by setting `transformName` here.
 
-```REST
+Change the `@odata.type` to one of the [available presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#definitions), such as `#Microsoft.Media.AudioAnalyzerPreset`.
 
+```
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01
-
 ```
 
 ## Body
-
 ```json
 {
     "properties": {
@@ -64,4 +63,5 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
         ]
     }
 }
+
 ```
