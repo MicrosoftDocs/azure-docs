@@ -70,7 +70,7 @@ To assign session host VMs permissions for the storage account and file share:
 
 4. Create a storage account.
 
-5. Create a file share under the storage account by following the instructions in [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md#[portal](#tab/azure-portal)).
+5. Create a file share under the storage account by following the instructions in [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md#create-file-share).
 
 6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 
