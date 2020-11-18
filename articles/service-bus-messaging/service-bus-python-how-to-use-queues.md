@@ -5,7 +5,7 @@ author: spelluru
 documentationcenter: python
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
 ---
@@ -103,16 +103,11 @@ with servicebus_client:
     # get the Queue Receiver object for the queue
     receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
     with receiver:
-        # receive up to 16 messages, waiting for max 5 seconds
-        received_msgs = receiver.receive_messages(max_message_count=16, max_wait_time=5)
-        for msg in received_msgs:
+        for msg in receiver:
             print("Received: " + str(msg))
+            # complete the message so that the message is removed from the queue
             receiver.complete_message(msg)
 ```
-
-> [!NOTE]
-> - The `max_wait_time` parameter for `receive_messages` is the timeout in seconds between received messages after which the receiver will automatically shut down. The default value is 0, meaning no timeout.
-> - The `max_message_count` is the maximum number of messages to try and peek. The default value is 1.
 
 ## Full code
 
@@ -160,8 +155,7 @@ print("-----------------------")
 with servicebus_client:
     receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
     with receiver:
-        received_msgs = receiver.receive_messages(max_message_count=16, max_wait_time=5)
-        for msg in received_msgs:
+        for msg in receiver:
             print("Received: " + str(msg))
             receiver.complete_message(msg)
 ```
