@@ -31,6 +31,20 @@ landingContent:
           - text: FAQ
             url: overview-faq.md
 
+  # Card
+  - title: Synapse SQL
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Synapse SQL architecture
+            url: ./sql/overview-architecture.md
+      - linkListType: quickstart
+        links:
+          - text: Create dedicated SQL pool using Synapse Studio
+            url: quickstart-create-sql-pool-studio.md
+          - text: Use serverless SQL pool
+            url: quickstart-sql-on-demand.md
+
   - title: Get started with Azure Synapse Analytics
     linkLists:
       - linkListType: get-started
@@ -55,20 +69,6 @@ landingContent:
             url: get-started-monitor.md
           - text: STEP 9 - Explore the Knowledge center
             url: get-started-knowledge-center.md
-
-  # Card
-  - title: Synapse SQL
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure Synapse SQL architecture
-            url: ./sql/overview-architecture.md
-      - linkListType: quickstart
-        links:
-          - text: Create dedicated SQL pool using Synapse Studio
-            url: quickstart-create-sql-pool-studio.md
-          - text: Use serverless SQL pool
-            url: quickstart-sql-on-demand.md
 
   # Card
   - title: Apache Spark
