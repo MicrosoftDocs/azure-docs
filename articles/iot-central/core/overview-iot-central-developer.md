@@ -110,7 +110,7 @@ A device should follow the IoT Plug and Play conventions when it exchanges data 
 - Follow the naming conventions for component commands.
 
 > [!NOTE]
-> Currently, IoT Central does not fully support the DTDL **Array** data type.
+> Currently, IoT Central does not fully support the DTDL **Array** and **Geospatial** data types.
 
 To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
