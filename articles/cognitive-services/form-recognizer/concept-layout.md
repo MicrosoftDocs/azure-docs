@@ -67,6 +67,22 @@ The JSON output has 3 parts:
 1. `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
 2. `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
 
+## Examples Output
+### Text 
+Layout extracts text from documents (PDF, Tiff, Images (jpg, png, bmp) with different text angles, colors, angles, photos of documents, faxes, printed, handwritten (English only) and mixed modes. Text extracted includes lines, words, bounding boxes, confidence and appearnce (handwritten or other). All the text informations is included in the readResults section of the JSON output. 
+
+<<<< add document examples >>>>
+
+### Tables 
+Layout extracts tables from documents (PDF, Tiff, Images - jpg, png, bmp), tables can be complex tables with merged cells, columns, with borders or without borders, with angles, scanned, photod or digitized documents. Tables extracted include the number of column, row, each cell extracted with its bounding box, row span, column span and a reference to the text extracted in the readResults section. Tables infomration is extracted in the pageResults section of the JSON outout. 
+
+![Tables example](./media/tables-example.jpg)
+
+### Selection marks
+Layout extracts also selection makrs from documents. Selection marks extracted include the bounding box, confidence and state - selected \ unselected. Selection marks infomration is extracted in the readResults section of the JSON outout. 
+
+<<< add selection marks examples>>>
+
 ## Next steps
 
 Try your own layout and samples in the [Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/).
