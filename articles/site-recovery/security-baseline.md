@@ -591,7 +591,7 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 
 **Guidance**: Customer should manage Site Recovery secrets integrated with Azure Key vault, while enabling Disaster Recovery for Azure Disk Encryption-enabled virtual machines. 
 
-- [How to create a Key vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key vault](../key-vault/general/quick-create-portal.md)
 
 - [How to authenticate to Key vault](../key-vault/general/authentication.md)
 
