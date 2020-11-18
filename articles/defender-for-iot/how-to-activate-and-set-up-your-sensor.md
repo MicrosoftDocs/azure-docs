@@ -1,10 +1,10 @@
 ---
-title: Activate and set up your sensor 
+title: Activate and configure your sensor 
 description: 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 10/26/2020
+ms.date: 11/18/2020
 ms.topic: article
 ms.service: azure
 ---

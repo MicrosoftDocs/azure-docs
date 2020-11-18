@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Onboard sensors in Azure Defender for IoT"
+title: "How to: Onboard sensors in Azure Defender for IoT"
 description: Learn how to onboard sensors for Azure Defender for IoT deployment.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2020
+ms.date: 11/18/2020
 ms.author: rkarlin
 ---
 
-# Quickstart: Deploy and onboard a sensor
+# How to: Deploy and onboard a sensor
 
 This article provides an overview of the sensor deployment process. Sensors must be onboarded to the Azure Defender for IoT portal.
 

@@ -4,7 +4,7 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.topic: article
 ms.service: azure
 ---
@@ -21,7 +21,7 @@ This section describes how to manage sensors from the management console, includ
 
 - Update Threat Intelligence Packages
 
-## Push System Settings to Sensors
+## Push configurations
 
 You can define various system settings and automatically apply them to sensors connected to the management console. This saves time and helps ensure streamlined settings across your enterprise sensors.
 
@@ -125,7 +125,7 @@ To update the threat intelligence data:
 
 7. Upload the package downloaded from the Azure Defender for IoT, Updates page.
 
-## Enable or Disable Engines on Sensors
+## Enable or disable sensors
 
 Sensors are protected by five Defender for IoT engines. You can enable or disable the engines for connected sensors.
 

@@ -1,5 +1,5 @@
 ---
-title: Install components
+title: Install software
 description: 
 author: shhazam-ms
 manager: rkarlin

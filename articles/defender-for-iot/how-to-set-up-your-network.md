@@ -1,10 +1,10 @@
 ---
-title: Network Setup
+title: Set up your network
 description: 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.topic: article
 ms.service: azure
 ---

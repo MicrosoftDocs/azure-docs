@@ -25,8 +25,6 @@
   items:
   - name: Prepare your network
     href: quickstart-prepare-network-for-defender-for-iot.md
-  - name: Onboard sensors
-    href: quickstart-onboard-sensors.md
   - name: Configure Security Module for Azure RTOS
     href: quickstart-azure-rtos-security-module.md
   - name: Onboard Azure Defender for IoT in IoT Hub
@@ -43,184 +41,208 @@
     href: quickstart-investigate-security-alerts.md
 - name: Tutorials
   items:
-    - name: Set up your network
-      href: how-to-prepare-your-network.md
-    - name: Install software
-      href: tutorial-install-components.md
-    - name: Set up your network
-      href: tutorial-network-setup.md
 - name: Concepts
   items:
-  - name: Key advantages
-    href: concept-key-advantages.md
-  - name: Air gapped networks
-    href: concept-air-gapped-networks.md
-  - name: Learning modes
-    href: concept-learning-modes.md
-  - name: Integrations
-    href: concept-integrations.md
-  - name: Proprietary protocols
-    href: concept-proprietary-protocols.md
-  - name: High availability
-    href: concept-high-availability.md
-  - name: Sensor console overview
-    href: concept-sensor-console-overview.md
-  - name: Security Module for Azure RTOS
+  - name: Unmanaged 
+    items:
+    - name: Key advantages
+      href: concept-key-advantages.md
+    - name: Air gapped networks
+      href: concept-air-gapped-networks.md
+    - name: Learning modes
+      href: concept-learning-modes.md
+    - name: Integrations
+      href: concept-integrations.md
+    - name: Proprietary protocols
+      href: concept-proprietary-protocols.md
+    - name: High availability
+      href: concept-high-availability.md
+    - name: Sensor console overview
+      href: concept-sensor-console-overview.md
+  - name: Managed
     items: 
-      - name: Understand the Security Module for Azure RTOS
-        href: concept-rtos-security-module.md
-      - name: Security Module for Azure RTOS alerts and recommendations 
-        href: concept-rtos-security-alerts-recommendations.md
-  - name: Security agent authentication
-    href: concept-security-agent-authentication-methods.md
-  - name: Security module
-    href: concept-security-module.md
-  - name: Security alerts
-    href: concept-security-alerts.md
-  - name: Customizable security alerts
-    href: concept-customizable-security-alerts.md
-  - name: Security recommendations
-    href: concept-recommendations.md
-  - name: Baseline
-    href: concept-baseline.md
-  - name: Event aggregation
-    href: event-aggregation.md
-  - name: Pricing and associated costs
-    href: concept-pricing.md
+    - name: Security Module for Azure RTOS
+      items: 
+        - name: Understand the Security Module for Azure RTOS
+          href: concept-rtos-security-module.md
+        - name: Security Module for Azure RTOS alerts and recommendations 
+          href: concept-rtos-security-alerts-recommendations.md
+    - name: Security agent authentication
+      href: concept-security-agent-authentication-methods.md
+    - name: Security module
+      href: concept-security-module.md
+    - name: Security alerts
+      href: concept-security-alerts.md
+    - name: Customizable security alerts
+      href: concept-customizable-security-alerts.md
+    - name: Security recommendations
+      href: concept-recommendations.md
+    - name: Baseline
+      href: concept-baseline.md
+    - name: Event aggregation
+      href: event-aggregation.md
+    - name: Pricing and associated costs
+      href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Activate and set up your sensor
-    href: how-to-activate-and-set-up-your-sensor.md
-  - name: Set Up high availability
-    href: how-to-set-up-high-availability.md
-  - name: Work with the sensor console dashboard
-    href: how-to-work with-the-sensor-console-dashboard.md
-  - name: Change the name of your Azure consoles
-    href: how-to change-the-name-of-your-azure-consoles.md
-  - name: Create azure for defender users and roles
-    href: how-to-create-azure-for-defender-users-and-roles.md
-  - name: Control what traffic is monitored
-    href: how-to-control-what-traffic-is-monitored.md
-  - name: Manage sensors in air gapped networks
+  - name: Unmanaged 
     items:
-    - name: Manage sensors from the on-premises management console
-      href: how-to-manage-sensors-from-the-on-premises-management-console.md
-    - name: View sensor connection status to the on-premises manager
-      href: how-to-view-sensor-connection-status-to-the-on-premises-manager.md
-    - name: Access sensors using a proxy
-      href: how-to-access-sensors-using-a-proxy.md
-  - name: Manage individual sensors
-    href: how-to-manage-individual-sensors.md
-  - name: Work with threat intelligence packages
-    href: how-to-work-with-threat-intelligence-packages.md
-  - name: Manage the on-premises management console
-    href: how-to-manage-the-on-premises-management-console.md
-  - name: Work with device inventory information
-    href: how-to-work-with-asset-inventory-information.md
-  - name: Work with maps
-    href: how-to-work-with-maps.md
-  - name: Import asset information to the sensor
-    href: how-to-import-asset-information-to-the-sensor.md
-  - name: Work with alerts
-    items:
-    - name: Work with alerts sensor
-      href: how-to-work-with-alerts-sensor.md
-    - name: Work with alerts on-premises management console
-      href: how-to-work-with-alerts-on-premises-management-console.md
-  - name: Enrich asset information
-    href: how-to-enrich-asset-information.md
-  - name: Work with system notifications
-    href: how-to-work-with-system-notifications.md
-  - name: Track sensor activity
-    href: how-to-track-sensor-activity.md
-  - name: Generate reports
-    href: how-to-generate-reports.md
-  - name: Create forwarding rules
-    href: how-to-create-forwarding-rules.md
-  - name: How to integrate with partners
-    items:
-      - name: Servicenow integration
-        href: integration-servicenow.md
-      - name: Splunk integration
-        href: integration-splunk.md
-      - name: Fortinet integration
-        href: integration-fortinet.md
-      - name: Forescout integration
-        href: integration-forescout.md
-      - name: Cisco ISE pxGrid integration
-        href: integration-cisco-ise-pxgrid.md
-      - name: ClearPass integration
-        href: integration-clearpass.md
-      - name: QRadar integration
-        href: integration-qradar.md
-      - name: Sentinel syslog integration
-        href: integration-sentinel-syslog.md
-  - name: Manage proprietary protocols (horizon)
-    href: how-to-manage-proprietary-protocols.md
-  - name: Troubleshoot the sensor and on-premises management console
-    href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
-  - name: View and manage sensors
-    href: how-to-deploy-view-sensors.md
-  - name: Deploy the on-premises management console
-    href: how-to-deploy-management-console-appliance.md  
-  - name: Work with Security Module for Azure RTOS
-    href: how-to-azure-rtos-security-module.md
-  - name: Which agent should I deploy?
-    items:
-    - name: Select an agent to deploy
-      href: how-to-deploy-agent.md
-    - name: Deploy a C#-based security agent on a Windows device
-      href: how-to-deploy-windows-cs.md
-    - name: Deploy a C#-based security agent on a Linux device
-      href: how-to-deploy-linux-cs.md
-    - name: Deploy a C-based security agent on a Linux device
-      href: how-to-deploy-linux-c.md
-  - name: Troubleshoot a security agent
-    items:
-    - name: Troubleshoot Azure Defender for IoT Linux security agent
-      href: troubleshoot-agent.md
-    - name: Local configuration C
-      href: azure-iot-security-local-configuration-c.md
-    - name: Local configuration C#
-      href: azure-iot-security-local-configuration-csharp.md
-  - name: Deploy Edge security module
-    href: how-to-deploy-edge.md
-  - name: Configure security agents
-    href: how-to-agent-configuration.md
-  - name: Send your own security messages
-    href: how-to-send-security-messages.md
-  - name: Access raw security data
-    href: how-to-security-data-access.md
-  - name: Investigate a device
-    href: how-to-investigate-device.md
-  - name: Connect to Azure Sentinel
-    href: how-to-configure-with-sentinel.md
-  - name: Customize your agent
-    href: how-to-customize-solution.md
-  - name: Define management console network settings
-    href: how-to-define-management-console-network-settings.md
-  - name: Set up SNMP MIB monitoring
-    href: how-to-set-up-snmp-mib-monitoring.md
-  - name: Adjust system properties
-    href: how-to-adjust-system-properties.md
+    - name: Prepare your network
+      items:
+        - name: Acquire hardware and software
+          href: how-to-acquire-hardware-and-software
+        - name: Install software
+          href: tutorial-install-components.md
+        - name: Set up your network
+          href: how-to-prepare-your-network.md
+    - name: Onboard sensors
+      href: how-to-onboard-sensors.md
+    - name: Activate and configure your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
+    - name: Activate and set up your on-premises management console
+      href: how-to-activate-and-set-up-your-on-premises-management-console.md
+    - name: Set Up high availability
+      href: how-to-set-up-high-availability.md
+    - name: Work with the sensor console dashboard
+      href: how-to-work with-the-sensor-console-dashboard.md
+    - name: Change the name of your Azure consoles
+      href: how-to change-the-name-of-your-azure-consoles.md
+    - name: Create azure for defender users and roles
+      href: how-to-create-azure-for-defender-users-and-roles.md
+    - name: Define global user access control
+      href: how-to-define-global-user-access-control.md
+    - name: Create sensor console users
+      href: how-to-create-sensor-console-users.md  
+    - name: Control what traffic is monitored
+      href: how-to-control-what-traffic-is-monitored.md
+    - name: Manage sensors in air gapped networks
+      items:
+      - name: Manage sensors from the on-premises management console
+        href: how-to-manage-sensors-from-the-on-premises-management-console.md
+      - name: View sensor connection status to the on-premises manager
+        href: how-to-view-sensor-connection-status-to-the-on-premises-manager.md
+      - name: Access sensors using a proxy
+        href: how-to-access-sensors-using-a-proxy.md
+    - name: Manage individual sensors
+      href: how-to-manage-individual-sensors.md
+    - name: Work with threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
+    - name: Manage the on-premises management console
+      href: how-to-manage-the-on-premises-management-console.md
+    - name: Work with device inventory information
+      href: how-to-work-with-asset-inventory-information.md
+    - name: Work with maps
+      href: how-to-work-with-maps.md
+    - name: Import asset information to the sensor
+      href: how-to-import-asset-information-to-the-sensor.md
+    - name: Work with alerts
+      items:
+      - name: Work with alerts sensor
+        href: how-to-work-with-alerts-sensor.md
+      - name: Work with alerts on-premises management console
+        href: how-to-work-with-alerts-on-premises-management-console.md
+    - name: Enrich asset information
+      href: how-to-enrich-asset-information.md
+    - name: Work with system notifications
+      href: how-to-work-with-system-notifications.md
+    - name: Track sensor activity
+      href: how-to-track-sensor-activity.md
+    - name: Generate reports
+      href: how-to-generate-reports.md
+    - name: Create forwarding rules
+      href: how-to-create-forwarding-rules.md
+    - name: Integrate with partners
+      items:
+        - name: ServiceNow integration
+          href: integration-servicenow.md
+        - name: Splunk integration
+          href: integration-splunk.md
+        - name: Fortinet integration
+          href: integration-fortinet.md
+        - name: Forescout integration
+          href: integration-forescout.md
+        - name: Cisco ISE pxGrid integration
+          href: integration-cisco-ise-pxgrid.md
+        - name: ClearPass integration
+          href: integration-clearpass.md
+        - name: QRadar integration
+          href: integration-qradar.md
+        - name: Sentinel syslog integration
+          href: integration-sentinel-syslog.md
+    - name: Manage proprietary protocols (horizon)
+      href: how-to-manage-proprietary-protocols.md
+    - name: Troubleshoot the sensor and on-premises management console
+      href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
+    - name: View and manage sensors
+      href: how-to-deploy-view-sensors.md
+    - name: Deploy the on-premises management console
+      href: how-to-deploy-management-console-appliance.md
+    - name: Define management console network settings
+      href: how-to-define-management-console-network-settings.md
+    - name: Set up SNMP MIB monitoring
+      href: how-to-set-up-snmp-mib-monitoring.md
+    - name: Adjust system properties
+      href: how-to-adjust-system-properties.md  
+    - name: Define access tokens
+      href: how-to-define-access-tokens.md
+  - name: Managed
+    items: 
+    - name: Work with Security Module for Azure RTOS
+      href: how-to-azure-rtos-security-module.md
+    - name: Which agent should I deploy?
+      items:
+      - name: Select an agent to deploy
+        href: how-to-deploy-agent.md
+      - name: Deploy a C#-based security agent on a Windows device
+        href: how-to-deploy-windows-cs.md
+      - name: Deploy a C#-based security agent on a Linux device
+        href: how-to-deploy-linux-cs.md
+      - name: Deploy a C-based security agent on a Linux device
+        href: how-to-deploy-linux-c.md
+    - name: Troubleshoot a security agent
+      items:
+      - name: Troubleshoot Azure Defender for IoT Linux security agent
+        href: troubleshoot-agent.md
+      - name: Local configuration C
+        href: azure-iot-security-local-configuration-c.md
+      - name: Local configuration C#
+        href: azure-iot-security-local-configuration-csharp.md
+    - name: Deploy Edge security module
+      href: how-to-deploy-edge.md
+    - name: Configure security agents
+      href: how-to-agent-configuration.md
+    - name: Send your own security messages
+      href: how-to-send-security-messages.md
+    - name: Access raw security data
+      href: how-to-security-data-access.md
+    - name: Investigate a device
+      href: how-to-investigate-device.md
+    - name: Connect to Azure Sentinel
+      href: how-to-configure-with-sentinel.md
+    - name: Customize your agent
+      href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Work with Defender for IoT APIs
-    href: references-work-with-defender-for-iot-apis.md
-  - name: Work with Defender for IoT CLI commands
-    href: references-work-with-defender-for-iot-cli-commands.md
-  - name: Horizon SDK
-    href: references-horizon-sdk.md
-  - name: Defender for IoT glossary
-    href: references-defender-for-iot-glossary.md
-  - name: Security Module for Azure RTOS API
-    href: azure-rtos-security-module-api.md
-  - name: Frequently asked questions - service
-    href: resources-frequently-asked-questions.md
-  - name: Frequently asked questions- agent
-    href: resources-agent-frequently-asked-questions.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Unmanaged 
+    items:
+    - name: Work with Defender for IoT APIs
+      href: references-work-with-defender-for-iot-apis.md
+    - name: Work with Defender for IoT CLI commands
+      href: references-work-with-defender-for-iot-cli-commands.md
+    - name: Horizon SDK
+      href: references-horizon-sdk.md
+    - name: Defender for IoT glossary
+      href: references-defender-for-iot-glossary.md
+  - name: Managed
+    items: 
+    - name: Security Module for Azure RTOS API
+      href: azure-rtos-security-module-api.md
+    - name: Frequently asked questions - service
+      href: resources-frequently-asked-questions.md
+    - name: Frequently asked questions- agent
+      href: resources-agent-frequently-asked-questions.md
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/?category=security-identity
 - name: Resources
   items:
   - name: Build your security skills with Microsoft Learn
