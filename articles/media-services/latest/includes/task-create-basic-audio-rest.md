@@ -9,7 +9,7 @@ ms.custom: CLI
 
 <!--Create a basic audio transform REST-->
 
-The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `amsAccountName` with values you are currently working with. Give your asset a name by setting `assetName` here.
+The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `amsAccountName` with values you are currently working with. Give your transform a name by setting `transformName`.
 
 ```
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01
