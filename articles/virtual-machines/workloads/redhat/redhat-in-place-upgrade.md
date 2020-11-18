@@ -12,7 +12,7 @@ ms.reviewer: cynthn
 
 # Red Hat Enterprise Linux in-place upgrades
 
-This article provides instructions about how to do an in-place upgrade from Red Hat Enterprise Linux (RHEL) 7 to Red Hat Enterprise Linux 8. The instructions use the `Leapp` tool in Azure. During the in-place upgrade, the existing RHEL 7 operating system is replaced by the RHEL 8 version.
+This article provides instructions about how to do an in-place upgrade from Red Hat Enterprise Linux (RHEL) 7 to Red Hat Enterprise Linux 8. The instructions use the `leapp` tool in Azure. During the in-place upgrade, the existing RHEL 7 operating system is replaced by the RHEL 8 version.
 
 >[!Note] 
 > Offerings of SQL Server on Red Hat Enterprise Linux don't support in-place upgrades on Azure.
@@ -68,7 +68,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
     ```
 
-1. Add an `answers` file for `Leapp`.
+1. Add an `answers` file for `leapp`.
     ```bash
     leapp answer --section remove_pam_pkcs11_module_check.confirm=True --add
     ``` 
@@ -95,7 +95,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     ```
 ## Common problems
 
-The following errors commonly happen when either the `leapp preupgrade` process or the `leapp upgrade` process fails:
+The following errors commonly happen when either the `leapp preupgrade` process fails or the `leapp upgrade` process fails:
 
 * **Error**: No matches found for the following disabled plugin patterns.
 
