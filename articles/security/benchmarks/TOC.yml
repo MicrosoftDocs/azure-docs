@@ -100,6 +100,8 @@
     href: ../../frontdoor/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
+  - name: Azure Information Protection security baseline
+    href: /azure/information-protection/security-baseline
   - name: Azure IoT Hub security baseline
     href: ../../iot-hub/security-baseline.md
   - name: Azure Kubernetes Service security baseline
