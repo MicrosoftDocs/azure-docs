@@ -80,20 +80,6 @@ landingContent:
             url: quickstart-create-apache-spark-pool-studio.md
 
   # Card
-  - title: Pipeline and data flow
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Pipeline and activities
-            url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - linkListType: quickstart
-        links:
-          - text: Transform data
-            url: quickstart-data-flow.md
-          - text: Load data to SQL pool 
-            url: quickstart-copy-activity-load-sql-pool.md
-
-  # Card
   - title: Synapse Link
     linkLists:
       - linkListType: overview
@@ -116,6 +102,20 @@ landingContent:
         links:
           - text: Model scoring wizard fro SQL pools
             url: ./machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+
+  # Card
+  - title: Pipeline and data flow
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Pipeline and activities
+            url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - linkListType: quickstart
+        links:
+          - text: Transform data
+            url: quickstart-data-flow.md
+          - text: Load data to SQL pool 
+            url: quickstart-copy-activity-load-sql-pool.md
 
   # Card (optional)
   - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
