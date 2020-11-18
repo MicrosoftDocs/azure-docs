@@ -27,13 +27,13 @@ In this quickstart, you will learn how to get started with the ASP.NET and Azure
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnet).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnet).
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnet).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -41,7 +41,7 @@ Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/
 
 You can also create Azure resources used in this quickstart with [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnet).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnet).
 
 ## Clone the sample application
 
@@ -55,7 +55,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnet).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnet).
 
 ## Configure and run Chat Room web app
 
@@ -101,7 +101,7 @@ Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/
 
 1. Press <kbd>F5</kbd> to run the project in debug mode. You can see the application runs locally. Instead of hosting a SignalR runtime by application itself, it now connects to the Azure SignalR Service.
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnet).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
@@ -116,7 +116,7 @@ In the **Filter by name...** textbox, type the name of your resource group. The 
 
 After a few moments, the resource group and all of its contained resources are deleted.
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnet).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnet).
 
 ## Next steps
 
