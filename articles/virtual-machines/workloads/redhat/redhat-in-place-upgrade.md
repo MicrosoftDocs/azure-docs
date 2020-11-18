@@ -61,7 +61,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     yum install leapp-rhui-azure
     ```
     
-1. In the [Red Hat portal](https://access.redhat.com/articles/3664871), get the *leapp-data.tar.gz* file, along with *repomap.csv* and *pes-events.json*. Extract the files.
+1. In the [Red Hat portal](https://access.redhat.com/articles/3664871), obtain the *leapp-data.tar.gz* file that contains *repomap.csv* and *pes-events.json*. Extract the *leapp-data.tar.gz* file.
     1. Download the *leapp-data.tar.gz* file.
     1. Extract the contents and remove the file. Use the following command:
     ```bash
