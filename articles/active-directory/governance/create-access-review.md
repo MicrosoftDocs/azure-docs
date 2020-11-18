@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -54,7 +54,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
    - **All Microsoft 365 groups with guest users.** Select this option if you would like to create recurring reviews on all your guest users across all your Microsoft Teams and M365 groups in your organization. You can choose to exclude certain groups by clicking on ‘Select group(s) to exclude’.
    - **Select teams + groups.** Select this option if you would like to specify a finite set of teams and/or groups to review. After clicking on this option you will see a list of groups to the right to pick from.
 
-     ![Teams and groups chosen in the user interface](./media/create-access-review/teams-groups.png)
+     ![Teams and groups](./media/create-access-review/teams-groups.png)
 
      ![Teams and groups chosen in the user interface](./media/create-access-review/teams-groups-detailed.png)
 
@@ -63,7 +63,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     >[!NOTE]
     > Selecting multiple groups and/or applications will result in multiple access reviews created. For example, if you select 5 groups to review, that will result in 5 separate access reviews
 
-    ![Teams and groups chosen in the user interface](./media/create-access-review/select-application-detailed.png)
+     ![The interface displayed if you chose applications rather than groups](./media/create-access-review/select-application-detailed.png)
 
 7. Next, in Step 3 you can select a scope for the review. Your options are
    - **Guest users only.** Selecting this option limits the access review to just the Azure AD B2B guest users in your directory.
@@ -79,16 +79,16 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     - **Users review own access**
     - **(Preview) Managers of users.** If you select this option, you will also have the option to specify a fallback review. A fallback reviewer is only asked to do a review when the user has no manager specified in the directory. This can happen especially in the case of Azure AD B2B guest users who don’t have managers listed in their user properties. 
 
-    ![Create an access review - new access review](./media/create-access-review/new-access-review.png)
+    ![new access review](./media/create-access-review/new-access-review.png)
 
 10. In the **Specify recurrence of review** section, you can specify a frequency such as **Weekly, Monthly, Quarterly, Semi-annually, Annually**. You then specify a **Duration**, which defines how long a review will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews. You might want to shorten the duration to ensure that your reviewers input is applied earlier. Next, you can select a **Start date**, and **End date**.
 
-    ![Create an access review - new access review](./media/create-access-review/frequency.png)
+    ![Choose how often the review should happen](./media/create-access-review/frequency.png)
 
 11. Click the **Next: Settings** button at the bottom of the page
 12.	In the **Upon completion settings** you can specify what happens after the review completes
 
-    ![Create an access review - new access review](./media/create-access-review/upon-completion-settings-new.png)
+    ![Create an access review - upon completion settings](./media/create-access-review/upon-completion-settings-new.png)
 
 If you want to automatically remove access for denied users, set Auto apply results to resource to Enable. If you want to manually apply the results when the review completes, set the switch to Disable.
 Use the If reviewers don't respond list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
