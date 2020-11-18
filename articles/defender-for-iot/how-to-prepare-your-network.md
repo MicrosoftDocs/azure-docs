@@ -1,5 +1,5 @@
 ---
-title: Prepare your network 
+title: Set up your network 
 description: 
 author: shhazam-ms
 manager: rkarlin
@@ -256,6 +256,3 @@ After purchasing the appliance, navigate to **Azure Defender for IoT > Network S
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM":::
 
-## Install software (sensor and On-prem CM)
-
-## Set up your network (sensor and On-prem CM)

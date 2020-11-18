@@ -43,9 +43,11 @@
     href: quickstart-investigate-security-alerts.md
 - name: Tutorials
   items:
-    - name: Install components
+    - name: Set up your network
+      href: how-to-prepare-your-network.md
+    - name: Install software
       href: tutorial-install-components.md
-    - name: Network setup
+    - name: Set up your network
       href: tutorial-network-setup.md
 - name: Concepts
   items:
@@ -87,14 +89,10 @@
     href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Onboard install and setup
-    items: 
-    - name: Prepare your network
-      href: how-to-prepare-your-network.md
-    - name: Activate and set up your sensor
-      href: how-to-activate-and-set-up-your-sensor.md
-    - name: Set Up high availability
-      href: how-to-set-up-high-availability.md
+  - name: Activate and set up your sensor
+    href: how-to-activate-and-set-up-your-sensor.md
+  - name: Set Up high availability
+    href: how-to-set-up-high-availability.md
   - name: Work with the sensor console dashboard
     href: how-to-work with-the-sensor-console-dashboard.md
   - name: Change the name of your Azure consoles
