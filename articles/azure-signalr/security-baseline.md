@@ -15,7 +15,7 @@ ms.custom: subject-security-benchmark
 # Azure security baseline for Azure SignalR Service
 
 This security
-baseline applies guidance from the [Azure Security Benchmark version 2.0](../security/benchmarks/overview.md) to Azure SignalR. The Azure Security Benchmark
+baseline applies guidance from the [Azure Security Benchmark version 2.0](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure SignalR. The Azure Security Benchmark
 provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
 Security Benchmark and the related guidance applicable to Azure SignalR. **Controls** not applicable to Azure SignalR have been excluded.
@@ -41,12 +41,13 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 Azure SignalR Service, however, allows you to create private endpoints to secure the traffic between resources in your virtual network and Azure SignalR Service.
 
-You can also use Service Tag and configure Network Security Group rules to restrict inbound/outbound traffic to Azure SignalR Service.
+You can also use Service tags and configure network security group rules to restrict inbound/outbound traffic to Azure SignalR Service.
 
-- [Use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
-- [Configure network access control](howto-network-access-control.md)
+- [Use private endpoints for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-private-endpoints)
 
-- [Use service tags for Azure SignalR Service](howto-service-tags.md)
+- [Configure network access control](https://docs.microsoft.com/azure/azure-signalr/howto-network-access-control)
+
+- [Use service tags for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-service-tags)
 
 **Azure Security Center monitoring**: Yes
 
@@ -61,13 +62,13 @@ You can also use Service Tag and configure Network Security Group rules to restr
 
 To connect two or more virtual networks in Azure together, use virtual network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network.
 
-- [Use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
+- [Use private endpoints for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-private-endpoints)
 
-- [What are the ExpressRoute connectivity models](../expressroute/expressroute-connectivity-models.md)
+- [What are the ExpressRoute connectivity models](https://docs.microsoft.com/azure/expressroute/expressroute-connectivity-models)
 
-- [Azure VPN overview](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+- [Azure VPN overview](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
-- [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+- [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -82,10 +83,11 @@ To connect two or more virtual networks in Azure together, use virtual network p
 
 Private access is an additional defense in depth measure in addition to authentication and traffic security offered by Azure services.
 
-- [Understand Azure Private Link](../private-link/private-link-overview.md)
+- [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
-- [Use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
-- [Configure network access control](howto-network-access-control.md)
+- [Use private endpoints for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-private-endpoints)
+
+- [Configure network access control](https://docs.microsoft.com/azure/azure-signalr/howto-network-access-control)
 
 **Azure Security Center monitoring**: Yes
 
@@ -128,9 +130,9 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 
 **Guidance**: Use Azure Virtual Network Service Tags to define network access controls on network security groups or Azure Firewall configured for your Azure SignalR Service resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (For example: AzureSignalR) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [Understand and using Service Tags](../virtual-network/service-tags-overview.md)
+- [Understand and using Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
-- [Use service tags for Azure SignalR Service](howto-service-tags.md)
+- [Use service tags for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-service-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -159,35 +161,31 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41392).
 
-**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
-- Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
+**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in
 
+- Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 - Your organization's resources, such as applications on Azure or your corporate network resources.
+
+Here is the list of built-in roles in Azure SignalR Service:
+
+- [- SignalR Contricutor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-contributor)
+- [- SignalR AccessKey Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-accesskey-reader)
+- [- SignalR App Server (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-app-server-preview)
+- [- SignalR Serverless Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-serverless-contributor-preview)
+- [- SignalR Service Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-owner-preview)
+- [- SignalR Service Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-reader-preview)
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Note: Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
+Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
 
-- [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md)
+- [Tenancy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps)
 
-- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-- [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)
+- [Use external identity providers for application](https://docs.microsoft.com/azure/active-directory/b2b/identity-providers)
 
-- [What is the identity secure score in Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
-
-Here is the list of built-in roles in Azure SignalR Service:
-- [SignalR Contricutor](../role-based-access-control/built-in-roles.md#signalr-contributor)
-
-- [SignalR AccessKey Reader](../role-based-access-control/built-in-roles.md#signalr-accesskey-reader)
-
-- [SignalR App Server (Preview)](../role-based-access-control/built-in-roles.md#signalr-app-server-preview)
-
-- [SignalR Serverless Contributor (Preview)](../role-based-access-control/built-in-roles.md#signalr-serverless-contributor-preview)
-
-- [SignalR Service Owner (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-owner-preview)
-
-- [SignalR Service Reader (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-reader-preview)
+- [What is the identity secure score in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -200,11 +198,11 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 **Guidance**: Azure SignalR Service uses Azure managed identities for non-human accounts such as calling upstreams in serverless scenario, it is recommended to use Azure managed identity feature to access other Azure resources. Azure SignalR Service can natively authenticate to the Azure services/resources that supports Azure AD authentication through pre-defined access grant rule without using credential hard coded in source code or configuration files.
 
-- [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md)
+- [Azure managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-- [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) 
+- [Services that support managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities) 
 
-- [Managed identities for Azure SignalR Service](howto-use-managed-identity.md)
+- [Managed identities for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-use-managed-identity)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -215,9 +213,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41394).
 
-**Guidance**: Azure SignalR Service uses Azure Active Directory to provide identity and access management to SignalR resources. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
+**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) to provide identity and access management to SignalR resources. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
 
-- [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Understand Application SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -228,21 +226,21 @@ Here is the list of built-in roles in Azure SignalR Service:
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41395).
 
-**Guidance**: Azure SignalR Service uses Azure Active Directory that supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
+**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) that supports strong authentication controls through multi-factor authentication, and strong passwordless methods.
 
-Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, selected users or at the per-user level based on sign-in conditions and risk factors.
+- Multi-factor authentication - Enable Azure AD multi-factor authentication and follow Azure Security Center Identity and Access Management recommendations for some best practices in your multi-factor authentication setup. Multi-factor authentication can be enforced on all, selected users or at the per-user level based on sign-in conditions and risk factors.
 
-Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
+- Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
 For administrator and privileged users, ensure the highest level of the strong authentication method are used, followed by rolling out the appropriate strong authentication policy to other users.
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-- [Introduction to passwordless authentication options for Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md)
+- [Introduction to passwordless authentication options for Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
 
-- [Azure AD default password policy](../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
+- [Azure AD default password policy](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts)
 
-- [Eliminate bad passwords using Azure Active Directory Password Protection](../active-directory/authentication/concept-password-ban-bad.md)
+- [Eliminate bad passwords using Azure Active Directory Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -269,17 +267,17 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 Azure Advanced Threat Protection (ATP) is a security solution that can use Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
 
-- [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md)
+- [Audit activity reports in the Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs)
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
+- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-- [Alerts in Azure Security Center's threat intelligence protection module](../security-center/alerts-reference.md)
+- [Alerts in Azure Security Center's threat intelligence protection module](https://docs.microsoft.com//azure/security-center/alerts-reference)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -292,11 +290,11 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Guidance**: Azure SignalR Service supports Azure AD conditional access for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
 
-- [Azure conditional access overview](../active-directory/conditional-access/overview.md)
+- [Azure conditional access overview](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Common conditional access policies](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+- [Common conditional access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
-- [Configure authentication session management with conditional access](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
+- [Configure authentication session management with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -345,19 +343,17 @@ Global Administrator / Company Administrator: Users with this role have access t
 
 Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
-Azure SignalR Service has below highly privileged built-in roles:
-
-- [SignalR Contributor](../role-based-access-control/built-in-roles.md#signalr-contributor)
-
-Limit the number of highly privileged accounts or roles and protect these accounts at an elevated level because users with this privilege can directly or indirectly read and modify every resource in your Azure environment.
+Azure SignalR Service has built-in highly privileged roles. Limit the number of highly privileged accounts or roles and protect these accounts at an elevated level because users with this privilege can directly or indirectly read and modify every resource in your Azure environment.
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
-- [Administrator role permissions in Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+- [SignalR Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-contributor)
 
-- [Use Azure Privileged Identity Management security alerts](../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
+- [Administrator role permissions in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+- [Use Azure Privileged Identity Management security alerts](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts)
+
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -368,17 +364,17 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41421).
 
-**Guidance**: Azure SignalR Service uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
+**Guidance**: Azure SignalR Service uses Azure role-based access control (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
-Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
+Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers, security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
-Azure Components and Reference model /security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151
+Azure Components and Reference model https://docs.microsoft.com/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151
 
-Management Group Access ../governance/management-groups/overview.md#management-group-access
+Management Group Access https://docs.microsoft.com/azure/governance/management-groups/overview#management-group-access
 
-Azure subscription administrators ../cost-management-billing/manage/add-change-subscription-administrator.md
+Azure subscription administrators https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -395,22 +391,22 @@ Azure SignalR Service uses Azure Active Directory (AAD) accounts to manage its r
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
-- [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
+- [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review)
 
-- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
+- [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 Here is the list of built-in roles in Azure SignalR Service:
-- [- SignalR Contricutor](../role-based-access-control/built-in-roles.md#signalr-contributor)
+- [- SignalR Contricutor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-contributor)
 
-- [- SignalR AccessKey Reader](../role-based-access-control/built-in-roles.md#signalr-accesskey-reader)
+- [- SignalR AccessKey Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-accesskey-reader)
 
-- [- SignalR App Server (Preview)](../role-based-access-control/built-in-roles.md#signalr-app-server-preview)
+- [- SignalR App Server (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-app-server-preview)
 
-- [- SignalR Serverless Contributor (Preview)](../role-based-access-control/built-in-roles.md#signalr-serverless-contributor-preview)
+- [- SignalR Serverless Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-serverless-contributor-preview)
 
-- [- SignalR Service Owner (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-owner-preview)
+- [- SignalR Service Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-owner-preview)
 
-- [- SignalR Service Reader (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-reader-preview)
+- [- SignalR Service Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-reader-preview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -425,7 +421,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
-- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -438,9 +434,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Azure SignalR Service is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
-- [What are Azure AD access reviews](../active-directory/governance/access-reviews-overview.md)
+- [What are Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
-- [What is Azure AD entitlement management](../active-directory/governance/entitlement-management-overview.md)
+- [What is Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -453,9 +449,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
-- [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand privileged access workstations](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
 
-- [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a privileged access workstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -470,24 +466,24 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-What is Azure role-based access control (Azure RBAC) ../role-based-access-control/overview.md
+What is Azure role-based access control (Azure RBAC) https://docs.microsoft.com/azure/role-based-access-control/overview
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md) 
+- [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) 
 
 Here is the list of built-in roles in Azure SignalR Service:
-- [SignalR Contricutor](../role-based-access-control/built-in-roles.md#signalr-contributor)
+- [SignalR Contricutor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-contributor)
 
-- [SignalR AccessKey Reader](../role-based-access-control/built-in-roles.md#signalr-accesskey-reader)
+- [SignalR AccessKey Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-accesskey-reader)
 
-- [SignalR App Server (Preview)](../role-based-access-control/built-in-roles.md#signalr-app-server-preview)
+- [SignalR App Server (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-app-server-preview)
 
-- [SignalR Serverless Contributor (Preview)](../role-based-access-control/built-in-roles.md#signalr-serverless-contributor-preview)
+- [SignalR Serverless Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-serverless-contributor-preview)
 
-- [SignalR Service Owner (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-owner-preview)
+- [SignalR Service Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-owner-preview)
 
-- [SignalR Service Reader (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-reader-preview)
+- [SignalR Service Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-reader-preview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -536,9 +532,9 @@ To ensure consistent access control, all types of access control should be align
 
 For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
 
-- [Azure Role Based Access Control (RBAC)](../role-based-access-control/overview.md)
+- [Azure Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
+- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -566,17 +562,13 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Encryption is critical for traffic on external and public networks.
+**Guidance**: Encryption is critical for traffic on external and public networks. Azure SignalR Service uses HTTPS (TLS v1.2) for all inbound and outbound traffic to ensure security. At the underlying infrastructure-level, Azure provides data-in-transit encryption by default for data traffic between Azure data centers.
 
-- Azure SignalR Service uses HTTPS (TLS v1.2) for all inbound and outbound traffic to ensure security.
+- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
-- At the underlying infrastructure, Azure provides data in transit encryption by default for data traffic between Azure data centers.
+- [Information on TLS Security](https://docs.microsoft.com/security/engineering/solving-tls1-problem)
 
-- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
-
-- [Information on TLS Security](/security/engineering/solving-tls1-problem)
-
-- [Double encryption for Azure data in transit](../security/fundamentals/double-encryption.md#data-in-transit)
+- [Double encryption for Azure data in transit](https://docs.microsoft.com/azure/security/fundamentals/double-encryption#data-in-transit)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -613,9 +605,9 @@ Security Reader permissions can be applied broadly to an entire tenant (Root Man
 
 Note: Additional permissions might be required to get visibility into workloads and services. 
 
-- [Overview of Security Reader Role](../role-based-access-control/built-in-roles.md#security-reader)
+- [Overview of Security Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)
 
-- [Overview of Azure Management Groups](../governance/management-groups/overview.md)
+- [Overview of Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/overview)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -628,9 +620,9 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-- [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
+- [Azure Security Center asset inventory management](https://docs.microsoft.com/azure/security-center/asset-inventory)
 
 - [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
@@ -645,11 +637,11 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
+- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
-- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -664,7 +656,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 Remove Azure resources when they are no longer needed.
 
-- [Delete Azure resource group and resource](../azure-resource-manager/management/delete-resource-group.md)
+- [Delete Azure resource group and resource](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -677,7 +669,7 @@ Remove Azure resources when they are no longer needed.
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -734,11 +726,11 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 Audit activity reports in the Azure Active Directory
 
-../active-directory/reports-monitoring/concept-audit-logs.md
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs
 
-- [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
+- [Enable Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -753,9 +745,7 @@ Audit activity reports in the Azure Active Directory
 
 However, Azure SignalR Service logs network traffic that it processes for customer access. Enable resource logs within your deployed offering resources and configure these logs to be sent to a storage account for long term retention and auditing.
 
-- [Resource logs for Azure SignalR Service](signalr-howto-diagnostic-logs.md)
-
-Azure SignalR Service does not produce or process DNS query logs which would need to be enabled.
+- [Resource logs for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-diagnostic-logs)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -768,15 +758,15 @@ Azure SignalR Service does not produce or process DNS query logs which would nee
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure SignalR Service resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
-
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
-
 Enable Azure resource logs for Azure SignalR Service. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [Resource logs for Azure SignalR Service](signalr-howto-diagnostic-logs.md)
+- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
+- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+
+- [Resource logs for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-diagnostic-logs)
+
+- [Understand Azure Security Center data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -795,9 +785,9 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -842,9 +832,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
-- [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Implement security across the enterprise environment](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
+- [Incident response reference guide](https://docs.microsoft.com/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -857,7 +847,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
-- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
 **Azure Security Center monitoring**: Yes
 
@@ -876,9 +866,9 @@ Azure Security Center provides high quality alerts across many Azure assets. You
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-- [How to configure export](../security-center/continuous-export.md)
+- [How to configure export](https://docs.microsoft.com/azure/security-center/continuous-export)
 
-- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -905,13 +895,13 @@ The data sources for investigation include the centralized logging sources that 
 
 Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine's disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+- [Snapshot a Windows machine's disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk)
 
-- [Snapshot a Linux machine's disk](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Snapshot a Linux machine's disk](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigate incidents with Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
+- [Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -928,9 +918,9 @@ Azure Security Center assigns a severity to each alert to help you prioritize wh
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
+- [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -944,11 +934,11 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-- [Configure workflow automation in Security Center](../security-center/workflow-automation.md)
+- [Configure workflow automation in Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-- [Set up automated threat responses in Azure Security Center](../security-center/tutorial-security-incident.md#triage-security-alerts)
+- [Set up automated threat responses in Azure Security Center](https://docs.microsoft.com/azure/security-center/tutorial-security-incident#triage-security-alerts)
 
-- [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
+- [Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -964,17 +954,18 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41428).
 
 **Guidance**: Azure SignalR Service supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
-- [- Azure SignalR Service should use private links](signalr-howto-azure-policy.md)
 
-You can use Azure Blueprints to automate deployment and configuration of services and application environments including Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition.
+- [- Azure SignalR Service should use private links](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-azure-policy)
 
-Working with security policies in Azure Security Center ../security-center/tutorial-security-policy.md
+You can use Azure Blueprints to automate deployment and configuration of services and application environments including Azure Resources Manager templates, Azure role-based access controls (Azure RBAC) controls, and policies, in a single blueprint definition.
 
-Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition
+- [Working with security policies in Azure Security Center](https://docs.microsoft.com/azure/security-center/tutorial-security-policy)
 
-- [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+- [Illustration of Guardrails implementation in Enterprise Scale Landing Zone](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 
-- [Azure Blueprints](../governance/blueprints/overview.md)
+- [Tutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+- [Azure Blueprints](https://docs.microsoft.com/azure/governance/blueprints/overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -985,11 +976,15 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41429).
 
-**Guidance**: - [Use Azure Security Center to monitor your configuration baseline and enforce using Azure Policy [deny] and [deploy if not exist] to enforce secure configuration for Azure SignalR Service. Azure SignalR Service policy includes:- Azure SignalR Service should use private links](signalr-howto-azure-policy.md)
+**Guidance**: Use Azure Security Center to monitor your configuration baseline and enforce using Azure Policy [deny] and [deploy if not exist] to enforce secure configuration for Azure SignalR Service. Azure SignalR Service policy includes:
 
-- [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
+- [- Azure SignalR Service should use private links](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-azure-policy)
 
-- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+Additional information is available at the referenced links.
+
+- [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+
+- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1002,9 +997,9 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on Azure SignalR Service.
 
-- [How to monitor Azure Security Center recommendations](../security-center/security-center-recommendations.md)
+- [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
 
-- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
+- [Security recommendations - a reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1046,7 +1041,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service doesn't support any vulnerability assessments.
+**Guidance**: Not applicable; Azure SignalR Service does not support any vulnerability assessments.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1074,7 +1069,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-- [Penetration testing in Azure](../security/fundamentals/pen-testing.md)
+- [Penetration testing in Azure](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)
 
 - [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
@@ -1221,13 +1216,13 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
-- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
+- [Azure Security Fundamentals - Azure Data security, encryption, and storage](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview)
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - Asset management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1244,11 +1239,11 @@ Carefully balance the need for security separation with the need to enable daily
 
 Ensure that the segmentation strategy is implemented consistently across control types including network security, identity and access models, and application permission/access models, and human process controls.
 
-- [Guidance on segmentation strategy in Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+- [Guidance on segmentation strategy in Azure (video)](https://docs.microsoft.com/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Guidance on segmentation strategy in Azure (document)](/security/compass/governance#enterprise-segmentation-strategy)
+- [Guidance on segmentation strategy in Azure (document)](https://docs.microsoft.com/security/compass/governance#enterprise-segmentation-strategy)
 
-- [Align network segmentation with enterprise segmentation strategy](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+- [Align network segmentation with enterprise segmentation strategy](https://docs.microsoft.com/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1261,7 +1256,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1274,11 +1269,11 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
-- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1306,13 +1301,13 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
 For more information, see the following references:
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-network-security)
 
-- [Azure network security overview](../security/fundamentals/network-overview.md)
+- [Azure network security overview](https://docs.microsoft.com/azure/security/fundamentals/network-overview)
 
-- [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [Enterprise network architecture strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1339,13 +1334,13 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Identity management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure identity management security overview](../security/fundamentals/identity-management-overview.md)
+- [Azure identity management security overview](https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1376,15 +1371,15 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+- [Azure Adoption Framework, logging, and reporting decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
-- [Azure enterprise scale, management, and monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Azure enterprise scale, management, and monitoring](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
 **Azure Security Center monitoring**: Not applicable
 
