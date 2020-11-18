@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -34,7 +34,7 @@ You can use SQL Database auditing to:
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Azure SQL Database auditing is optimized for availability and performance. During very high activity Azure SQL Database or Azure Synapse allows operations to proceed and may not record some audited events.
+> Auditing for Azure SQL Database and Azure Synapse is optimized for availability and performance. During very high activity, or high network load, Azure SQL Database and Azure Synapse allow operations to proceed and may not record some audited events..
 
 ### Auditing limitations
 
@@ -98,6 +98,13 @@ To enable Auditing of Microsoft Support operations (Preview) navigate to **Audit
   > Auditing of Microsoft support operations (Preview) does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
 
 ![Screenshot of Microsoft Support Operations](./media/auditing-overview/support-operations.png)
+
+To review the audit logs of Microsoft Support operations in your Log Analytics workspace, use the following query:
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
 
 ### <a id="audit-storage-destination"></a>Audit to storage destination
 
@@ -199,9 +206,7 @@ If you chose to write audit logs to an Azure storage account, there are several 
 - Additional methods:
 
   - After downloading several files or a subfolder that contains log files, you can merge them locally as described in the SSMS Merge Audit Files instructions described previously.
-  - View blob auditing logs programmatically:
-
-    - [Query Extended Events Files](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
+  - View blob auditing logs programmatically: [Query Extended Events Files](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
 
 ## <a id="production-practices"></a>Production practices
 

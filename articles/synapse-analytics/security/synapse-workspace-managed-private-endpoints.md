@@ -40,11 +40,11 @@ Only a Managed private endpoint in an approved state can send traffic to a given
 
 ## Managed private endpoints for dedicated SQL pool and serverless SQL pool
 
-dedicated SQL pool and serverless SQL pool are analytic capabilities in your Azure Synapse workspace. These capabilities use multi-tenant infrastructure that isn't deployed into the [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md).
+Dedicated SQL pool and serverless SQL pool are analytic capabilities in your Azure Synapse workspace. These capabilities use multi-tenant infrastructure that isn't deployed into the [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md).
 
 When a workspace is created, Azure Synapse creates two Managed private endpoints in the workspace, one for dedicated SQL pool and one for serverless SQL pool. 
 
-These two Managed private endpoints are listed in Azure Synapse Studio. Select **Manage** in the left navigation, then select **Managed Virtual Networks** to see then in the Studio.
+These two Managed private endpoints are listed in Synapse Studio. Select **Manage** in the left navigation, then select **Managed private endpoints** to see them in the Studio.
 
 The Managed private endpoint that targets SQL pool is called *synapse-ws-sql--\<workspacename\>* and the one that targets serverless SQL pool is called *synapse-ws-sqlOnDemand--\<workspacename\>*.
 

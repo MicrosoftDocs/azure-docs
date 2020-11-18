@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
@@ -34,6 +34,12 @@ This article lists common troubleshooting issues in Synapse SQL.
 | Visual Studio object explorer is missing Azure AD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  See [Authentication to Azure Synapse](sql-data-warehouse-authentication.md) to learn more about using Azure Active Directory with dedicated SQL pool. |
 | Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as "Microsoft Azure Synapse Analytics Edition" and engine type is "Microsoft Azure SQL Database". |
 | Generate scripts fails in SSMS                               | Generating a script for dedicated SQL pool fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to **Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false** |
+
+## Data ingestion and preparation
+
+| Issue                                                        | Resolution                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| Exporting empty strings using CETAS will result in NULL values in Parquet and ORC files. Note if you are exporting empty strings from columns with NOT NULL constraints, CETAS will result in rejected records and the export can potentially fail. | Remove empty strings or the offending column in the SELECT statement of your CETAS. |
 
 ## Performance
 
@@ -62,8 +68,6 @@ This article lists common troubleshooting issues in Synapse SQL.
 | :------------------------------------ | :----------------------------------------------------------- |
 | Unsupported SQL Database features     | See [Unsupported table features](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | Unsupported SQL Database data types   | See [Unsupported data types](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
-| DELETE and UPDATE limitations         | See [UPDATE workarounds](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements), [DELETE workarounds](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements) and [Using CTAS to work around unsupported UPDATE and DELETE syntax](sql-data-warehouse-develop-ctas.md). |
-| MERGE statement is not supported      | See [MERGE workarounds](sql-data-warehouse-develop-ctas.md#replace-merge-statements).                  |
 | Stored procedure limitations          | See [Stored procedure limitations](sql-data-warehouse-develop-stored-procedures.md#limitations) to understand some of the limitations of stored procedures. |
 | UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for the syntax we support. |
 
