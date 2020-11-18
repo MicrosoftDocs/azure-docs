@@ -71,11 +71,11 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use Azure Virtual Network (VNet). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
 
 You might use a virtual private network (VPN) gateway to connect individual clients, or your own network, to the VNet
 
-The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview.md) to create a private endpoint behind the VNET. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
+The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview.md) to create a private endpoint behind the VNet. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
 
 For more information, see the following documents:
 
@@ -97,7 +97,7 @@ When deploying models as web services, you can enable transport-layer security (
 
 ## Vulnerability scanning
 
-Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your Azure Container Registry resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+[Azure Security Center](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Audit and manage compliance
 
