@@ -115,22 +115,22 @@ The configuration pane shows the following GitHub repository settings:
 | **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. | `<your repository name>` |
 | **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, its master. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch>` |
 | **Root folder** | Your root folder in your GitHub collaboration branch. |`<your root folder name>` |
-| **Import existing resources to repository** | Specifies whether to import existing resources from the Synapse Studio into an Azure Repos Git repository. Check the box to import your workspace resources (except pools) into the associated Git repository in JSON format. This action exports each resource individually. When this box isn't checked, the existing resources aren't imported. | Selected (default) |
+| **Import existing resources to repository** | Specifies whether to import existing resources from the Synapse Studio into a Git repository. Check the box to import your workspace resources (except pools) into the associated Git repository in JSON format. This action exports each resource individually. When this box isn't checked, the existing resources aren't imported. | Selected (default) |
 | **Import resource into this branch** | Select which branch the resources (sql script, notebook, spark job definition, dataset, dataflow etc.) is imported. 
 
 ### GitHub organizations
 
-Connecting to a GitHub organization requires the organization to grant permission to Azure Data Factory. A user with ADMIN permissions on the organization must perform the below steps to allow data factory to connect.
+Connecting to a GitHub organization requires the organization to grant permission to Synapse studio. A user with ADMIN permissions on the organization must perform the below steps to allow data factory to connect.
 
 #### Connecting to GitHub for the first time
 
-If you're connecting to GitHub from Azure Data Factory for the first time, follow these steps to connect to a GitHub organization.
+If you're connecting to GitHub from Synapse studio for the first time, follow these steps to connect to a GitHub organization.
 
 1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to login into GitHub will appear. 
 1. Login using your user credentials.
-1. You'll be asked to authorize Azure Data Factory as an application called *AzureDataFactory*. On this screen, you will see an option to grant permission for ADF to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
+1. You'll be asked to authorize Synapse as an application called *Azure Synapse*. On this screen, you will see an option to grant permission for Synapse to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
 
-Once you follow these steps, your factory will be able to connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
+Once you follow these steps, your workspace will be able to connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
 
 #### Already connected to GitHub using a personal account
 
@@ -140,7 +140,7 @@ If you have already connected to GitHub and only granted permission to access a 
 
     ![Open GitHub settings](media/author-visually/github-settings.png)
 
-1. Select **Applications**. In the **Authorized OAuth apps** tab, you should see *AzureDataFactory*.
+1. Select **Applications**. In the **Authorized OAuth apps** tab, you should see *Azure Synapse*.
 
     ![Select OAuth apps](media/author-visually/github-organization-select-application.png)
 
