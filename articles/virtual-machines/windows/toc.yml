@@ -39,7 +39,7 @@
   - name: 10 - Enable disaster recovery
     href: tutorial-disaster-recovery.md
   - name: 11 - Manage VMs
-    displayName: scope policy RBAC lock tag
+    displayName: scope policy Azure RBAC lock tag
     href: tutorial-govern-resources.md
   - name: 12 - Track and update VMs
     href: tutorial-config-management.md
@@ -330,7 +330,9 @@
     - name: Backup and disaster recovery for disks
       href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Shared disks
-      href: disks-shared.md
+      href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Disk performance tiers
+      href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Ephemeral OS disks
       href: ../ephemeral-os-disks.md
   - name: Networking
@@ -886,8 +888,10 @@
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
-    - name: Change disk tier
+    - name: Change disk tier - PowerShell/CLI
       href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Change disk tier - Portal
+      href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template

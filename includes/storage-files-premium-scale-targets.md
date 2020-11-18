@@ -20,8 +20,12 @@ ms.author: rogarana
 |Area  |Standard file  |Premium file  |
 |---------|---------|---------|
 |Size     |1 TiB         |4 TiB         |
-|Max IOPS per file      |1,000         |5,000         |
+|Max IOPS per file      |1,000         |Up to 8,000*         |
 |Concurrent handles     |2,000         |2,000         |
-|Egress     |See standard file throughput values         |300 MiB/sec         |
-|Ingress     |See standard file throughput values         |200 MiB/sec         |
+|Egress     |See standard file throughput values         |300 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)**         |
+|Ingress     |See standard file throughput values         |200 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)**        |
 |Throughput     |Up to 60 MiB/sec         |See premium file ingress/egress values         |
+
+\* <sup> Applies to read and write IOs (typically smaller IO sizes <=64K). Metadata operations, other than reads and writes, may be lower. </sup>
+
+\*\* <sup> Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](../articles/storage/files/storage-files-smb-multichannel-performance.md). </sup>
