@@ -97,7 +97,7 @@ You can configure user flow settings like these to control identity experience b
 
 * Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
 * Attributes to be collected from the consumer, such as first name, postal code, or country/region of residency
-* Azure Multi-Factor Authentication (MFA)
+* Azure AD Multi-Factor Authentication (MFA)
 * Customization of the user interface
 * Set of claims in a token that your application receives after the user completes the user flow
 * Session management
