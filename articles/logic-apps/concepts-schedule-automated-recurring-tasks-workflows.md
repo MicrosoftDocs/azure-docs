@@ -152,31 +152,33 @@ Here are various example recurrences that you can set up for the triggers that s
 
 <a name="daylight-savings-standard-time"></a>
 
-## Transition between daylight savings time and standard time
+## Recurrence for daylight savings time and standard time
 
-Built-in recurrence-based triggers always honor the schedule that you set, including any time zone that you select. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight savings time and one hour back for standard time. To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect.
+Recurrence-based built-in triggers honors the schedule that you set, including any time zone that you specify. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight savings time and one hour back for standard time. To prevent this shift and always use the start time that you set, make sure that you select a time zone.
 
-For example, suppose that you have two logic apps that both run daily in the Central US & Canada (UTC-06:00) time, but one has a 1:30 AM local start time and the other has a 2:30 AM local start times. What happens when the time rolls back one hour or rolls forward one hour?
+For example, suppose that you have two logic apps that both run daily - one starts at 1:30 AM local and the other starts at 2:30 AM local time. If you add a time zone, the recurrence respects the daily interval and continues running at the correct local time when the daylight savings time or standard time change happens by adjusting 23, 24, or 25 hours as appropriate.
 
-For the logic app with the 1:30 AM local start time, you can prevent the shift by selecting a time zone. The recurrence respects the daily interval by adjusting to 23, 24, or 25 hours as appropriate. The logic app still runs at the correct local time.
+What happens when the time rolls back one hour or rolls forward one hour?
+
+For the logic app with the 1:30 AM local start time, 
 
 For the 2:30 local start time, which falls between 2:00 AM - 3:00 AM, the time change might cause a problem because during this interval, the start time might become invalid or ambiguous. Your logic app still runs daily, but possibly not in the way that you expect. If you have multiple logic apps within same ambiguous interval, they might overlap. So, you might want to avoid using a local start time between 2:00 AM - 3:00 AM.
 
 To illustrate further, this simulation shows what happens in 2019, which runs the way that you'd expect: one hour apart without skipped or duplicate runs. However, the problematic part happens when the time shifts to 3:30 AM.
 
-* Roll back one hour on 03/11/2019
+* Roll forward on hour on 03/10/2019
 
-  | Date | Time (local) | Time (UTC) |
-  |------|--------------|------------|
-  | 03/09/2019 | 1:30:00 AM | 7:30:00 AM |
-  | 03/09/2019 | 2:30:00 AM | 8:30:00 AM |
-  | 03/10/2019 | 1:30:00 AM | 7:30:00 AM |
-  | 03/10/2019 | 3:30:00 AM | 8:30:00 AM |
-  | **03/11/2019** | **1:30:00 AM** | **6:30:00 AM** |
-  | **03/11/2019** | **2:30:00 AM** | **7:30:00 AM** |
-  | **03/12/2019** | **1:30:00 AM** | **6:30:00 AM** |
-  | **03/12/2019** | **2:30:00 AM** | **7:30:00 AM** |
-  ||||
+  | Date | Logic app | Time (local) | Time (UTC) |
+  |------|-----------|--------------|------------|
+  | 03/09/2019 | #1 | 1:30:00 AM | 7:30:00 AM |
+  | 03/09/2019 | #2 | 2:30:00 AM | 8:30:00 AM |
+  | 03/10/2019 | #1 | 1:30:00 AM | 7:30:00 AM |
+  | 03/10/2019 | #2 | 3:30:00 AM | 8:30:00 AM |
+  | **03/11/2019** | #1 | **1:30:00 AM** | **6:30:00 AM** |
+  | **03/11/2019** | #2 | **2:30:00 AM** | **7:30:00 AM** |
+  | **03/12/2019** | #1 | **1:30:00 AM** | **6:30:00 AM** |
+  | **03/12/2019** | #2 | **2:30:00 AM** | **7:30:00 AM** |
+  |||||
 
 * Roll forward one hour on 11/03/2019
 
