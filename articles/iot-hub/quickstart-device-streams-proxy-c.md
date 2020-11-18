@@ -21,6 +21,22 @@ Azure IoT Hub currently supports device streams as a [preview feature](https://a
 
 This quickstart describes the setup for tunneling Secure Shell (SSH) traffic (using port 22) through device streams. The setup for Remote Desktop Protocol (RDP) traffic is similar and requires a simple configuration change. Because device streams are application- and protocol-agnostic, you can modify this quickstart to accommodate other types of application traffic.
 
+## Prerequisites
+
+* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
+
+  * Central US
+  * Central US EUAP
+  * North Europe
+  * Southeast Asia
+
+* Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the [Desktop development with C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* Install the latest version of [Git](https://git-scm.com/download/).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 ## How it works
 
 The following figure illustrates how the device- and service-local proxy programs enable end-to-end connectivity between the SSH client and SSH daemon processes. During public preview, the C SDK supports device streams on the device side only. As a result, this quickstart covers instructions to run only the device-local proxy application. To build and run the accompanying service-side application, follow the instructions in one of the following quickstarts:
@@ -42,22 +58,6 @@ The following figure illustrates how the device- and service-local proxy program
 > SSH traffic that's sent over a device stream is tunneled through the IoT hub's streaming endpoint rather than sent directly between service and device. For more information, see the [benefits of using Iot Hub device streams](iot-hub-device-streams-overview.md#benefits). Furthermore, the figure illustrates the SSH daemon that's running on the same device (or machine) as the device-local proxy. In this quickstart, providing the SSH daemon IP address allows the device-local proxy and the daemon to run on different machines as well.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## Prerequisites
-
-* The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
-
-  * Central US
-  * Central US EUAP
-  * North Europe
-  * Southeast Asia
-
-* Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the [Desktop development with C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
-* Install the latest version of [Git](https://git-scm.com/download/).
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Prepare the development environment
 

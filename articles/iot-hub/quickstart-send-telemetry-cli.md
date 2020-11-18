@@ -8,6 +8,7 @@ ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
 ---
+
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
