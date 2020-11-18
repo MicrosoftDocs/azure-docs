@@ -36,7 +36,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 - **SDK Client Libraries for the 2.1 release**
 PATRICK Please Update this one - The [client libraries](quickstarts/client-library-21.md) for NET, Python, Java, and JavaScript have entered General Availability. 
-- **New languages supported Traditional Chinese, Japanese and Korean**, the following new [languages](language-support.md) are now supported: for `Layout` and `Custom`: Chinese Traditional (`zh-Hant`), Chinese Simplified (`zh-Hans`), Japanese (`ja`) and Korean (`ko`)
+- **New language supported Japanese **, the following new [languages](language-support.md) are now supported: for `Layout` and `Custom`: Japanese (`ja`) 
 - **Text line style Handwritten indication (Latin languages only)**
 Form Recognizer now utputs an appearance object classifying whether each text line is handwriting style or not, along with a confidence score. This feature is supported only for Latin languages.
 - **Quality improvements** for extraction improvements including single digit extraction improvements. 
