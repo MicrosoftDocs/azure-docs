@@ -163,6 +163,8 @@ The following table shows the configuration settings for a command capability:
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 
+To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](concepts-telemetry-properties-commands.md#commands).
+
 #### Offline commands
 
 You can choose queue commands if a device is currently offline by enabling the **Queue if offline** option for a command in the device template.
