@@ -248,7 +248,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 1. Click on Test this application in Azure portal and you should be automatically signed in to the NetSuite for which you set up the SSO
 
-1. You can use Microsoft Access Panel. When you click the NetSuite tile in the Access Panel, you should be automatically signed in to the NetSuite for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. You can use Microsoft My Apps. When you click the NetSuite tile in the My Apps, you should be automatically signed in to the NetSuite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
