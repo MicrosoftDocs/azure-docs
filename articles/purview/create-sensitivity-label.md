@@ -184,7 +184,6 @@ For more information on how to set up scans on various assets in Azure Purview, 
 |**Azure Files**   |[Register and scan Azure Files](register-scan-azure-files-storage-source.md)         |
 |**Azure SQL Databases**|[Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
 |**Storage accounts behind firewalls**     |[Scan Storage Accounts behind a Firewall in Azure Purview](scan-sqlresource-firewall.md)         |
-|**Teradata**   |[Register and scan Teradata source (Preview)](register-scan-teradata-source.md)         |
 | | |
 
 ## View labels on assets

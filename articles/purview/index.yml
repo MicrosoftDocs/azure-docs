@@ -70,8 +70,6 @@ landingContent:
       links:
         - text: Scan SQL server on-premises
           url: starter-kit-tutorial-1.md # update link
-        - text: Scan Teradata
-          url: starter-kit-tutorial-1.md # update link
         - text: Scan SAP S/4 HANA
           url: starter-kit-tutorial-1.md # update link
         - text: Scan SAP ECC

@@ -71,5 +71,4 @@ Then select **Delete**.
 For information on registering data sources of various types, and on creating scans, see: 
 
 - [Azure Files](register-scan-azure-files-storage-source.md)
-- [Teradata](register-scan-teradata-source.md)
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md)
