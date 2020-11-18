@@ -35,6 +35,7 @@ ms.reviewer: assafi
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature and Text Analytics for health, you will need a Text Analytics resource with the standard (S) pricing tier.
+* To use Text Analytics for health, you will also need to [request access to the gated preview](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health#request-access-to-the-public-preview). 
 
 ## Setting up
 
