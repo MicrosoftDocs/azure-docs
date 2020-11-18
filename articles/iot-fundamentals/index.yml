@@ -200,28 +200,6 @@ conceptualContent:
         url: ../iot-accelerators/index.yml
         text: See more
 
-# additionalContent section (optional)
-additionalContent:
-  # Supports up to 3 sections
-  sections:
-    - title: sectiontitle # < 60 chars (optional)
-      summary: sectionsummary # < 160 chars (optional)
-      items:
-        # Card
-        - title: cardtitle1
-          summary: cardsummary1
-          url: file1.md OR https://docs.microsoft.com/file1
-        # Card
-        - title: cardtitle2
-          summary: cardsummary2
-          url: file1.md OR https://docs.microsoft.com/file2
-        # Card
-        - title: cardtitle3
-          summary: cardsummary3
-          url: file1.md OR https://docs.microsoft.com/file3
-  # footer (optional)
-  footer: "footertext [linktext](https://docs.microsoft.com/footerfile)"
-
 tools:
   title: Azure IoT SDKs
   summary: Reference documentation for Azure IoT SDKs
