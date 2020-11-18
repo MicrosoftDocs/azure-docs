@@ -198,6 +198,9 @@ Complete these steps to install the SDK:
     }
     ```
 
+>[!WARNING]
+>Android Studio may not have imported the required classes.  As a result, the code will have some unresolvable references. To import the required classes, simply hover over each unresolved reference and press`Alt + Enter` (Option + Return on a Mac).
+
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
 :::image type="content" source="./media/how-to-use-android-map-control-library/android-map.png" border="true" alt-text="Azure Maps in Android application":::

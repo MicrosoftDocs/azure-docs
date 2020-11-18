@@ -54,14 +54,17 @@ The `mapcontrol_style` attribute above sets the map style to **grayscale_dark**.
 
 The map style can also be set in the MainActivity class. Open the `java > com.example.myapplication > MainActivity.java` file, and copy the following code snippet into the **onCreate()** method. This code sets the map style to **satellite_road_labels**.
 
+>[!WARNING]
+>Android Studio may not have imported the required classes.  As a result, the code will have some unresolvable references. To import the required classes, simply hover over each unresolved reference and press`Alt + Enter` (Option + Return on a Mac).
+
 ```Java
 mapControl.onReady(map -> {
 
     //Set the camera of the map.
-    map.setCamera(CameraOptions.center(47.64, -122.33), CameraOptions.zoom(14));
+    map.setCamera(center(47.64, -122.33), zoom(14));
 
     //Set the style of the map.
-    map.setStyle((StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS)));
+    map.setStyle((style(SATELLITE_ROAD_LABELS)));
        
 });
 ```
