@@ -126,11 +126,11 @@ SFTP-SSH triggers poll the SFTP file system and look for any file that was chang
 
 When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
 
-<a name="daylight-savings-standard-time"></a>
+<a name="daylight-saving-standard-time"></a>
 
-## Shift between daylight savings time and standard time
+## Shift between daylight saving time and standard time
 
-Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Recurrence-based connection triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* other factors that might produce unexpected behavior, for example, not adjusting for events such as rolling one hour forward for daylight savings time and rolling one hour back for standard time. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
+Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Recurrence-based connection triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* other factors that might produce unexpected behavior, for example, not adjusting for events such as rolling one hour forward for daylight saving time and rolling one hour backward for standard time. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 

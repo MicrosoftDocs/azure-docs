@@ -125,11 +125,11 @@ This example shows how a Recurrence trigger definition might look in an underlyi
 }
 ```
 
-<a name="daylight-savings-standard-time"></a>
+<a name="daylight-saving-standard-time"></a>
 
-## Shift between daylight savings time and standard time
+## Shift between daylight saving time and standard time
 
-Recurrence-based built-in triggers honors the schedule that you set, including any time zone that you specify. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight savings time and one hour back for standard time. To prevent this shift and always use the start time that you set, make sure that you select a time zone. For more information and examples, see [Recurrence for daylight savings time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-savings-standard-time).
+Recurrence-based built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight saving time and one hour backward for standard time. To prevent this shift and always use your specified start time, make sure that you select a time zone. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
 ## Next steps
 

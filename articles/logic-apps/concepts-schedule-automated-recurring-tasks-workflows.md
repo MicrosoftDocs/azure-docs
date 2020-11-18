@@ -150,48 +150,67 @@ Here are various example recurrences that you can set up for the triggers that s
 | Recurrence | Run every hour for one day per month | 1 | Month | {see note} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | If you don't specify a start date and time, this schedule uses the creation date and time. To control the minutes for the recurrence schedule, specify the minutes of the hour, a start time, or use the creation time. For example, if the start time or creation time is 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. |
 |||||||||
 
-<a name="daylight-savings-standard-time"></a>
+<a name="daylight-saving-standard-time"></a>
 
-## Recurrence for daylight savings time and standard time
+> [!NOTE] 
+> After daylight saving time takes effect on 03/11/2019, the "UTC-6:00" time zone becomes "UTC-5:00". , and the local time shifts to 3:30 AM because the . Start times that fall between 2:00 AM - 3:00 AM might cause a problem because during this interval, the start time might become invalid or ambiguous. Your logic app still runs daily, but perhaps not in the way that you expect. If you have multiple logic apps within the same ambiguous interval, they might overlap. You might want to avoid using a start time between 2:00 AM - 3:00 AM.
 
-Recurrence-based built-in triggers honors the schedule that you set, including any time zone that you specify. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight savings time and one hour back for standard time. To prevent this shift and always use the start time that you set, make sure that you select a time zone.
+## Recurrence for daylight saving time and standard time
 
-For example, suppose that you have two logic apps that both run daily - one starts at 1:30 AM local and the other starts at 2:30 AM local time. If you add a time zone, the recurrence respects the daily interval and continues running at the correct local time when the daylight savings time or standard time change happens by adjusting 23, 24, or 25 hours as appropriate.
+Recurrence-based built-in triggers honor the schedule that you set, including any time zone that you specify, but what happens when daylight saving time (DST) starts and ends? If you don't select a time zone, the start time shifts one hour forward for daylight saving time and one hour backward for standard time.
 
-What happens when the time rolls back one hour or rolls forward one hour?
+To prevent this shift so that your logic app always uses your specified start time, make sure that you select a time zone. That way, the recurrence schedule respects the daily interval and continues running at the specified start time by adjusting as necessary to 23 hours on the day when DST starts, 25 hours on the day that DST ends, and 24 hours between those days.
 
-For the logic app with the 1:30 AM local start time, 
+For example, suppose that you have two daily-running logic apps that are set in the Central Time Zone, one starts at 1:30 AM local time and the other starts an hour later at 2:30 AM local time. When the time shifts, what happens?
 
-For the 2:30 local start time, which falls between 2:00 AM - 3:00 AM, the time change might cause a problem because during this interval, the start time might become invalid or ambiguous. Your logic app still runs daily, but possibly not in the way that you expect. If you have multiple logic apps within same ambiguous interval, they might overlap. So, you might want to avoid using a local start time between 2:00 AM - 3:00 AM.
+* Do the triggers run at all when the time shifts forward one hour?
 
-To illustrate further, this simulation shows what happens in 2019, which runs the way that you'd expect: one hour apart without skipped or duplicate runs. However, the problematic part happens when the time shifts to 3:30 AM.
+* Do the triggers run twice when the time shifts backward one hour?
 
-* Roll forward on hour on 03/10/2019
+This simulation shows what happened in 2019 when you specify the time zone. Both logic apps run the way that you'd expect, one hour apart without skipped or duplicate runs.
 
-  | Date | Logic app | Time (local) | Time (UTC) |
-  |------|-----------|--------------|------------|
-  | 03/09/2019 | #1 | 1:30:00 AM | 7:30:00 AM |
-  | 03/09/2019 | #2 | 2:30:00 AM | 8:30:00 AM |
-  | 03/10/2019 | #1 | 1:30:00 AM | 7:30:00 AM |
-  | 03/10/2019 | #2 | 3:30:00 AM | 8:30:00 AM |
-  | **03/11/2019** | #1 | **1:30:00 AM** | **6:30:00 AM** |
-  | **03/11/2019** | #2 | **2:30:00 AM** | **7:30:00 AM** |
-  | **03/12/2019** | #1 | **1:30:00 AM** | **6:30:00 AM** |
-  | **03/12/2019** | #2 | **2:30:00 AM** | **7:30:00 AM** |
-  |||||
+* Shift one hour forward on 03/10/2019
 
-* Roll forward one hour on 11/03/2019
+  * Logic app #1
+
+  | Date | Time (local) | Time (UTC) |
+  |------|--------------|------------|
+  | 03/08/2019 | 1:30:00 AM | 6:30:00 AM |
+  | 03/09/2019 | 1:30:00 AM | 6:30:00 AM |
+  | 03/10/2019 | 1:30:00 AM | 7:30:00 AM |
+  | 03/11/2019 | 1:30:00 AM | 7:30:00 AM |
+  ||||
+
+  * Logic app #2
+
+  | Date | Time (local) | Time (UTC) |
+  |------|--------------|------------|
+  | 03/08/2019 | 2:30:00 AM | 7:30:00 AM |
+  | 03/09/2019 | 2:30:00 AM | 7:30:00 AM |
+  | 03/10/2019 | 2:30:00 AM | 8:30:00 AM |
+  | 03/11/2019 | 2:30:00 AM | 8:30:00 AM |
+  ||||
+
+* Shift one hour backward on 11/03/2019
+
+  * Logic app #1
 
   | Date | Time (local) | Time (UIC) |
   |------|------------  |------------|
-  | 11/01/2019 | 1:30:00 AM | 6:30:00 AM |
+  | 11/01/2019 | 1:30:00 AM | 8:30:00 AM |
+  | 11/02/2019 | 1:30:00 AM | 8:30:00 AM |
+  | 11/03/2019 | 1:30:00 AM | 7:30:00 AM |
+  | 11/04/2019 | 1:30:00 AM | 7:30:00 AM |
+  ||||
+
+  * Logic app #2
+
+  | Date | Time (local) | Time (UIC) |
+  |------|--------------|------------|
   | 11/01/2019 | 2:30:00 AM | 7:30:00 AM |
-  | 11/02/2019 | 1:30:00 AM | 6:30:00 AM |
   | 11/02/2019 | 2:30:00 AM | 7:30:00 AM |
-  | **11/03/2019** | **1:30:00 AM** | **7:30:00 AM** |
-  | **11/03/2019** | **2:30:00 AM** | **8:30:00 AM** |
-  | **11/04/2019** | **1:30:00 AM** | **7:30:00 AM** |
-  | **11/04/2019** | **2:30:00 AM** | **8:30:00 AM** |
+  | 11/03/2019 | 2:30:00 AM | 7:30:00 AM |
+  | 11/04/2019 | 2:30:00 AM | 7:30:00 AM |
   ||||
 
 <a name="run-once"></a>
