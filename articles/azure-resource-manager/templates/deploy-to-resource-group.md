@@ -78,7 +78,7 @@ When deploying to a resource group, you can deploy resources to:
 
 * the target resource group from the operation
 * other resource groups in the same subscription or other subscriptions
-* the subscription for the resource group or other subscription
+* any subscription in the tenant
 * the tenant for the resource group
 * [extension resources](scope-extension-resources.md) can be applied to resources
 
@@ -108,7 +108,15 @@ To deploy resources to a resource group in a different subscription, add a neste
 
 ### Scope to subscription
 
-To deploy resources to a subscription, add a nested deployment and include the `subscriptionId` property. The subscription can be the subscription for the target resource group, or any other subscription in the tenant. 
+To deploy resources to a subscription, add a nested deployment and include the `subscriptionId` property. The subscription can be the subscription for the target resource group, or any other subscription in the tenant. Also, set the `location` property for the nested deployment.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+### Scope to tenant
+
+You can create resources at the tenant by adding a nested deployment with the `scope` set to `/`. Also, set the `location` property for the nested deployment.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
 ## Cross resource groups
 
