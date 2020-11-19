@@ -51,7 +51,7 @@ Here's what this sample configuration XML won't do:
 The Office Deployment Tool contains setup.exe. To install Office, run the following command in a command line:
 
 ```cmd
-Setup.exe /configure configuration.xml
+setupodt.exe /configure configuration.xml
 ```
 
 #### Sample configuration.xml
