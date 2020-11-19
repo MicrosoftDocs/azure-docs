@@ -117,8 +117,6 @@ Select a scan rule set to be used by your scan from the list of available
 
 When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.
 
-:::image type="content" source="./media/register-scan-azure-synapse-analytics/review-save-run.png" alt-text="Screenshot showing review your scan":::
-
 ### Edit a scan
 
 Select a scan and click **Edit** to edit the selected scan. You can only edit one scan at a time.

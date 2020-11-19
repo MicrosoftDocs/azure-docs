@@ -32,7 +32,7 @@ To register a new Azure Cosmos Database (SQL API) account in your data catalog, 
 1. Select **+ New**.
 1. On **Register sources**, select **Azure Cosmos Database (SQL API)**. Select **Continue**.
 
-:::image type="content" source="media/register-scan-azure-blob-storage-source/register-new-data-source.png" alt-text="register new data source" border="true":::
+:::image type="content" source="media/register-scan-azure-cosmos-database/register-new-data-source.png" alt-text="register new data source" border="true":::
 
 On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following:
 
@@ -42,7 +42,7 @@ On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following
    1. Or, you can select **Enter manually** and enter a service endpoint (URL).
 1. **Finish** to register the data source.
 
-:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="register sources options" border="true":::
+:::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="register sources options" border="true":::
 
 ## Set up authentication for a scan
 
