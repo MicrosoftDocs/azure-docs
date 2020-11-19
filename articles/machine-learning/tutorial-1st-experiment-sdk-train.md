@@ -241,7 +241,7 @@ This time when you visit the studio, go to the **Metrics** tab where you can now
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
 > [!div class="nextstepaction"]
-> [I submitted the run again](?success=resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQ)
+> [I resubmitted the run](?success=resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 ## Next steps
 
