@@ -153,7 +153,7 @@ print("Done sending messages")
 print("-----------------------")
 
 with servicebus_client:
-    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
+    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
     with receiver:
         for msg in receiver:
             print("Received: " + str(msg))

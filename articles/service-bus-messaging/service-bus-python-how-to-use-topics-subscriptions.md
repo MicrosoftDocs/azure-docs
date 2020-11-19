@@ -155,7 +155,7 @@ print("Done sending messages")
 print("-----------------------")
 
 with servicebus_client:
-    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME)
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
     with receiver:
         for msg in receiver:
             print("Received: " + str(msg))
