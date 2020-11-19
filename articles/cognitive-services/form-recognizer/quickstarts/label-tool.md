@@ -71,8 +71,6 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 
 
 
-
-
 1. Get the sample labeling tool container with the `docker pull` command.
 
     # [v2.0](#tab/v2-0)    
@@ -81,7 +79,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     # [v2.1 preview](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
