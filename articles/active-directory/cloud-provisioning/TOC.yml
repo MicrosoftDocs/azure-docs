@@ -74,7 +74,7 @@
     
 - name: Reference
   items:
-  - name: Azure AD Connect cloud provisioning agent version history
+  - name: Azure AD Connect Cloud Sync agent version history
     href: reference-version-history.md
   - name: Azure AD Connect cloud provisioning FAQ
     href: reference-cloud-provisioning-faq.md
