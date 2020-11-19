@@ -51,7 +51,7 @@
     href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
   - name: Connect a device module
     href: tutorial-migrate-device-to-module.md
-  - name: Connect and analyze data with Time Series Insights Gen2
+  - name: Preview: Connect and analyze data with Time Series Insights Gen2
     href: tutorial-configure-tsi.md
 - name: Concepts
   items:
