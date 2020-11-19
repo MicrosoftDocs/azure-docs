@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 07/27/2020 
+ms.date: 11/19/2020 
 ms.custom: devx-track-azurecli
 ---
 # Use tags to organize your Azure resources and management hierarchy
@@ -231,6 +231,127 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
 ## Azure CLI
+
+### Apply tags
+
+Azure CLI offers two commands for applying tags - [az tag create](/cli/azure/tag#az_tag_create) and [az tag update](/cli/azure/tag#az_tag_update). You must have Azure CLI 2.10.0 or later. You can check your version with `az version`. To update or install, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+The **az tag create** replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
+
+The following example applies a set of tags to a storage account:
+
+```azurecli-interactive
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
+```
+
+When the command completes, notice that the resource has two tags.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+If you run the command again but this time with different tags, notice that the earlier tags are removed.
+
+```azurepowershell-interactive
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
+```
+
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+To add tags to a resource that already has tags, use **az tag update**. Set the **--operation** parameter to **Merge**.
+
+```azurepowershell-interactive
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
+```
+
+Notice that the two new tags were added to the two existing tags.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+Each tag name can have only one value. If you provide a new value for a tag, the old value is replaced even if you use the merge operation. The following example changes the Status tag from Normal to Green.
+
+```azurepowershell-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+When you set the **--operation** parameter to **Replace**, the existing tags are replaced by the new set of tags.
+
+```azurepowershell-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+Only the new tags remain on the resource.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+The same commands also work with resource groups or subscriptions. You pass in the identifier for the resource group or subscription you want to tag.
+
+To add a new set of tags to a resource group, use:
+
+```azurepowershell-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+To update the tags for a resource group, use:
+
+```azurepowershell-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+To add a new set of tags to a subscription, use:
+
+```azurepowershell-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+To update the tags for a subscription, use:
+
+```azurepowershell-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### Apply tags
 
