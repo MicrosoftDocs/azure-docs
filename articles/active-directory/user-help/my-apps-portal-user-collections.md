@@ -1,6 +1,6 @@
 ---
-title: Locate & use apps on the My Apps portal - Azure AD
-description: Learn how to find the My Apps portal and then how to access your organization's cloud-based apps.
+title: Collections (preview) in the My Apps portal - Azure AD
+description: Learn how to create, edit, delete, hide, and show app collections in My Apps.
 services: active-directory
 author: curtand
 manager: daveba
@@ -15,7 +15,7 @@ ms.custom: "user-help, seo-update-azuread-jan"
 ---
 
 
-# User collections in My Apps (preview)
+# User collections (preview) in My Apps
 
 My Apps is your one-stop shop for launching and managing all of your work or school apps. Create collections to organize your apps and make it easier to find the apps you need.
 
@@ -92,8 +92,7 @@ To hide a collection:
 
 1. Here you will see all the collections you have access to whether they were created by you or your admin. Find the collection you want to hide, hit the ‘…’, then ‘Hide’. Hidden collections show up in the same list of collections just under the Hidden drop down.  
 
-    :::image type="content" source="media/my-apps-portal-user-collections/
-12-hide-collection.png" alt-text="The collection ellipsis menu contains the Hide command":::
+    :::image type="content" source="media/my-apps-portal-user-collections/12-hide-collection.png" alt-text="The collection ellipsis menu contains the Hide command":::
 
 ## Make hidden collections visible
 
