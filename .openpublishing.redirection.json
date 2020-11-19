@@ -1116,6 +1116,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/disks-shared.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-shared.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/disks-ade-sse-conversion-powershell.md",
       "redirect_url": "/azure/virtual-machines/disk-encryption",
       "redirect_document_id": false
@@ -1380,11 +1390,6 @@
       "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/saas-apps/rstudio-server-pro-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/rstudio-connect-tutorial",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/automation/change-tracking.md",
@@ -4332,6 +4337,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/search-get-started-postman.md",
+      "redirect_url": "/azure/search/search-get-started-rest",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-create-index-portal.md",
       "redirect_url": "/azure/search/search-what-is-an-index",
       "redirect_document_id": true
@@ -6160,7 +6170,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/programmatically-create-subscription.md",
-      "redirect_url": "/azure/azure-resource-manager/management/programmatically-create-subscription",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": false
     },
     {
@@ -13483,6 +13493,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-cli.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-errors.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-overview.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-plan.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-ps.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-errors.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-overview.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-plan.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-plan",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-faq.md",
       "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-faq",
       "redirect_document_id": false
@@ -16674,26 +16724,6 @@
     },
     {
       "source_path": "articles/documentdb/documentdb-automation-region-management.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-gremlin.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-table.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },
@@ -33284,7 +33314,12 @@
     },
     {
       "source_path": "articles/app-service/app-service-security-attributes.md",
-      "redirect_url": "/azure/app-service/app-service-security-controls",
+      "redirect_url": "/azure/app-service/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-security-controls.md",
+      "redirect_url": "/azure/app-service/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -37314,7 +37349,12 @@
     },
     {
       "source_path": "articles/active-directory/application-proxy-ping-access.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
       "redirect_document_id": false
     },
     {
@@ -38953,8 +38993,13 @@
     },
     {
       "source_path": "articles/active-directory/application-proxy-back-end-ping-access-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-proxy-config-how-to.md",
@@ -57883,8 +57928,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/management/programmatically-create-subscription.md",
-      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
+      "source_path": "articles/cost-management-billing/manage/programmatically-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": true
     },
     {
@@ -59332,11 +59377,21 @@
       "source_path": "articles/azure-monitor/app/docker.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-monitor/app/kubernetes.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    }  
+    },
+    {
+      "source_path": "articles/azure-monitor/app/powershell-alerts.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/how-to-create-transform",
+      "redirect_document_id": false
+    }
   ]
 }
