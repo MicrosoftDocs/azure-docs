@@ -4,8 +4,8 @@ description: Deploy an agent performing automatic refresh of Key Vault certifica
 services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
-
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin

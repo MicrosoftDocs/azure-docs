@@ -7,9 +7,9 @@ author: mgoedtel
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

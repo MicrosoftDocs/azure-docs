@@ -8,9 +8,8 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure, Oracle, Data Guard'
-
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
