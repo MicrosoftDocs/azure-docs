@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.author: banders
 ---
 
@@ -83,7 +83,7 @@ Use the table below to identify the EA APIs that you currently use and the repla
 | Price Sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) – use for negotiated prices <p> [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) – use for retail prices |
 | Reserved Instance Details | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | Microsoft.CostManagement/generateReservationDetailsReport |
 | Reserved Instance Summary | [/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries/list#reservationsummariesdailywithbillingaccountid) |
-| Reserved Instance Recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)[/SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
+| Reserved Instance Recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)<p>[/SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Reserved Instance Charges | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | [Microsoft.Consumption/reservationTransactions](/rest/api/consumption/reservationtransactions/list) |
 
 ## Migration details by API
@@ -147,37 +147,37 @@ The same data is now available in the `properties` field of the new API response
 
 ```json
 {
-  “id”: “/providers/Microsoft.Billing/billingAccounts/123456/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/balances/balanceId1”,
-  “name”: “balanceId1”,
-  “type”: “Microsoft.Consumption/balances”,
-  “properties”: {
-    “currency”: “USD  “,
-    “beginningBalance”: 3396469.19,
-    “endingBalance”: 2922371.02,
-    “newPurchases”: 0,
-    “adjustments”: 0,
-    “utilized”: 474098.17,
-    “serviceOverage”: 0,
-    “chargesBilledSeparately”: 0,
-    “totalOverage”: 0,
-    “totalUsage”: 474098.17,
-    “azureMarketplaceServiceCharges”: 609.82,
-    “billingFrequency”: “Month”,
-    “priceHidden”: false,
-    “newPurchasesDetails”: [
+  "id": "/providers/Microsoft.Billing/billingAccounts/123456/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/balances/balanceId1",
+  "name": "balanceId1",
+  "type": "Microsoft.Consumption/balances",
+  "properties": {
+    "currency": "USD  ",
+    "beginningBalance": 3396469.19,
+    "endingBalance": 2922371.02,
+    "newPurchases": 0,
+    "adjustments": 0,
+    "utilized": 474098.17,
+    "serviceOverage": 0,
+    "chargesBilledSeparately": 0,
+    "totalOverage": 0,
+    "totalUsage": 474098.17,
+    "azureMarketplaceServiceCharges": 609.82,
+    "billingFrequency": "Month",
+    "priceHidden": false,
+    "newPurchasesDetails": [
       {
-        “name”: “Promo Purchase”,
-        “value”: 1
+        "name": "Promo Purchase",
+        "value": 1
       }
     ],
-    “adjustmentDetails”: [
+    "adjustmentDetails": [
       {
-        “name”: “Promo Credit”,
-        “value”: 1.1
+        "name": "Promo Credit",
+        "value": 1.1
       },
       {
-        “name”: “SIE Credit”,
-        “value”: 1
+        "name": "SIE Credit",
+        "value": 1
       }
     ]
   }
@@ -260,7 +260,7 @@ Old data is now in the `pricesheets` field of the new API response. Meter detail
         "unitOfMeasure": "100 Hours",
         "includedQuantity": 100,
         "partNumber": "XX-11110",
-        "unitPrice": 0.00328,
+        "unitPrice": 0.00000,
         "currencyCode": "EUR",
         "offerId": "OfferId 1",
         "meterDetails": {
@@ -269,7 +269,7 @@ Old data is now in the `pricesheets` field of the new API response. Meter detail
           "unit": "GB",
           "meterLocation": "Zone 2",
           "totalIncludedQuantity": 0,
-          "pretaxStandardRate": 0.138
+          "pretaxStandardRate": 0.000
         }
       }
     ]
@@ -324,7 +324,7 @@ The response of the older synchronous based Reservation Details API is below.
 _Old response_:
 
 ```json
-[{
+{
     "reservationOrderId": "00000000-0000-0000-0000-000000000000",
     "reservationId": "00000000-0000-0000-0000-000000000000",
     "usageDate": "2018-02-01T00:00:00",
@@ -453,7 +453,7 @@ _Old response_:
 
 ```json
 [{
-    "subscriptionId": "d143f4db-5a12-46b9-ba15-9bff298b8f45",
+    "subscriptionId": "1111111-1111-1111-1111-111111111111",
     "lookBackPeriod": "Last7Days",
     "meterId": "2e3c2132-1398-43d2-ad45-1d77f6574933",
     "skuName": "Standard_DS1_v2",
@@ -531,25 +531,25 @@ _Old response_:
 ```json
 [
     {
-        “purchasingEnrollment”: “string”,
-        “armSkuName”: “Standard_F1s”,
-        “term”: “P1Y”,
-        “region”: “eastus”,
-        “PurchasingsubscriptionGuid”: “00000000-0000-0000-0000-000000000000”,
-        “PurchasingsubscriptionName”: “string”,
-        “accountName”: “string”,
-        “accountOwnerEmail”: “string”,
-        “departmentName”: “string”,
-        “costCenter”: “”,
-        “currentEnrollment”: “string”,
-        “eventDate”: “string”,
-        “reservationOrderId”: “00000000-0000-0000-0000-000000000000”,
-        “description”: “Standard_F1s eastus 1 Year”,
-        “eventType”: “Purchase”,
-        “quantity”: int,
-        “amount”: double,
-        “currency”: “string”,
-        “reservationOrderName”: “string”
+        "purchasingEnrollment": "string",
+        "armSkuName": "Standard_F1s",
+        "term": "P1Y",
+        "region": "eastus",
+        "PurchasingsubscriptionGuid": "00000000-0000-0000-0000-000000000000",
+        "PurchasingsubscriptionName": "string",
+        "accountName": "string",
+        "accountOwnerEmail": "string",
+        "departmentName": "string",
+        "costCenter": "",
+        "currentEnrollment": "string",
+        "eventDate": "string",
+        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+        "description": "Standard_F1s eastus 1 Year",
+        "eventType": "Purchase",
+        "quantity": int,
+        "amount": double,
+        "currency": "string",
+        "reservationOrderName": "string"
     }
 ]
 
@@ -558,33 +558,33 @@ _New response_:
 
 ```json
 {
-  “value”: [
+  "value": [
     {
-      “id”: “/billingAccounts/123456/providers/Microsoft.Consumption/reservationtransactions/201909091919”,
-      “name”: “201909091919”,
-      “type”: “Microsoft.Consumption/reservationTransactions”,
-      “tags”: {},
-      “properties”: {
-        “eventDate”: “2019-09-09T19:19:04Z”,
-        “reservationOrderId”: “00000000-0000-0000-0000-000000000000”,
-        “description”: “Standard_DS1_v2 westus 1 Year”,
-        “eventType”: “Cancel”,
-        “quantity”: 1,
-        “amount”: -21,
-        “currency”: “USD”,
-        “reservationOrderName”: “Transaction-DS1_v2”,
-        “purchasingEnrollment”: “123456”,
-        “armSkuName”: “Standard_DS1_v2”,
-        “term”: “P1Y”,
-        “region”: “westus”,
-        “purchasingSubscriptionGuid”: “11111111-1111-1111-1111-11111111111”,
-        “purchasingSubscriptionName”: “Infrastructure Subscription”,
-        “accountName”: “Microsoft Infrastructure”,
-        “accountOwnerEmail”: “admin@microsoft.com”,
-        “departmentName”: “Unassigned”,
-        “costCenter”: “”,
-        “currentEnrollment”: “123456”,
-        “billingFrequency”: “recurring”
+      "id": "/billingAccounts/123456/providers/Microsoft.Consumption/reservationtransactions/201909091919",
+      "name": "201909091919",
+      "type": "Microsoft.Consumption/reservationTransactions",
+      "tags": {},
+      "properties": {
+        "eventDate": "2019-09-09T19:19:04Z",
+        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+        "description": "Standard_DS1_v2 westus 1 Year",
+        "eventType": "Cancel",
+        "quantity": 1,
+        "amount": -21,
+        "currency": "USD",
+        "reservationOrderName": "Transaction-DS1_v2",
+        "purchasingEnrollment": "123456",
+        "armSkuName": "Standard_DS1_v2",
+        "term": "P1Y",
+        "region": "westus",
+        "purchasingSubscriptionGuid": "11111111-1111-1111-1111-11111111111",
+        "purchasingSubscriptionName": "Infrastructure Subscription",
+        "accountName": "Microsoft Infrastructure",
+        "accountOwnerEmail": "admin@microsoft.com",
+        "departmentName": "Unassigned",
+        "costCenter": "",
+        "currentEnrollment": "123456",
+        "billingFrequency": "recurring"
       }
     },
   ]
