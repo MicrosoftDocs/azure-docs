@@ -88,16 +88,16 @@ Start by preparing your environment for the Azure CLI:
 
    >[!NOTE]
    >
-   >* Besides subscriptions, you can create exports on resource groups and management groups. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+   >* Besides subscriptions, you can create exports for resource groups and management groups. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
    >* When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 
-1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+1. Create a resource group or use an existing resource group. To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command:
 
    ```azurecli
    az group create --name TreyNetwork --location "East US"
    ```
 
-1. Create a storage account to receive the exports or use an existing storage account. You use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+1. Create a storage account to receive the exports or use an existing storage account. To create a storage account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
 
    ```azurecli
    az storage account create --resource-group TreyNetwork --name cmdemo
@@ -113,9 +113,9 @@ Start by preparing your environment for the Azure CLI:
    --schedule-status Active --storage-directory demodirectory
    ```
 
-   For type, you can choose `ActualCost`, `AmortizedCost`, or `Usage`.
+   For the **--type** parameter, you can choose `ActualCost`, `AmortizedCost`, or `Usage`.
 
-   This example uses `MonthToDate`. The export creates an export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
+   This example uses `MonthToDate`. The export creates an export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports this month.
 
 1. To see the details of your export operation, use the [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show) command:
 
@@ -134,7 +134,7 @@ Start by preparing your environment for the Azure CLI:
    This example changes the output directory.
 
 >[!NOTE]
->Initially, it can take 12-24 hours before the export runs. However, it can take up longer before data is shown in exported files.
+>Initially, it can take 12-24 hours before the export runs. However, it can take longer before data is shown in exported files.
 
 You can delete an export by using the [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete) command:
 
