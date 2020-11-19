@@ -23,7 +23,7 @@ Azure Form Recognizer is a cognitive service that lets you build automated data 
 
 Form Recognizer is comprised of custom document processing models, prebuilt models for invoices, receipts and business cards, and the layout model. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
-Form Recognizer is made up of the following services:
+Form Recognizer is comprised of the following services:
 * **[Custom models](#custom-models)** - Extract text, key/value pairs, selection marks and table data from forms. These models are trained with your own data, so they're tailored to your forms.
 * **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are prebuilt models for invoices, sales receipts and business cards in English.
 * **[Layout API](#layout-api)** - Extract text, selection marks and tables structures, along with their bounding box coordinates, from documents.
@@ -71,7 +71,7 @@ The Prebuilt Receipt model is used for reading English sales receipts from Austr
 
 The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. See the [Business cards](./concept-business-cards.md) conceptual guide for more info.
 
-![sample business card](./media/business-card-english.jpg)
+![sample business card](./media/overview-business-card.jpg)
 
 ## Layout API
 
