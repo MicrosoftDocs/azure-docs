@@ -151,7 +151,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
   [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
   The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
-* [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
+* [Define an Azure AD Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
 * [Define phone number claims transformations](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

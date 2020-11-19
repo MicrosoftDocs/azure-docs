@@ -6,7 +6,7 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
 ---
 
@@ -20,7 +20,7 @@ If you have any existing reservations, they stop applying after you transfer a s
 
 ## Transfer EA subscriptions to a CSP partner
 
-CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure subscriptions for their customers that have a Direct Enterprise Agreement (EA). Subscription transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan.
+CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure subscriptions for their customers that have a Direct Enterprise Agreement (EA). Subscription transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program.
 
 When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md).
 

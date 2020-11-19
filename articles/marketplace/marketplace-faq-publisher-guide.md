@@ -4,8 +4,8 @@ description: Get answers to common questions about Azure Marketplace and Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
 ---
 
@@ -82,7 +82,7 @@ The commercial marketplace works using an agency model. The customer signs a pur
 
 As a publisher, you set the terms of use for your software solution, which customers must accept as part of the purchase flow. To simplify and speed things up, we provide a Standard Contract that you can choose to include in your terms and conditions. This lets customers review the Standard Contract one time, get approval from legal and buying teams, and then focus on the amendments for each offer.
 
-You can create changes that apply to all customers, or you can make the changes specific to certain customers. You can also fully customize your terms and conditions, which can be entered into a text box or hosted on a website that will be shown as a web address.
+You can create changes that apply to all customers, or you can make the changes specific to certain customers. You can also fully customize your terms and conditions, which can be entered into a text box in Partner Center.
 
 To learn more, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md).
 

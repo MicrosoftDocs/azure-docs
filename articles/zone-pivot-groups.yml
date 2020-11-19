@@ -880,6 +880,15 @@ groups:
     title: Windows command shell
   - id: client-operating-system-powershell
     title: PowerShell
+# Owner: heidist
+- id: URL-test-interface-rest-apis
+  title: URL Test tool for REST APIs
+  prompt: Choose one of the following
+  pivots:
+  - id: url-test-tool-rest-postman
+    title: Postman
+  - id: url-test-tool-rest-vscode-ext
+    title: Visual Studio Code
 # Owner: erhopf
 - id: ad-quickstart-one
   title: Programming languages

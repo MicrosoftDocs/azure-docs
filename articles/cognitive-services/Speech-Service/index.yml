@@ -42,9 +42,9 @@ conceptualContent:
         - itemType: quickstart
           text: Get started with speech-to-text
           url: get-started-speech-to-text.md
-        - itemType: how-to-guide
-          text: Improve accuracy with Custom Speech
-          url: how-to-custom-speech.md       
+        - itemType: overview
+          text: About Custom Speech
+          url: custom-speech-overview.md       
       footerLink:
         text: More
         url: index-speech-to-text.yml
