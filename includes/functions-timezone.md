@@ -1,3 +1,11 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/20/2020
+ms.author: glenga
+---
+
 The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. 
 
 The value of this setting depends on the operating system and plan on which your function app runs.
