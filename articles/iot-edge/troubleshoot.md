@@ -63,6 +63,8 @@ On Windows:
 iotedge support-bundle --since 6h
 ```
 
+You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
+
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
@@ -206,6 +208,8 @@ Once the IoT Edge security daemon is running, look at the logs of the containers
 ```cmd
 iotedge logs <container name>
 ```
+
+You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) call to a module on your device to upload the logs of that module to Azure Blob Storage.
 
 ## View the messages going through the IoT Edge hub
 
