@@ -220,9 +220,7 @@ The supported API versions are:
 - 2020-10-01
 
 > [!NOTE]
-> Version 2020-10-01 is currently being rolled out and may not yet be available in every region
-
-Note when new version is released, it will take a while to roll out to all regions.
+> Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -271,7 +269,7 @@ Data | Description | Version Introduced
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
 isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
-licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
@@ -737,9 +735,9 @@ The document contains the following fields:
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
-licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
 nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used | 2018-10-01
-plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan id (name), product image or offer (product), and publisher id (publisher). | 2018-10-01
+plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
 timestamp/createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
 timestamp/expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
@@ -887,7 +885,7 @@ HTTP Status Code | Reason
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
 1. Why am I not getting compute information for my VM?
-   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
+   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager.
 1. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
 1. I am not seeing all data populated for new version
@@ -930,7 +928,7 @@ HTTP Status Code | Reason
             version: 2
             ```
         1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
-        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure Portal or by looking it up [with the Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the cli). PowerShell CLI example:
+        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure portal or by looking it up [with the Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the CLI). PowerShell CLI example:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
