@@ -2,7 +2,7 @@
 title: Authenticate against Azure resources with Arc enabled servers
 description: This article describes Azure Instance Metadata Service support for Arc enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 11/19/2020
 ---
 
 # Authenticate against Azure resources with Arc enabled servers
@@ -23,11 +23,11 @@ While onboarding your server to Azure Arc enabled servers, several actions are p
 
 - Azure Resource Manager configures the identity on the server by updating the Azure Instance Metadata Service (IMDS) identity endpoint for [Windows](../../virtual-machines/windows/instance-metadata-service.md) or [Linux](../../virtual-machines/linux/instance-metadata-service.md) with the service principal client ID and certificate. The endpoint is a REST endpoint accessible only from within the server using a well-known, non-routable IP address. This service provides a subset of metadata information about the Arc enabled server to help manage and configure it.
 
-The environment of a managed-identity-enabled server will be configured with the following variables:
+The environment of a managed-identity-enabled server will be configured with the following variables on a Windows Arc enabled server:
 
-- **IDMS_ENDPOINT**: The IDMS endpoint IP address `127.0.0.1:40342` for Arc enabled servers.
+- **IMDS_ENDPOINT**: The IMDS endpoint IP address `http://localhost:40342` for Arc enabled servers.
 
-- **IDENTITY_ENDPOINT**: the localhost endpoint corresponding to service's managed identity `http://127.0.0.1:40342/metadata/identity/oauth2/token`.
+- **IDENTITY_ENDPOINT**: the localhost endpoint corresponding to service's managed identity `http://localhost:40342/metadata/identity/oauth2/token`.
 
 Your code that's running on the server can request a token from the Azure Instance Metadata service endpoint, accessible only from within the server.
 
