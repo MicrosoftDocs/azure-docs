@@ -6,7 +6,7 @@ ms.service: cloud-services-extended-support
 manager: jillfra
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
 ---

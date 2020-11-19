@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell samples - Create a new Cloud Service (extended support) with a single role and Windows Azure Diagnostics extension
 description: Sample PowerShell for creating a cloud service with the Windows Azure Diagnostics extension
-ms.topic: tutorial
+ms.topic: sample
 ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
