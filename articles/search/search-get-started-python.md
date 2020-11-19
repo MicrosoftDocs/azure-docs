@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-python
 ---
 
@@ -22,7 +22,7 @@ ms.custom: devx-track-python
 > * [Portal](search-get-started-portal.md)
 >
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [Azure.Search.Documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [azure-search-documents library](/python/api/overview/azure/search-documents-readme) in the Azure SDK for Python. This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services and tools are required for this quickstart.
 
-* [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), providing Python 3.x and Jupyter Notebooks.
+* [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), providing Python 3.x and Jupyter Notebook.
 
 * [azure-search-documents package](https://pypi.org/project/azure-search-documents/)
 
@@ -80,7 +80,6 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
    ```python
     service_name = ["SEARCH_ENDPOINT - do not include search.windows.net"]
     admin_key = ["Cognitive Search Admin API Key"]
-    query_key = ["Cognitive Search Query API Key"]
 
     index_name = "hotels-quickstart"
 
@@ -95,7 +94,7 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
                           credential=AzureKeyCredential(admin_key))
    ```
 
-1. In the third cell, run a delete_index operation to clear your service of any existing *hotels-quickstart* indexes. Deleting the index allows you to create another *hotels-quickstart* index of the same name..
+1. In the third cell, run a delete_index operation to clear your service of any existing *hotels-quickstart* indexes. Deleting the index allows you to create another *hotels-quickstart* index of the same name.
 
    ```python
     try:
@@ -272,13 +271,9 @@ To load documents, create a documents collection, using an [index action](/pytho
 
 This step shows you how to query an index using the [Search Documents REST API](/rest/api/searchservice/search-documents).
 
-1. In a cell, provide a query expression that executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Cognitive Search returns 50 matches at a time. Add include_total_count to get a count of all documents in the results, and print the just Hotel ID and Hotel name.
+1. For this operation, use search_client. This query executes an empty search (`search=*`), returning an unranked list (search score = 1.0) of arbitrary documents. Because there are no criteria, all documents are included in results. This query prints just two of the fields in each document. It also adds `include_total_count=True` to get a count of all documents (4) in the results.
 
    ```python
-    search_client = SearchClient(endpoint=endpoint,
-                          index_name=index_name,
-                          credential=AzureKeyCredential(query_key))
-
     results =  search_client.search(search_text="*", include_total_count=True)
 
     print ('Total Documents Matching Query:', results.get_count())
@@ -286,62 +281,62 @@ This step shows you how to query an index using the [Search Documents REST API](
         print("{}: {}".format(result["HotelId"], result["HotelName"]))
    ```
 
-1. In a new cell, provide the following example to search on the terms "hotels" and "wifi". Add select to specify which fields to include in the search results.
+1. The next query adds whole terms to the search expression ("wifi"). This query specifies that results contain only those fields in the `select` statement. Limiting the fields that come back minimizes the amount of data sent back over the wire and reduces search latency.
 
    ```python
-    results =  search_client.search(search_text="hotels wifi", include_total_count=True, select='HotelId,HotelName')
+    results =  search_client.search(search_text="wifi", include_total_count=True, select='HotelId,HotelName,Tags')
 
     print ('Total Documents Matching Query:', results.get_count())
     for result in results:
-        print("{}: {}".format(result["HotelId"], result["HotelName"]))
+        print("{}: {}: {}".format(result["HotelId"], result["HotelName"], result["Tags"]))
    ```
 
-1. Next, apply a $filter expression that selects only those hotels with a rating greater than 4. 
+1. Next, apply a filter expression, returning only those hotels with a rating greater than 4, sorted in descending order.
 
    ```python
-    results =  search_client.search(search_text="hotels wifi", select='HotelId,HotelName,Rating', filter='Rating gt 4')
+    results =  search_client.search(search_text="hotels", select='HotelId,HotelName,Rating', filter='Rating gt 4', order_by='Rating desc')
 
     for result in results:
-        print("{}: {} - {} rating".format(result["HotelId"], result["HotelName"], result["Rating"]))  
+        print("{}: {} - {} rating".format(result["HotelId"], result["HotelName"], result["Rating"]))
    ```
 
-1. By default, the search engine returns the top 50 documents but you can use top to choose how many documents in each result. This query returns two documents.
+1. Add `search_fields` to scope query matching to a single field.
 
    ```python
-    searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
-
-    results =  search_client.search(search_text="boutique", select='HotelId,HotelName', top=2)
+    results =  search_client.search(search_text="sublime", search_fields='HotelName', select='HotelId,HotelName')
 
     for result in results:
         print("{}: {}".format(result["HotelId"], result["HotelName"]))
    ```
 
-1. In this query, use orderby to sort results by city. This example includes fields from the Address collection.
+1. Facets are labels that can be used to compose facet navigation structure. This query returns facets and counts for Category.
 
    ```python
-    results =  search_client.search(search_text="pool", select='HotelId,HotelName,Address/City,Address/StateProvince',order_by ='Address/City')
+    results =  search_client.search(search_text="*", facets=["Category"])
 
-    for result in results:
-        print("{}: {}, {}, {}".format(result["HotelId"], result["HotelName"], result["Address"]["City"], result["Address"]["StateProvince"]))
+    facets = results.get_facets()
+
+    for facet in facets["Category"]:
+        print("    {}".format(facet))
    ```
 
-1. In this example, we will do a document lookup based on the key field. This is an efficient way to lookup a single document and is typically used when a user clicks on a document in a search result.
+1. In this example, look up a specific document based on its key. You would typically want to return a document when a user clicks on a document in a search result.
 
    ```python
-   result = search_client.get_document(key="2")
+    result = search_client.get_document(key="3")
 
-    print("Details for hotel '1' are:")
+    print("Details for hotel '3' are:")
     print("        Name: {}".format(result["HotelName"]))
     print("      Rating: {}".format(result["Rating"]))
     print("    Category: {}".format(result["Category"]))
    ```
 
-1. In this example, we will use the autocomplete function. This is typically used in a search box to help auto-complete potential matches as the user types into the search box.
+1. In this example, we'll use the autocomplete function. This is typically used in a search box to help auto-complete potential matches as the user types into the search box.
 
    When the index was created, a suggester named "sg" was also created as part of the request. A suggester definition specifies which fields can be used to find potential matches to suggester requests. In this example, those fields are 'Tags', 'Address/City', 'Address/Country'. To simulate auto-complete, pass in the letters "sa" as a partial string. The autocomplete method of [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) sends back potential term matches.
 
    ```python
-   search_suggestion = 'sa'
+    search_suggestion = 'sa'
     results = search_client.autocomplete(search_text=search_suggestion, suggester_name="sg", mode='twoTerms')
 
     print("Autocomplete for:", search_suggestion)
