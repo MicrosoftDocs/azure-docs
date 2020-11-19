@@ -352,6 +352,9 @@
       - name: Overview
         displayname: Azure Monitor agent
         href: platform/azure-monitor-agent-overview.md
+      - name: Install
+        displayname: Azure Monitor agent
+        href: platform/azure-monitor-agent-install.md
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: platform/data-collection-rule-azure-monitor-agent.md

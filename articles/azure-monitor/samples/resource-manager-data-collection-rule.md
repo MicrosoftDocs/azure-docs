@@ -1,6 +1,6 @@
 ---
-title: Resource Manager template samples for agents
-description: Sample Azure Resource Manager templates to deploy and configure Log Analytics agent and diagnostic extension in Azure Monitor.
+title: Resource Manager template samples for data collection rules
+description: Sample Azure Resource Manager templates to create associations between data collection rules and virtual machines in Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
