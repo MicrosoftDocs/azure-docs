@@ -60,13 +60,13 @@ The following example requests are used by Microsoft customers to address common
 
 The data that's returned by the request corresponds to the date when the usage was received by the billing system. It might include costs from multiple invoices. The call to use varies by your subscription type.
 
-For legacy customers (Enterprise Agreement (EA) and pay-as-you-go subscriptions):
+For legacy customers with an Enterprise Agreement (EA) or a pay-as-you-go subscription, use the following call:
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
 ```
 
-For modern customers (Microsoft Customer Agreement):
+For modern customers with a Microsoft Customer Agreement, use the following call:
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
