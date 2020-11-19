@@ -50,7 +50,7 @@
   - name: 15 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
   - name: 16 - Secure web server with SSL
-    href: tutorial-secure-web-server.md 
+    href: tutorial-secure-web-server.md
 - name: Samples
   items:
   - name: PowerShell index
@@ -650,6 +650,7 @@
     - name: Swap the OS disk
       href: os-disk-swap.md
     - name: Tag a VM
+      href: time-sync.md
       items:
       - name: Portal
         href: ../tag-portal.md
@@ -660,7 +661,6 @@
       - name: Template
         href: ../tag-template.md
       - name: Time sync
-      href: time-sync.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
       items:
@@ -863,8 +863,6 @@
       href: install-mongodb.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
-    - name: MATLAB cluster
-      href: matlab-mdcs-cluster.md
     - name: Visual Studio
       href: using-visual-studio-vm.md
     - name: High Performance Computing (HPC)
