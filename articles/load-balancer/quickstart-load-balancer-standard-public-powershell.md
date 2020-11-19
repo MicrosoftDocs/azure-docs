@@ -211,7 +211,111 @@ In this section you'll create the virtual machines for the backend pool of the l
 
 
 ```azurepowershell-interactive
+<<<<<<< HEAD
 # Set the administrator and password for the VMs. ##
+=======
+## Variables for command ##
+$rg = 'CreatePubLBQS-rg'
+$loc = 'eastus'
+$nic1 = 'myNicVM1'
+$vnt = 'myVNet'
+$lb = 'myLoadBalancer'
+$ngn = 'myNSG'
+
+## Command to get virtual network configuration. ##
+$vnet = 
+Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
+
+## Command to get load balancer configuration
+$bepool = 
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
+
+## Command to get network security group configuration ##
+$nsg = 
+Get-AzNetworkSecurityGroup -Name $ngn -ResourceGroupName $rg
+
+## Command to create network interface for VM1 ##
+$nicVM1 = 
+New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBalancerBackendAddressPool $bepool -NetworkSecurityGroup $nsg -Subnet $vnet.Subnets[0]
+```
+
+#### VM 2
+
+* Named **myNicVM2**.
+* In resource group **CreatePubLBQS-rg**.
+* In location **eastus**.
+* In virtual network **myVNet**.
+* In subnet **myBackendSubnet**.
+* In network security group **myNSG**.
+* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
+
+```azurepowershell-interactive
+## Variables for command ##
+$rg = 'CreatePubLBQS-rg'
+$loc = 'eastus'
+$nic2 = 'myNicVM2'
+$vnt = 'myVNet'
+$lb = 'myLoadBalancer'
+$ngn = 'myNSG'
+
+## Command to get virtual network configuration. ##
+$vnet = 
+Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
+
+## Command to get load balancer configuration
+$bepool = 
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
+
+## Command to get network security group configuration ##
+$nsg = 
+Get-AzNetworkSecurityGroup -Name $ngn -ResourceGroupName $rg
+
+## Command to create network interface for VM2 ##
+$nicVM2 = 
+New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBalancerBackendAddressPool $bepool -NetworkSecurityGroup $nsg -Subnet $vnet.Subnets[0]
+```
+
+#### VM 3
+
+* Named **myNicVM3**.
+* In resource group **CreatePubLBQS-rg**.
+* In location **eastus**.
+* In virtual network **myVNet**.
+* In subnet **myBackendSubnet**.
+* In network security group **myNSG**.
+* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
+
+```azurepowershell-interactive
+## Variables for command ##
+$rg = 'CreatePubLBQS-rg'
+$loc = 'eastus'
+$nic3 = 'myNicVM3'
+$vnt = 'myVNet'
+$lb = 'myLoadBalancer'
+$ngn = 'myNSG'
+
+## Command to get virtual network configuration. ##
+$vnet = 
+Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
+
+## Command to get load balancer configuration
+$bepool = 
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
+
+## Command to get network security group configuration ##
+$nsg = 
+Get-AzNetworkSecurityGroup -Name $ngn -ResourceGroupName $rg
+
+## Command to create network interface for VM3 ##
+$nicVM3 = 
+New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic3 -LoadBalancerBackendAddressPool $bepool -NetworkSecurityGroup $nsg -Subnet $vnet.Subnets[0]
+```
+### Create virtual machines
+
+Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
+
+```azurepowershell
+>>>>>>> 189a5b2e644ed1ee1caeaa320625fbaf9d0df65f
 $cred = Get-Credential
 
 ## Place the virtual network into a variable. ##
@@ -850,7 +954,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### Create virtual machines
 
-Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -962,7 +1066,7 @@ It takes a few minutes to create and configure the three VMs.
 
 ## Install IIS
 
-Use [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
 
 The extension runs PowerShell Add-WindowsFeature Web-Server to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
@@ -1013,7 +1117,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## Test the load balancer
 
-Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the load balancer:
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the load balancer:
 
 ```azurepowershell-interactive
   ## Variables for command. ##
@@ -1052,5 +1156,3 @@ In this quickstart
 To learn more about Azure Load Balancer, continue to..
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md)
-
-

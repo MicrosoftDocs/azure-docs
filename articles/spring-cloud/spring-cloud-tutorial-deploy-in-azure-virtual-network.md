@@ -22,10 +22,11 @@ The deployment enables:
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud
 
 ## Prerequisites
-You must register Azure Spring Cloud resource provider `Microsoft.AppPlatform` according to instructions [Register Resource Provider on Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) or by running the following az CLI command:
+You must register Azure Spring Cloud resource provider *Microsoft.AppPlatform* and *Microsoft.ContainerService* according to instructions [Register Resource Provider on Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) or by running the following az CLI command:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## Virtual network requirements
 The virtual network to which you deploy your Azure Spring Cloud service instance must meet the following requirements:

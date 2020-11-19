@@ -1,7 +1,7 @@
 ---
-title: Create Connection Monitor Preview - ARMClient
+title: Create Connection Monitor - ARMClient
 titleSuffix: Azure Network Watcher
-description: Learn how to create Connection Monitor (Preview) using the ARMClient.
+description: Learn how to create Connection Monitor using the ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-#Customer intent: I need to create a connection montior preview to monitor communication between one VM and another.
+#Customer intent: I need to create a connection montior to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor (Preview) using the ARMClient
+# Create a Connection Monitor using the ARMClient
 
-Learn how to create Connection Monitor (Preview) to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
+Learn how to create Connection Monitor to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
 
 ## Before you begin 
 
-In connection monitors that you create in Connection Monitor (Preview), you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
+In connection monitors that you create in Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
 
-Connection Monitor (Preview) includes the following entities:
+Connection Monitor includes the following entities:
 
 * **Connection monitor resource** – A region-specific Azure resource. All of the following entities are properties of a connection monitor resource.
 * **Endpoint** – A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IPs.
@@ -354,7 +354,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the Azure resource manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure resource manager resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”

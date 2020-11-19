@@ -111,6 +111,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-and-where.md).
 
+For more information on using Role-Based Access Control with Kubernetes, see [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md).
+
 ## Network contributor role
 
 > [!IMPORTANT]

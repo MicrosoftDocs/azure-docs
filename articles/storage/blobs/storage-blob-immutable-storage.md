@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -99,17 +99,21 @@ The following limits apply to legal holds:
 - For a container, a maximum of 10 legal hold policy audit logs are retained for the duration of the policy.
 
 ## Scenarios
+
 The following table shows the types of Blob storage operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
 
-|Scenario  |Blob state  |Blob operations denied  |Container and account protection
-|---------|---------|---------|---------|
-|Effective retention interval on the blob has not yet expired and/or legal hold is set     |Immutable: both delete and write-protected         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Container deletion denied; Storage Account deletion denied         |
-|Effective retention interval on the blob has expired and no legal hold is set    |Write-protected only (delete operations are allowed)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Container deletion denied if at least 1 blob exists within protected container; Storage Account deletion denied only for *locked* time-based policies         |
-|No WORM policy applied (no time-based retention and no legal hold tag)     |Mutable         |None         |None         |
+| Scenario | Blob state | Blob operations denied | Container and account protection |
+|--|--|--|--|
+| Effective retention interval on the blob has not yet expired and/or legal hold is set | Immutable: both delete and write-protected | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Container deletion denied; Storage Account deletion denied |
+| Effective retention interval on the blob has expired and no legal hold is set | Write-protected only (delete operations are allowed) | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup> | Container deletion denied if at least 1 blob exists within protected container; Storage Account deletion denied only for *locked* time-based policies |
+| No WORM policy applied (no time-based retention and no legal hold tag) | Mutable | None | None |
 
 <sup>1</sup> The blob service allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
 <sup>2</sup> Append Block is only allowed for time-based retention policies with the `allowProtectedAppendWrites` property enabled. For more information, see the [Allow Protected Append Blobs Writes](#allow-protected-append-blobs-writes) section.
+
+> [!IMPORTANT]
+> Some workloads, such as [SQL Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), create a blob and then add to it. If the container has an active time-based retention policy or legal hold in place, this pattern will not succeed.
 
 ## Pricing
 
