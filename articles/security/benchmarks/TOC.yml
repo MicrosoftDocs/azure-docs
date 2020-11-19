@@ -106,6 +106,8 @@
     href: ../../frontdoor/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
+  - name: Azure HPC Cache security baseline
+    href: ../../hpc-cache/security-baseline.md
   - name: Azure Information Protection security baseline
     href: /azure/information-protection/security-baseline
   - name: Azure IoT Hub security baseline
