@@ -63,17 +63,21 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 ### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/direct-line-speech) in these regions:
 
-| Region         | Region identifier |
-| -------------- | -------------------- |
-| West US        | `westus`             |
-| West US 2      | `westus2`            |
-| East US        | `eastus`             |
-| East US 2      | `eastus2`            |
-| West Europe    | `westeurope`         |
-| North Europe   | `northeurope`        |
-| Southeast Asia | `southeastasia`      |
+| Global region | Region           | Region identifier    |
+| ------------- | ---------------- | -------------------- |
+| North America | West US          | `westus`             |
+| North America | West US 2        | `westus2`            |
+| North America | East US          | `eastus`             |
+| North America | East US 2        | `eastus2`            |
+| North America | West Central US  | `westcentralus`      |
+| North America | South Central US | `southcentralus`     |
+| Europe        | West Europe      | `westeurope`         |
+| Europe        | North Europe     | `northeurope`        |
+| Asia          | East Asia        | `eastasia`           |
+| Asia          | Southeast Asia   | `southeastasia`      |
+| India         | Central India    | `centralindia`       |
 
 ### Speaker Recognition
 
