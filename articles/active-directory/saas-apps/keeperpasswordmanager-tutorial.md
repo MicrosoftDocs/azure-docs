@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot of Set up Single Sign-On with SAML, with pencil icon highlighted.](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. For **Sign on URL**, type a URL that uses the following pattern:
     * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/sso/<CLOUD_INSTANCE_ID>`
@@ -151,7 +151,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can go directly to the sign-on URL for the application, and initiate the sign-in from there.
 
-* You can use Microsoft Access Panel. When you select the **Keeper Password Manager & Digital Vault** tile in the access panel, this redirects you to the sign-on URL for the application. For more information about Access Panel, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft Access Panel. When you select the **Keeper Password Manager & Digital Vault** tile in Access Panel, this redirects you to the sign-on URL for the application. For more information about Access Panel, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
