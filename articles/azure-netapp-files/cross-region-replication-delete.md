@@ -38,7 +38,7 @@ You can terminate the replication connection between the source and the destinat
 
     3.	Click **Break Peering**.  
 
-    4.	Type **Yes** when prompted and click the **Break** button. 
+    4.	Type **Yes** when prompted and click **Break**. 
 
         ![Break replication peering](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
 

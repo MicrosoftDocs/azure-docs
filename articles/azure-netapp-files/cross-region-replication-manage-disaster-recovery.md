@@ -58,7 +58,7 @@ After disaster recovery, you can reactivate the source volume by performing a re
 
 1. To resync replication, select the *source* volume. Click **Replication** under Storage Service. Then click **Resync**.  
 
-2. Type **Yes** when prompted and click the **Resync** button. 
+2. Type **Yes** when prompted and click **Resync**. 
  
     ![Resync replication](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
 
