@@ -221,22 +221,19 @@ Use the steps below to provision roles for a user to your application. Note that
    }
    ```
   
-    - **Example output (PATCH)** 
+  - **Example output (PATCH)** 
     
-```
-"Operations": [
-{
-"op": "Add",
-"path": "roles",
-"value": [
-{
-"value": "{\"id\":\"05b07648-ecfe-489f-8d2f-6325724a46fe\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
-},
-{
-"value": "{\"id\":\"18d14569-c3bd-439b-9a66-3a2aee01d14f\",\"value\":\"22\",\"displayName\":\"user\"}"
-}
-]
-```  
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
 The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
