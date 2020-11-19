@@ -62,7 +62,7 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 
 [Azure policies](../governance/policy/overview.md) can be used to define the desired behavior for your organization's [Windows VMs](./windows/policy.md) and [Linux VMs](./linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
 
-## Role-based access control
+## Azure role-based access control
 
 Using [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../role-based-access-control/role-assignments-portal.md), using the [Azure CLI](/cli/azure/role), or[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 

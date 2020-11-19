@@ -154,4 +154,4 @@ Users will no longer be prompted to register by using the updated experience.
 
 ## Next steps
 
-* [Learn more about combined registration for self-service password reset and Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Learn more about combined registration for self-service password reset and Azure AD Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
