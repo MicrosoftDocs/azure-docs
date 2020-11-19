@@ -85,7 +85,7 @@ When an organization is ready to move an AD-integrated application to the cloud 
 
 ## Cloud governed management for on-premises federation-based applications
 
-For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure Multi-Factor Authentication, by using Azure AD Conditional Access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
+For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure AD Multi-Factor Authentication, by using Azure AD Conditional Access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
 
 ![Azure AD evolution](media/cloud-governed-management-for-on-premises/image5.png)
 

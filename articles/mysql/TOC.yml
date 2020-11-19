@@ -289,6 +289,10 @@
       items:
       - name: Stop Start MySQL server
         href: how-to-stop-start-server.md
+    - name: Major version upgrade
+      items:
+      - name: Major version upgrade
+        href: how-to-major-version-upgrade.md
     - name: Auto grow storage
       items:
       - name: Azure portal

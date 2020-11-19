@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
 ---
 
@@ -42,6 +42,21 @@ For failed activities running on Self-hosted IR / Shared IR, Azure Data Factory 
 
 
 ## Self-hosted IR general failure or error
+
+### Out of memory issue
+
+#### Symptoms
+
+The "OutOfMemoryException" issue occurs when trying to run lookup activity with linked IR or Self-hosted IR.
+
+#### Cause
+
+New activity can meet with OOM (OutOfMemory) issue if the IR machine has a high memory usage at the moment. The issue could be caused by a large scale of concurrent activity execution, and the error is by design.
+
+#### Resolution
+
+Please check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time of activity runs to avoid too much execution on the same IR node at the same time.
+
 
 ### TLS/SSL certificate issue
 
@@ -400,6 +415,47 @@ The installation depends on the Windows Installer Service. There are variant rea
 - CPU utilization is too high
 - MSI file is hosted in a slow network location
 - Some system files or registries were touched unintentionally
+
+
+### IR service account failed to fetch certificate access
+
+#### Symptoms
+
+When installing Self-hosted IR via the Microsoft Integration Runtime Configuration manager, a certificate with a trusted CA is generated. The certificate was unable to be applied to encrypt communication between two nodes. 
+
+The error information shows as below: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Failed to grant IR service account certificate access](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### Cause
+
+The certificate is using KSP (Key storage provider), which is not supported yet. SHIR only support CSP (Cryptographic Service Provider) certificate so far.
+
+#### Resolution
+
+CSP certificate is recommended for this case.
+
+**Solution 1:** Use below command to import the certificate:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Use certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Solution 2:** Conversion of certificates:
+
+openssl pkcs12 -in .\xxxx.pfx -out .\xxxx_new.pem -password pass:*\<EnterPassword>*
+
+openssl pkcs12 -export -in .\xxxx_new.pem -out xxxx_new.pfx
+
+Before and after conversion:
+
+![Before certificate change](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![After certificate change](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 
 ## Self-hosted IR connectivity issues
