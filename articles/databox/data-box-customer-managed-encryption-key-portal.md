@@ -18,7 +18,7 @@ Using a customer-managed key doesn't affect how data on the device is encrypted.
 
 To keep this level of control throughout the order process, use a customer-managed key when you create your order. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
-This article shows how to enable a customer-managed key for your existing Data Box order in the [Azure portal](https://portal.azure.com/) or change the key vault, key, version, or identity for the current customer-managed key. You can also switch back to using a system-managed key.
+This article shows how to enable a customer-managed key for your existing Data Box order in the [Azure portal](https://portal.azure.com/). You'll find out how to change the key vault, key, version, or identity for your current customer-managed key. Or switch back to using a Microsoft managed key.
 
 This article applies to Azure Data Box and Azure Data Box Heavy devices.
 
@@ -48,7 +48,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
      ![Key vault options when selecting a customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-     If you're creating a new key vault, on the **Create key vault** screen, enter the subscription, a resource group, a key vault name, and other info for your key vault. In **Recovery options**, ensure that **Soft delete** and **Purge protection** are enabled. Select **Review + Create**.
+     To create a new key vault, enter the subscription, resource group, key vault name, and other info on the **Create new key vault** screen. In **Recovery options**, ensure that **Soft delete** and **Purge protection** are enabled. Then select **Review + Create**.
 
       ![Review and create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
@@ -94,7 +94,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
     ![Select the identity type](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
-    If you want to assign a user identity, select **User assigned**, select **Select a user identity** and then select your managed identity that you want to use.
+    To assign a user identity, select **User assigned**. Then select **Select a user identity**, and select the managed identity that you want to use.
 
     ![Select an identity to use - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
