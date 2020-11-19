@@ -27,11 +27,15 @@ For example, consider an environment with a set of virtual machines running a li
 
 
 
-## Create in the Azure portal
+## Create rule and association in the Azure portal
 You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created for any virtual machines that don't already have it installed.
 
 > [!IMPORTANT]
-> You cannot currently create an association between a data collection rule and an Azure Arc enabled server using the Azure portal. You can create an association for any Azure Arc enabled servers once the data collection rule is created. See [Create association with data collection rule](azure-monitor-agent-install.md#create-association-with-data-collection-rule) for details.
+> You cannot currently create an association between a data collection rule and an Azure Arc enabled server using the Azure portal. You can create an association for any Azure Arc enabled servers once the data collection rule is created. The basic process is as follows:
+> 
+> 1. Create the data collection rule using the process below. Don't select any virtual machines unless you also have Azure virtual machines to assign.
+> 2. Install the Azure Monitor agent on the Azure Arc enabled servers using any of the methods described in [Install the Azure Monitor agent (preview)](azure-monitor-agent-install.md).
+> 3. Create an association for the virtual machine to the data collection rule using either the REST API or Resource Manager template as described below.
 
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
 
@@ -64,14 +68,16 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 > Once the data collection rule and associations have been created, it may take up to 5 minutes for data to be sent to the destinations.
 
 
-## Create using REST API
-Follow the steps below to create a DCR and associations using the REST API. 
+## Create rule and association using REST API
+Follow the steps below to create a data collection rule and associations using the REST API. 
 
 1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule).
 2. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
 3. Create an association for each virtual machine to the data collection rule using the [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 
+## Create association using Resource Manager template
+You cannot create a data collection rule using a Resource Manager template, but you can create an association between an Azure virtual machine or Azure Arc enabled server using a Resource Manager template. See [Resource Manager template samples for data collection rules in Azure Monitor](../samples/resource-manager-data-collection-rule.md) for sample templates.
 
 
 

@@ -32,10 +32,10 @@ To install the Azure Monitor agent using the Azure portal, follow the process to
 ## Install with Resource Manager template
 You can use Resource Manager templates to install the Azure Monitor agent on Azure virtual machines and on Azure Arc enabled servers and to create an association with data collection rules. You must create any data collection rule prior to creating the association.
 
-Get sample templates for installing the agent and creating the association at the following locations: 
+Get sample templates for installing the agent and creating the association from the following: 
 
-- [Install Azure Monitor agent](../samples/resource-manager-agent.md#azure-monitor-agent-preview) 
-- [Create association with data collection rule](../samples/resource-manager-data-collection-rule.md)
+- [Template to nstall Azure Monitor agent](../samples/resource-manager-agent.md#azure-monitor-agent-preview) 
+- [Template to create association with data collection rule](../samples/resource-manager-data-collection-rule.md)
 
 Install the templates using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md) such as the following commands.
 
@@ -53,52 +53,52 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -Templa
 You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc enabled servers using the PowerShell command for adding a virtual machine extension. 
 
 ### Azure virtual machines
-Use the following commands to install the Azure Monitor agent on Azure virtual machines.
+Use the following PowerShell commands to install the Azure Monitor agent on Azure virtual machines.
 # [Windows](#tab/PowerShellWindows)
 ```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
 ```
 # [Linux](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
 ```
 ---
 
 ### Azure Arc enabled servers
-Use the following commands to install the Azure Monitor agent onAzure Arc enabled servers.
+Use the following PowerShell commands to install the Azure Monitor agent onAzure Arc enabled servers.
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
-New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location {location}
+New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
 ```
 # [Linux](#tab/PowerShellLinuxArc)
 ```powershell
-New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location {location}
+New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
 ```
 ---
 ## Azure CLI
 You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc enabled servers using the Azure CLI command for adding a virtual machine extension. 
 
 ### Azure virtual machines
-Use the following commands to install the Azure Monitor agent on Azure virtual machines.
+Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines.
 # [Windows](#tab/CLIWindows)
 ```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
+az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id>
 ```
 # [Linux](#tab/CLILinux)
 ```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
+az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id>
 ```
 ---
 ### Azure virtual machines
-Use the following commands to install the Azure Monitor agent onAzure Arc enabled servers.
+Use the following CLI commands to install the Azure Monitor agent onAzure Arc enabled servers.
 
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
-az connectedmachine machine-extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
+az connectedmachine machine-extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id>
 ```
 # [Linux](#tab/CLILinuxArc)
 ```azurecli
-az connectedmachine machine-extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
+az connectedmachine machine-extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id>
 ```
 ---
 
