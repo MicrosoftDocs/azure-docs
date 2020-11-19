@@ -54,7 +54,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-### Install the Nuget package
+### Install the NuGet package
 
 1. In Visual Studio, create a new project using the Console App (.NET Core) template for C#.
 
