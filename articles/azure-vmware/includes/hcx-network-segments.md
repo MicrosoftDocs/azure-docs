@@ -10,7 +10,10 @@ ms.date: 09/28/2020
 Four networks are needed for VMware HCX:
 
 - **Management network:** Typically, it's the same management network used on the vSphere cluster. At a minimum, identify two IPs on this network segment for VMware HCX. (You might need larger numbers, depending on your deployment.)
-
+   > [!NOTE]
+   > The recommended method is to create a /26 network.  This enables up to 10 Service Meshes and 60 Network Extenders (-1 per service mesh).
+   > 8 Networks per Network Extenders can be stretched with Azure VMware Solution private clouds.
+   
 - **vMotion network:** Typically, it's the same network used for vMotion on the vSphere cluster.  At a minimum, identify two IPs on this network segment for VMware HCX. (You might need larger numbers, depending on your deployment.)  
 
    The vMotion network must be exposed on a distributed virtual switch or vSwitch0. If it's not, modify the environment.
@@ -21,9 +24,10 @@ Four networks are needed for VMware HCX:
 - **Uplink network:** You want to create a new network for VMware HCX Uplink and extend it to your vSphere cluster via a port group. At a minimum, identify two IPs on this network segment for VMware HCX. (You might need larger numbers, depending on your deployment.)  
 
    > [!NOTE]
-   > The recommended method is to create a /29 network, but any network size will do.
+   > The recommended method is to create a /26 network.  This enables up to 10 Service Meshes and 60 Network Extenders (-1 per service mesh).
+   > 8 Networks per Network Extenders can be stretched with Azure VMware Solution private clouds.
 
 - **Replication network:** You want to create a new network for VMware HCX Replication and extend that network to your vSphere cluster via a port group. At a minimum, identify two IPs on this network segment for VMware HCX. (You might need larger numbers, depending on your deployment.)
 
    > [!NOTE]
-   > The recommended method is to create a /29 network, but any network size will do.
+   > This is optional.  Typical deployments use Management network for replication.  If used, replication vmk must be routable.
