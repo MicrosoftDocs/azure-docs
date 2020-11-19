@@ -20,7 +20,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 ## Prerequisites
 
-1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) installed on your machine.
 
 1. Download and install [Maven](https://maven.apache.org/install.html).
 

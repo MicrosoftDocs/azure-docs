@@ -8,10 +8,9 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: ec976257-396b-42a0-8ea1-01c97f820fa6
 ms.service: virtual-machines-windows
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -163,7 +162,7 @@ ms.custom: H1Hack27Feb2017
 This article describes the steps you take to prepare the Azure infrastructure for installing and configuring a high-availability SAP ASCS/SCS instance on a Windows failover cluster by using a *cluster shared disk* as an option for clustering an SAP ASCS instance.
 Two alternatives for *cluster shared disk* are presented in the documentation:
 
-- [Azure shared disks](../../windows/disks-shared.md)
+- [Azure shared disks](../../disks-shared.md)
 - Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) to create mirrored storage, that will simulate clustered shared disk 
 
 The presented configuration is relying on [Azure proximity placement groups (PPG)](./sap-proximity-placement-scenarios.md) to achieve optimal network latency for SAP workloads. 

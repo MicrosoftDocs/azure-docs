@@ -205,7 +205,7 @@ You use the identity's name in later steps.
 
 ### Create a key vault
 
-For steps to create a key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
+For steps to create a key vault, see [Quickstart: Create an Azure Key Vault with the Azure portal](../key-vault/general/quick-create-portal.md).
 
 When creating a key vault for a customer-managed key, in the **Basics** tab, enable the following protection settings: **Soft delete** and **Purge protection**. These settings help prevent data loss caused by accidental key or key vault deletions.
 
