@@ -10,7 +10,7 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics Managed Virtual Network (preview)
+# Azure Synapse Analytics Managed Virtual Network
 
 This article will explain Managed Virtual Network in Azure Synapse Analytics.
 

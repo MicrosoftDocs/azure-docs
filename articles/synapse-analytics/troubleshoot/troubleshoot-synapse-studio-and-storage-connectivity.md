@@ -11,7 +11,7 @@ ms.reviewer: jrasnick
 
 # Troubleshoot connectivity between Azure Synapse Analytics Synapse Studio and storage
 
-In Synapse Studio (preview), you can explore data resources located in your linked storage. This guide will help you solve connectivity issues when you're trying to access your data resources. 
+In Synapse Studio, you can explore data resources located in your linked storage. This guide will help you solve connectivity issues when you're trying to access your data resources. 
 
 ## Case #1: Storage account lacks proper permissions
 
