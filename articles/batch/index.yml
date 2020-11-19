@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page 
   author: JnHs 
   ms.author: jenhayes 
-  ms.date: 09/29/2020
+  ms.date: 10/09/2020
 
 landingContent:
   - title: About Azure Batch
@@ -37,8 +37,12 @@ landingContent:
             url: quick-run-python.md
       - linkListType: concept
         links:
-            - text: Workflow and feature overview for developers
+            - text: Workflow and feature overview
               url: batch-service-workflow-features.md
+            - text: Jobs and tasks
+              url: jobs-and-tasks.md
+            - text: Nodes and pools
+              url: nodes-and-pools.md
 
   - title: Step-by-step guides
     linkLists:
@@ -48,6 +52,8 @@ landingContent:
             url: tutorial-parallel-dotnet.md
           - text: Parallel file processing - Python
             url: tutorial-parallel-python.md
+          - text: Python scripts with Data Factory
+            url: tutorial-run-python-batch-azure-data-factory.md
           - text: OCR with Batch and Functions
             url: tutorial-batch-functions.md
           - text: Scene rendering with Arnold
@@ -64,11 +70,13 @@ landingContent:
         - text: Create a Batch account
           url: batch-account-create-portal.md
         - text: Create and manage pools
-          url: batch-custom-images.md
+          url: batch-sig-images.md
         - text: Run tasks concurrently 
           url: batch-parallel-node-tasks.md
-        - text: Using application packages
+        - text: Use application packages
           url: batch-application-packages.md
+        - text: Run container applications
+          url: batch-docker-container-workloads.md
       - linkListType: concept
         links:
           - text: Supported VM sizes

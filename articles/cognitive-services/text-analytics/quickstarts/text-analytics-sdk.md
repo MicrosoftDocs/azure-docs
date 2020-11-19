@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 09/09/2020
+ms.date: 10/07/2020
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
@@ -25,6 +25,7 @@ Use the Text Analytics client library to perform:
 * Language detection
 * Entity recognition
 * Key phrase extraction
+* Opinion mining
 
 ::: zone pivot="programming-language-csharp"
 

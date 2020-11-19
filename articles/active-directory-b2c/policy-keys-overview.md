@@ -75,6 +75,13 @@ To add or delete signing and encryption keys:
     1. To add a new key, select **Add**.
     1. To remove a new key, select the key, and then select **Delete**. To delete the key, type the name of the key container to delete. Azure AD B2C will delete the key and create a copy of the key with the suffix .bak.
 
+### Replace a key
+
+The keys in a keyset are not replaceable or removable. If you need to change an existing key:
+
+- We recommend adding a new key with the **activation date** set to the current date and time. Azure AD B2C will activate the new key and stop using the prior active key.
+- Alternatively, you can create a new keyset with the correct keys. Update your policy to use the new keyset, and then remove the old keyset. 
+
 ## Next steps
 
 - Learn how to use Microsoft Graph to automate a [keyset](microsoft-graph-operations.md#trust-framework-policy-keyset) and [policy keys](microsoft-graph-operations.md#trust-framework-policy-key) deployment.

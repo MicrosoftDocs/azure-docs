@@ -114,7 +114,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     ---
 
-    With the preceding change, the [configuration provider for App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) has been registered with the .NET Core Configuration API.
+    With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
 
 ## Read from the App Configuration store
 

@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
+7. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 
     Leave **Label** and **Content Type** empty for now.
 
-7. Select **Apply**.
+8. Select **Apply**.
 
 ## Create a .NET Framework console app
 

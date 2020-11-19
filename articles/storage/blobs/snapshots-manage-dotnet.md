@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Create and manage a blob snapshot in .NET
 
-A snapshot is a read-only version of a blob that's taken at a point in time. This article shows how to create and manage blob snapshots using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+A snapshot is a read-only version of a blob that's taken at a point in time. This article shows how to create and manage blob snapshots using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 For more information about blob snapshots in Azure Storage, see [Blob snapshots](snapshots-overview.md).
 

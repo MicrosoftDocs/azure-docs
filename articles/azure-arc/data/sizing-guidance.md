@@ -22,7 +22,7 @@ When planning for the deployment of Azure Arc data services you should plan for 
 ## General sizing requirements
 
 > [!NOTE]
-> If you are not familiar with the concepts in this article, you can read more about [Kubernetes resource governance](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) and [Kubernetes size notation](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes).
+> If you are not familiar with the concepts in this article, you can read more about [Kubernetes resource governance](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) and [Kubernetes size notation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
 Cores numbers must be an integer value greater than or equal to one.
 
@@ -84,6 +84,7 @@ Each SQL managed instance must have the following minimum resource requests:
 - Cores: 1
 
 Each SQL managed instance pod that is created has three containers:
+
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the SQL managed instance.||
@@ -99,6 +100,7 @@ Each PostgreSQL Hyperscale server group node must have the following minimum res
 - Cores: 1
 
 Each PostgreSQL Hyperscale server group coordinator or worker pod that is created has three containers:
+
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the PostgreSQL Hyperscale server group nodes.|

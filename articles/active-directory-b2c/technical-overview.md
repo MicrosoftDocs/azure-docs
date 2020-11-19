@@ -97,7 +97,7 @@ You can configure user flow settings like these to control identity experience b
 
 * Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
 * Attributes to be collected from the consumer, such as first name, postal code, or country/region of residency
-* Azure Multi-Factor Authentication (MFA)
+* Azure AD Multi-Factor Authentication (MFA)
 * Customization of the user interface
 * Set of claims in a token that your application receives after the user completes the user flow
 * Session management
@@ -211,7 +211,7 @@ You can assign roles to control who can perform certain administrative actions i
 * Create and manage trust framework policies in the Identity Experience Framework (custom policies)
 * Manage secrets for federation and encryption in the Identity Experience Framework (custom policies)
 
-For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### Multi-factor authentication (MFA)
 

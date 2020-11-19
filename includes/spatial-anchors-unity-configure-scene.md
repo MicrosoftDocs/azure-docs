@@ -7,6 +7,8 @@ ms.author: crtreasu
 ---
 ## Configure the account information
 
-The next step is to configure the app to use your account information. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
+The next step is to configure the app to use your account information. You copied the **Account Key**, **Account ID**, and **Account Domain** values to a text editor earlier, in the ["Create a Spatial Anchors resource"](#create-a-spatial-anchors-resource) section.
 
-In the **Project** pane, navigate to `Assets\AzureSpatialAnchors.SDK\Resources`. Select `SpatialAnchorConfig`. Then, in the **Inspector** pane, enter the `Account Key` as the value for `Spatial Anchors Account Key`, the `Account ID` as the value for `Spatial Anchors Account Id`, and the `Account Domain` as the value for `Spatial Anchors Account Domain`.
+On the **Project** pane, go to `Assets\AzureSpatialAnchors.SDK\Resources`. 
+
+Select **SpatialAnchorConfig**. On the **Inspector** pane, enter the `Account Key` as the value for **Spatial Anchors Account Key**, the `Account ID` as the value for **Spatial Anchors Account Id**, and the `Account Domain` as the value for **Spatial Anchors Account Domain**.

@@ -27,7 +27,7 @@ Currently, Azure is offering [Azure Availability Zones](../../../availability-zo
 
 Azure regions where Availability Zones are offered have multiple datacenters. The datacenters are independent in the supply of power source, cooling, and network. The reason for offering different zones within a single Azure region is to deploy applications across two or three Availability Zones that are offered. Deploying across zones, issues in power and networking affecting only one Azure Availability Zone infrastructure, your application deployment within an Azure region is still functional. Some reduced capacity might occur. For example, VMs in one zone might be lost, but VMs in the other two zones would still be up and running. 
  
-An Azure Availability Set is a logical grouping capability that helps ensure that the VM resources that you place within the Availability Set are failure-isolated from each other when they are deployed within an Azure datacenter. Azure ensures that the VMs you place within an Availability Set run across multiple physical servers, compute racks, storage units, and network switches. In some Azure documentation, this configuration is referred to as placements in different [update and fault domains](../../windows/manage-availability.md). These placements usually are within an Azure datacenter. Assuming that power source and network issues would affect the datacenter that you are deploying, all your capacity in one Azure region would be affected.
+An Azure Availability Set is a logical grouping capability that helps ensure that the VM resources that you place within the Availability Set are failure-isolated from each other when they are deployed within an Azure datacenter. Azure ensures that the VMs you place within an Availability Set run across multiple physical servers, compute racks, storage units, and network switches. In some Azure documentation, this configuration is referred to as placements in different [update and fault domains](../../manage-availability.md). These placements usually are within an Azure datacenter. Assuming that power source and network issues would affect the datacenter that you are deploying, all your capacity in one Azure region would be affected.
 
 The placement of datacenters that represent Azure Availability Zones is a compromise between delivering acceptable network latency between services deployed in different zones, and a distance between datacenters. Natural catastrophes ideally wouldn't affect the power, network supply, and infrastructure for all Availability Zones in this region. However, as monumental natural catastrophes have shown, Availability Zones might not always provide the availability that you want within one region. Think about Hurricane Maria that hit the island of Puerto Rico on September 20, 2017. The hurricane basically caused a nearly 100 percent blackout on the 90-mile-wide island.
 
@@ -76,7 +76,7 @@ One of the most rudimentary setups is to use backups. In particular, you might h
 
 The architecture looks like:
 
-![Diagram of two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagram that shows the architecture of two VMs with storage replication.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 This setup is not well suited to achieving great Recovery Point Objective (RPO) and Recovery Time Objective (RTO) times. RTO times especially would suffer due to the need to fully restore the complete database by using the copied backups. However, this setup is useful for recovering from unintended data deletion on the main instances. With this setup, at any time, you can restore to a certain point in time, extract the data, and import the deleted data into your main instance. Hence, it might make sense to use a backup copy method in combination with other high-availability functionality. 
 
@@ -125,4 +125,4 @@ For step-by-step guidance on setting up these configurations in Azure, see:
 
 For more information about SAP HANA availability across Azure regions, see:
 
-- [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md) 
+- [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md)

@@ -10,6 +10,7 @@ ms.date: 08/19/2020
 ---
 
 # Plan and manage costs for Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article describes how you can plan and manage costs for Azure Cosmos DB:
 
@@ -70,13 +71,13 @@ As you start using Azure Cosmos DB resources from Azure portal, you can see the 
 
 ## Use budgets and cost alerts
 
-You can create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they’re useful as part of an overall cost monitoring strategy. However, they may have limited functionality to manage individual Azure service costs like the cost of Azure Cosmos DB because they are designed to track costs at a higher level.
+You can create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they’re useful as part of an overall cost monitoring strategy. However, they may have limited functionality to manage individual Azure service costs like the cost of Azure Cosmos DB because they are designed to track costs at a higher level.
 
-If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can’t change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../billing/billing-spending-limit.md).
+If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can’t change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../cost-management-billing/manage/spending-limit.md).
 
 ## Monitor costs
 
-As you use resources with Azure Cosmos DB, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by request unit usage. As soon as usage of Azure Cosmos DB starts, costs are incurred and you can see them in the [cost analysis](../cost-management/quick-acm-cost-analysis.md) pane in the Azure portal.
+As you use resources with Azure Cosmos DB, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by request unit usage. As soon as usage of Azure Cosmos DB starts, costs are incurred and you can see them in the [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
 
 When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and tables for different time intervals. Some examples are by day, current, prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you’ve created budgets, you can also easily see where they exceeded.To view Azure Cosmos DB costs in cost analysis:
 
@@ -98,5 +99,5 @@ See the following articles to learn more on how pricing works in Azure Cosmos DB
 
 * [Pricing model in Azure Cosmos DB](how-pricing-works.md)
 * [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimize query cost in Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md)
 * [Optimize storage cost in Azure Cosmos DB](optimize-cost-storage.md)

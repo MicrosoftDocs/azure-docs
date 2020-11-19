@@ -38,7 +38,7 @@ Azure AD also adds the Azure AD device administrator role to the local administr
 
 To view and update the membership of the global administrator role, see:
 
-- [View all members of an administrator role in Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [View all members of an administrator role in Azure Active Directory](../roles/manage-roles-portal.md)
 - [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 

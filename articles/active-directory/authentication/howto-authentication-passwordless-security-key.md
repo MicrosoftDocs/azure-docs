@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/14/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 
@@ -26,7 +26,7 @@ This document focuses on enabling security key based passwordless authentication
 
 ## Requirements
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Enable [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN requires Windows 10 version 1903 or higher**
@@ -59,8 +59,8 @@ Registration features for passwordless authentication methods rely on the combin
 1. Browse to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Sign in if not already.
 1. Click **Security Info**.
-   1. If the user already has at least one Azure Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
-   1. If they don't have at least one Azure Multi-Factor Authentication method registered, they must add one.
+   1. If the user already has at least one Azure AD Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
+   1. If they don't have at least one Azure AD Multi-Factor Authentication method registered, they must add one.
 1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
 1. Choose **USB device** or **NFC device**.
 1. Have your key ready and choose **Next**.
@@ -102,4 +102,4 @@ We are working on supporting a feature that allows UPN change on hybrid Azure AD
 
 [Learn more about device registration](../devices/overview.md)
 
-[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

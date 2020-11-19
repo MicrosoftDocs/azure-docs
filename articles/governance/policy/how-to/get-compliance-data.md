@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -125,7 +125,7 @@ resource group:
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-You can chose not to wait for the asynchronous process to complete before continuing with the
+You can choose not to wait for the asynchronous process to complete before continuing with the
 **no-wait** parameter.
 
 #### On-demand evaluation scan - Azure PowerShell
@@ -215,22 +215,30 @@ with the status:
 }
 ```
 
+#### On-demand evaluation scan - Visual Studio Code
+
+The Azure Policy extension for Visual Studio code is capable of running an evaluation scan for a
+specific resource. This scan is a synchronous process, unlike the Azure PowerShell and REST methods.
+For details and steps, see
+[On-demand evaluation with the VS Code extension](./extension-for-vscode.md#on-demand-evaluation-scan).
+
 ## How compliance works
 
 In an assignment, a resource is **Non-compliant** if it doesn't follow policy or initiative rules
 and isn't _exempt_. The following table shows how different policy effects work with the condition
 evaluation for the resulting compliance state:
 
-| Resource state | Effect | Policy evaluation | Compliance state |
+| Resource State | Effect | Policy Evaluation | Compliance State |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-compliant |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
-| New | Audit, AuditIfNotExist\* | True | Non-compliant |
-| New | Audit, AuditIfNotExist\* | False | Compliant |
+| New or Updated | Audit, Modify, AuditIfNotExist | True | Non-Compliant |
+| New or Updated | Audit, Modify, AuditIfNotExist | False | Compliant |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Non-Compliant |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | Compliant |
 
-\* The Modify, Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be
-TRUE. The effects also require the existence condition to be FALSE to be non-compliant. When TRUE,
-the IF condition triggers evaluation of the existence condition for the related resources.
+> [!NOTE]
+> The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
+> existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers
+> evaluation of the existence condition for the related resources.
 
 For example, assume that you have a resource group – ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
@@ -258,11 +266,11 @@ Besides **Compliant** and **Non-compliant**, policies and resources have four ot
 - **Not registered**: The Azure Policy Resource Provider hasn't been registered or the account
   logged in doesn't have permission to read compliance data.
 
-Azure Policy uses the **type** and **name** fields in the definition to determine if a resource is a
-match. When the resource matches, it's considered applicable and has a status of either
-**Compliant**, **Non-compliant**, or **Exempt**. If either **type** or **name** is the only property
-in the definition, then all included and non-exempt resources are considered applicable and are
-evaluated.
+Azure Policy uses the **type**, **name**, or **kind** fields in the definition to determine if a
+resource is a match. When the resource matches, it's considered applicable and has a status of
+either **Compliant**, **Non-compliant**, or **Exempt**. If either **type**, **name**, or **kind** is
+the only property in the definition, then all included and non-exempt resources are considered
+applicable and are evaluated.
 
 The compliance percentage is determined by dividing **Compliant** and **Exempt** resources by _total
 resources_. _Total resources_ is defined as the sum of the **Compliant**, **Non-compliant**,
@@ -298,14 +306,15 @@ initiative in the table provides a deeper look at the compliance for that partic
 
 The list of resources on the **Resource compliance** tab shows the evaluation status of existing
 resources for the current assignment. The tab defaults to **Non-compliant**, but can be filtered.
-Events (append, audit, deny, deploy) triggered by the request to create a resource are shown under
-the **Events** tab.
+Events (append, audit, deny, deploy, modify) triggered by the request to create a resource are shown
+under the **Events** tab.
 
 > [!NOTE]
 > For an AKS Engine policy, the resource shown is the resource group.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot of the Events tab on Compliance Details page." border="false":::
 
+<a name="component-compliance"></a>
 For [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) resources,
 on the **Resource compliance** tab, selecting the resource or right-clicking on the row and
 selecting **View compliance details** opens the component compliance details. This page also offers

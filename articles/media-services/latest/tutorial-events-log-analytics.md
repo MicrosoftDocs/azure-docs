@@ -38,11 +38,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 > * An [Azure subscription](how-to-set-azure-subscription.md)
 > * A [Media Services](create-account-howto.md) account and resource group.
 > * An installation of [FFmpeg](https://ffmpeg.org/download.html) for your OS.
-> * A [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) workspace
+> * A [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) workspace
 
 ## Subscribe to a Media Services event with Logic App
 
-1. In the Azure portal, if you haven't done so already, create a [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) workspace. You'll need the Workspace ID and one of the keys, so keep that browser window open. Then, open the portal in another tab or window.
+1. In the Azure portal, if you haven't done so already, create a [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) workspace. You'll need the Workspace ID and one of the keys, so keep that browser window open. Then, open the portal in another tab or window.
 
 1. Navigate to your Azure Media Services account and select **Events**. This will show all the methods for subscribing to Azure Media Services events.
     > [!div class="mx-imgBorder"]
@@ -135,7 +135,7 @@ Now that you are subscribed to the event(s), create an action.
     > [!div class="mx-imgBorder"]
     > ![Verify Body and Function steps](media/tutorial-events-log-analytics/verify-changes-to-json.png)
 
-1. When you examine all the resources in the resource group, there will be a Logic App and two Logic App API connectors listed, one for the Events and one for Log Analytics. For more information about Event Grid system topics, read [Event Grid System Topics](https://docs.microsoft.com/azure/event-grid/system-topics).
+1. When you examine all the resources in the resource group, there will be a Logic App and two Logic App API connectors listed, one for the Events and one for Log Analytics. For more information about Event Grid system topics, read [Event Grid System Topics](../../event-grid/system-topics.md).
     > [!div class="mx-imgBorder"]
     > ![See all new resources in Resource Group](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
@@ -226,4 +226,4 @@ If you don't want to continue to use the resources you created during this tutor
 
 ## Next steps
 
-You can create different queries and save them. These can be added to [Azure Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+You can create different queries and save them. These can be added to [Azure Dashboard](../../azure-monitor/learn/tutorial-logs-dashboards.md).

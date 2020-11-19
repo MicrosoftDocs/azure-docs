@@ -14,21 +14,21 @@ ms.date: 06/15/2020
 Azure Database for PostgreSQL – Hyperscale (Citus) now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Hyperscale (Citus) reserved capacity, you make an upfront commitment on Hyperscale (Citus) server group for a one- or three-year period to get a significant discount on the compute costs. To purchase Hyperscale (Citus) reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
 
 > [!IMPORTANT]
-> This article is about reserved capacity for Azure Database for PostgreSQL – Hyperscale (Citus). For information about reserved capacity for Azure Database for PostgreSQL – Single Server, see [Prepay for Azure Database for PostgreSQL – Single Server compute resources with reserved capacity](/azure/postgresql/concept-reserved-pricing).
+> This article is about reserved capacity for Azure Database for PostgreSQL – Hyperscale (Citus). For information about reserved capacity for Azure Database for PostgreSQL – Single Server, see [Prepay for Azure Database for PostgreSQL – Single Server compute resources with reserved capacity](./concept-reserved-pricing.md).
 
 You don't need to assign the reservation to specific Hyperscale (Citus) server groups. An already running Hyperscale (Citus) server group or ones that are newly deployed automatically get the benefit of reserved pricing. By purchasing a reservation, you're prepaying for the compute costs for one year or three years. As soon as you buy a reservation, the Hyperscale (Citus) compute charges that match the reservation attributes are no longer charged at the pay-as-you-go rates. 
 
 A reservation doesn't cover software, networking, or storage charges associated with the Hyperscale (Citus) server groups. At the end of the reservation term, the billing benefit expires, and the Hyperscale (Citus) server groups are billed at the pay-as-you go price. Reservations don't autorenew. For pricing information, see the [Azure Database for PostgreSQL – Hyperscale (Citus) reserved capacity offering](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
-You can buy Hyperscale (Citus) reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](https://docs.microsoft.com/azure/cost-management-billing/reservations/monthly-payments-reservations). To buy the reserved capacity:
+You can buy Hyperscale (Citus) reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
 * You must be in the owner role for at least one Enterprise Agreement (EA) or individual subscription with pay-as-you-go rates.
 * For Enterprise Agreement subscriptions, **Add Reserved Instances** must be enabled in the [EA Portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an Enterprise Agreement admin on the subscription.
 * For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Hyperscale (Citus) reserved capacity.
 
 For information on how Enterprise Agreement customers and pay-as-you-go customers are charged for reservation purchases, see:
-- [Understand Azure reservation usage for your Enterprise Agreement enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-- [Understand Azure reservation usage for your pay-as-you-go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Understand Azure reservation usage for your Enterprise Agreement enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+- [Understand Azure reservation usage for your pay-as-you-go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## Determine the right server group size before purchase
 
@@ -64,7 +64,7 @@ The following table describes required fields.
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## vCore size flexibility
 
@@ -80,9 +80,9 @@ The vCore reservation discount is applied automatically to the number of Hypersc
 
 To learn more about Azure reservations, see the following articles:
 
-* [What are Azure reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Manage Azure reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Understand the Azure reservation discount](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Understand reservation usage for your pay-as-you-go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Understand reservation usage for your Enterprise Agreement enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure reservations in the Partner Center Cloud Solution Provider program](https://docs.microsoft.com/partner-center/azure-reservations)
+* [What are Azure reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Manage Azure reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Understand reservation usage for your pay-as-you-go subscription](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Understand reservation usage for your Enterprise Agreement enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Azure reservations in the Partner Center Cloud Solution Provider program](/partner-center/azure-reservations)

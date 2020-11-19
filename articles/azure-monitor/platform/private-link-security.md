@@ -4,15 +4,11 @@ description: Use Azure Private Link to securely connect networks to Azure Monito
 author: nkiest
 ms.author: nikiest
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 10/05/2020
 ms.subservice: 
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Monitor
-
-> [!IMPORTANT]
-> At this time, you must **request access** to use this capability. You may apply for access using the [signup form](https://aka.ms/AzMonPrivateLinkSignup).
-
 
 [Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints. For many services, you just set up an endpoint per resource. However, Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. As a result, we have built a resource called an Azure Monitor Private Link Scope (AMPLS) that allows you to define the boundaries of your monitoring network and connect to your virtual network. This article covers when to use and how to set up an Azure Monitor Private Link Scope.
 
@@ -40,6 +36,9 @@ Azure Monitor Private Link Scope is a grouping resource to connect one or more p
 ## Planning based on your network
 
 Before setting up your AMPLS resources, consider your network isolation requirements. Evaluate your virtual networks' access to public internet, and the access restrictions of each of your Azure Monitor resources (that is, Application Insights components and Log Analytics workspaces).
+
+> [!NOTE]
+> Hub-and-Spoke networks, or any other topology of peered networks, can setup a Private Link between the hub (main) VNet and the relevant Azure Monitor resources, instead of setting up a Private Link on each and every VNet. This makes sense especially if the Azure Monitor resources used by these networks are shared. However, if you'd like to allow each VNet to access a separate set of monitoring resources, create a Private Link to a dedicated AMPLS for each network.
 
 ### Evaluate which virtual networks should connect to a Private Link
 
@@ -108,6 +107,9 @@ You can connect your AMPLS first to private endpoints and then to Azure Monitor 
 
     ![Screenshot of select a scope UX](./media/private-link-security/ampls-select-2.png)
 
+> [!NOTE]
+> Deleting Azure Monitor resources requires that you first disconnect them from any AMPLS objects they are connected to. It's not possible to delete resources connected to an AMPLS.
+
 ### Connect to a private endpoint
 
 Now that you have resources connected to your AMPLS, create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints), or inside your Azure Monitor Private Link Scope, as done in this example.
@@ -136,6 +138,8 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
    a.    Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
  
    b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
+   > [!NOTE]
+   > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
  
    c.    Click **Review + create**.
  
@@ -232,7 +236,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### Azure portal
 
-To use Azure Monitor portal experiences such as Application Insights and Log Analytics, you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your firewall.
+To use Azure Monitor portal experiences such as Application Insights and Log Analytics, you need to allow the Azure portal and Azure Monitor extensions to be accessible on the private networks. Add **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**, and **AzureFrontdoor.Frontend** [service tags](../../firewall/service-tags.md) to your Network Security Group.
 
 ### Programmatic access
 

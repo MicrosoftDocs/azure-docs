@@ -1,10 +1,10 @@
 ---
 title: Create, deploy a multi-service app to Service Fabric Mesh 
 description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, debug it locally, and publish it to Azure.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: "mvc, devcenter, devx-track-csharp"
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, debug it on my local development cluster, publish it to Azure, monitor it, upgrade it, and then clean up resources so that I am not charged for what I'm not using.
 ---

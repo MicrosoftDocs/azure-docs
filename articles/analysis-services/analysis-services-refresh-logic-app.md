@@ -112,4 +112,4 @@ Save the Logic App.
 ## Next steps
 
 [Samples](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

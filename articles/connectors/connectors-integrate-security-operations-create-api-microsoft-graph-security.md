@@ -3,7 +3,7 @@ title: Integrate and manage security operations & Microsoft Graph Security
 description: Improve your app's threat protection, detection, and response with Microsoft Graph Security & Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
@@ -25,13 +25,13 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft
 
 Your logic app's workflow can use actions that get responses from the Microsoft Graph Security connector and make that output available to other actions in your workflow. You can also have other actions in your workflow use the output from the Microsoft Graph Security connector actions. For example, if you get high severity alerts through the Microsoft Graph Security connector, you can send those alerts in an email message by using the Outlook connector. 
 
-To learn more about Microsoft Graph Security, see the [Microsoft Graph Security API overview](https://aka.ms/graphsecuritydocs). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). If you're looking for Microsoft Flow or PowerApps, see [What is Flow?](https://flow.microsoft.com/) or [What is PowerApps?](https://powerapps.microsoft.com/)
+To learn more about Microsoft Graph Security, see the [Microsoft Graph Security API overview](/graph/security-concept-overview). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). If you're looking for Power Automate or PowerApps, see [What is Power Automate?](https://flow.microsoft.com/) or [What is Power Apps?](https://powerapps.microsoft.com/)
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-* To use the Microsoft Graph Security connector, you must have *explicitly given* Azure Active Directory (AD) tenant administrator consent, which is part of the [Microsoft Graph Security Authentication requirements](https://aka.ms/graphsecurityauth). This consent requires the Microsoft Graph Security connector's application ID and name, which you can also find in the [Azure portal](https://portal.azure.com):
+* To use the Microsoft Graph Security connector, you must have *explicitly given* Azure Active Directory (AD) tenant administrator consent, which is part of the [Microsoft Graph Security Authentication requirements](/graph/security-authorization). This consent requires the Microsoft Graph Security connector's application ID and name, which you can also find in the [Azure portal](https://portal.azure.com):
 
   | Property | Value |
   |----------|-------|
@@ -142,27 +142,26 @@ To filter, sort, or get the most recent results, provide *only* the [ODATA query
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-For more information about the queries that you can use with this connector, see ["Optional Query Parameters" in the Microsoft Graph Security threat intelligence indicator reference documentation](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). To build enhanced experiences with this connector, learn more about the 
-[schema properties threat intelligence indicator](/graph/api/resources/tiindicator?view=graph-rest-beta) that the connector supports.
+For more information about the queries that you can use with this connector, see ["Optional Query Parameters" in the Microsoft Graph Security threat intelligence indicator reference documentation](/graph/api/tiindicators-list). To build enhanced experiences with this connector, learn more about the 
+[schema properties threat intelligence indicator](/graph/api/resources/tiindicator) that the connector supports.
 
 | Action | Description |
 |--------|-------------|
-| **Get threat intelligence indicators** | Get tiIndicators filtered based on one or more [tiIndicator properties](/graph/api/resources/tiindicator?view=graph-rest-beta), for example, `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Get threat intelligence indicators** | Get tiIndicators filtered based on one or more [tiIndicator properties](/graph/api/resources/tiindicator), for example, `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Get threat intelligence indicator by ID** | Get a specific tiIndicator based on the tiIndicator ID. | 
-| **Create threat intelligence indicator** | Create a new tiIndicator by posting to the tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for creating tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
-| **Submit multiple threat intelligence indicators** | Create multiple new tiIndicators by posting a tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for submitting multiple tiIndicators](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
-| **Update threat intelligence indicator** | Update a specific tiIndicator based on the tiIndicator ID. To make sure you pass the required and editable properties in your request, see the [editable properties for tiIndicator](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). For example, to update the action to apply if the indicator is matched from within the targetProduct security tool, you can update the tiIndicator's **action** property. |
-| **Update multiple threat intelligence indicators** | Update multiple tiIndicators. To make sure you pass the required properties in your request, refer to the [required properties for updating multiple tiIndicators](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
+| **Create threat intelligence indicator** | Create a new tiIndicator by posting to the tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for creating tiIndicator](/graph/api/tiindicators-post). |
+| **Submit multiple threat intelligence indicators** | Create multiple new tiIndicators by posting a tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for submitting multiple tiIndicators](/graph/api/tiindicator-submittiindicators). |
+| **Update threat intelligence indicator** | Update a specific tiIndicator based on the tiIndicator ID. To make sure you pass the required and editable properties in your request, see the [editable properties for tiIndicator](/graph/api/tiindicator-update). For example, to update the action to apply if the indicator is matched from within the targetProduct security tool, you can update the tiIndicator's **action** property. |
+| **Update multiple threat intelligence indicators** | Update multiple tiIndicators. To make sure you pass the required properties in your request, refer to the [required properties for updating multiple tiIndicators](/graph/api/tiindicator-updatetiindicators). |
 | **Delete threat intelligence indicator by ID** | Delete a specific tiIndicator based on the tiIndicator ID. |
-| **Delete multiple threat intelligence indicators by IDs** | Delete multiple tiIndicators by their IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by IDs](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
-| **Delete multiple threat intelligence indicators by external IDs** | Delete multiple tiIndicators by the external IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by external IDs](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
+| **Delete multiple threat intelligence indicators by IDs** | Delete multiple tiIndicators by their IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by IDs](/graph/api/tiindicator-deletetiindicators). |
+| **Delete multiple threat intelligence indicators by external IDs** | Delete multiple tiIndicators by the external IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by external IDs](/graph/api/tiindicator-deletetiindicatorsbyexternalid). |
 |||
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](https://aka.ms/graphsecurityconnectorreference).
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/microsoftgraphsecurity/).
 
 ## Next steps
 
 Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-

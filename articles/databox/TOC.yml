@@ -1,5 +1,5 @@
 - name:  Azure Data Box Documentation - Offline Transfer
-  href: /azure/databox
+  href: ./index.yml
   items:
   - name: Data Box
     items:
@@ -103,7 +103,7 @@
       - name: Migrate
         items:
         - name: To SharePoint Online
-          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context
+          href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%252fazure%252fdatabox%252fcontext%252fcontext
         - name: To Azure File Sync
           href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: From HDFS store
@@ -128,6 +128,7 @@
       items:
       - name: Set up - Azure portal
         href: data-box-disk-quickstart-portal.md
+        displayName: Azure CLI, az databox job create, create Data Box job
     - name: Tutorials
       items:
       - name: 1 - Order
@@ -179,6 +180,7 @@
       items:
       - name: Set up - Azure portal
         href: data-box-heavy-quickstart-portal.md
+        displayName: Azure CLI, az databox job create, create Data Box job
     - name: Tutorials
       items:
       - name: 1 - Order

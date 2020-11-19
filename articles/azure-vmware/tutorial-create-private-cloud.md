@@ -38,7 +38,7 @@ You can create an Azure VMware Solution private cloud by using the [Azure portal
 
 ### Azure CLI
 
-Instead of the Azure portal to create an Azure VMware Solution private cloud, you can use the Azure CLI using the Azure Cloud Shell.  For a list of commands you can use with Azure VMware Solution, see [azure vmware commands](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Instead of the Azure portal to create an Azure VMware Solution private cloud, you can use the Azure CLI using the Azure Cloud Shell.  For a list of commands you can use with Azure VMware Solution, see [azure vmware commands](/cli/azure/ext/vmware/vmware).
 
 #### Open Azure Cloud Shell
 
@@ -91,7 +91,7 @@ Once a private cloud is deleted, there is no way to recover the virtual machines
 
 ## Azure VMware commands
 
-For a list of commands you can use with Azure VMware Solution, see [azure vmware commands](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+For a list of commands you can use with Azure VMware Solution, see [azure vmware commands](/cli/azure/ext/vmware/vmware).
 
 ## Next steps
 

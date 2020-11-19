@@ -1,7 +1,7 @@
 ---
 title: View service provider activity
 description: Customers can view logged activity to see actions performed by service providers through Azure delegated resource management.
-ms.date: 07/07/2020
+ms.date: 10/12/2020
 ms.topic: how-to
 ---
 
@@ -10,7 +10,7 @@ ms.topic: how-to
 Customers who have delegated subscriptions for [Azure Lighthouse](../overview.md) can [view Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md) data to see all actions taken. This gives customers full visibility into operations that service providers are performing through [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), along with operations done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
 > [!TIP]
-> We also provide an Azure Policy built-in policy definition to audit delegation of scopes to a managing tenant. For more info, see [Audit delegations in your environment](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> We also provide Azure Policy built-in policy definitions to [restrict delegation to specific managing tenants](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) and to [audit delegation of scopes to a managing tenant](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). For more info, see [Audit delegations in your environment](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## View activity log data
 

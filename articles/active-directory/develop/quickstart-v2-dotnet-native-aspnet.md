@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/12/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET"
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application that's built by using Node.js with Express.
@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Call an ASP.NET web API that's protected by Microsoft identity platform
 
-In this quickstart, you expose a web API and protect it so that only authenticated users can access it. The article shows how to expose an ASP.NET web API so it can accept tokens that are issued by personal accounts, such as outlook.com or live.com, and work or school accounts from any company or organization that has integrated with Microsoft identity platform.
+In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
 The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how you can request an access token to access a web API.
 

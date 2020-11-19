@@ -35,15 +35,15 @@ You can use PowerShell or the Azure CLI to create, configure, and scale your dat
 
 ## Migrating to a single database with minimal downtime
 
-These quickstarts enable you to quickly create or import your database to Azure using a `.bacpac` file. However, `.bacpac` and `.dacpac` files are designed to quickly move databases across different versions of SQL Server and within Azure SQL, or to implement continuous integration in your DevOps pipeline. However, this method is not designed for migration of your production databases with minimal downtime, because you would need to stop adding new data, wait for the export of the source database to a `.bacpac` file to complete, and then wait for the import into Azure SQL Database to complete. All of this waiting results in downtime of your application, especially for large databases. To move your production database, you need a better way to migrate that guarantees minimal downtime of migration. For this, use the [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json) to migrate your database with the minimal downtime. DMS accomplishes this by incrementally pushing the changes made in your source database to the single database being restored. This way, you can quickly switch your application from source to target database with the minimal downtime.
+These quickstarts enable you to quickly create or import your database to Azure using a `.bacpac` file. However, `.bacpac` and `.dacpac` files are designed to quickly move databases across different versions of SQL Server and within Azure SQL, or to implement continuous integration in your DevOps pipeline. However, this method is not designed for migration of your production databases with minimal downtime, because you would need to stop adding new data, wait for the export of the source database to a `.bacpac` file to complete, and then wait for the import into Azure SQL Database to complete. All of this waiting results in downtime of your application, especially for large databases. To move your production database, you need a better way to migrate that guarantees minimal downtime of migration. For this, use the [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json) to migrate your database with the minimal downtime. DMS accomplishes this by incrementally pushing the changes made in your source database to the single database being restored. This way, you can quickly switch your application from source to target database with the minimal downtime.
 
 ## Hands-on learning modules
 
 The following Microsoft Learn modules help you learn for free about Azure SQL Database.
 
-- [Provision a database in SQL Database to store application data](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Develop and configure an ASP.NET application that queries a database in Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Secure your database in Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Provision a database in SQL Database to store application data](/learn/modules/provision-azure-sql-db/)
+- [Develop and configure an ASP.NET application that queries a database in Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/)
+- [Secure your database in Azure SQL Database](/learn/modules/secure-your-azure-sql-database/)
 
 ## Next steps
 

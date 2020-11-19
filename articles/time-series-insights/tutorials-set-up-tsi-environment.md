@@ -34,7 +34,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 ## Prerequisites
 
-* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Create a device simulation
 

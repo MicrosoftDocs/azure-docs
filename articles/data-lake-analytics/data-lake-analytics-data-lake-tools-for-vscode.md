@@ -1,10 +1,8 @@
 ---
 title: Use Azure Data Lake Tools for Visual Studio Code
 description: Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
 ---
@@ -143,7 +141,7 @@ Azure Data Lake Tools supports multiple custom codes. For instructions, see [Dev
 
 ## Work with assemblies
 
-For information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
+For information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs]().
 
 You can use Data Lake Tools to register custom code assemblies in the Data Lake Analytics catalog.
 

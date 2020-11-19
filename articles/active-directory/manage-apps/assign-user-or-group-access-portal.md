@@ -53,7 +53,7 @@ To require user assignment for an application:
 To learn how to assign, or unassign, a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md).
 
 ## Assign or unassign users, and groups, for an app using the Graph API
-You can use the Graph API to assign or unassign users, and groups, for an app. To learn more, see [App role assignments](https://docs.microsoft.com/graph/api/resources/approleassignment).
+You can use the Graph API to assign or unassign users, and groups, for an app. To learn more, see [App role assignments](/graph/api/resources/approleassignment).
 
 ## Assign users, and groups, to an app using PowerShell
 1. Open an elevated Windows PowerShell command prompt.
@@ -76,11 +76,11 @@ You can use the Graph API to assign or unassign users, and groups, for an app. T
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-For more information about how to assign a user to an application role, see the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+For more information about how to assign a user to an application role, see the documentation for [New-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
 To assign a group to an enterprise app, you must replace `Get-AzureADUser` with `Get-AzureADGroup` and replace `New-AzureADUserAppRoleAssignment` with `New-AzureADGroupAppRoleAssignment`.
 
-For more information about how to assign a group to an application role, see the documentation for [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+For more information about how to assign a group to an application role, see the documentation for [New-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### Example
 
@@ -149,6 +149,6 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 ## Next steps
 
 - [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
+- [Remove a user or group assignment from an enterprise app]()
 - [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
-- [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
+- [Change the name or logo of an enterprise app](./add-application-portal-configure.md)

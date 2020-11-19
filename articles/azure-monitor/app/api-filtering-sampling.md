@@ -287,7 +287,7 @@ protected void Application_Start()
 }
 ```
 
-See more of [this sample](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
 ASP.NET **Core/Worker service apps: Load your initializer**
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40
+ms.custom: identityplatformtop40, contperfq2
 # Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
 
@@ -71,8 +71,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 
-> [!TIP]
-> Looking for *Azure Active Directory developer platform (v1.0)* documentation? See the [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md).
+[Azure Active Directory for developers (v1.0)](../azuread-dev/v1-overview.md) - Shown here for developers with existing apps that use the older v1.0 endpoint. **Do not** use v1.0 for new projects.
 
 ## Next steps
 
