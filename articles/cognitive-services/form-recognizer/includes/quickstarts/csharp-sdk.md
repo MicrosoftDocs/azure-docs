@@ -58,7 +58,6 @@ Within the application directory, install the Form Recognizer client library for
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
----
 
 #### [version 3.1 preview](#tab/preview)
 
@@ -89,6 +88,7 @@ In the application's **Main** method, add a call to the asynchronous tasks used 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 #### [version 3.1 preview](#tab/preview)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
+
 ---
 
 
