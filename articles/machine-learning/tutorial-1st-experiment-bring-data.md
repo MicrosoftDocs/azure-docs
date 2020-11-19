@@ -74,7 +74,7 @@ optimizer = optim.SGD(
 )
 ```
 > [!div class="nextstepaction"]
-> [I adjusted the training script](?isuccess=adjust-training-script#test-locally) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I adjusted the training script](?success=adjust-training-script#test-locally) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
 
 ## <a name="test-locally"></a> Test the script locally
 
@@ -145,7 +145,7 @@ Uploaded 9 files
 ```
 
 > [!div class="nextstepaction"]
-> [I uploaded the data](?isuccess=upload-data#control-script) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I uploaded the data](?success=upload-data#control-script) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
 
 ## <a name="control-script"></a> Create a control script
 
