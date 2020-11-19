@@ -23,7 +23,7 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 
 ## Named Entity Recognition (NER)
 
-Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
+Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.  
 
 ## Personally Identifiable Information (PII)
 
@@ -50,7 +50,7 @@ Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v
 * An optional `domain=phi` parameter to detect confidential health information (`PHI`).
 * [Asynchronous operation](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
-See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information. 
+For more information, see the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below. 
 
 ## Sending a REST API request
 
@@ -72,7 +72,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 3.1-preview.3](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.3` uses separate endpoints for NER, PII and entity linking requests. Use a URL format below based on your request.
+Named Entity Recognition `v3.1-preview.3` uses separate endpoints for NER, PII, and entity linking requests. Use a URL format below based on your request.
 
 **Entity linking**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
@@ -91,7 +91,7 @@ You can also use the optional `domain=phi` parameter to detect health (`PHI`) in
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
-Note that starting in `v3.1-preview.3`, The JSON response includes a `redactedText` property which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
+Starting in `v3.1-preview.3`, The JSON response includes a `redactedText` property, which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
 
 [Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
@@ -115,7 +115,7 @@ Set a request header to include your Text Analytics API key. In the request body
 
 ### Example NER request 
 
-The following is an example of content you might send to the API. The request format is the same for both versions of the API.
+The following JSON is an example of content you might send to the API. The request format is the same for both versions of the API.
 
 ```json
 {
@@ -140,11 +140,11 @@ The Text Analytics API is stateless. No data is stored in your account, and resu
 
 All POST requests return a JSON formatted response with the IDs and detected entity properties.
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. For more information, see [how to process text offsets](../concepts/text-offsets.md).
 
 ### Example responses
 
-Version 3 provides separate endpoints for general NER, PII and entity linking. The responses for both operations are below. 
+Version 3 provides separate endpoints for general NER, PII, and entity linking. The responses for both operations are below. 
 
 #### [Version 3.1-preview](#tab/version-3-preview)
 
