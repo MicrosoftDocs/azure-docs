@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
 ---
@@ -82,6 +82,9 @@ When you deploy to AKS, you can create a new AKS cluster or attach an existing o
 
 The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.
 
+> [!WARNING]
+> If your AKS cluster is configured with an internal load balancer, using a Microsoft provided certificate is __not supported__. Using a Microsoft provided certificate requires a public IP resource in Azure, which is not available for AKS when configured for internal load balancer.
+
   * When you use a certificate from Microsoft, you must use the *leaf_domain_label* parameter. This parameter generates the DNS name for the service. For example, a value of "contoso" creates a domain name of "contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com", where \<azureregion> is the region that contains the service. Optionally, you can use the *overwrite_existing_domain* parameter to overwrite the existing *leaf_domain_label*.
 
     To deploy (or redeploy) the service with TLS enabled, set the *ssl_enabled* parameter to "True" wherever it's applicable. Set the *ssl_certificate* parameter to the value of the *certificate* file. Set the *ssl_key* to the value of the *key* file.
@@ -154,7 +157,8 @@ Next, you must update your DNS to point to the web service.
 
   > [!WARNING]
   > If you used *leaf_domain_label* to create the service by using a certificate from Microsoft, don't manually update the DNS value for the cluster. The value should be set automatically.
-
+  >
+  > If your AKS cluster is configured with an internal load balancer, using a Microsoft provided certificate (by setting *leaf_domain_label*) is __not supported__. Using a Microsoft provided certificate requires a public IP resource in Azure, which is not available for AKS when configured for internal load balancer.
   Update the DNS of the Public IP Address of the AKS cluster on the **Configuration** tab under **Settings** in the left pane. (See the following image.) The Public IP Address is a resource type that's created under the resource group that contains the AKS agent nodes and other networking resources.
 
   [![Azure Machine Learning: Securing web services with TLS](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)

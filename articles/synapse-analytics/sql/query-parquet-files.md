@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
@@ -30,7 +30,7 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Make sure that you access this file. If your file is protected with SAS key or custom Azure identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
 > Make sure that you are using some UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
