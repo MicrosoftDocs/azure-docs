@@ -2,7 +2,7 @@
 title: Concepts - Monitor and repair Azure VMware Solution private clouds
 description: Learn how Azure VMware Solution monitors and repairs VMware ESXi servers on an Azure VMware Solution private cloud.
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 11/18/2020
 ---
 
 # Monitor and repair Azure VMware Solution private clouds
@@ -37,4 +37,10 @@ The host remediation process starts by adding a new healthy node in the cluster.
 
 ## Next steps
 
-Learn about [Azure VMware Solution private cloud upgrades](concepts-upgrades.md).  
+Here are some topics you may want to learn more about:
+
+- [Azure VMware Solution private cloud upgrades](concepts-upgrades.md)
+- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Protect your Azure VMware Solution VMs with Azure Security Center integration](azure-security-integration.md)
+- [Back up Azure VMware Solution VMs with Azure Backup Server](backup-azure-vmware-solution-virtual-machines.md)
+- [Complete disaster recovery of virtual machines using Azure VMware Solution](disaster-recovery-for-virtual-machines.md)

@@ -972,7 +972,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 
