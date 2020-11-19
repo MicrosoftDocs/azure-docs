@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ---
 # Hybrid Runbook Worker overview
@@ -23,11 +23,11 @@ There are two types of Runbook Workers - system and user. The following table de
 
 A Hybrid Runbook Worker can run on either the Windows or the Linux operating system, and this role relies on the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/platform/design-logs-deployment.md). The workspace is not only to monitor the machine for the supported operating system, but also to download the components required to install the Hybrid Runbook Worker.
 
-When Azure Automation [Update Management](update-management/update-mgmt-overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker.
+When Azure Automation [Update Management](update-management/update-mgmt-overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker.
 
-Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account. For machines hosting the system Hybrid Runbook worker managed by Update Management, can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
+Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the worker. A group can include a single worker, but you can include multiple workers in a group for high availability. Each machine can host one Hybrid Runbook Worker reporting to one Automation account. For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
-When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the hybrid worker hardware profile and load. You can't specify a particular worker.
+When you start a runbook on a user Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the hybrid worker hardware profile and load. You can't specify a particular worker.
 
 Use a Hybrid Runbook Worker instead of an [Azure sandbox](automation-runbook-execution.md#runbook-execution-environment) because it doesn't have many of the sandbox [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) on disk space, memory, or network sockets. The limits on a hybrid worker are only related to the worker's own resources.
 
