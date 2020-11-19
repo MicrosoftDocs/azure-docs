@@ -31,7 +31,7 @@ The ASE has the following addresses at creation:
 
 The ASEv3 has details on the addresses used by the ASE in the **IP Addresses** portion of the ASE portal.
 
-![ASE addresses UI](./media/networking/networking-ipaddresses.png)
+![ASE addresses UI](./media/networking/networking-ip-addresses.png)
 
 If you delete the private endpoint used by the ASE, you can't reach the apps in your ASE.  
 
