@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/16/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.localizationpriority: high
-19
+
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
 
@@ -231,8 +231,8 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 1. Pack the device for return shipment in the original box.
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
-3. Note the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste it on the packing box.
-4. Request a return code from Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). A return code is required for delivering the package back to the datacenter. Note this code on the shipping label next to the return address so it is clearly visible.
+3. Note the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the "Prepare to ship" step completes successfully. Download the shipping label from this page, and paste it on the packing box.
+4. Request a return code from Azure Data Box Operations. A return code is required for delivering the package back to the datacenter. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Note this code on the shipping label next to the return address so it is clearly visible.
 5. Book a pickup with DHL using one of the following methods:
  
    * Book a pickup online by going to [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
