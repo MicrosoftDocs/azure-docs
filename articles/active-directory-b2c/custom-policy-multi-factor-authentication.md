@@ -37,6 +37,3 @@ This feature helps applications handle scenarios such as:
 You can use **Run user flow** to verify the experience. Confirm the following scenario:
 
 A customer account is created in your tenant before the multi-factor authentication step occurs. During the step, the customer is asked to provide a phone number and verify it. If verification is successful, the phone number is attached to the account for later use. Even if the customer cancels or drops out, the customer can be asked to verify a phone number again during the next sign-in with multi-factor authentication enabled.
-
-
-
