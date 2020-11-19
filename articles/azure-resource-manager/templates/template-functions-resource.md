@@ -118,6 +118,7 @@ A custom policy definition deployed to a management group is implemented as an e
 
 # [Bicep](#tab/bicep)
 
+```bicep
 param targetMG string
 param allowedLocations array = [
   'australiaeast'
@@ -155,6 +156,7 @@ resource myAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
     policyDefinitionId: extensionResourceId(mgScope, 'Microsoft.Authorization/policyDefinitions', policyDefinition)
   }
 }
+```
 
 ---
 
