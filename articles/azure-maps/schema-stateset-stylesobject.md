@@ -22,7 +22,8 @@ A `StyleObject` is one of the following:
  * [`NumericTypeStyleRule`](#numerictypestylerule)
  * [`StringTypeStyleRule`](#stringtypestylerule)
 
-The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTypeStyleRule` named `temperature`.
+The JSON below shows each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match  
+
 
 ```json
  "styles": [
@@ -55,6 +56,17 @@ The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTyp
               "color": "#eba834"
             }
         ]
+    },
+    {
+      "keyname": "",
+      "type": "string",
+      "rules": [
+        {
+          "stateValue1": "#FF0000",
+          "stateValue2": "#FF00AA",
+          "stateValueN": "#00FF00"
+        }
+      ]
     }
 ]
 ```
@@ -65,7 +77,7 @@ The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTyp
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `keyName` | string | The *state* or dynamic property name. A `keyName` should be unique inside `StyleObject` array.| Yes |
+| `keyName` | string | The *state* or dynamic property name. A `keyName` should be unique inside the `StyleObject` array.| Yes |
 | `type` | string | Value is "numeric". | Yes |
 | `rules` | [`NumberRuleObject`](#numberruleobject)[]| An array of numeric style ranges with associated colors. Each range defines a color that is to be used when the *state* value satisfies the range.| Yes |
 
@@ -107,7 +119,7 @@ In the following JSON sample, both ranges will hold true when the *state* value 
 
 ### RangeObject
 
-The `RangeObject` defines a numeric range value of a [`NumberRuleObject`](#numberruleobject). For the *state* value to fall into the range, all defined conditions must hold true. 
+The `RangeObject` defines a numeric range value of a [`NumberRuleObject`](#numberruleobject). For the *state* value to fall into the range, all defined conditions must hold true.
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
@@ -149,16 +161,38 @@ A `StringTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the f
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
+| `keyName` | string |  The *state* or dynamic property name.  A `keyName` should be unique inside the  `StyleObject` array.| Yes |
+| `type` | string |Value is "string". | Yes |
+| `rules` | [`StringRuleObject`](#stringruleobject)[]| An array of N number of *state* values.| Yes |
 
 ### StringRuleObject
 
-A `StringRuleObject` ...
+A `StringRuleObject` consists of up to N number of state values that are the possible string values of a feature's property. If the feature's property value doesn't match any of the defined state values, that feature won't have a dynamic style. If duplicate state values are given, the first one takes precedence.
+
+The string value matching is case sensitive.
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-
+| `stateValue1` | string | The color when value is string stateValue1. | No |
+| `stateValue2` | string | The color when value is string stateValue2. | No |
+| `stateValueN` | string | The color when value is string stateValueN. | No |
 
 ### Example of StringTypeStyleRule
+
+```json
+    {
+      "keyname": "",
+      "type": "string",
+      "rules": [
+        {
+          "stateValue1": "#FF0000",
+          "stateValue2": "#FF00AA",
+          "stateValueN": "#00FF00"
+        }
+      ]
+    }
+
+```
 
 ## BooleanTypeStyleRule
 
@@ -166,7 +200,7 @@ A `BooleanTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the 
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `keyName` | string |  The *state* or dynamic property name.  A `keyName` should be unique inside style array.| Yes |
+| `keyName` | string |  The *state* or dynamic property name.  A `keyName` should be unique inside the `StyleObject`  array.| Yes |
 | `type` | string |Value is "boolean". | Yes |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)[1]| A boolean pair with colors for `true` and `false` *state* values.| Yes |
 
