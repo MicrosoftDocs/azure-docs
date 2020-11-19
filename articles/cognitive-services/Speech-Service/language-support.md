@@ -136,9 +136,9 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Bulgarian (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` <sup>New</sup> | General |
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-AlbaNeural` | General |
 | Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | General |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | General, multiple voice styles available |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | Kid voice, optimized for story narrating |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunyangNeural` | Optimized for news reading,<br /> multiple voice styles available |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunyangNeural` | Optimized for news reading,<br /> multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunyeNeural` | Optimized for story narrating |
 | Chinese (Taiwanese Mandarin) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | General |
 | Croatian (Croatia) | `hr-HR` | Female | `hr-HR-GabrijelaNeural` <sup>New</sup> | General |
@@ -153,9 +153,9 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available |
+| English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | English (United States) | `en-US` | Male | `en-US-GuyNeural` | General |
-| English (United States) | `en-US` | Female | `en-US-JennyNeural` <sup>New</sup> | General, multiple voice styles available |
+| English (United States) | `en-US` | Female | `en-US-JennyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
 | French (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` <sup>New</sup> | General |
@@ -181,7 +181,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Malay (Malaysia) | `ms-MY` | Female | `ms-MY-YasminNeural` <sup>New</sup> | General |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Female | `nb-NO-IselinNeural` | General |
 | Polish (Poland) | `pl-PL` | Female | `pl-PL-ZofiaNeural` | General |
-| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | General, multiple voice styles available |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-FranciscaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-AntonioNeural` <sup>New</sup> | General |
 | Portuguese (Portugal) | `pt-PT` | Female | `pt-PT-FernandaNeural` | General |
 | Romanian (Romania) | `ro-RO` | Female | `ro-RO-AlinaNeural` <sup>New</sup> | General |
