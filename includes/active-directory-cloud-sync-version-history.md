@@ -12,9 +12,15 @@ November XX, 2020: Released for download
 
 * Support for [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
 * Support for groups up to size of 1500 members (during delta sync)
+* Support for large groups with member size up to 15K
 * Initial sync improvements
 * Advanced verbose logging
 * Introduction of [AADCloudSyncTools PowerShell module](../articles/active-directory/cloud-provisioning/reference-powershell.md)
+* Fixed limitations to allow agent to be installed in non-English server
+* Support for PHS filtering only for objects in scope (Originally, we were syncing password hashes for all objects)
+* Fixed the memory leak issue in the agent
+* Improved provisioning logs
+
 
 ## 1.1.96.0
 
