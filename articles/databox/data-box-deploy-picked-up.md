@@ -209,7 +209,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
 3. To book a pickup with DHL:
 
-    * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number.
+    * Call the customer service contact center on +27(0) 11 9213600, select option 1, and then specify the waybill number.
     * The call must be made before 2:00 PM to schedule a pickup.
     * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
