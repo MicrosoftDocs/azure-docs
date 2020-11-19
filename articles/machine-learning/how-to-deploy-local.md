@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
 ---
@@ -25,7 +25,7 @@ Some scenarios for local deploy include:
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
-- A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud)
+- A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-models-with-aml.md)
 - The [Azure Machine Learning software development kit (SDK) for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 - A conda manager such as Anaconda or miniconda, if you wish to mirror Azure Machine Learning's package dependencies
 - Docker, if you wish to use a containerized version of the Azure Machine Learning environment
@@ -55,31 +55,163 @@ The argument to the `run()` method will be of the form:
 
 The object you return from the `run()` method must implement `toJSON() -> string`.
 
-The following example demonstrates how to load a registered scikit-learn model and score it with numpy data. This example is based on the model and dependencies of [this tutorial](https://aka.ms/azml-deploy-cloud):
+The following example demonstrates how to load a registered scikit-learn model and score it with numpy data. This example is based on the model and dependencies of [this tutorial](tutorial-train-models-with-aml.md):
 
-tk confirm this works with exact https://aka.ms/azml-deploy-cloud tk 
 ```python
+%%writefile score.py
 import json
 import numpy as np
+import os
 import pickle
-from sklearn.linear_model import Ridge
-from azureml.core.model import Model
+import joblib
 
 def init():
     global model
-    model_path = Model.get_model_path('diabetes-model')
+    # AZUREML_MODEL_DIR is an environment variable created during deployment.
+    # It is the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION)
+    # For multiple models, it points to the folder containing all deployed models (./azureml-models)
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
+    model = joblib.load(model_path)
 
-    with open(model_path, 'rb') as file:
-        model = pickle.load(file)
-
-def run(data):
-    try:
-        result = model.predict(data)
-        # you can return any datatype as long as it is JSON-serializable
-        return result.tolist()
-    except Exception as e:
-        error = str(e)
-        return error
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
 ```
 
 For more advanced examples, including automatic Swagger schema generation and binary (i.e. image) data, read [Advanced entry script authoring](how-to-deploy-advanced-entry-script.md). 
+
+## Deploy as a local web service using Docker
+
+The easiest way to replicate the environment used by Azure Machine Learning is to deploy a web service using Docker. With Docker running on your local machine, you will:
+
+1. Connect to the Azure Machine Learning workspace in which your model is registered
+1. Create a `Model` object representing the model
+1. Create an `Environment` object that contains the dependencies and defines the software environment in which your code will run
+1. Create an `InferenceConfig` object that associates the entry script and the `Environment`
+1. Create a `DeploymentConfiguration` object of the subclass `LocalWebserviceDeploymentConfiguration`
+1. Use `Model.deploy()` to create a `Webservice` object. This method downloads the Docker image and associates it with the `Model`, `InferenceConfig`, and `DeploymentConfiguration`
+1. Activate the `Webservice` with `Webservice.wait_for_deployment()`
+
+The following code shows these steps:
+
+```python
+%%writefile deploy_local_with_docker.py
+from azureml.core.webservice import Webservice
+from azure.core.model import InferenceConfig
+from azureml.core.environment import Environment
+from azureml.core import Workspace
+from azureml.core.model import Model
+
+ws = Workspace.from_config()
+model = Model(ws, 'sklearn_mnist')
+
+
+myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
+
+deployment_config = LocalWebservice.deploy_configuration(port=6789)
+
+local_service = Model.deploy(workspace=ws, 
+                       name='sklearn-mnist-local', 
+                       models=[model], 
+                       inference_config=inference_config, 
+                       deployment_config = deployment_config)
+
+local_service.wait_for_deployment(show_output=True)
+print(f"Scoring URI is : {local_service.scoring_uri}")
+```
+
+The call to `Model.deploy()` can take a few minutes. After you've initially deployed, it is more efficient to use the `update()` method rather than starting from scratch. See [Update a deployed web service](how-to-deploy-update-web-service.md).
+
+### Test your local deployment
+
+When you run the previous deployment script, it will output the URI to which you can POST data for scoring (for instance, `http://localhost:6789/score`). The following sample shows a script that scores sample data with the `"sklearn-mnist-local"` locally deployed model. The model, if properly trained, infers that `normalized_pixel_values` should be interpreted as a "2". 
+
+```python
+%%writefile invoke_local_webservice.py
+import requests
+
+normalized_pixel_values = "[\
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.7, 1.0, 1.0, 0.6, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.9, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 1.0, 1.0, 1.0, 0.8, 0.6, 0.7, 1.0, 1.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 1.0, 1.0, 0.8, 0.1, 0.0, 0.0, 0.0, 0.8, 1.0, 0.5, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 1.0, 0.8, 0.1, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.3, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.0, 0.0, 0.0, 0.0, 0.8, 1.0, 1.0, 0.3, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.8, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 1.0, 1.0, 0.9, 0.2, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 0.6, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 1.0, 1.0, 0.6, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.9, 1.0, 0.9, 0.1, \
+0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 1.0, 1.0, 0.6, \
+0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 1.0, 1.0, 0.7, \
+0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.8, 1.0, 1.0, \
+1.0, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, \
+1.0, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, \
+1.0, 1.0, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, \
+1.0, 1.0, 1.0, 0.2, 0.1, 0.1, 0.1, 0.1, 0.0, 0.0, 0.0, 0.1, 0.1, 0.1, 0.6, 0.6, 0.6, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.7, 0.6, 0.7, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.7, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.7, 0.5, 0.5, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.7, 1.0, 1.0, 1.0, 0.6, 0.5, 0.5, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, \
+0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+
+input_data = "{\"data\": [" + normalized_pixel_values + "]}"
+
+headers = {'Content-Type': 'application/json'}
+
+scoring_uri = "http://localhost:6789/score"
+resp = requests.post(scoring_uri, input_data, headers=headers)
+
+print("Should be predicted as '2'")
+print("prediction:", resp.text)
+```
+
+## Download and run your model directly
+
+While using Docker to deploy your model as a web service is the most common option, you may also want to run your code directly with local Python scripts. There are two important elements that you will need: 
+
+- The model itself
+- The dependencies upon which the model relies (the tk Environment or InferenceConfig tk)
+
+Downloading the model can be done:  
+
+- From the portal, by choosing the **Models** tab, selecting the desired model, and from the **Details** page, choosing **Download**
+- From the command line, by using `az ml model download` (see the [model download reference](../../cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download))
+- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](../../python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-)
+
+An Azure model is one or more serialized Python objects, packaged as a Python pickle file (**.pkl** extension). The contents of the pickle file depend upon the ML library or technique used to train the model. For instance, with the model from the tutorial, you might load the model with:
+
+```python
+import pickle
+
+with open('sklearn_mnist_model.pkl', 'rb') as f : 
+    logistic_model = pickle.load(f, encoding='latin1')
+```
+
+Dependencies are always tricky to get right, especially it seems with machine learning, where there can often be a dizzying web of specific version requirements. You can recreate an Azure Machine Learning environment on your local machine either as a complete conda environment or as a Docker image by using the `Environment` class's `build_local()` method. 
+
+```python
+ws = Workspace.from_config()
+myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
+myenv.build_local(workspace=ws, useDocker=False) #Creates conda env
+```
+
+If you set `build_local()`'s argument `useDocker` to `True`, the function will create a Docker image rather than a conda environment. If you want more control, you can use `Environment`'s `save_to_directory()` method, which writes **conda_dependencies.yml** and **azureml_environment.json** definition files that you can fine tune and use as the basis for extension. 
+
+The `Environment` class has a number of other methods for synchronizing environments across your compute hardware, your Azure workspace, and Docker images. For more information, see the [`Environment` API reference](../../python/api/azureml-core/azureml.core.environment(class)).
+
+Once you have downloaded the model and resolved its dependencies, there are no Azure-defined restrictions on how you perform scoring, fine-tune the model, use transfer learning, and so forth. 
+
+## Next steps
+
+- For more on managing environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md)
+- To learn about accessing data from your datastore, see [Connect to storage services on Azure](how-to-access-data.md)
