@@ -1,6 +1,6 @@
 ---
-title: Restore a data warehouse from a geo-backup 
-description: How-to guide for geo-restoring a SQL pool.
+title: Restore a dedicated SQL pool from a geo-backup 
+description: How-to guide for geo-restoring a dedicated SQL pool in Azure Synapse Analytics
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -13,15 +13,15 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Geo-restore for SQL pool
+# Geo-restore a dedicated SQL pool in Azure Synapse Analytics
 
-In this article, you learn to restore your SQL pool from a geo-backup through Azure portal and PowerShell.
+In this article, you learn to restore your dedicated SQL pool from a geo-backup through Azure portal and PowerShell.
 
 ## Before you begin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL pool is hosted by a [logical SQL server](../../azure-sql/database/logical-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each dedicated SQL pool is hosted by a [logical SQL server](../../azure-sql/database/logical-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore from an Azure geographical region through PowerShell
 
@@ -69,7 +69,7 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 
 ## Restore from an Azure geographical region through Azure portal
 
-Follow the steps outlined below to restore a SQL pool from a geo-backup:
+Follow the steps outlined below to restore a dedicated SQL pool from a geo-backup:
 
 1. Sign in to your [Azure portal](https://portal.azure.com/) account.
 2. Click **+ Create a resource**.
@@ -92,5 +92,5 @@ Follow the steps outlined below to restore a SQL pool from a geo-backup:
 
 ## Next Steps
 
-- [Restore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restore a deleted SQL pool](sql-data-warehouse-restore-deleted-dw.md)
+- [Restore an existing dedicated SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restore a deleted dedicated SQL pool](sql-data-warehouse-restore-deleted-dw.md)

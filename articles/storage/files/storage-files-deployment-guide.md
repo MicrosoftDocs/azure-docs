@@ -17,7 +17,7 @@ We strongly recommend reading [Planning for an Azure Files deployment](storage-f
 ## Prerequisites
 This article assumes that you have already completed the following steps:
 
-- Created an Azure Storage Account with your desired resiliency and encryption options, in the region you desire. See [Create a Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for step-by-step directions on how to create a Storage Account.
+- Created an Azure Storage Account with your desired resiliency and encryption options, in the region you desire. See [Create a Storage Account](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) for step-by-step directions on how to create a Storage Account.
 - Created an Azure file share with your desired quota in your Storage Account. See [Create a file share](storage-how-to-create-file-share.md) for step-by-step directions on how to create a file share.
 
 ## Transfer data into Azure Files
@@ -58,7 +58,7 @@ The following steps will import data from an on-premises location to your Azure 
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Multiple shares with a Storage Account may be specified. See [Prepare the dataset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for more information.
+    Multiple shares with a Storage Account may be specified. See [Prepare the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) for more information.
 
 5. Create the driveset CSV file. The driveset CSV file lists the disks available to the on-premises export agent. For example, the following driveset CSV file lists `X:`, `Y:`, and `Z:` drives to be used in the on-premises export job:
 
@@ -69,7 +69,7 @@ The following steps will import data from an on-premises location to your Azure 
     Z,Format,SilentMode,Encrypt,
     ```
     
-    See [Prepare the driveset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for more information.
+    See [Prepare the driveset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) for more information.
 
 6. Use the [WAImportExport Tool](https://www.microsoft.com/download/details.aspx?id=55280) to copy your data to one or more hard drives.
 
@@ -97,12 +97,12 @@ Robocopy is a well known copy tool that ships with Windows and Windows Server. R
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopy has a significant number of options to modify the copy behavior as desired. For more information, view the [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) manual page.
+    Robocopy has a significant number of options to modify the copy behavior as desired. For more information, view the [Robocopy](/windows-server/administration/windows-commands/robocopy) manual page.
 
 ### AzCopy
 AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. Using AzCopy is easy:
 
-1. Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy) or [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
+1. Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy) or [Linux](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json#download-azcopy).
 2. Use `azcopy` at the command line to move data to the Azure file share. The syntax on Windows is as follows: 
 
     ```
@@ -115,7 +115,7 @@ AzCopy is a command-line utility designed for copying data to and from Azure Fil
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy has a significant number of options to modify the copy behavior as desired. For more information, view [AzCopy on Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) and [AzCopy on Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    AzCopy has a significant number of options to modify the copy behavior as desired. For more information, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
 ## Automatically mount on needed PCs/Servers
 To replace an on-premises file share, it is helpful to pre-mount the shares on the machines it will be used on. This can be done automatically on a list of machines.

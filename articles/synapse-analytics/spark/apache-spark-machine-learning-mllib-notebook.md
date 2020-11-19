@@ -66,7 +66,7 @@ In the following steps, you develop a model to predict whether a particular trip
 
 Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. While the code below uses the default options, it is possible to force mapping of data types and other schema attributes if needed.
 
-1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
+1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your serverless Apache Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
