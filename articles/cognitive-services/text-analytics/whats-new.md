@@ -24,7 +24,10 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 * A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous [Text Analytics for health](how-tos/text-analytics-for-health.md) hosted API with support for batch processing.
 * Both new features listed above are only available in the following regions: `West US 2`, `East US 2`, `Central US`, `North Europe` and `West Europe` regions.
 * Portuguese (Brazil) `pt-BR` is now supported in [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing `pt-PT` support for Portuguese.
-* [Updated quickstarts](quickstarts/text-analytics-sdk.md) for the next version of the client libraries. 
+* [Updated quickstarts](quickstarts/text-analytics-sdk.md) for the latest version of the client libraries. 
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ## October 2020
 
@@ -167,7 +170,7 @@ As part of the [unified Azure SDK release](https://techcommunity.microsoft.com/t
    * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
    * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### Named Entity Recognition v3 public preview
