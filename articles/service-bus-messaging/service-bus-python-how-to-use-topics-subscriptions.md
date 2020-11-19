@@ -98,7 +98,7 @@ This article shows you how to use Python to send messages a Service Bus topic an
     ```
  
 ## Receive messages from a subscription
-Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait-time`) seconds. 
+Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds. 
 
 ```python
 with servicebus_client:
