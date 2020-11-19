@@ -1963,8 +1963,12 @@
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Clarizen One
+        href: clarizen-one-provisioning-tutorial.md
       - name: Code42
         href: code42-provisioning-tutorial.md
+      - name: Contentful
+        href: contentful-provisioning-tutorial.md
       - name: Comeet Recruiting Software
         href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur
