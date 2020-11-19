@@ -15,7 +15,7 @@
     href: partner-center-portal/account-migration-from-cpp-to-pc.md 
 - name: Concepts
   items: 
-  - name: Publishing options and considerations
+  - name: Listing options
     href: determine-your-listing-type.md
   - name: Transacting in the commercial marketplace
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -349,15 +349,14 @@
     items:
     - name: SaaS Fulfillment API overview
       href: partner-center-portal/pc-saas-fulfillment-apis.md
-      items:
-      - name: Register a SaaS application
-        href: partner-center-portal/pc-saas-registration.md
-      - name: SaaS Fulfillment APIs v2
-        href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-      - name: SaaS Fulfillment APIs v1 (deprecated)
-        href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-      - name: SaaS fulfillment APIs - FAQ
-        href: partner-center-portal/saas-fulfillment-apis-faq.md 
+    - name: Register a SaaS application
+      href: partner-center-portal/pc-saas-registration.md
+    - name: SaaS Fulfillment APIs v2
+      href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+    - name: SaaS Fulfillment APIs v1 (deprecated)
+      href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+    - name: SaaS fulfillment APIs - FAQ
+      href: partner-center-portal/saas-fulfillment-apis-faq.md 
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
@@ -386,5 +385,7 @@
     href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: partner-center-portal/commercial-marketplace-co-sell-states.md
+  - name: Categories and subcategories
+    href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md

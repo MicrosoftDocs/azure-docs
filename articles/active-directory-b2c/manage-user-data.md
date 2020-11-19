@@ -48,7 +48,7 @@ Azure AD B2C user data is limited to:
 
 In the following example of an export data flow, the steps that are described as being performed by the application can also be performed by either a backend process or a user with an administrator role in the directory:
 
-1. The user signs in to the application. Azure AD B2C enforces authentication with Azure Multi-Factor Authentication if needed.
+1. The user signs in to the application. Azure AD B2C enforces authentication with Azure AD Multi-Factor Authentication if needed.
 2. The application uses the user credentials to call a Microsoft Graph API operation to retrieve the user attributes. The Microsoft Graph API provides the attribute data in JSON format. Depending on the schema, you can set the ID token contents to include all personal data about a user.
 3. The application retrieves the user audit activity. The Microsoft Graph API provides the event data to the application.
 4. The application aggregates the data and makes it available to the user.
