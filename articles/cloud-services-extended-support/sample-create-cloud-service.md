@@ -13,7 +13,7 @@ ms.custom:
 # Create a new Azure Cloud Service (extended Support)
 These samples cover various ways to to create a new Azure Cloud Service (extended support).
 
-## Example 1: Create new cloud service with single role
+## Create new cloud service with single role
 
 ```powershell
 # Create role profile object
@@ -41,7 +41,7 @@ $cloudService = New-AzCloudService                                              
 ```
 
 
-## Example 2: Create new cloud service with single role and RDP extension
+## Create new cloud service with single role and RDP extension
 
 ```powershell
 # Create role profile object
@@ -74,7 +74,7 @@ $cloudService = New-AzCloudService                                              
 -ExtensionProfileExtension $extension
 ```
 
-## Example 3: Create a cloud service with a single role and Windows Azure Diagnostics extension
+## Create a cloud service with a single role and Windows Azure Diagnostics extension
 
 ```PowerShell
 # Create role profile object
@@ -106,7 +106,7 @@ $cloudService = New-AzCloudService                                              
 -NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
 -ExtensionProfileExtension $extension
 ```
-## Example 4: Create new cloud service with single role and certificate from key vault
+## Create new cloud service with single role and certificate from key vault
 
 ```powershell
 # Create role profile object
@@ -139,7 +139,7 @@ $cloudService = New-AzCloudService                                              
 -OSProfileSecret $secretGroup
 ```
 
-## Example 5: Create new cloud service with multiple roles and extensions
+## Create new cloud service with multiple roles and extensions
 
 ```powershell
 # Create role profile object
