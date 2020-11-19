@@ -123,48 +123,20 @@ To set up Windows Events:
 
 You can add new Windows events after the initial configuration if monitoring tool updates require enabling new events. To make sure you've got all required events enabled, go back to the **Missing events** list and enable any missing events you see there.
 
-## Set up Azure Monitor for virtual machines
+## Install the Log Analytics agent on all hosts
 
-After that, you'll need to configure your VMs to send data to the Log Analytics workspace configured with your workbook.
+Finally, you'll need to install the Log Analytics agent on all hosts in the host pool to send data from the hosts to the selected workspace.
 
-To configure VMs:
+To install the Log Analytics agent:
 
-1. Go to [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks) to open Insights, then select **Configuration Workbook**.
-2. Follow the instructions in [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+1. Go to Azure Monitor for Windows Virtual Desktop at [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), then select **Configuration workbook** at the bottom of the window.
 
-## Set up diagnostics
+2. If Log Analytics isn't configured for all the hosts in the host pool, you'll see an error at the bottom of the Log Analytics configuration section with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace." Select **Add hosts to workspace** to add the selected hosts. If you don't see the error message, stop here.
 
-Finally, you'll need to enable Azure Monitor diagnostic settings on all objects within the Windows Virtual Desktop environment that support this feature.
+3. Refresh the Configuration Workbook.
 
-1. Open Azure Monitor for Windows Virtual Desktop at [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), then select **Configuration Workbook**.
-
-2. Under **Host Pool Diagnostic Settings**, check to see whether Windows Virtual Desktop diagnostics are enabled for the host pool. If they aren't, an error will appear that says "No existing Diagnostic configuration was found for the selected host pool." When that happens, go to step 3. If you don't see the error, you don't need to do anything else.
-
-3.  Select **Open Host Pool Diagnostic settings**.
-
-4.  Select **+Add diagnostic settings**.
-
-5.  In **Categories**, select the following tables:
-
-    - Checkpoint
-    - Error
-    - Management
-    - Connection
-    - HostRegistration
-
-6.  Under **Destination details**, select **Send to Log Analytics**.
-
-7.  Select the subscription and the Log Analytics workspace you want to send the host pool data to.
-
-8.  In **Diagnostic setting name**, enter a name for your settings configuration.
-
-9.  Select **Save**.
-
-10. Close the settings page and the host pool diagnostic settings tab.
-
-11. Refresh the workbook.
-
-You can learn more about how to enable diagnostics on all objects in the Windows Virtual Desktop environment(s) or access the Log Analytics workspace at [Send Windows Virtual Desktop diagnostics to Log Analytics](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics).
+>[!NOTE]
+>The host machine needs to be running to install the Log Analytics extension. If automatic deployment fails on a host, you can always install the extension on a host manually. To learn how to install the extension manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
 
 ## Optional: configure alerts
 
