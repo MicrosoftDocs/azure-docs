@@ -1,5 +1,5 @@
 ---
-title: Understand role-based access control (RBAC) in Azure Active Directory | Microsoft Docs
+title: Understand Azure AD role concepts | Microsoft Docs
 description: Learn how to understand Azure AD built-in and custom roles applied to restricted scope in Azure Active Directory.
 services: active-directory
 author: curtand
