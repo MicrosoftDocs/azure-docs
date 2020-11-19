@@ -12,6 +12,7 @@ ms.date: 06/29/2020
 tags:
 keywords:
 ms.service: multiple
+ms.subservice: workloads
 ---
 
 # Install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Azure

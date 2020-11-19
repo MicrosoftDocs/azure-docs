@@ -10,6 +10,7 @@ ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
 ms.service: multiple
+ms.subservice: workloads
 ---
 
 # Mainframe workloads supported on Azure

@@ -6,6 +6,7 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
+ms.subservice: workloads
 ---
 
 # Micro Focus dev/test environments on Azure

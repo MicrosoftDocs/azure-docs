@@ -3,6 +3,7 @@ title: What are solutions for running Oracle WebLogic Server on the Azure Kubern
 description: Learn how to run Oracle WebLogic Server on the Azure Kubernetes Service.
 author: rezar
 ms.service: container-service
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
