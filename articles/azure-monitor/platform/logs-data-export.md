@@ -195,6 +195,7 @@ Following is a sample body for the REST request for an event hub where event hub
   }
 }
 ```
+---
 
 ## View data export configuration
 
@@ -213,6 +214,7 @@ Use the following request to view the configuration of a data export rule using 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## Disable an export rule
 
@@ -246,6 +248,7 @@ Content-type: application/json
     }
 }
 ```
+---
 
 ## Delete an export rule
 
@@ -264,6 +267,7 @@ Use the following request to delete a data export rule using the REST API. The r
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## View all data export rules in a workspace
 
@@ -282,6 +286,7 @@ Use the following request to view all data export rules in a workspace using the
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+---
 
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
