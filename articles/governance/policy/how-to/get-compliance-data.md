@@ -114,7 +114,7 @@ For more information and workflow samples, see the
 #### On-demand evaluation scan - Azure CLI
 
 The compliance scan is started with the
-[az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan) command.
+[az policy state trigger-scan](/cli/azure/policy/state#az_policy_state_trigger_scan) command.
 
 By default, `az policy state trigger-scan` starts an evaluation for all resources in the current
 subscription. To start an evaluation on a specific resource group, use the **resource-group**
