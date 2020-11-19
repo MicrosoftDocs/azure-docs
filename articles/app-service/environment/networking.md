@@ -29,6 +29,10 @@ The ASE has the following addresses at creation:
 | Windows outbound address | The Windows apps in this ASE will use this address, by default, when making outbound calls to the internet. |
 | Linux outbound address | The Linux apps in this ASE will use this address, by default, when making outbound calls to the internet. |
 
+The ASEv3 has details on the addresses used by the ASE in the **IP Addresses** portion of the ASE portal.
+
+![ASE addresses UI](./media/networking/networking-ipaddresses.png)
+
 If you delete the private endpoint used by the ASE, you can't reach the apps in your ASE.  
 
 The ASE uses addresses in the outbound subnet to support the infrastructure used by the ASE. As you scale your App Service plans in your ASE, you'll use more addresses. Apps in the ASE don't have dedicated addresses in the outbound subnet. The addresses used by an app in the outbound subnet by an app will change over time.
