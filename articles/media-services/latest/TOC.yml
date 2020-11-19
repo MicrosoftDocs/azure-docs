@@ -270,9 +270,11 @@
   - name: Create transforms and jobs
     items:
     - name: Create transforms
-      href: cli-create-transform.md
+      href: how-to-create-transform.md
     - name: Create a basic audio transform with REST
       href: how-to-create-basic-audio-transform.md
+    - name: Create a copyAllBitrateNonInterleaved transform with REST
+      href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Create jobs
       href: cli-create-jobs.md
     - name: Create job input with a local file and .NET
