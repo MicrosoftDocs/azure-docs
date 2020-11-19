@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to query the Azure Digital Twins twin graph for information.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/26/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -26,6 +26,9 @@ The rest of this article provides examples of how to use these operations.
 ## Query syntax
 
 This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
+
+> [!TIP]
+> If you're running the queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
 ### Show all existing digital twins
 
@@ -238,7 +241,7 @@ JOIN CT RELATED T.contains
 WHERE T.$dtId = 'ABC'
 ```
 
->[!NOTE]
+> [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 
 #### Query the properties of a relationship
@@ -280,9 +283,9 @@ You can **combine** any of the above types of query using combination operators 
 
 | Description | Query |
 | --- | --- |
-| Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
+| Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
 | Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
-| Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
+| Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contoso:com:DigitalTwins:Room;1')​` |
 
 ## Reference: Expressions and conditions
 
@@ -326,37 +329,40 @@ Once you have decided on a query string, you execute it by making a call to the 
 The following code snippet illustrates this call from the client app:
 
 ```csharp
+    string adtInstanceEndpoint = "https://<your-instance-hostname>";
 
-var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-URL>);
-var tokenCredential = new DefaultAzureCredential();
+    var credential = new DefaultAzureCredential();
+    DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceEndpoint), credential);
 
-var client = new DigitalTwinsClient(adtInstanceEndpoint, tokenCredential);
-
-string query = "SELECT * FROM digitaltwins";
-AsyncPageable<string> result = await client.QueryAsync<string>(query);
+    // Run a query for all twins   
+    string query = "SELECT * FROM DIGITALTWINS";
+    AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
 ```
-
-This call returns query results in the form of a string object.
+This call returns query results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object.
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
 ```csharp
-string query = "SELECT * FROM digitaltwins";
 try
 {
-    AsyncPageable<BasicDigitalTwin> qresult = client.QueryAsync<BasicDigitalTwin>(query);
-    await foreach (BasicDigitalTwin item in qresult)
-    {
-        // Do something with each result
-    }
+    await foreach(BasicDigitalTwin twin in result)
+        {
+            // You can include your own logic to print the result
+            // The logic below prints the twin's ID and contents
+            Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
+            IDictionary<string, object> contents = twin.Contents;
+            foreach (KeyValuePair<string, object> kvp in contents)
+            {
+                Console.WriteLine($"{kvp.Key}  {kvp.Value}");
+            }
+        }
 }
 catch (RequestFailedException e)
 {
-    Log.Error($"Error {e.Status}: {e.Message}");
+    Console.WriteLine($"Error {e.Status}: {e.Message}");
     throw;
 }
 ```
-
 ## Query limitations
 
 There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
@@ -410,4 +416,4 @@ Below are some tips for querying with Azure Digital Twins.
 
 ## Next steps
 
-Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API which is used to run the queries from this article.
+Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API that is used to run the queries from this article.
