@@ -23,24 +23,26 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Prepare your network
-    href: quickstart-prepare-network-for-defender-for-iot.md
-  - name: Configure Security Module for Azure RTOS
-    href: quickstart-azure-rtos-security-module.md
-  - name: Onboard Azure Defender for IoT in IoT Hub
-    href: quickstart-onboard-iot-hub.md
-  - name: Configure your solution
-    href: quickstart-configure-your-solution.md
-  - name: Create an Azure Defender for IoT module twin
-    href: quickstart-create-security-twin.md
-  - name: Investigate security recommendations
-    href: quickstart-investigate-security-recommendations.md
-  - name: Create custom security alerts
-    href: quickstart-create-custom-alerts.md
-  - name: Investigate security alerts
-    href: quickstart-investigate-security-alerts.md
-- name: Tutorials
-  items:
+  - name: Unmanaged 
+    items:
+    - name: Unmanaged set up overview
+      href: quickstart-prepare-network-for-defender-for-iot.md
+  - name: Managed
+    items: 
+    - name: Configure Security Module for Azure RTOS
+      href: quickstart-azure-rtos-security-module.md
+    - name: Onboard Azure Defender for IoT in IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: Configure your solution
+      href: quickstart-configure-your-solution.md
+    - name: Create an Azure Defender for IoT module twin
+      href: quickstart-create-security-twin.md
+    - name: Investigate security recommendations
+      href: quickstart-investigate-security-recommendations.md
+    - name: Create custom security alerts
+      href: quickstart-create-custom-alerts.md
+    - name: Investigate security alerts
+      href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
   - name: Unmanaged 
@@ -87,32 +89,38 @@
   items:
   - name: Unmanaged 
     items:
-    - name: Prepare your network
+    - name: Acquire hardware and software
       items:
         - name: Acquire hardware and software
           href: how-to-acquire-hardware-and-software
         - name: Install software
-          href: tutorial-install-components.md
+          href: how-to-install-software.md
         - name: Set up your network
-          href: how-to-prepare-your-network.md
-    - name: Onboard sensors
-      href: how-to-onboard-sensors.md
-    - name: Activate and configure your sensor
-      href: how-to-activate-and-set-up-your-sensor.md
-    - name: Activate and set up your on-premises management console
-      href: how-to-activate-and-set-up-your-on-premises-management-console.md
-    - name: Set Up high availability
-      href: how-to-set-up-high-availability.md
-    - name: Work with the sensor console dashboard
-      href: how-to-work with-the-sensor-console-dashboard.md
-    - name: Change the name of your Azure consoles
-      href: how-to change-the-name-of-your-azure-consoles.md
-    - name: Create azure for defender users and roles
-      href: how-to-create-azure-for-defender-users-and-roles.md
-    - name: Define global user access control
-      href: how-to-define-global-user-access-control.md
-    - name: Create sensor console users
-      href: how-to-create-sensor-console-users.md  
+          href: how-to-set-up-your-network.md
+    - name: Prepare your sensors
+      items:
+      - name: Onboard sensors
+        href: how-to-onboard-sensors.md
+      - name: Activate and configure your sensor
+        href: how-to-activate-and-set-up-your-sensor.md
+      - name: Work with the sensor console dashboard
+        href: how-to-work with-the-sensor-console-dashboard.md
+    - name: Prepare your sensors
+      items:
+      - name: Activate and set up your on-premises management console
+        href: how-to-activate-and-set-up-your-on-premises-management-console.md
+      - name: Set Up high availability
+        href: how-to-set-up-high-availability.md
+    - name: Change the name of your console
+      href: how-to-change-the-name-of-your-console.md
+    - name: Create and manage on-premises management console users
+      items:
+      - name: Create and manage users
+        href: how-to-create-and-manage-users.md
+      - name: Define global user access control
+        href: how-to-define-global-user-access-control.md
+      - name: Create sensor console users
+        href: how-to-create-sensor-console-users.md  
     - name: Control what traffic is monitored
       href: how-to-control-what-traffic-is-monitored.md
     - name: Manage sensors in air gapped networks

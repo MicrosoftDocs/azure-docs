@@ -1,10 +1,10 @@
 ---
-title: Create azure for defender users and roles
+title: Create and manage users
 description: 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/05/2020
+ms.date: 11/19/2020
 ms.topic: article
 ms.service: azure
 ---
