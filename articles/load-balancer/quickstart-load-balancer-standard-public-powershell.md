@@ -45,7 +45,7 @@ New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'eastus'
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Create a public IP address
+## Create a public IP address - Standard SKU
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
@@ -76,7 +76,7 @@ $publicip = @{
 New-AzPublicIpAddress @publicip
 ```
 
-## Create standard load balancer
+## Create standard load balancer - Standard SKU
 
 This section details how you can create and configure the following components of the load balancer:
 
@@ -138,7 +138,7 @@ $loadbalancer = @{
 New-AzLoadBalancer @loadbalancer
 ```
 
-## Configure virtual network
+## Configure virtual network - Standard SKU
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
@@ -194,7 +194,7 @@ $nsg = {
 New-AzNetworkSecurityGroup $nsg
 ```
 
-## Create virtual machines
+## Create virtual machines - Standard SKU
 
 In this section you'll create the virtual machines for the backend pool of the load balancer.
 
@@ -389,7 +389,6 @@ New-AzPublicIpAddress @publicip
 *  Create a new outbound rule for the outbound backend pool with [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 
 
 
-
 ```azurepowershell-interactive
 ## Place public IP created in previous steps into variable. ##
 $publicIp = Get-AzPublicIpAddress -Name 'myPublicIPOutbound' -ResourceGroupName 'CreatePubLBQS-rg'
@@ -489,7 +488,7 @@ $nic | Set-AzNetworkInterfaceIpConfig $be | Set-AzNetworkInterface
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Create a public IP address in the Basic SKU
+## Create a public IP address - Basic SKU
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
@@ -510,7 +509,7 @@ $publicIp =
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku
 ```
 
-## Create basic load balancer
+## Create basic load balancer - Basic SKU
 
 This section details how you can create and configure the following components of the load balancer:
 
@@ -632,7 +631,7 @@ $lb =
 New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
-## Configure virtual network in the Basic SKU
+## Configure virtual network - Basic SKU
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
