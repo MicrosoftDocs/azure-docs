@@ -329,6 +329,8 @@ The previously mentioned solution uses one nodeType per AZ. The following soluti
 
 Full sample template is present [here](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
+![Azure Service Fabric Availability Zone Architecture][sf-multi-az-arch]
+
 ### Configuring zones on a virtual machine scale set
 To enable zones on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
 
@@ -360,14 +362,16 @@ To enable zones on a virtual machine scale set you must include the following th
 The Service Fabric nodeType must be enabled to support multiple availability zones.
 
 * The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
-* The second value is "hierarchicalUpgradeDomain" and is optional. This property can only be defined at the time of cluster creation and can't be modified later.
+* The second value is **sfZonalUpgradeMode** and is optional. This property can’t be modified if a nodetype with multiple AZ’s is present in the cluster.
       The property controls the logical grouping of VMs in upgrade domains.
           If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
           If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
-          This property only defines the upgrade behavior for SF. The underlying VMSS upgrades will still be parallel in all AZ’s. We are working with the VMSS folks to allow the control be exposed to SFRP to have parallel and sequential VMSS upgrades.
+          This property only defines the upgrade behavior for ServiceFabric application and code upgrades. The underlying VMSS upgrades will still be parallel in all AZ’s.
       This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
+* The third value is **vmssZonalUpgradeMode = Parallel**. This is a *mandatory* property to be configured in the cluster, if a nodeType with multiple AZs is added. This property defines the upgrade mode for the VMSS updates which will happen in parallel in all AZ’s at once.
+      Right now this property can only be set to parallel.
 * The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
-* The cluster code version should be "7.1.417.9590" or higher.
+* The cluster code version should be "7.2.444.9590" or higher.
 
 ```json
 {
@@ -379,8 +383,8 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
         "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
     ],
     "properties": {
-        "clusterCodeVersion": "7.1.417.9590",
-        "hierarchicalUpgradeDomain": true,
+        "SFZonalUpgradeMode": "Hierarchical",
+        "VMSSZonalUpgradeMode": "Parallel",
         "nodeTypes": [
           {
                 "name": "[parameters('vmNodeType0Name')]",
@@ -394,6 +398,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 > * Public IP and Load Balancer Resources should be using the Standard SKU as described earlier in the article.
 > * "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation and can't be modified later. Hence, existing nodeTypes can't be configured with this property.
 > * When "hierarchicalUpgradeDomain" is omitted or set to true, the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains.
+> * It is recommended to set the cluster reliability level to Platinum to ensure the cluster survives the one zone down scenario.
 
 >[!NOTE]
 > For best practice we recommend hierarchicalUpgradeDomain set to true or be omitted. Deployment will follow the zonal distribution of VMs impacting a smaller amount of replicas and/or instances making them safer.
@@ -408,7 +413,8 @@ The same article also describes now to retire the existing nodeType after the no
     This is already described [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per AZ. 
     For the new node type, the only difference is that there is only 1 VMSS and 1 nodetype for all AZ’s instead of 1 each per AZ.
 * Migration from a nodeType which is using the Standard SKU LB and IP resources with NSG:
-    Follows the same procedure as described above with the exception that there is no need to add new LB, IP and NSG resources, and the same resources can be reused in the new nodeType.
+    Follow the same procedure as described above with the exception that there is no need to add new LB, IP and NSG resources, and the same resources can be reused in the new nodeType.
 
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
+[sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
