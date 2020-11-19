@@ -2,7 +2,7 @@ This article lists the versions and features of Azure Active Directory Connect P
 
 Microsoft provides direct support for the latest agent version and one version before.
 
-## 1.1.280.0
+## 1.1.281.0
 
 ### Release status
 
