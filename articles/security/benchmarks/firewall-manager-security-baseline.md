@@ -33,7 +33,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable. Azure Firewall manager is firewall control plane management service. By design, it cannot be deployed or secured to a private network.
+**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. By design, it cannot be deployed or secured to a private network.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -47,7 +47,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable. Azure Firewall manager is firewall control plane management service. By design, a private connection is not applicable to this service.
+**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. By design, establishing private customer-facing network connections is not applicable to this service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -61,7 +61,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable. Azure Firewall Manager is a control plane management service. By design, private link or service endpoints are not applicable to this service.
+**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. By design, establishing private customer-facing network connections is not applicable to this service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -75,7 +75,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable: Azure Firewall manager is firewall control plane management service. it does not expose any endpoints to external networks which need to be secured by conventional network protections.
+**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. It does not expose any endpoints to external networks which would need to be secured by conventional network protections.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -89,7 +89,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable. Azure Firewall Manager is a control plane management service. By design, it does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution to detect or prevent threats on the network.
+**Guidance**: Not applicable; Azure Firewall Manager is a control plane management service. By design, it does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution to detect or prevent threats on the network.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -103,7 +103,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable. Azure Firewall manager is an control plane management service. By design, it doesn't support service tags or representing its public IP range as a grouping of service IPs for reference in network security rules.
+**Guidance**: Not applicable; Azure Firewall Manager is an control plane management service. By design, it doesn't support service tags or representing its public IP range as a grouping of service IPs for reference in network security rules.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -115,13 +115,13 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40030).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable. Azure Firewall Manager is an control management service. By design it doesn't perform any DNS operations.
+**Guidance**: Azure Firewall Manager does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Identity Management
 
