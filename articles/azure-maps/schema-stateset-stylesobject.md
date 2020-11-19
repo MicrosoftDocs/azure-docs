@@ -12,9 +12,10 @@ manager: philmea
 
 # StylesObject Schema reference guide for Dynamic Maps
 
-This article is a reference guide to the JSON schema and syntax for the `StylesObject`. The `StylesObject` is a `StyleObject` array representing stateset styles. Use the Azure Maps Creator [Feature State service](/rest/api/maps/featurestate) to apply your stateset styles to indoor map data features. Once you have created your stateset styles and associated them with indoor map features, you can use them to create dynamic indoor maps. For more information on creating dynamic indoor maps, see [Implement dynamic styling for Creator indoor maps](indoor-map-dynamic-styling.md).
+ The `StylesObject` is a `StyleObject` array representing stateset styles. Use the Azure Maps Creator [Feature State service](/rest/api/maps/featurestate) to apply your stateset styles to indoor map data features. Once you've created your stateset styles and associated them with indoor map features, you can use them to create dynamic indoor maps. For more information on creating dynamic indoor maps, see [Implement dynamic styling for Creator indoor maps](indoor-map-dynamic-styling.md).
 
 ## StyleObject
+
 
 A `StyleObject` is one of the following:
 
@@ -23,6 +24,7 @@ A `StyleObject` is one of the following:
  * [`StringTypeStyleRule`](#stringtypestylerule)
 
 The JSON below shows each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to meeting types.
+
 
 
 ```json
@@ -80,15 +82,15 @@ The JSON below shows each of the three style types.  The `BooleanTypeStyleRule` 
 |-----------|----------|-------------|-------------|
 | `keyName` | string | The *state* or dynamic property name. A `keyName` should be unique inside the `StyleObject` array.| Yes |
 | `type` | string | Value is "numeric". | Yes |
-| `rules` | [`NumberRuleObject`](#numberruleobject)[]| An array of numeric style ranges with associated colors. Each range defines a color that is to be used when the *state* value satisfies the range.| Yes |
+| `rules` | [`NumberRuleObject`](#numberruleobject)[]| An array of numeric style ranges with associated colors. Each range defines a color that's to be used when the *state* value satisfies the range.| Yes |
 
 ### NumberRuleObject
 
 A `NumberRuleObject` consists of a [`RangeObject`](#rangeobject) and a `color` property. If the *state* value falls into the range, its color for display will be the color specified in the `color` property.
 
-If you define multiple overlapping ranges, the color chosen will be the color that is defined in the first range that is satisfied.
+If you define multiple overlapping ranges, the color chosen will be the color that's defined in the first range that is satisfied.
 
-In the following JSON sample, both ranges will hold true when the *state* value is between 50-60. However, the color that will be used is `#343deb` because it is the first range in the list that has been satisfied.
+In the following JSON sample, both ranges will hold true when the *state* value is between 50-60. However, the color that will be used is `#343deb` because it's the first range in the list that has been satisfied.
 
 ```json
 
