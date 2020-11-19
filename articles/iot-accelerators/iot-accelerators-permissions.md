@@ -19,7 +19,7 @@ You can deploy Azure IoT solution accelerators to your Azure subscription from [
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
 > [!TIP]
-> If you need more control over the deployment process, you can use  the [CLI to deploy a solution accelerator](iot-accelerators-remote-monitoring-deploy-cli.md).
+> If you need more control over the deployment process, you can use  the CLI to deploy a solution accelerator.
 
 You can deploy the solution accelerators in the following configurations:
 
