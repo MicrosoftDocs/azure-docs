@@ -1157,6 +1157,8 @@ The output from the preceding example with the default values is:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
+<a id="json"></a>
+
 ## json
 
 `json(arg1)`

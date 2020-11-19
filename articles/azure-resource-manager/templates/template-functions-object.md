@@ -391,6 +391,8 @@ The output from the preceding example with the default values is:
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
+<a id="json"></a>
+
 ## json
 
 `json(arg1)`
