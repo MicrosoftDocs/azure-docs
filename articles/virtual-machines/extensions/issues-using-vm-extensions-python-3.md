@@ -8,8 +8,8 @@ ms.author: jparrel
 manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager
-
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
