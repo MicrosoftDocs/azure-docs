@@ -128,6 +128,8 @@ No default access rights and Just-in-Time (JIT) access provisions reduce greatly
 - **Data encryption** with option for customer-managed encryption keys – encrypted data is accessible only by entities who are in possession of the key, as described in the previous section.
 - **Customer monitoring** of external access to their provisioned Azure resources, which includes security alerts as described in the next section.
 
+Moreover, all Azure and Azure Government employees in the United States are subject to Microsoft background checks. For more information, see [screening](./documentation-government-plan-security.md#screening).
+
 ### Access control requirements
 
 Microsoft takes strong measures to protect customer data from inappropriate access or use by unauthorized persons.  Microsoft engineers (including full-time employees and subprocessors/vendors) [do not have default access](https://www.microsoft.com/trust-center/privacy/data-access) to customer data in the cloud. Instead, they are granted access, under management oversight, only when necessary.  Using the [restricted access workflow](https://www.youtube.com/watch?v=lwjPGtGGe84&feature=youtu.be&t=25m), access to customer data is carefully controlled, logged, and revoked when it is no longer needed.  For example, access to customer data may be required to resolve customer-initiated troubleshooting requests.  The access control requirements are [established by the following policy](../security/fundamentals/protection-customer-data.md):
@@ -145,20 +147,6 @@ JIT access works in conjunction with multi-factor authentication that requires M
 [Customer Lockbox for Azure](../security/fundamentals/customer-lockbox-overview.md) is a service that provides customers with the capability to control how a Microsoft engineer accesses their data.  As part of the support workflow, a Microsoft engineer may require elevated access to customer data.  Customer Lockbox puts the customer in charge of that decision by enabling the customer to Approve/Deny such elevated requests.  Customer Lockbox is an extension of the JIT workflow and comes with full audit logging enabled.  It is important to note that Customer Lockbox capability is not required for support cases that do not involve access to customer data.  For the majority of support scenarios, access to customer data is not needed and the workflow should not require Customer Lockbox.  Microsoft engineers rely heavily on logs to maintain Azure services and provide customer support.
 
 Customer Lockbox is automatically available to all customers who have an Azure support plan with a minimum level of Developer.  With an eligible support plan, no action is required by a customer to enable Customer Lockbox for [supported services and scenarios in general availability](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability).  Additional Azure services are currently in [public preview for Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) and customers can enable Customer Lockbox for preview services by signing up via an online form.  A Microsoft engineer will initiate Customer Lockbox request if this action is needed to progress a customer-initiated support ticket.  Customer Lockbox is available to customers from all Azure public regions.
-
-### Microsoft employee background screening
-
-All Azure and Azure Government employees in the United States are subject to Microsoft background checks, as outlined in Table 2 below.  Personnel with the ability to access customer data for troubleshooting purposes in Azure Government are additionally subject to the verification of U.S. persons, as well as additional screening requirements where appropriate.
-
-**Table 2:**  Background screening for Azure and Azure Government personnel
-
-|Applicable screening and background check|Environment|Frequency|Description|
-|------|------|------|------|
-|Background check </br> Cloud screen|Azure </br>Azure Gov|Upon employment|- Education history (highest degree) </br>- Employment history (7-yr history)|
-|||Every 2 years|- Social Security Number search </br>- Criminal history check (7-yr history) </br>- Office of Foreign Assets Control (OFAC) list </br>- Bureau of Industry and Security (BIS) list </br>- Office of Defense Trade Controls (DDTC) debarred list|
-|U.S. persons|Azure Gov|Upon employment|- Verification of U.S. persons|
-|Criminal Justice Information Services (CJIS)|Azure Gov|Upon signed CJIS agreement with State|- Adds fingerprint background check against FBI database </br>- Criminal records check and credit check|
-|National Agency Check with Law and Credit (NACLC)|Azure Gov|Upon signed contract with sponsoring agency|- Detailed background and criminal history investigation (SF86 required)|
 
 ## Customer monitoring of Azure resources
 

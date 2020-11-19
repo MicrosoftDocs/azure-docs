@@ -97,7 +97,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $imageDefinition.ResourceGroupName `
    -Location $imageDefinition.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -SourceImageId $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-31' `
    -asJob 
 ```
