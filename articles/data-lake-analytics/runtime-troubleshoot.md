@@ -43,9 +43,16 @@ For example, release_20190318_adl_3394512_2 means the second version of the buil
 
 There are two possible runtime version issues that you may encounter:
 
-1. A script or some user-code is changing behavior from one release to the next. Such breaking changes are normally communicated ahead of time with the publication of release notes. If you encounter such a breaking change, please contact Microsoft Support to report this breaking behavior (in case it has not been documented yet) and submit your jobs against the older runtime version.
+1. A script or some user-code is changing behavior from one release to the next. Such breaking changes are normally communicated ahead of time with the publication of release notes. If you encounter such a breaking change, contact Microsoft Support to report this breaking behavior (in case it has not been documented yet) and submit your jobs against the older runtime version.
 
-2. You have been using a non-default runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter missing runtimes, please upgrade your scripts to run with the current default runtime. If you need additional time, please contact Microsoft Support
+2. You have been using a non-default runtime either explicitly or implicitly when it has been pinned to your account, and that runtime has been removed after some time. If you encounter missing runtimes, upgrade your scripts to run with the current default runtime. If you need additional time, contact Microsoft Support
+
+## Known issues
+
+* Referencing Newtonsoft.Json v12.0.3 or onwards in USQL script will cause job USQL compilation failure.
+
+    **Solution**: Customers need to downgrade Newtonsoft.Json to v12.0.2 or lower version.
+
 
 ## See also
 
