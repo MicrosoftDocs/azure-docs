@@ -227,7 +227,7 @@ The `train.py` script just took a new dependency on `azureml.core`. Update `pyto
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [I modified train.py ](?success=modify-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQ)
+> [I updated the environment file](?success=modify-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 Submit this script once more:
