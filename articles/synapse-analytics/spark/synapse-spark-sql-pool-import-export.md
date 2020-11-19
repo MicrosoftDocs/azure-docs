@@ -1,6 +1,6 @@
 ---
-title: Import and Export data between serverless Apache Spark pools (preview) and SQL pools
-description: This article provides information on how to use the custom connector for moving data between dedicated SQL pools and serverless Apache Spark pools (preview).
+title: Import and Export data between serverless Apache Spark pools and SQL pools
+description: This article provides information on how to use the custom connector for moving data between dedicated SQL pools and serverless Apache Spark pools.
 services: synapse-analytics 
 author: euangMS 
 ms.service: synapse-analytics
@@ -12,7 +12,7 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficiently transfer data between serverless Apache Spark pools (preview) and SQL pools in Azure Synapse. The Azure Synapse Apache Spark to Synapse SQL connector works on dedicated SQL pools only, it doesn't work with serverless SQL pool.
+The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficiently transfer data between serverless Apache Spark pools and SQL pools in Azure Synapse. The Azure Synapse Apache Spark to Synapse SQL connector works on dedicated SQL pools only, it doesn't work with serverless SQL pool.
 
 ## Design
 
