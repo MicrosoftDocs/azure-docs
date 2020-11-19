@@ -215,7 +215,7 @@ For services that do not support managed identities, use Azure AD to create a se
 
 -	Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-These data sources can be integrated with Azure Monitor, Azure Sentinel or third party SIEM systems.
+These data sources can be integrated with Azure Monitor, Azure Sentinel or third-party SIEM systems.
 
 Service providers using Azure Lighthouse can forward Azure AD logs to Azure Sentinel and view/set alerts across tenants to monitor and alert on account anomalies.
 
@@ -570,7 +570,7 @@ If a service provider wants to allow their security team to review delegated cus
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40266).
 
-**Guidance**: Remove access to resources that have been delegated through Azure Lighthouse once they are no are no longer needed, so that service providers no longer have access. Access can be removed by either the customer or by the service provider. 
+**Guidance**: Remove access to resources that have been delegated through Azure Lighthouse once they are no longer needed, so that service providers no longer have access. Access can be removed by either the customer or by the service provider. 
 
 - [Remove access to a delegation](../../lighthouse/how-to/remove-delegation.md)
 
