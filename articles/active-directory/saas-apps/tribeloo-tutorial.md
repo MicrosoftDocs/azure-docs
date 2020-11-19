@@ -72,11 +72,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://app.tribeloo.com/login`
-
-    b. In the **Reply URL** text box, type the URL:
-    `https://app.tribeloo.com/web/sso/acs`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
