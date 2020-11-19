@@ -20,7 +20,7 @@ For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transa
 In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md).
 
 > [!IMPORTANT]
-> This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). The query experience that the serverless SQL pool provides for an [Azure Cosmos DB full fidelity schema](#full-fidelity-schema) is temporary behavior that will change based on the preview feedback. Don't rely on the result set schema of the `OPENROWSET` function without the `WITH` clause that reads data from a container with a full fidelity schema because the query experience might be aligned with and change based on the well-defined schema. You can post your feedback in the [Azure Synapse Analytics feedback forum](https://feedback.azure.com/forums/307516-azure-synapse-analytics). Or, you can contact the [Azure Synapse Link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+> This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). The query experience that the serverless SQL pool provides for an [Azure Cosmos DB full fidelity schema](#full-fidelity-schema) is temporary behavior that will change based on the preview feedback. Don't rely on the result set schema of the `OPENROWSET` function without the `WITH` clause that reads data from a container with a full fidelity schema because the query experience might be aligned with and change based on the well-defined schema. You can post your feedback in the [Azure Synapse Analytics feedback forum](https://feedback.azure.com/forums/307516-azure-synapse-analytics). You can also contact the [Azure Synapse Link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
 
 ## Overview
 
@@ -75,11 +75,11 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-In the preceding example, we instruct the serverless SQL pool to connect to the `covid` database in the Azure Cosmos DB account `MyCosmosDbAccount` authenticated by using the Azure Cosmos DB key (the dummy in the preceding example). We then access the `EcdcCases` container's analytical store in the `West US 2` region. Since there's no projection of specific properties, the `OPENROWSET` function will return all properties from the Azure Cosmos DB items.
+In the preceding example, we instructed the serverless SQL pool to connect to the `covid` database in the Azure Cosmos DB account `MyCosmosDbAccount` authenticated by using the Azure Cosmos DB key (the dummy in the preceding example). We then accessed the `EcdcCases` container's analytical store in the `West US 2` region. Since there's no projection of specific properties, the `OPENROWSET` function will return all properties from the Azure Cosmos DB items.
 
 Assuming that the items in the Azure Cosmos DB container have `date_rep`, `cases`, and `geo_id` properties, the results of this query are shown in the following table:
 
-| date_rep | Cases | geo_id |
+| date_rep | cases | geo_id |
 | --- | --- | --- |
 | 2020-08-13 | 254 | RS |
 | 2020-08-12 | 235 | RS |
@@ -122,7 +122,7 @@ FROM OPENROWSET(
 
 The result of this query might look like the following table:
 
-| date_rep | Cases | geo_id |
+| date_rep | cases | geo_id |
 | --- | --- | --- |
 | 2020-08-13 | 254 | RS |
 | 2020-08-12 | 235 | RS |
@@ -165,7 +165,7 @@ FROM
 
 The result of this query might look like the following table:
 
-| Title | Authors | first_autor_name |
+| title | authors | first_autor_name |
 | --- | --- | --- |
 | Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien |	
 
@@ -188,7 +188,7 @@ Learn more about analyzing [complex data types in Azure Synapse Link](../how-to-
 
 > [!IMPORTANT]
 > If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade`, then your database collation isn't set to [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation.
-> [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to some UTF-8 collation by using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
+> [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to UTF-8 collation by using a SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 ## Flatten nested arrays
 
@@ -238,7 +238,7 @@ FROM
 
 The result of this query might look like the following table:
 
-| Title | Authors | First | Last | Affiliation |
+| title | authors | first | last | affiliation |
 | --- | --- | --- | --- | --- |
 | Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien | Mélade | `	{"laboratory":"Centre de Recher…` |
 Supplementary Information An eco-epidemi… | `[{"first":"Nicolas","last":"4#","suffix":"","affiliation":{"laboratory":"","institution":"U…` | Nicolas | 4# |`{"laboratory":"","institution":"U…` | 
@@ -280,7 +280,7 @@ FROM OPENROWSET(
 
 The result of this query will return types and values formatted as JSON text:
 
-| date_rep | Cases | geo_id |
+| date_rep | cases | geo_id |
 | --- | --- | --- |
 | {"date":"2020-08-13"} | {"int32":"254"} | {"string":"RS"} |
 | {"date":"2020-08-12"} | {"int32":"235"}| {"string":"RS"} |
