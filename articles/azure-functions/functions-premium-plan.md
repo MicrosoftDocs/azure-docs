@@ -15,7 +15,7 @@ ms.custom:
 
 The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan) is a hosting option for function apps. For other hosting plan options, see the [hosting plan article](functions-scale.md).
 
-When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events just like the Consumption plan. Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size. 
+When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the Consumption plan. Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size. 
 
 Premium plan hosting provides the following benefits to your functions:
 
@@ -35,7 +35,7 @@ The following articles show you how to create a function app with a Premium plan
 
 ## Billing
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory allocated across instances. There is no execution charge with the Premium plan. At least one instance must be allocated at all times per plan. This results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances.
+Billing for the Premium plan is based on the number of core seconds and memory allocated across instances. This billing differs from the Consumption plan, which is billed per execution and memory consumed. There is no execution charge with the Premium plan. At least one instance must be allocated at all times per plan. This billing results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances. To learn more, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
 ## Eliminate cold starts
 
@@ -67,9 +67,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### Pre-warmed instances
 
-Pre-warmed instances are instances warmed as a buffer during scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1, and for most scenarios should remain as 1. When an app has a long warm up (like a custom container image), you may need to increase this buffer. A pre-warmed instance becomes active only after all active instances have been sufficiently used.
+Pre-warmed instances are instances warmed as a buffer during scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1, and for most scenarios should remain as 1. When an app has a long warm-up (like a custom container image), you may need to increase this buffer. A pre-warmed instance becomes active only after all active instances have been sufficiently used.
 
-Consider this example of how always ready instances and pre-warmed instances work together. A premium function app has five always ready instances configured, and the default of one pre-warmed instance. When the app is idle and no events are triggering, the app will be provisioned and running on five instances. At this time, you will not be billed for a pre-warmed instance as the always ready instances aren't used, and no pre-warmed instance is even allocated.
+Consider this example of how always ready instances and pre-warmed instances work together. A premium function app has five always ready instances configured, and the default of one pre-warmed instance. When the app is idle and no events are triggering, the app will be provisioned and running on five instances. At this time, you won't be billed for a pre-warmed instance as the always ready instances aren't used, and no pre-warmed instance is even allocated.
 
 As soon as the first trigger comes in, the five always ready instances become active, and a pre-warmed instance is allocated. The app is now running with six provisioned instances: the five now-active always ready instances, and the sixth pre-warmed and inactive buffer. If the rate of executions continues to increase, the five active instances will eventually be utilized. When the platform decides to scale beyond five instances, it will scale into the pre-warmed instance. When that happens, there will now be six active instances, and a seventh instance will instantly be provisioned and fill the pre-warmed buffer. This sequence of scaling and pre-warming will continue until the maximum instance count for the app is reached. No instances will be pre-warmed or activated beyond the maximum.
 
@@ -79,13 +79,13 @@ You can modify the number of pre-warmed instances for an app using the Azure CLI
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
-### Maximum instances for an app
+### Maximum function app instances
 
 In addition to the [plan maximum instance count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./functions-scale.md#limit-scale-out).
 
 ## Private network connectivity
 
-Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
+Function apps deployed to a Premium plan can take advantage of [VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
@@ -99,7 +99,7 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 
 ## Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps. When set to an unbounded duration, your function app is guaranteed to run for at least 60 minutes.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps. When set to an unbounded duration, your function app is guaranteed to run for at least 60 minutes. 
 
 ## Plan and SKU settings
 
@@ -120,7 +120,7 @@ The minimum for every plan will be at least one instance. The actual minimum num
 > [!IMPORTANT]
 > You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.
 
-In most circumstances this autocalculated minimum should be sufficient. However, scaling beyond the minimum occurs at a best effort. It is possible, though unlikely, that at a specific time scale-out could be delayed if additional instances are unavailable. By setting a minimum higher than the autocalculated minimum, you reserve instances in advance of scale-out.
+In most circumstances, this autocalculated minimum should be sufficient. However, scaling beyond the minimum occurs at a best effort. It's possible, though unlikely, that at a specific time scale-out could be delayed if additional instances are unavailable. By setting a minimum higher than the autocalculated minimum, you reserve instances in advance of scale-out.
 
 Increasing the calculated minimum for a plan can be done using the Azure CLI.
 
@@ -138,16 +138,17 @@ When creating or scaling your plan, you can choose between three instance sizes.
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
 
-### Memory utilization considerations
-Running on a machine with more memory does not always mean that your function app will use all available memory.
+### Memory usage considerations
+
+Running on a machine with more memory doesn't always mean that your function app uses all available memory.
 
 For example, a JavaScript function app is constrained by the default memory limit in Node.js. To increase this fixed memory limit, add the app setting `languageWorkers:node:arguments` with a value of `--max-old-space-size=<max memory in MB>`.
 
 ## Region Max Scale Out
 
-Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration. To request an increase, please open a support ticket.
+Below are the currently supported maximum scale-out values for a single plan in each region and OS configuration. To request an increase, you can open a support ticket.
 
-See the complete regional availability of Functions here: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
+See the complete regional availability of Functions on the [Azure web site](https://azure.microsoft.com/global-infrastructure/services/?products=functions).
 
 |Region| Windows | Linux |
 |--| -- | -- |
@@ -192,4 +193,4 @@ See the complete regional availability of Functions here: [Azure.com](https://az
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Understand Azure Functions scale and hosting options](functions-scale.md)
+> [Understand Azure Functions hosting options](functions-scale.md)
