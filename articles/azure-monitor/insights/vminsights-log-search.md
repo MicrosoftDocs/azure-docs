@@ -471,5 +471,5 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 
 * If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write log queries.
 
-* Learn about [writing search queries](../log-query/get-started-queries).
+* Learn about [writing search queries](/azure/azure-monitor/log-query/get-started-queries).
 
