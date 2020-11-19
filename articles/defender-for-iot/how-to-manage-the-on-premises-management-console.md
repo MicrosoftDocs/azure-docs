@@ -64,17 +64,3 @@ You can automatically transfer this file to the internal network.
    - `sudo nano /var/cyberx/properties/backup.properties` 
 
    - `set Backup.shared_location to <backup_folder_name_on_server>` 
-
-## Edit Hostname 
-
-Edit the hostname configured in the organizational DNS server. 
-
-**To edit**: 
-
-1. In the console left pane, select **System Settings**.  
-
-2. In the Management console networking section, select **Network**. 
-
-3. Enter the hostname configured in the organizational DNS serve. 
-
-4. Select **SAVE**.

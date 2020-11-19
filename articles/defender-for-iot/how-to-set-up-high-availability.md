@@ -60,10 +60,6 @@ Verify that you have met the following High Availability requirements:
 
 - Network Access Requirements
 
-#### Certificate Requirements
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX INFORMATION NEEDS TO BE ADDED HERE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
 #### Software and hardware requirements
 
 - Both the primary and secondary on-premises management console appliances must be running identical hardware models and software versions.

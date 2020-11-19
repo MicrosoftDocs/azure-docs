@@ -1,9 +1,10 @@
 ---
-title: View and manage onboarded sensors in Azure Defender for IoT
+title: Manage sensors on the cloud
 description: This article describes how to view and delete onboarded sensors, as well as download new activation files for onboarded sensors in Azure Defender for IoT.
-author: rkarlin
-ms.author: rkarlin
-ms.date: 10/10/2020
+author: shhazam-ms
+manager: rkarlin
+ms.author: shhazam
+ms.date: 11/19/2020
 ms.topic: article
 ms.service: azure
 ---

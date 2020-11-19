@@ -23,11 +23,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Unmanaged 
+  - name: Enterprises 
     items:
-    - name: Unmanaged set up overview
+    - name: Enterprises set up overview
       href: quickstart-prepare-network-for-defender-for-iot.md
-  - name: Managed
+  - name: Device builder
     items: 
     - name: Configure Security Module for Azure RTOS
       href: quickstart-azure-rtos-security-module.md
@@ -45,7 +45,7 @@
       href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
-  - name: Unmanaged 
+  - name: Enterprises 
     items:
     - name: Key advantages
       href: concept-key-advantages.md
@@ -61,7 +61,7 @@
       href: concept-high-availability.md
     - name: Sensor console overview
       href: concept-sensor-console-overview.md
-  - name: Managed
+  - name: Device builder
     items: 
     - name: Security Module for Azure RTOS
       items: 
@@ -87,9 +87,9 @@
       href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: Unmanaged 
+  - name: Enterprises 
     items:
-    - name: Acquire hardware and software
+    - name: Prepare your network
       items:
         - name: Acquire hardware and software
           href: how-to-acquire-hardware-and-software
@@ -105,11 +105,13 @@
         href: how-to-activate-and-set-up-your-sensor.md
       - name: Work with the sensor console dashboard
         href: how-to-work with-the-sensor-console-dashboard.md
-    - name: Prepare your sensors
+    - name: Prepare your on-premises management console
       items:
+      - name: Deploy the on-premises management console
+        href: how-to-deploy-management-console-appliance.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
-      - name: Set Up high availability
+      - name: Set up high availability
         href: how-to-set-up-high-availability.md
     - name: Change the name of your console
       href: how-to-change-the-name-of-your-console.md
@@ -119,8 +121,8 @@
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
         href: how-to-define-global-user-access-control.md
-      - name: Create sensor console users
-        href: how-to-create-sensor-console-users.md  
+    - name: Create sensor console users
+      href: how-to-create-sensor-console-users.md  
     - name: Control what traffic is monitored
       href: how-to-control-what-traffic-is-monitored.md
     - name: Manage sensors in air gapped networks
@@ -133,16 +135,18 @@
         href: how-to-access-sensors-using-a-proxy.md
     - name: Manage individual sensors
       href: how-to-manage-individual-sensors.md
-    - name: Work with threat intelligence packages
-      href: how-to-work-with-threat-intelligence-packages.md
+    - name: Manage sensors on the cloud
+      href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
       href: how-to-manage-the-on-premises-management-console.md
+    - name: Define management console network settings
+      href: how-to-define-management-console-network-settings.md
+    - name: Work with threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
       href: how-to-work-with-asset-inventory-information.md
     - name: Work with maps
       href: how-to-work-with-maps.md
-    - name: Import asset information to the sensor
-      href: how-to-import-asset-information-to-the-sensor.md
     - name: Work with alerts
       items:
       - name: Work with alerts sensor
@@ -150,15 +154,25 @@
       - name: Work with alerts on-premises management console
         href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information
-      href: how-to-enrich-asset-information.md
+      items: 
+      - name: Configure DNS servers for reverse lookup resolution
+        href: how-to-configure-dns-servers-for-reverse-lookup-resolution.md
+      - name: Working with asset notifications
+        href: how-to-working-with-asset-notifications.md
+      - name: Enhance port and VLAN names resolution
+        href: how-to-enhance-port-and-vlan-names-resolution.md
+      - name: Import asset information
+        href: how-to-import-asset-information.md
+      - name: Import from the map
+        href: how-to-import-from-the-map.md
+      - name: Import asset information to the sensor
+        href: how-to-import-asset-information-to-the-sensor.md
     - name: Work with system notifications
       href: how-to-work-with-system-notifications.md
     - name: Track sensor activity
       href: how-to-track-sensor-activity.md
     - name: Generate reports
       href: how-to-generate-reports.md
-    - name: Create forwarding rules
-      href: how-to-create-forwarding-rules.md
     - name: Integrate with partners
       items:
         - name: ServiceNow integration
@@ -177,23 +191,21 @@
           href: integration-qradar.md
         - name: Sentinel syslog integration
           href: integration-sentinel-syslog.md
+        - name: Cyberark integration
+          href: integration-cyberark.md
     - name: Manage proprietary protocols (horizon)
       href: how-to-manage-proprietary-protocols.md
     - name: Troubleshoot the sensor and on-premises management console
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
-    - name: View and manage sensors
-      href: how-to-deploy-view-sensors.md
-    - name: Deploy the on-premises management console
-      href: how-to-deploy-management-console-appliance.md
-    - name: Define management console network settings
-      href: how-to-define-management-console-network-settings.md
-    - name: Set up SNMP MIB monitoring
-      href: how-to-set-up-snmp-mib-monitoring.md
-    - name: Adjust system properties
-      href: how-to-adjust-system-properties.md  
     - name: Define access tokens
       href: how-to-define-access-tokens.md
-  - name: Managed
+    - name: Set up SNMP MIB monitoring
+      href: how-to-set-up-snmp-mib-monitoring.md
+    - name: Setup active directory
+      href: how-to-setup-active-directory.md
+    - name: Adjust system properties
+      href: how-to-adjust-system-properties.md  
+  - name: Device builder
     items: 
     - name: Work with Security Module for Azure RTOS
       href: how-to-azure-rtos-security-module.md
@@ -231,7 +243,7 @@
       href: how-to-customize-solution.md
 - name: References
   items:
-  - name: Unmanaged 
+  - name: Enterprises 
     items:
     - name: Work with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
@@ -239,9 +251,11 @@
       href: references-work-with-defender-for-iot-cli-commands.md
     - name: Horizon SDK
       href: references-horizon-sdk.md
+    - name: Horizon API
+      href: references-horizon-api.md
     - name: Defender for IoT glossary
       href: references-defender-for-iot-glossary.md
-  - name: Managed
+  - name: Device builder
     items: 
     - name: Security Module for Azure RTOS API
       href: azure-rtos-security-module-api.md

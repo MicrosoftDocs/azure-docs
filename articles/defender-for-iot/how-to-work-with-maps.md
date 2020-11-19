@@ -120,7 +120,7 @@ View groups by:
 
 The following predefined groups are available:
 
-|                                                  |  |
+                                                  |  |
 --------------------------------------------------|--|
  **Known Applications/Non Standrad Ports/ (default)** | Assets that use reserved ports, such as TCP. Assets that use non-standard ports or ports that have not be assigned an alias. See [Customize Port Names](./customize-port-names.md) for details. |
  **OT Protocols (default)**                           | Assets that handle the OT traffic. |
@@ -771,3 +771,13 @@ An immediate view into problematic sites allows you to focus on the important is
 - Select an option from the drop-down list. The Site Map view changes according to your choice.
 
 :::image type="content" source="media/how-to-work-with-maps/image13.png" alt-text="Screenshot of Site Map Default View":::
+
+### Updating the Map Image 
+
+A default world map is provided. You can change it to reflect your organization: a country map or a city map for example. 
+
+**To replace the map**: 
+
+1. In the left pane, select System Settings. 
+
+2. Select the Change Site Map and upload the graphic file to replace the default map. 

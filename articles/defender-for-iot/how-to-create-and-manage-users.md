@@ -63,7 +63,7 @@ To add a new user:
 
 1. From the on-premises management console left pane, select **Users**. The **Users** window appears.
 
-2. In the Users window, select :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/image97.png" alt-text="Icon of Create User button":::, the **Crate User** pane appears.
+2. In the Users window, select :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/image97.png" alt-text="Icon of Create User button":::, the **Create User** pane appears.
 
 :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/image98.png" alt-text="Screenshot of Create User view":::
 
