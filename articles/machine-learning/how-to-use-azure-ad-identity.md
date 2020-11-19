@@ -27,13 +27,13 @@ In this how-to, you learn how to assign an Azure Active Directory (Azure AD) ide
 
 ## Create and install an Azure Identity
 
-1. To determine if your AKS cluster is RBAC enabled, use the following command:
+1. To determine if your AKS cluster is Kubernetes RBAC enabled, use the following command:
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    This command returns a value of `true` if RBAC is enabled. This value determines the command to use in the next step.
+    This command returns a value of `true` if Kubernetes RBAC is enabled. This value determines the command to use in the next step.
 
 1. Install [Azure AD Pod Identity](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) in your AKS cluster.
 
