@@ -397,7 +397,7 @@
         href: dedicated-hosts-cli.md
       - name: Portal
         href: ../dedicated-hosts-portal.md
-    - name: Deploy spot VMs
+    - name: Deploy Spot VMs
       items:
       - name: CLI
         href: spot-cli.md
