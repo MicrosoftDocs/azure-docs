@@ -161,7 +161,7 @@ Install the runbook environment and connect to Azure Automation. When you config
     Import-Module .\HybridRegistration.psd1
     ```
 
-2. Run the `Add-HybridRunbookWorker` cmdlet using the following syntax.
+2. Run the `Add-HybridRunbookWorker` cmdlet specifying the values for the parameters `Url`, `Key`, and `GroupName`.
 
     ```powershell-interactive
     Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
