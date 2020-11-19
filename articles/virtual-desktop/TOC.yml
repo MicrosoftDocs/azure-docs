@@ -98,8 +98,10 @@
           href: app-attach-azure-portal.md
         - name: Set up MSIX app attach with PowerShell
           href: app-attach-powershell.md
-        - name: Configure PowerShell scripts
+        - name: Create PowerShell scripts
           href: app-attach.md
+        - name: Prepare an MSIX image
+          href: app-attach-image-prep.md
         - name: Set up a file share
           href: app-attach-file-share.md
   - name: Use Microsoft Teams
