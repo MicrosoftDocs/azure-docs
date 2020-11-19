@@ -55,7 +55,8 @@ Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glo
 
 Can't find a data point to help diagnose an issue? Send us feedback!
 
-<!--How will users give us feedback?-->
+- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
+- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) or [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
 ## Known issues
 
@@ -67,7 +68,7 @@ These are the issues we're currently aware of and working to fix:
 
 - There currently isn't a way to export data from Azure Monitor for Windows Virtual Desktop into Excel.
 
-- All high-priority Azure Monitor alerts for all products within the selected subscription will appear in the Overview page. This is by design, as alerts from other products in the subscription may impact Windows Virtual Desktop.
+- All severity 1 Azure Monitor alerts for all products within the selected subscription will appear in the Overview page. This is by design, as alerts from other products in the subscription may impact Windows Virtual Desktop. Right now, the query is limited to severity 1 alerts, excluding high-priority severity 0 alerts from the Overview page.
 
 - Some error messages are not phrased in a user-friendly way, and not all error messages are described in the documentation.
 
