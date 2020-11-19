@@ -32,7 +32,7 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 ## Establish a private link connection to Key Vault using the Azure portal 
 
