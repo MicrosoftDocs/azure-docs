@@ -73,6 +73,10 @@ Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes a
 
 [Get started with Train with labels](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+
+
 ## Prebuilt models
 
 Form Recognizer also includes Prebuilt models for automated data processing of unique form types.
