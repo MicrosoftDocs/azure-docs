@@ -9,24 +9,27 @@ editor:
 
 ms.assetid:
 ms.service: media-services
-ms.devlang: azurecli
+ms.devlang: multiple
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/31/2020
+ms.date: 11/18/2020
 ms.author: inhenkel 
 ms.custom: devx-track-azurecli
 ---
 
-# CLI example: Create a Transform
+
+# Create a transform
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 The Azure CLI script in this article shows how to create a transform. Transforms describe a simple workflow of tasks for processing your video or audio files (often referred to as a "recipe"). You should always check if a Transform with desired name and "recipe" already exist. If it does, you should reuse it.
 
-## Prerequisites 
+## Prerequisites
 
 [Create a Media Services account](./create-account-howto.md).
+
+## [CLI](#tab/cli/)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -39,6 +42,12 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-transform/Create-Transform.sh "Create a transform")]
 
+## [REST](#tab/rest/)
+
+[!INCLUDE [task general transform creation](./includes/task-create-transform-rest.md)]
+
+---
+
 ## Next steps
 
-[az ams transform (CLI)](/cli/azure/ams/transform?view=azure-cli-latest)
+[More about transforms and jobs](transforms-jobs-concept.md)
