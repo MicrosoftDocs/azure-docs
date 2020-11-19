@@ -16,7 +16,7 @@ This article answers frequently asked questions (FAQs) about Microsoft Azure Red
 
 ### Which Azure regions are supported?
 
-For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
+For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
 
 For a list of supported regions for Azure Red Hat OpenShift 3.11, see [Products available by region](supported-resources.md#azure-regions).
 
