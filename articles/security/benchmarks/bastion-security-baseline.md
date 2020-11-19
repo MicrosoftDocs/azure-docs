@@ -76,7 +76,7 @@ Connectivity to Gateway Manager and Azure service tag is protected (locked down)
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines directly through the Azure Portal. Azure Bastion does not not allow for its management endpoints to be secured to a private network with Private Link or Service Endpoints.
+**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS offering that provides secure and seamless RDP and SSH access to your virtual machines directly through the Azure portal. Azure Bastion does not allow for its management endpoints to be secured to a private network with Private Link or Service Endpoints.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -90,7 +90,7 @@ Connectivity to Gateway Manager and Azure service tag is protected (locked down)
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines and is not intended to run web applications. Azure Bastion does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
+**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS offering that provides secure and seamless RDP and SSH access to your virtual machines and is not intended to run web applications. Azure Bastion does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -104,7 +104,7 @@ Connectivity to Gateway Manager and Azure service tag is protected (locked down)
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines, it cannot be configured with an IDS or IPS solution.
+**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS offering that provides secure and seamless RDP and SSH access to your virtual machines, it cannot be configured with an IDS or IPS solution.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -530,21 +530,15 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39774).
 
-**Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+**Guidance**: Apply tags to your Azure Bastion resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production. Ensure that security teams have access to a continuously updated inventory of assets on Azure. They can use Azure Resource Graph to query and discover all resources in your subscriptions, including Azure services, applications, and network resources.
 
-- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md) 
+- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
-- [Azure Security Center asset inventory management](../../security-center/asset-inventory.md) 
+- [Azure Security Center asset inventory management](../../security-center/asset-inventory.md)
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json) 
+- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-Use Azure Virtual Machine Inventory to automate the collection of information about software on Virtual Machines. Software Name, Version, publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
-
-- [How to enable Azure virtual machine inventory](../../automation/automation-tutorial-installed-software.md)
-
-Azure Bastion does not allow running an application or installation of software on its resources.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -553,15 +547,15 @@ Azure Bastion does not allow running an application or installation of software 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39775).
 
-**Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
+**Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment, this includes being able to allow or deny deployments of Azure Bastion resources. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
-- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general) 
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
 - [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -570,25 +564,26 @@ Azure Bastion does not allow running an application or installation of software 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39776).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Remove access to Azure Bastion resources that have been deployed when they are no longer needed to minimize attack surface. Users can manage their Azure Bastion resources via the Azure portal, CLI, or REST APIs. You can also delete or force-disconnect an ongoing remote session if it is no longer needed or identified as a potential threat.
 
-**Guidance**: Azure Bastion is a PaaS service and customer can not use the offering's capabilities to inventory and manage assets
+- [Delete of force-disconnect a remote session](../../bastion/session-monitoring.md#view)
+
+- [Azure network CLI](https://docs.microsoft.com/powershell/module/az.network/?view=azps-5.1.0#networking&amp;preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39777).
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Azure Bastion is integrated with Azure Active Directory (Azure AD) for identity and authentication. You can use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 - [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -600,7 +595,7 @@ Azure Bastion does not allow running an application or installation of software 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion is a Paas service does not allow customers to install applications on them.
+**Guidance**: Not applicable; Azure Bastion is a PaaS offering and does not allow customers to install applications onto the service's resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -618,7 +613,7 @@ Azure Bastion does not allow running an application or installation of software 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion does not currently produce customer facing resource logs that can be used for threat detection.
+**Guidance**: Not applicable; Azure Bastion does not currently produce customer facing resource logs that can be used for threat detection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -629,25 +624,24 @@ Azure Bastion does not allow running an application or installation of software 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39757).
 
-**Guidance**: Azure Bastion service is accessed over Azure portal. User can enable logs related to identity and access management when Azure Bastion is accessed.
+**Guidance**: Azure Bastion integrates with Azure Active Directory (Azure AD) and the service is accessed over the Azure portal. By default management actions to the service (such as create, update, and delete) are captured via the Azure Activity Log. Users should also enable Azure Bastion resource logs, such as session BastionAuditLogs to track bastion sessions.
 
-Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
+Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases: 
+-	Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+-	Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+-	Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+-	Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+Azure Security Center can also alert on certain suspicious activities such as an excessive number of failed authentication attempts, and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (such as virtual machines, containers, app service), data resources (such as SQL DB and storage), and Azure service layers. This capability allows you to see account anomalies inside the individual resources.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+- [Azure Bastion resource logs](../../bastion/diagnostic-logs.md)
 
-Audit activity reports in the Azure Active Directory
+- [Audit activity reports in Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-../../active-directory/reports-monitoring/concept-audit-logs.md 
-
-- [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
+- [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
@@ -660,11 +654,21 @@ Audit activity reports in the Azure Active Directory
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39758).
 
-**Guidance**: Customer can enable Azure bastion resource logs. Use these diagnostics log to view which users connected to which workloads, at what time, from where, and other such relevant logging information. User can configure these logs to be sent to a storage account for long term retention and auditing.
+**Guidance**: Enable Azure Bastion resource logs, use these diagnostics logs to view which users connected to which workloads, at what time, from where, and other such relevant logging information. Users can configure these logs to be sent to a storage account for long-term retention and auditing.
+
+Enable and collect network security group (NSG) resource logs and NSG flow logs on the network security groups that are applied to the virtual networks you have your Azure Bastion resource deployed. These logs can then be used for analyzing network security and to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
 
 - [Enable and work with Azure Bastion logs](../../bastion/diagnostic-logs.md)
 
-**Azure Security Center monitoring**: Not applicable
+- [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+
+- [Azure Firewall logs and metrics](../../firewall/logs-and-metrics.md)
+
+- [How to enable and use Traffic Analytics](../../network-watcher/traffic-analytics.md)
+
+- [Monitoring with Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
+
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -675,9 +679,9 @@ Audit activity reports in the Azure Active Directory
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Bastion resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 - [Enable Azure resource logs for Azure Bastion ](../../bastion/diagnostic-logs.md)
 
@@ -690,34 +694,40 @@ Audit activity reports in the Azure Active Directory
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39760).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
-**Guidance**: Azure Bastion does not produce or process any security related logs which would need to be collected centrally for management or analysis.
+Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
+
+In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
+
+Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
+
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### LT-6: Configure log storage retention
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39761).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure Bastion logs has the log retention period set according to your organization's compliance regulations.
 
-**Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure  Bastion logs has the log retention period set according to your organization's compliance regulations.
+In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations.
+
+- [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
+
+- [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs-collect-storage)
 
 - [Enable and work with Azure Bastions logs](../../bastion/diagnostic-logs.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### LT-7: Use approved time synchronization sources
 
@@ -727,7 +737,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion does not support configuring your own time synchronization sources. The Azure Bastion service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
+**Guidance**: Azure Bastion does not support configuring your own time synchronization sources. The Azure Bastion service relies on Microsoft time synchronization sources, and these are not exposed to customers for configuration.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -770,11 +780,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39765).
 
-**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
+**Guidance**: Ensure you have a process to create high-quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives.
 
-High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
+High-quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
+Azure Security Center provides high-quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
@@ -826,7 +836,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
@@ -865,18 +875,15 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39783).
 
-**Guidance**: Define and implement standard security configurations for Azure Bastion with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Bastion. Customer can also establish secure configurations by leveraging Azure Blueprints or ARM templates to deploy Bastion resources securely and consistently
+**Guidance**: Define and implement standard security configurations for Azure Bastion with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Bastion. Customers can also establish secure configurations by leveraging Azure Blueprints or ARM templates to deploy Bastion resources securely and consistently.
 
-How to view available Azure Policy Aliases
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;viewFallbackFrom=azps-3.3.0
+- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
 
-How to configure and manage Azure Policy
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-../../governance/policy/tutorials/create-and-manage.md
+- [Learn about ARM templates](../../azure-resource-manager/templates/overview.md)
 
-- [Learn about ARM templates ](../../azure-resource-manager/templates/overview.md)
-
-- [Overview about Azure Blueprints ](../../governance/blueprints/overview.md)
+- [Overview about Azure Blueprints](../../governance/blueprints/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -887,22 +894,15 @@ How to configure and manage Azure Policy
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39784).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Define and implement standard security configurations for Azure Bastion with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Bastion resources.
 
-**Guidance**: Define and implement standard security configurations for Azure ExpressRoute with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your ExpressRoute.
+- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
 
-How to view available Azure Policy Aliases
-
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;viewFallbackFrom=azps-3.3.0
-
-How to configure and manage Azure Policy
-
-../../governance/policy/tutorials/create-and-manage.md
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PV-3: Establish secure configurations for compute resources
 
@@ -912,7 +912,7 @@ How to configure and manage Azure Policy
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
+**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service's compute infrastructure for customers to configure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -926,7 +926,7 @@ How to configure and manage Azure Policy
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
+**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service's compute infrastructure for customers to configure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -940,7 +940,7 @@ How to configure and manage Azure Policy
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
+**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service's compute infrastructure for customers to configure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -966,15 +966,13 @@ How to configure and manage Azure Policy
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39789).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Microsoft performs vulnerability management and software update on the underlying systems that support Azure Bastion.
 
-.
-
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### PV-8: Conduct regular attack simulation
 
@@ -982,11 +980,12 @@ How to configure and manage Azure Policy
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39790).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
+
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
 - [Penetration testing in Azure](../fundamentals/pen-testing.md)
 
-- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
@@ -1006,7 +1005,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion is a fully managed PaaS service and Microsoft is responsible for handling endpoint protection.
+**Guidance**: Azure Bastion is a fully managed PaaS offering and Microsoft is responsible for handling endpoint protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1020,7 +1019,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing and managing Anti Malware protection.
+**Guidance**: Azure Bastion is a fully managed PaaS offering and Microsoft is responsible for installing and managing anti-malware protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1034,9 +1033,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing, managing and updating Anti Malware signature.
-
-.
+**Guidance**: Azure Bastion is a fully managed PaaS offering and Microsoft is responsible for installing, managing, and updating anti-malware signature.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1054,7 +1051,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion doesn't support any data backup or have no needs for data backup.
+**Guidance**: Not applicable; Azure Bastion doesn't support any data backup and has no need for data backup.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1068,9 +1065,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion doesn't support any data backup encryption.
-
-.
+**Guidance**: Not applicable; Azure Bastion doesn't support any data backup and has no need for data backup encryption.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1084,7 +1079,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion doesn't support any data backup.
+**Guidance**: Not applicable; Azure Bastion doesn't support any data backup and has no need for data backup.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1098,7 +1093,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion doesn't manage any keys.
+**Guidance**: Not applicable; Azure bastion relies on Azure Active Directory for identity and access, and does not leverage keys or secrets directly.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1127,7 +1122,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Required access control strategy in accordance with organizational data classification
 
--	Use of Azure native and third party data protection capabilities
+-	Use of Azure native and third-party data protection capabilities
 
 -	Data encryption requirements for in-transit and at-rest use cases
 
@@ -1271,7 +1266,7 @@ For more information, see the following references:
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39796).
 
-**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
+**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high-quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
