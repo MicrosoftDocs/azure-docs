@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/19/2020
 ms.author: v-erkel
 ---
 
@@ -19,6 +19,8 @@ The **Namespace** page in the Azure portal shows the paths that clients use to a
 All of the existing client-facing paths are listed on the **Namespace** page. If a storage target does not have any paths, it does not appear in the table.
 
 You can sort the table columns by clicking the arrows and better understand your cache's aggregated namespace.
+
+<!-- xxx new screenshot with access policy xxx -->
 
 ![screenshot of portal namespace page with two paths in a table. Column headers: Namespace path, Storage target, Export path, and Export subdirectory. The items in the first column are clickable links. Top buttons: Add namespace path, refresh, delete](media/namespace-page.png)
 
