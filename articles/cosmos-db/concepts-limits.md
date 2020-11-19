@@ -38,7 +38,7 @@ You can provision throughput at a container-level or a database-level in terms o
 
 ### Minimum throughput limits
 
-A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. As the container grows, Cosmos DB requires a minimum throughput to ensure the database or container has sufficient resource for its operations. The minimum throughput depends on the maximum throughput ever provisioned on the container and the current storage.
+A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. As the container grows, Cosmos DB requires a minimum throughput to ensure the database or container has sufficient resource for its operations.
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
 
@@ -73,8 +73,7 @@ In summary, here are the minimum provisioned RU limits.
 | Resource | Default limit |
 | --- | --- |
 | Minimum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per container within a shared throughput database | 400 RU/s for first 25 containers. Additional 100 RU/s for each container afterward |
+| Minimum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. Additional 100 RU/s for each container afterward. |
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
