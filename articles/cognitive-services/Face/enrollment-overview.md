@@ -1,7 +1,7 @@
 ---
 title: Face API enrollment overview
 titleSuffix: Azure Cognitive Services
-description: 
+description: Learn about the process of Face enrollment to register users in a face recognition service.
 author: PatrickFarley
 manager: nitinme
 
