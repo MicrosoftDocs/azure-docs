@@ -83,9 +83,13 @@ In the application's **Program** class, create variables for your resource's key
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-In the application's **Main** method, add a call to the asynchronous task used in this quickstart. You will implement it later.
+In the application's **Main** method, add a call to the asynchronous tasks used in this quickstart. You will implement them later.
 
+#### [version 3.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
+#### [version 3.1 preview](#tab/preview)
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
+---
 
 
 ## Object model 
@@ -161,9 +165,14 @@ You'll also need to add references to the URLs for your training and testing dat
 
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Then, use the above steps to get the SAS URL of an individual document in blob storage.
-* Finally, save the URL of the sample receipt image included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms). 
+* Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)). 
 
+#### [version 3.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
+#### [version 3.1 preview](#tab/preview)
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
+
+---
 
 
 ## Recognize form content
@@ -308,6 +317,7 @@ To recognize invoices from a URL, use the `StartRecognizeInvoicesFromUriAsync` m
 The returned value is a collection of `RecognizedForm` objects: one for each invoice in the submitted document. The following code processes the invoice at the given URI and prints the major fields and values to the console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
+
 ---
 
 
@@ -617,19 +627,12 @@ You can also delete a model from your account by referencing its ID. This step a
 
 ## Run the application
 
-#### [Visual Studio IDE](#tab/visual-studio)
-
-Run the application by clicking the **Debug** button at the top of the IDE window.
-
-#### [CLI](#tab/cli)
-
 Run the application from your application directory with the `dotnet run` command.
 
 ```dotnet
 dotnet run
 ```
 
----
 
 ## Clean up resources
 
