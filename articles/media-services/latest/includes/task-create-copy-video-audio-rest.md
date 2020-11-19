@@ -54,24 +54,34 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 ## Sample response
 ```json
 {
-    "name": "audioAnalyzerTransform",
-    "id": "/subscriptions/35c2594a-xxxx-4fce-b59c-f6fb9513eeeb/resourceGroups/myresourcegroup/providers/Microsoft.Media/mediaservices/mymediaservicesaccount/transforms/audioAnalyzerTransform",
+    "name": "aacaudio",
+    "id": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/inhenkelRG/providers/Microsoft.Media/mediaservices/inhenkel/transforms/aacaudio",
     "type": "Microsoft.Media/mediaservices/transforms",
     "properties": {
-        "created": "2020-10-23T18:03:37.4793962Z",
-        "description": "Transform for Audio Analyzer Basic Mode",
-        "lastModified": "2020-10-23T18:03:37.4793962Z",
+        "created": "2020-11-19T00:12:48.6001786Z",
+        "description": "Copy audio files with no encoding",
+        "lastModified": "2020-11-19T17:50:23.9602077Z",
         "outputs": [
             {
                 "onError": "StopProcessingJob",
                 "relativePriority": "Normal",
                 "preset": {
-                    "@odata.type": "#Microsoft.Media.AudioAnalyzerPreset",
-                    "audioLanguage": "en-US",
-                    "mode": "Basic",
-                    "experimentalOptions": {
-                        "basicAudioEnabled": "true"
-                    }
+                    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
+                    "codecs": [
+                        {
+                            "@odata.type": "#Microsoft.Media.CopyAudio"
+                        },
+                        {
+                            "@odata.type": "#Microsoft.Media.CopyVideo"
+                        }
+                    ],
+                    "formats": [
+                        {
+                            "@odata.type": "#Microsoft.Media.Mp4Format",
+                            "filenamePattern": "{Basename}_Copy{Extension}",
+                            "outputFiles": []
+                        }
+                    ]
                 }
             }
         ]
