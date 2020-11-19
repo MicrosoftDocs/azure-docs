@@ -963,7 +963,7 @@ It takes a few minutes to create and configure the three VMs.
 
 Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. 
 
-The extension runs PowerShell Add-WindowsFeature Web-Server to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
+The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
 ```azurepowershell-interactive
 ## VM1 ##
