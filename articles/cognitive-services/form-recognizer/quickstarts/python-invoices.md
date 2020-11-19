@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- An invoice document. You can use the [sample invoice](../media/sample-invoice.pdf) for this quickstart.
+- An invoice document. You can use the [sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 
 > [!NOTE]
 > This quickstart uses a local file. To use a invoice document accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
@@ -127,8 +127,8 @@ The script will print responses to the console until the **Analyze Invoice** ope
 
 See the following invoice document and its corresponding JSON output:
 
-* [Sample invoice](../media/sample-invoice.pdf)
-* [Sample invoice JSON output](../media/sample-invoice-output.json)
+* [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf)
+* [Sample invoice JSON output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice-output.json)
 
 
 ### Sample Python script to extract invoice or a batch of invoices into a CSV file

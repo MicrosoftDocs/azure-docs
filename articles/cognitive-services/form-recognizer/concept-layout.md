@@ -61,7 +61,7 @@ When the **status** field has the `succeeded` value, the JSON response will incl
 ### Sample JSON output
 
 The response to the Get Analyze LAyout Result operation will be the structured representation of the document with all the information extracted. 
-See here for a [sample document file](./media/sample-layout.pdf) and its structured output [sample layout output](./media/sample-layout-output.json).
+See here for a [sample document file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout.pdf) and its structured output [sample layout output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout-output.json).
 
 The JSON output has two parts: 
 1. `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
