@@ -25,7 +25,7 @@ By monitoring the activities and configuration settings related to identity, you
 
 Azure Security Center has two dedicated security controls for ensuring you're meeting your organization's identity and security requirements: 
 
- - **Manage access and permissions** - We encourage you to adopt the [least privilege access model](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and ensure you grant your users only the access necessary for them to do their jobs. This control also includes recommendations for implementing [role-based access control (RBAC)](../role-based-access-control/overview.md) to control access to your resources.
+ - **Manage access and permissions** - We encourage you to adopt the [least privilege access model](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and ensure you grant your users only the access necessary for them to do their jobs. This control also includes recommendations for implementing [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to control access to your resources.
  
  - **Enable MFA** - With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on.
 

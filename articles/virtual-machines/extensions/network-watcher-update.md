@@ -7,9 +7,8 @@ author: damendo
 manager: balar
 editor: ''
 tags: azure-resource-manager
-
-
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
