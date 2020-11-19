@@ -31,13 +31,13 @@ ms.author: pafarley
 
 After installing Python, you can install the latest version of the Form Recognizer client library with:
 
-#### [2.1 SDK (GA)](#tab/ga)
+#### [version 3.0](#tab/ga)
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-#### [2.1 preview SDK](#tab/preview)
+#### [version 3.1 preview](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
@@ -86,7 +86,7 @@ With Form Recognizer, you can create two different client types. The first, `for
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Python:
 
-#### [2.1 SDK (GA)](#tab/ga)
+#### [version 3.0](#tab/ga)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
@@ -95,7 +95,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-#### [2.1 preview SDK](#tab/preview)
+#### [version 3.1 preview](#tab/preview)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Recognize form content](#recognize-form-content)
@@ -189,9 +189,9 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-#### [2.1 SDK (GA)](#tab/ga)
+#### [version 3.0](#tab/ga)
 
-#### [2.1 preview SDK](#tab/preview)
+#### [version 3.1 preview](#tab/preview)
 
 ## Recognize business cards
 
