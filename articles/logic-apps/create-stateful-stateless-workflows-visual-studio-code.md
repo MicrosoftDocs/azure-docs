@@ -84,7 +84,7 @@ For information about how nested logic apps behave differently between stateful 
 
 When you deploy the new **Logic App (Preview)** resource type, you're prompted to select a hosting plan, specifically the [App Service plan or Premium plan](../azure-functions/functions-scale.md) to use as the pricing model. If you select the App Service plan, you're also prompted to select a [pricing tier](../app-service/overview-hosting-plans.md). During public preview, running logic apps on App Service doesn't incur *additional* charges on top of the selected plan.
 
-Stateful logic apps use [external storage](../azure-functions/functions-scale.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
+Stateful logic apps use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), so the Azure Storage pricing model applies to storage transactions that the Azure Logic Apps runtime performs. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states.
 
 For more information about the pricing models that apply to this new resource type, review these topics:
 
@@ -691,7 +691,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Select a hosting plan for your new logic app, either [**App Service Plan**](../azure-functions/functions-scale.md#app-service-plan) or [**Premium**](../azure-functions/functions-scale.md#premium-plan). This example selects **App Service Plan**.
+   1. Select a hosting plan for your new logic app, either [**App Service Plan**](../azure-functions/dedicated-plan.md) or [**Premium**](../azure-functions/functions-premium-plan.md). This example selects **App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 

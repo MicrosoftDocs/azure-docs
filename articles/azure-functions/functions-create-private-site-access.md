@@ -125,7 +125,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 ## Create an Azure Functions app
 
-The next step is to create a function app in Azure using the [Consumption plan](functions-scale.md#consumption-plan). You deploy your function code to this resource later in the tutorial.
+The next step is to create a function app in Azure using the [Consumption plan](consumption-plan.md). You deploy your function code to this resource later in the tutorial.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 1. Select **Compute > Function App**

@@ -29,9 +29,9 @@ While specific Functions deployments use the best technology based on their cont
 
 Azure Functions supports cross-platform local development and hosting on Windows and Linux. Currently, three hosting plans are available:
 
-+ [Consumption](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
-+ [Dedicated (App Service)](functions-scale.md#app-service-plan)
++ [Consumption](consumption-plan.md)
++ [Premium](functions-premium-plan.md)
++ [Dedicated (App Service)](dedicated-plan.md)
 
 Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions. The following chart shows which deployment technologies are supported for each combination of operating system and hosting plan:
 
@@ -92,7 +92,7 @@ Linux function apps running in the Consumption plan don't have an SCM/Kudu site,
 
 ##### Dedicated and Premium plans
 
-Function apps running on Linux in the [Dedicated (App Service) plan](functions-scale.md#app-service-plan) and the [Premium plan](functions-scale.md#premium-plan) also have a limited SCM/Kudu site.
+Function apps running on Linux in the [Dedicated (App Service) plan](dedicated-plan.md) and the [Premium plan](functions-premium-plan.md) also have a limited SCM/Kudu site.
 
 ## Deployment technology details
 

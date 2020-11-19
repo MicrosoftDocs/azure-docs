@@ -76,7 +76,7 @@ In addition, configure a front-end gateway, such as Azure Web Application Firewa
 
 - [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
+- [Azure Functions Premium Plan](./functions-premium-plan.md)
 
 - [Introduction to the App Service Environments](../app-service/environment/intro.md)
 
@@ -120,7 +120,7 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 - [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
+- [Azure Functions Premium Plan](./functions-premium-plan.md)
 
 - [Introduction to the App Service Environments](../app-service/environment/intro.md)
 
@@ -142,7 +142,7 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 - [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
+- [Azure Functions Premium Plan](./functions-premium-plan.md)
 
 - [Introduction to the App Service Environments](../app-service/environment/intro.md)
 
@@ -550,7 +550,7 @@ You may also use Private Endpoints to perform network isolation. An Azure Privat
 
 - [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
+- [Azure Functions Premium Plan](./functions-premium-plan.md)
 
 - [Understand Private Endpoint](../private-link/private-endpoint-overview.md)
 
@@ -830,7 +830,7 @@ Deploy high risk Azure Function apps into their own Virtual Network (VNet). Peri
 
 - [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
+- [Azure Functions Premium Plan](./functions-premium-plan.md)
 
 - [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
