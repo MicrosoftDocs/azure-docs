@@ -394,7 +394,7 @@
     href: sql-data-warehouse-manage-compute-rest-api.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ./policy-reference.md
+    href: ../policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
