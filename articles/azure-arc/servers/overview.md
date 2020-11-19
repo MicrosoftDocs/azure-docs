@@ -2,7 +2,7 @@
 title: Azure Arc enabled servers Overview
 description: Learn how to use Azure Arc enabled servers to manage servers hosted outside of Azure like an Azure resource.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.topic: overview
 ---
 
@@ -39,7 +39,16 @@ Log data collected and stored in a Log Analytics workspace from the hybrid machi
 
 For a definitive list of supported regions with Azure Arc enabled servers, see the [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) page.
 
-In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. Data at rest will be stored within the Azure geography containing the region you specify, which may also affect your choice of region if you have data residency requirements. If the Azure region your machine connects to is affected by an outage, the connected machine is not affected, but management operations using Azure may be unable to complete. In the event of a regional outage, if you have multiple locations that support a geographically redundant service, it is best to connect the machines in each location to a different Azure region.
+In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. Data at rest is stored within the Azure geography containing the region you specify, which may also affect your choice of region if you have data residency requirements. If the Azure region your machine connects to is affected by an outage, the connected machine is not affected, but management operations using Azure may be unable to complete. In the event of a regional outage, if you have multiple locations that support a geographically redundant service, it is best to connect the machines in each location to a different Azure region.
+
+The following metadata information about the connected machine is collected and stored in the region where the Azure Arc machine resource is configured:
+
+- Operating system name and version
+- Computer name
+- Computer fully qualified domain name (FQDN)
+- Connected Machine agent version
+
+For example, if the machine is registered with Azure Arc in the East US region, this data is stored in the US region.
 
 ### Agent status
 

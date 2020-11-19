@@ -5,11 +5,11 @@ keywords:
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.reviewer: vincesm
-ms.date: 06/16/2020
+ms.reviewer: krbain
+ms.date: 11/15/2020
 ms.topic: overview
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 services: active-directory
 ms.custom: "it-pro;seo-update-azuread-jan"

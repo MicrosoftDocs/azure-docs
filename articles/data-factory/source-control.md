@@ -24,7 +24,7 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
 > [!NOTE]
-> Azure data factory git integration is not available in the Azure Government Cloud.
+> Azure Data Factory git integration is not available in the Azure Government Cloud.
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 
@@ -202,7 +202,7 @@ Version control systems (also known as _source control_) let developers collabor
 
 ### Creating feature branches
 
-Each Azure Repos Git repository that's associated with a data factory has a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
+Each Azure Repos Git repository that's associated with a data factory has a collaboration branch. (`main` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
 
 ![Create a new branch](media/author-visually/new-branch.png)
 

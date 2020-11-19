@@ -107,11 +107,11 @@ Central identity management offers the following benefits:
 > - The Azure AD access token is cached on the client side and its lifetime depends on token configuration. See the article, [Configurable token lifetimes in Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - For guidance on troubleshooting Azure AD Authentication issues, see the following blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### Azure Multi-Factor Authentication
+### Azure AD Multi-Factor Authentication
 
 > Mentioned in: OSA Practice #2, ISO Access Control (AC)
 
-Azure Multi-Factor Authentication helps provides additional security by requiring more than one form of authentication.
+Azure AD Multi-Factor Authentication helps provides additional security by requiring more than one form of authentication.
 
 **How to implement**:
 
@@ -139,7 +139,7 @@ Azure Multi-Factor Authentication helps provides additional security by requirin
     - [bcp Utility](/sql/tools/bcp-utility): option -G (interactive)
 
 - Implement your applications to connect to Azure SQL Database or Azure SQL Managed Instance using interactive authentication with Multi-Factor Authentication support.
-  - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
+  - See the article, [Connect to Azure SQL Database with Azure AD Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
   > This authentication mode requires user-based identities. In cases where a trusted identity model is used that is bypassing individual Azure AD user authentication (e.g. using managed identity for Azure resources), Multi-Factor Authentication does not apply.
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create a BlockBlobStorage account

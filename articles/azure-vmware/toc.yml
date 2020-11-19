@@ -42,8 +42,10 @@
     href: concepts-storage.md
   - name: Access and identity for private clouds
     href: concepts-identity.md
-  - name: Role-based access control
+  - name: vSphere role-based access control
     href: concepts-role-based-access-control.md
+  - name: Monitor and repair private clouds
+    href: concepts-monitor-repair-private-cloud.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
 - name: How-to guides
@@ -72,6 +74,8 @@
       href: concepts-api-management.md
     - name: Hub and spoke
       href: concepts-hub-and-spoke.md
+    - name: Azure Security Center
+      href: azure-security-integration.md
     - name: Azure Backup Server
       items:
       - name: Set up Backup Server
@@ -98,7 +102,7 @@
   items:
   - name: Troubleshooting
     items:
-    - name: Get help with deployment or provisioning failures
+    - name: Open a support request for deployment failures
       href: fix-deployment-provisioning-failures.md
   - name: FAQ
     href: faq.md

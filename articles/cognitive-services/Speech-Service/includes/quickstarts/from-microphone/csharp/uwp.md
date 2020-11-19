@@ -48,7 +48,7 @@ Let's add some code that works as a skeleton for our project.
 Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `SpeechRecognitionFromMicrophone_ButtonClicked()` method.
 
 > [!NOTE]
-> This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/)
+> This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/)
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
 
 ## Initialize a SpeechRecognizer
@@ -89,4 +89,3 @@ Now you are ready to build and test your application.
 ## Next steps
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
-
