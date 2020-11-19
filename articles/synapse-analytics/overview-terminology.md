@@ -1,21 +1,21 @@
 ---
-title: Cheat sheet - Azure Synapse Analytics (workspaces preview)
+title: Terminology - Azure Synapse Analytics (workspaces preview)
 description: Reference guide walking user through Azure Synapse Analytics 
 services: synapse-analytics 
 author: saveenr 
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: overview
-ms.date: 04/15/2020 
+ms.date: 11/18/2020 
 ms.author: saveenr 
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics cheat sheet
+# Azure Synapse Analytics terminology
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-The Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands. This article is helpful for both new learners and those who want highlights of the essential Azure Synapse topics.
+This Azure Synapse Analytics terminology guide you through the basic concepts of the service and important commands. This article is helpful for both new learners and those who want highlights of the essential Azure Synapse terminology.
 
 ## Basics
 
@@ -25,17 +25,16 @@ A workspace allows you to perform analytics with SQL and Apache spark. Resources
 
 A workspace can contain any number of **Linked service**, essentially connection strings that define the connection information needed for the workspace to connect to external resources.
 
-## Synapse SQL Terminology
+## Synapse SQL terminology
 
 **Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
 
 * **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
 * **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
 
-## Apache Spark for Synapse Terminology
+## Apache Spark for Synapse terminology
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
-
 
 * **Apache Spark for Synapse** - Spark run-time used in a serverless Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  
 * **Apache Spark pool** - 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  
@@ -44,7 +43,8 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 * **Notebook** -  Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL.
 * **Spark job definition** - Interface to submit a Spark job by with assembly jar containing the code and its dependencies.
 
-## Pipelines Terminology
+## Pipelines terminology
+
 * **Data Integration** - Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.
 * **Data Flow** - Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion.
 * **Pipeline** - Logical grouping of activities that perform a task together.
