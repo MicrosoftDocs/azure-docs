@@ -18,7 +18,7 @@
     href: faq.md
   - name: Manage Cloud Service deployments
     href: manage-powershell.md
-  - name: .csdef XML Schema
+  - name: Csdef XML Schema
     href: schema-csdef-file.md
     items:
     - name: LoadBalancerProbe Schema
@@ -29,7 +29,7 @@
       href: schema-csdef-workerrole.md
     - name: NetworkTrafficRules Schema
       href: schema-csdef-networktrafficrules.md
-  - name: .cscfg XML Schema
+  - name: Cscfg XML Schema
     href: schema-cscfg-file.md
     items:
     - name: Role Schema
@@ -48,18 +48,14 @@
     href: certificates-and-key-vault.md
 - name: Samples
   items: 
-  - name: Create a new simple Cloud Service
+  - name: Create a new Cloud Service
     href: sample-create-cloud-service.md
-  - name: Create Cloud service with WAD extension
-    href: enable-wad-extension.md
   - name: Get Cloud Service details
     href: sample-get-cloud-service.md
   - name: Update a Cloud Service
     href: sample-update-cloud-service.md
   - name: Reset a Cloud Service
     href: sample-reset-cloud-service.md
-  - name: Enable diagnostics using Tempaltes
-    href: sample-wad-extension-template.md
 - name: Reference
   items:
   - name: Code samples

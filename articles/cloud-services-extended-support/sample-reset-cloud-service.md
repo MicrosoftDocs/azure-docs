@@ -14,24 +14,24 @@ These samples cover various ways to reset an existing Azure Cloud Service (exten
 
 ## Example 1: Reimage role instances of cloud service
 ```powershell
-PS C:\> $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
-PS C:\> Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances -Reimage
+ $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
+ Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances -Reimage
 ```
 This command reimages 2 role instances ContosoFrontEnd\_IN\_0 and  ContosoBackEnd\_IN\_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ## Example 2: Reimage all roles of cloud service
 ```powershell
-PS C:\> Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Reimage
+ Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Reimage
 ```
 
 ## Example 3: Reimage a single role instance of a cloud service
 ```powershell
-PS C:\> Reset-AzCloudServiceRoleInstance -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "ContosoFrontEnd_IN_0" -Reimage
+ Reset-AzCloudServiceRoleInstance -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "ContosoFrontEnd_IN_0" -Reimage
 ```
 
 ## Example 4: Restart a single role instance of a cloud service
 ```powershell
-PS C:\> Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Restart
+ Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Restart
 ```
 
 ## Next steps
