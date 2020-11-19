@@ -1,6 +1,6 @@
 ---
 author: craigktreasure
-ms.service: azure-object-understanding
+ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: crtreasu

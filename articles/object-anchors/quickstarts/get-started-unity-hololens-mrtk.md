@@ -3,12 +3,12 @@ title: 'Quickstart: Create a HoloLens app with Unity and MRTK'
 description: In this quickstart, you learn how to build a HoloLens Unity app using MRTK and Object Anchors.
 author: craigktreasure
 manager: virivera
-services: azure-object-understanding
+services: azure-object-anchors
 
 ms.author: crtreasu
 ms.date: 04/02/2020
 ms.topic: quickstart
-ms.service: azure-object-understanding
+ms.service: azure-object-anchors
 ---
 # Quickstart: Create a HoloLens app with Azure Object Anchors, in Unity with MRTK
 

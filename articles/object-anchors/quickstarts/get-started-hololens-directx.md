@@ -7,7 +7,7 @@ manager: virivera
 ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: quickstart
-ms.service: azure-object-understanding
+ms.service: azure-object-anchors
 ---
 # Quickstart: Create a HoloLens app with Azure Object Anchors, in C++/WinRT and DirectX
 

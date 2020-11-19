@@ -3,12 +3,12 @@ title: SDK Overview
 description: Get familiar with the Object Anchors SDK.
 author: craigktreasure
 manager: vriveras
-services: azure-object-understanding
+services: azure-object-anchors
 
 ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.service: azure-object-understanding
+ms.service: azure-object-anchors
 ---
 
 # API Overview
