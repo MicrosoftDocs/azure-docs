@@ -18,7 +18,7 @@ Using a customer-managed key doesn't affect how data on the device is encrypted.
 
 To keep this level of control throughout the order process, use a customer-managed key when you create your order. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
-This article shows how to enable a customer-managed key for your existing Data Box order in the [Azure portal](https://portal.azure.com/). You'll find out how to change the key vault, key, version, or identity for your current customer-managed key. Or switch back to using a Microsoft managed key.
+This article shows how to enable a customer-managed key for your existing Data Box order in the [Azure portal](https://portal.azure.com/). You'll find out how to change the key vault, key, version, or identity for your current customer-managed key, or switch back to using a Microsoft managed key.
 
 This article applies to Azure Data Box and Azure Data Box Heavy devices.
 
@@ -34,7 +34,7 @@ The customer-managed key for a Data Box order must meet the following requiremen
 
 To enable a customer-managed key for your existing Data Box order in the Azure portal, follow these steps:
 
-1. Go to the **Overview** screen for your completed Data Box order.
+1. Go to the **Overview** screen for your Data Box order.
 
     ![Overview screen of a Data Box order - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
@@ -86,7 +86,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
     The **Encryption type** settings show the key vault and key that you chose.
 
-    ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Key and key vault for a customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
 7. Select the type of identity to use to manage the customer-managed key for this resource. You can use the **system assigned** identity that was generated during order creation or choose a user-assigned identity.
 
@@ -96,7 +96,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
     To assign a user identity, select **User assigned**. Then select **Select a user identity**, and select the managed identity that you want to use.
 
-    ![Select an identity to use - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
+    ![Select an identity to use](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
     You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
@@ -106,7 +106,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
  9. Select **Save** to save the updated **Encryption type** settings.
 
-     ![Save customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+     ![Save your customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
     The key URL is displayed under **Encryption type**.
 
@@ -116,15 +116,15 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
 To change the key vault, key, and/or key version for the customer-managed key you're currently using, follow these steps:
 
-1. On the **Overview** screen for your completed Data Box order, go to **Settings** > **Encryption**, and click **Change key**.
+1. On the **Overview** screen for your Data Box order, go to **Settings** > **Encryption**, and click **Change key**.
 
     ![Overview screen of a Data Box order with customer-managed key - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16.png)
 
 2. Choose **Select a different key vault and key**.
 
-    ![Overview screen of a Data Box order, Change key option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18.png)
+    ![Overview screen of a Data Box order, Select a different key and key vault option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16-a.png)
 
-2. The **Select key from key vault** screen shows the subscription but no key vault, key, or key version. You can make any of the following changes:
+3. The **Select key from key vault** screen shows the subscription but no key vault, key, or key version. You can make any of the following changes:
 
    - Select a different key from the same key vault. You'll need to select the key vault before selecting the key and version.
 
@@ -132,9 +132,13 @@ To change the key vault, key, and/or key version for the customer-managed key yo
 
    - Change the version for the current key.
    
-    When you finish your changes, choose select.
+    When you finish your changes, choose **Select**.
 
     ![Choose encryption option - 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17.png)
+
+4. Select **Save**.
+
+    ![Save updated encryption settings - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
 
 ## Change identity
 
@@ -152,6 +156,10 @@ To change the identity used to manage access to the customer-managed key for thi
 
      ![Option for changing to a system-assigned for a customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19.png)
 
+3. Select **Save**.
+
+    ![Save updated encryption settings - 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
 ## Use Microsoft managed key
 
 To change from using a customer-managed key to the Microsoft managed key for your order, follow these steps:
@@ -161,6 +169,10 @@ To change from using a customer-managed key to the Microsoft managed key for you
 2. By **Select type**, select **Microsoft managed key**.
 
     ![Overview screen of a Data Box order - 5](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20.png)
+
+3. Select **Save**.
+
+    ![Save updated encryption settings for a Microsoft managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21.png)
 
 ## Troubleshoot errors
 
