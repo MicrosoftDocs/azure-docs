@@ -252,7 +252,7 @@ AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(
 
 You can also use aliases to simplify queries with projection.
 
-The following query does the same operations as the previous example, but it aliases the property names to `consumerName`, `first`, `second` and `factoryArea`.
+The following query does the same operations as the previous example, but it aliases the property names to `consumerName`, `first`, `second`, and `factoryArea`.
 
 ```sql
 SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea

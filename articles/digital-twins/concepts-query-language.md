@@ -47,9 +47,9 @@ The following operators are supported:
 
 | Family | Operators |
 | --- | --- |
-| Logical |AND, OR, NOT |
-| Comparison |=, !=, <, >, <=, >= |
-| Contains | IN, NIN |
+| Logical |`AND`, `OR`, `NOT` |
+| Comparison | `=`, `!=`, `<`, `>`, `<=`, `>=` |
+| Contains | `IN`, `NIN` |
 
 ### Functions
 
@@ -57,21 +57,21 @@ The following type checking and casting functions are supported:
 
 | Function | Description |
 | -------- | ----------- |
-| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
-| IS_OF_MODEL | Returns a Boolean value indicating if the specified twin matches the specified model type |
-| IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
-| IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
-| IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
-| IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
-| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
-| IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
+| `IS_DEFINED` | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. `DateTime`, object types, and arrays are not supported. |
+| `IS_OF_MODEL` | Returns a Boolean value indicating if the specified twin matches the specified model type |
+| `IS_BOOL` | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
+| `IS_NUMBER` | Returns a Boolean value indicating if the type of the specified expression is a number. |
+| `IS_STRING` | Returns a Boolean value indicating if the type of the specified expression is a string. |
+| `IS_NULL` | Returns a Boolean value indicating if the type of the specified expression is null. |
+| `IS_PRIMITIVE` | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
+| `IS_OBJECT` | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
 
 The following string functions are supported:
 
 | Function | Description |
 | -------- | ----------- |
-| STARTSWITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
-| ENDSWITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
+| `STARTSWITH(x, y)` | Returns a Boolean indicating whether the first string expression starts with the second. |
+| `ENDSWITH(x, y)` | Returns a Boolean indicating whether the first string expression ends with the second. |
 
 ## Query limitations
 
