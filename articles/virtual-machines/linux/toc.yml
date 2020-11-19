@@ -62,25 +62,6 @@
     href: tutorial-lamp-stack.md
   - name: 18 - Secure web server with SSL
     href: tutorial-secure-web-server.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    items:
-    - name: CLI sample index
-      href: cli-samples.md
-    - name: Create VMs
-    - name: Manage storage
-    - name: Network virtual machines
-    - name: Secure virtual machines
-    - name: Monitor virtual machines
-    - name: Troubleshoot
-  - name: Azure PowerShell
-    items:
-    - name: PowerShell sample index
-      href: powershell-samples.md
-    - name: Create virtual machines
-    - name: Manage storage
-    - name: Monitor virtual machines
 - name: Concepts
   items:
   - name: Imaging
