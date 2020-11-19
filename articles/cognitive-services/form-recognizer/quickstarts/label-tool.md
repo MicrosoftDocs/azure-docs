@@ -38,8 +38,15 @@ To complete this quickstart, you must have:
 
 To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-preview.azurewebsites.net/).
 
+ # [v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/)
+> [Try Prebuilt Models](https://fott.azurewebsites.net/)
+
+ # [v2.1 preview](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service. 
 
 
 ## Set up the sample labeling tool
@@ -87,7 +94,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     # [v2.1 preview](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
