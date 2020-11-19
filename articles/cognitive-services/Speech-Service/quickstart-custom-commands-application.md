@@ -24,12 +24,12 @@ At this time, Custom Commands supports speech subscriptions created in these reg
 * West US2
 * East US
 * East US2
+* West Central US
 * North Europe
 * West Europe
-* West Central US
-* Central India
 * East Asia
 * Southeast Asia
+* Central India
 
 ## Prerequisites
 
