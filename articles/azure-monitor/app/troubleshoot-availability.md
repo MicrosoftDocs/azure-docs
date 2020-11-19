@@ -4,7 +4,7 @@ description: Troubleshoot web tests in Azure Application Insights. Get alerts if
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/28/2020
+ms.date: 11/19/2020
 
 ms.reviewer: sdash
 ---
@@ -18,6 +18,10 @@ This article will help you to troubleshoot common issues that may occur when usi
 The Troubleshooting Report allows you to easily diagnose common problems that cause your **ping tests** to fail.
 
 ![Animation of navigating from the availability tab by selecting a failure to the end-to-end transaction details to view the troubleshooting report](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
+
+1. On the availability tab of your Application Insights resource, select overall or one of the availability tests.
+2. Under "Drill into" on the left select **Failed**, then a test.
+3. On the end-to-end transaction detail page, select an event then under "Troubleshooting report summary" select **[Go to step]** to see the troubleshooting report.
 
 > [!NOTE]
 >  If the connection re-use step is present, then DNS resolution, connection establishment, and TLS transport steps will not be present.
