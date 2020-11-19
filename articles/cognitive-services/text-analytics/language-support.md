@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -29,12 +29,13 @@ ms.author: aahi
 | French                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | German                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Greek                 |     `el`      |     ✓      |            |                            |                    |
-| Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
+| Hindi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
 | Italian               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japanese              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Korean                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |         2020-07-01         |                    |
 | Polish                |     `pl`      |     ✓      |            |                            |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` also accepted |
 | Russian               |     `ru`      |     ✓      |            |                            |                    |
 | Spanish               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
