@@ -47,9 +47,7 @@ To apply classifications at the asset or schema level, do the following steps:
 
 1. Select a classification from the list.
 
-1. Select the classifications you want to apply at the asset level and click **Save**. 
-
-This completes the process of applying asset and schema level classifications.
+1. Select the classifications you want to apply at the asset level and select **Save**.
 
 ## Impact of rescanning on existing classifications
 
