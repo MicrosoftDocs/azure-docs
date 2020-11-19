@@ -241,7 +241,7 @@ JOIN CT RELATED T.contains
 WHERE T.$dtId = 'ABC'
 ```
 
->[!NOTE]
+> [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 
 #### Query the properties of a relationship
@@ -348,7 +348,7 @@ try
     await foreach(BasicDigitalTwin twin in result)
         {
             // You can include your own logic to print the result
-            // The logic below prints twin ID's and its contents
+            // The logic below prints the twin's ID and contents
             Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
             IDictionary<string, object> contents = twin.Contents;
             foreach (KeyValuePair<string, object> kvp in contents)
@@ -416,4 +416,4 @@ Below are some tips for querying with Azure Digital Twins.
 
 ## Next steps
 
-Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API, that is used to run the queries from this article.
+Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API that is used to run the queries from this article.
