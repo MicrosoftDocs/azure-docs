@@ -69,11 +69,11 @@ In summary, here are the minimum provisioned RU limits.
 | --- | --- |
 | Minimum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per container within a shared throughput database | 0 RU/s for the first 25 containers, 100 RU/s for each container afterward |
+| Minimum RUs per container within a shared throughput database | 400 RU/s for up to 25 containers. 100 RU/s for each container afterward |
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
-Depending on the current RU/s provisioned and resource settings, each resource can scale synchronously and immediately within a scale range of 10 to 100 times, between minimum and maximum values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
+Depending on the current RU/s provisioned and resource settings, each resource can scale synchronously and immediately within the minimum RU/s to up to 100x the minimum RU/s. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
 
 ### Serverless
 
