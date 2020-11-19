@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to query the Azure Digital Twins twin graph for information.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperfq2
@@ -324,7 +324,7 @@ Once you have decided on a query string, you execute it by making a call to the 
 
 You can call the API directly, or use one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 
-The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet) call from a client app:
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call from a client app:
 
 ```csharp
     string adtInstanceEndpoint = "https://<your-instance-hostname>";
