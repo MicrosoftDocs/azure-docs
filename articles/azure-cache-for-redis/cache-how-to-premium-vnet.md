@@ -226,7 +226,7 @@ In addition to the IP addresses used by the Azure VNET infrastructure, each Redi
 ### Do all cache features work when hosting a cache in a VNET?
 When your cache is part of a VNET, only clients in the VNET can access the cache. As a result, the following cache management features don't work at this time.
 
-* Redis Console - Because Redis Console runs in your local browser, which is usually on a developer machine which is not connected to the VNET, it often cannot connect to your cache.
+* Redis Console - Because Redis Console runs in your local browser, which is usually on a developer machine that is not connected to the VNET, it cannot then connect to your cache.
 
 
 ## Use ExpressRoute with Azure Cache for Redis
