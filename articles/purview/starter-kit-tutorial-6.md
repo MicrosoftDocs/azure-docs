@@ -11,7 +11,7 @@ ms.date: 10/29/2020
 
 # Tutorial: Use Catalog insights
 
-Catalog Insights is a collection of six reports - asset, scan, glossary, classifications, labeling, and file extensions. Catalog Insights provides value to the data consumers, data producers, and security administrators who are managing their data estate through Babylon.
+Catalog Insights is a collection of six reports - asset, scan, glossary, classifications, labeling, and file extensions. Catalog Insights provides value to the data consumers, data producers, and security administrators who are managing their data estate through Purview.
 
 In this tutorial, learn about:
 * Asset Insights

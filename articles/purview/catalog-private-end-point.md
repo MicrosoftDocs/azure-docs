@@ -12,14 +12,14 @@ ms.date: 11/03/2020
 
 # Use private endpoints for your Purview account
 
-This article describes how to use private endpoints to secure network traffic with Babylon.
+This article describes how to use private endpoints to secure network traffic with Purview.
 
 ## Introduction
 
 You can use private endpoints for your Purview accounts to allow clients and users on a virtual network (VNet) to securely access the catalog over a Private Link. The private endpoint uses an IP address from the VNet address space for your Purview account. Network traffic between the clients on the VNet and the Purview account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 > [!NOTE]
-> We currently support only access to the Purview portal UX, scan APIs and catalog APIs via private endpoints. We don't support scanning data sources behind a private endpoint in Babylon.
+> We currently support only access to the Purview portal UX, scan APIs and catalog APIs via private endpoints. We don't support scanning data sources behind a private endpoint in Purview.
 
 ## Create Purview account with a gateway service private endpoint
 

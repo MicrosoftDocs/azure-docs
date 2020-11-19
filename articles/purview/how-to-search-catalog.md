@@ -46,7 +46,7 @@ Search results include only assets with one or more characteristics that match t
 
 #### Types of search criteria
 
-Azure Babylon supports the following types of search criteria.
+Azure Purview supports the following types of search criteria.
 
 > [!Note]
 > Always specify Boolean operators (**AND**, **OR**, **NOT**) in all caps. Otherwise, case doesn't matter, nor do extra spaces.

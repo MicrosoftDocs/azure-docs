@@ -1,6 +1,6 @@
 ---
 title: Sources and scans
-description: This article provides conceptual details about supported data sources and file types in Babylon.
+description: This article provides conceptual details about supported data sources and file types in Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
@@ -11,7 +11,7 @@ ms.date: 10/30/2020
 
 # Supported data sources in Azure Purview
 
-This article discusses supported data sources and file types in Babylon.
+This article discusses supported data sources and file types in Purview.
 
 ## Supported sources
 

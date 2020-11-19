@@ -80,7 +80,7 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Create labels in M365 and scan with Babylon
+        - text: Create labels in M365 and scan with Purview
           url: starter-kit-tutorial-1.md # update link
   - title: Curate data 
     linkLists:

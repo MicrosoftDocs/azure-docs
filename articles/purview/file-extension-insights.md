@@ -43,7 +43,7 @@ When scanning your assets, Azure Purview is able to detect the file types found 
 
 1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview** account tile.
 
    :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
