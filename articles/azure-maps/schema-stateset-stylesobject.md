@@ -22,7 +22,7 @@ A `StyleObject` is one of the following:
  * [`NumericTypeStyleRule`](#numerictypestylerule)
  * [`StringTypeStyleRule`](#stringtypestylerule)
 
-The JSON below shows each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match  
+The JSON below shows each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to meeting types.
 
 
 ```json
@@ -58,13 +58,14 @@ The JSON below shows each of the three style types.  The `BooleanTypeStyleRule` 
         ]
     },
     {
-      "keyname": "",
+      "keyname": "MeetingType",
       "type": "string",
       "rules": [
         {
-          "stateValue1": "#FF0000",
-          "stateValue2": "#FF00AA",
-          "stateValueN": "#00FF00"
+          "Private": "#FF0000",
+          "Confidential": "#FF00AA",
+          "AllHands": "#00FF00",
+          "BrownBag": "#964B00"
         }
       ]
     }
@@ -179,15 +180,18 @@ The string value matching is case sensitive.
 
 ### Example of StringTypeStyleRule
 
+The following JSON illustrates a `StringTypeStyleRule` that defines styles associated with specific meeting types.
+
 ```json
     {
-      "keyname": "",
+      "keyname": "MeetingType",
       "type": "string",
       "rules": [
         {
-          "stateValue1": "#FF0000",
-          "stateValue2": "#FF00AA",
-          "stateValueN": "#00FF00"
+          "Private": "#FF0000",
+          "Confidential": "#FF00AA",
+          "AllHands": "#00FF00",
+          "BrownBag": "#964B00"
         }
       ]
     }
