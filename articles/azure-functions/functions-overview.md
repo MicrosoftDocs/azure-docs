@@ -13,15 +13,15 @@ ms.custom: H1Hack27Feb2017, mvc
 
 We often build systems based on a series of important events. Whether you're building an API for a web application, reacting to data as it changes in a database, processing streams of IoT data, or even managing message queues - every application needs a way to run some logic as these events occur.
 
-To meet this need, Azure Functions provides "logic on-demand" - and in two significant ways.
+To meet this need, Azure Functions provides "compute on-demand" - and in two significant ways.
 
 First, Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called "functions". Different functions can run anytime you need to respond to critical events.
 
 Second, as requests for a function increase, Azure makes available as many servers and instances of these blocks of code as necessary to meet demand - but only while needed. As demand falls, extra servers and application instances drop off automatically.
 
-Where do all the servers come from? Azure [provides as many or as few servers as needed](./functions-scale.md) to meet your application's demand, and you're often only [billed when your functions are running](./pricing.md).
+Where do all the compute resources come from? Azure Functions can [provide as many or as few resources as needed](./functions-scale.md) to meet your application's demand, and you might only be [billed when your functions are running](./pricing.md).
 
-Logic on-demand paired with servers on-demand is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/).
+Providing you with compute resources on-demand managed by Azure, where you pay for only what you use, is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/).
 
 ## Scenarios
 
