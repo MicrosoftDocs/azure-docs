@@ -34,7 +34,7 @@ To see how Azure Bastion completely maps to the Azure Security Benchmark, see th
 
 Azure Bastion service requires following ports need to be open for service to function properly:
 
-- Ingress Traffic : 
+- Ingress Traffic:
    - Ingress Traffic from public internet: The Azure Bastion will create a public IP that needs port 443 enabled on the public IP for ingress traffic. Port 3389/22 are NOT required to be opened on the AzureBastionSubnet. 
 
    - Ingress Traffic from Azure Bastion control plane: For control plane connectivity, enable port 443 inbound from GatewayManager service tag. This enables the control plane, that is, Gateway Manager to be able to communicate with Azure Bastion.
