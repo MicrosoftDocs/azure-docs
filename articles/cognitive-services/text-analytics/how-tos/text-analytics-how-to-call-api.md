@@ -87,7 +87,7 @@ The following is an example of an API request for the synchronous Text Analytics
 #### [Analyze](#tab/analyze)
 
 > [!NOTE]
-> The latest prerelease of the Text Analytics client library enables you to call Asynchronous Analyze operations using a client object. Refer to the reference documentation, and you can find examples on GitHub:
+> The latest prerelease of the Text Analytics client library enables you to call Asynchronous Analyze operations using a client object. You can find examples on GitHub:
 * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
