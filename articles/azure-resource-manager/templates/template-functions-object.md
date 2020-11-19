@@ -630,7 +630,7 @@ The output from the preceding example with the default values is:
 
 `null()`
 
-Returns null.
+Returns null. The `null` function is not available in Bicep. Use the `null` keyword instead.
 
 ### Parameters
 

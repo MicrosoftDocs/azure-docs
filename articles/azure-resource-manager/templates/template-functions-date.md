@@ -54,15 +54,15 @@ The following example template shows different ways of adding time values.
   },
   "resources": [],
   "outputs": {
-    "Add3YearsOutput": {
+    "add3YearsOutput": {
       "value": "[variables('add3Years')]",
       "type": "string"
     },
-    "Subtract9DaysOutput": {
+    "subtract9DaysOutput": {
       "value": "[variables('subtract9Days')]",
       "type": "string"
     },
-    "Add1HourOutput": {
+    "add1HourOutput": {
       "value": "[variables('add1Hour')]",
       "type": "string"
     },
@@ -79,9 +79,9 @@ var add3Years = dateTimeAdd(baseTime, 'P3Y')
 var subtract9Days = dateTimeAdd(baseTime, '-P9D')
 var add1Hour = dateTimeAdd(baseTime, 'PT1H')
 
-output Add3YearsOutput string = add3Years
-output Subtract9DaysOutput string = subtract9Days
-output Add1HourOutput string = add1Hour
+output add3YearsOutput string = add3Years
+output subtract9DaysOutput string = subtract9Days
+output add1HourOutput string = add1Hour
 ```
 
 ---
