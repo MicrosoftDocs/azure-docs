@@ -256,7 +256,7 @@ For EA subscriptions, use the following procedure. First, you'll need:
 * An [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * An Azure account in an Azure subscription.
 
-Before you create your Azure VMware Solution resource, submit a support ticket to have your nodes allocated. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
+Before you can create your Azure VMware Solution resource, you'll submit a support ticket to have your hosts allocated. It takes up to five business days to confirm and fulfill your request. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll go through the same process.
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
@@ -271,20 +271,20 @@ Before you create your Azure VMware Solution resource, submit a support ticket t
 
    - POC or Production 
    - Region Name
-   - Number of nodes
+   - Number of hosts
    - Any other details
 
    >[!NOTE]
-   >Azure VMware Solution recommends a minimum of three nodes to spin up your private cloud and for redundancy N+1 nodes. 
+   >Azure VMware Solution recommends a minimum of three hosts to spin up your private cloud and for redundancy N+1 hosts. 
 
 1. Select **Review + Create** to submit the request.
 
    It will take up to five business days for a support representative to confirm your request.
 
    >[!IMPORTANT] 
-   >If you already have an existing Azure VMware Solution, and you are requesting additional nodes, please note that we need five business days to allocate the nodes. 
+   >If you already have an existing Azure VMware Solution, and you are requesting additional hosts, please note that we need five business days to allocate the hosts. 
 
-1. Before you can provision your nodes, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
+1. Before you can provision your hosts, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
