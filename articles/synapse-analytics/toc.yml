@@ -1,5 +1,5 @@
 - name: Azure Synapse (workspaces preview)
-  href: sql-data-warehouse/index.yml
+  href: overview-what-is.md
 - name: Switch to Azure Synapse (formerly SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Overview
