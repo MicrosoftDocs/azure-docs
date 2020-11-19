@@ -8,7 +8,6 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: 
----thor: tagore
 ---
 
 # Azure Cloud Services (extended support) Config NetworkConfiguration Schema

@@ -18,9 +18,10 @@
     href: faq.md
   - name: Manage Cloud Service deployments
     href: manage-powershell.md
-  - name: Csdef XML Schema
-    href: schema-csdef-file.md
+  - name: XML Schemas
     items:
+    - name: Csdef XML Schema
+      href: schema-csdef-file.md
     - name: LoadBalancerProbe Schema
       href: schema-csdef-loadbalancerprobe.md
     - name: WebRole Schema
@@ -29,9 +30,8 @@
       href: schema-csdef-workerrole.md
     - name: NetworkTrafficRules Schema
       href: schema-csdef-networktrafficrules.md
-  - name: Cscfg XML Schema
-    href: schema-cscfg-file.md
-    items:
+    - name: Cscfg XML Schema
+      href: schema-cscfg-file.md
     - name: Role Schema
       href: schema-cscfg-role.md
     - name: NetworkConfiguration Schema
