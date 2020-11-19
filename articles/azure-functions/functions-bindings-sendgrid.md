@@ -37,6 +37,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
@@ -67,6 +68,7 @@ public class OutgoingEmail
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
