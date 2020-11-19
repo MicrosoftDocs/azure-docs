@@ -83,7 +83,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include the correct URL for the version you want to use. For example:
 
 > [!NOTE]
-> You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
+> You can find your key and endpoint for your Text Analytics resource on the Azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
 #### [Version 3.1-preview.2](#tab/version-3-1)
 

@@ -86,6 +86,10 @@ The following is an example of an API request for the synchronous Text Analytics
 
 #### [Analyze](#tab/analyze)
 
+> [!NOTE]
+> The latest prerelease of the Text Analytics client library enables you to call Asynchronous Analyze operations using a client object. Refer to the reference documentation, and see the [C# example on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md).
+
+
 The `/analyze` endpoint lets you choose which of the supported Text Analytics features you want to use in a single API call. This endpoint currently supports:
 
 * key phrase extraction 

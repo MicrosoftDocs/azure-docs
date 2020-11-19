@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: aahi
+ms.custom: references_regions 
 ---
 
 # What's new in the Text Analytics API?
@@ -18,13 +19,13 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## November 2020
 
-### General API updates
-
 * A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze), which supports batch processing for NER, PII, and key phrase extraction operations.
 * A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous [Text Analytics for health](how-tos/text-analytics-for-health.md) hosted API with support for batch processing.
 * Both new features listed above are only available in the following regions: `West US 2`, `East US 2`, `Central US`, `North Europe` and `West Europe` regions.
 * Portuguese (Brazil) `pt-BR` is now supported in [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing `pt-PT` support for Portuguese.
-* [Updated quickstarts](quickstarts/text-analytics-sdk.md) for the latest version of the client libraries. 
+* Updated client libraries, which include an asynchronous Analyze operation, and Text Analytics for health. See the C# examples below.
+    * [Analyze operation](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md)
+    * [Text Analytics for health](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_RecognizeHealthcareEntities.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)

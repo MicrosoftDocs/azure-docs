@@ -10,12 +10,10 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: aahi
+ms.custom: references_regions 
 ---
 
 # How to: Use Text Analytics for health (preview)
-
-> [!NOTE]
-> The Text Analytics for health container has recently updated. See [What's new](../whats-new.md) for more information on recent changes. Remember to pull the latest container to use the updates listed.
 
 > [!IMPORTANT] 
 > Text Analytics for health is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, **Text Analytics for health (preview) should not be implemented or deployed in any production use.** 
@@ -86,6 +84,11 @@ The form requests information about you, your company, and the user scenario for
 ## Using the Docker container 
 
 To run the Text Analytics for health container in your own environment, follow these [instructions to download and install the container](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare).
+
+## Using the client library
+
+The latest prerelease of the Text Analytics client library enables you to call Text Analytics for health using a client object. Refer to the reference documentation, and see the [C# example on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_RecognizeHealthcareEntities.md).
+
 
 ## Sending a REST API request 
 
