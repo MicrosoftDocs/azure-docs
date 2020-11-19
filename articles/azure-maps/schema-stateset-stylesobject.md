@@ -3,7 +3,7 @@ title:  StylesObject for Dynamic Azure Maps
 description: Reference guide to the JSON schema and syntax for the StylesObject used in creating in dynamic Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/19/2020
+ms.date: 11/19/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
@@ -16,7 +16,11 @@ This article is a reference guide to the JSON schema and syntax for the `StylesO
 
 ## StyleObject
 
-A `StyleObject` is either as a [`BooleanTypeStyleRule`](#booleantypestylerule) or a [`NumericTypeStyleRule`](#numerictypestylerule).
+A `StyleObject` is one of the following:
+
+ * [`BooleanTypeStyleRule`](#booleantypestylerule)
+ * [`NumericTypeStyleRule`](#numerictypestylerule)
+ * [`StringTypeStyleRule`](#stringtypestylerule)
 
 The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTypeStyleRule` named `temperature`.
 
@@ -138,6 +142,23 @@ The following JSON illustrates a `NumericTypeStyleRule` *state* named `temperatu
     ]
 }
 ```
+
+## StringTypeStyleRule
+
+A `StringTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the following properties:
+
+| Property | Type | Description | Required |
+|-----------|----------|-------------|-------------|
+
+### StringRuleObject
+
+A `StringRuleObject` ...
+
+| Property | Type | Description | Required |
+|-----------|----------|-------------|-------------|
+
+
+### Example of StringTypeStyleRule
 
 ## BooleanTypeStyleRule
 
