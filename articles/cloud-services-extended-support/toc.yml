@@ -10,6 +10,11 @@
     href: deploy-powershell.md
   - name: Deploy a Cloud Service - Visual Studio
     href: deploy-visual-studio.md
+- name: Tutorials
+  items: 
+  - name: Deploy Cloud service with WAD extension
+    href: enable-wad-extension.md
+  - name: 
 - name: Concepts
   items: 
   - name: Available VM sizes
@@ -48,7 +53,7 @@
     href: certificates-and-key-vault.md
 - name: Samples
   items: 
-  - name: Create a new Cloud Service
+  - name: Create a new simple Cloud Service
     href: sample-create-cloud-service.md
   - name: Get Cloud Service details
     href: sample-get-cloud-service.md
@@ -56,6 +61,8 @@
     href: sample-update-cloud-service.md
   - name: Reset a Cloud Service
     href: sample-reset-cloud-service.md
+  - name: Enable diagnostics using Tempaltes
+    href: sample-wad-extension-template.md
 - name: Reference
   items:
   - name: Code samples
