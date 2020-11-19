@@ -7,10 +7,8 @@
   - name: What is Azure Synapse?
     href: overview-what-is.md
     displayName: overview
-  - name: Cheat sheet 
-    href: overview-cheat-sheet.md
-  - name: FAQ
-    href: overview-faq.md
+  - name: Terminology 
+    href: overview-terminology.md
   - name: Release notes
     href: release-notes.md
 - name: Quickstarts
