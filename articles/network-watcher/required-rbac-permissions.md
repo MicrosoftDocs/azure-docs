@@ -86,6 +86,7 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 | Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | Get topology                                                   |
+| Microsoft.Network/networkWatchers/topology/read                     | Same as above                                                  |
 
 ## Reachability report
 
