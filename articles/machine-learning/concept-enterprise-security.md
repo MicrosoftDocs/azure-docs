@@ -23,7 +23,7 @@ When you use a cloud service, a best practice is to restrict access to only the 
 
 ## Authentication & authorization
 
-Most authentication to Azure Machine Learning resources use Azure Active Directory (Azure AD) for authentication, and role-based access control (Azure RBAC) for authorization. The exceptions to this are:
+Most authentication to Azure Machine Learning resources use Azure Active Directory (Azure AD) for authentication, and Azure role-based access control (Azure RBAC) for authorization. The exceptions to this are:
 
 * __SSH__: You can enable SSH access to some compute resources such as Azure Machine Learning compute instance. SSH access uses key-based authentication. For more information on creating SSH keys, see [Create and manage SSH keys](../virtual-machines/linux/create-ssh-keys-detailed.md). For information on enabling SSH access, see [Create and manage Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 * __Models deployed as web services__: Web service deployments can use __key__ or __token__-based access control. Keys are static strings. Tokens are retrieved by using an Azure AD account. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
@@ -44,7 +44,7 @@ For more information, see [Authentication for Azure Machine Learning workspace](
 
 ### Azure RBAC
 
-You can create multiple workspaces, and each workspace can be shared by multiple people. You can control what features or operations of the workspace users can access by assigning their Azure AD account to Azure RBAC roles. The following are the built-in roles:
+You can create multiple workspaces, and each workspace can be shared by multiple people. You can control what features or operations of the workspace users can access by assigning their Azure AD account to Azure roles. The following are the built-in roles:
 
 * Owner
 * Contributor
