@@ -22,7 +22,7 @@ An ongoing replication between the source and the destination volumes (see [Crea
 
 When such an event occurs, you can [fail over to the destination volume](#fail-over-to-destination-volume), enabling the client to read and write to the destination volume. 
 
-After disaster recovery, you can [reactivate replication](#resync-replication) with a resync to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
+After disaster recovery, you can perform a [resync](#resync-replication) operation to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
 The details are described below. 
 
@@ -49,7 +49,7 @@ When you need to activate the destination volume (for example, when you want to 
 5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     This step enables a client to access the destination volume.
 
-## <a name="resync-replication"></a>Reactivate replication after disaster recovery
+## <a name="resync-replication"></a>Resync volumes after disaster recovery
 
 After disaster recovery, you can reactivate the source volume by performing a resync operation.  The resync operation reverses the replication process and synchronizes data from the destination volume to the source volume.  
 
