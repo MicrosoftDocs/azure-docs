@@ -45,7 +45,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)**.
 
-   ![Step 1 settings](./media/sql-data-sync-sql-server-configure/new-sync-group-pl.png)
+   ![Set up new sync group with private link](./media/sql-data-sync-sql-server-configure/new-sync-group-pl.png)
 
    On the **Create Data Sync Group** page, change the following settings:
 
@@ -64,7 +64,7 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
    
 1. On the **New Sync Group** page, approve the private endpoint connection (private link). 
 
-   ![Step 1 settings](./media/sql-data-sync-sql-server-configure/approve-pl.png)
+   ![Approve private link](./media/sql-data-sync-sql-server-configure/approve-pl.png)
 
 ## Add sync members
 
@@ -72,13 +72,13 @@ After the new sync group is created and deployed, **Add sync members (step 2)** 
 
 In the **Hub Database** section, enter existing credentials for the server on which the hub database is located. Don't enter *new* credentials in this section.
 
-![Step 2 settings](./media/sql-data-sync-sql-server-configure/steptwo.png)
+![Enter existing credentials for the hub database server](./media/sql-data-sync-sql-server-configure/steptwo.png)
 
 ### To add a database in Azure SQL Database
 
 In the **Member Database** section, optionally add a database in Azure SQL Database to the sync group by selecting **Add an Azure SQL Database**. The **Configure Azure SQL Database** page opens.
 
-  ![Step 2 - configure database](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
+  ![Add a database to the sync group](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
 
   On the **Configure Azure SQL Database** page, change the following settings:
 
