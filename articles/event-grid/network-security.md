@@ -11,7 +11,7 @@ ms.author: vkukke
 This article describes how to use the following security features with Azure Event Grid: 
 
 - Service tags for egress
-- IP Firewall rules for ingress (preview)
+- IP Firewall rules for ingress
 - Private endpoints for ingress
 
 
