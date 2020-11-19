@@ -278,7 +278,7 @@ You can significantly reduce the number of queries you need by building an array
 
 For example, consider a scenario in which *Buildings* contain *Floors* and *Floors* contain *Rooms*. To search for rooms within a building that are hot, one way is to follow these steps.
 
-1. Find floors in the building based on `contains` relationship
+1. Find floors in the building based on the `contains` relationship.
 
     ```sql
     SELECT Floor
