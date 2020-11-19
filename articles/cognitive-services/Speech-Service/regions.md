@@ -63,7 +63,7 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 ### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/direct-line-speech) in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) in these regions:
 
 | Global region | Region           | Region identifier    |
 | ------------- | ---------------- | -------------------- |
