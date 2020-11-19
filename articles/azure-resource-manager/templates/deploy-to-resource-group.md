@@ -92,7 +92,7 @@ To deploy resources to the target resource, add those resources to the resources
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
-For an example template, see [Deploy resource to resource group](#deploy-resource-to-resource-group).
+For an example template, see [Deploy to target resource group](#deploy-to-target-resource-group).
 
 ### Scope to resource group in same subscription
 
