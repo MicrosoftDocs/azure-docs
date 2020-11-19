@@ -25,9 +25,9 @@ The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino-comp
 
 To complete the steps in this tutorial, first do the following tasks:
 
-* Configure your DevKit's Wi-Fi and prepare your development environment by following the "Prepare the development environment" section steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Configure your DevKit's Wi-Fi and prepare your development environment by following the "Prepare the development environment" section steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 * Upgrade to the latest firmware (1.3.0 or later) with the [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) tutorial.
-* Create and link an IoT Hub with a Device Provisioning service instance by following the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](/azure/iot-dps/quick-setup-auto-provision).
+* Create and link an IoT Hub with a Device Provisioning service instance by following the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 ## Open sample project
 
@@ -69,7 +69,7 @@ To save a UDS on the DevKit:
 
 ## Update the Global Device Endpoint and ID Scope
 
-In device code, you need to specify the [Device provisioning endpoint](/azure/iot-dps/concepts-service#device-provisioning-endpoint) and ID scope to ensure the tenant isolation.
+In device code, you need to specify the [Device provisioning endpoint](./concepts-service.md#device-provisioning-endpoint) and ID scope to ensure the tenant isolation.
 
 1. In the Azure portal, select the **Overview** pane of your Device Provisioning service and note down the **Global device endpoint** and **ID Scope** values.
   ![Device Provisioning Service Global Endpoint and ID Scope](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -85,7 +85,7 @@ In device code, you need to specify the [Device provisioning endpoint](/azure/io
 
 ## Generate X.509 certificate
 
-The [attestation mechanism](/azure/iot-dps/concepts-device#attestation-mechanism) used by this sample is X.509 certificate. You need to use a utility to generate it.
+The [attestation mechanism](./concepts-service.md#attestation-mechanism) used by this sample is X.509 certificate. You need to use a utility to generate it.
 
 1. In VS Code, click `F1`, type and select **Open New Terminal** to open terminal window.
 
@@ -136,4 +136,3 @@ In summary, you learned how to:
 > * Verify that the device is registered.
 
 Learn how to [Create and provision a simulated device](./quick-create-simulated-device.md).
-

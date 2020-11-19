@@ -21,6 +21,6 @@ This capability requires the creation of a new DPS. To try this capability, cont
 
 ## Next steps
 
-* [Learn more about Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)
+* [Learn more about Device Provisioning Service](./index.yml)
 
-* [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Learn more about Azure Key Vault](../key-vault/general/overview.md)
