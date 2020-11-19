@@ -69,8 +69,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
    - **Guest users only.** Selecting this option limits the access review to just the Azure AD B2B guest users in your directory.
    - **Everyone.** Selecting this option scopes the access review to all user objects associated with the resource.
 
->[!NOTE]
-> If you selected All Microsoft 365 groups with guest users in Step 2, then your only option is to review Guest users in Step 3
+    >[!NOTE]
+    > If you selected All Microsoft 365 groups with guest users in Step 2, then your only option is to review Guest users in Step 3
 
 8. Click on Next: Reviews
 9. In the **Select reviewers** section, select either one or more people to perform the access reviews. You can choose amongst
@@ -106,8 +106,8 @@ Use the Action to apply on denied users to specify what happens to guest users i
 
 To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
 
->[!NOTE]
->Action to apply on denied users only works if you previously scoped a review to Guest users only.
+   >[!NOTE]
+   >Action to apply on denied users only works if you previously scoped a review to Guest users only.
 
 13.	In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process.
 
