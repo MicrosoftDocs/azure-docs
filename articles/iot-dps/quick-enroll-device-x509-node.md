@@ -1,5 +1,5 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service using Node.js
+title: Quickstart - Enroll X.509 devices to Azure Device Provisioning Service using Node.js
 description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service (DPS) using the Node.js service SDK
 author: wesmc7777
 ms.author: wesmc
@@ -8,31 +8,28 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: nodejs
-ms.custom: mvc
+ms.custom: mvc, devx-track-js
 ---
  
 # Quickstart: Enroll X.509 devices to the Device Provisioning Service using Node.js
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-This quickstart shows how to use Node.js to programmatically create an [Enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created using the [IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) and a sample Node.js application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
-
-This quickstart expects you have already created an IoT hub and Device Provisioning Service instance. If you have not already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart before proceeding with this article.
-
-Although the steps in this article work on both Windows and Linux machines, this article is developed for a Windows development machine.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+In this quickstart, you use Node.js to programmatically create an enrollment group that uses intermediate or root CA X.509 certificates. The enrollment group is created using the IoT SDK for Node.js and a sample Node.js application.
 
 ## Prerequisites
 
-- Install [Node.js v4.0 or above](https://nodejs.org).
-- Install [Git](https://git-scm.com/download/).
-
+- Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node.js v4.0+](https://nodejs.org). This quickstart installs the [IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) below.
+- [Git](https://git-scm.com/download/).
+- [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 ## Prepare test certificates
 
-For this quickstart, you must have a .pem or a .cer file that contains the public portion of an intermediate or root CA X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service. 
+For this quickstart, you must have a .pem or a .cer file that contains the public portion of an intermediate or root CA X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
+
+For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and perform proof-of-possession with the service to verify the certificate. Certificates created with the SDK tooling are designed to use for **development testing only**. These certificates **must not be used in production**. They contain hard-coded passwords ("1234") that expire after 30 days. To learn about obtaining certificates suitable for production use, see [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 
@@ -58,6 +55,12 @@ To use this test tooling to generate certificates, perform the following steps:
 
 ## Create the enrollment group sample 
 
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
  
 1. From a command window in your working folder, run:
   
@@ -120,7 +123,7 @@ To use this test tooling to generate certificates, perform the following steps:
 
     ![Verified certificate in the portal](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
-1. To create an enrollment group for your certificate, run the following command (include the quotes around the command arguments):
+1. To create an [enrollment group](concepts-service.md#enrollment-group) for your certificate, run the following command (include the quotes around the command arguments):
  
      ```cmd\sh
      node create_enrollment_group.js "<the connection string for your provisioning service>" "<your certificate's .pem file>"

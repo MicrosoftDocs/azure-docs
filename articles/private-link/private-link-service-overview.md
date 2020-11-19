@@ -2,20 +2,27 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: malopMSFT
+author: sumeetmittal
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: allensu
+ms.author: sumi
 
 ---
 # What is Azure Private Link service?
 
 Azure Private Link service is the reference to your own service that is powered by Azure Private Link. Your service that is running behind [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) can be enabled for Private Link access so that consumers to your service can access it privately from their own VNets. Your customers can create a private endpoint inside their VNet and map it to this service. This article explains concepts related to the service provider side. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Private link service workflow" border="true":::
+
+*Figure: Azure Private Link Service.*
+
 ## Workflow
 
 ![Private Link service workflow](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Figure: Azure Private Link service workflow.*
 
 ### Create your Private Link Service
 
@@ -56,7 +63,7 @@ A Private Link service specifies the following properties:
 
 ### Details
 
-- Private Link service can be accessed from approved private endpoints in the same region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
+- Private Link service can be accessed from approved private endpoints in any public region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
  
 - When creating a Private Link Service, a network interface is created for the lifecycle of the resource. This interface is not manageable by the customer.
  
@@ -93,7 +100,7 @@ The action of approving the connections can be automated by using the auto-appro
 
 ## Getting connection Information using TCP Proxy v2
 
-When using private link service, the source IP address of the packets coming from private endpoint is network address translated (NAT) on the service provider side using the NAT IP allocated from provider's virtual network. Hence the applications receive the allocated NAT IP address instead of actual source IP address of the service consumers. If your application needs actual source IP address from consumer side,  you can enable Proxy protocol on your service and retrieve the information from the proxy protocol header. In addition to source IP address, proxy protocol header also carries the LinkID of the private endpoint. Combination of source IP address and LinkID can help service providers uniquely identify their consumers. For more information on Proxy Protocol, visit here. 
+When using private link service, the source IP address of the packets coming from private endpoint is network address translated (NAT) on the service provider side using the NAT IP allocated from provider's virtual network. Hence the applications receive the allocated NAT IP address instead of actual source IP address of the service consumers. If your application needs actual source IP address from consumer side,  you can enable Proxy protocol on your service and retrieve the information from the proxy protocol header. In addition to source IP address, proxy protocol header also carries the LinkID of the private endpoint. Combination of source IP address and LinkID can help service providers uniquely identify their consumers. For more information on Proxy Protocol, visit [here](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
 This information is encoded using a custom Type-Length-Value (TLV) vector as follows:
 
@@ -106,6 +113,8 @@ Custom TLV details:
 |Value  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bytes) representing the LINKID of the private endpoint. Encoded in little endian format.|
 
+ > [!NOTE]
+ > Service provider is responsible for making sure that the service behind the standard load balancer is configured to parse the proxy protocol header as per the [specification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) when proxy protocol is enabled on private link service. The request will fail if proxy protocol setting is enabled on private link service but service provider's service is not configured to parse the header. Similarly, the request will fail if the service provider's service is expecting a proxy protocol header while the setting is not enabled on the private link service. Once proxy protocol setting is enabled, proxy protocol header will also be included in HTTP/TCP health probes from host to the backend virtual machines, even though there will be no client information in the header. 
 
 ## Limitations
 

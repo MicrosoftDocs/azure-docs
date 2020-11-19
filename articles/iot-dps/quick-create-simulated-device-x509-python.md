@@ -1,5 +1,5 @@
 ---
-title: Provision simulated X.509 device to Azure IoT Hub using Python
+title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using Python
 description: Quickstart - Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
@@ -8,25 +8,26 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+In this quickstart, you create a simulated X.509 device on a Windows computer. You use device sample Python code to connect this simulated device with your IoT hub using an individual enrollment with the Device Provisioning Service (DPS).
+
+## Prerequisites
+
+- Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
+- Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) with Desktop development with C++.
+- [CMake build system](https://cmake.org/download/).
+- [Git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
 > This article only applies to the deprecated V1 Python SDK. Device and service clients for the Iot Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
-
-If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
-
-The Azure IoT Device Provisioning Service supports two types of enrollments:
-- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
-
-This article will demonstrate individual enrollments.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -68,12 +69,20 @@ In this section you, will use a self-signed X.509 certificate. It is important t
 
 You will use sample code from the Azure IoT C SDK to create the certificate to be used with the individual enrollment entry for the simulated device.
 
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article demonstrates individual enrollments.
+
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
 2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. 
 
 3. In the output window, enter `i` for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. 
     
+    ```output
     Copy the first certificate to clipboard. Begin with the first occurrence of:
     
         -----BEGIN CERTIFICATE----- 
@@ -82,7 +91,8 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
     
         -----END CERTIFICATE-----
         
-    Make sure to include both of those lines as well. 
+    Make sure to include both of those lines as well.
+    ``` 
 
     ![Dice device enrollment application](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  

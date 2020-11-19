@@ -11,31 +11,23 @@ manager: gwallace
 ---
 # Business continuity and disaster recovery in Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 ## Review disaster recovery guidance for Azure Kubernetes Service (AKS)
 
-Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be aware of guidelines for disaster recovery in AKS and consider whether they apply to the AKS clusters that you use for Dev Spaces. For more information, please reference [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
+Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be aware of guidelines for disaster recovery in AKS and consider whether they apply to the AKS clusters that you use for Dev Spaces. For more information, please reference [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](../../aks/operator-best-practices-multi-region.md)
 
 ## Enable Dev Spaces on AKS clusters in different regions
 
 Enabling Dev Spaces on AKS clusters in different regions allows you to resume using Dev Spaces immediately after an Azure region failure.
 
-For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
-
-For information about deploying an AKS cluster that is compatible with Azure Dev Spaces, see [Create a Kubernetes cluster using Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
-
-### Enable Dev Spaces via the Azure portal
-
-Click the **Dev Spaces** navigation item under the properties of each cluster in the Azure portal. Then choose the option to enable Dev Spaces.
-
-![Enabling Dev Spaces via Azure portal](../media/common/enable-dev-spaces.jpg)
-
-Repeat this process for each cluster.
+For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](../../aks/operator-best-practices-multi-region.md#plan-for-multiregion-deployment)
 
 ### Enable Dev Spaces via the Azure CLI
 
 You can also enable Dev Spaces at the command line:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -47,11 +39,11 @@ You should deploy the most recent versions of your baseline set of services to c
 
 ## Select the correct AKS cluster to use for Dev Spaces
 
-Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in Dev Spaces.
+Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in child dev spaces.
 
 Select a different cluster with the following CLI command:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 

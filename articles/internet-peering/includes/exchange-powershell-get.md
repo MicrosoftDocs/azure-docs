@@ -10,13 +10,13 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-To get the list of peerings, run the `Get-AzPeering` command:
+To get the list of peerings, run the **Get-AzPeering** command.
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-Below is an example response when the end-to-end provisioning was successfully completed:
+This example response shows when the end-to-end provisioning was successfully completed.
 
 ```powershell
     Name                     : SeattleExchangePeering

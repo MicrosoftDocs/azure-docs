@@ -4,13 +4,13 @@ description: Use copy operation in an Azure Resource Manager template to iterate
 ms.topic: conceptual
 ms.date: 02/13/2020
 ---
-# Variable iteration in Azure Resource Manager templates
+# Variable iteration in ARM templates
 
-This article shows you how to create more than one value for a variable in your Azure Resource Manager template. By adding the **copy** element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
+This article shows you how to create more than one value for a variable in your Azure Resource Manager (ARM) template. By adding the **copy** element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
 
-You can also use copy with [resources](copy-resources.md) and [properties in a resource](copy-properties.md).
+You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [outputs](copy-outputs.md).
 
-## Variable iteration
+## Syntax
 
 The copy element has the following general format:
 
@@ -27,6 +27,21 @@ The copy element has the following general format:
 The **name** property is any value that identifies the loop. The **count** property specifies the number of iterations you want for the variable.
 
 The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property. It can be a single property (like a string), or an object with several properties.
+
+## Copy limits
+
+The count can't exceed 800.
+
+The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
+
+* Azure PowerShell **2.6** or later
+* Azure CLI **2.0.74** or later
+* REST API version **2019-05-10** or later
+* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+
+Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
+
+## Variable iteration
 
 The following example shows how to create an array of string values:
 
@@ -219,7 +234,7 @@ The next example shows the different ways you can use copy with variables.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -289,12 +304,6 @@ The next example shows the different ways you can use copy with variables.
 }
 ```
 
-## Copy limits
-
-The count can't exceed 800.
-
-The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, Azure CLI 2.0.74 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
-
 ## Example templates
 
 The following examples show common scenarios for creating more than one value for a variable.
@@ -306,8 +315,11 @@ The following examples show common scenarios for creating more than one value fo
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
-* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](copy-resources.md) and [Property iteration in Azure Resource Manager templates](copy-properties.md).
-* If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
+* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
+* For other uses of the copy element, see:
+  * [Resource iteration in ARM templates](copy-resources.md)
+  * [Property iteration in ARM templates](copy-properties.md)
+  * [Output iteration in ARM templates](copy-outputs.md)
+* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
 

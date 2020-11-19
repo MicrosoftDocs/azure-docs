@@ -1,18 +1,17 @@
 ---
-title: Create interactive reports Azure Monitor for VMs with workbooks | Microsoft Docs
+title: Create interactive reports Azure Monitor for VMs with workbooks
 description: Simplify complex reporting with predefined and custom parameterized workbooks for Azure Monitor for VMs.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
+ms.date: 03/12/2020
 
 ---
 
 # Create interactive reports Azure Monitor for VMs with workbooks
 
-Workbooks combine text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 Workbooks are helpful for scenarios such as:
 
@@ -21,7 +20,7 @@ Workbooks are helpful for scenarios such as:
 * Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
-Azure Monitor for VMs includes several workbooks to get you started, and the following table summarizes them.
+The following table summarizes the workbooks that Azure Monitor for VMs includes to get you started.
 
 | Workbook | Description | Scope |
 |----------|-------------|-------|
@@ -37,7 +36,7 @@ Azure Monitor for VMs includes several workbooks to get you started, and the fol
 | Performance | Provides a customizable version of our Performance view that leverages all of the Log Analytics performance counters that you have enabled. | Single VM | 
 | Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | Single VM |
  
-## Starting with a template or saved workbook
+## Creating a new workbook
 
 A workbook is made up of sections consisting of independently editable charts, tables, text, and input controls. To better understand workbooks, let's start by opening a template and walk through creating a custom workbook. 
 
@@ -47,27 +46,23 @@ A workbook is made up of sections consisting of independently editable charts, t
 
 3. From the list, select a VM.
 
-4. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+4. On the VM page, in the **Monitoring** section, select **Insights**.
 
-5. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. 
-
-    ![Screenshot of navigation to workbooks](media/vminsights-workbooks/workbook-option-01.png)
-
-6. From the drop-down list, select **Go to Gallery** from the bottom of the list.
+5. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. From the drop-down list, select **Go to Gallery**.
 
     ![Screenshot of workbook drop-down list](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    It launches the workbook gallery with a number of prebuilt workbooks to help you get started.
+    This launches the workbook gallery with a number of prebuilt workbooks to help you get started.
 
-7. We'll start with the **Default Template**, which is located under the heading **Quick start**.
+7. Create a new workbook by selecting **New**.
 
     ![Screenshot of workbook gallery](media/vminsights-workbooks/workbook-gallery-01.png)
 
 ## Editing workbook sections
 
-Workbooks have two modes: **editing mode**, and **reading mode**. When the default template workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
+Workbooks have two modes: **editing mode**, and **reading mode**. When a new workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
 
-![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Screenshot of the Virtual Machines Workbook section in Azure Monitor showing a new workbook in editing mode with editing controls highlighted.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. When you're done editing a section, click **Done Editing** in the bottom-left corner of the section.
 
@@ -103,7 +98,7 @@ To include data from other Log Analytics workspaces or from a specific Applicati
 
 Each section has its own advanced settings, which are accessible via the settings ![Workbooks section editing controls](media/vminsights-workbooks/006-settings.png) icon located to the right of the **Add parameters** button.
 
-![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/007-settings-expanded.png)
+![Screenshot of the Advanced Settings dialog in the Virtual Machines Workbook section of Azure Monitor. The icon that opens the dialog is highlighted.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -119,11 +114,11 @@ One of the prebuilt workbooks - **TCP Traffic**, provides information on connect
 
 The first section of the workbook is based on log query data. The second section is also based on log query data, but selecting a row in the first table will interactively update the contents of the charts:
 
-![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Screenshot of the Virtual Machines section in Azure Monitor showing the prebuilt workbook TCP Traffic.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 The behavior is possible through use of the **When an item is selected, export a parameter** advanced settings, which are enabled in the table's log query.
 
-![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/009-settings-export.png)
+![Screenshot of the Advanced Settings dialog for a Virtual Machines workbook with the "When an item is selected, export a parameter" option checked.](media/vminsights-workbooks/009-settings-export.png)
 
 The second log query then utilizes the exported values when a row is selected to create a set of values that are then used by the section heading and charts. If no row is selected, it hides the section heading and charts. 
 
@@ -142,7 +137,7 @@ Metrics sections give you full access to incorporate Azure Monitor metrics data 
 
 Here is an example of virtual machine data being pulled into a workbook to provide a grid visualization of CPU performance:
 
-![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/010-metrics-grid.png)
+![Screenshot of the metrics section of a virtual machine workbook in Azure Monitor. The CPU performance for each virtual machine is shown graphically.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## Adding parameter sections
 
@@ -181,11 +176,11 @@ If the column is a string type, null/empty string is considered false, and any o
 
 Let's look at the parameters present in the Connections Overview report. Click the edit symbol next to **Direction**.
 
-![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Screenshot of the section for adding and editing report parameters in Azure Monitor. The Edit icon for the Direction parameter is selected.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 This will launch the **Edit Parameter** menu item.
 
-![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Screenshot of the Edit Parameter dialog. The Parameter name is Direction, the Parameter type is Drop down, and Get data from JSON is selected.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 The JSON lets you generate an arbitrary table populated with content. For example, the following JSON generates two values in the drop-down:
 

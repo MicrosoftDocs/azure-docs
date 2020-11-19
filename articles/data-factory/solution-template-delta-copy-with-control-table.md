@@ -16,6 +16,8 @@ ms.date: 12/24/2018
 
 # Delta copy from a database with a control table
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes a template that's available to incrementally load new or updated rows from a database table to Azure by using an external control table that stores a high-watermark value.
 
 This template requires that the schema of the source database contains a timestamp column or incrementing key to identify new or updated rows.
@@ -133,7 +135,7 @@ The template defines following parameters:
 
     You will see that only new rows were copied to the destination.
 
-15. (Optional:) If you select Azure Synapse Analytics (formerly SQL DW) as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by SQL Data Warehouse Polybase. The template will generate a container path for you. After the pipeline run, check whether the container has been created in Blob storage.
+15. (Optional:) If you select Azure Synapse Analytics (formerly SQL DW) as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by Azure Synapse Analytics (formerly SQL Data Warehouse) Polybase. The template will generate a container path for you. After the pipeline run, check whether the container has been created in Blob storage.
     
     ![Configure Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
 	

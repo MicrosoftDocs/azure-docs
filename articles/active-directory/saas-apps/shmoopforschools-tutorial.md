@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Shmoop For Schools | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Shmoop For Schools.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Shmoop For Schools with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Shmoop For Schools with Azure Ac
 * Enable your users to be automatically signed-in to Shmoop For Schools with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -94,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image](common/default-attributes.png)
 
 	> [!NOTE]
-	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/active-directory-enterprise-app-role-management.md).
 
 1. In addition to above, Shmoop For Schools application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -151,14 +144,14 @@ In this section, a user called B.Simon is created in Shmoop For Schools. Shmoop 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Shmoop For Schools tile in the Access Panel, you should be automatically signed in to the Shmoop For Schools for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Shmoop For Schools tile in the Access Panel, you should be automatically signed in to the Shmoop For Schools for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Shmoop For Schools with Azure AD](https://aad.portal.azure.com/)

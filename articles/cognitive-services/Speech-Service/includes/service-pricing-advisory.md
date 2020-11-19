@@ -2,13 +2,13 @@
 title: Speech service
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/02/2019
-ms.author: dapine
+ms.author: trbye
 ---
 
 > [!NOTE]

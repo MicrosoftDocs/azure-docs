@@ -2,11 +2,14 @@
 title: "How to upgrade Azure Dev Spaces tools"
 services: azure-dev-spaces
 ms.date: "07/03/2018"
-ms.topic: "conceptual"
-description: "Learn how to upgrade the Azure Dev Spaces command line tools, Visual Studo Code extension, and Visual Studio extension"
+ms.topic: "conceptual" 
+ms.custom: devx-track-azurecli
+description: "Learn how to upgrade the Azure Dev Spaces command line tools, Visual Studio Code extension, and Visual Studio extension"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 # How to upgrade Azure Dev Spaces tools
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 If there is a new release and you are already using Azure Dev Spaces, you might need to upgrade your Azure Dev Spaces client tools.
 
@@ -21,7 +24,7 @@ You don't need to uninstall the previous version, just find the appropriate down
 
 Run the following command:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update
 ```
 
@@ -29,12 +32,10 @@ az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group>
 
 Once installed, the extension updates automatically. You might need to reload the extension to use the new features. In VS Code, open the **Extensions** pane, choose the **Azure Dev Spaces** extensions, and choose **Reload**.
 
-## Update the Visual Studio extension
+## Update Visual Studio
 
-Like with other extensions and updates, Visual Studio will notify you when there's an update available to the Visual Studio Tools for Kubernetes, which includes Azure Dev Spaces. Look for a flag icon on the top right of the screen.
-
-To update the tools in Visual Studio, choose the **Tools > Extensions and Updates** menu item, and on the left side, choose **Updates**. Find **Visual Studio Tools for Kubernetes** and choose the **Update** button.
+Azure Dev Spaces is part of the Azure Development workload and is included in all Visual Studio updates.
 
 ## Next steps
 
-Test out the new tools by creating a new cluster. Try the quickstarts and tutorials at [Azure Dev Spaces](/azure/dev-spaces).
+Test out the new tools by creating a new cluster. Try the quickstarts and tutorials at [Azure Dev Spaces](../index.yml).

@@ -3,7 +3,7 @@ title: Tutorial - Add Azure CDN to an Azure App Service web app | Microsoft Docs
 description: In this tutorial, Azure Content Delivery Network (CDN) is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 
 ---
@@ -39,13 +39,13 @@ What you'll learn:
 To complete this tutorial:
 
 - [Install Git](https://git-scm.com/)
-- [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install the Azure CLI](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create the web app
 
-To create the web app that you'll work with, follow the [static HTML quickstart](../app-service/app-service-web-get-started-html.md) through the **Browse to the app** step.
+To create the web app that you'll work with, follow the [static HTML quickstart](../app-service/quickstart-html.md) through the **Browse to the app** step.
 
 ## Log in to the Azure portal
 
@@ -57,7 +57,7 @@ Otherwise, if you don't want to optimize your new endpoint, you can use the web 
 
 ## Create a CDN profile and endpoint
 
-In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/app-service-web-get-started-html.md).
+In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/quickstart-html.md).
 
 ![Select App Service app in the portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 
@@ -266,5 +266,3 @@ Learn how to optimize CDN performance in the following articles:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
-
-

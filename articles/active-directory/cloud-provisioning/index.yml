@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure AD Connect cloud provisioning documentation
-summary:  Cloud provisioning helps simplify and automate the management of on-premises users by keeping everything in the cloud.
+summary:  Cloud provisioning helps simplify and automate the management of Azure AD users, through cloud-managed rules for synchronizing those users from existing AD forests.
 
 
 
@@ -45,7 +45,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Prerequisties for Azure AD Connect cloud provisioning 
+          - text: Prerequisites for Azure AD Connect cloud provisioning 
             url: how-to-prerequisites.md
           - text: Install Azure AD Connect cloud provisioning
             url: how-to-install.md

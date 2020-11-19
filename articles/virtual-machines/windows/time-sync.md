@@ -1,17 +1,9 @@
 ---
 title: Time sync for Windows VMs in Azure
 description: Time sync for Windows virtual machines.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
@@ -27,7 +19,7 @@ Azure is now backed by infrastructure running Windows Server 2016. Windows Serve
 >[!NOTE]
 >For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
 >
-> For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## Overview
 
@@ -63,7 +55,7 @@ By default Windows OS VM images are configured for w32time to sync from two sour
 - The NtpClient provider, which gets information from time.windows.com.
 - The VMICTimeSync service, used to communicate the host time to the VMs and make corrections after the VM is paused for maintenance. Azure hosts use Microsoft-owned Stratum 1 devices to keep accurate time.
 
-w32time would prefer the time provider in the following order of priority: stratum level, root delay, root dispersion, time offset. In most cases, w32time would prefer time.windows.com to the host because time.windows.com reports lower stratum. 
+w32time would prefer the time provider in the following order of priority: stratum level, root delay, root dispersion, time offset. In most cases, w32time on an Azure VM would prefer host time due to evaluation it would do to compare both time sources. 
 
 For domain joined machines the domain itself establishes time sync hierarchy, but the forest root still needs to take time from somewhere and the following considerations would still hold true.
 
@@ -118,8 +110,8 @@ w32tm /query /source
 
 Here is the output you could see and what it would mean:
 	
-- **time.windows.com** - in the default configuration, w32time would get time from time.windows.com. The time sync quality depends on internet connectivity to it and is affected by packet delays. This is the usual output from the default setup.
-- **VM IC Time Synchronization Provider**  - the VM is syncing time from the host. This usually is the result if you opt-in for host-only time sync or the NtpServer is not available at the moment. 
+- **time.windows.com** - in the default configuration, w32time would get time from time.windows.com. The time sync quality depends on internet connectivity to it and is affected by packet delays. This is the usual output you would get on a physical machine.
+- **VM IC Time Synchronization Provider**  - the VM is syncing time from the host. This is the usual output you would get on a virtual machine running on Azure. 
 - *Your domain server* - the current machine is in a domain and the domain defines the time sync hierarchy.
 - *Some other server* - w32time was explicitly configured to get the time from that another server. Time sync quality depends on this time server quality.
 - **Local CMOS Clock** - clock is unsynchronized. You can get this output if w32time hasn't had enough time to start after a reboot or when all the configured time sources are not available.
@@ -163,7 +155,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-For w32time to be able to use the new poll intervals, the NtpServers be marked as using them. If servers are annotated with 0x1 bitflag mask, that would override this mechanism and w32time would use SpecialPollInterval instead. Make sure that specified NTP servers are either using 0x8 flag or no flag at all:
+For w32time to be able to use the new poll intervals, the NtpServers need to be marked as using them. If servers are annotated with 0x1 bitflag mask, that would override this mechanism and w32time would use SpecialPollInterval instead. Make sure that specified NTP servers are either using 0x8 flag or no flag at all:
 
 Check what flags are being used for the used NTP servers.
 
@@ -175,10 +167,8 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 Below are links to more details about the time sync:
 
-- [Windows Time Service Tools and Settings](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
+- [Windows Time Service Tools and Settings](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
 - [Windows Server 2016 Improvements
-](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Accurate Time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
-
-
+](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Accurate Time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
+- [Support boundary to configure the Windows Time service for high-accuracy environments](/windows-server/networking/windows-time-service/support-boundary)

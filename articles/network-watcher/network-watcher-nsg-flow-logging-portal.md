@@ -99,7 +99,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 5. Under **LOGS**, select **NSG flow logs**, as shown in the following picture:
 
-    ![NSGs](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![Screenshot shows the Network Watcher NSG flow logs.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. From the list of NSGs, select the NSG named **myVm-nsg**.
 7. Under **Flow logs settings**, select **On**.
@@ -121,7 +121,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
    ![Download flow logs](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Select the storage account that you configured in step 2 of [Enable NSG flow log](#enable-nsg-flow-log).
-4. Under **Blob service**, select **Blobs**, and then select the **insights-logs-networksecuritygroupflowevent** container.
+4. Under **Blob service**, select **Containers**, and then select the **insights-logs-networksecuritygroupflowevent** container.
 5. In the container, navigate the folder hierarchy until you get to a PT1H.json file, as shown in the picture that follows. Log files are written to a folder hierarchy that follows the following naming convention:
    https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 

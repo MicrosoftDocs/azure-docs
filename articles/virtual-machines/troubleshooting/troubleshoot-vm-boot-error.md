@@ -6,16 +6,15 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ---
+
 
 # Linux VM boots to Grub Rescue
 
@@ -31,8 +30,8 @@ Follow the mitigation steps below depending on the error you receive:
 
 * If you're getting the error **Unknown filesystem**, this error can result from a file system corruption on the boot partition, or an incorrect kernel configuration.
 
-   * For file system issues, follow the steps in the article [Linux Recovery: Cannot SSH to Linux VM due to file system errors (fsck, inodes)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/).
-   * For kernel issues, follow the steps in the article [Linux Recovery: Manually fixing non-boot issues related to Kernel problems](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/), or [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * For file system issues, follow the steps in the article [Linux Recovery: Cannot SSH to Linux VM due to file system errors (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
+   * For kernel issues, follow the steps in the article [How to recover an Azure Linux virtual machine from kernel-related boot issues](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues), or [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### Error - File not found
 
@@ -48,7 +47,7 @@ Follow the mitigation steps below depending on the error you receive:
 
 ### Error - No such partition
 
-* If you're getting the error **No such partition**, refer to [Case Scenario : "no such partition" error while trying to start the VM after attempting to extend the OS drive](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/).
+* If you're getting the error **No such partition**, refer to [Case Scenario : "no such partition" error while trying to start the VM after attempting to extend the OS drive](/archive/blogs/shwetanayak/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive).
 
 ### Error - grub.cfg file not found
 
@@ -66,4 +65,3 @@ Follow the mitigation steps below depending on the error you receive:
 
 * [Azure Virtual Machine Agent overview](../extensions/agent-windows.md)
 * [Virtual machine extensions and features for Windows](../extensions/features-windows.md)
-

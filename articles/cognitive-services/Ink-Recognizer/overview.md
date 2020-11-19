@@ -8,12 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/24/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # What is the Ink Recognizer API?
 
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 The Ink Recognizer Cognitive Service provides a cloud-based REST API to analyze and recognize digital ink content. Unlike services that use Optical Character Recognition (OCR), the API requires digital ink stroke data as input. Digital ink strokes are time-ordered sets of 2D points (X,Y coordinates) that represent the motion of input tools such as digital pens or fingers. It then recognizes the shapes and handwritten content from the input and returns a JSON response containing all recognized entities.
 
@@ -38,7 +40,7 @@ The Ink Recognizer API is a RESTful web service, making it easy to call from any
 
 After signing up:
 
-1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data) into valid JSON.
+1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data) into valid JSON. The API accepts up to 1500 ink strokes per request. 
 1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 

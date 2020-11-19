@@ -1,24 +1,25 @@
 ---
-title: Use managed identities on an Azure VM for sign in - Azure AD
-description: Step by step instructions and examples for using an Azure VM managed identities for Azure resources service principal for script client sign in and resource access.
+title: Use managed identities on an Azure VM for sign-in - Azure ADV
+description: Step-by-step instructions and examples for using an Azure VM-managed identities for Azure resources service principal for script client sign-in and resource access.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
-ms.collection: M365-identity-device-management
+ms.author: barclayn
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurecli
 ---
 
-# How to use managed identities for Azure resources on an Azure VM for sign in 
+# How to use managed identities for Azure resources on an Azure VM for sign-in 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 This article provides PowerShell and CLI script examples for sign-in using managed identities for Azure resources service principal, and guidance on important topics such as error handling.
@@ -29,7 +30,7 @@ This article provides PowerShell and CLI script examples for sign-in using manag
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - All sample script in this article assumes the command-line client is running on a VM with managed identities for Azure resources enabled. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling managed identities for Azure resources on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
@@ -37,8 +38,8 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, b
 
 ## Overview
 
-Managed identities for Azure resources provides a [service principal object](../develop/developer-glossary.md#service-principal-object) 
-, which is [created upon enabling managed identities for Azure resources](overview.md#how-does-the-managed-identities-for-azure-resources-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
+Managed identities for Azure resources provide a [service principal object](../develop/developer-glossary.md#service-principal-object) 
+, which is [created upon enabling managed identities for Azure resources](overview.md) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign-in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
    - be registered and consented with Azure AD as a confidential/web client application
    - sign in under its service principal, using the app's credentials (which are likely embedded in the script)
@@ -96,9 +97,3 @@ If either is incorrect, you may need to redeploy the managed identities for Azur
 ## Next steps
 
 - To enable managed identities for Azure resources on an Azure VM, see [Configure managed identities for Azure resources on an Azure VM using PowerShell](qs-configure-powershell-windows-vm.md), or [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md)
-
-
-
-
-
-

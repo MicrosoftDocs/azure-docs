@@ -1,11 +1,11 @@
 ﻿---
 title: Query Store - Azure Database for MariaDB
 description: Learn about the Query Store feature in Azure Database for MariaDB to help you track performance over time. 
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Monitor Azure Database for MariaDB performance with Query Store
 

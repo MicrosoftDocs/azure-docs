@@ -1,9 +1,9 @@
 ---
 title: Connect Palo Alto Networks data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Palo Alto Networks data to Azure Sentinel.
+description: Learn how to use the Palo Alto Networks data connector to easily connect your Palo Alto Networks logs with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect Palo Alto Networks to Azure Sentinel
@@ -30,7 +30,7 @@ This article explains how to connect your Palo Alto Networks appliance to Azure 
 Configure Palo Alto Networks to forward Syslog messages in CEF format to your Azure workspace via the Syslog agent:
 1.  Go to [Common Event Format (CEF) Configuration Guides](https://docs.paloaltonetworks.com/resources/cef) and download the pdf for your appliance type. Follow all the instructions in the guide to set up your Palo Alto Networks appliance to collect CEF events. 
 
-1.  Go to [Configure Syslog monitoring](https://aka.ms/asi-syslog-paloalto-forwarding) and follow steps 2 and 3 to configure CEF event forwarding from your Palo Alto Networks appliance to Azure Sentinel.
+1.  Go to [Configure Syslog monitoring](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring) and follow steps 2 and 3 to configure CEF event forwarding from your Palo Alto Networks appliance to Azure Sentinel.
 
     1. Make sure to set the **Syslog server format** to **BSD**.
 

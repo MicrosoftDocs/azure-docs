@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service with a ZIP file (
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -24,16 +24,19 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 The WAR file deployment deploys your [WAR](https://wikipedia.org/wiki/WAR_(file_format)) file to App Service to run your Java web app. See [Deploy WAR file](#deploy-war-file).
 
+> [!NOTE]
+> When using `ZipDeploy`, files will only be copied if their timestamps don't match what is already deployed. Generating a zip using a build process that caches outputs can result in faster deployments. See [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url), for more information.
+
 ## Prerequisites
 
-To complete the steps in this article, [create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+To complete the steps in this article, [create an App Service app](./index.yml), or use an app that you created for another tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) instead.
+The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](faq-app-service-linux.md#continuous-integration-and-deployment) instead.
 
 ## Deploy ZIP file with Azure CLI
 

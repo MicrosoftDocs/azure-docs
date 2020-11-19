@@ -1,5 +1,5 @@
 ---
-title: Enroll TPM device to Azure Device Provisioning Service using Python
+title: Quickstart - Enroll TPM device to Azure Device Provisioning Service using Python
 description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using Python provisioning service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
@@ -8,20 +8,25 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Python provisioning service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-These steps show how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service, using the [V1 Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) with the help of a sample Python application. Although the Python Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
+In this quickstart, you programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service, using the Python Provisioning Service SDK with the help of a sample Python application.
+
+## Prerequisites
+
+- Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Python 2.x or 3.x](https://www.python.org/downloads/). This quickstart installs the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) below.
+- [Pip](https://pip.pypa.io/en/stable/installing/), if not included with your distribution of Python.
+- Endorsement key. Use the steps in [Create and provision a simulated device](quick-create-simulated-device.md) or use the endorsement key supplied with the SDK, described below.
 
 > [!IMPORTANT]
-> This article only applies to the deprecated V1 Python SDK. Device and service clients for the Iot Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
-
-Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
-
+> This article only applies to the deprecated V1 Python SDK. Device and service clients for the IoT Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
 
 <a id="prepareenvironment"></a>
 
@@ -29,7 +34,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. 
 
-1. Choose one of the following options:
+1. For the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client), choose one of the following options:
 
     - Build and compile the **Azure IoT Python SDK**. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) to build the Python packages. If you are using Windows OS, then also install [Visual C++ redistributable package](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) to allow the use of native DLLs from Python.
 

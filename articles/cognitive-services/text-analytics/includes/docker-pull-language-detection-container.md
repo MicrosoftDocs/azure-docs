@@ -3,12 +3,12 @@ title: Docker pull for the Language Detection container
 titleSuffix: Azure Cognitive Services
 description: Docker pull command for Language Detection container
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 09/12/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 #### Docker pull for the Language Detection container
@@ -18,5 +18,5 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 For a full description of available tags for the Text Analytics containers, see the [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759) container on the Docker Hub.
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/language:latest
 ```

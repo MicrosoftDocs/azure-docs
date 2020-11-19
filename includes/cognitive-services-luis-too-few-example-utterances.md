@@ -4,11 +4,10 @@ description: include file
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
+ms.custom: seodec18, include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
 ---

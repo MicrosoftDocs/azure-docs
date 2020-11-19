@@ -50,4 +50,4 @@ Excluding B2B users from your organization's risk-based Conditional Access polic
 
 See the following articles on Azure AD B2B collaboration:
 
-- [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md)
+- [What is Azure AD B2B collaboration?](../external-identities/what-is-b2b.md)

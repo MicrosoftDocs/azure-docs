@@ -1,16 +1,16 @@
 ---
-title: Create an Azure Active Directory tenant | Microsoft Docs
-description: Learn how to create an Azure AD tenant to use for registering and building applications.
+title: "Quickstart: Create an Azure Active Directory tenant"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you learn how to create an Azure Active Directory tenant for use in developing applications that use the Microsoft identity platform for authentication and authorization.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -25,6 +25,10 @@ A tenant is a representation of an organization. It's a dedicated instance of Az
 
 Each Azure AD tenant is distinct and separate from other Azure AD tenants and has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside of your tenant can allow authentications from accounts only within your tenant or all tenants.
 
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 ## Determining environment type
 
 There are two types of environments you can create. Deciding which you need is based solely on the types of users your app will authenticate.
@@ -32,7 +36,7 @@ There are two types of environments you can create. Deciding which you need is b
 * Work and school (Azure AD accounts) or Microsoft accounts (such as outlook.com and live.com)
 * Social and local accounts (Azure AD B2C)
 
-The quickstart is broken into two scenarios depending on the type of app you want to build. If you need more help targeting an identity type, take a look at [about Microsoft identity platform](about-microsoft-identity-platform.md)
+The quickstart is broken into two scenarios depending on the type of app you want to build.
 
 ## Work and school accounts, or personal Microsoft accounts
 
@@ -69,6 +73,5 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 ## Next steps
 
-* Try a coding quickstart and begin authenticating users. 
-* For more in-depth code samples, check out the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+> [!div class="nextstepaction"]
+> [Register an app](quickstart-register-app.md) to integrate with Microsoft identity platform.

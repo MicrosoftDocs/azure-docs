@@ -2,14 +2,17 @@
 title: Call a webhook with a classic metric alert in Azure Monitor
 description: Learn how to reroute Azure metric alerts to other, non-Azure systems.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: harelbr
 ms.subservice: alerts
 ---
 # Call a webhook with a classic metric alert in Azure Monitor
+
+> [!WARNING]
+> This article describes how to use older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts.
+>
+
 You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions. 
 
 This article describes how to set a webhook on an Azure metric alert. It also shows you what the payload for the HTTP POST to a webhook looks like. For information about the setup and schema for an Azure activity log alert (alert on events), see [Call a webhook on an Azure activity log alert](alerts-log-webhook.md).
@@ -21,7 +24,7 @@ To add or update the webhook URI, in the [Azure portal](https://portal.azure.com
 
 ![Add an alert rule pane](./media/alerts-webhooks/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), a [cross-platform CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](../samples/powershell-samples.md#create-metric-alerts), a [cross-platform CLI](../samples/cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](/rest/api/monitor/alertrules).
 
 ## Authenticate the webhook
 The webhook can authenticate by using token-based authorization. The webhook URI is saved with a token ID. For example: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -74,11 +77,11 @@ The POST operation contains the following JSON payload and schema for all metric
 | conditionType |Y |Metric, Event |Two types of alerts are supported: metric and event. Metric alerts are based on a metric condition. Event alerts are based on an event in the activity log. Use this value to check whether the alert is based on a metric or on an event. |
 | condition |Y | |The specific fields to check based on the **conditionType** value. |
 | metricName |For metric alerts | |The name of the metric that defines what the rule monitors. |
-| metricUnit |For metric alerts |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |The unit allowed in the metric. See [allowed values](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |For metric alerts |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |The unit allowed in the metric. See [allowed values](/previous-versions/azure/reference/dn802430(v=azure.100)). |
 | metricValue |For metric alerts | |The actual value of the metric that caused the alert. |
 | threshold |For metric alerts | |The threshold value at which the alert is activated. |
 | windowSize |For metric alerts | |The period of time that's used to monitor alert activity based on the threshold. The value must be between 5 minutes and 1 day. The value must be in ISO 8601 duration format. |
-| timeAggregation |For metric alerts |Average, Last, Maximum, Minimum, None, Total |How the data that's collected should be combined over time. The default value is Average. See [allowed values](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| timeAggregation |For metric alerts |Average, Last, Maximum, Minimum, None, Total |How the data that's collected should be combined over time. The default value is Average. See [allowed values](/previous-versions/azure/reference/dn802410(v=azure.100)). |
 | operator |For metric alerts | |The operator that's used to compare the current metric data to the set threshold. |
 | subscriptionId |Y | |The Azure subscription ID. |
 | resourceGroupName |Y | |The name of the resource group for the affected resource. |
@@ -90,7 +93,7 @@ The POST operation contains the following JSON payload and schema for all metric
 | properties |N |Optional |A set of key/value pairs that has details about the event. For example, `Dictionary<String, String>`. The properties field is optional. In a custom UI or logic app-based workflow, users can enter key/value pairs that can be passed via the payload. An alternate way to pass custom properties back to the webhook is via the webhook URI itself (as query parameters). |
 
 > [!NOTE]
-> You can set the **properties** field only by using [Azure Monitor REST APIs](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> You can set the **properties** field only by using [Azure Monitor REST APIs](/rest/api/monitor/alertrules).
 >
 >
 
@@ -100,4 +103,3 @@ The POST operation contains the following JSON payload and schema for all metric
 * Learn how to [use a logic app to send an SMS message via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Learn how to [use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Learn how to [use a logic app to send a message to an Azure queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

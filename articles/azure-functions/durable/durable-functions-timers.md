@@ -2,13 +2,13 @@
 title: Timers in Durable Functions - Azure
 description: Learn how to implement durable timers in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/13/2020
 ms.author: azfuncdf
 ---
 
 # Timers in Durable Functions (Azure Functions)
 
-[Durable Functions](durable-functions-overview.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#), or `setTimeout()` and `setInterval()` (JavaScript).
+[Durable Functions](durable-functions-overview.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#), or `setTimeout()` and `setInterval()` (JavaScript), or `time.sleep()` (Python).
 
 You create a durable timer by calling the `CreateTimer` (.NET) method or the `createTimer` (JavaScript) method of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The method returns a task that completes on a specified date and time.
 
@@ -17,7 +17,7 @@ You create a durable timer by calling the `CreateTimer` (.NET) method or the `cr
 When you create a timer that expires at 4:30 pm, the underlying Durable Task Framework enqueues a message that becomes visible only at 4:30 pm. When running in the Azure Functions Consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.
 
 > [!NOTE]
-> * Durable timers are currently limited to 7 days. If longer delays are needed, they can be simulated using the timer APIs in a `while` loop.
+> * Starting with [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) of the Durable Extension, Durable timers are unlimited. In earlier versions of the extension, Durable timers are limited to seven days. When you are using an earlier version and need a delay longer than seven days, use the timer APIs in a `while` loop to simulate this delay.
 > * Always use `CurrentUtcDateTime` instead of `DateTime.UtcNow` in .NET or `currentUtcDateTime` instead of `Date.now` or `Date.UTC` in JavaScript when computing the fire time for durable timers. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
 
 ## Usage for delay
@@ -57,7 +57,21 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+# [Python](#tab/python)
 
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    for i in range(0, 9):
+        deadline = context.current_utc_datetime + timedelta(days=1)
+        yield context.create_timer(deadline)
+        yield context.call_activity("SendBillingEvent")
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
 > [!WARNING]
@@ -125,6 +139,28 @@ module.exports = df.orchestrator(function*(context) {
         return false;
     }
 });
+```
+
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    deadline = context.current_utc_datetime + timedelta(seconds=30)
+    activity_task = context.call_activity("GetQuote")
+    timeout_task = context.create_timer(deadline)
+
+    winner = yield context.task_any([activity_task, timeout_task])
+    if winner == activity_task:
+        timeout_task.cancel()
+        return True
+    elif winner == timeout_task:
+        return False
+
+main = df.Orchestrator.create(orchestrator_function)
 ```
 
 ---

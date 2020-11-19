@@ -4,7 +4,7 @@ description: How-to article highlighting patterns for using Azure Data Catalog  
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 # How to catalog big data in Azure Data Catalog
@@ -13,7 +13,7 @@ ms.date: 08/01/2019
 
 **Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. It is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data sources, including big data.
 
-**Azure Data Catalog** supports the registration of Azure Blog Storage blobs and directories as well as Hadoop HDFS files and directories. The semi-structured nature of these data sources provides great flexibility. However, to get the most value from registering them with **Azure Data Catalog**, users must consider how the data sources are organized.
+**Azure Data Catalog** supports the registration of Azure Storage blobs and directories as well as Hadoop HDFS files and directories. The semi-structured nature of these data sources provides great flexibility. However, to get the most value from registering them with **Azure Data Catalog**, users must consider how the data sources are organized.
 
 ## Directories as logical data sets
 

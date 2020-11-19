@@ -2,14 +2,14 @@
 title: Troubleshoot custom policies in Azure Active Directory B2C
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/13/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -60,7 +60,7 @@ Common validation errors include the following:
 
 * To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](https://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
 
-* In **Development mode**, use [Application Insights](troubleshoot-with-application-insights.md) to trace the activity of your Identity Experience Framework user journey. In **Development mode**, you can observe the exchange of claims between the Identity Experience Framework and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services, like Azure Multi-Factor Authentication.
+* In **Development mode**, use [Application Insights](troubleshoot-with-application-insights.md) to trace the activity of your Identity Experience Framework user journey. In **Development mode**, you can observe the exchange of claims between the Identity Experience Framework and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services, like Azure AD Multi-Factor Authentication.
 
 ## Recommended practices
 

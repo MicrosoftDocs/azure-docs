@@ -3,14 +3,14 @@ title: BuildingBlocks
 titleSuffix: Azure AD B2C
 description: Specify the BuildingBlocks element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -20,7 +20,7 @@ ms.subservice: B2C
 
 The **BuildingBlocks** element is added inside the [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"

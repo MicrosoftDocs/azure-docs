@@ -20,7 +20,7 @@ Import/Export enables you to migrate between different Azure Cache for Redis ins
 This article provides a guide for importing and exporting data with Azure Cache for Redis and provides the answers to commonly asked questions.
 
 > [!IMPORTANT]
-> Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches.
+> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches.
 >
 >
 
@@ -28,7 +28,7 @@ This article provides a guide for importing and exporting data with Azure Cache 
 Import can be used to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
 
 > [!NOTE]
-> Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Cache for Redis instance. For more information, see [Get started with Azure Blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). If you exported your RDB file using the [Azure Cache for Redis Export](#export) feature, your RDB file is already stored in a page blob and is ready for importing.
+> Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Cache for Redis instance. For more information, see [Get started with Azure Blob storage](../storage/blobs/storage-quickstart-blobs-dotnet.md). If you exported your RDB file using the [Azure Cache for Redis Export](#export) feature, your RDB file is already stored in a page blob and is ready for importing.
 >
 >
 
@@ -138,7 +138,9 @@ Yes, for PowerShell instructions see [To import an Azure Cache for Redis](cache-
 ### I received a timeout error during my Import/Export operation. What does it mean?
 If you remain on the **Import data** or **Export data** blade for longer than 15 minutes before initiating the operation, you receive an error with an error message similar to the following example:
 
-    The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```output
+The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```
 
 To resolve this, initiate the import or export operation before 15 minutes has elapsed.
 
@@ -146,6 +148,6 @@ To resolve this, initiate the import or export operation before 15 minutes has e
 Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including Blob storage accounts with hot and cool tiers. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
 ## Next steps
-Learn how to use more premium cache features.
+Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)

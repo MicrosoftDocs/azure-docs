@@ -1,22 +1,6 @@
 - name: Secure Development Documentation
   href: index.yml
-
-- name: Sample apps
-  expanded: true
-  items:
-  - name: New to secure development
-    items:
-    - name: Web app in a Linux container
-      href: secure-web-app.md
-    - name: Web app with Azure Active Directory
-      href: secure-aad-app.md
-  - name: Industry compliant solutions
-    items:
-    - name: Payment card industry
-      href: secure-pci-web-app.md
-
 - name: Concepts
-  expanded: true
   items:
   - name: Best practices
     items:
@@ -28,21 +12,23 @@
       href: secure-develop.md
     - name: Deploy secure apps
       href: secure-deploy.md
-- name: Resources
   expanded: true
+- name: Resources
   items:
   - name: Microsoft Security Code Analysis
     items:
-      - name: Overview
-        href: security-code-analysis-overview.md
-      - name: Onboarding and installation
-        href: security-code-analysis-onboard.md
-      - name: Configuration
-        href: security-code-analysis-customize.md       
-      - name: FAQs
-        href: security-code-analysis-faq.md
-      - name: YAML Configuration
-        href: yaml-configuration.md
+    - name: Overview
+      href: security-code-analysis-overview.md
+    - name: Onboarding and installation
+      href: security-code-analysis-onboard.md
+    - name: Configuration
+      href: security-code-analysis-customize.md
+    - name: FAQs
+      href: security-code-analysis-faq.md
+    - name: YAML Configuration
+      href: yaml-configuration.md
+    - name: Releases and roadmap
+      href: security-code-analysis-releases.md
   - name: Microsoft Threat Modeling tool
     displayName: stride
     href: threat-modeling-tool.md
@@ -56,18 +42,26 @@
     - name: Releases
       href: threat-modeling-tool-releases.md
       items:
-      - name: Threat Modeling Tool GA release 7.1.5091.2 - Sept. 12, 2018
+      - name: Threat Modeling Tool GA release 7.1.5091.2 - September 12 2018
         href: threat-modeling-tool-releases-71509112.md
-      - name: Threat Modeling Tool update release 7.1.51023.1 - Nov. 1, 2018
+      - name: Threat Modeling Tool update release 7.1.51023.1 - November 1 2018
         href: threat-modeling-tool-releases-71510231.md
-      - name: Threat Modeling Tool update release 7.1.60126.1 - Jan. 29, 2019
+      - name: Threat Modeling Tool update release 7.1.60126.1 - January 29 2019
         href: threat-modeling-tool-releases-71601261.md
-      - name: Threat Modeling Tool update release 7.1.60408.1 - April 9, 2019
+      - name: Threat Modeling Tool update release 7.1.60408.1 - April 9 2019
         href: threat-modeling-tool-releases-71604081.md
-      - name: Threat Modeling Tool update release 7.1.60702.1 - 7/02/2019
+      - name: Threat Modeling Tool update release 7.1.60702.1 - July 2 2019
         href: threat-modeling-tool-releases-71607021.md
-      - name: Threat Modeling Tool update release 7.1.61015.1 - 10/16/2019
+      - name: Threat Modeling Tool update release 7.1.61015.1 - October 16 2019
         href: threat-modeling-tool-releases-71610151.md
+      - name: Threat Modeling Tool update release 7.3.00206.1 - February 11 2020
+        href: threat-modeling-tool-releases-73002061.md
+      - name: Threat Modeling Tool update release 7.3.00316.1 - March 22 2020
+        href: threat-modeling-tool-releases-73003161.md
+      - name: Threat Modeling Tool update release 7.3.00714.2 - July 14 2020
+        href: threat-modeling-tool-releases-73007142.md
+      - name: Threat Modeling Tool update release 7.3.00729.1 - July 29 2020
+        href: threat-modeling-tool-releases-73007291.md
     - name: Mitigations
       href: threat-modeling-tool-mitigations.md
       items:
@@ -91,3 +85,4 @@
         href: threat-modeling-tool-sensitive-data.md
       - name: Session management
         href: threat-modeling-tool-session-management.md
+  expanded: true

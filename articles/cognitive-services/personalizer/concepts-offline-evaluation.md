@@ -3,13 +3,11 @@ title: Use the Offline Evaluation method - Personalizer
 titleSuffix: Azure Cognitive Services
 description: This article will explain how to use offline evaluation to measure effectiveness of your app and analyze your learning loop.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.author: diberry
+ms.date: 02/20/2020
 ---
 
 # Offline evaluation
@@ -44,6 +42,16 @@ The following are important considerations for the representative offline evalua
 Personalizer can use the offline evaluation process to discover a more optimal learning policy automatically.
 
 After performing the offline evaluation, you can see the comparative effectiveness of Personalizer with that new policy compared to the current online policy. You can then apply that learning policy to make it effective immediately in Personalizer, by downloading it and uploading it in the Models and Policy panel. You can also download it for future analysis or use.
+
+Current policies included in the evaluation:
+
+| Learning settings | Purpose|
+|--|--|
+|**Online Policy**| The current Learning Policy used in Personalizer |
+|**Baseline**|The application's default (as determined by the first Action sent in Rank calls)|
+|**Random Policy**|An imaginary Rank behavior that always returns random choice of Actions from the supplied ones.|
+|**Custom Policies**|Additional Learning Policies uploaded when starting the evaluation.|
+|**Optimized Policy**|If the evaluation was started with the option to discover an optimized policy, it will also be compared, and you will be able to download it or make it the online learning policy, replacing the current one.|
 
 ## Understanding the relevance of offline evaluation results
 
@@ -87,7 +95,7 @@ We recommend looking at feature evaluations and asking:
 
 * What other, additional, features could your application or system provide along the lines of those that are more effective?
 * What features can be removed due to low effectiveness? Low effectiveness features add _noise_ into the machine learning.
-* Are there any features that are accidentally included? Examples of these are: personally identifiable information (PII), duplicate IDs, etc.
+* Are there any features that are accidentally included? Examples of these are: user identifiable information, duplicate IDs, etc.
 * Are there any undesirable features that shouldn't be used to personalize due to regulatory or responsible use considerations? Are there features that could proxy (that is, closely mirror or correlate with) undesirable features?
 
 

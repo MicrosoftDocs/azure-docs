@@ -4,7 +4,7 @@ description: Learn how to build an end-to-end solution with Azure IoT Central an
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
-ms.topic: overview
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ---
@@ -30,5 +30,5 @@ The below integration processes can be easily implemented based on a pure config
 
 ## Next steps
 * Learn more about [IoT Central government templates](./overview-iot-central-government.md)
-* Learn more about [IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-* Learn more about [Dynamics 365 Field Services](https://docs.microsoft.com/dynamics365/field-service/cfs-iot-overview)
+* Learn more about [IoT Central](../core/overview-iot-central.md)
+* Learn more about [Dynamics 365 Field Services](/dynamics365/field-service/cfs-iot-overview)

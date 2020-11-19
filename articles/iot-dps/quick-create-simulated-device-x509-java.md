@@ -1,5 +1,5 @@
 ---
-title: Provision simulated X.509 device to Azure IoT Hub using Java
+title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using Java
 description: Azure Quickstart - Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service (DPS).This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
@@ -8,21 +8,23 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: java
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
 # Quickstart: Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+In this quickstart, you create a simulated X.509 device on a Windows computer. You use device sample Java code to connect this simulated device with your IoT hub using an individual enrollment with the Device Provisioning Service (DPS).
 
-If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+## Prerequisites
 
-The Azure IoT Device Provisioning Service supports two types of enrollments:
-- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
-
-This article will demonstrate individual enrollments.
+- Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
+- Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks).
+- [Maven](https://maven.apache.org/install.html).
+- [Git](https://git-scm.com/download/).
 
 ## Prepare the environment 
 
@@ -59,6 +61,12 @@ In this section you, will use a self-signed X.509 certificate, it is important t
 
 You will use sample code from the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
 
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article demonstrates individual enrollments.
 
 1. Using the command prompt from previous steps, navigate to the `target` folder, then execute the .jar file created in the previous step.
 

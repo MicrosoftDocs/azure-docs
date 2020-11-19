@@ -1,207 +1,156 @@
 ---
 title: Create template - Visual Studio Code
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
-author: mumian
-ms.date: 03/04/2019
+author: neilpeterson
+ms.date: 08/09/2020
 ms.topic: quickstart
-ms.author: jgao
+ms.author: nepeters
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
 ---
 
-# Quickstart: Create Azure Resource Manager templates by using Visual Studio Code
+# Quickstart: Create Azure Resource Manager templates with Visual Studio Code
 
-Learn how to use Visual Studio code and the Azure Resource Manager Tools extension to create and edit Azure Resource Manager templates. You can create Resource Manager templates in Visual Studio Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates. In this quickstart, you use the extension to create an Azure Resource Manager template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, completions, and parameter file support.
 
-In this quickstart, you deploy a storage account:
-
-![resource manager template quickstart visual studio code diagram](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
+To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](/cli/azure/?view=azure-cli-latest) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Prerequisites
+## Create an ARM template
 
-To complete this article, you need:
+Create and open with Visual Studio Code a new file named *azuredeploy.json*. Enter `arm` into the code editor, which initiates Azure Resource Manager snippets for scaffolding out an ARM template.
 
-- [Visual Studio Code](https://code.visualstudio.com/).
-- Resource Manager Tools extension. To install, use these steps:
+Select `arm!` to create a template scoped for an Azure resource group deployment.
 
-    1. Open Visual Studio Code.
-    2. Press **CTRL+SHIFT+X** to open the Extensions pane
-    3. Search for **Azure Resource Manager Tools**, and then select **Install**.
-    4. Select **Reload** to finish the extension installation.
+![Image showing Azure Resource Manager scaffolding snippets](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
-## Open a Quickstart template
+This snippet creates the basic building blocks for an ARM template.
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for Resource Manager templates.
+![Image showing a fully scaffolded ARM template](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
+Notice that the Visual Studio Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The extension includes a language server specific to ARM templates which provides ARM template-specific validation, completion, and other language services.
 
-1. From Visual Studio Code, select **File**>**Open File**.
-2. In **File name**, paste the following URL:
+![Image showing Azure Resource Manager as the Visual Studio Code language mode](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
-    ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
-    ```
+## Add an Azure resource
 
-3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
+The extension includes snippets for many Azure resources. These snippets can be used to easily add resources to your template deployment.
 
-## Edit the template
+Place the cursor in the template **resources** block, type in `storage`, and select the *arm-storage* snippet.
 
-To experience how to edit a template using Visual Studio Code, you add one more element into the `outputs` section to show the storage URI.
+![Image showing a resource being added to the ARM template](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
-1. Add one more output to the exported template:
+This action adds a storage resource to the template.
 
-    ```json
-    "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-    }
-    ```
+![Image showing an Azure Storage resource in an ARM template](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-    When you are done, the outputs section looks like:
+The **tab** key can be used to tab through configurable properties on the storage account.
 
-    ```json
-    "outputs": {
-      "storageAccountName": {
-        "type": "string",
-        "value": "[variables('storageAccountName')]"
-      },
-      "storageUri": {
-        "type": "string",
-        "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-      }
-    }
-    ```
+![Image showing how the tab key can be used to navigate through resource configuration](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-    If you copied and pasted the code inside Visual Studio Code, try to retype the **value** element to experience the IntelliSense capability of the Resource Manager Tools extension.
+## Completion and validation
 
-    ![Resource Manager template visual studio code IntelliSense](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action. 
 
-2. Select **File**>**Save** to save the file.
+First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` is not a valid value.
+
+![Image showing an invalid storage configuration](./media/quickstart-create-templates-use-visual-studio-code/7.png)
+
+To use the completion capabilities, remove `megaStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space`. This action presents a completion list of valid values.
+
+![Image showing extension auto-completion](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+
+## Add template parameters
+
+Now create and use a parameter to specify the storage account name.
+
+Place your cursor in the parameters block, add a carriage return, type `"`, and then select the `new-parameter` snippet. This action adds a generic parameter to the template.
+
+![Image showing a parameter being added to the ARM template](./media/quickstart-create-templates-use-visual-studio-code/9.png)
+
+Update the name of the parameter to `storageAccountName` and the description to `Storage Account Name`.
+
+![Image showing the completed parameter in an ARM template](./media/quickstart-create-templates-use-visual-studio-code/10.png)
+
+Azure storage account names have a minimum length of 3 characters and a maximum of 24. Add both `minLength` and `maxLength` to the parameter and provide appropriate values.
+
+![Image showing minLength and maxLength being added to an ARM template parameter](./media/quickstart-create-templates-use-visual-studio-code/11.png)
+
+Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM template functions. Select *parameters* from the list. 
+
+![Image showing auto-completion when using parameters in ARM template resources](./media/quickstart-create-templates-use-visual-studio-code/12.png)
+
+Entering a single quote `'` inside of the round brackets produces a list of all parameters defined in the template, in this case, *storageAccountName*. Select the parameter.
+
+![Image showing completed parameter in an ARM template resource](./media/quickstart-create-templates-use-visual-studio-code/13.png)
+
+## Create a parameter file
+
+An ARM template parameter file allows you to store environment-specific parameter values and pass these values in as a group at deployment time. For example, you may have a parameter file with values specific to a test environment and another for a production environment.
+
+The extension makes it easy to create a parameter file from your existing templates. To do so, right-click on the template in the code editor and select `Select/Create Parameter File`.
+
+![Image showing the right-click process for creating a parameter file from an ARM template](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+
+Select `New` > `All Parameters` > Select a name and location for the parameter file.
+
+![Image showing the name and save file dialog when creating a parameters file from an ARM template](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+
+This action creates a new parameter file and maps it with the template from which it was created. You can see and modify the current template/parameter file mapping in the Visual Studio Code status bar while the template is selected.
+
+![Image showing the template/parameter file mapping in the Visual Studio Code status bar.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+
+Now that the parameter file has been mapped to the template, the extension validates both the template and parameter file together. To see this validation in practice, add a two-character value to the `storageAccountName` parameter in the parameter file and save the file.
+
+![Image showing an invalidated template due to parameter file issue](./media/quickstart-create-templates-use-visual-studio-code/17.png)
+
+Navigate back to the ARM template and notice that an error has been raised indicating that the value does not meet the parameter criteria.
+
+![Image showing a valid ARM template](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+
+Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
 
 ## Deploy the template
 
-There are many methods for deploying templates. Azure Cloud shell is used in this quickstart. The cloud shell supports both Azure CLI and Azure PowerShell. Use the tab selector to choose between CLI and PowerShell.
+Open the integrated Visual Studio Code terminal using the `ctrl` + ```` ` ```` key combination and use either the Azure CLI or Azure PowerShell module to deploy the template.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+# [CLI](#tab/CLI)
 
-1. Sign in to the [Azure Cloud shell](https://shell.azure.com)
+```azurecli
+az group create --name arm-vscode --location eastus
 
-2. Choose your preferred environment by selecting either **PowerShell** or **Bash**(CLI) on the upper left corner.  Restarting the shell is required when you switch.
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```
 
-    # [CLI](#tab/CLI)
+# [PowerShell](#tab/PowerShell)
 
-    ![Azure portal Cloud shell CLI](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+```azurepowershell
+New-AzResourceGroup -Name arm-vscode -Location eastus
 
-    # [PowerShell](#tab/PowerShell)
-
-    ![Azure portal Cloud shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
-
-    ---
-
-3. Select **Upload/download files**, and then select **Upload**.
-
-    # [CLI](#tab/CLI)
-
-    ![Azure portal Cloud shell upload file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-
-    # [PowerShell](#tab/PowerShell)
-
-    ![Azure portal Cloud shell upload file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
-
-    ---
-
-    Select the file you saved in the previous section. The default name is **azuredeploy.json**. The template file must be accessible from the shell.
-
-    You can optionally use the **ls** command and the **cat** command to verify the file is uploaded successfully.
-
-    # [CLI](#tab/CLI)
-
-    ![Azure portal Cloud shell list file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-
-    # [PowerShell](#tab/PowerShell)
-
-    ![Azure portal Cloud shell list file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
-
-    ---
-4. From the Cloud shell, run the following commands. Select the tab to show the PowerShell code or the CLI code.
-
-    # [CLI](#tab/CLI)
-    ```azurecli
-    echo "Enter the Resource Group name:" &&
-    read resourceGroupName &&
-    echo "Enter the location (i.e. centralus):" &&
-    read location &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
-    ```
-
-    # [PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
-    ```
-
-    ---
-
-    Update the template file name if you save the file to a name other than **azuredeploy.json**.
-
-    The following screenshot shows a sample deployment:
-
-    # [CLI](#tab/CLI)
-
-    ![Azure portal Cloud shell deploy template](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
-
-    # [PowerShell](#tab/PowerShell)
-
-    ![Azure portal Cloud shell deploy template](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
-
-    ---
-
-    The storage account name and the storage URL in the outputs section are highlighted on the screenshot. You need the storage account name in the next step.
-
-5. Run the following CLI or PowerShell command to list the newly created storage account:
-
-    # [CLI](#tab/CLI)
-    ```azurecli
-    echo "Enter the Resource Group name:" &&
-    read resourceGroupName &&
-    echo "Enter the Storage Account name:" &&
-    read storageAccountName &&
-    az storage account show --resource-group $resourceGroupName --name $storageAccountName
-    ```
-
-    # [PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-    ```
-
-    ---
-
-To learn more about using Azure storage accounts, see [Quickstart: Upload, download, and list blobs using the Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md).
+New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy.parameters.json
+```
+---
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+When the Azure resources are no longer needed, use the Azure CLI or Azure PowerShell module to delete the quickstart resource group.
 
-1. From the Azure portal, select **Resource group** from the left menu.
-2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
-4. Select **Delete resource group** from the top menu.
+# [CLI](#tab/CLI)
+
+```azurecli
+az group delete --name arm-vscode
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name arm-vscode
+```
+---
 
 ## Next steps
-
-The main focus of this quickstart is to use Visual Studio Code to edit an existing template from Azure Quickstart templates. You also learned how to deploy the template using either CLI or PowerShell from the Azure Cloud shell. The templates from Azure Quickstart templates might not give you everything you need. To learn more about template development, see our new beginner tutorial series:
 
 > [!div class="nextstepaction"]
 > [Beginner tutorials](./template-tutorial-create-first-template.md)

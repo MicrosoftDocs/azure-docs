@@ -3,13 +3,13 @@ title: Run Azure Container Instances - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Deploy the text analytics containers to the Azure Container Instance, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: dapine
+ms.date: 07/07/2020
+ms.author: aahi
 ---
 
 # Deploy a Text Analytics container to Azure Container Instances
@@ -18,7 +18,7 @@ Learn how to deploy the Cognitive Services [Text Analytics][install-and-run-cont
 
 ## Prerequisites
 
-* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -36,12 +36,16 @@ Learn how to deploy the Cognitive Services [Text Analytics][install-and-run-cont
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
+#### [Text Analytics for health](#tab/health)
+
+[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
+
 ***
 
 ## Next steps 
 
 * Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
-* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use the [Text Analytics Connected Service](../index.yml)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

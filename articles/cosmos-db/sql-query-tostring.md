@@ -3,12 +3,15 @@ title: ToString in Azure Cosmos DB query language
 description: Learn about SQL system function ToString in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # ToString (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string representation of scalar expression. 
   
 ## Syntax
@@ -88,6 +91,10 @@ Here is the result set.
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
 ``` 
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

@@ -22,7 +22,7 @@ The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino comp
 
 To complete the steps in this tutorial, first do the following tasks:
 
-* Prepare your DevKit by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Prepare your DevKit by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 ## Open sample project
 
@@ -122,6 +122,5 @@ If you run into any problems, refer to [the IoT DevKit FAQs](https://microsoft.g
 
 Now that you've learned how to connect a DevKit device to your Remote Monitoring solution accelerator, here are some suggested next steps:
 
-* [Azure IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-accelerators/)
+* [Azure IoT solution accelerators overview](./index.yml)
 * [Customize the UI](iot-accelerators-remote-monitoring-customize.md)
-* [Connect IoT DevKit to your Azure IoT Central application](../iot-central/core/howto-connect-devkit.md)

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ---
 
 # Configure a connection from an Azure Cognitive Search indexer to SQL Server on an Azure VM
@@ -35,21 +35,21 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
    * In regedit, browse to this registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
      
      The `[MSSQL13.MSSQLSERVER]` part varies based on version and instance name. 
-   * Set the value of the **Certificate** key to the **thumbprint** of the SSL certificate you imported to the VM.
+   * Set the value of the **Certificate** key to the **thumbprint** of the TLS/SSL certificate you imported to the VM.
      
      There are several ways to get the thumbprint, some better than others. If you copy it from the **Certificates** snap-in in MMC, you will probably pick up an invisible leading character [as described in this support article](https://support.microsoft.com/kb/2023869/), which results in an error when you attempt a connection. Several workarounds exist for correcting this problem. The easiest is to backspace over and then retype the first character of the thumbprint to remove the leading character in the key value field in regedit. Alternatively, you can use a different tool to copy the thumbprint.
 
 3. Grant permissions to the service account. 
    
-    Make sure the SQL Server service account is granted appropriate permission on the private key of the SSL certificate. If you overlook this step, SQL Server will not start. You can use the **Certificates** snap-in or **CertUtils** for this task.
+    Make sure the SQL Server service account is granted appropriate permission on the private key of the TLS/SSL certificate. If you overlook this step, SQL Server will not start. You can use the **Certificates** snap-in or **CertUtils** for this task.
     
 4. Restart the SQL Server service.
 
 ## Configure SQL Server connectivity in the VM
 After you set up the encrypted connection required by Azure Cognitive Search, there are additional configuration steps intrinsic to SQL Server on Azure VMs. If you haven't done so already , the next step is to finish configuration using either one of these articles:
 
-* For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
+* For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
+* For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 
 In particular, review the section in each article for "connecting over the internet".
 
@@ -59,21 +59,21 @@ It is not unusual to configure the NSG and corresponding Azure endpoint or Acces
 The links below provide instructions on NSG configuration for VM deployments. Use these instructions to ACL an Azure Cognitive Search endpoint based on its IP address.
 
 > [!NOTE]
-> For background, see [What is a Network Security Group?](../virtual-network/security-overview.md)
+> For background, see [What is a Network Security Group?](../virtual-network/network-security-groups-overview.md)
 > 
 > 
 
 * For a **Resource Manager** VM, see [How to create NSGs for ARM deployments](../virtual-network/tutorial-filter-network-traffic.md). 
-* For a **Classic** VM, see [How to create NSGs for Classic deployments](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+* For a **Classic** VM, see [How to create NSGs for Classic deployments](/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps).
 
 IP addressing can pose a few challenges that are easily overcome if you are aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.
 
 #### Restrict access to the Azure Cognitive Search
-We strongly recommend that you restrict the access to the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) in the ACL instead of making your SQL Azure VMs open to all connection requests.
+We strongly recommend that you restrict the access to the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) in the ACL instead of making your SQL Azure VMs open to all connection requests.
 
 You can find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service.
 
-You can find out the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) by either using [Downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
+You can find out the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) by either using [Downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
 
 #### Managing IP address fluctuations
 If your search service has only one search unit (that is, one replica and one partition), the IP address will change during routine service restarts, invalidating an existing ACL with your search service's IP address.
@@ -89,4 +89,3 @@ If you are using the Azure portal to create an indexer, Azure Cognitive Search p
 
 ## Next steps
 With configuration out of the way, you can now specify a SQL Server on Azure VM as the data source for an Azure Cognitive Search indexer. See [Connecting Azure SQL Database to Azure Cognitive Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) for more information.
-

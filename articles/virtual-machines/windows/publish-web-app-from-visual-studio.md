@@ -1,16 +1,13 @@
 ---
 title: Publish a Web App to an Azure VM from Visual Studio
 description: Publish an ASP.NET Web Application to an Azure Virtual Machine from Visual Studio
-services: virtual-machines-windows
 author: ghogen
 manager: jillfra
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ---
@@ -21,7 +18,7 @@ This document describes how to publish an ASP.NET web application to an Azure vi
 ## Prerequisites
 In order to use Visual Studio to publish an ASP.NET project to an Azure VM, the VM must be correctly set up.
 
-- Machine must be configured to run an ASP.NET web application and have WebDeploy installed.
+- The machine must be configured to run an ASP.NET web application and have WebDeploy installed. For more information, see [Create an ASP.NET VM with WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - The VM must have a DNS name configured. For more information, see [Create a fully qualified domain name in the Azure portal for a Windows VM](portal-create-fqdn.md).
 
@@ -108,7 +105,7 @@ Your settings should look something like this:
 
 ### Set up CI/CD for automated deployment to Azure VM
 
-To set up a continuous delivery pipeline with Azure Pipelines, see [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+To set up a continuous delivery pipeline with Azure Pipelines, see [Deploy to a Windows Virtual Machine](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

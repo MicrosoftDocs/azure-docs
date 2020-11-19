@@ -26,7 +26,7 @@ To start troubleshooting, collect the activity logs to identify the error associ
 
 [View deployment operations](../../azure-resource-manager/templates/deployment-history.md)
 
-[View activity logs to manage Azure resources](../../resource-group-audit.md)
+[View activity logs to manage Azure resources](../../azure-resource-manager/management/view-activity-logs.md)
 
 ## Issue: Error when starting a stopped VM
 You try to start a stopped VM but get an allocation failure.
@@ -58,5 +58,4 @@ The request to resize the VM has to be attempted at the original cluster that ho
   3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
 
 ## Next steps
-If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../windows/troubleshoot-deployment-new-vm.md).
-
+If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](./troubleshoot-deployment-new-vm-windows.md).

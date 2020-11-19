@@ -1,5 +1,5 @@
 ---
-title: Architectural concepts in Azure IoT Central - Energy | Microsoft Docs
+title: Architectural concepts in Azure IoT Central - smart meter | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central energy app template
 author: op-ravi
 ms.author: omravi
@@ -23,7 +23,7 @@ This architecture consists of the following components. Some solutions may not r
 
 ## Smart meters and connectivity 
 
-A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either using gateways or other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either using gateways or other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md). 
 
 
 ## IoT Central platform
@@ -37,4 +37,4 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 ## Next steps
 
 * Now that you've learned about the architecture, [create smart meter app for free](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
+* To learn more about IoT Central, see [IoT Central overview](../index.yml)

@@ -4,9 +4,10 @@ description: Learn how to restrict web traffic with a Web Application Firewall o
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to 
+ms.custom: devx-track-azurecli
 ---
 
 # Enable Web Application Firewall using the Azure CLI
@@ -15,27 +16,26 @@ You can restrict traffic on an application gateway with a [Web Application Firew
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set
-> * Create a storage account and configure diagnostics
+ * Set up the network
+ * Create an application gateway with WAF enabled
+ * Create a virtual machine scale set
+ * Create a storage account and configure diagnostics
 
 ![Web Application Firewall example](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
 A resource group is a logical container into which Azure resources are deployed and managed. Create an Azure resource group named *myResourceGroupAG* with [az group create](/cli/azure/group#az-group-create).
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
@@ -147,7 +147,7 @@ az storage account create \
   --resource-group myResourceGroupAG \
   --location eastus \
   --sku Standard_LRS \
-  --encryption blob
+  --encryption-services blob
 ```
 
 ### Configure diagnostics
@@ -168,7 +168,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy the public IP address, and then paste it into the address bar of your browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

@@ -1,9 +1,11 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
+ms.custom: devx-track-js
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
@@ -26,7 +28,7 @@ These modules are required to construct the HTTP request, and create a unique id
 
 ## Set the subscription key and endpoint
 
-This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
+This sample will try to read your Translator subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
@@ -71,7 +73,7 @@ The easiest way to authenticate a request is to pass in your subscription key as
 
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request headers.
 
-For more information, see [Authentication](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+For more information, see [Authentication](../reference/v3-0-reference.md#authentication).
 
 ## Make the request and print the response
 
@@ -88,7 +90,7 @@ request(options, function(err, res, body){
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 node detect.js
@@ -99,7 +101,7 @@ node detect.js
 After you run the sample, you should see the following printed to terminal:
 
 > [!NOTE]
-> Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+> Find the country/region abbreviation in this [list of languages](../language-support.md).
 
 ```json
 [
@@ -132,7 +134,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

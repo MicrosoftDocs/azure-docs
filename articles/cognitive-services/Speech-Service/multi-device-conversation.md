@@ -1,16 +1,17 @@
 ---
-title: What is Multi-device Conversation (Preview) - Speech Service
+title: Multi-device Conversation (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description:
 services: cognitive-services
-author: ralphe
-manager: cpoulain
+author: trevorbye
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/15/2020
-ms.author: ralphe
+ms.date: 03/11/2020
+ms.author: trbye
 ---
+
 # What is Multi-device Conversation (Preview)?
 
 **Multi-device conversation** makes it easy to create a speech or text conversation between multiple clients and coordinate the messages sent between them.
@@ -54,11 +55,11 @@ Real-time transcription and translation can help make conversations accessible f
 You can also provide captions for presentations and lectures both on-screen and on the audience members' own devices. After the audience joins with the conversation code, they can see the transcript in their preferred language, on their own device.
 
 > [!NOTE]
-> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://www.microsoft.com/download/details.aspx?id=55024).
+> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## How it works
 
-All clients will use the Speech SDK to create or join a conversation. The Speech SDK interacts with the multi-device conversation service, which manages the lifetime of a conversation, including the list of participants, each client’s chosen language(s), and messages sent.  
+All clients will use the Speech SDK to create or join a conversation. The Speech SDK interacts with the multi-device conversation service, which manages the lifetime of a conversation, including the list of participants, each client's chosen language(s), and messages sent.  
 
 Each client can send audio or instant messages. The service will use speech recognition to convert audio into text, and send instant messages as-is. If clients choose different languages, then the service will translate all messages to the specified language(s) of each client.
 
@@ -69,8 +70,8 @@ Each client can send audio or instant messages. The service will use speech reco
 A **conversation** is a session that one user starts for the other participating users to join. All clients connect to the conversation using the five-letter **conversation code**.
 
 Each conversation creates metadata that includes:
--	Timestamps of when the conversation started and ended
--	List of all participants in the conversation, which includes each user's chosen nickname and primary language for speech or text input.
+-    Timestamps of when the conversation started and ended
+-    List of all participants in the conversation, which includes each user's chosen nickname and primary language for speech or text input.
 
 
 There are two types of users in a conversation:  **host** and **participant**.

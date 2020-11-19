@@ -1,8 +1,8 @@
 ---
 title: Use hunting bookmarks for data investigations in Azure Sentinel 
 description: This article describes how to use the Azure Sentinel hunting bookmarks to keep track of data.
-author: cabailey
-ms.author: cabailey
+author: yelevin
+ms.author: yelevin
 manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
@@ -128,7 +128,7 @@ You can also view the raw bookmark data for all bookmarks by selecting **Bookmar
 > [!div class="mx-imgBorder"]
 > ![Bookmark Logs](./media/bookmarks/bookmark-logs.png)
 
-This view shows all your bookmarks with associated metadata. You can use [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) queries to filter down to the latest version of the specific bookmark you are looking for.
+This view shows all your bookmarks with associated metadata. You can use [Keyword Query Language](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) queries to filter down to the latest version of the specific bookmark you are looking for.
 
 > [!NOTE]
 > There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab.

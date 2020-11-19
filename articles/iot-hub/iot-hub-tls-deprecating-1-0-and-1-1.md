@@ -1,33 +1,42 @@
 ---
-title: Deprecating TLS 1.0 and 1.1 in IoT Hub and Device Provisioning Service (DPS) | Microsoft Docs
-description: Guidelines regarding deprecation of TLS 1.0 and 1.1 and supported ciphers in IoT Hub and DPS.
-author: rezasherafat
-ms.author: rezas
+title: Deprecating TLS 1.0 and 1.1 in IoT Hub | Microsoft Docs
+description: Guidelines regarding deprecation of TLS 1.0 and 1.1 and supported ciphers in IoT Hub.
+author: jlian
+ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 04/14/2020
 ---
 
-# Deprecation of TLS 1.0 and 1.1 in IoT Hub and Device Provisioning Service
+# Deprecation of TLS 1.0 and 1.1 in IoT Hub
 
-To provide best-in-class encryption, IoT Hub and Device Provisioning Service (DPS) are moving to Transport Layer Security (TLS) 1.2 as the encryption mechanism of choice for IoT devices and services. As such, legacy support for TLS 1.0 and TLS 1.1 as well as several non-recommended legacy ciphers will be deprecated in **July 1, 2020**.
+To provide best-in-class encryption, IoT Hub is moving to Transport Layer Security (TLS) 1.2 as the encryption mechanism of choice for IoT devices and services. 
 
+## Timeline
 
-## Impact
-Based on customers' specific circumstances and configurations, deprecation of TLS 1.0 and 1.1 and non-recommended legacy ciphers can be an impactful change for your IoT devices and services communicating with IoT Hub or DPS. In some cases, devices and services that are incompatible with these changes will not be able to connect to the IoT Hub or DPS after the aforementioned cut-off date.
+IoT Hub will continue to support TLS 1.0/1.1 until further notice. However, we recommend that all customers migrate to TLS 1.2 as soon as possible.
 
+## Deprecating TLS 1.1 ciphers
 
-## Supported ciphers
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SH`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-Only the following ciphers are allowed during TLS handshake:
+## Deprecating TLS 1.0 ciphers
 
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
+## TLS 1.2 cipher suites
 
+See [IoT Hub TLS 1.2 cipher suites](iot-hub-tls-support.md#cipher-suites).
+ 
 ## Customer feedback
 
 While the TLS 1.2 enforcement is an industry-wide best-in-class encryption choice and will be enabled as planned, we still would like to hear from customers regarding their specific deployments and difficulties adopting TLS 1.2. For this purpose, you can send your comments to [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

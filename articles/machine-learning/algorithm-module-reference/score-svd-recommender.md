@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 08/10/2020
 ---
 # Score SVD Recommender
 
-This article describes how to use the Score SVD Recommender module in Azure Machine Learning designer (preview). Use this module to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
+This article describes how to use the Score SVD Recommender module in Azure Machine Learning designer. Use this module to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
 
 The SVD recommender can generate two different kinds of predictions:
 
@@ -48,7 +48,7 @@ When you predict ratings, the model calculates how a user will react to a partic
 
    The dataset can contain an optional third column of ratings for the user-item pair in the first and second columns. But the third column will be ignored during prediction.
 
-4. Run the pipeline.
+4. Submit the pipeline.
 
 ### Results for rating predictions 
 
@@ -86,7 +86,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
 5. **Maximum number of items to recommend to a user**: Enter the number of items to return for each user. By default, the module recommends five items.
 
-6. **Minimum size of the recommendation pool per user**: Enter a value that indicates how many prior recommendations are required. By default, this parameter is set to **2**, meaning at least two other users have recommended the item.
+6. **Minimum size of the recommendation pool per user**: Enter a value that indicates how many prior recommendations are required. By default, this parameter is set to 2, meaning at least two other users have recommended the item.
 
    Use this option only if you're scoring in evaluation mode. The option is not available if you select **From All Items** or **From Unrated Items (to suggest new items to users)**.
 
@@ -94,7 +94,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
     To apply this filter, connect the original training dataset to the input port.
 
-8. Run the pipeline.
+8. Submit the pipeline.
 
 ### Results of item recommendation
 
@@ -102,9 +102,6 @@ The scored dataset returned by Score SVD Recommender lists the recommended items
 
 - The first column contains the user identifiers.
 - A number of additional columns are generated, depending on the value that you set for **Maximum number of items to recommend to a user**. Each column contains a recommended item (by identifier). The recommendations are ordered by user-item affinity. The item with highest affinity is put in column **Item 1**.
-
-> [!WARNING]
-> You can't evaluate this scored dataset by using the [Evaluate Recommender](evaluate-recommender.md) module.
 
 
 ##  Technical notes

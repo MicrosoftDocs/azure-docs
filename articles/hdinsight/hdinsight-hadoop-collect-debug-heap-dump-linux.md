@@ -46,7 +46,7 @@ Map and reduce processes are slightly different, as these operations are a child
 
 The following option enables heap dumps when an OutOfMemoryError occurs:
 
-    -XX:+HeapDumpOnOutOfMemoryError
+`-XX:+HeapDumpOnOutOfMemoryError`
 
 The **+** indicates that this option is enabled. The default is disabled.
 
@@ -57,7 +57,7 @@ The **+** indicates that this option is enabled. The default is disabled.
 
 The default location for the dump file is the current working directory. You can control where the file is stored using the following option:
 
-    -XX:HeapDumpPath=/path
+`-XX:HeapDumpPath=/path`
 
 For example, using `-XX:HeapDumpPath=/tmp` causes the dumps to be stored in the /tmp directory.
 
@@ -65,7 +65,7 @@ For example, using `-XX:HeapDumpPath=/tmp` causes the dumps to be stored in the 
 
 You can also trigger a script when an **OutOfMemoryError** occurs. For example, triggering a notification so you know that the error has occurred. Use the following option to trigger a script on an __OutOfMemoryError__:
 
-    -XX:OnOutOfMemoryError=/path/to/script
+`-XX:OnOutOfMemoryError=/path/to/script`
 
 > [!NOTE]  
 > Since Apache Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.

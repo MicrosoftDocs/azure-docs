@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Knowledge Anywhere LMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Knowledge Anywhere LMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 5cfa07b1-a792-4f0a-8c6f-1a13142193d9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Knowledge Anywhere LMS with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Knowledge Anywhere LMS with Azur
 * Enable your users to be automatically signed-in to Knowledge Anywhere LMS with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -116,19 +109,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. Select on the **Site** tab.
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![Screenshot shows the Site tab.](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. Select on the **SAML Settings** tab.
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![Screenshot shows the Knowledge anywhere page with SAML Settings selected.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. Click on the **Add New**.
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![Screenshot shows the Add New button in Service Provider Settings.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. On the **Add/Update SAML Settings** page, perform the following steps:
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![Screenshot shows the Add/Update SAML Settings page where you can make the changes described here.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Enter the IDP Name as per your organization. For ex:- `Azure`.
 
@@ -184,12 +177,12 @@ In this section, a user called B. Simon is created in Knowledge Anywhere LMS. Kn
 
 ### Test SSO
 
-When you select the Knowledge Anywhere LMS tile in the Access Panel, you should be automatically signed in to the Knowledge Anywhere LMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Knowledge Anywhere LMS tile in the Access Panel, you should be automatically signed in to the Knowledge Anywhere LMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

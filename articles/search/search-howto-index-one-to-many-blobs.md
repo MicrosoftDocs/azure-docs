@@ -1,7 +1,7 @@
 ---
 title: Index blobs containing multiple documents  
 titleSuffix: Azure Cognitive Search
-description: Crawl Azure blobs for text content using the Azure Congitive Search Blob indexer, where each blob might yield one or more search index documents.
+description: Crawl Azure blobs for text content using the Azure Cognitive Search Blob indexer, where each blob might yield one or more search index documents.
 
 manager: nitinme
 author: arv100kri
@@ -9,7 +9,7 @@ ms.author: arjagann
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/11/2020
 ---
 
 # Indexing blobs to produce multiple search documents
@@ -38,25 +38,31 @@ And your blob container has blobs with the following structure:
 
 _Blob1.json_
 
+```json
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
+```
 
 _Blob2.json_
 
+```json
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
+```
 
 When you create an indexer and set the **parsingMode** to `jsonLines` - without specifying any explicit field mappings for the key field, the following mapping will be applied implicitly
-    
+
+```http
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
         "targetFieldName": "id",
         "mappingFunction": { "name" : "base64Encode" }
     }
+```
 
-This setup will result in the Azure Cognitive Search index containing the following information (base64 encoded id shortened for brevity)
+This setup will result in the Azure Cognitive Search index containing the following information (base64 encoded ID shortened for brevity)
 
-| id | temperature | pressure | timestamp |
+| ID | temperature | pressure | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -69,22 +75,28 @@ Assuming the same index definition as the previous example, say your blob contai
 
 _Blob1.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
+```
 
 _Blob2.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
+```
 
 When you create an indexer with `delimitedText` **parsingMode**, it might feel natural to set up a field-mapping function to the key field as follows:
 
+```http
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
+```
 
 However, this mapping will _not_ result in 4 documents showing up in the index, because the `recordid` field is not unique _across blobs_. Hence, we recommend you to make use of the implicit field mapping applied from the `AzureSearch_DocumentKey` property to the key index field for "one-to-many" parsing modes.
 
@@ -92,6 +104,9 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 
 > [!NOTE]
 > The approach used by `AzureSearch_DocumentKey` of ensuring uniqueness per extracted entity is subject to change and therefore you should not rely on it's value for your application's needs.
+
+## Help us make Azure Cognitive Search better
+If you have feature requests or ideas for improvements, provide your input on [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). If you need help using the existing feature, post your question on [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## Next steps
 

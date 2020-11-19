@@ -5,7 +5,7 @@ services: private-link
 author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 
@@ -13,9 +13,10 @@ ms.author: allensu
 # Create a Private Link service using Azure CLI
 This article shows you how to create a Private Link service in Azure using Azure CLI.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you decide to install and use Azure CLI locally instead, this quickstart requires you to use the latest Azure CLI version. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+- This article requires the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
 ## Create a Private Link service
 ### Create a resource group
 
@@ -74,7 +75,7 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
 ```
 ### Create backend servers
 
-In this example, we don't cover virtual machine creation. You can follow the steps in [Create an internal load balancer to load balance VMs using Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md#create-servers-for-the-backend-address-pool) to create two virtual machines to be used as backend servers for the load balancer. 
+In this example, we don't cover virtual machine creation. You can follow the steps in [Quickstart: Create an internal load balancer to load balance VMs using Azure CLI](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) to create two virtual machines to be used as backend servers for the load balancer. 
 
 
 ### Disable Private Link service network policies on subnet 
@@ -84,7 +85,7 @@ Private Link service requires an IP from any subnet of your choice  within a vir
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## Create a Private Link service  
+## Create a Private Link service using Standard Load Balancer 
  
 Create a Private Link service using Standard Load Balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create). This example creates a Private Link service named *myPLS* using Standard Load Balancer named *myLoadBalancer* in resource group named *myResourceGroup*. 
  

@@ -3,20 +3,22 @@ title: Encode custom transform using Media Services v3 REST - Azure | Microsoft 
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: how-to
 ms.custom: 
-ms.date: 05/14/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # How to encode with a custom transform - REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-tutorial-with-rest.md#create-a-transform) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 
@@ -29,7 +31,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites 
 
-- [Create a Media Services account](create-account-cli-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./create-account-howto.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).<br/>Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## Define a custom preset
@@ -130,7 +132,7 @@ In this example, we first add an AacAudio layer for the audio encoding and two H
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use [Get](https://docs.microsoft.com/rest/api/media/transforms/get) to check if one already exists. If the Transform exists, reuse it. 
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use [Get](/rest/api/media/transforms/get) to check if one already exists. If the Transform exists, reuse it. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
 
@@ -148,4 +150,4 @@ For Media Services to apply the Transform to the specified video or audio, you n
 
 ## Next steps
 
-See [other REST operations](https://docs.microsoft.com/rest/api/media/)
+See [other REST operations](/rest/api/media/)

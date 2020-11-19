@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ---
 
-## Access the Media Services API
+### Access the Media Services API
 
 To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You should use the returned values to configure your application.
 

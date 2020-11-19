@@ -1,7 +1,6 @@
 ---
 title: Targeting monitoring solutions in Azure Monitor | Microsoft Docs
 description: Targeting monitoring solutions allows you to limit monitoring solutions to a specific set of agents.  This article describes how to create a scope configuration and apply it to a solution.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -56,7 +55,7 @@ Apply a scope configuration using the following process.
 Following are the criteria for agents and solutions that can't be used with solution targeting.
 
 - Solution targeting only applies to solutions that deploy to agents.
-- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](solutions-creating.md).
+- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](./solutions.md).
 - You can only filter out agents that connect directly to Azure Monitor.  Solutions will automatically deploy to any agents that are part of a connected Operations Manager management group whether or not they're included in a scope configuration.
 
 ### Exceptions

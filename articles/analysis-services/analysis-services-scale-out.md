@@ -4,7 +4,7 @@ description: Replicate Azure Analysis Services servers with scale-out. Client qu
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -37,15 +37,17 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 
 * When automating both processing *and* scale-out operations, it's important to first process data on the primary server, then perform a synchronization, and then perform the scale-out operation. This sequence assures minimal impact on QPU and memory resources.
 
+* During scale-out operations, all servers in the query pool, including the primary server, are temporarily offline.
+
 * Synchronization is allowed even when there are no replicas in the query pool. If you are scaling out from zero to one or more replicas with new data from a processing operation on the primary server, perform the synchronization first with no replicas in the query pool, and then scale-out. Synchronizing before scaling out avoids redundant hydration of the newly added replicas.
 
-* When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell command that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool. To determine if a model database exists on replicas in the query pool but not on the primary server, ensure the **Separate the processing server from querying pool** setting is to **Yes**. Then use SSMS to connect to the primary server using the `:rw` qualifier to see if the database exists. Then connect to replicas in the query pool by connecting without the `:rw` qualifier to see if the same database also exists. If the database exists on replicas in the query pool but not on the primary server, run a sync operation.   
+* When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation by using the [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell command that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool. To determine if a model database exists on replicas in the query pool but not on the primary server, ensure the **Separate the processing server from querying pool** setting is to **Yes**. Then use SSMS to connect to the primary server using the `:rw` qualifier to see if the database exists. Then connect to replicas in the query pool by connecting without the `:rw` qualifier to see if the same database also exists. If the database exists on replicas in the query pool but not on the primary server, run a sync operation.   
 
-* When renaming a database on the primary server, there's an additional step necessary to ensure the database is properly synchronized to any replicas. After renaming, perform a synchronization by using the [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) command specifying the `-Database` parameter with the old database name. This synchronization removes the database and files with the old name from any replicas. Then perform another synchronization specifying the `-Database` parameter with the new database name. The second synchronization copies the newly named database to the second set of files and hydrates any replicas. These synchronizations cannot be performed by using the Synchronize model command in the portal.
+* When renaming a database on the primary server, there's an additional step necessary to ensure the database is properly synchronized to any replicas. After renaming, perform a synchronization by using the [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) command specifying the `-Database` parameter with the old database name. This synchronization removes the database and files with the old name from any replicas. Then perform another synchronization specifying the `-Database` parameter with the new database name. The second synchronization copies the newly named database to the second set of files and hydrates any replicas. These synchronizations cannot be performed by using the Synchronize model command in the portal.
 
 ### Synchronization mode
 
-By default, query replicas are rehydrated in full, not incrementally. Rehydration happens in stages. They are detached and attached two at a time (assuming there are at least three replicas) to ensure at least one replica is kept online for queries at any given time. In some cases, clients may need to reconnect to one of the online replicas while this process is taking place. By using the (in Preview) **ReplicaSyncMode** setting, you can now specify query replica synchronization occurs in parallel. Parallel synchronization provides the following benefits: 
+By default, query replicas are rehydrated in full, not incrementally. Rehydration happens in stages. They are detached and attached two at a time (assuming there are at least three replicas) to ensure at least one replica is kept online for queries at any given time. In some cases, clients may need to reconnect to one of the online replicas while this process is taking place. By using the **ReplicaSyncMode** setting, you can now specify query replica synchronization occurs in parallel. Parallel synchronization provides the following benefits: 
 
 - Significant reduction in synchronization time. 
 - Data across replicas are more likely to be consistent during the synchronization process. 
@@ -69,19 +71,23 @@ For maximum performance for both processing and query operations, you can choose
 
 ## Monitor QPU usage
 
-To determine if scale-out for your server is necessary, monitor your server in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
+To determine if scale-out for your server is necessary, [monitor your server](analysis-services-monitor.md) in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
 
 Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with the query pool. 
 
 ![Query scale out metrics](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### To configure QPU by ServerResourceType
+**To configure QPU by ServerResourceType**
+
 1. In a Metrics line chart, click **Add metric**. 
 2. In **RESOURCE**, select your server, then in **METRIC NAMESPACE**, select **Analysis Services standard metrics**, then in **METRIC**, select **QPU**, and then in **AGGREGATION**, select **Avg**. 
 3. Click **Apply Splitting**. 
 4. In **VALUES**, select **ServerResourceType**.  
 
-To learn more, see [Monitor server metrics](analysis-services-monitor.md).
+### Detailed diagnostic logging
+
+Use Azure Monitor Logs for more detailed diagnostics of scaled out server resources. With logs, you can use Log Analytics queries to break out QPU and memory by server and replica. To learn more, see example queries in [Analysis Services diagnostics logging](analysis-services-logging.md#example-queries).
+
 
 ## Configure scale-out
 
@@ -105,7 +111,7 @@ Synchronization operations must be performed manually or by using the REST API.
 
 In **Overview** > model > **Synchronize model**.
 
-![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Synchronize icon](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### REST API
 
@@ -139,11 +145,11 @@ Return status codes:
 
 Before using PowerShell, [install or update the latest Azure PowerShell module](/powershell/azure/install-az-ps). 
 
-To run sync, use [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
+To run sync, use [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
-To set the number of query replicas, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-ReadonlyReplicaCount` parameter.
+To set the number of query replicas, use [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-ReadonlyReplicaCount` parameter.
 
-To separate the processing server from the query pool, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-DefaultConnectionMode` parameter to use `Readonly`.
+To separate the processing server from the query pool, use [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-DefaultConnectionMode` parameter to use `Readonly`.
 
 To learn more, see [Using a service principal with the Az.AnalysisServices module](analysis-services-service-principal.md#azmodule).
 
@@ -172,4 +178,4 @@ You can change the pricing tier on a server with multiple replicas. The same pri
 ## Related information
 
 [Monitor server metrics](analysis-services-monitor.md)   
-[Manage Azure Analysis Services](analysis-services-manage.md) 
+[Manage Azure Analysis Services](analysis-services-manage.md)

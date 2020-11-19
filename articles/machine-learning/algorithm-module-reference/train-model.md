@@ -13,7 +13,7 @@ ms.date: 02/11/2020
 ---
 # Train Model module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
 
@@ -57,9 +57,9 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!TIP] 
     > If you have trouble using the Column Selector, see the article [Select Columns in Dataset](./select-columns-in-dataset.md) for tips. It describes some common scenarios and tips for using the **WITH RULES** and **BY NAME** options.
   
-5.  Run the pipeline. If you have a lot of data, this can take a while.
+5.  Submit the pipeline. If you have a lot of data, this can take a while.
 
-## <a name="bkmk_results"></a> Results
+## Results
 
 After the model is trained:
 

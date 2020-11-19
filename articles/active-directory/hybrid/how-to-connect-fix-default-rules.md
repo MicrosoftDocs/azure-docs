@@ -8,7 +8,7 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -68,7 +68,7 @@ If the extensions don't work for you, try adding two new sync rules, described i
 #### Add an inbound sync rule
 An inbound sync rule means the source for the attribute is a connector space, and the target is the metaverse. For example, to have a new attribute flow from on-premises Active Directory to Azure Active Directory, create a new inbound sync rule. Launch the **Synchronization Rules Editor**, select **Inbound** as the direction, and select **Add new rule**. 
 
- !Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Screenshot that shows the "Synchronization Rules Editor" with "Inbound" and "Add new rule" selected.](media/how-to-connect-fix-default-rules/default3a.png)
 
 Follow your own naming convention to name the rule. Here, we use **Custom In from AD - User**. This means that the rule is a custom rule, and is an inbound rule from the Active Directory connector space to the metaverse.   
 
@@ -84,7 +84,7 @@ Keep **Scoping filter** empty. This means that the rule applies to all the objec
 
 Keep **Join rules** empty. This means this rule uses the join condition defined in the standard default rule. This is another reason not to disable or delete the standard default rule. If there is no join condition, the attribute won't flow. 
 
-Add appropriate transformations for your attribute. You can assign a constant, to make a constant value flow to your target attribute. You can use direct mapping between the source or target attribute. Or, you can use an expression for the attribute. Here are various [expression functions](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) you can use.
+Add appropriate transformations for your attribute. You can assign a constant, to make a constant value flow to your target attribute. You can use direct mapping between the source or target attribute. Or, you can use an expression for the attribute. Here are various [expression functions](./reference-connect-sync-functions-reference.md) you can use.
 
 #### Add an outbound sync rule
 To link the attribute to the target directory, you need to create an outbound rule. This means that the source is the metaverse, and the target is the connected system. To create an outbound rule, launch the **Synchronization Rules Editor**, change the **Direction** to **Outbound**, and select **Add new rule**. 
@@ -97,7 +97,7 @@ As with the inbound rule, you can use your own naming convention to name the rul
 
 Keep **Scoping filter** and **Join rules** empty. Fill in the transformation as constant, direct, or expression. 
 
-You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+You now know how to make a new attribute for a user object flow from Active Directory to Azure Active Directory. You can use these steps to map any attribute from any object to source and target. For more information, see [Creating custom sync rules](how-to-connect-create-custom-sync-rule.md) and [Prepare to provision users](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### Override the value of an existing attribute
 You might want to override the value of an attribute that has already been mapped. For example, if you always want to set a null value to an attribute in Azure AD, simply create an inbound rule only. Make the constant value, `AuthoritativeNull`, flow to the target attribute. 
@@ -171,7 +171,7 @@ Select **Preview…**
 
 In the Preview window, select **Generate Preview** and **Import Attribute Flow** in the left pane.
 
-![Preview](media/how-to-connect-fix-default-rules/default14.png)
+![Screenshot that shows the "Preview" window with "Import Attribute Flow" and "Generate Preview" selected.](media/how-to-connect-fix-default-rules/default14.png)
  
 Here, notice that the newly added rule is run on the object, and has set the `cloudFiltered` attribute to true.
 
@@ -189,6 +189,3 @@ To fix your rules to change them back to default settings, delete the modified r
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
-
-
-

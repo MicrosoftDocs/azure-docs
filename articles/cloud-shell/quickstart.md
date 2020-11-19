@@ -21,7 +21,7 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 
 ## Start Cloud Shell
 1. Launch **Cloud Shell** from the top navigation of the Azure portal. <br>
-![](media/quickstart/shell-icon.png)
+![Screenshot showing how to start Azure Cloud Shell in the Azure portal.](media/quickstart/shell-icon.png)
 
 2. Select a subscription to create a storage account and Microsoft Azure Files share.
 3. Select "Create storage"
@@ -31,7 +31,7 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 
 ### Select the Bash environment
 Check that the environment drop-down from the left-hand side of shell window says `Bash`. <br>
-![](media/quickstart/env-selector.png)
+![Screenshot showing how to select the Bash environment for the Azure Cloud Shell.](media/quickstart/env-selector.png)
 
 ### Set your subscription
 1. List subscriptions you have access to.
@@ -39,10 +39,11 @@ Check that the environment drop-down from the left-hand side of shell window say
    az account list
    ```
 
-2. Set your preferred subscription: <br>
-```azurecli-interactive
-az account set --subscription 'my-subscription-name'
-```
+2. Set your preferred subscription:
+
+   ```azurecli-interactive
+   az account set --subscription 'my-subscription-name'
+   ```
 
 > [!TIP]
 > Your subscription will be remembered for future sessions using `/home/<user>/.azure/azureProfile.json`.
@@ -68,7 +69,7 @@ Your username on this VM will be your username used in Cloud Shell ($User@Azure:
 ### SSH into your Linux VM
 1. Search for your VM name in the Azure portal search bar.
 2. Click "Connect" to get your VM name and public IP address. <br>
-   ![](media/quickstart/sshcmd-copy.png)
+   ![Screenshot showing how to connect to a Linux V M using S S H.](media/quickstart/sshcmd-copy.png)
 
 3. SSH into your VM with the `ssh` cmd.
    ```
@@ -76,11 +77,11 @@ Your username on this VM will be your username used in Cloud Shell ($User@Azure:
    ```
 
 Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. <br>
-![](media/quickstart/ubuntu-welcome.png)
+![Screenshot showing the Ubuntu initialization and welcome prompt after you establish an S S H connection.](media/quickstart/ubuntu-welcome.png)
 
 ## Cleaning up 
 1. Exit your ssh session.
-   ```azurecli-interactive
+   ```
    exit
    ```
 
@@ -91,5 +92,5 @@ Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. 
 
 ## Next steps
 [Learn about persisting files for Bash in Cloud Shell](persisting-shell-storage.md) <br>
-[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure CLI](/cli/azure/) <br>
 [Learn about Azure Files storage](../storage/files/storage-files-introduction.md) <br>

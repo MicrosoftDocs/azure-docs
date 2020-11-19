@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with AirWatch | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AirWatch.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate AirWatch with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate AirWatch with Azure Active Direc
 * Enable your users to be automatically signed-in to AirWatch with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -129,7 +122,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click the **User** tab, in the **Base DN** textbox, type your domain name, and then click **Save**.
 
-   ![User](./media/airwatch-tutorial/ic791922.png "User")
+   ![Screenshot that highlights the Base DN text box.](./media/airwatch-tutorial/ic791922.png "User")
 
 1. Click the **Server** tab.
 
@@ -137,7 +130,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Perform the following steps on the **LDAP** section:
 
-	![Upload](./media/airwatch-tutorial/ic791924.png "LDAP")   
+	![Screenshot that shows the changes you need to make to the LDAP section.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. As **Directory Type**, select **None**.
 
@@ -227,7 +220,7 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
 
 3. In the **Users** menu, click **List View**, and then click **Add > Add User**.
   
-   ![Add User](./media/airwatch-tutorial/ic791930.png "Add User")
+   ![Screenshot that highlights the Add and Add User buttons.](./media/airwatch-tutorial/ic791930.png "Add User")
 
 4. On the **Add / Edit User** dialog, perform the following steps:
 
@@ -242,12 +235,12 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
 
 ### Test SSO
 
-When you select the AirWatch tile in the Access Panel, you should be automatically signed in to the AirWatch for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the AirWatch tile in the Access Panel, you should be automatically signed in to the AirWatch for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

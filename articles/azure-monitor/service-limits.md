@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor service limits | Microsoft Docs
 description: Lists limits in different areas of Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -21,6 +20,10 @@ This article lists limits in different areas of Azure Monitor.
 ## Action groups
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+## Autoscale
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
 
 ## Log queries and language
 

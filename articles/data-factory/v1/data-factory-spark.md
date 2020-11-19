@@ -21,8 +21,8 @@ ms.date: 01/10/2018
 > * [MapReduce activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (classic) Batch Execution activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (classic) Update Resource activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored procedure activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md)
 > * [.NET custom activity](data-factory-use-custom-activities.md)
@@ -242,7 +242,7 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 ### Verify the results
 
-1. Start the Jupyter Notebook for your HDInsight Spark cluster by going to [this website](https://CLUSTERNAME.azurehdinsight.net/jupyter). You also can open a cluster dashboard for your HDInsight Spark cluster, and then start the Jupyter Notebook.
+1. Start the Jupyter Notebook for your HDInsight Spark cluster by going to `https://CLUSTERNAME.azurehdinsight.net/jupyter`. You also can open a cluster dashboard for your HDInsight Spark cluster, and then start the Jupyter Notebook.
 
 1. Select **New** > **PySpark** to start a new notebook.
 

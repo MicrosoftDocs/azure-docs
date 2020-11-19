@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with InsideView | Microsoft Docs'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and InsideView.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c489a7ab-6b1f-4efb-8a66-8bc13bca78c3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with InsideView
 
@@ -27,7 +21,7 @@ This integration provides these benefits:
 * You can enable your users to be automatically signed in to InsideView (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -139,13 +133,13 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
 	1. Open the Raw certificate that you downloaded from the Azure portal. Copy the contents of the certificate to the clipboard, and then paste the contents into the **STS Certificate** box.
 
-	1. In the **Crm User Id Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+	1. In the **Crm User Id Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-	1. In the **Crm Email Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+	1. In the **Crm Email Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-	1. In the **Crm First Name Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+	1. In the **Crm First Name Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-	1. In the **Crm lastName Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
+	1. In the **Crm lastName Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.  
 
 	1. Select **Save**.
 
@@ -212,12 +206,12 @@ To create users or contacts in InsideView, contact the [InsideView support team]
 
 Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the InsideView tile in the Access Panel, you should be automatically signed in to the InsideView instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the InsideView tile in the Access Panel, you should be automatically signed in to the InsideView instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -1,11 +1,7 @@
 ---
 title: Azure Monitor Application Insights Dependency Data Model
 description: Application Insights data model for dependency telemetry
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/17/2017
 
 ms.reviewer: sergkanz
@@ -13,7 +9,7 @@ ms.reviewer: sergkanz
 
 # Dependency telemetry: Application Insights data model
 
-Dependency Telemetry (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents an interaction of the monitored component with a remote component such as SQL or an HTTP endpoint.
+Dependency Telemetry (in [Application Insights](./app-insights-overview.md)) represents an interaction of the monitored component with a remote component such as SQL or an HTTP endpoint.
 
 ## Name
 
@@ -21,7 +17,7 @@ Name of the command initiated with this dependency call. Low cardinality value. 
 
 ## ID
 
-Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](../../azure-monitor/app/correlation.md) page.
+Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](./correlation.md) page.
 
 ## Data
 
@@ -33,7 +29,7 @@ Dependency type name. Low cardinality value for logical grouping of dependencies
 
 ## Target
 
-Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](../../azure-monitor/app/correlation.md) page.
+Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](./correlation.md) page.
 
 ## Duration
 
@@ -58,8 +54,9 @@ Indication of successful or unsuccessful call.
 
 ## Next steps
 
-- Set up dependency tracking for [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Set up dependency tracking for [Java](../../azure-monitor/app/java-agent.md).
-- [Write custom dependency telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Set up dependency tracking for [.NET](./asp-net-dependencies.md).
+- Set up dependency tracking for [Java](./java-agent.md).
+- [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.
+- Check out [platforms](./platforms.md) supported by Application Insights.
+

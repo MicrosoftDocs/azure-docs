@@ -1,22 +1,22 @@
 ---
-title: "Powershell: Migrate SQL Server to SQL Database" 
+title: "PowerShell: Migrate SQL Server to SQL Database" 
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from on-premises SQL Server to Azure SQL Database by using Azure PowerShell with the Azure Database Migration Service.
+description: Learn to migrate a database from SQL Server to Azure SQL Database by using Azure PowerShell with the Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: article
-ms.date: 01/08/2020
+ms.custom: "seo-lt-2019, devx-track-azurepowershell"
+ms.topic: how-to
+ms.date: 02/20/2020
 ---
 
-# Migrate SQL Server on-premises to Azure SQL Database using Azure PowerShell
+# Migrate a SQL Server database to Azure SQL Database using Azure PowerShell
 
-In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to an Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to Azure SQL Database by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
+In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to Azure SQL Database by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -33,11 +33,11 @@ To complete these steps, you need:
 * [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition)
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * To have created a Microsoft Azure Virtual Network by using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * To have completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-* To download and install the Az.DataMigration module from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1); be sure to open the powershell command window using run as an Administrator.
+* To download and install the Az.DataMigration module from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1); be sure to open the PowerShell command window using run as an Administrator.
 * To ensure that the credentials used to connect to source SQL Server instance has the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
 * To ensure that the credentials used to connect to target Azure SQL DB instance has the CONTROL DATABASE permission on the target Azure SQL Database databases.
 * An Azure subscription. If you don't have one, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -92,7 +92,7 @@ After creating an Azure Database Migration Service instance, create a migration 
 You can create a Database Connection Info object by using the `New-AzDmsConnInfo` cmdlet. This cmdlet expects the following parameters:
 
 * *ServerType*. The type of database connection requested, for example, SQL, Oracle, or MySQL. Use SQL for SQL Server and Azure SQL.
-* *DataSource*. The name or IP of a SQL Server instance or Azure SQL database.
+* *DataSource*. The name or IP of a SQL Server instance or Azure SQL Database.
 * *AuthType*. The authentication type for connection, which can be either SqlAuthentication or WindowsAuthentication.
 * *TrustServerCertificate* parameter sets a value that indicates whether the channel is encrypted while bypassing walking the certificate chain to validate trust. Value can be true or false.
 
@@ -105,7 +105,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for an Azure SQL database server called SQLAzureTarget using sql authentication:
+The next example shows creation of Connection Info for a server called SQLAzureTarget using sql authentication:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `

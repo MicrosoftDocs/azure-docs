@@ -2,18 +2,11 @@
 title: 'Make the D: drive of a VM a data disk '
 description: 'Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive.'
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 
@@ -23,7 +16,7 @@ If your application needs to use the D drive to store data, follow these instruc
 
 If you resize or **Stop (Deallocate)** a virtual machine, this may trigger placement of the virtual machine to a new hypervisor. A planned or unplanned maintenance event may also trigger this placement. In this scenario, the temporary disk will be reassigned to the first available drive letter. If you have an application that specifically requires the D: drive, you need to follow these steps to temporarily move the pagefile.sys, attach a new data disk and assign it the letter D and then move the pagefile.sys back to the temporary drive. Once complete, Azure will not take back the D: if the VM moves to a different hypervisor.
 
-For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ## Attach the data disk
 First, you'll need to attach the data disk to the virtual machine. To do this using the portal, see [How to attach a managed data disk in the Azure portal](attach-managed-disk-portal.md).
@@ -61,4 +54,3 @@ First, you'll need to attach the data disk to the virtual machine. To do this us
 
 ## Next steps
 * You can increase the storage available to your virtual machine by [attaching an additional data disk](attach-managed-disk-portal.md).
-

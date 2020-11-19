@@ -3,20 +3,20 @@ title: "Quickstart: Create an instance using the Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 01/08/2020
+ms.date: 07/21/2020
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
 
-In this Quickstart, you use the Azure portal to create an instance of Azure Database Migration Service.  After you create the service, you can use it to migrate data from SQL Server on-premises to Azure SQL Database.
+In this Quickstart, you use the Azure portal to create an instance of Azure Database Migration Service.  After you create the instance, you can use it to migrate data from SQL Server to Azure SQL Database.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -25,6 +25,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal.
 
 The default view is your service dashboard.
+
+> [!NOTE]
+> You can create up to 10 instances of DMS per subscription. If you require a greater number of instances, please create a support ticket.
 
 ## Register the resource provider
 
@@ -73,4 +76,4 @@ You can clean up the resources created in this Quickstart by deleting the [Azure
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate SQL Server on-premises to Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
+> [Migrate SQL Server to Azure SQL Database](tutorial-sql-server-to-azure-sql.md)

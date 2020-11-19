@@ -5,17 +5,18 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
+
 
 ---
 # Manage Apache Hadoop clusters in HDInsight by using .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+Learn how to manage HDInsight clusters using [HDInsight.NET SDK](/dotnet/api/overview/azure/hdinsight).
 
 **Prerequisites**
 
@@ -171,7 +172,7 @@ The impact of changing the number of data nodes for each type of cluster support
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
@@ -264,7 +265,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
 
-* [HDInsight .NET SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK reference documentation](/dotnet/api/overview/azure/hdinsight)
 * [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]

@@ -5,7 +5,7 @@ services: cdn
 author: SyntaxC4
 ms.service: azure-cdn
 ms.topic: include
-ms.date: 05/24/2018
+ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
 ---
@@ -14,32 +14,26 @@ ms.custom: include file
 
 A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 
-1. In the Azure portal, in the upper left, select **Create a resource**. 
-    
-    The **New** pane appears.
+1. In the Azure portal, select **Create a resource** (on the upper left). The **New** pane appears.
    
-2. Select **Web + Mobile**, then select **CDN**.
+1. Search for and select **CDN**, then select **Create**:
    
     ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
 
     The **CDN profile** pane appears.
 
-3. For the CDN profile settings, use the values specified in the following table:
+1. Enter the following values:
    
     | Setting  | Value |
     | -------- | ----- |
-    | **Name** | Enter *my-cdn-profile-123* for your profile name. This name must be globally unique; if it is already in use, you may enter a different name. |
+    | **Name** | Enter *cdn-profile-123* for your profile name. This name must be globally unique; if it's already in use, enter a different name. |
     | **Subscription** | Select an Azure subscription from the drop-down list. |
-    | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. | 
-    | **Resource group location** | Select **Central US** from the drop-down list. |
-    | **Pricing tier** | Select **Standard Verizon** from the drop-down list. |
+    | **Resource group** | Select **Create new** and enter *CDNQuickstart-rg* for your resource group name, or select **Use existing** and choose *CDNQuickstart-rg* if you have the group already. | 
+    | **Resource group location** | Select a location near you from the drop-down list. |
+    | **Pricing tier** | Select a **Standard Akamai** option from the drop-down list. (Deployment time for the Akamai tier is about one minute. The Microsoft tier takes about 10 minutes and the Verizon tiers take about 90 minutes.) |
     | **Create a new CDN endpoint now** | Leave unselected. |  
    
     ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
 
-4. Select **Pin to dashboard** to save the profile to your dashboard after it is created.
-    
-5. Select **Create** to create the profile. 
-
-    For **Azure CDN Standard from Microsoft** profiles only, profile completion usually completes in two hours. 
+1. Select **Create** to create the profile.
 

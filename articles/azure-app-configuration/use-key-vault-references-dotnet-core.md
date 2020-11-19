@@ -12,9 +12,9 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 01/21/2020
+ms.date: 04/08/2020
 ms.author: lcozzens
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
 ---
@@ -48,7 +48,7 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 1. Select the **Create a resource** option in the upper-left corner of the Azure portal:
 
-    ![Output after key vault creation is complete](./media/quickstarts/search-services.png)
+    ![Screenshot shows the Create a resource option in the Azure portal.](./media/quickstarts/search-services.png)
 1. In the search box, enter **Key Vault**.
 1. From the results list, select **Key vaults** on the left.
 1. In **Key vaults**, select **Add**.
@@ -62,7 +62,7 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 At this point, your Azure account is the only one authorized to access this new vault.
 
-![Output after key vault creation is complete](./media/quickstarts/vault-properties.png)
+![Screenshot shows your key vault.](./media/quickstarts/vault-properties.png)
 
 ## Add a secret to Key Vault
 
@@ -107,7 +107,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -158,14 +157,12 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. Add a reference to the required NuGet packages by running the following command:
 
     ```dotnetcli
-    dotnet add package Microsoft.Azure.KeyVault
     dotnet add package Azure.Identity
     ```
 
 1. Open *Program.cs*, and add references to the following required packages:
 
     ```csharp
-    using Microsoft.Azure.KeyVault;
     using Azure.Identity;
     ```
 
@@ -242,13 +239,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. After the build is complete, use the following command to run the web app locally:
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 

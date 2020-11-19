@@ -3,8 +3,8 @@ title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 author: craigshoemaker
 
-ms.topic: tutorial
-ms.date: 12/12/2018
+ms.topic: article
+ms.date: 04/23/2020
 ms.author: cshoe
 ---
 
@@ -33,41 +33,47 @@ You use this request location in Postman along with the function's master key in
 
 ## Get the function's master key
 
-Navigate to your function in the Azure portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com), select **App Keys**, and then the `_master` key. 
 
-![Copy master key from Function Management screen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Locate the master key to copy." border="true":::
 
-After copying the master key, click on the function name to return to the code file window. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
+1. In the **Edit key** section, copy the key value to your clipboard, and then select **OK**.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copy the master key to the clipboard." border="true":::
+
+1. After copying the *_master* key, select **Code + Test**, and then select **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Screenshot that shows the 'Code + Test' page with a message from the logs displayed." border="true":::
 
 > [!CAUTION]  
-> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application.
+> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application. The key should only be sent to an HTTPS endpoint.
 
 ## Call the function
 
 Open Postman and follow these steps:
 
 1. Enter the **request location in the URL text box**.
-2. Ensure the HTTP method is set to **POST**.
-3. **Click** on the **Headers** tab.
-4. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
-5. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
+1. Ensure the HTTP method is set to **POST**.
+1. Select the **Headers** tab.
+1. Type **x-functions-key** as the first key and paste the master key (from the clipboard) as the value.
+1. Type **Content-Type** as the second key and type **application/json** as the value.
 
-    ![Postman headers settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Postman headers settings." border="true":::
 
-6. **Click** on the **Body** tab.
-7. Enter **{ "input": "test" }** as the body for the request.
+1. Select the **Body** tab.
+1. Type **{ "input": "test" }** as the body for the request.
 
-    ![Postman body settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
 
-8. Click **Send**.
+1. Select **Send**.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Send a request with Postman." border="true":::
 
-    ![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    Postman then reports a status of **202 Accepted**.
 
-Postman then reports a status of **202 Accepted**.
+1. Next, return to your function in the Azure portal. Review the logs and you'll see messages coming from the manual call to the function.
 
-Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages coming from the manual call to the function.
-
-![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
 
 ## Next steps
 

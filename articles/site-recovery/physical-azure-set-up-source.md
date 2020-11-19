@@ -33,7 +33,7 @@ The following table lists the minimum hardware, software, and network requiremen
 1. In the Azure portal, go to the **Recovery Services** vaults blade and select your vault.
 2. In the **Resource** menu of the vault, click **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
-    ![Choose goals](./media/physical-azure-set-up-source/choose-goals.png)
+    ![Screenshot that shows where to select the protection goal.](./media/physical-azure-set-up-source/choose-goals.png)
 3. In **Protection goal**, select **To Azure** and **Not virtualized/Other**, and then click **OK**.
 
     ![Choose goals](./media/physical-azure-set-up-source/physical-protection-goal.png)
@@ -42,7 +42,7 @@ The following table lists the minimum hardware, software, and network requiremen
 
 1. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
-   ![Set up source](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Screenshot that shows how to select the configuration server.](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
@@ -53,7 +53,7 @@ The following table lists the minimum hardware, software, and network requiremen
 #### Run Azure Site Recovery Unified Setup
 
 > [!TIP]
-> Configuration server registration fails if the time on your computer's system clock is more than five minutes off of local time. Synchronize your system clock with a [time server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
+> Configuration server registration fails if the time on your computer's system clock is more than five minutes off of local time. Synchronize your system clock with a [time server](/windows-server/networking/windows-time-service/windows-time-service-top) before starting the installation.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceChannel | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceChannel.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceChannel
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate ServiceChannel with Azure Active
 * Enable your users to be automatically signed-in to ServiceChannel with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -89,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel Client support team](https://servicechannel.zendesk.com/hc/en-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
+1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](../develop/active-directory-enterprise-app-role-management.md). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -141,14 +134,14 @@ Application supports Just in time user provisioning and after authentication use
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the ServiceChannel tile in the Access Panel, you should be automatically signed in to the ServiceChannel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the ServiceChannel tile in the Access Panel, you should be automatically signed in to the ServiceChannel for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try ServiceChannel with Azure AD](https://aad.portal.azure.com/)

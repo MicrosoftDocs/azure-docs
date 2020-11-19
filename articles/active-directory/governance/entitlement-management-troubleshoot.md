@@ -3,7 +3,7 @@ title: Troubleshoot entitlement management - Azure AD
 description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 10/26/2019
-ms.author: ajburnle
+ms.date: 06/17/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -43,9 +43,13 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * If there are users that have already been assigned to a resource that you want to manage with an access package, be sure that the users are assigned to the access package with an appropriate policy. For example, you might want to include a group in an access package that already has users in the group. If those users in the group require continued access, they must have an appropriate policy for the access packages so that they don't lose their access to the group. You can assign the access package by either asking the users to request the access package containing that resource, or by directly assigning them to the access package. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
 
-* When you remove a member of a team, they are removed from the Office 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* When you remove a member of a team, they are removed from the Microsoft 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](/microsoftteams/office-365-groups#group-membership).
 
-* Ensure your directory is not configured for multi-geo. Entitlement management currently does not support multi-geo locations for SharePoint Online. SharePoint Online sites must be in the default geo-location to be governed with entitlement management. For more information, see [Multi-Geo Capabilities in OneDrive and SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Ensure your directory is not configured for multi-geo. Entitlement management currently does not support multi-geo locations for SharePoint Online. SharePoint Online sites must be in the default geo-location to be governed with entitlement management. For more information, see [Multi-Geo Capabilities in OneDrive and SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+
+## Access packages
+
+* If you attempt to delete an access package or policy and see an error message that says there are active assignments, if you don't see any users with assignments, check to see whether any recently deleted users still have assignments. During the 30-day window after a user is deleted, the user account can be restored.   
 
 ## External users
 
@@ -63,13 +67,13 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * When a user who is not yet in your directory signs in to the My Access portal to request an access package, be sure they authenticate using their organizational account. The organizational account can be either an account in the resource directory, or in a directory that is included in one of the policies of the access package. If the user's account is not an organizational account, or the directory where they authenticate is not included in the policy, then the user will not see the access package. For more information, see [Request access to an access package](entitlement-management-request-access.md).
 
-* If a user is blocked from signing in to the resource directory, they will not be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Azure portal, click **Azure Active Directory**, click **Users**, click the user, and then click **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  You can also check if the user was blocked due to an [Identity Protection policy](../identity-protection/howto-unblock-user.md).
+* If a user is blocked from signing in to the resource directory, they will not be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Azure portal, click **Azure Active Directory**, click **Users**, click the user, and then click **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  You can also check if the user was blocked due to an [Identity Protection policy](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * In the My Access portal, if a user is both a requestor and an approver, they will not see their request for an access package on the **Approvals** page. This behavior is intentional - a user cannot approve their own request. Ensure that the access package they are requesting has additional approvers configured on the policy. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
 
 ### View a request's delivery errors
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -81,15 +85,23 @@ This article describes some items you should check to help you troubleshoot Azur
 
     If the request has any delivery errors, the request status will be **Undelivered** or **Partially delivered**.
 
-    If there are any delivery errors, in the request's detail pane, there will be a count of delivery errors.
+    If there are any delivery errors, a count of delivery errors will be displayed in the request's detail pane.
 
 1. Click the count to see all of the request's delivery errors.
 
 ### Reprocess a request
 
-If a request encounters an error, you can reprocess the request to try it again. You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
+If an error is met after triggering an access package reprocess request, you must wait while the system reprocesses the request. The system tries multiple times to reprocess for several hours, so you can't force reprocessing during this time. 
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week. The **reprocess** button would be grayed out otherwise.
+
+![Reprocess button grayed out](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
+
+- If the error is fixed during the trials window, the request status will change to **Delivering**. The request will reprocess without additional actions from the user.
+
+- If the error wasn't fixed during the trials window, the request status may be **Delivery failed** or **partially delivered**. You can then use the **reprocess** button. You'll have seven days to reprocess the request.
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -105,9 +117,9 @@ If a request encounters an error, you can reprocess the request to try it again.
 
 ### Cancel a pending request
 
-You can only cancel a pending request that has not yet been delivered or whose delivery has failed.
+You can only cancel a pending request that has not yet been delivered or whose delivery has failed.The **cancel** button would be grayed out otherwise.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -132,7 +144,7 @@ You can only cancel a pending request that has not yet been delivered or whose d
     | P1 | Specific users and groups in your directory OR Specific connected organizations |
     | P2 | All members in your directory (excluding guests) |
     | P3 | All users in your directory (including guests) OR Specific connected organizations |
-    | P4 | All connected organizations OR All users (all connected organizations + any new external users) |
+    | P4 | All configured connected organizations OR All users (all connected organizations + any new external users) |
     
     If any policy is in a higher priority category, the lower priority categories are ignored. For an example of how multiple policies with same priority are displayed to the requestor, see [Select a policy](entitlement-management-request-access.md#select-a-policy).
 

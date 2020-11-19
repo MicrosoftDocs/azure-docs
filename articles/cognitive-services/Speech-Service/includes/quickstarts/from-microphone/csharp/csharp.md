@@ -7,8 +7,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 11/07/2019
+ms.date: 04/02/2020
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 **Choose your target environment**

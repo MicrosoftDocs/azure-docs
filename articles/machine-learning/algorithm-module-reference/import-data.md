@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
+ms.date: 11/13/2020
 ---
 # Import Data module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to load data into a machine learning pipeline from existing cloud data services. 
 
@@ -39,26 +39,41 @@ After you define the data you want and connect to the source, **[Import Data](./
 
 If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md).
 
+> [!WARNING]
+> If your workspace is in a virtual network, you must configure your datastores to use the designer's data visualization features. For more information on how to use datastores and datasets in a virtual network, see [Use Azure Machine Learning studio in an Azure virtual network](../how-to-enable-studio-virtual-network.md).
+
+
 ## How to configure Import Data
 
 1. Add the **Import Data** module to your pipeline. You can find this module in the **Data Input and Output** category in the designer.
 
-1. Click **Launch Data Import Wizard** to configure the data source using a wizard.
-
-    The wizard gets the account name and credentials, and help you configure other options. If you are editing an existing configuration, it loads the current values first.
+1. Select the module to open the right pane.
 
 1. Select **Data source**, and choose the data source type. It could be HTTP or datastore.
 
     If you choose datastore, you can select existing datastores that already registered to your Azure Machine Learning workspace or create a new datastore. Then define the path of data to import in the datastore. You can easily browse the path by click **Browse Path**
-    ![import-data-path](media/module/import-data-path.png)
+    ![Screenshot shows the Browse path link which opens the Path selection dialog box.](media/module/import-data-path.png)
+
+    > [!NOTE]
+    > **Import Data** module is for **Tabular** data only.
+    > If you want to import multiple tabular data files one time, it requires following conditions, otherwise errors will occur:
+    > 1. To include all data files in the folder, you need to input `folder_name/**` for **Path**.
+    > 2. All data files must be encoded in unicode-8.
+    > 3. All data files must have the same column numbers and column names.
+    > 4. The result of importing multiple data files is concatenating all rows from multiple files in order.
 
 1. Select the preview schema to filter the columns you want to include. You can also define advanced settings like Delimiter in Parsing options.
 
     ![import-data-preview](media/module/import-data.png)
 
+1. The checkbox, **Regenerate output**, decides whether to execute the module to regenerate output at running time. 
+
+    It's by default unselected, which means if the module has been executed with the same parameters previously, the system will reuse the output from last run to reduce run time. 
+
+    If it is selected, the system will execute the module again to regenerate output. So select this option when underlying data in storage is updated, it can help to get the latest data.
 
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
     When Import Data loads the data into the designer, it infers the data type of each column based on the values it contains, either numerical or categorical.
 
@@ -68,9 +83,9 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
 ## Results
 
-When import completes, click the output dataset and select **Visualize** to see if the data was imported successfully.
+When import completes, right-click the output dataset and select **Visualize** to see if the data was imported successfully.
 
-If you want to save the data for reuse, rather than importing a new set of data each time the pipeline is run, select the **Register dataset** icon under the **Outputs** tab in the right panel of the module. Choose a name for the dataset. The saved dataset preserves the data at the time of saving, the dataset is not updated when the pipeline is rerun, even if the dataset in the pipeline changes. This can be useful for taking snapshots of data.
+If you want to save the data for reuse, rather than importing a new set of data each time the pipeline is run, select the **Register dataset** icon under the **Outputs+logs** tab in the right panel of the module. Choose a name for the dataset. The saved dataset preserves the data at the time of saving, the dataset is not updated when the pipeline is rerun, even if the dataset in the pipeline changes. This can be useful for taking snapshots of data.
 
 After importing the data, it might need some additional preparations for modeling and analysis:
 

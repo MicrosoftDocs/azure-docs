@@ -1,11 +1,8 @@
 ---
 title: How to integrate the common alert schema with Logic Apps
 description: Learn how to create a logic app that leverages the common alert schema to handle all your alerts.
-ms.service:  azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: ananthradhakrishnan
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/27/2019
 
 ---
@@ -16,19 +13,19 @@ This article shows you how to create a logic app that leverages the common alert
 
 ## Overview
 
-The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardized and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](alerts-common-schema-definitions.md#essentials), and also describes how you can handle [alert type](alerts-common-schema-definitions.md#alert-context) specific logic.
+The [common alert schema](./alerts-common-schema.md) provides a standardized and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](alerts-common-schema-definitions.md#essentials), and also describes how you can handle [alert type](alerts-common-schema-definitions.md#alert-context) specific logic.
 
 
 ## Prerequisites 
 
 This article assumes that the reader is familiar with 
-* Setting up alert rules ([metric](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [activity log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
-* Setting up [action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* Enabling the [common alert schema](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) from within action groups
+* Setting up alert rules ([metric](./alerts-metric.md), [log](./alerts-log.md), [activity log](./alerts-activity-log.md))
+* Setting up [action groups](./action-groups.md)
+* Enabling the [common alert schema](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) from within action groups
 
 ## Create a logic app leveraging the common alert schema
 
-1. Follow the [steps outlined to create your logic app](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
+1. Follow the [steps outlined to create your logic app](./action-groups-logic-app.md). 
 
 1.  Select the trigger: **When a HTTP request is received**.
 
@@ -129,13 +126,12 @@ This article assumes that the reader is familiar with
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     Learn more about [writing logic app expressions](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
+     Learn more about [writing logic app expressions](../../logic-apps/workflow-definition-language-functions-reference.md#logical-comparison-functions).
 
     
 
 
 ## Next steps
 
-* [Learn more about action groups](../../azure-monitor/platform/action-groups.md).
-* [Learn more about the common alert schema](https://aka.ms/commonAlertSchemaDocs).
-
+* [Learn more about action groups](./action-groups.md).
+* [Learn more about the common alert schema](./alerts-common-schema.md).

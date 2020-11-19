@@ -2,12 +2,12 @@
 title: Override HTTP behavior with Azure CDN - Verizon Premium rules engine
 description: The rules engine allows you to customize how HTTP requests are handled by Azure CDN from Verizon Premium, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers.
 services: cdn
-author: mdgattuso
+author: asudbring
 
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/31/2019
-ms.author: magattus
+ms.author: allensu
 
 ---
 
@@ -52,7 +52,7 @@ To access the rules engine, you must first select **Manage** from the top of the
     ![CDN new rule options](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
+   > The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule. For example, if you have a rule that allows access to a resource based on a request property and a rule that denies access to all requests, the second rule overrides the first one. Rules will override earlier rules only if they interact with the same properties.
    >
 
 3. Enter a name in the **Name / Description** textbox.

@@ -4,16 +4,15 @@ description: Learn about Azure SignalR Service internals, the architecture, the 
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Azure SignalR Service internals
 
-Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR as a preview feature.
+Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR by reimplementing ASP.NET SignalR's data protocol on top of the ASP.NET Core framework.
 
-> To support ASP.NET SignalR, Azure SignalR Service reimplements ASP.NET SignalR's data protocol on top of the ASP.NET Core framework
-
-You can easily migrate a local ASP.NET Core SignalR application to work with SignalR Service, with a few lines of code change.
+You can easily migrate a local ASP.NET Core SignalR application or ASP.NET SignalR application to work with SignalR Service, with a few lines of code change.
 
 The diagram below describes the typical architecture when you use the SignalR Service with your application server.
 
@@ -80,7 +79,9 @@ When a client is connected to the SignalR Service, service runtime will find a s
 
 At this point, the application server receives an event with information from the new client. A logical connection to the client is created in the application server. The data channel is established from client to application server, via SignalR Service.
 
-SignalR service transmits data from the client to the pairing application server. And data from the application server will be sent to the mapped clients.
+SignalR Service transmits data from the client to the pairing application server. And data from the application server will be sent to the mapped clients.
+
+SignalR Service does not save or store customer data, all customer data received is transmitted to target server or clients in real-time.
 
 As you can see, the Azure SignalR Service is essentially a logical transport layer between  application server and clients. All persistent connections are offloaded to SignalR Service.
 Application server only needs to handle the business logic in hub class, without worrying about client connections.

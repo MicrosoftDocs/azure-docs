@@ -8,6 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
+ms.custom:  [amqp, mqtt]
 ---
 
 # Understand the device model schema

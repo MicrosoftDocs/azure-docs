@@ -4,7 +4,7 @@ description: 'Tutorial: Prepare your environment for development and deployment 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -20,7 +20,7 @@ This article helps you prepare your environment for development and deployment. 
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
-We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), which is why we chose a [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) machine size.
+We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](../virtual-machines/windows/nested-virtualization.md), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
 
 The development VM will be set up with:
 
@@ -29,14 +29,14 @@ The development VM will be set up with:
 * [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop)
 * [Git for Windows](https://gitforwindows.org/)
 * [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [.Net Core SDK](https://dotnet.microsoft.com/)
+* [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
 * [VS Code Extensions](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
   * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 
@@ -46,7 +46,7 @@ It takes about 30 minutes to create and configure the virtual machine.
 
 1. Clone or download the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository to your local computer.
 
-1. Open Powershell as an administrator and navigate to the **\IoTEdgeAndMlSample\DevVM** directory located under the root directory where you downloaded the code. We will refer to the root directory for your source as `srcdir`.
+1. Open PowerShell as an administrator and navigate to the **\IoTEdgeAndMlSample\DevVM** directory located under the root directory where you downloaded the code. We will refer to the root directory for your source as `srcdir`.
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM
@@ -76,7 +76,7 @@ It takes about 30 minutes to create and configure the virtual machine.
 
    The script runs for several minutes as it executes the following steps:
 
-    1. Installs the [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Installs the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
     1. Prompts you to sign in to Azure.
     1. Confirms the information for the creation of your VM. Press **y** or **Enter** to continue.
     1. Creates the resource group if it does not exist.
@@ -171,7 +171,7 @@ The script takes about two minutes to run. Once complete, the script outputs the
 
 ## Review route to storage in IoT Hub
 
-As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a blob container in a storage account. Let’s use the Azure portal to review the route created by our script.
+As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a blob container in a storage account. Let's use the Azure portal to review the route created by our script.
 
 1. Open the [Azure portal](https://portal.azure.com) and go to the resource group you're using for this tutorial.
 
@@ -183,18 +183,19 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Expand the **Storage** section:
 
-   ![Verify turbofandevicestorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Verify turbofanDeviceStorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   We see **turbofandevicestorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
+   We see **turbofanDeviceStorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
 
    * It points to the blob storage container you created named `devicedata` as indicated by **Container name**.
    * Its **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
+   * Its **Status** should be healthy.
 
 1. Select the **Routes** tab.
 
 1. Select the route named **turbofanDeviceDataToStorage**.
 
-1. On the **Routes details** page, note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
+1. On the **Routes details** page, note that the route's endpoint is the **turbofanDeviceStorage** endpoint.
 
    ![Review details about the turbofanDeviceDataToStorage route](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
 
@@ -208,7 +209,7 @@ In this article, we created an IoT Hub and configured a route to an Azure Storag
 
 For more information about the steps covered in this portion of the Machine Learning on IoT Edge tutorial, see:
 
-* [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/)
+* [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
 * [Configure message routing with IoT Hub](../iot-hub/tutorial-routing.md)
 * [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md)
 
