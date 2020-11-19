@@ -2,18 +2,16 @@
 author: IngridAtMicrosoft
 ms.service: media-services 
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
-ms.custom: JSON
+ms.custom: CLI
 ---
 
-<!--Create a basic transform REST-->
+<!--Create a basic audio transform REST-->
 
-The following Azure REST command creates a basic audio asset. Replace the values `subscriptionID`, `resourceGroup`, and `accountName` with values you are currently working with. Give your transform a name by setting `transformName` here.
+The following Azure REST command allows you to copy video and audio from one place to another without further encoding. Replace the values `subscriptionID`, `resourceGroup`, and `accountName` with values you are currently working with. Give your transform a name by setting `transformName`.
 
-Change the `@odata.type` to one of the [available presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#definitions), such as `#Microsoft.Media.AudioAnalyzerPreset`.
-
-```
+```REST
 
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01
 
@@ -24,20 +22,33 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 ```json
 {
     "properties": {
-        "description": "Transform for Audio Analyzer Basic Mode",
+        "description": "Copy video and audio files with no encoding",
         "outputs": [
             {
                 "onError": "StopProcessingJob",
                 "relativePriority": "Normal",
                 "preset": {
-                    "@odata.type": "#Microsoft.Media.AudioAnalyzerPreset",
-                    "audioLanguage": "en-US",
-                    "mode": "Basic"
+                    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
+                    "codecs": [
+                        {
+                            "@odata.type": "#Microsoft.Media.CopyAudio"
+                        },
+                        {
+                            "@odata.type": "#Microsoft.Media.CopyVideo"
+                        }
+                    ],
+                    "formats": [
+                        {
+                            "@odata.type": "#Microsoft.Media.Mp4Format",
+                            "filenamePattern": "{Basename}_Copy{Extension}"
+                        }
+                    ]
                 }
             }
         ]
     }
 }
+
 ```
 
 ## Sample response
@@ -66,5 +77,4 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
         ]
     }
 }
-
 ```
