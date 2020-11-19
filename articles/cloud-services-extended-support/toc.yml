@@ -10,7 +10,6 @@
     href: deploy-powershell.md
   - name: Deploy a Cloud Service - Visual Studio
     href: deploy-visual-studio.md
-  - name: 
 - name: Concepts
   items: 
   - name: Available VM sizes
