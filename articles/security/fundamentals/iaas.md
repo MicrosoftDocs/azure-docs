@@ -168,7 +168,7 @@ When you apply Azure Disk Encryption, you can satisfy the following business nee
 Monitor and restrict VM direct internet connectivity. Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. The following table lists best practices to help protect against these attacks:
 
 **Best practice**: Prevent inadvertent exposure to network routing and security.   
-**Detail**: Use RBAC to ensure that only the central networking group has permission to networking resources.
+**Detail**: Use Azure RBAC to ensure that only the central networking group has permission to networking resources.
 
 **Best practice**: Identify and remediate exposed VMs that allow access from “any” source IP address.   
 **Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-network-recommendations.md) to source IP addresses that actually need access.

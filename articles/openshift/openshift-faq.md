@@ -181,13 +181,13 @@ For more information, see the OpenShift documentation on disabling self-provisio
 
 ### Which UNIX rights (in IaaS) are available for Masters/Infra/App Nodes?
 
-For 4.x clusters, node access is available through the cluster-admin role. For more information, see [RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+For 4.x clusters, node access is available through the cluster-admin role. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 For 3.11 clusters, node access is forbidden.
 
 ### Which OCP rights do we have? Cluster-admin? Project-admin?
 
-For 4.x clusters, the cluster-admin role is available. For more information, see [RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+For 4.x clusters, the cluster-admin role is available. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 For 3.11 clusters, see the [cluster administration overview](https://docs.openshift.com/aro/admin_guide/index.html) for more details.
 

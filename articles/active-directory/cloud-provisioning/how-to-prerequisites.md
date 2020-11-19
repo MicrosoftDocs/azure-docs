@@ -86,6 +86,26 @@ To enable TLS 1.2, follow these steps.
 
 1. Restart the server.
 
+## Known limitations
+The following are known limitations:
+
+### Delta Synchronization
+
+- Group scope filtering for delta sync does not support more than 1500 members
+- When you delete a group that's used as part of a group scoping filter, users who are members of the group, don't get deleted. 
+- When you rename the OU or group that's in scope, delta sync will not remove the users
+
+### Provisioning Logs
+- Provisioning logs do not clearly differentiate between create and update operations.  You may see a create operation for an update and an update operation for a create.
+
+### Cross domain references
+- If you have users with member references in another domain, they will not be synchronized as part your current domain synchronization for that user. 
+- (Example: a manger of the user you are synchronizing is in Domain B and the user is in Domain A. When you are syncing both Domain A and B, they will be synced, but the user-manager will not carry over)
+
+### Group re-naming or OU re-naming
+- If you rename a group or OU in AD that's in scope for a given configuration, the cloud provisioning job will not be able to recognize the name change in AD. The job won't go into quarantine and will remain healthy
+
+
 
 ## Next steps 
 

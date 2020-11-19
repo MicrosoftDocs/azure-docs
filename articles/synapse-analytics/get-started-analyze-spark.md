@@ -55,8 +55,8 @@ We have data available in a table in **SQLPOOL1**. Load it into a Spark database
 
 1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
-    - **SQLPOOL1** (dedicated SQL pool)
-    - **nyctaxi** (serverless Apache Spark pool)
+    - **SQLPOOL1 (SQL)**
+    - **nyctaxi (Spark)**
 
 ## Analyze the NYC Taxi data using Spark and notebooks
 
