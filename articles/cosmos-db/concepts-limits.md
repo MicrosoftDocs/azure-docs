@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ---
 
 # Azure Cosmos DB service quotas
@@ -35,22 +35,33 @@ You can provision throughput at a container-level or a database-level in terms o
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
 
-A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. Cosmos DB requires a minimum throughput to ensure that the database or container has sufficient resources for its operations.  
+### Minimum throughput limits
 
-To estimate the minimum throughput required of a resource with manual throughput, find the maximum of:
+A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. As the container grows, Cosmos DB requires a minimum throughput to ensure the database or container has sufficient resource for its operations. 
+
+The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
+
+The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource. 
+
+#### Minimum throughput on container 
+
+To estimate the minimum throughput required of a container with manual throughput, find the maximum of:
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s
-* Highest RU/s provisioned on the database or container / 100
-* 400 + MAX(Container count - 25, 0) * 100 RU/s (shared throughput database only)
+* Highest RU/s provisioned on the container / 100
 
-Example 1: Suppose you have a container provisioned with 400 RU/s and 0 GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 200 GB. The minimum RU/s is now `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
+Example: Suppose you have a container provisioned with 400 RU/s and 0 GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 200 GB. The minimum RU/s is now `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
 
-Example 2: Suppose you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 RU/s. 
+#### Minimum throughput on shared throughput database 
+To estimate the minimum throughput required of a shared throughput database with manual throughput, find the maximum of:
 
-The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
+* 400 RU/s 
+* Current storage in GB * 10 RU/s
+* Highest RU/s provisioned on the database / 100
+* 400 + MAX(Container count - 25, 0) * 100 RU/s
 
-The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
+Example: Suppose you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 RU/s. 
 
 In summary, here are the minimum provisioned RU limits. 
 
@@ -60,10 +71,9 @@ In summary, here are the minimum provisioned RU limits.
 | Minimum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimum RUs per container within a shared throughput database | 0 RU/s for the first 25 containers, 100 RU/s for each container afterward |
 
-Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container can scale synchronously and immediately within a scale range of 10 to 100 times, between minimum and maximum values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
+Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
-> [!NOTE]
-> In some cases, you may be able to lower throughput to lesser than 10%. Use the API to get the exact minimum RUs per container.
+Depending on the current RU/s provisioned and resource settings, each resource can scale synchronously and immediately within a scale range of 10 to 100 times, between minimum and maximum values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
 
 ### Serverless
 
