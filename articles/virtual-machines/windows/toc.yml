@@ -51,25 +51,6 @@
     href: tutorial-iis-sql.md
   - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
-- name: Samples
-  items:
-  - name: PowerShell index
-    href: powershell-samples.md
-  - name: PowerShell
-    items:
-    - name: Create
-    - name: Manage storage
-    - name: Secure
-    - name: Monitor
-  - name: Azure CLI index
-    href: cli-samples.md
-  - name: CLI
-    items:
-    - name: Create
-    - name: Manage storage
-    - name: Network
-    - name: Secure
-    - name: Monitor
 - name: Concepts
   items:
   - name: Images
