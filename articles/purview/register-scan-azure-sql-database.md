@@ -76,7 +76,7 @@ On the **Register sources (Azure SQL Database)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
 1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate server from the **Server name** drop down box.
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
    1. Or, you can select **Enter manually** and enter a **Server name**.
 1. **Finish** to register the data source.
 
@@ -103,7 +103,7 @@ On the **Register sources (Azure SQL Database)** screen, do the following:
       > [!Note]
       > If Test connection fails, you need to go back to the **Prerequisites** step to confirm if the appropriate permission is assigned to the service principal. In addition, the server name must have port number to successfully connect.
 
-   1. **Managed Identity:** You just need to select Managed Identity from the drop down menu and test connection.
+   1. **Managed Identity:** You just need to select Managed Identity from the drop-down menu and test connection.
 
       :::image type="content" source="media/register-scan-azure-sql-database/set-up-scan-using-managed-identity.png" alt-text="Set up scan using managed identity":::
 
