@@ -939,3 +939,6 @@
     - name: Reservations
       tocHref: /azure/cost-management-billing/reservations/
       topicHref: /azure/cost-management-billing/reservations/
+  - name: Purview
+    tocHref: /azure/purview/
+    topicHref: /azure/purview/
