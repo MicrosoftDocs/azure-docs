@@ -268,7 +268,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint.
 
-Azure Traffic Manager has a predefined Azure RBAC role called "Azure Traffic Manager Contributor", which can be assigned to users.
+Azure Traffic Manager has a predefined Azure role called "Traffic Manager Contributor", which can be assigned to users.
 
 - [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
