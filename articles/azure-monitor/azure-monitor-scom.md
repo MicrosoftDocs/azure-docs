@@ -14,6 +14,14 @@ Like Azure Monitor, System Center Operations Manager monitors the health and ava
 
 This article provides further details on specific differences between Azure Monitor and Operations Manager and decision 
 
+
+## Workloads
+Each of the applications and services that you must monitor are each considered a workload. The following diagram illustrates the 
+
+| Workload | Description | 
+| IaaS Custom Applications | These are your custom applications built on an IaaS platform including virtual machines and containers. 
+
+
 ## Basic strategy
 For most customers, the best strategy will be to leverage Azure Monitor for its rich monitoring of Azure resources, reduced infrastructure and maintenance requirements, superior data analysis. Keep using Operations Manager for those requirements that are not provided by Azure Monitor such as management packs for workloads running in virtual machines, state monitoring, and granular monitoring definitions. 
 
