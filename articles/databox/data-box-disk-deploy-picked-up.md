@@ -14,8 +14,6 @@ ms.localizationpriority: high
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
-
-
 ::: zone target="docs"
 
 # Tutorial: Return Azure Data Box Disk

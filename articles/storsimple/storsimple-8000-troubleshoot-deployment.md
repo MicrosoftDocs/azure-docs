@@ -42,12 +42,12 @@ The following sections can help you resolve issues that you encounter when you c
 ## First-time setup wizard process
 The following steps summarize the setup wizard process. For detailed setup information, see [Deploy your on-premises StorSimple device](storsimple-8000-deployment-walkthrough-u2.md).
 
-1. Run the [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) cmdlet to start the setup wizard that will guide you through the remaining steps. 
+1. Run the [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) cmdlet to start the setup wizard that will guide you through the remaining steps. 
 2. Configure the network: the setup wizard lets you configure network settings for the DATA 0 network interface on your StorSimple device. These settings include the following:
-   * Virtual IP (VIP), subnet mask, and gateway – The [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) cmdlet is executed in the background. It configures the IP address, subnet mask, and gateway for the DATA 0 network interface on your StorSimple device.
-   * Primary DNS server – The [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) cmdlet is executed in the background. It configures the DNS settings for your StorSimple solution.
-   * NTP server – The [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet is executed in the background. It configures the NTP server settings for your StorSimple solution.
-   * Optional web proxy – The [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet is executed in the background. It sets and enables the web proxy configuration for your StorSimple solution.
+   * Virtual IP (VIP), subnet mask, and gateway – The [Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) cmdlet is executed in the background. It configures the IP address, subnet mask, and gateway for the DATA 0 network interface on your StorSimple device.
+   * Primary DNS server – The [Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) cmdlet is executed in the background. It configures the DNS settings for your StorSimple solution.
+   * NTP server – The [Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) cmdlet is executed in the background. It configures the NTP server settings for your StorSimple solution.
+   * Optional web proxy – The [Set-HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) cmdlet is executed in the background. It sets and enables the web proxy configuration for your StorSimple solution.
 3. Set up the password: the next step is to set up the device administrator password.
    The device administrator password is used to log on to your device. The default device password is **Password1**.
         
@@ -153,7 +153,7 @@ A support package contains all the relevant logs that can assist the Microsoft S
    2. In the **Actions** pane, click **Open Saved Log** and point to the log files in etvx/etw format (the support package). You can now view the file. After you open the file, you can right-click and save the file as text.
       
       > [!IMPORTANT]
-      > You can also use the **Get-WinEvent** cmdlet to open these files in Windows PowerShell. For more information, see [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) in the Windows PowerShell cmdlet reference documentation.
+      > You can also use the **Get-WinEvent** cmdlet to open these files in Windows PowerShell. For more information, see [Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) in the Windows PowerShell cmdlet reference documentation.
      
 5. When the logs open in Event Viewer, look for the following logs that contain issues related to the device configuration:
    
@@ -185,7 +185,7 @@ When you configure network interfaces for a first-time device deployment, the ha
    * If the interface is healthy but not enabled, the **ifIndex** status is shown as **NotPresent**.
    * If the interface does not exist, it does not appear in this list. The StorSimple Device Manager service UI will still show this interface in a failed state.
 
-For more information on how to use this cmdlet, go to [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) in the Windows PowerShell cmdlet reference.
+For more information on how to use this cmdlet, go to [Get-NetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) in the Windows PowerShell cmdlet reference.
 
 The following sections show samples of output from the `Get-NetAdapter` cmdlet.
 
@@ -280,7 +280,7 @@ Use the `Test-HcsmConnection` cmdlet for a device that is already connected to a
    * ErrorCode.CiSDeviceDecommissioned – this indicates that the device is deactivated.
    * ErrorCode.DeviceNotReady – this indicates that the device is in maintenance mode.
    * ErrorCode.DeviceNotReady – this indicates that the device is not online.
-3. Verify that the StorSimple Device Manager service is running (use the [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) cmdlet). If the service is not running, you might see the following errors:
+3. Verify that the StorSimple Device Manager service is running (use the [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) cmdlet). If the service is not running, you might see the following errors:
    
    * ErrorCode.CiSApplianceAgentNotOnline
    * ErrorCode.CisPowershellScriptHcsError – this indicates that there was an exception when you ran Get-ClusterResource.
@@ -304,7 +304,7 @@ Use the `Test-HcsmConnection` cmdlet for a device that is already connected to a
 
 The log files CiSCommandletLog0Curr.errlog and CiSAgentsvc0Curr.errlog will have more information, such as exception details.
 
-For more information about how to use the cmdlet, go to [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) in the Windows PowerShell reference documentation.
+For more information about how to use the cmdlet, go to [Test-HcsmConnection](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630)) in the Windows PowerShell reference documentation.
 
 > [!IMPORTANT]
 > You can run this cmdlet for both the active and the passive controller.
@@ -549,5 +549,5 @@ The error could be caused by any of the following:
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)

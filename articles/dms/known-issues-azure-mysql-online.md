@@ -111,7 +111,7 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
 
   **Limitation**: This error occurs when the target Azure Database for MySQL database doesn't have the required schema. Schema migration is required to enable migrating data to your target.
 
-  **Workaround**: [Migrate the schema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) from your source database to the target database.
+  **Workaround**: [Migrate the schema](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) from your source database to the target database.
 
 ## Other limitations
 
@@ -129,7 +129,7 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
 
 - In Azure Database Migration Service, the limit of databases to migrate in one single migration activity is four.
 
-- Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requires that you drop foreign key constraints in the target database server during the initial data load, and you cannot use referential actions. If your workload depends on updating a related child table via this referential action, we recommend that you perform a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) instead. 
+- Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requires that you drop foreign key constraints in the target database server during the initial data load, and you cannot use referential actions. If your workload depends on updating a related child table via this referential action, we recommend that you perform a [dump and restore](../mysql/concepts-migrate-dump-restore.md) instead. 
 
 - **Error:** Row size too large (> 8126). Changing some columns to TEXT or BLOB may help. In current row format, BLOB prefix of 0 bytes is stored inline.
 
