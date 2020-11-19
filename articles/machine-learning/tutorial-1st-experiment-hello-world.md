@@ -67,7 +67,7 @@ python ./src/hello.py
 ```
 
 > [!div class="nextstepaction"]
-> [I ran the script locally](?id=success-run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7)
+> [I ran the script locally](?success=run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7)
 
 ## <a name="control-script"></a> Create a control script
 
@@ -137,7 +137,7 @@ Here's a description of how the control script works:
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [I created the control script](?id=success-create-control-script#submit) [I ran into an issue](https://www.research.net/r/7C2NTH7)
+> [I created the control script](?success=create-control-script#submit) [I ran into an issue](https://www.research.net/r/7C2NTH7)
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
@@ -159,7 +159,7 @@ python 03-run-hello.py
 > If running this code gives you an error that you do not have access to the subscription, see [Connect to a workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) for information on authentication options.
 
 > [!div class="nextstepaction"]
-> [I submitted code in the cloud](?id=success-submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7)
+> [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7)
 
 ## <a name="monitor"></a>Monitor your code in the cloud by using the studio
 
@@ -196,7 +196,7 @@ On line 8, you see the "Hello world!" output.
 The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
 
 > [!div class="nextstepaction"]
-> [I saw the log in studio](?id=success-monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7)
+> [I saw the log in studio](?success=monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7)
 
 ## Next steps
 

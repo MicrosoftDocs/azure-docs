@@ -71,7 +71,7 @@ tutorial
 ```
 
 > [!div class="nextstepaction"]
-> [I created the training scripts](?id=success-create-scripts#environment) [I ran into an issue](https://www.research.net/r/7CTJQQN)
+> [I created the training scripts](?success=create-scripts#environment) [I ran into an issue](https://www.research.net/r/7CTJQQN)
 
 ## <a name="environment"></a> Create a Python environment
 
@@ -84,7 +84,7 @@ Create a file called `pytorch-env.yml` in the `.azureml` hidden directory:
 This environment has all the dependencies that your model and training script require. Notice there's no dependency on the Azure Machine Learning SDK for Python.
 
 > [!div class="nextstepaction"]
-> [I created the environment file](?id=success-create-env-file#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN)
+> [I created the environment file](?success=create-env-file#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN)
 
 ## <a name="test-local"></a> Test locally
 
@@ -99,7 +99,7 @@ python src/train.py                             # train model
 After you run this script, you'll see the data downloaded into a directory called `tutorial/data`.
 
 > [!div class="nextstepaction"]
-> [I created the environment file](?id=success-test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN)
+> [I created the environment file](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN)
 
 ## <a name="create-local"></a> Create the control script
 
@@ -129,7 +129,7 @@ Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [I created the control script](?id=success-test-local#submit) [I ran into an issue](https://www.research.net/r/7CTJQQ)
+> [I created the control script](?success=test-local#submit) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
@@ -182,7 +182,7 @@ Azure Machine Learning also maintains a collection of curated environments. Thes
 In short, using registered environments can save you time! Read [How to use environments](./how-to-use-environments.md) for more information.
 
 > [!div class="nextstepaction"]
-> [I submitted the run](?id=success-test-local#log) [I ran into an issue](https://www.research.net/r/7CTJQQ)
+> [I submitted the run](?success=test-local#log) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 ## <a name="log"></a> Log training metrics
 
@@ -218,7 +218,7 @@ compare metrics.
 - Designed to scale, so you keep these benefits even as you run hundreds of experiments.
 
 > [!div class="nextstepaction"]
-> [I modified train.py ](?id=success-test-local#log) [I ran into an issue](https://www.research.net/r/7CTJQQ)
+> [I modified train.py ](?success=test-local#log) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 ### Update the Conda environment file
 
@@ -227,7 +227,7 @@ The `train.py` script just took a new dependency on `azureml.core`. Update `pyto
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [I modified train.py ](?id=success-modify-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQ)
+> [I modified train.py ](?success=modify-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 Submit this script once more:
@@ -241,7 +241,7 @@ This time when you visit the studio, go to the **Metrics** tab where you can now
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
 > [!div class="nextstepaction"]
-> [I submitted the run again](?id=success-resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQ)
+> [I submitted the run again](?success=resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 ## Next steps
 
