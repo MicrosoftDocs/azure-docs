@@ -68,7 +68,7 @@ To register a new Azure SQL Database in your data catalog, do the following:
 1. Select **Management center** on the left navigation.
 1. Select **Data sources** under **Sources and scanning**.
 1. Select **+ New**.
-1. On **Register sources**, select **Azure SQl Database**. Select **Continue**.
+1. On **Register sources**, select **Azure SQL Database**. Select **Continue**.
 
 :::image type="content" source="media/register-scan-azure-files/register-new-data-source.png" alt-text="register new data source" border="true":::
 
