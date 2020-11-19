@@ -113,7 +113,11 @@ If you have configured your Storage Account to allow access from selected networ
 ### Create or update data export rule
 A data export rule defines data to be exported for a set of tables to a single destination. You can create a rule for each destination.
 
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
+
 ```azurecli
 az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
@@ -129,6 +133,8 @@ Use the following command to create a data export rule to an event hub using CLI
 ```azurecli
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
 ```
+
+# [REST](#tab/rest)
 
 Use the following request to create a data export rule using the REST API. The request should use bearer token authorization and content type application/json.
 
@@ -191,11 +197,16 @@ Following is a sample body for the REST request for an event hub where event hub
 ```
 
 ## View data export configuration
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following command to view the configuration of a data export rule using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
+
+# [REST](#tab/rest)
 
 Use the following request to view the configuration of a data export rule using the REST API. The request should use bearer token authorization.
 
@@ -204,11 +215,16 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ```
 
 ## Disable an export rule
+
+# [Azure CLI](#tab/azure-cli)
+
 Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. Use the following command to disable a data export rule using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
+
+# [REST](#tab/rest)
 
 Use the following request to disable a data export rule using the REST API. The request should use bearer token authorization.
 
@@ -232,11 +248,16 @@ Content-type: application/json
 ```
 
 ## Delete an export rule
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following command to delete a data export rule using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
+
+# [REST](#tab/rest)
 
 Use the following request to delete a data export rule using the REST API. The request should use bearer token authorization.
 
@@ -245,11 +266,16 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ```
 
 ## View all data export rules in a workspace
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following command to view all data export rules in a workspace using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
+
+# [REST](#tab/rest)
 
 Use the following request to view all data export rules in a workspace using the REST API. The request should use bearer token authorization.
 
