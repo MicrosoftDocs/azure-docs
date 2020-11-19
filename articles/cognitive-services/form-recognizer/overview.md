@@ -36,6 +36,12 @@ Form Recognizer is composed of the following services:
 
 To try out the Form Recognizer Service, go to the online Sample UI Tool:
 
+
+ # [v2.0](#tab/v2-0)
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://fott.azurewebsites.net/)
+
+ # [v2.1 preview](#tab/v2-1)
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
@@ -43,7 +49,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 ## Layout API
 
-Form Recognizer can extract text, selection marks, and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR) and an enhanced deep learning  model from documents. See the [Layout](./concept-layout.md) conceptual guide for more info
+Form Recognizer can extract text, selection marks, and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR) and an enhanced deep learning  model from documents. See the [Layout](./concept-layout.md) conceptual guide for more info.
 
 ![sample tables](./media/tables-example.jpg)
 
@@ -91,23 +97,26 @@ The Business Cards model enables you to extract information such as the person's
 
 ## Get started
 
-Follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Use the [Sample Form Recognizer tool](https://fott.azurewebsites.net/) or follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 * [Client library quickstarts](./quickstarts/client-library.md) (all languages, multiple scenarios)
 * Web UI quickstarts
   * [Train with labels - sample labeling tool](quickstarts/label-tool.md)
 * REST quickstarts
+ * Extract text, selection marks and table structure from documents
+    * [Extract layout data - Python](quickstarts/python-layout.md)
   * Train custom models and extract form data
     * [Train without labels - cURL](quickstarts/curl-train-extract.md)
     * [Train without labels - Python](quickstarts/python-train-extract.md)
     * [Train with labels - Python](quickstarts/python-labeled-data.md)
+  * Extract data from invoices
+    * [Extract invoice data - Python](quickstarts/python-invoices.md)
   * Extract data from sales receipts
     * [Extract receipt data - cURL](quickstarts/curl-receipts.md)
     * [Extract receipt data - Python](quickstarts/python-receipts.md)
   * Extract data from business cards
     * [Extract business card data - Python](quickstarts/python-business-cards.md)
-  * Extract text and table structure from forms
-    * [Extract layout data - Python](quickstarts/python-layout.md)
+ 
 
 
 ### Review the REST APIs
@@ -116,13 +125,19 @@ You'll use the following APIs to train models and extract structured data from f
 
 |Name |Description |
 |---|---|
+| **Analyze Layout** | Analyze a document passed in as a stream to extract text, selection marks, tables and structure from the document |
 | **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
-| **Analyze Form** |Analyze a single document passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
-| **Analyze Receipt** |Analyze a single receipt document to extract key information and other receipt text.|
-| **Analyze Business Card** |Analyze a business card to extract key information and text.|
-| **Analyze Layout** |Analyze the layout of a form to extract text and table structure.|
+| **Analyze Form** |Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
+| **Analyze Invoice** | Analyze a invoice to extract key information, tables, and other invoice text.|
+| **Analyze Receipt** | Analyze a receipt document to extract key information, and other receipt text.|
+| **Analyze Business Card** | Analyze a business card to extract key information and text.|
 
+
+ # [v2.0](#tab/v2-0)
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+
+ # [v2.1](#tab/v2-1)
+Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ## Input requirements
 
