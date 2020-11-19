@@ -197,7 +197,7 @@ Use the steps below to provision roles for a user to your application. Note that
   - **Things to consider**
     - Ensure that multiple roles are not assigned to a user. We cannot guarantee which role will be provisioned.
     
-  - **Example output** 
+  - **Example request (POST)** 
 
    ```json
     {
@@ -221,6 +221,24 @@ Use the steps below to provision roles for a user to your application. Note that
    }
    ```
   
+    - **Example output (PATCH)** 
+    
+```
+"Operations": [
+{
+"op": "Add",
+"path": "roles",
+"value": [
+{
+"value": "{\"id\":\"05b07648-ecfe-489f-8d2f-6325724a46fe\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+},
+{
+"value": "{\"id\":\"18d14569-c3bd-439b-9a66-3a2aee01d14f\",\"value\":\"22\",\"displayName\":\"user\"}"
+}
+]
+```  
+The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
   - **How to configure:** Edit the list of supported attributes as described above to include a new attribute for roles: 
