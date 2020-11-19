@@ -73,7 +73,7 @@ In summary, here are the minimum provisioned RU limits.
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
-Depending on the current RU/s provisioned and resource settings, each resource can scale synchronously and immediately within the minimum RU/s to up to 100x the minimum RU/s. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
+Depending on the current RU/s provisioned and resource settings, each resource can scale synchronously and immediately between the minimum RU/s to up to 100x the minimum RU/s. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
 
 ### Serverless
 
