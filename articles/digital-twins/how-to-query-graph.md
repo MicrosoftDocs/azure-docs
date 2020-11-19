@@ -18,14 +18,14 @@ ms.custom: contperfq2
 
 # Query the Azure Digital Twins twin graph
 
-This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](/rest/api/digital-twins/dataplane/query).
+This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query API**](/rest/api/digital-twins/dataplane/query).
 
 This article contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
 > [!TIP]
 > If you're running the queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
-## Show all existing digital twins
+## Show all digital twins
 
 Here is the basic query that will return a list of all digital twins in the instance:
 
@@ -108,7 +108,7 @@ Here is a query example specifying a value for all three parameters:
 SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
-## Query based on relationships
+## Query by relationship
 
 When querying based on digital twins' **relationships**, the Azure Digital Twins query language has a special syntax.
 
@@ -155,7 +155,7 @@ AND R.reportedCondition = 'clean'
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
-## Query with multiple JOINs
+### Query with multiple JOINs
 
 Up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
 
@@ -169,16 +169,6 @@ JOIN LightBulb RELATED LightPanel.contains
 WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')
 AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
 AND Room.$dtId IN ['room1', 'room2']
-```
-
-## Select top items
-
-You can select the several "top" items in a query using the `Select TOP` clause.
-
-```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE ...
 ```
 
 ## Count items
@@ -214,9 +204,19 @@ AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
 AND Room.$dtId IN ['room1', 'room2']
 ```
 
-## Specify return set with projections
+## Filter results: select top items
 
-Using projections, you can choose which columns a query will return.
+You can select the several "top" items in a query using the `Select TOP` clause.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE ...
+```
+
+## Filter results: specify return set with projections
+
+By using projections in the `SELECT` statement, you can choose which columns a query will return.
 
 >[!NOTE]
 >At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check.
@@ -274,7 +274,9 @@ AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 
 ## Build efficient queries with the IN operator
 
-You can significantly reduce the number of queries you need by building an array of twins and querying with the `IN` operator. For example, consider a scenario in which *Buildings* contain *Floors* and *Floors* contain *Rooms*. To search for rooms within a building that are hot, one way is to follow these steps.
+You can significantly reduce the number of queries you need by building an array of twins and querying with the `IN` operator. 
+
+For example, consider a scenario in which *Buildings* contain *Floors* and *Floors* contain *Rooms*. To search for rooms within a building that are hot, one way is to follow these steps.
 
 1. Find floors in the building based on `contains` relationship
 
@@ -316,10 +318,13 @@ You can **combine** any of the above types of query using combination operators 
 | Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
 | Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contoso:com:DigitalTwins:Room;1')​` |
 
-## Run queries with an API call
+## Run your queries with the API
 
-Once you have decided on a query string, you execute it by making a call to the **Query API**.
-The following code snippet illustrates this call from the client app:
+Once you have decided on a query string, you execute it by making a call to the [**Query API**](/rest/api/digital-twins/dataplane/query).
+
+You can call the API directly, or use one of the [SDKs](#overview-data-plane-apis) available for Azure Digital Twins.
+
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet) call from a client app:
 
 ```csharp
     string adtInstanceEndpoint = "https://<your-instance-hostname>";
@@ -331,6 +336,7 @@ The following code snippet illustrates this call from the client app:
     string query = "SELECT * FROM DIGITALTWINS";
     AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
 ```
+
 This call returns query results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object.
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
