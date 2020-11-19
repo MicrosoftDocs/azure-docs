@@ -50,7 +50,7 @@ To plan your lab account settings, consider the following questions.
 
 ### Who should be the Owners and Contributors of the lab account?
 
-Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab account. The roles are responsible for managing the policies that apply to all the labs in the lab account. The person who creates the lab account is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription. 
+Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab account. These roles are responsible for managing the policies that apply to all the labs in the lab account. The person who creates the lab account is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription. 
 
 For more information about the lab account Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
 
@@ -60,7 +60,7 @@ Lab users see only a single list of the VMs that they have access to across Azur
 
 ### Who will be allowed to create labs?
 
-You may choose to have your IT team or faculty members create labs. Whoever creates a lab is automatically assigned as the Owner of the lab.  To create labs, you then assign these people to the Lab Creator role within the lab account. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription.  
+You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab account. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
 
 For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
 
