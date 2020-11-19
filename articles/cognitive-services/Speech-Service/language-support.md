@@ -206,11 +206,11 @@ Below neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunxiNeural` <sup>New</sup> | General, multiple styles available |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaohanNeural` <sup>New</sup> | General, multiple styles available |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` <sup>New</sup> | General, multiple role-play and styles available |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomoNeural` <sup>New</sup> | General, multiple role-play and styles available |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` <sup>New</sup> | Senior voice, multiple styles available |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunxiNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaohanNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` <sup>New</sup> | General, multiple role-play and [styles available using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomoNeural` <sup>New</sup> | General, multiple role-play and [styles available using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` <sup>New</sup> | Senior voice, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` <sup>New</sup> | General |
 | Gaelic (Ireland) | `ga-IE` | Female | `ga-IE-OrlaNeural` <sup>New</sup> | General |
 | Lithuanian (Lithuania) | `lt-LT` | Female | `lt-LT-OnaNeural` <sup>New</sup> | General |
