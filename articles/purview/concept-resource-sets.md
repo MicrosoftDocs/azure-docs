@@ -37,6 +37,10 @@ Using this strategy, Azure Purview would map the following resources to the same
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
+## File types that Azure Purview will not detect as resource sets
+
+Purview intentionally does not try to classify most Document File Types like Word, Excel or PDF as Resource Sets. The exception are CSVs since that is a common partitioned file format.
+
 ## How Azure Purview scans resource sets
 
 When Azure Purview detects resources that it thinks are part of a resource set, it switches from a full scan to a sample scan. In a sample scan, it opens only a subset of the files that it thinks are in the resource set. For each file it does open, it uses its schema and runs its classifiers. Azure Purview then finds the newest resource among the opened resources and uses that resource's schema and classifications in the entry for the entire resource set in the catalog.
