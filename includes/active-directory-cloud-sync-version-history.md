@@ -24,7 +24,7 @@ December 4, 2019: Released for download
 
 ### New features and improvements
 
-* Includes support for [Azure AD Connect cloud provisioning](../cloud-provisioning/what-is-cloud-provisioning.md) to synchronize user, contact and group data from on-premises Active Directory to Azure AD
+* Includes support for [Azure AD Connect cloud provisioning](../articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md) to synchronize user, contact and group data from on-premises Active Directory to Azure AD
 
 
 ## 1.1.67.0
