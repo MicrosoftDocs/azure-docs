@@ -51,7 +51,7 @@ recommendations. Use the score to gauge how closely your configuration matches
 best practice recommendations, and to make improvements in your security
 posture.
 
-Note: Azure AD supports external identity that allows users
+Azure AD supports external identity that allows users
 without a Microsoft account to sign in to their applications and resources with
 their external identity.
 
@@ -277,7 +277,7 @@ Depending on how security team responsibilities are structured, monitoring for s
 
 Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-Note: Additional permissions might be required to get visibility into workloads and services. 
+Additional permissions might be required to get visibility into workloads and services. 
 
 - [Overview of Security Reader Role](../role-based-access-control/built-in-roles.md#security-reader)
 
