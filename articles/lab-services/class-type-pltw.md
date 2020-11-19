@@ -43,7 +43,7 @@ ms.date: 10/28/2020
 
 - **Computer Science A**
 
-    Students expand their programming competence in this class by learning mobile app development.  In this class, they learn [Java](https://www.java.com/) by using the [Microsoft Visual Studio Code development environment](https://code.visualstudio.com/).  Students also use an emulator that allows them to run and test their mobile app code.  For information about how to set up an emulator in Azure Lab Services, [contact Azure Lab Services](mailto:azlabspilot@microsoft.com).
+    Students expand their programming competence in this class by learning mobile app development.  In this class, they learn [Java](https://www.java.com/) by using the [Microsoft Visual Studio Code development environment](https://code.visualstudio.com/).  Students also use an emulator that allows them to run and test their mobile app code.  For information about how to set up an emulator in Azure Lab Services, [contact Azure Lab Services](mailto:AzLabsCOVIDSupport@microsoft.com).
 
 For a full list of class software, go to the [PLTW site](https://www.pltw.org/pltw-software) for each class.
 
