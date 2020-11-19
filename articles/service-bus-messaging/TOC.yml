@@ -267,6 +267,8 @@
       href: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging
   - name: Java
     items: 
+    - name: Migrate from azure-servicebus to azure-messaging-servicebus
+      href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
       href: https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview
     - name: azure-servicebus  
