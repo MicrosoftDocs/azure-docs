@@ -23,35 +23,17 @@ Azure Functions requires an Azure Storage account when you create a function app
 
 ## Storage account requirements
 
-On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. This is because Azure Functions relies on Azure Storage for operations such as managing triggers and logging function executions, but some storage accounts don't support queues and tables. These accounts, which include blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication, are filtered-out from your existing **Storage Account** selections when you create a function app.
-
-The same storage account used by your function app can also be used by your triggers and bindings to store your application data. However, for storage-intensive operations, you should use a separate storage account.  
-
-It's possible for multiple function apps to share the same storage account without any issues. (A good example of this is when you develop multiple apps in your local environment using the Azure Storage Emulator, which acts like one storage account.) 
-
-<!-- JH: Does using a Premium Storage account improve perf? -->
-
-To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#core-storage-services).
-
-### In Region Data Residency
-
-When necessary for all customer data to remain within a single region, the storage account associated with the function app must be one with [in region redundancy](../storage/common/storage-redundancy.md).  An in-region redundant storage account would also need to be used with [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection) for Durable Functions.
-
-Other platform-managed customer data will only be stored within the region when hosting in an Internal Load Balancer App Service Environment (or ILB ASE).  Details can be found in [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
-
-
-
-## Storage account requirements
-
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These unsupported accounts are filtered out of from the Storage Account blade when creating a function app.
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with zone-redundant storage replication. These unsupported accounts are filtered-out from your existing **Storage Account** selections when you create a function app.
 
 To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
 While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow are guaranteed to meet these storage account requirements.  
 
+<!-- JH: Does using a Premium Storage account improve perf? -->
+
 ## Storage account guidance
 
-Every function app requires a storage account to operate. If that account is deleted your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following additional  considerations apply to the Storage account used by function apps.
+Every function app requires a storage account to operate. If that account is deleted your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following additional considerations apply to the Storage account used by function apps.
 
 ### Storage account connection setting
 
@@ -71,7 +53,15 @@ It's possible for multiple function apps to share the same storage account witho
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
-## Mount file shares (Linux)
+### In-region data residency
+
+When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
+
+Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+
+## Mount file shares
+
+_This functionality is current only available when running on Linux._ 
 
 You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. You can use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command to mount an existing share to your Linux function app. 
 
