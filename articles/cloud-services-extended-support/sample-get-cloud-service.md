@@ -15,26 +15,26 @@ ms.custom:
 These samples cover various was to retrieve information about existing Azure Cloud Service (extended support) deployments.
 
 ## Example 1: Get all cloud service under a resource group
+
 ```powershell
-PS C:\> Get-AzCloudService -ResourceGroup "ContosOrg"
+Get-AzCloudService -ResourceGroup "ContosOrg"
 
 ResourceGroupName Name              Location    ProvisioningState
 ----------------- ----              --------    -----------------
 ContosOrg         ContosoCS         eastus2euap Succeeded
 ContosOrg         ContosoCSTest     eastus2euap Failed
 ```
-This command gets all cloud services in resource group named ContosOrg
 
 ## Example 2: Get cloud service
 ```powershell
-PS C:\> Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
+Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
 ResourceGroupName Name              Location    ProvisioningState
 ----------------- ----              --------    -----------------
 ContosOrg         ContosoCS         eastus2euap Succeeded
 
-PS C:\> $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
-PS C:\> $cloudService | Format-List
+$cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
+$cloudService | Format-List
 ResourceGroupName                       : ContosOrg
 Configuration                           : <?xml version="1.0" encoding="utf-8"?>
                                           <ServiceConfiguration 
@@ -62,7 +62,7 @@ UpgradeMode                             : Auto
 
 ## Example 3: Get cloud service instance view
 ```powershell
-PS C:\> Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS" -InstanceView | Format-List
+Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS" -InstanceView | Format-List
 
 RoleInstanceStatusesSummary : {{
                                 "code": "ProvisioningState/succeeded",
@@ -91,7 +91,6 @@ Statuses                    : {{
                                 "level": "Info"
                               }}
 ```
-
 
 ## Next steps
 
