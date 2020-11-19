@@ -18,15 +18,15 @@ ms.custom: contperfq2
 
 # About the query language for Azure Digital Twins
 
-Recall that the center of Azure Digital Twins is the [**twin graph**](concepts-twins-graph.md), constructed from **digital twins** and **relationships**. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This is similar to the [IoT Hub query language](../articles/iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
+Recall that the center of Azure Digital Twins is the [**twin graph**](concepts-twins-graph.md), constructed from **digital twins** and **relationships**. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This is similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
 
 You can use the Azure Digital Twins query language to retrieve digital twins according to their...
 * models
-* properties (including [tag properties](../articles/digital-twins/how-to-use-tags.md))
+* properties (including [tag properties](how-to-use-tags.md))
 * relationships
   - properties of the relationships
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview). This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
+To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet&preserve-view=true). This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
 
 ## Reference: Expressions and conditions
 
