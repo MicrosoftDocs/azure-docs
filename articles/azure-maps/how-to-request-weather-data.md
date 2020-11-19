@@ -26,7 +26,10 @@ In this article you’ll learn, how to:
 
 This video provides an overview of Weather services in the Azure Maps with REST call examples.
 
+<br/>
+
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps Weather services for developers - Microsoft Channel 9 Video"></iframe>
+
 
 ## Prerequisites
 
