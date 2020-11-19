@@ -54,17 +54,17 @@ Azure Kubernetes Service offers multiple Kubernetes versions. As new versions be
 
 To learn more about lifecycle versions, see [Supported Kubernetes versions in AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
-### GPU enabled nodes
+### GPU-enabled nodes
 
-AKS supports the creation of GPU enabled node pools. Azure currently provides single or multiple GPU enabled VMs. GPU enabled VMs are designed for compute-intensive, graphics-intensive, and visualization workloads.
+AKS supports the creation of GPU-enabled node pools. Azure currently provides single or multiple GPU-enabled VMs. GPU-enabled VMs are designed for compute-intensive, graphics-intensive, and visualization workloads.
 
 For more information, see [Using GPUs on AKS][aks-gpu].
 
 ### Confidential computing nodes (public preview)
 
-AKS supports the creation of Intel SGX based confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware based trusted and isolated execution environment (enclaves). Isolation between containers combined with code integrity through attestation can help with your defense-in-depth container security strategy. Confidential computing nodes supports both confidential containers (existing docker apps) and enclave aware containers.
+AKS supports the creation of Intel SGX based confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware-based trusted execution environment (enclaves). Isolation between containers, combined with code integrity through attestation, can help with your defense-in-depth container security strategy. Confidential computing nodes supports both confidential containers (existing Docker apps) and enclave-aware containers.
 
-For more information, see [Confidential computing nodes on AKS][conf-com-node]
+For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
 ### Storage volume support
 
@@ -76,7 +76,7 @@ Get started with dynamic persistent volumes using [Azure Disks][azure-disk] or [
 
 ## Virtual networks and ingress
 
-An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with other pods in the cluster, and other nodes in the virtual network. Pods can connect also to other services in a peered virtual network, and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.
+An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with other pods in the cluster, and other nodes in the virtual network. Pods can also connect to other services in a peered virtual network, and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.
 
 For more information, see the [Network concepts for applications in AKS][aks-networking].
 
@@ -94,15 +94,15 @@ Kubernetes has a rich ecosystem of development and management tools such as Helm
 
 Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in AKS. To get started, see [Azure Dev Spaces][azure-dev-spaces].
 
-The Azure DevOps project provides a simple solution for bringing existing code and Git repository into Azure. The DevOps project automatically creates Azure resources such as AKS, a release pipeline in Azure DevOps Services that includes a build pipeline for CI, sets up a release pipeline for CD, and then creates an Azure Application Insights resource for monitoring.
+DevOps Starter provides a simple solution for bringing existing code and Git repositories into Azure. DevOps Starter automatically creates Azure resources such as AKS, a release pipeline in Azure DevOps Services that includes a build pipeline for CI, sets up a release pipeline for CD, and then creates an Azure Application Insights resource for monitoring.
 
-For more information, see [Azure DevOps project][azure-devops].
+For more information, see [DevOps Starter][azure-devops].
 
 ## Docker image support and private container registry
 
 AKS supports the Docker image format. For private storage of your Docker images, you can integrate AKS with Azure Container Registry (ACR).
 
-To create private image store, see [Azure Container Registry][acr-docs].
+To create a private image store, see [Azure Container Registry][acr-docs].
 
 ## Kubernetes certification
 
