@@ -37,13 +37,15 @@ Form Recognizer is composed of the following services:
 To try out the Form Recognizer Service, go to the online Sample UI Tool:
 
 
- # [v2.0](#tab/v2-0)
+# [v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott.azurewebsites.net/)
 
- # [v2.1 preview](#tab/v2-1)
+# [v2.1 preview](#tab/v2-1)
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+
+---
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service. 
 
@@ -137,11 +139,13 @@ You'll use the following APIs to train models and extract structured data from f
 | **Analyze Business Card** | Analyze a business card to extract key information and text.|
 
 
- # [v2.0](#tab/v2-0)
+# [v2.0](#tab/v2-0)
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
- # [v2.1](#tab/v2-1)
+# [v2.1](#tab/v2-1)
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+
+---
 
 ## Input requirements
 

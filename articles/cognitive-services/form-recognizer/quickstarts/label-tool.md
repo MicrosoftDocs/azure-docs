@@ -38,13 +38,15 @@ To complete this quickstart, you must have:
 
 To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-preview.azurewebsites.net/).
 
- # [v2.0](#tab/v2-0)
+# [v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott.azurewebsites.net/)
 
- # [v2.1 preview](#tab/v2-1)
+# [v2.1 preview](#tab/v2-1)
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+
+---
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service. 
 
