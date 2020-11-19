@@ -116,7 +116,7 @@
         href: ./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Issues with a full OS disk on a Linux virtual machine
         href: os-disk-full-linux.md
-        - name: Azure PowerShell
+  - name: Azure PowerShell
     items:
     - name: PowerShell sample index
       href: powershell-samples.md
