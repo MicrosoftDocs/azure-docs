@@ -78,7 +78,7 @@ If the user has an existing account with phone number as their identifier, the u
 
 ## Deleting a user account
 
-In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
