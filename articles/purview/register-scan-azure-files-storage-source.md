@@ -8,39 +8,51 @@ ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 10/01/2020
 ---
-
 # Register and scan Azure Files
+
 ## Supported capabilities
-Azure Files supports the following:<br />
-* Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications<br />
+
+Azure Files supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications.
 
 ## Prerequisites
-* You need to be a Catalog Admin or Data Source Admin
+
+- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
+- You need to be a Data Source Administrator to setup and schedule scans, please see [Catalog Permissions](catalog-permissions.md) for details.
 
 ## Register an Azure Files storage account
-1. Navigate to your Purview catalog.<br />
-2. Click on **Management Center** on the left navigation pane.<br />
 
-<!---![Screenshot showing how to go to Management Center]--->
+To register a new Azure Files account in your data catalog, do the following:
 
-3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.<br />
-4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Files** and hit **continue**<br />
-<br />
+1. Navigate to your Purview Data Catalog.
+1. Select **Management center** on the left navigation.
+1. Select **Data sources** under **Sources and scanning**.
+1. Select **+ New**.
+1. On **Register sources**, select **Azure Files**. Select **Continue**.
+
+:::image type="content" source="media/register-scan-azure-files/register-new-data-source.png" alt-text="register new data source" border="true":::
+
+On the **Register sources (Azure Files)** screen, do the following:
+
+1. Enter a **Name** that the data source will be listed with in the Catalog.
+1. Choose how you want to point to your desired storage account:
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Storage account name** drop down box.
+   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
+1. **Finish** to register the data source.
+
+:::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="register sources options" border="true":::
 
 ## Set up authentication for a scan
-Set up authentication for Azure Files Storage using Account Key<br />
 
+To set up authentication for Azure Files Storage using an account key, do the following:
 
-### Account Key
-
-1. Select authentication method as **Account Key**<br />
-2. Select "From Azure subscription" option. <br />
-3. Pick your Azure subscription where the Azure Files account exists.<br />
-4. Pick your storage account name from the list.<br />
-5. Click "Finish"<br />
-<!---![screenshot to register data source]--->
+1. Select authentication method as **Account Key**.
+2. Select **From Azure subscription** option.
+3. Pick your Azure subscription where the Azure Files account exists.
+4. Pick your storage account name from the list.
+5. Click **Finish**.
 
 ## Create and run a scan
+
 After you have setup your authentication type, click Continue. The next screen is where you set your scan trigger, telling the system how often you would like to scan.
 
 > [!NOTE] 
@@ -51,12 +63,10 @@ Here are some examples of triggers that are set up on a monthly cadence below. Y
 You can also set up a trigger on a weekly cadence with an option to choose the day of the week.
 
 **Set scan rule set**
-Select a scan rule set to be used by your scan from the list of available<br />
-<!---![Screenshot showing scan rule set]--->
+Select a scan rule set to be used by your scan from the list of available.
 
 **Review your scan**
-Once you click Continue, you will view all the settings for your scan.<br />
-<!---![Screenshot showing scan rule set]--->
+Once you click Continue, you will view all the settings for your scan.
 
 **Edit a scan**
 Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
@@ -75,5 +85,7 @@ Select one or more scans that are in progress by selecting the checkbox for each
 
 Then click Cancel Scan to stop all the selected scans from running.
 
-## Summary
-In this tutorial you scanned an Azure Files account using the portal.
+## Next steps
+
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)

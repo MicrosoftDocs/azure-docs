@@ -9,26 +9,43 @@ ms.topic: how-to
 ms.date: 10/9/2020
 ---
 
-# Register and Scan Azure Cosmos Database (SQL API)    
-This article outlines how to register an Azure Cosmos Database (SQL API) account in Purview and set up a scan.
+# Register and scan Azure Cosmos Database (SQL API)
+
+This article outlines how to register an Azure Cosmos Database (SQL API) account in Azure Purview and set up a scan.
 
 ## Supported capabilities
-Azure Cosmos Database (SQL API) supports the following:
-* Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications
+
+Azure Cosmos Database (SQL API) supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications.
 
 ## Prerequisites
-* You need to be a Data Source Administrator to setup and schedule scans, please see [Catalog Permissions](catalog-permissions.md) for details.
+
+- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
+- You need to be a Data Source Administrator to setup and schedule scans, please see [Catalog Permissions](catalog-permissions.md) for details.
 
 ## Register an Azure Cosmos Database (SQL API) account
-1. Navigate to your Purview catalog.
-2. Click on **Management Center** on the left navigation pane.
 
-    :::image type="content" source="./media/register-scan-azure-cosmos-database/go-to-management-center.png" alt-text="Screenshot showing how to go to Management Center" lightbox="./media/register-scan-azure-cosmos-database/go-to-management-center.png":::
+To register a new Azure Cosmos Database (SQL API) account in your data catalog, do the following:
 
-3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
-4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Cosmos Database (SQL API)** and hit **continue**
+1. Navigate to your Purview Data Catalog.
+1. Select **Management center** on the left navigation.
+1. Select **Data sources** under **Sources and scanning**.
+1. Select **+ New**.
+1. On **Register sources**, select **Azure Cosmos Database (SQL API)**. Select **Continue**.
+
+:::image type="content" source="media/register-scan-azure-blob-storage-source/register-new-data-source.png" alt-text="register new data source" border="true":::
+
+On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following:
+
+1. Enter a **Name** that the data source will be listed with in the Catalog.
+1. Choose how you want to point to your desired storage account:
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Cosmos DB account name** drop down box.
+   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
+1. **Finish** to register the data source.
+
+:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="register sources options" border="true":::
 
 ## Set up authentication for a scan
+
 The supported Authentication mechanism for Azure Cosmos Database (SQL API) is **Account Key**
 
 ### Account key
@@ -81,5 +98,7 @@ Select one or more scans that are in progress by selecting the checkbox for each
 
 Then select **Cancel Scan** to stop all the selected scans from running.
 
-## Summary
-In this tutorial, you scanned an Azure Cosmos Database (SQL API) account using the portal.
+## Next steps
+
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)

@@ -15,23 +15,34 @@ This article outlines how to register an Azure Blob Storage account in Purview a
 
 ## Supported capabilities
 
-Azure Blob Storage supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications
+Azure Blob Storage supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications.
 
 ## Prerequisites
 
+- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
 - You need to be a Catalog Admin or Data Source Admin
 
 ## Register an Azure Blob Storage account
 
-1. Navigate to your Purview catalog.
+To register a new ADLS Gen1 account in your data catalog, do the following:
 
-2. Click on **Management Center** on the left navigation pane.
+1. Navigate to your Purview Data Catalog.
+1. Select **Management center** on the left navigation.
+1. Select **Data sources** under **Sources and scanning**.
+1. Select **+ New**.
+1. On **Register sources**, select **Azure Data Lake Storage Gen1**. Select **Continue**.
 
-   :::image type="content" source="./media/register-scan-azure-blob-storage-source/go-to-management-center.png" alt-text="Screenshot showing how to go to Management Center":::
+:::image type="content" source="media/register-scan-azure-blob-storage-source/register-new-data-source.png" alt-text="register new data source" border="true":::
 
-3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
+On the **Register sources (Azure Blob Storage)** screen, do the following:
 
-4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Blob Storage** and hit **continue**
+1. Enter a **Name** that the data source will be listed with in the Catalog. 
+1. Choose how you want to point to your desired storage account:
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Storage account name** drop down box.
+   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
+1. **Finish** to register the data source.
+
+:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="register sources options" border="true":::
 
 ## Set up authentication for a scan
 
@@ -138,6 +149,7 @@ Select one or more scans that are in progress by selecting the checkbox for each
 
 Then click Cancel Scan to stop all the selected scans from running.
 
-## Summary
+## Next steps
 
-In this tutorial you scanned an Azure Blob Storage account using the portal.
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)

@@ -8,33 +8,48 @@ ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 10/9/2020
 ---
+# Register and scan Azure Data Explorer
 
-# Register and Scan Azure Data Explorer    
-This article outlines how to register an Azure Data Explorer account in Purview and set up a scan.
+This article outlines how to register an Azure Data Explorer account in Azure Purview and set up a scan.
 
 ## Supported capabilities
-Azure Data Explorer supports the following:
-* Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications
+
+The Azure Data Explorer data source supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications.
 
 ## Prerequisites
-* You need to be a Data Source Administrator to setup and schedule scans, please see [Catalog Permissions](catalog-permissions.md) for details.
+
+- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
+- You need to be a Data Source Administrator to setup and schedule scans, please see [Catalog Permissions](catalog-permissions.md) for details.
 
 ## Register an Azure Data Explorer account
-1. Navigate to your Purview catalog.
-2. Click on **Management Center** on the left navigation pane.
 
-    :::image type="content" source="./media/register-scan-azure-data-explorer/go-to-management-center.png" alt-text="Screenshot showing how to go to Management Center" lightbox="./media/register-scan-azure-data-explorer/go-to-management-center.png":::
+To register a new Azure Data Explorer (Kusto) account in your data catalog, do the following:
 
-3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
-4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Data Explorer** and hit **continue**
+1. Navigate to your Purview Data Catalog.
+1. Select **Management center** on the left navigation.
+1. Select **Data sources** under **Sources and scanning**.
+1. Select **+ New**.
+1. On **Register sources**, select **Azure Data Explorer (Kusto)**. Select **Continue**.
+
+:::image type="content" source="media/register-scan-azure-data-explorer/register-new-data-source.png" alt-text="register new data source" border="true":::
+
+On the **Register sources (Azure Data Explorer (Kusto))** screen, do the following:
+
+1. Enter a **Name** that the data source will be listed with in the Catalog.
+1. Choose how you want to point to your desired storage account:
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate cluster from the **Cluster** drop down box.
+   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
+1. **Finish** to register the data source.
+
+:::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="register sources options" border="true":::
 
 ## Set up authentication for a scan
-The supported Authentication mechanism for Azure Data Explorer is **Service Principal**
+
+The supported authentication mechanism for Azure Data Explorer is **Service Principal**.
 
 ### Service principal
-To use a service principal, you must first create one
 
-To do this in the Azure portal: 
+To use a service principal, you must first create one. To do this in the Azure portal: 
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
@@ -56,7 +71,6 @@ To do this in the Azure portal:
 
 10. Add your service principal to a role on the Azure Data Explorer account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md?tabs=dotnet)
 
-
 11. Once the service principal is created, add the same to the **AllDatabasesViewer** role in the **Permissions** tab on the Azure portal, as shown in the following screenshot.
 
     :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="Screenshot to add service principal in permissions" border="true":::
@@ -66,6 +80,7 @@ To do this in the Azure portal:
 :::image type="content" source="./media/register-scan-azure-data-explorer/service-principal-auth.png" alt-text="Screenshot showing service principal authorization" border="true":::
 
 ## Create and run a scan
+
 After you have set up your authentication type, select **Continue**.
 
 **Scope your scan**
@@ -109,5 +124,7 @@ Select one or more scans that are in progress by selecting the checkbox for each
 
 Then click Cancel Scan to stop all the selected scans from running.
 
-## Summary
-In this tutorial you scanned an Azure Data Explorer account using the portal.
+## Next steps
+
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
