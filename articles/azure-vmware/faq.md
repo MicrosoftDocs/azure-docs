@@ -214,7 +214,7 @@ You'll have CloudAdmin group privileges. For more information, see [Access and I
 
 #### What privileges and permissions will I have on the NSX-T manager?
 
-You'll have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
+You'll have full administrator privileges on NSX-T and can manage vSphere role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 > [!NOTE]
 > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
@@ -233,7 +233,7 @@ Yes, customers can deploy Azure VMware Solution within an Azure subscription man
 
 Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-For CSP managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
+For CSP-managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
@@ -243,18 +243,18 @@ You'll need an Azure account in an Azure subscription.
 
 Microsoft and Red Hat share an integrated, colocated support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
 
-#### Is VMware HCX Enterprise Edition available, and if so, how much does it cost?
+#### Is VMware HCX Enterprise available, and if so, how much does it cost?
 
-VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can switch off or opt out of the service.
+VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX Enterprise for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX Enterprise service goes GA, you'll get a 30-day notice that billing will switch over. You can switch it off or opt out of the service.
 
 #### How do I request a host quota increase for Azure VMware Solution?
 
-For CSP managed subscriptions, customer must perform the request to the partner and the partner team will engage with Microsoft to get the quota increased for the subscription. 
+For CSP-managed subscriptions, the customer must submit the request to the partner. The partner team then engages with Microsoft to get the quota increased for the subscription. See [How to enable Azure VMware Solution resource article](enable-azure-vmware-solution.md) for the details. 
 
-For EA subscriptions, customer must follow this procedure.
+For EA subscriptions, use the following procedure. First, you'll need:
 
-* You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
-* You'll need an Azure account in an Azure subscription.
+* An [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
+* An Azure account in an Azure subscription.
 
 Before you create your Azure VMware Solution resource, you must submit a support ticket to allocate your nodes. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
 
@@ -294,7 +294,15 @@ Before you create your Azure VMware Solution resource, you must submit a support
 
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
-Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+
+#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
 
 ## Customer communication

@@ -1,6 +1,6 @@
 ---
 title: Language customization in Azure Active Directory B2C
-description: Learn about customizing the language experience in your user flows.
+description: Learn about customizing the language experience in your user flows in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -196,7 +196,7 @@ Chrome and Firefox both request for their set language. If it's a supported lang
 
 ## Supported languages
 
-Azure AD B2C includes support for the following languages. User flow languages are provided by Azure AD B2C. The multi-factor authentication (MFA) notification languages are provided by [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C includes support for the following languages. User flow languages are provided by Azure AD B2C. The multi-factor authentication (MFA) notification languages are provided by [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Language              | Language code | User flows         | MFA notifications  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
