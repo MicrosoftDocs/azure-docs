@@ -20,13 +20,13 @@ ms.author: b-juche
 
 An ongoing replication between the source and the destination volumes (see [Create volume replication](cross-region-replication-create-peering.md)) prepares you for a disaster recovery event. 
 
-When such an event occurs, you can failover to the destination volume by [breaking replication peering](#break-replication-peering), enabling the client to read and write to the destination volume. 
+When such an event occurs, you can [fail over to the destination volume](#fail-over-to-destination-volume), enabling the client to read and write to the destination volume. 
 
-After disaster recovery, you can fail back to the source volume with a [resync operation](#resync-replication) that overwrites the source volume data with the destination volume data.  You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
+After disaster recovery, you can [reactivate replication](#resync-replication) with a resync to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
 The details are described below. 
 
-## <a name="break-replication-peering"></a>Failover to destination volume
+## Fail over to destination volume
 
 When you need to activate the destination volume (for example, when you want to failover to the destination region), you need to break replication peering and then mount the destination volume.  
 
