@@ -258,7 +258,7 @@ When the command completes, notice that the resource has two tags.
 
 If you run the command again but this time with different tags, notice that the earlier tags are removed.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
@@ -273,7 +273,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 
 To add tags to a resource that already has tags, use **az tag update**. Set the **--operation** parameter to **Merge**.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
@@ -292,7 +292,7 @@ Notice that the two new tags were added to the two existing tags.
 
 Each tag name can have only one value. If you provide a new value for a tag, the old value is replaced even if you use the merge operation. The following example changes the Status tag from Normal to Green.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Status=Green
 ```
 
@@ -309,7 +309,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 
 When you set the **--operation** parameter to **Replace**, the existing tags are replaced by the new set of tags.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
 ```
 
@@ -329,95 +329,73 @@ The same commands also work with resource groups or subscriptions. You pass in t
 
 To add a new set of tags to a resource group, use:
 
-```azurepowershell-interactive
+```azurecli-interactive
 group=$(az group show -n demoGroup --query id --output tsv)
 az tag create --resource-id $group --tags Dept=Finance Status=Normal
 ```
 
 To update the tags for a resource group, use:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
 ```
 
 To add a new set of tags to a subscription, use:
 
-```azurepowershell-interactive
+```azurecli-interactive
 sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
 az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
 ```
 
 To update the tags for a subscription, use:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
 ```
 
-### Apply tags
-
-When adding tags to a resource group or resource, you can either overwrite the existing tags or append new tags to existing tags.
-
-To overwrite the tags on a resource, use:
-
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-To append a tag to the existing tags on a resource, use:
-
-```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-To overwrite the existing tags on a resource group, use:
-
-```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
-```
-
-To append a tag to the existing tags on a resource group, use:
-
-```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
-```
-
-Currently, Azure CLI doesn't have a command for applying tags to subscriptions. However, you can use CLI to deploy an ARM template that applies the tags to a subscription. See [Apply tags to resource groups or subscriptions](#apply-tags-to-resource-groups-or-subscriptions).
-
 ### List tags
 
-To see the existing tags for a resource, use:
+To get the tags for a resource, resource group, or subscription, use the [az tag list](/cli/azure/tag#az_tag_list) command and pass in the resource ID for the entity.
+
+To see the tags for a resource, use:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-To see the existing tags for a resource group, use:
+To see the tags for a resource group, use:
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-That script returns the following format:
+To see the tags for a subscription, use:
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### List by tag
 
-To get all the resources that have a particular tag and value, use `az resource list`:
+To get resources that have a specific tag name and value, use:
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-To get resource groups that have a specific tag, use `az group list`:
+To get resources that have a specific tag name with any tag value, use:
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+To get resource groups that have a specific tag name and value, use:
+
+```azurecli-interactive
+az group list --tag Dept=Finance
 ```
 
 ### Handling spaces
