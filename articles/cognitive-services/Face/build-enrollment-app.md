@@ -1,5 +1,5 @@
 ---
-title: Build an enrollment app with React
+title: Build an enrollment app for Android with React
 titleSuffix: Azure Cognitive Services
 description: Learn how to set up your development environment and deploy a Face enrollment app to get consent from customers.
 author: PatrickFarley
@@ -12,9 +12,9 @@ ms.date: 11/17/2020
 ms.author: pafarley
 ---
 
-# Build an enrollment app with React
+# Build an enrollment app for Android with React
 
-This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to enroll users into a face recognition service and acquire high-accuracy face data. An integrated system could use an enrollment app like this to give certain users access to resources (building entry, for example), based on their face data.
+This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to enroll users into a face recognition service and acquire high-accuracy face data. An integrated system could use an enrollment app like this to provide touchless access control, identity verification, attendance tracking, personalization kiosk, or identity verification, based on their face data.
 
 When launched, the application shows users a detailed consent screen. If the user gives consent, the app prompts for a username and password and then captures a high-quality face image using the device's camera.
 
@@ -33,27 +33,35 @@ The sample enrollment app is written using JavaScript and the React Native frame
 ## Set up the development environment
 
 1. Clone the git repository for the [sample enrollment app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
-1. To set up your development environment, follow the [React Native documentation](https://reactnative.dev/docs/environment-setup). Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**.
+1. To set up your development environment, follow the <a href="https://reactnative.dev/docs/environment-setup"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**.
 1. Open the env.json file in your preferred text editor, such as [Visual Studio Code](https://code.visualstudio.com/), and add your endpoint and key. You can get your endpoint and key in the Azure portal under the **Overview** tab of your resource. This step is only for local testing purposes&mdash;don't check in your Face API key to your remote repository.
-1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant [React Native documentation](https://reactnative.dev/docs/running-on-device).  
+1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant <a href="https://reactnative.dev/docs/running-on-device"  title="React Native documentation"  target="_blank">React Native documentation <span class="docon docon-navigate-external x-hidden-focus"></span></a>.  
 
 
 ## Create an enrollment experience  
 
-Now that you have set up the sample enrollment app, you can tailor it to your own enrollment experience needs.  
+Now that you have set up the sample enrollment app, you can tailor it to your own enrollment experience needs.
 
-Many face recognition issues are caused by low-quality reference images. There are several factors that can degrade the model performance, such as:
+For example, you may want to add situation-specific information on your consent page:
+
+![profile management page](./media/enrollment-app/1_consent1.jpg)
+
+The service provides image quality checks to help you make the choice of whether the image is of sufficient quality to enroll the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, select the highest-quality frames, and enroll the detected face into the Face API service. 
+
+Many face recognition issues are caused by low-quality reference images. Some factors that can degrade model performance are:
 * Face size (faces that are distant from the camera)
 * Face orientation (faces turned or tilted away from camera)
 * Poor lighting conditions (either low light or backlighting) where the image may be poorly exposed or have too much noise
 * Occlusion (partially hidden or obstructed faces) including accessories like hats or thick-rimmed glasses)
 * Blur (such as by rapid face movement when the photograph was taken). 
 
-The service provides image quality checks to help you make the choice of whether the image is of sufficient quality to enroll the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, select the highest-quality frames, and enroll the detected face into the Face API service. 
+![profile management page](./media/enrollment-app/4_instruction.jpg)
 
-The app also offers functionality for deleting the user's enrollment and the option to re-enroll.
+Notice the app also offers functionality for deleting the user's enrollment and the option to re-enroll.
 
-To extend the app's functionality to cover the full enrollment experience, read the documentation here [link to other documentation] on additional features to implement and best practices.
+![profile management page](./media/enrollment-app/10_manage2.jpg)
+
+To extend the app's functionality to cover the full enrollment experience, read the [overview](enrollment-overview.md) for additional features to implement and best practices.
 
 ## Deploy the enrollment app
 
@@ -63,9 +71,9 @@ First, make sure that your app is ready for production deployment: remove any ke
 
 When you're ready to release your app for production, you'll generate a release-ready APK file, which is the package file format for Android apps. This APK file must be signed with a private key. With this release build, you can begin distributing the app to your devices directly. 
 
-Follow the [Prepare for release](https://developer.android.com/studio/publish/preparing#publishing-build) documentation to learn how to generate a private key, sign your application, and generate a release APK.  
+Follow the <a href="https://developer.android.com/studio/publish/preparing#publishing-build"  title="Prepare for release"  target="_blank">Prepare for release <span class="docon docon-navigate-external x-hidden-focus"></span></a> documentation to learn how to generate a private key, sign your application, and generate a release APK.  
 
-Once you've created a signed APK, see the [Publish your app](https://developer.android.com/studio/publish) documentation to learn more about how to release your app.
+Once you've created a signed APK, see the <a href="https://developer.android.com/studio/publish"  title="Publish your app"  target="_blank">Publish your app <span class="docon docon-navigate-external x-hidden-focus"></span></a> documentation to learn more about how to release your app.
 
 ## Next Steps  
 
