@@ -10,7 +10,7 @@ ms.date: 09/03/2020
 ms.author: alzam
 
 ---
-# Enable Azure Multi-Factor Authentication (MFA) for VPN users
+# Enable Azure AD Multi-Factor Authentication (MFA) for VPN users
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 

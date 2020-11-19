@@ -59,4 +59,4 @@ Load balancer doesn't directly interact with TCP or UDP or the application layer
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
+- Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md).
