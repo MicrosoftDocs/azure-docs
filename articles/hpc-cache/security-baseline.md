@@ -104,7 +104,7 @@ Azure HPC Cache is not intended to run web applications, and does not require yo
 
 - [Azure Firewall Documentation](/azure/firewall/) 
 
-- [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos-protection) 
+- [Manage Azure DDoS Protection Standard using the Azure portal](/azure/virtual-network/manage-ddos-protection) 
 
 - [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
 
