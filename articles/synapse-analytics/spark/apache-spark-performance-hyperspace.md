@@ -1548,6 +1548,437 @@ Project [deptName#675]
    +- *(1) FileScan parquet [deptId#674,deptName#675] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
+## Hybrid Scan for Mutable Datasets
+Often times, if your underlying source data had some new files appended or existing files deleted, your index will get stale and Hyperspace decides not to use it. However, there are times where you just want to use the index without having to refresh it everytime. There could be multiple reasons for doing so:
+
+1. You do not want to continuosly refresh your index but instead want to do it periodically since you understand your workloads the best.
+2. You added/removed only a few files and do not want to wait for yet another refresh job to finish.
+
+To allow you to still use a stale index, Hyperspace introduces Hybrid Scan, a novel technique that allows users to utilize outdated or stale indexes (e.g., the underlying source data had some new files appended or existing files deleted), without refreshing indexes.
+
+To achieve this, when you set the appropriate configuration to enable Hybrid Scan, Hyperspace modifies the query plan to leverage the changes as following:
+* Appended files can be merged to index data by using Union or BucketUnion (for join). Shuffling appended data can also be applied before merging, if needed.
+* Deleted files can be handled by injecting Filter-NOT-IN condition on lineage column of index data, so that the indexed rows from the deleted files can be excluded at query time.
+You can check the transformation of the query plan in below examples.
+
+`Note: Hybrid scan is only supported for non-partitioned data. Support for partitioned data is currently being worked upon.`
+
+### Hybrid Scan for appended files - non-partitioned data
+Non-partitioned data is used in below example. In this example, we expect Join index can be used for the query and BucketUnion is introduced for appended files.
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+val testData = Seq(
+    ("orange", 3, "2020-10-01"),
+    ("banana", 1, "2020-10-01"),
+    ("carrot", 5, "2020-10-02"),
+    ("beetroot", 12, "2020-10-02"),
+    ("orange", 2, "2020-10-03"),
+    ("banana", 11, "2020-10-03"),
+    ("carrot", 3, "2020-10-03"),
+    ("beetroot", 2, "2020-10-04"),
+    ("cucumber", 7, "2020-10-05"),
+    ("pepper", 20, "2020-10-06")
+    ).toDF("name", "qty", "date")
+
+val testDataLocation = s"$dataPath/productTable"
+
+testData.write.mode("overwrite").parquet(testDataLocation)
+val testDF = spark.read.parquet(testDataLocation)
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+testdata = [
+    ("orange", 3, "2020-10-01"),
+    ("banana", 1, "2020-10-01"),
+    ("carrot", 5, "2020-10-02"),
+    ("beetroot", 12, "2020-10-02"),
+    ("orange", 2, "2020-10-03"),
+    ("banana", 11, "2020-10-03"),
+    ("carrot", 3, "2020-10-03"),
+    ("beetroot", 2, "2020-10-04"),
+    ("cucumber", 7, "2020-10-05"),
+    ("pepper", 20, "2020-10-06")
+]
+
+testdata_location = data_path + "/productTable"
+from pyspark.sql.types import StructField, StructType, StringType, IntegerType
+testdata_schema = StructType([
+    StructField('name', StringType(), True),
+    StructField('qty', IntegerType(), True),
+    StructField('date', StringType(), True)])
+
+test_df = spark.createDataFrame(testdata, testdata_schema)
+test_df.write.mode("overwrite").parquet(testdata_location)
+test_df = spark.read.parquet(testdata_location)
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+using Microsoft.Spark.Sql.Types;
+
+var products = new List<GenericRow>() {
+    new GenericRow(new object[] {"orange", 3, "2020-10-01"}),
+    new GenericRow(new object[] {"banana", 1, "2020-10-01"}),
+    new GenericRow(new object[] {"carrot", 5, "2020-10-02"}),
+    new GenericRow(new object[] {"beetroot", 12, "2020-10-02"}),
+    new GenericRow(new object[] {"orange", 2, "2020-10-03"}),
+    new GenericRow(new object[] {"banana", 11, "2020-10-03"}),
+    new GenericRow(new object[] {"carrot", 3, "2020-10-03"}),
+    new GenericRow(new object[] {"beetroot", 2, "2020-10-04"}),
+    new GenericRow(new object[] {"cucumber", 7, "2020-10-05"}),
+    new GenericRow(new object[] {"pepper", 20, "2020-10-06"})
+};
+var productsSchema = new StructType(new List<StructField>()
+{
+    new StructField("name", new StringType()),
+    new StructField("qty", new IntegerType()),
+    new StructField("date", new StringType())
+});
+
+DataFrame testData = spark.CreateDataFrame(products, productsSchema); 
+string testDataLocation = $"{dataPath}/productTable";
+testData.Write().Mode("overwrite").Parquet(testDataLocation);
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+// CREATE INDEX
+hyperspace.createIndex(testDF, IndexConfig("productIndex2", Seq("name"), Seq("date", "qty")))
+
+spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
+val filter1 = testDF.filter("name = 'banana'")
+val filter2 = testDF.filter("qty > 10")
+val query = filter1.join(filter2, "name")
+
+// Check Join index rule is applied properly.
+hyperspace.explain(query)(displayHTML(_))
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+# CREATE INDEX
+hyperspace.createIndex(test_df, IndexConfig("productIndex2", ["name"], ["date", "qty"]))
+
+spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
+filter1 = test_df.filter("name = 'banana'")
+filter2 = test_df.filter("qty > 10")
+query = filter1.join(filter2, "name")
+
+# Check Join index rule is applied properly.
+hyperspace.explain(query, True, displayHTML)
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+// CREATE INDEX
+DataFrame testDF = spark.Read().Parquet(testDataLocation);
+var productIndex2Config = new IndexConfig("productIndex", new string[] {"name"}, new string[] {"date", "qty"});
+hyperspace.CreateIndex(testDF, productIndex2Config);
+
+// Check Join index rule is applied properly.
+DataFrame filter1 = testDF.Filter("name = 'banana'");
+DataFrame filter2 = testDF.Filter("qty > 10");
+DataFrame query = filter1.Join(filter2, filter1.Col("name") == filter2.Col("name"));
+
+query.Show();
+
+hyperspace.Explain(query, true, input => DisplayHTML(input));
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+// Append new files.
+val appendData = Seq(
+    ("orange", 13, "2020-11-01"),
+    ("banana", 5, "2020-11-01")).toDF("name", "qty", "date")
+appendData.write.mode("append").parquet(testDataLocation)
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+# Append new files.
+append_data = [
+    ("orange", 13, "2020-11-01"),
+    ("banana", 5, "2020-11-01")
+]
+append_df = spark.createDataFrame(append_data, testdata_schema)
+append_df.write.mode("append").parquet(testdata_location)
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+// Append new files.
+var appendProducts = new List<GenericRow>()
+{
+    new GenericRow(new object[] {"orange", 13, "2020-11-01"}),
+    new GenericRow(new object[] {"banana", 5, "2020-11-01"})
+};
+    
+DataFrame appendData = spark.CreateDataFrame(appendProducts, productsSchema);
+appendData.Write().Mode("Append").Parquet(testDataLocation);
+
+```
+
+::: zone-end
+
+Hybrid scan is disabled by default. Therefore, you will see that since we appended new data, Hyperspace will decide NOT to use the index.
+
+In the output, you will see no plan differences (hence no highlighting).
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+// Hybrid Scan configs are false by default.
+spark.conf.set("spark.hyperspace.index.hybridscan.enabled", "false")
+spark.conf.set("spark.hyperspace.index.hybridscan.delete.enabled", "false")
+
+val testDFWithAppend = spark.read.parquet(testDataLocation)
+val filter1 = testDFWithAppend.filter("name = 'banana'")
+val filter2 = testDFWithAppend.filter("qty > 10")
+val query = filter1.join(filter2, "name")
+hyperspace.explain(query)(displayHTML(_))
+query.show
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+# Hybrid Scan configs are false by default.
+spark.conf.set("spark.hyperspace.index.hybridscan.enabled", "false")
+spark.conf.set("spark.hyperspace.index.hybridscan.delete.enabled", "false")
+
+test_df_with_append = spark.read.parquet(testdata_location)
+filter1 = test_df_with_append.filter("name = 'banana'")
+filter2 = test_df_with_append.filter("qty > 10")
+query = filter1.join(filter2, "name")
+hyperspace.explain(query, True, displayHTML)
+query.show()
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+// Hybrid Scan configs are false by default.
+spark.Conf().Set("spark.hyperspace.index.hybridscan.enabled", "false");
+spark.Conf().Set("spark.hyperspace.index.hybridscan.delete.enabled", "false");
+
+DataFrame testDFWithAppend = spark.Read().Parquet(testDataLocation);
+DataFrame filter1 = testDFWithAppend.Filter("name = 'banana'");
+DataFrame filter2 = testDFWithAppend.Filter("qty > 10");
+DataFrame query = filter1.Join(filter2, filter1.Col("name") == filter2.Col("name"));
+
+query.Show();
+
+hyperspace.Explain(query, true, input => DisplayHTML(input));
+```
+
+::: zone-end
+
+### Enable Hybrid Scan
+In plan with indexes, you can see Exchange hashpartitioning required only for appended files so that we could still utilize the "shuffled" index data with appended files. BucketUnion is used to merge "shuffled" appended files with the index data.
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+// Enable Hybrid Scan config. "delete" config is not necessary since we only appended data.
+spark.conf.set("spark.hyperspace.index.hybridscan.enabled", "true")
+// spark.conf.set("spark.hyperspace.index.hybridscan.delete.enabled", "true")
+spark.enableHyperspace
+// Need to redefine query to recalculate the query plan.
+val query = filter1.join(filter2, "name")
+hyperspace.explain(query)(displayHTML(_))
+query.show
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+# Enable Hybrid Scan config. "delete" config is not necessary.
+spark.conf.set("spark.hyperspace.index.hybridscan.enabled", "true")
+# spark.conf.set("spark.hyperspace.index.hybridscan.delete.enabled", "true")
+
+# Need to redefine query to recalculate the query plan.
+query = filter1.join(filter2, "name")
+hyperspace.explain(query, True, displayHTML)
+query.show()
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+// Enable Hybrid Scan config. "delete" config is not necessary.
+spark.Conf().Set("spark.hyperspace.index.hybridscan.enabled", "true");
+// spark.Conf().Set("spark.hyperspace.index.hybridscan.delete.enabled", "true");
+spark.EnableHyperspace();
+// Need to redefine query to recalculate the query plan.
+DataFrame query = filter1.Join(filter2, filter1.Col("name") == filter2.Col("name"));
+
+query.Show();
+
+hyperspace.Explain(query, true, input => DisplayHTML(input));
+```
+
+::: zone-end
+
+## Incremental Index Refresh
+When you ready to update your indexes but do not want to rebuild your entire index, Hyperspace supports updating indexes in an incremental manner using `hs.refreshIndex("name", "incremental")` API. This will allow eliminate the need for a full rebuild of index from scratch, utilizing previously created index files as well as updating indexes on only the newly added data.
+
+Of course, please be sure to use the complementary `optimizeIndex` API (shown below) periodically to make sure you do not see performance regressions. We recommend calling optimize at least once for every 10 times you call `refreshIndex(..., "incremental")`, assuming the data you added/removed is < 10% of the original dataset. For instance, if your original dataset is 100 GB, and you've added/removed data in increments/decrements of 1 GB, you can call `refreshIndex` 10 times before calling `optimizeIndex`. Please note that this example is simply used for illustration and you have to adapt this for your workloads.
+
+In the example below, notice the addition of a Sort node in the query plan when indexes are used. This is because partial indexes are created on the appended data files, causing Spark to introduce a `Sort`. Please also note that `Shuffle` i.e. Exchange is still eliminated from the plan, giving you the appropriate acceleration.
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+def query(): DataFrame = {
+    val testDFWithAppend = spark.read.parquet(testDataLocation)
+    val filter1 = testDFWithAppend.filter("name = 'banana'")
+    val filter2 = testDFWithAppend.filter("qty > 10")
+    filter1.join(filter2, "name")
+}
+
+hyperspace.refreshIndex("productIndex2", "incremental")
+
+hyperspace.explain(query())(displayHTML(_))
+query().show
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+def query():
+    test_df_with_append = spark.read.parquet(testdata_location)
+    filter1 = test_df_with_append.filter("name = 'banana'")
+    filter2 = test_df_with_append.filter("qty > 10")
+    return filter1.join(filter2, "name")
+
+hyperspace.refreshIndex("productIndex2", "incremental")
+
+hyperspace.explain(query(), True, displayHTML)
+query().show()
+```
+
+::: zone-end
+
+## Optimize Index layout
+After calling incremental refreshes multiple times on newly appended data (e.g. if the user writes to data in small batches or in case of streaming scenarios), the number of index files tend to become large affecting the performance of the index (large number of small files problem). Hyperspace provides `hyperspace.optimizeIndex("indexName")` API to optimize the index layout and reduce the large files problem.
+
+In the plan below, notice that Hyperspace has removed the additional Sort node in the query plan. Optimize can help avoiding sorting for any index bucket which contains only one file. However, this will only be true if ALL the index buckets have at most 1 file per bucket, after `optimizeIndex`.
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+// Append some more data and call refresh again.
+val appendData = Seq(
+    ("orange", 13, "2020-11-01"),
+    ("banana", 5, "2020-11-01")).toDF("name", "qty", "date")
+appendData.write.mode("append").parquet(testDataLocation)
+
+hyperspace.refreshIndex("productIndex2", "incremental")
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+
+# Append some more data and call refresh again.
+append_data = [
+    ("orange", 13, "2020-11-01"),
+    ("banana", 5, "2020-11-01")
+]
+append_df = spark.createDataFrame(append_data, testdata_schema)
+append_df.write.mode("append").parquet(testdata_location)
+
+hyperspace.refreshIndex("productIndex2", "incremental"
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+// Call optimize. Ensure that Sort is removed after optimization (This is possible here because after optimize, in this case, every bucket contains only 1 file.).
+hyperspace.optimizeIndex("productIndex2")
+
+hyperspace.explain(query())(displayHTML(_))
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+# Call optimize. Ensure that Sort is removed after optimization (This is possible here because after optimize, in this case, every bucket contains only 1 file.).
+hyperspace.optimizeIndex("productIndex2")
+
+hyperspace.explain(query(), True, displayHTML)
+```
+
+::: zone-end
+
+### Optimize modes
+The default mode for optimization is "quick" mode where files smaller than a predefined threshold are picked for optmization. To maximize the effect of optimization, Hyperspace allows another optimize mode "full" as shown below. This mode picks ALL index files for optimization irrespective of their file size and creates the best possible layout of the index. This is also slower than the default optimize mode because more data is being processed here.
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+hyperspace.optimizeIndex("productIndex2", "full")
+
+hyperspace.explain(query())(displayHTML(_))
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
+
+```python
+hyperspace.optimizeIndex("productIndex2", "full")
+
+hyperspace.explain(query(), True, displayHTML)
+```
+
+::: zone-end
+
+
 ## Next steps
 
 * [Project Hyperspace](https://microsoft.github.io/hyperspace/)
