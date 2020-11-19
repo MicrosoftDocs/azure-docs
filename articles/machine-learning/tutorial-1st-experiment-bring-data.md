@@ -177,7 +177,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
 > [!div class="nextstepaction"]
 > [I created the control script](?isuccess=control-script#submit-to-cloud) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
 
-## Submit the run to Azure Machine Learning
+## <a name="submit-to-cloud"></a> Submit the run to Azure Machine Learning
 
 Now resubmit the run to use the new configuration:
 
