@@ -113,7 +113,7 @@ Azure Cognitive Services – Face can be used in Azure Government supporting Imp
 
 Cognitive Services – Language Understanding can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
+- Configure encryption at rest of content in Cognitive Services – Language Understanding using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest)
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
@@ -373,7 +373,7 @@ When you store images and other artifacts in an Azure container registry, Azure 
 
 Azure SQL Database can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the [Azure SQL documentation](../azure-sql/database/transparent-data-encryption-byok-overview.md).
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
@@ -421,7 +421,7 @@ Azure DevTest Labs can be used in Azure Government supporting Impact Level 5 wor
 
 ## Hybrid
 
-### [Azure Stack Edge] (https://azure.microsoft.com/products/azure-stack/edge/)
+### [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/)
 
 Azure Stack Edge can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
