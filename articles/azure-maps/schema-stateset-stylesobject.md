@@ -16,7 +16,7 @@ This article is a reference guide to the JSON schema and syntax for the `StylesO
 
 ## StyleObject
 
-A `StyleObject` is either as a [`BooleanTypeStyleRule`](#booleantypestylerule) or a [`NumericTypeStyleRule`](#numerictypestylerule).
+A `StyleObject` is either a [`BooleanTypeStyleRule`](#booleantypestylerule) or a [`NumericTypeStyleRule`](#numerictypestylerule).
 
 The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTypeStyleRule` named `temperature`.
 
