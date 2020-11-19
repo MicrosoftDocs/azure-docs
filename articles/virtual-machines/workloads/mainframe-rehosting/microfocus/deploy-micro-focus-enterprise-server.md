@@ -12,7 +12,6 @@ ms.date: 06/29/2020
 tags:
 keywords:
 ms.service: multiple
-ms.subservice: workloads
 ---
 
 # Deploy Micro Focus Enterprise Server 5.0 to AKS

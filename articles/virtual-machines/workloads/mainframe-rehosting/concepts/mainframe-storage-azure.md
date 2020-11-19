@@ -6,7 +6,6 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.subservice: workloads
 ---
 # Move mainframe storage to Azure
 
