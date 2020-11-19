@@ -3,7 +3,7 @@ title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
 description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
