@@ -47,6 +47,8 @@ landingContent:
             url: create-first-function-vs-code-powershell.md
           - text: Create your first function (Python)
             url: create-first-function-vs-code-python.md
+          - text: Create your first function (TypeScript)
+            url: create-first-function-vs-code-typescript.md
       - linkListType: learn
         links:
           - text: Create serverless logic
