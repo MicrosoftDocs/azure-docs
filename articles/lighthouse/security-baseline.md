@@ -528,7 +528,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
-- Allow managing tenant ISs to onboard through Azure Lighthouse
+- Allow managing tenant IDs to onboard through Azure Lighthouse
 
 - Audit delegation of scopes to a managing tenant
 
