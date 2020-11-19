@@ -38,6 +38,8 @@ Private plans are components of an offer and are only visible and purchasable by
 
 For *new offers that only include private plans*, publishers can create their offers as any other offer, and then mark the plans as private. The offers that only have private plans will not be discoverable or accessible via the Microsoft commercial marketplace or the [Azure portal](https://azure.microsoft.com/features/azure-portal/) by customers that are not associated with the offer.
 
+Private plans are available for both Azure Global and Azure Government.
+
 >[!NOTE]
 >An offer that contains only private plans will not be visible in the public Azure Marketplace or AppSource.
 
@@ -46,6 +48,9 @@ For *new offers that only include private plans*, publishers can create their of
 For both new and existing private offers, publishers can target customers using subscription identifiers. Publishers using a Virtual Machine or Azure Application offer can constrain availability of a private plan to an individual Azure subscription ID or upload a CSV of up to 20,000 Azure subscription IDs. While using a SaaS App private offer, publishers can associate either a tenant ID to constrain the availability of a private plan, using either the manual or CSV upload approach.
 
 Once an offer has been certified and published, customers can be updated or removed from the plan within minutes by using the Sync Private Subscriptions feature. This capability enables publishers to quickly and easily update the list of customers to which the private plan is presented without certifying or publishing the offer again.
+
+>[!NOTE]
+>Azure gov applicability: Private offers (or more accurately: private plans) are available for gov cloud like any other offer. A plan can also shift status from private to public and vice versa. The control on which cloud the offer will be available is in the partner’s hands and can be configured via Partner Center. 
 
 ## Deploying private offers
 

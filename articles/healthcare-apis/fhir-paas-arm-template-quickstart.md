@@ -5,7 +5,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: cavoeg
 ms.date: 10/06/2020
 ---

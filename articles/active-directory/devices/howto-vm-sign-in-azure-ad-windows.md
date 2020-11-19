@@ -200,7 +200,7 @@ require multi-factor authentication as a grant access control.
 > If you use "Require multi-factor authentication" as a grant access control for requesting access to the "Azure Windows VM Sign-In" app, then you must supply multi-factor authentication claim as part of the client that initiates the RDP session to the target Windows VM in Azure. The only way to achieve this on a Windows 10 client is to use Windows Hello for Business PIN or biometric authentication with the RDP client. Support for biometric authentication was added to the RDP client in Windows 10 version 1809. Remote desktop using Windows Hello for Business authentication is only available for deployments that use cert trust model and currently not available for key trust model.
 
 > [!WARNING]
-> Per-user Enabled/Enforced Azure Multi-Factor Authentication is not supported for VM sign-in.
+> Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM sign-in.
 
 ## Log in using Azure AD credentials to a Windows VM
 

@@ -130,7 +130,7 @@ Once the gateway creation has completed, you can create a connection between you
 
 ## View the gateway public IP address
 
-If you know the name of the public IP address, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) to show the public IP address assigned to the gateway.
+If you know the name of the public IP address, use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to show the public IP address assigned to the gateway.
 
 If your session timed out, copy the common network parameters from the beginning of this tutorial into your new session and proceed, then proceed.
 
@@ -159,11 +159,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-For more information, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
+For more information, see [Reset a VPN gateway](./reset-gateway.md).
 
 ## Clean up resources
 
-If you're advancing to the [next tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), you will want to keep these resources because they are the prerequisites.
+If you're advancing to the [next tutorial](./vpn-gateway-create-site-to-site-rm-powershell.md), you will want to keep these resources because they are the prerequisites.
 
 However, if the gateway is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
 

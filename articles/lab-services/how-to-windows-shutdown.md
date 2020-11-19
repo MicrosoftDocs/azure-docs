@@ -8,9 +8,9 @@ ms.date: 09/29/2020
 # Guide to controlling Windows shutdown behavior
 
 Azure Lab Services provides several cost controls to ensure that Windows virtual machines (VMs) are not running unexpectedly:
- - [Set a schedule](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Enable automatic shutdown on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Set a schedule](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Set quotas for users](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
 
 Even with these cost controls, there are situations where a Windows VM may unexpectedly continue to run; and as a result, deduct from the student's quota:
 
@@ -20,7 +20,7 @@ Even with these cost controls, there are situations where a Windows VM may unexp
 
 - **Windows shutdown command is used to turn off the VM**
   
-    A student may use Windows shutdown command, or other shutdown mechanisms provided within Windows, to turn off the VM instead of using [Azure Lab Services' stop button](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  When this happens, from the perspective of Azure Lab Services, the VM is still being used.
+    A student may use Windows shutdown command, or other shutdown mechanisms provided within Windows, to turn off the VM instead of using [Azure Lab Services' stop button](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  When this happens, from the perspective of Azure Lab Services, the VM is still being used.
     
 To help you prevent these situations from happening, this guide provides steps to automatically shutdown an idle Windows VM and remove the Windows shutdown command from the **Start** menu.  
 

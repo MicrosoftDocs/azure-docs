@@ -18,7 +18,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
@@ -38,7 +38,7 @@ Additionally, use Azure Security Center and follow network protection recommenda
 
 - [Azure Firewall threat intelligence-based filtering](threat-intel.md)
 
-- [Understand Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -76,7 +76,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -88,9 +88,9 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your Azure Firewall resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [Monitor Azure Firewall logs and metrics](/azure/firewall/tutorial-diagnostics)
+- [Monitor Azure Firewall logs and metrics](./firewall-diagnostics.md)
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md) 
 
@@ -100,7 +100,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -222,15 +222,15 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
 **Guidance**: Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -242,7 +242,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -286,7 +286,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity. 
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -318,7 +318,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. 
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -332,7 +332,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired Alerts within Log Analytics workspace. 
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -342,7 +342,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation. 
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -354,13 +354,13 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure Firewall and related resources that store or process sensitive information. 
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -370,11 +370,11 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Firewall resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control. 
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -430,7 +430,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 - [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [How to configure customer managed encryption keys](../storage/common/storage-encryption-keys-portal.md)
+- [How to configure customer managed encryption keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -448,13 +448,13 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.2: Maintain asset metadata
 
 **Guidance**: Apply tags to Azure Firewall and related resources giving metadata to logically organize them into a taxonomy. 
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -464,11 +464,11 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Firewall and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -510,7 +510,7 @@ Use Azure Resource Graph to query/discover Azure Firewall resources within their
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -542,7 +542,7 @@ Use Azure Resource Graph to query/discover Azure Firewall resources within their
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -578,7 +578,7 @@ Azure policy is not fully supported at this time.
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies and Azure Resource Manager templates. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -620,7 +620,7 @@ Azure policy is not fully supported at this time.
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
 
@@ -666,7 +666,7 @@ Azure policy is not fully supported at this time.
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -676,7 +676,7 @@ Azure policy is not fully supported at this time.
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -700,7 +700,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -752,7 +752,7 @@ Continuous Export allows you to export alerts and recommendations either manuall
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -768,5 +768,5 @@ Continuous Export allows you to export alerts and recommendations either manuall
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

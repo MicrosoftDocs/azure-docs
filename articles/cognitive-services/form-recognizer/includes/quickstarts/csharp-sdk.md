@@ -27,6 +27,8 @@ ms.author: pafarley
 
 ## Setting up
 
+### Create a new C# application
+
 #### [Visual Studio IDE](#tab/visual-studio)
 
 Using Visual Studio, create a new .NET Core application. 
@@ -58,15 +60,15 @@ Build succeeded.
  0 Error(s)
 ...
 ```
----
 
 ### Install the client library 
 
-Within the application directory, install the [Product Name] client library for .NET with the following command:
+Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
+---
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md), which contains the code examples in this quickstart.
@@ -78,7 +80,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 In the application's **Program** class, create variables for your resource's key and endpoint.
 
 > [!IMPORTANT]
-> Go to the Azure portal. If the Fprm Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
@@ -138,6 +140,9 @@ Below **Main**, create a new method named `AuthenticateClient`. You'll use this 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
 
+Repeat the steps above for a new method that authenticates a training client.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth_training)]
 
 ## Get assets for testing 
 

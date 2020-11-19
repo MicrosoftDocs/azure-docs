@@ -19,7 +19,7 @@ ms.reviewer: olhaun
 
 This article answers common questions about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-The Microsoft Authenticator app replaced the Azure Authenticator app, and it's the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) and [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+The Microsoft Authenticator app replaced the Azure Authenticator app, and it's the recommended app when you use Azure AD Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) and [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## Frequently asked questions
 
