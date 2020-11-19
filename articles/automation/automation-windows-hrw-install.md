@@ -104,7 +104,7 @@ On the target machine, perform the following steps to automate the installation 
     | `TenantID` | Optional | The identifier of the tenant organization associated with your Automation account. |
     | `WorkspaceName` | Optional | The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one. |
 
-2. Open an elevated 64-bit PowerShell command prompt. 
+2. Open an elevated 64-bit PowerShell command prompt.
 
 3. From the PowerShell command prompt, browse to the folder that contains the script that you downloaded. Change the values for the parameters `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`, and `WorkspaceName`. Then run the script.
 
@@ -144,7 +144,7 @@ To install and configure a Windows Hybrid Runbook Worker, perform the following 
 
     In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace. Use the following steps to complete the agent installation and setup.
 
-2. Enable the Azure Automation solution in your Log Analytics workspace by running the following command:
+2. Enable the Azure Automation solution in your Log Analytics workspace by running the following command in an elevated PowerShell command prompt or in Cloud Shell in the [Azure portal](https://portal.azure.com):
 
     ```powershell
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resourceGroupName> -WorkspaceName <workspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
@@ -179,7 +179,7 @@ Install the runbook environment and connect to Azure Automation. When you config
 
     * If required, set the `Verbose` parameter to receive details about the installation.
 
-### Install PowerShell modules
+## Install PowerShell modules
 
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. As these modules are not automatically deployed to on-premises machines, you must install them manually. The exception is the Azure module. This module is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
@@ -187,7 +187,7 @@ Because the primary purpose of the Hybrid Runbook Worker is to manage local reso
 
 Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module).
 
-## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Windows machine
+## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
 1. In the Azure portal, go to your Automation account.
 
