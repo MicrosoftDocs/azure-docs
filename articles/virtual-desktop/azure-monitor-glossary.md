@@ -16,7 +16,7 @@ This article lists and briefly describes key terms and concepts related to Azure
 
 ## Alerts
 
-Azure Monitor alerts for activities within your environment show you all [severity 1 alerts](#severity-1-alerts) for the subscription in the Overview page. To learn more about how to configure alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 1](#severity-1-alerts) will appear in the Overview page. To learn how to set up alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
 
 ## Available sessions
 
@@ -24,7 +24,7 @@ Available sessions shows the number of available sessions in the host pool. The 
 
 ## Connection success
 
-This item shows connection health. A successful connection means that the connection could reach the host, as confirmed by the stack on that virtual machine. A failed connection means that the connection couldn't reach the host.
+This item shows connection health. "Connection success" means that the connection could reach the host, as confirmed by the stack on that virtual machine. A failed connection means that the connection couldn't reach the host.
 
 ## Daily active users (DAU)
 
@@ -52,8 +52,7 @@ When an error or alert appears in Azure Monitor for Windows Virtual Desktop, it'
 
      - Errors marked as "service" or "ServiceError = TRUE" happened in the Windows Virtual Desktop service.
      - Errors marked as "deployment" or tagged "ServiceError = FALSE" happened outside of the Windows Virtual Desktop service.
-     
-      To learn more about the ServiceError tag, see [Common error scenarios](diagnostics-role-service.md#common-error-scenarios).
+     - To learn more about the ServiceError tag, see [Common error scenarios](diagnostics-role-service.md#common-error-scenarios).
 
 - Source: this category gives a more specific description of where the error happened.
 
