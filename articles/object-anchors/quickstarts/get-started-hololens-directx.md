@@ -38,7 +38,7 @@ To complete this quickstart, make sure you have:
 
 ## Open the sample project
 
-[!INCLUDE [Clone Sample Repo](../../../includes/object-understanding-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
 Open `quickstarts/apps/directx/DirectXOUSampleApp.sln` in Visual Studio.
 
@@ -66,7 +66,7 @@ You'll need to create an object model to run the sample app. Assume you've alrea
 
 Download that model, **chair.ou** in our case, to your computer. Then, from the HoloLens device portal, select **System > File explorer > LocalAppData > OUSampleApp > LocalState** and select **Browse...**. Then select your model file, **chair.ou** for example, and select **Upload**. You should then see the model file in the local cache.
 
-:::image type="content" source="../../../includes/media/object-understanding-quickstarts/portal-upload-model.png" alt-text="Portal Upload Model":::
+:::image type="content" source="../../../includes/media/object-anchors-quickstarts/portal-upload-model.png" alt-text="Portal Upload Model":::
 
 From the HoloLens, launch the **OUSampleApp** app (if it was already open, close it, and reopen it). Walk close (within 2-meter distance) to the target object (chair) and scan it by looking at it from multiple perspectives. You should see a pink bounding box around the object with some yellow points rendered close to object's surface, which indicates that it was detected.
 

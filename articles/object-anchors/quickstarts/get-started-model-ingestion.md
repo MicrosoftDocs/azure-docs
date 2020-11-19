@@ -69,7 +69,7 @@ First, you need to create an account with the Object Anchors service.
 
 ## Get the sample project
 
-[!INCLUDE [Clone Sample Repo](../../../includes/object-understanding-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
 ## Ingest a 3D model
 
