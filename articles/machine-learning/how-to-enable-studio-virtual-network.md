@@ -1,7 +1,7 @@
 ---
 title: Enable Azure Machine Learning studio in a virtual network
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning studio to access data stored inside of a virtual network.
+description: Learn how to configure Azure Machine Learning studio to access data stored inside of a virtual network.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -1038,7 +1038,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 * [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
 * [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 

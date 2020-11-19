@@ -73,7 +73,7 @@ Here are some of the key features of Azure Event Grid:
 * **Fan-out** - Subscribe several endpoints to the same event to send copies of the event to as many places as needed.
 * **Reliability** - 24-hour retry with exponential backoff to make sure events are delivered.
 * **Pay-per-event** - Pay only for the amount you use Event Grid.
-* **High throughput** - Build high-volume workloads on Event Grid with support for millions of events per second.
+* **High throughput** - Build high-volume workloads on Event Grid.
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
 * **Custom Events** - Use Event Grid to route, filter, and reliably deliver custom events in your app.
 

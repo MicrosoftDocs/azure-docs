@@ -37,7 +37,7 @@ choose to use another environment, please ensure the following command-line tool
 
 Follow the steps below to create an Azure Active Directory (AAD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Please record the `appId`, `password`, and `objectId` values - these will be used in the following steps.
 
-1. Create AD service principal ([Read more about RBAC](../role-based-access-control/overview.md)):
+1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -63,7 +63,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
     }
     EOF
     ```
-    To deploy an **RBAC** enabled cluster, set the `aksEnableRBAC` field to `true`
+    To deploy an **Kubernetes RBAC** enabled cluster, set the `aksEnableRBAC` field to `true`
 
 ## Deploy Components
 This step will add the following components to your subscription:
@@ -132,13 +132,13 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 To install AAD Pod Identity to your cluster:
 
-   - *RBAC enabled* AKS cluster
+   - *Kubernetes RBAC enabled* AKS cluster
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - *RBAC disabled* AKS cluster
+   - *Kubernetes RBAC disabled* AKS cluster
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -150,7 +150,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
-    - *RBAC enabled* AKS cluster
+    - *Kubernetes RBAC enabled* AKS cluster
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -158,7 +158,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - *RBAC disabled* AKS cluster
+    - *Kubernetes RBAC disabled* AKS cluster
 
         ```bash
         helm init
@@ -230,7 +230,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

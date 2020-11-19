@@ -18,13 +18,13 @@ ms.service: azure-communication-services
 
 Azure Communication Services integrates with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to deliver real-time event notifications in a reliable, scalable and secure manner. The purpose of this article is to help you configure your applications to listen to Communication Services events. For example, you may want to update a database, create a work item and deliver a push notification whenever an SMS message is received by a phone number associated with your Communication Services resource.
 
-Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) and [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../../azure-functions/functions-overview.md) and [Azure Logic Apps](../../azure-functions/functions-overview.md). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagram showing Azure Event Grid's event model.":::
 
 ## Events types
 
-Event grid uses [event subscriptions](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) to route event messages to subscribers. 
+Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. 
 
 Azure Communication Services emits the following event types:
 
@@ -46,7 +46,7 @@ You can use the Azure portal or Azure CLI to subscribe to events emitted by your
 
 ## Event subjects
 
-The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid Filtering](https://docs.microsoft.com/azure/event-grid/event-filtering).
+The `subject` field of all Communication Services events identifies the user, phone number or entity that is targeted by the event. Common prefixes are used to allow simple [Event Grid Filtering](../../event-grid/event-filtering.md).
 
 | Subject Prefix                              | Communication Service Entity |
 | ------------------------------------------- | ---------------------------- |
@@ -347,6 +347,6 @@ This section contains an example of what that data would look like for each even
 
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
-* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](https://docs.microsoft.com/azure/event-grid/concepts)
-* For an introduction to Azure Event Grid SystemTopics, see [System topics in Azure Event Grid?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* For an introduction to Azure Event Grid, see [What is Event Grid?](../../event-grid/overview.md)
+* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](../../event-grid/concepts.md)
+* For an introduction to Azure Event Grid SystemTopics, see [System topics in Azure Event Grid?](../../event-grid/system-topics.md)

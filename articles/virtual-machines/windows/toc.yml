@@ -39,14 +39,14 @@
   - name: 10 - Enable disaster recovery
     href: tutorial-disaster-recovery.md
   - name: 11 - Manage VMs
-    displayName: scope policy RBAC lock tag
+    displayName: scope policy Azure RBAC lock tag
     href: tutorial-govern-resources.md
   - name: 12 - Track and update VMs
     href: tutorial-config-management.md
   - name: 13 - Monitor VMs
     href: tutorial-monitor.md
   - name: 14 - Manage VM security
-    href: tutorial-azure-security.md
+    href: ../tutorial-azure-security.md
   - name: 15 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
   - name: 16 - Secure web server with SSL
@@ -330,7 +330,9 @@
     - name: Backup and disaster recovery for disks
       href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Shared disks
-      href: disks-shared.md
+      href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Disk performance tiers
+      href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Ephemeral OS disks
       href: ../ephemeral-os-disks.md
   - name: Networking
@@ -423,17 +425,17 @@
     - name: Retirement starting March 1, 2023
       href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Migration Overview
-      href: migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Deep Dive on migration
       href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Plan for migration
-      href: migration-classic-resource-manager-plan.md
+      href: ../migration-classic-resource-manager-plan.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Migrate using PowerShell
-      href: migration-classic-resource-manager-ps.md
+      href: ../migration-classic-resource-manager-ps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Common migration errors
-      href: migration-classic-resource-manager-errors.md
+      href: ../migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Community tools for migration
-      href: migration-classic-resource-manager-community-tools.md
+      href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: FAQ
       href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Use Images
@@ -648,8 +650,16 @@
     - name: Swap the OS disk
       href: os-disk-swap.md
     - name: Tag a VM
-      href: tag.md
-    - name: Time sync
+      items:
+      - name: Portal
+        href: ../tag-portal.md
+      - name: PowerShell
+        href: ../tag-powershell.md
+      - name: CLI
+        href: ../tag-cli.md
+      - name: Template
+        href: ../tag-template.md
+      - name: Time sync
       href: time-sync.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
@@ -878,8 +888,10 @@
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
-    - name: Change disk tier
+    - name: Change disk tier - PowerShell/CLI
       href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Change disk tier - Portal
+      href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template

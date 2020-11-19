@@ -81,6 +81,36 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 ::: zone-end
 
+## Get port number
+
+You Node.js app needs to listen to the right port to receive incoming requests.
+
+::: zone pivot="platform-windows"  
+
+In App Service on Windows, Node.js apps are hosted with [IISNode](https://github.com/Azure/iisnode), and your Node.js app should listen to the port specified in the `process.env.PORT` variable. The following example shows how you do it in a simple Express app:
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port using `process.env.PORT`. The following example shows how you do it in a simple Express app:
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## Customize build automation
