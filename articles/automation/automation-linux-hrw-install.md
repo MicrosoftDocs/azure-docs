@@ -107,14 +107,14 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
             This feature in Azure Arc enabled servers allows you to deploy the Log Analytics agent VM extension to a non-Azure Windows and/or Linux server. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc enabled servers:
 
-            - The [Azure portal](manage-vm-extensions-portal.md)
-            - The [Azure CLI](manage-vm-extensions-cli.md)
-            - [Azure PowerShell](manage-vm-extensions-powershell.md)
-            - Azure [Resource Manager templates](manage-vm-extensions-template.md)
+            - The [Azure portal](../azure-arc/servers/manage-vm-extensions-portal.md)
+            - The [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
+            - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
+            - Azure [Resource Manager templates](../azure-arc/servers/manage-vm-extensions-template.md)
 
         - Using Azure Policy.
 
-            Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy to audit if the Arc enabled server has the Log Analytics agent installed. If the agent is not installed, it automatically deploys it using a remediation task. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
+            Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy to audit if the Arc enabled server has the Log Analytics agent installed. If the agent is not installed, it automatically deploys it using a remediation task. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
 
         We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 
