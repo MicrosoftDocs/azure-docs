@@ -14,7 +14,7 @@ ms.custom:
 
 These samples cover various ways to update an existing Azure Cloud Service (extended support) deployment.
 
-## Example 1: Add an extension to existing cloud service
+## Add an extension to existing cloud service
 ```powershell
 # Create RDP extension object
 $rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name "RDPExtension" -Credential $credential -Expiration $expiration -TypeHandlerVersion "1.2.1"
@@ -26,7 +26,7 @@ $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtensio
 $cloudService | Update-AzCloudService
 ```
 
-## Example 2: Remove all extensions from cloud service
+## Remove all extensions from cloud service
 ```powershell
 # Get existing cloud service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
@@ -36,7 +36,7 @@ $cloudService.ExtensionProfileExtension = @()
 $cloudService | Update-AzCloudService
 ```
 
-## Example 3: Remove RDP extension from cloud service
+## Remove RDP extension from cloud service
 ```powershell
 # Get existing cloud service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
@@ -46,7 +46,7 @@ $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtensio
 $cloudService | Update-AzCloudService
 ```
 
-## Example 4: Scale-Out / Scale-In role instances
+## Scale-out / scale-in role instances
 ```powershell
 # Get existing cloud service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"

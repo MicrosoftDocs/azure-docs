@@ -10,7 +10,7 @@ ms.reviewer: mimckitt
 ms.custom: 
 ---
 
-# Azure Cloud Services (extended support) Config NetworkConfiguration Schema
+# Azure Cloud Services (extended support) config networkConfiguration schema
 
 The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and DNS values. These settings are optional for cloud services.
 
@@ -20,7 +20,7 @@ You can use the following resource to learn more about Virtual Networks and the 
 - [Cloud Service (extended support) Definition Schema](schema-csdef-file.md)
 - [Create a Virtual Network (extended support)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
 
-## NetworkConfiguration Element
+## NetworkConfiguration element
 The following example shows the `NetworkConfiguration` element and its child elements.
 
 ```xml
@@ -67,5 +67,5 @@ The following table describes the child elements of the `NetworkConfiguration` e
 | Subnet | Optional. Specifies the subnet that corresponds to the subnet name in the network configuration file. The name of the subnet is defined by a string for the `name` attribute.|
 | ReservedIP | Optional. Specifies the reserved IP address that should be associated with the deployment. You must use Create Reserved IP Address to create the reserved IP address. Each deployment in a cloud service can be associated with one reserved IP address. The name of the reserved IP address is defined by a string for the `name` attribute.|
 
-## See Also
+## See also
 [Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md)

@@ -38,7 +38,7 @@ Use the `Set-AzKeyVaultAccessPolicy` cmdlet to update the key vault access polic
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
 ```
 
-### Optionally, you can set access policy using the ObjectId. This can be obtained by using the `Get-AzADUser` cmdlet
+Optionally, you can set access policy using the ObjectId. This can be obtained by using the `Get-AzADUser` cmdlet.
 
 ```PowerShell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoOrg' -ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates create,get,list,delete
@@ -54,7 +54,7 @@ $policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName 'ContosoKeyVault' -Name 'ContosoCert' -CertificatePolicy $policy
 ```
 
-## Create a Storage Account and Container
+## Create a storage account and container
 
 Create a storage account and container that will be used to store the Cloud Service package (cspkg).
 
@@ -75,7 +75,7 @@ $cspkgFilePath = '<Path to cspkg file>'
 $blob = Set-AzStorageBlobContent -File $cspkgFilePath -Container 'contosocontainer' -Blob 'ContosoCS.cspkg' -Context $storageAccount.Context
 ```
 
-## Create a Virtual Network
+## Create a virtual network
 
 Create a virtual network and virtual network subnet as per configuration defined in Cloud Service configuration (cscfg). For this example, we have defined single virtual network subnet for both Cloud Service roles (WebRole and WorkerRole).
 
@@ -87,7 +87,7 @@ $subnet = New-AzVirtualNetworkSubnetConfig -Name 'ContosoSubnet' -AddressPrefix 
 New-AzVirtualNetwork -Name 'ContosoVNet' -ResourceGroupName 'ContosoOrg' -Location 'East US' -AddressPrefix '10.0.0.0/24' -Subnet $subnet
 ```
 
-## Create a Public IP Address
+## Create a public IP address
 
 Create a public IP address to be associated with the load balancer of Cloud Service.
 
@@ -95,7 +95,7 @@ Create a public IP address to be associated with the load balancer of Cloud Serv
 $publicIp = New-AzPublicIpAddress -Name 'ContosoPublicIP' -ResourceGroupName 'ContosoOrg' -Location 'East US' -AllocationMethod 'Dynamic' -IpAddressVersion 'IPv4' -DomainNameLabel 'contosocloudservice' -Sku 'Basic'
 ```
 
-## Create an OS Profile
+## Create an OS profile
 
 Create an OS Profile in-memory object. OS Profile specifies the certificates which are associated to Cloud Service roles. Over here you will use the certificates that were created in previous steps.
 
@@ -104,7 +104,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName 'ContosoKeyVault' -Name 'Con
 $secretGroup = New-AzCloudServiceVaultSecretGroupObject -Id $keyVault.ResourceId -CertificateUrl $certificate.SecretId
 ```
 
-## Create a Role Profile
+## Create a role profile
 
 Create a Role Profile in-memory object. Role profile defines role's sku specific properties such as name, capacity and tier. For this example, we have defined two roles: WebRole and WorkerRole.
 
@@ -117,7 +117,7 @@ $role2 = New-AzCloudServiceRoleProfilePropertiesObject -Name 'WorkerRole' -SkuNa
 $roles = @($role1, $role2)
 ```
 
-## Create a Network Profile
+## Create a network profile
 
 Create a Network Profile in-memory object. Network profile specifies the load balancer related configuration including the public IP address.
 
@@ -126,7 +126,7 @@ $feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 
 $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
 ```
 
-## Create an Extension Profile
+## Create an extension profile
 
 Create an Extension Profile in-memory object that you want to add to your Cloud Service. For this example we will add RDP extension and Geneva monitoring extension.
 
@@ -141,7 +141,7 @@ $genevaExtension = New-AzCloudServiceExtensionObject -Name 'GenevaExtension' -Pu
 $extensions = @($rdpExtension, $genevaExtension)
 ```
 
-## (Optional) Add Tags to your Cloud Service
+## (Optional) Add tags to your Cloud Service
 
 Define Tags as PowerShell hash table which you want to add to your Cloud Service.
 
@@ -180,7 +180,7 @@ $cloudService = New-AzCloudService `
 -Tag $tag
 ```
 
-## Get Remote Desktop File
+## Get Remote desktop file
 
 Get the RDP file using Get-AzCloudServiceRoleInstanceRemoteDesktopFile. Log in into the role instance using the credentials specified while creating RDP extension.<br>
 

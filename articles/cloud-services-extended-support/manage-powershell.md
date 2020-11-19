@@ -43,7 +43,7 @@ Invoke-AzCloudServiceRebuild -ResourceGroupName $resourceGroupName -CloudService
 ```
  
 
-## Role Instance
+## Role instance
 
 ### Restart
 
@@ -115,13 +115,13 @@ Get-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $clou
 Get-AzCloudServiceRoleInstance -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
 ```
 
-### Get Instance view of a Cloud Services (extended support) deployment
+### Get instance view of a Cloud Services (extended support) deployment
 
 ```PowerShell
 Get-AzCloudServiceInstanceView -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName  
 ```
 
-### Get Instance view of a specific role instance within a Cloud Services (extended support) deployment
+### Get instance view of a specific role instance within a Cloud Services (extended support) deployment
 
 ```PowerShell
 Get-AzCloudServiceRoleInstanceView -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName  
@@ -133,7 +133,7 @@ Get-AzCloudServiceRoleInstanceView -ResourceGroupName $resourceGroupName -CloudS
 Get-AzVMExtensionImageType  
 ```
 
-## Start & Stop Cloud Services (extended support) deployment
+## Start & stop Cloud Services (extended support) deployments
 
 ```PowerShell
 Start-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
@@ -158,7 +158,7 @@ Process to define swappable relationship between two deployments and swap Virtua
 
 To update the swappable relationship for a Cloud Service deployment, call update-AzCloudService command with `-SwappableCloudServiceId` property containing the Cloud Services Id of the newer deployment.
 
-## RDP using Plugin or Extension
+## RDP using plugin or extension
 
 ### Enable RDP
 1.	Import RemoteAccess & RemoteAccessForwarder Plugins using Csdef

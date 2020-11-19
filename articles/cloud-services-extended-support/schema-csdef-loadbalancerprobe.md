@@ -10,7 +10,7 @@ ms.reviewer: mimckitt
 ms.custom: 
 ---
 
-# Azure Cloud Services (extended support) Definition LoadBalancerProbe Schema
+# Azure Cloud Services (extended support) definition LoadBalancerProbe schema
 
 The load balancer probe is a customer defined health probe of UDP endpoints and endpoints in role instances. The `LoadBalancerProbe` is not a standalone element; it is combined with the web role or worker role in a service definition file. A `LoadBalancerProbe` can be used by more than one role.
 
@@ -42,10 +42,10 @@ The `LoadBalancerProbes` element of the service definition file includes the fol
 - [LoadBalancerProbes Element](#LoadBalancerProbes)
 - [LoadBalancerProbe Element](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes Element
+##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes element
 The `LoadBalancerProbes` element describes the collection of load balancer probes. This element is the parent element of the [LoadBalancerProbe Element](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe Element
+##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe element
 The `LoadBalancerProbe` element defines the health probe for a model. You can define multiple load balancer probes. 
 
 The following table describes the attributes of the `LoadBalancerProbe` element:
@@ -59,5 +59,5 @@ The following table describes the attributes of the `LoadBalancerProbe` element:
 | `intervalInSeconds` | `integer` | Optional. The interval, in seconds, for how frequently to probe the endpoint for health status. Typically, the interval is slightly less than half the allocated timeout period (in seconds) which allows two full probes before taking the instance out of rotation.<br /><br /> The default value is 15, the minimum value is 5.|
 | `timeoutInSeconds`  | `integer` | Optional. The timeout period, in seconds, applied to the probe where no response will result in stopping further traffic from being delivered to the endpoint. This value allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure (which are the defaults).<br /><br /> The default value is 31, the minimum value is 11.|
 
-## See Also
+## See also
 [Cloud Service (extended support) Definition Schema](schema-csdef-file.md)

@@ -10,7 +10,7 @@ ms.reviewer: mimckitt
 ms.custom: 
 ---
 
-# Azure Cloud Services (extended-support) Definition WorkerRole Schema
+# Azure Cloud Services (extended-support) definition WorkerRole schema
 
 The Azure worker role is a role that is useful for generalized development, and may perform background processing for a web role.
 
@@ -76,7 +76,7 @@ The basic format of the service definition file containing a worker role is as f
 </ServiceDefinition>
 ```
 
-## Schema Elements
+## Schema elements
 The service definition file includes these elements, described in detail in subsequent sections in this topic:
 
 [WorkerRole](#WorkerRole)
@@ -407,7 +407,7 @@ The following table describes the attributes of the `SourceDirectory` element.
 | --------- | ---- | ----------- |
 |path|string|Required. Relative or absolute path of a local directory whose contents will be copied to the Azure virtual machine. Expansion of environment variables in the directory path is supported.|
 
-## See Also
+## See also
 [Cloud Service (extended support) Definition Schema](schema-csdef-file.md)
 
 

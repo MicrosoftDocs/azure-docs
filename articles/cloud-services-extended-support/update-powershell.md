@@ -17,7 +17,7 @@ Template & parameters file define the desired state of your Cloud Service (exten
 
 2. Define a new template containing desired state of all the resources that needs changes. 
 
-## Update Method #1
+## Update method #1
 1.	Update/Create new template & parameters file for your Cloud Services (extended support) deployment. Incorporate changes for all resources. 
 
 2.	Update Storage Account or upload newer copy of Cscfg/Cspkg, obtain SAS URLs & add SAS URLs to Cloud Services resource section of Template. 
@@ -28,7 +28,7 @@ Template & parameters file define the desired state of your Cloud Service (exten
     New-AzResourceGroupDeployment -ResourceGroupName “Resource group name” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file"
     ```
 
-## Update Method #2
+## Update method #2
  
 The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by PowerShell command or Portal
 

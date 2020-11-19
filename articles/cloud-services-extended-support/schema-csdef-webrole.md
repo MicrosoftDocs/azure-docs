@@ -10,7 +10,7 @@ ms.reviewer: mimckitt
 ms.custom: 
 ---
 
-# Azure Cloud Services (extended support) Definition WebRole Schema
+# Azure Cloud Services (extended support) definition WebRole schema
 
 The Azure web role is a role that is customized for web application programming as supported by IIS 7, such as ASP.NET, PHP, Windows Communication Foundation, and FastCGI.
 
@@ -465,7 +465,7 @@ The following table describes the attributes of the `SourceDirectory` element.
 | --------- | ---- | ----------- |  
 |path|string|Required. Relative or absolute path of a local directory whose contents will be copied to the Azure virtual machine. Expansion of environment variables in the directory path is supported.|  
   
-## See Also
+## See also
 [Cloud Service (extended support) Definition Schema](schema-csdef-file.md)
 
 

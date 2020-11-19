@@ -34,22 +34,22 @@ You can specify the Virtual Machine size of a role instance as part of the servi
 
 For example, setting the role size to `Standard_D2` for a Web Role instance: 
 
-
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2"> 
 </WorkerRole> 
 ```
 
-## Changing the size of an existing role
+## Change the size of an existing role
 
 To change the size of an existing role, change the VM size in your service definition file (as shown above), repackage your Cloud Service, and redeploy it. 
 
-## Get a list of sizes 
+## Get a list of available sizes 
 
 Use the following PowerShell command to get a list of available sizes.
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel 
 ```
+
 ## Next steps 
 Learn about [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). 
