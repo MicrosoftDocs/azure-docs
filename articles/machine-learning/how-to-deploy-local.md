@@ -32,7 +32,7 @@ Some scenarios for local deploy include:
 
 ## Prepare your local machine
 
-The most foolproof way to locally run an Azure Machine Learning model is with a Docker image. A Docker image provides an isolated, containerized experience that duplicates, except for hardware issues, the Azure execution environment. For more information on installing and configuring Docker for development scenarios, see [Overview of Docker remote development on Windows](../../../windows/dev-environment/docker/overview.md).
+The most foolproof way to locally run an Azure Machine Learning model is with a Docker image. A Docker image provides an isolated, containerized experience that duplicates, except for hardware issues, the Azure execution environment. For more information on installing and configuring Docker for development scenarios, see [Overview of Docker remote development on Windows](../windows/dev-environment/docker/overview.md).
 
 While it's possible to attach a debugger to a process running in Docker (see [Attach to a running container](https://code.visualstudio.com/docs/remote/attach-container)), you may prefer to debug and iterate your Python code without involving Docker. In this scenario, it's important that your local machine uses the same libraries that are used when you run your experiment in Azure Machine Learning. To manage Python dependencies, Azure uses [conda](https://docs.conda.io/). While you may recreate the environment using other package managers, installing and configuring conda on your local machine is the easiest way to synchronize. 
 
@@ -184,7 +184,7 @@ Downloading the model can be done:
 
 - From the portal, by choosing the **Models** tab, selecting the desired model, and from the **Details** page, choosing **Download**
 - From the command line, by using `az ml model download` (see the [model download reference](../../cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download))
-- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](../../python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-)
+- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](../../../../python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-)
 
 An Azure model is one or more serialized Python objects, packaged as a Python pickle file (**.pkl** extension). The contents of the pickle file depend upon the ML library or technique used to train the model. For instance, with the model from the tutorial, you might load the model with:
 
@@ -211,9 +211,9 @@ Once you have downloaded the model and resolved its dependencies, there are no A
 
 ## Upload a retrained model to Azure Machine Learning
 
-If you have a locally-trained or retrained model, you can register it with Azure. Once registered, you can then continue tuning it using Azure compute or deploy it using Azure facilities such as [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](how-to-deploy-with-triton.md).
+If you have a locally trained or retrained model, you can register it with Azure. Once registered, you can then continue tuning it using Azure compute or deploy it using Azure facilities such as [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](how-to-deploy-with-triton.md).
 
-To be used with Azure Machine Learning's Python SDK, a model must be stored as a serialized Python object in pickle format (a **pkl** file) and must implement a `predict(data)` method that returns a JSON-serializable object. For instance, you might store a locally-trained scikit-learn diabetes model with: 
+To be used with Azure Machine Learning's Python SDK, a model must be stored as a serialized Python object in pickle format (a **pkl** file) and must implement a `predict(data)` method that returns a JSON-serializable object. For instance, you might store a locally  trained scikit-learn diabetes model with: 
 
 ```python
 import joblib
@@ -228,7 +228,7 @@ sk_model = Ridge().fit(dataset_x, dataset_y)
 joblib.dump(sk_model, "sklearn_regression_model.pkl")
 ```
 
-To make the model available  in Azure, you can then use the `register()` method of the `Model` class:
+To make the model available in Azure, you can then use the `register()` method of the `Model` class:
 
 ```python
 from azureml.core.model import Model
@@ -245,7 +245,6 @@ You can then find your newly registered model in Azure Machine Learning's **Mode
 ![Screenshot of Azure Machine Learning Model tab, showing uploaded model](media/how-to-deploy-local/registered-model.png)
 
 For more on uploading and updating models and environments, see [Register model and deploy locally with advanced usages](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb).
-
 
 ## Next steps
 
