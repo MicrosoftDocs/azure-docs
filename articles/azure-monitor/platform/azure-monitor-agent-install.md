@@ -35,7 +35,7 @@ You can use Resource Manager templates to install the Azure Monitor agent on Azu
 Get sample templates for installing the agent and creating the association from the following: 
 
 - [Template to nstall Azure Monitor agent](../samples/resource-manager-agent.md#azure-monitor-agent-preview) 
-- [Template to create association with data collection rule](../samples/resource-manager-data-collection-rule.md)
+- [Template to create association with data collection rule](../samples/resource-manager-data-collection-rules.md)
 
 Install the templates using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md) such as the following commands.
 
@@ -89,7 +89,7 @@ az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.
 az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids <vm-resource-id>
 ```
 ---
-### Azure virtual machines
+### Azure Arc enabled servers
 Use the following CLI commands to install the Azure Monitor agent onAzure Arc enabled servers.
 
 # [Windows](#tab/CLIWindowsArc)
