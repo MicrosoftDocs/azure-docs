@@ -43,6 +43,16 @@ You can create JIRA tickets on Azure Monitor alerts.
 
 [Atlassian documentation for Azure Monitor](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
 
+## BMC Helix
+
+![BMC Helix Logo](./media/partners/BMCHelix.png)
+
+BMC Helix is an autonomous enterprise service and operations SaaS platform. Integrated with 360-degree intelligence, it empowers businesses to proactively and predictively discover, monitor, service, remediate, optimize, and deliver omni-channel experiences for IT and lines-of-business.
+Furthermore, by seamlessly integrating ITSM and IT Operations Management (ITOM), BMC Helix enables IT and business users to eliminate IT silos, make data-driven business decisions, and deliver industry leading customer experiences.
+Customers can deploy the BMC Helix platform with the cloud deployment of their choice – public, private, or hybrid. Additionally, customers have a choice of AI/ML solutions to leverage from industry leading providers.
+
+[Learn more about BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+
 ## Botmetric
 
 [Botmetric introduction for Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/)
@@ -297,6 +307,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate to ensure applications constantly get the resources they require to deliver their SLA and nothing more across compute, storage, and network for the IaaS and PaaS layer. Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on-time, within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
 
 [Turbonomic introduction](https://turbonomic.com/)
+
 
 ## Next steps
 

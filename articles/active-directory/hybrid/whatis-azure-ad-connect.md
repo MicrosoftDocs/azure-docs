@@ -54,7 +54,7 @@ Key benefits and best practices:
 |-----|-----|
 |Enhanced security|[Extranet lockout trends](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Failed sign-ins report](how-to-connect-health-adfs-risky-ip.md)</br>[In privacy compliant](reference-connect-health-user-privacy.md)|
 |Get alerted on [all critical ADFS system issues](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Server configuration and availability</br>[Performance and connectivity](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regular maintenance|
-|Easy to deploy and manage|[Quick agent installation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Agent auto upgrade to the latest</br>Data available in portal within minutes|
+|Easy to deploy and manage|[Quick agent installation](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>Agent auto upgrade to the latest</br>Data available in portal within minutes|
 Rich [usage metrics](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Top applications usage</br>Network locations and TCP connection</br>Token requests per server|
 |Great user experience|Dashboard fashion from Azure portal</br>[Alerts through emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

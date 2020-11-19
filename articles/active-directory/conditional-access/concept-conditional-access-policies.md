@@ -98,7 +98,7 @@ Block access does just that, it will block access under the specified assignment
 
 The grant control can trigger enforcement of one or more controls. 
 
-- Require multi-factor authentication (Azure Multi-Factor Authentication)
+- Require multi-factor authentication (Azure AD Multi-Factor Authentication)
 - Require device to be marked as compliant (Intune)
 - Require Hybrid Azure AD joined device
 - Require approved client app
@@ -147,7 +147,7 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
+[Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
 
 [Managing device compliance with Intune](/intune/device-compliance-get-started)
 

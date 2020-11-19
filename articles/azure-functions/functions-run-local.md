@@ -1,6 +1,6 @@
 ---
 title: Work with Azure Functions Core Tools 
-description: Learn how to code and test Azure functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
+description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
@@ -162,7 +162,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Use the following command to create your Java project: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. For an example using the Maven archetype, see the [Command line quickstart](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
+> Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Use the following command to create your Java project: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype`. For an example using the Maven archetype, see the [Command line quickstart](./create-first-function-cli-java.md).  
 
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
 In version 3.x/2.x, when you run the command you must choose a runtime for your project. 
@@ -353,7 +353,7 @@ func start
 ```
 func start
 ```
-This command must be [run in a virtual environment](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
+This command must be [run in a virtual environment](./create-first-function-cli-python.md).
 
 # [TypeScript](#tab/ts)
 

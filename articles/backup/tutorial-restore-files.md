@@ -114,7 +114,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
 With the recovery script copied to your VM, you can now connect the recovery point and restore files.
 
 >[!NOTE]
-> Check [here](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) to see if you can run the script on your VM before continuing.
+> Check [here](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) to see if you can run the script on your VM before continuing.
 
 1. Connect to your VM with SSH. Replace *publicIpAddress* with the public IP address of your VM as follows:
 

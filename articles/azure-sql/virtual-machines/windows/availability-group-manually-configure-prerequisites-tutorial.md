@@ -386,6 +386,10 @@ Before you proceed consider the following design decisions.
 
    For the virtual machines, this tutorial uses public IP addresses. A public IP address enables remote connection directly to the virtual machine over the internet and makes configuration steps easier. In production environments, Microsoft recommends only private IP addresses in order to reduce the vulnerability footprint of the SQL Server instance VM resource.
 
+* **Network - Recommend a single NIC per server** 
+
+Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+
 ### Create and configure the SQL Server VMs
 
 Next, create three VMs - two SQL Server VMs and one VM for an additional cluster node. To create each of the VMs, go back to the **SQL-HA-RG** resource group, and then select **Add**. Search for the appropriate gallery item, select **Virtual Machine**, and then select **From Gallery**. Use the information in the following table to help you create the VMs:
@@ -529,6 +533,10 @@ Repeat the steps on the other SQL Server VM.
   >[!NOTE]
   > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](./availability-group-az-commandline-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
   >
+
+### Tuning Failover Cluster Network Thresholds
+
+When running Windows Failover Cluster nodes in Azure Vms with SQL Server AlwaysOn, changing the cluster setting to a more relaxed monitoring state is recommended.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluser).
 
 
 ## <a name="endpoint-firewall"></a> Configure the firewall on each SQL Server VM
