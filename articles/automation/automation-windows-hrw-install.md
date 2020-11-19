@@ -77,7 +77,7 @@ To install and configure a Windows user Hybrid Runbook Worker, you can use one o
 
 ## Automated deployment
 
-On the target machine, perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role using the PowerShell script **New-OnPremiseHybridWorker.ps1**. The script performs the following steps:
+The automated deployment method uses the PowerShell script **New-OnPremiseHybridWorker.ps1** to automate and configure the Windows Hybrid Runbook Worker role. It performs the following:
 
 * Installs the necessary modules
 * Signs in with your Azure account
@@ -87,6 +87,8 @@ On the target machine, perform the following steps to automate the installation 
 * Enable the Azure Automation solution in the workspace
 * Download and install the Log Analytics agent for Windows
 * Register the machine as Hybrid Runbook Worker
+
+Perform the following steps to install the role on your Windows machine using the script.
 
 1. Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). After you have downloaded the script, copy or run it on the target machine. The **New-OnPremiseHybridWorker.ps1** script uses the following parameters during execution.
 
