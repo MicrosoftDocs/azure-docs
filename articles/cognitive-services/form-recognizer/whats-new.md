@@ -33,8 +33,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
  
   > [Learn more about Layout extraction](concept-layout.md)
 
-- **SDK client libraries version 2.1 release**
-PATRICK Please Update this one - The [client libraries](quickstarts/client-library-21.md) for NET, Python, Java, and JavaScript have entered General Availability. 
+- **SDK client libraries version 2.1 release** - The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
 - **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 - **Text line style indication (handwritten/print) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 - **Quality improvements** - Extraction improvements including single digit extraction improvements.
