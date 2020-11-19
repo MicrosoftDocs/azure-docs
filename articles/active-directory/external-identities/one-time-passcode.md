@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 11/30/2020
 
 ms.author: mimart
 author: msmimart
@@ -104,6 +104,4 @@ Starting March 2021, the email one-time passcode feature will be turned on for a
 
 If you've already opted into the public preview of email one-time passcode authentication, you won't be affected by the March 2021 date we've set for automatically enabling the one-time passcode feature. Also, because you've already opted in to email one-time passcode authentication, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**.
 
-However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can do so by using the API.
-
-**(UI/API INSTRUCTIONS TBD)**
+However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can revert to the default setting using the [email authentication method configuration](/graph/api/resources/emailauthenticationmethodconfiguration?view=graph-rest-beta) resource type in the Microsoft Graph API.
