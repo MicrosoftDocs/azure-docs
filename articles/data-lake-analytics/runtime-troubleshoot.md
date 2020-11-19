@@ -51,7 +51,7 @@ There are two possible runtime version issues that you may encounter:
 
 * Referencing Newtonsoft.Json v12.0.3 or onwards in a USQL script will cause the following compilation failure: `System.IndexOutOfRangeException: Index was outside the bounds of the array.`
 
-    **Solution**: Customers need to downgrade Newtonsoft.Json to v12.0.2 or lower version.
+    **Solution**: Please use Newtonsoft.Json v12.0.2 or lower.
 
 
 ## See also
