@@ -39,18 +39,18 @@ There are various ways to migrate database workloads from one platform to anothe
 
 You can follow instructions to [Provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). However, please note Apache Spark 3.x is not currently supported for the Apache Cassandra Connector. You will need to provision a Databricks runtime with a supported v2.x version of Apache Spark. We recommend version 6.6 of Databricks runtime:
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks runtime":::
+:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks runtime":::
 
 
 ## Add dependencies
 
 You will need to add the Apache Spark Cassandra connector library to your cluster in order to connect to both native and Cosmos DB Cassandra endpoints. In your cluster select libraries -> install new -> maven -> search packages:
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Databricks search packages":::
+:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Databricks search packages":::
 
 Type `Cassandra` in the search box, and select the latest `spark-cassandra-connector` maven repository available, then select install:
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages2.png" alt-text="Databricks select packages":::
+:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages-2.png" alt-text="Databricks select packages":::
 
 > [!NOTE]
 > Ensure that you restart the Databricks cluster after the Cassandra Connector library has been installed.
