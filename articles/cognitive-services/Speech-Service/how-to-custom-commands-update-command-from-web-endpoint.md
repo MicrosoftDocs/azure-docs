@@ -22,7 +22,7 @@ In this article, you'll learn how to update an ongoing command from a web endpoi
 > [!div class = "checklist"]
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 
-## Create an Azure Function 
+## Create an Azure function 
 
 For this example, you'll need an HTTP-triggered [Azure function](https://docs.microsoft.com/azure/azure-functions/) that supports the following input (or a subset of this input):
 
