@@ -30,7 +30,6 @@ This video provides an overview of Weather services in the Azure Maps with REST 
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure Maps Weather services for developers - Microsoft Channel 9 Video"></iframe>
 
-
 ## Prerequisites
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
