@@ -49,7 +49,7 @@ There are two possible runtime version issues that you may encounter:
 
 ## Known issues
 
-* Referencing Newtonsoft.Json v12.0.3 or onwards in USQL script will cause job USQL compilation failure.
+* Referencing Newtonsoft.Json v12.0.3 or onwards in a USQL script will cause the following compilation failure: `System.IndexOutOfRangeException: Index was outside the bounds of the array.`
 
     **Solution**: Customers need to downgrade Newtonsoft.Json to v12.0.2 or lower version.
 
