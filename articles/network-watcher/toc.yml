@@ -69,9 +69,9 @@
   - name: Migrate to Connection Monitor
     items:
     - name: From Network Performance Monitor
-      href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+      href: migrate-to-connection-monitor-from-network-performance-monitor.md
     - name: From Connection Monitor (Classic)
-      href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+      href: migrate-to-connection-monitor-from-connection-monitor-classic.md
   - name: Diagnose VM network problems
     items:
     - name: Install VM extension
