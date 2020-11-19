@@ -59387,6 +59387,11 @@
       "source_path": "articles/azure-monitor/app/powershell-alerts.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/how-to-create-transform",
+      "redirect_document_id": false
     }
   ]
 }
