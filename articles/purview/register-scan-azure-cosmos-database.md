@@ -49,51 +49,60 @@ On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following
 The supported Authentication mechanism for Azure Cosmos Database (SQL API) is **Account Key**
 
 ### Account key
-Enter the storage account key manually as shown in screenshot below. The account key can be found at Settings--> Keys on Cosmos DB account on Azure portal. Click on "Test connection" to verify if the connection is successful.
 
+Enter the storage account key manually as shown in screenshot below. The account key can found by locating your Cosmos DB account in the Azure portal, and selecting **Settings** > **Keys**. 
+
+Click on **Test connection** to verify if the connection is successful. After you have entered storage account key and tested the connection, select **Continue**. 
 
 :::image type="content" source="./media/register-scan-azure-cosmos-database/service-principal-auth.png" alt-text="Screenshot showing service principal authorization":::
 
 ## Create and run a scan
-After you have entered storage account key , select Continue. 
 
-**Scope your scan**
+### Scope your scan
+
 The next screen here is to scope the scan. Please select the folders you want to scan and select continue (by default all the folders will be selected)
 
 :::image type="content" source="./media/register-scan-azure-cosmos-database/scope-scan.png" alt-text="Screenshot scope scans":::
 
 The next screen is where you set your scan trigger, telling the system how often you would like to scan.
 
-> [!NOTE] 
+> [!NOTE]
 > Once means no schedule, which is an indication to the system that the scan should only run once.
 
 Here are some examples of triggers that are set up on a monthly cadence below. You can select the time it starts at and define the recurrence for a particular day of the month, and a time on that day of your choosing. You can also choose to specify an end date or not (meaning the recurrence of the scan will happen indefinitely).
 
 You can also set up a trigger on a weekly cadence with an option to choose the day of the week.
 
-**Set scan rule set**
+### Set scan rule set
+
 Select a scan rule set to be used by your scan from the list of available
 
 :::image type="content" source="./media/register-scan-azure-cosmos-database/select-scan-rule-set.png" alt-text="Screenshot showing scan rule set":::
 
-**Review your scan**
+### Review your scan
+
 When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.
 
 :::image type="content" source="./media/register-scan-azure-cosmos-database/review-save-run.png" alt-text="Screenshot showing review your scan":::
 
-**Edit a scan**
-Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
+### Edit a scan
 
-**Remove a scan**
+Select a scan and click **Edit** to edit the selected scan. You can only edit one scan at a time.
+
+### Remove a scan
+
 To remove a scan, select one or more scans from the list, then select **Remove**.
 
-**Scan history**
-Select any scan in the list to get to the scan history page. This page will show you whether your scan was schedule or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
+### Scan history
 
-**Run a scan manually**
+Select any scan in the list to get to the scan history page. This page will show you whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
+
+### Run a scan manually
+
 From the **Scan History page**, you can choose **Run Scan now** to launch a new scan immediately. This action will run a full scan, not an incremental scan.
 
-**Cancel scans in progress**
+### Cancel scans in progress
+
 Select one or more scans that are in progress by selecting the checkbox for each.
 
 Then select **Cancel Scan** to stop all the selected scans from running.

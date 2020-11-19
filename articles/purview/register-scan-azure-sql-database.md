@@ -68,11 +68,11 @@ To register a new Azure SQL Database in your data catalog, do the following:
 1. Select **Management center** on the left navigation.
 1. Select **Data sources** under **Sources and scanning**.
 1. Select **+ New**.
-1. On **Register sources**, select **Azure Files**. Select **Continue**.
+1. On **Register sources**, select **Azure SQl Database**. Select **Continue**.
 
 :::image type="content" source="media/register-scan-azure-files/register-new-data-source.png" alt-text="register new data source" border="true":::
 
-On the **Register sources (Azure Files)** screen, do the following:
+On the **Register sources (Azure SQL Database)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
 1. Choose how you want to point to your desired storage account:
@@ -143,3 +143,8 @@ On the **Register sources (Azure Files)** screen, do the following:
 
 > [!NOTE]
 > Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+
+## Next steps
+
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)

@@ -53,37 +53,54 @@ To set up authentication for Azure Files Storage using an account key, do the fo
 
 ## Create and run a scan
 
-After you have setup your authentication type, click Continue. The next screen is where you set your scan trigger, telling the system how often you would like to scan.
+### Scope your scan
 
-> [!NOTE] 
-> Once means no schedule, which is an indication to the system that the scan should only run once. Recurring allows you to create a schedule the system should run the scan according to. The first execution of the scan will begin on the start date and time provided. Options include Monthly or Weekly scans.
+The next screen here is to scope the scan. Please select the folders you want to scan and select continue (by default all the folders will be selected)
+
+:::image type="content" source="./media/register-scan-azure-cosmos-database/scope-scan.png" alt-text="Screenshot scope scans":::
+
+The next screen is where you set your scan trigger, telling the system how often you would like to scan.
+
+> [!NOTE]
+> Once means no schedule, which is an indication to the system that the scan should only run once.
 
 Here are some examples of triggers that are set up on a monthly cadence below. You can select the time it starts at and define the recurrence for a particular day of the month, and a time on that day of your choosing. You can also choose to specify an end date or not (meaning the recurrence of the scan will happen indefinitely).
 
 You can also set up a trigger on a weekly cadence with an option to choose the day of the week.
 
-**Set scan rule set**
-Select a scan rule set to be used by your scan from the list of available.
+### Set scan rule set
 
-**Review your scan**
-Once you click Continue, you will view all the settings for your scan.
+Select a scan rule set to be used by your scan from the list of available
 
-**Edit a scan**
-Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
+:::image type="content" source="./media/register-scan-azure-cosmos-database/select-scan-rule-set.png" alt-text="Screenshot showing scan rule set":::
 
-**Remove a scan**
-To remove a scan, select one or more scans from the list, then click Remove.
+### Review your scan
 
-**Scan history**
-Click on any scan in the list to get to the scan history page. This page will show you whether your scan was schedule or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
+When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.
 
-**Running a scan manually**
-From the Scan History page, you can choose Run Scan now to launch a new scan immediately. This action will run a full scan, not an incremental scan.
+:::image type="content" source="./media/register-scan-azure-cosmos-database/review-save-run.png" alt-text="Screenshot showing review your scan":::
 
-**Cancelling scans in progress**
+### Edit a scan
+
+Select a scan and click **Edit** to edit the selected scan. You can only edit one scan at a time.
+
+### Remove a scan
+
+To remove a scan, select one or more scans from the list, then select **Remove**.
+
+### Scan history
+
+Select any scan in the list to get to the scan history page. This page will show you whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
+
+### Run a scan manually
+
+From the **Scan History page**, you can choose **Run Scan now** to launch a new scan immediately. This action will run a full scan, not an incremental scan.
+
+### Cancel scans in progress
+
 Select one or more scans that are in progress by selecting the checkbox for each.
 
-Then click Cancel Scan to stop all the selected scans from running.
+Then select **Cancel Scan** to stop all the selected scans from running.
 
 ## Next steps
 

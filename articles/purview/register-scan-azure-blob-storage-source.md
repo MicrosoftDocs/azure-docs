@@ -106,7 +106,13 @@ have to be real or work.
 
 ## Create and run a scan
 
-After you have setup your authentication type, click Continue. The next screen is where you set your scan trigger, telling the system how often you would like to scan.
+### Scope your scan
+
+The next screen here is to scope the scan. Please select the folders you want to scan and select continue (by default all the folders will be selected)
+
+:::image type="content" source="./media/register-scan-azure-cosmos-database/scope-scan.png" alt-text="Screenshot scope scans":::
+
+The next screen is where you set your scan trigger, telling the system how often you would like to scan.
 
 > [!NOTE]
 > Once means no schedule, which is an indication to the system that the scan should only run once.
@@ -119,35 +125,35 @@ You can also set up a trigger on a weekly cadence with an option to choose the d
 
 Select a scan rule set to be used by your scan from the list of available
 
-:::image type="content" source="./media/register-scan-azure-blob-storage-source/select-scan-rule-set.png" alt-text="Screenshot showing scan rule set":::
+:::image type="content" source="./media/register-scan-azure-cosmos-database/select-scan-rule-set.png" alt-text="Screenshot showing scan rule set":::
 
 ### Review your scan
 
 When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.
 
-:::image type="content" source="./media/register-scan-azure-blob-storage-source/review-save-run.png" alt-text="Screenshot showing review your scan":::
+:::image type="content" source="./media/register-scan-azure-cosmos-database/review-save-run.png" alt-text="Screenshot showing review your scan":::
 
 ### Edit a scan
 
-Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
+Select a scan and click **Edit** to edit the selected scan. You can only edit one scan at a time.
 
 ### Remove a scan
 
-To remove a scan, select one or more scans from the list, then click Remove.
+To remove a scan, select one or more scans from the list, then select **Remove**.
 
 ### Scan history
 
-Click on any scan in the list to get to the scan history page. This page will show you whether your scan was schedule or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
+Select any scan in the list to get to the scan history page. This page will show you whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
 
 ### Run a scan manually
 
-From the **Scan History** page, you can choose Run Scan now to launch a new scan immediately. This action will run a full scan, not an incremental scan.
+From the **Scan History page**, you can choose **Run Scan now** to launch a new scan immediately. This action will run a full scan, not an incremental scan.
 
 ### Cancel scans in progress
 
 Select one or more scans that are in progress by selecting the checkbox for each.
 
-Then click Cancel Scan to stop all the selected scans from running.
+Then select **Cancel Scan** to stop all the selected scans from running.
 
 ## Next steps
 

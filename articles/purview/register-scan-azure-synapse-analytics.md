@@ -59,19 +59,26 @@ The following scanning functions are supported for Azure Synapse Analytics:
 1. The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_owner` permission to the identity.
 
 ## Register an Azure Synapse Analytics server
-Navigate to your Purview catalog.
 
-1. Click on **Management Center** on the left navigation pane.
+To register a new Azure Synapse Analytics server in your Data Catalog, do the following:
 
-<!---![Screenshot showing how to go to Management Center]--->
+1. Navigate to your Purview Data Catalog.
+1. Select **Management center** on the left navigation.
+1. Select **Data sources** under **Sources and scanning**.
+1. Select **+ New**.
+1. On **Register sources**, select **Azure Synapse Analytics**. Select **Continue**.
 
-2. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
+:::image type="content" source="media/register-scan-azure-synapse-analytics/register-new-data-source.png" alt-text="register new data source" border="true":::
 
-3. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Synapse Analytics** and hit **continue**
+On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
-4. **Register sources** appears. Select a source name of your choice.
+1. Enter a **Name** that the data source will be listed with in the Catalog.
+1. Choose how you want to point to your desired storage account:
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate server from the **Server name** drop down box.
+   1. Or, you can select **Enter manually** and enter a **Server name**.
+1. **Finish** to register the data source.
 
-:::image type="content" source="./media/register-scan-azure-synapse-analytics/register.png" alt-text="Screenshot showing registration of source":::
+:::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="register sources options" border="true":::
 
 ## Set up authentication for a scan
 
@@ -85,62 +92,57 @@ Navigate to your Purview catalog.
 
 ## Create and run a scan
 
-1. Go to the data source name that you picked in step 5 and click **+ New scan** to set up a scan. You can enter the database name along with user name and pass word and test the connection.
+### Scope your scan
 
-<!---![screenshot to register data source]--->
+The next screen here is to scope the scan. Please select the folders you want to scan and select continue (by default all the folders will be selected)
 
-2. Hit **Continue** once the connection is successful. 
+:::image type="content" source="./media/register-scan-azure-synapse-analytics/scope-scan.png" alt-text="Screenshot scope scans":::
 
-### Set scan trigger
+The next screen is where you set your scan trigger, telling the system how often you would like to scan.
 
-> [!NOTE] 
-> Once means no schedule, which is an indication to the system that the scan should only run once. Recurring allows you to create a schedule the system should run the scan according to. The first execution of the scan will begin on the start date and time provided. Options include Monthly or Weekly scans.
+> [!NOTE]
+> Once means no schedule, which is an indication to the system that the scan should only run once.
 
-1. You have the option to scan once or set up a recurring scan where you pick a date and time to run the scan periodically.
+Here are some examples of triggers that are set up on a monthly cadence below. You can select the time it starts at and define the recurrence for a particular day of the month, and a time on that day of your choosing. You can also choose to specify an end date or not (meaning the recurrence of the scan will happen indefinitely).
 
-2. You can select the time it starts at and define the recurrence for a particular day of the month, and a time on that day of your choosing. 
-
-3. Choose to specify an end date or not (meaning the recurrence of the scan will happen indefinitely).
-
-4. Set up a trigger on a weekly cadence with an option to choose the day of the week.
+You can also set up a trigger on a weekly cadence with an option to choose the day of the week.
 
 ### Set scan rule set
 
 Select a scan rule set to be used by your scan from the list of available
 
-<!---![Screenshot showing scan rule set]--->
+:::image type="content" source="./media/register-scan-azure-synapse-analytics/select-scan-rule-set.png" alt-text="Screenshot showing scan rule set":::
 
 ### Review your scan
-Once you click Continue, you will view all the settings for your scan.
 
-<!---![Screenshot showing scan rule set]--->
+When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.
+
+:::image type="content" source="./media/register-scan-azure-synapse-analytics/review-save-run.png" alt-text="Screenshot showing review your scan":::
 
 ### Edit a scan
 
-Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
+Select a scan and click **Edit** to edit the selected scan. You can only edit one scan at a time.
 
 ### Remove a scan
 
-To remove a scan, select one or more scans from the list, then click Remove.
+To remove a scan, select one or more scans from the list, then select **Remove**.
 
 ### Scan history
 
-Click on any scan in the list to get to the scan history page. This page will show you whether your scan was schedule or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
+Select any scan in the list to get to the scan history page. This page will show you whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
 
 ### Run a scan manually
 
-From the Scan History page, you can choose Run Scan now to launch a new scan immediately. This action will run a full scan, not an incremental scan.
+From the **Scan History page**, you can choose **Run Scan now** to launch a new scan immediately. This action will run a full scan, not an incremental scan.
 
 ### Cancel scans in progress
 
 Select one or more scans that are in progress by selecting the checkbox for each.
 
-Then click Cancel Scan to stop all the selected scans from running.
+Then select **Cancel Scan** to stop all the selected scans from running.
 
-## Summary
+## Next steps
 
-In this tutorial you scanned an Azure Synapse Analytics account using the portal.
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
 
-## Next Steps
-
-- [How to Browse Data catalog](how-to-browse-catalog.md)
