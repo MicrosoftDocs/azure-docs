@@ -158,16 +158,13 @@
       - name: Microsoft Identity Web library
         href: microsoft-identity-web.md
         displayName: auth, library, .NET Core
-  - name: Authentication flows and app scenarios
+  - name: App scenarios and authentication flows 
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
-  - name: Application types and OAuth 2.0
-    displayName: App types, OAuth
-    href: v2-app-types.md
   - name: Permissions and consent
     displayName: Scopes
     href: v2-permissions-and-consent.md
@@ -177,7 +174,7 @@
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
   items:
-  - name: Application scenarios
+  - name: Integrate your app scenario
     displayName: App scenarios
     items:
     - name: Sign-in audience
@@ -561,6 +558,8 @@
     href: quickstart-remove-app.md
 - name: Reference
   items:
+  - name: Glossary
+    href: developer-glossary.md
   - name: Application configuration
     displayName: App configuration
     items:
@@ -622,6 +621,9 @@
         href: active-directory-saml-protocol-reference.md
       - name: SAML tokens
         href: reference-saml-tokens.md
+  - name: Application types and OAuth 2.0
+    displayName: App types, OAuth
+    href: v2-app-types.md
   - name: Application manifest
     href: reference-app-manifest.md
     displayName: app manifest
@@ -663,8 +665,6 @@
       href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: Resources
   items:
-  - name: Glossary
-    href: developer-glossary.md
   - name: Videos
     href: identity-videos.md
   - name: Microsoft identity platform developer blog
