@@ -10,11 +10,11 @@ November XX, 2020: Released for download
 
 ### New features and improvements
 
-* Support for gMSA
+* Support for [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
 * Support for groups up to size of 1500 members (during delta sync)
 * Initial sync improvements
 * Advanced verbose logging
-* Introduction of AADCloudSyncTools PowerShell module
+* Introduction of [AADCloudSyncTools PowerShell module](../articles/active-directory/cloud-provisioning/reference-powershell.md)
 
 ## 1.1.96.0
 
