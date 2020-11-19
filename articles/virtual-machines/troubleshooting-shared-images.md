@@ -66,14 +66,14 @@ If you have problems performing any operations on shared image galleries, image 
 **Cause**: The <imageDefinitionName\> name ends with a period or underscore.  
 **Workaround**: Choose a name for the image definition that meets the following conditions: 
 - Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
+- Contains only English letters, numbers, underscores, hyphens, and periods
 - Starts and ends with English letters or numbers.
 
 *The entity name <imageDefinitionName\> is invalid according to its validation rule: ^[^\_\\W][\\w-.\_]{0,79}(?<![-.])$"*  
 **Cause**: The <imageDefinitionName\> name ends with a period or underscore.  
 **Workaround**: Choose a name for the image definition that meets the following conditions: 
 - Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
+- Contains only English letters, numbers, underscores, hyphens, and periods
 - Starts and ends with English letters or numbers
 
 *Asset name galleryImage.properties.identifier.<property\> is not valid. It cannot be empty. Allowed characters are uppercase or lowercase letters, digits, hyphen(-), period (.), underscore (\_). Names are not allowed to end with period(.). The length of the name cannot exceed <number\> characters.*  

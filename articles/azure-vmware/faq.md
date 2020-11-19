@@ -214,7 +214,7 @@ You'll have CloudAdmin group privileges. For more information, see [Access and I
 
 #### What privileges and permissions will I have on the NSX-T manager?
 
-You'll have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
+You'll have full administrator privileges on NSX-T and can manage vSphere role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 > [!NOTE]
 > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
@@ -233,7 +233,7 @@ Yes, customers can deploy Azure VMware Solution within an Azure subscription man
 
 Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-For CSP-managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
+For CSP-managed subscriptions, the first level of support is provided by the Solution Provider in the same fashion as CSP does for other Azure services.
 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
@@ -243,9 +243,9 @@ You'll need an Azure account in an Azure subscription.
 
 Microsoft and Red Hat share an integrated, colocated support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
 
-#### Is VMware HCX Enterprise Edition available, and if so, how much does it cost?
+#### Is VMware HCX Enterprise available, and if so, how much does it cost?
 
-VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can switch off or opt out of the service.
+VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX Enterprise for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX Enterprise service goes GA, you'll get a 30-day notice that billing will switch over. You can switch it off or opt out of the service.
 
 #### How do I request a host quota increase for Azure VMware Solution?
 
@@ -256,8 +256,7 @@ For EA subscriptions, use the following procedure. First, you'll need:
 * An [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * An Azure account in an Azure subscription.
 
-Before you create your Azure VMware Solution resource, you must submit a support ticket to allocate your nodes. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
-
+Before you can create your Azure VMware Solution resource, you'll submit a support ticket to have your hosts allocated. It takes up to five business days to confirm and fulfill your request. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll go through the same process.
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
@@ -272,20 +271,20 @@ Before you create your Azure VMware Solution resource, you must submit a support
 
    - POC or Production 
    - Region Name
-   - Number of nodes
+   - Number of hosts
    - Any other details
 
    >[!NOTE]
-   >Azure VMware Solution recommends a minimum of three nodes to spin up your private cloud and for redundancy N+1 nodes. 
+   >Azure VMware Solution recommends a minimum of three hosts to spin up your private cloud and for redundancy N+1 hosts. 
 
 1. Select **Review + Create** to submit the request.
 
    It will take up to five business days for a support representative to confirm your request.
 
    >[!IMPORTANT] 
-   >If you already have an existing Azure VMware Solution, and you are requesting additional nodes, please note that we need five business days to allocate the nodes. 
+   >If you already have an existing Azure VMware Solution, and you are requesting additional hosts, please note that we need five business days to allocate the hosts. 
 
-1. Before you can provision your nodes, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
+1. Before you can provision your hosts, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>

@@ -26,13 +26,17 @@ See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-sy
 
 >[!NOTE]
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
->
+
+>[!NOTE]
+>Running the Log Analytics Linux Agent in containers is not supported. If you need to monitor containers, please leverage the [Container Monitoring solution](../insights/containers.md) for Docker hosts or [Azure Monitor for containers](../insights/container-insights-overview.md) for Kubernetes.
+
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
 * Only the server versions are supported, not client.  
 * Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
-* Versions that have passed their manufacturer's end-of-support date are not supported.  
+* Versions that have passed their manufacturer's end-of-support date are not supported.
+* Only support VM images; containers, even those derived from official distro publishers' images, are not supported.
 * New versions of AMI are not supported.  
 * Only versions that run SSL 1.x by default are supported.
 
