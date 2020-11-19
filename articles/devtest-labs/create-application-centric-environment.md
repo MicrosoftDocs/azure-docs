@@ -1,6 +1,6 @@
 ---
 title: Create an application-centric environment - Azure
-description: This topic demonstrates how to create an application-centric environment with CloudShell Colony and Microsoft Azure.
+description: This article demonstrates how to create an application-centric environment with Cloud Shell Colony and Microsoft Azure.
 ms.topic: how-to
 ms.date: 11/26/2020
 ---
@@ -9,19 +9,19 @@ ms.date: 11/26/2020
 
 [Quali's CloudShell Colony](https://azuremarketplace.microsoft.com/marketplace/apps/quali_systems.cloudshell_colony?tab=Overview) is a SaaS platform for delivering Infrastructure Automation at Scale for complex application-centric environments on cloud technologies including Azure and Kubernetes. CloudShell Colony complements Azure DevTest Labs to help developer teams deploy complex applications throughout the value stream, all the way to production.
 
-This topic demonstrates how to create an application-centric environment with CloudShell Colony and Microsoft Azure.
+This article demonstrates how to create an application-centric environment with CloudShell Colony and Microsoft Azure.
 
 ## Set up the environment with CloudShell Colony and Microsoft Azure
 
-1. Sign up for your free trial of [CloudShell Colony](https://azuremarketplace.microsoft.com/marketplace/apps/quali_systems.cloudshell_colony?tab=Overview).
+1. Sign up for your free trial of [Colony](https://azuremarketplace.microsoft.com/marketplace/apps/quali_systems.cloudshell_colony?tab=Overview).
 
     :::image type="content" source="./media/create-application-centric-environment/free-trial.png" alt-text="Sign up for free trial":::    
 1. Link your Azure account ([view steps here](https://colonysupport.quali.com/hc/articles/360008222234)).
 
-    :::image type="content" source="./media/create-application-centric-environment/welcome.png" alt-text="Welcome to CloudShell Colony":::     
+    :::image type="content" source="./media/create-application-centric-environment/welcome.png" alt-text="Welcome to Colony":::     
 1. Invite users into your space.
 1. Create your first blueprint using a YAML file ([view steps here](https://colonysupport.quali.com/hc/articles/360001680807-Steps-to-Developing-a-Blueprint)).
-    1. Link your blueprint repo in GitHub or BitBucket to CloudShell Colony.
+    1. Link your blueprint repo in GitHub or BitBucket to Colony.
     1. Use a Colony sample blueprint as the foundation and modify as appropriate.
 
         :::image type="content" source="./media/create-application-centric-environment/performance-stress-tests.png" alt-text="Stress tests":::    
@@ -37,4 +37,4 @@ This topic demonstrates how to create an application-centric environment with Cl
 
 ## Next steps
 
-[Request a demo of CloudShell Colony](https://info.quali.com/cloudshell-colony-demo-request)
+[Request a demo of Colony](https://info.quali.com/cloudshell-colony-demo-request)
