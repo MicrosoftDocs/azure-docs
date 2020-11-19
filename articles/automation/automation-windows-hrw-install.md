@@ -52,7 +52,7 @@ The minimum requirements for a Windows Hybrid Runbook Worker are:
 
 ### Network configuration
 
-To get more networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
+For networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
 ### Adding a machine to a Hybrid Runbook Worker group
 
