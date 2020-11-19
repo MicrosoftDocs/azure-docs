@@ -27,7 +27,7 @@ For example, consider an environment with a set of virtual machines running a li
 
 
 
-## Create rule and association in the Azure portal
+## Create rule and association in Azure portal
 You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created for any virtual machines that don't already have it installed.
 
 > [!IMPORTANT]

@@ -23,7 +23,7 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-
 
 
 ## Install with Azure portal
-To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-in-azure-portal) in the Azure portal. This allows you to associate the data collection rule with one or more Azure virtual machines. The agent will be installed on any of these virtual machines that don't already have it.
+To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) in the Azure portal. This allows you to associate the data collection rule with one or more Azure virtual machines. The agent will be installed on any of these virtual machines that don't already have it.
 
 > [!NOTE]
 > You can only install the Azure Monitor agent on Azure virtual machines using the Azure portal. For Azure Arc enabled servers, use one of the other methods described below.
