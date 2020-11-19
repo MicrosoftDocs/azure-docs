@@ -91,7 +91,7 @@
           href: samples/resource-manager-function-app.md
     - name: Data collection rules
       href: samples/resource-manager-data-collection-rules.md
-          - name: Diagnostic settings
+    - name: Diagnostic settings
       href: samples/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
       href: samples/resource-manager-workspace.md
