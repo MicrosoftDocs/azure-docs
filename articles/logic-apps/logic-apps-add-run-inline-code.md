@@ -22,7 +22,7 @@ When you want to run a piece of code inside your logic app, you can add the buil
 * Doesn't require working with the [**Variables** actions](../logic-apps/logic-apps-create-variables-store-values.md), which are not yet supported.
 
 * Uses Node.js version 8.11.1. For more information, see 
-[Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+[Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
   > The `require()` function isn't supported by the **Inline Code** action for running JavaScript.
@@ -41,7 +41,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
    The example logic app in this topic uses this Office 365 Outlook trigger: **When a new email arrives**
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. If you don't want to create or use an integration account, try creating a logic app in the Azure portal using the new **Logic App (Preview)** resource type or in Visual Studio Code by using the new [Azure Logic Apps preview extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md).
 
   > [!NOTE]
   > Make sure that you use an integration account that's appropriate for your use case or scenario. 
