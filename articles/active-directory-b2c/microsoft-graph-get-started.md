@@ -81,12 +81,12 @@ If your application or script needs to delete users or update their passwords, a
 ## Next steps
 Now that you've registered your management application and have granted it the required permissions, your applications and services (for example, Azure Pipelines) can use its credentials and permissions to interact with the Microsoft Graph API. 
 
-* [Get an access token from Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Use the access token to call Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Get an access token from Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Use the access token to call Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [B2C operations supported by Microsoft Graph](microsoft-graph-operations.md)
 * [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Get audit logs with the Azure AD reporting API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph]: /graph/
 [ms-graph-api]: https://docs.microsoft.com/graph/api/overview
