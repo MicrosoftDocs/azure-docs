@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop Insights glossary - Azure
-description: A glossary of Windows Virtual Desktop Insights terms and concepts.
+title: Monitor Windows Virtual Desktop glossary - Azure
+description: A glossary of terms and concepts related to Azure Monitor for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ---
-# Windows Virtual Desktop Insights glossary
+# Azure Monitor for Windows Virtual Desktop glossary
 
 This article lists and briefly describes key terms and concepts related to Azure Monitor for Windows Virtual Desktop.
 
@@ -34,9 +34,9 @@ The total number of users that have started a session in the last 24 hours.
 
 The total number of [severity 1 alerts](#severity-1-alerts) triggered in the last 24 hours.
 
-## Daily sessions
+## Daily connections and reconnections
 
-The total number of sessions started in the last 24 hours.
+The total number of connections and reconnections started or completed within the last 24 hours.
 
 ## Daily connected hours
 
@@ -44,18 +44,18 @@ The total number of hours spent connected to a session across users in the last 
 
 ## Diagnostics and errors
 
-When an error or alert appears in Insights, it's categorized by three things:
+When an error or alert appears in Azure Monitor for Windows Virtual Desktop, it's categorized by three things:
 
-- The activity type is how the error is ranked in the connection diagnostics and user report pages. Windows Virtual Desktop diagnostics categorizes activity types as management activities, feeds, connections, host registrations, errors, and checkpoints. Learn more about these categories at [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
+- Activity type: this category is how the error is categorized by Windows Virtual Desktop diagnostics. The categories are management activities, feeds, connections, host registrations, errors, and checkpoints. Learn more about these categories at [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
 
-- The kind category shows where the error is located. 
+- Kind: this category shows the error's location. 
 
-     - Errors marked as "service" or "ServiceError = TRUE" are within the control of the Windows Virtual Desktop service. 
-     - Errors marked as "deployment" or tagged "ServiceError = FALSE" are outside the control of the Windows Virtual Desktop service.
+     - Errors marked as "service" or "ServiceError = TRUE" happened in the Windows Virtual Desktop service.
+     - Errors marked as "deployment" or tagged "ServiceError = FALSE" happened outside of the Windows Virtual Desktop service.
      
       To learn more about the ServiceError tag, see [Common error scenarios](diagnostics-role-service.md#common-error-scenarios).
 
-- The source category gives a more specific description of where the error happened:
+- Source: this category gives a more specific description of where the error happened.
 
      - Diagnostics: the service role responsible for monitoring and reporting service activity to let users observe and diagnose deployment issues.
 
@@ -67,11 +67,11 @@ When an error or alert appears in Insights, it's categorized by three things:
 
      - Client: software running on the end-user machine that provides the interface to the Windows Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
-To learn more about troubleshooting errors, see [Identify and diagnose Windows Virtual Desktop issues](diagnostics-role-service.md).
+Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Windows Virtual Desktop issues](diagnostics-role-service.md).
 
 ## Input delay
 
-"Input delay" in Windows Virtual Desktop Insights means the input delay per process performance counter for each session. In the host performance page at <aka.ms/azmonwvdi>, this performance counter is configured to send a report to the service once every 30 seconds. These 30-second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
+"Input delay" in Azure Monitor for Windows Virtual Desktop means the input delay per process performance counter for each session. In the host performance page at <aka.ms/azmonwvdi>, this performance counter is configured to send a report to the service once every 30 seconds. These 30-second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
 
 Under **Input delay by host**, you can select a session host row to filter all other visuals in the page to that host. You can also select a process name to filter the median input delay over time chart.
 
@@ -90,9 +90,9 @@ The total number of users that have started a session in the last 28 days. If yo
 
 ## Performance counters
 
-<!---quick definition of a performance counter should go here--->
+Performance counters show the performance of hardware components, operating systems, and applications.
 
-The following table lists the required performance counters and time intervals that Azure Monitor needs for Windows Virtual Desktop:
+The following table lists the recommended performance counters and time intervals that Azure Monitor uses for Windows Virtual Desktop:
 
 |Performance counter name|Time interval|
 |---|---|
@@ -136,13 +136,13 @@ Potential connectivity issues shows the hosts, users, published resources, and c
 
 For example, if you select the **By user** filter, you can check to see each user's connection attempts in the **Attempts** column.
 
-If you notice that a connection issue spans multiple hosts, users, resources, or clients, it's likely that the issue affects the whole system.
+If you notice that a connection issue spans multiple hosts, users, resources, or clients, it's likely that the issue affects the whole system. If it doesn't, it's a smaller issue that lower priority.
 
 You can also select entries to view additional information. You can view which hosts, resources, and client versions were involved with the issue. The display will also show any errors reported during the connection attempts.
 
 ## Round-trip time (RTT)
 
-Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the VM's Azure region. To learn more about RTT and see which locations have the best latency, see the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the VM's Azure region. To see which locations have the best latency, look up your desired location in the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## Session history
 
@@ -169,7 +169,7 @@ core. Knowing how many users are active will help you efficiently resource and s
 
 ## Windows events
 
-Windows events are... <!---Insert definition here--->
+Windows Event logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 The following table lists the required Windows events for Azure Monitor for Windows Virtual Desktop:
 
@@ -186,12 +186,14 @@ To learn more about Windows events, see [Windows event records properties](../az
 
 ## Next steps
 
-Get started with Windows Virtual Desktop Insights, check out these articles:
+To get started with Azure Monitor for Windows Virtual Desktop, check out these articles:
 
-- [How to use Windows Virtual Desktop insights]()
-- [Windows Virtual Desktop Insights troubleshooting]()
+- [How to use Azure Monitor for Windows Virtual Desktop]()
+- [Azure Monitor for Windows Virtual Desktop troubleshooting]()
 
 <!---Add links here when available--->
+
+You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Use Azure Advisor with Windows Virtual Desktop](azure-advisor.md).
 
 If you need help or have any questions, check out our community resources:
 
