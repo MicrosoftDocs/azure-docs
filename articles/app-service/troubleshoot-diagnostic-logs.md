@@ -180,16 +180,17 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 
 The following table shows the supported log types and descriptions: 
 
+
 | Log type | Windows | Windows Container | Linux | Linux Container | Description |
 |-|-|-|-|-|-|
-| AppServiceConsoleLogs | TBA | TBA | Yes | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | TBA | Yes | Yes | Web server logs |
+| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
+| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
 | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | TBA | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | TBA | TBA | TBA | File changes made to the site content; only available for Premium tier and above |
-| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | Application logs |
-| AppServiceIPSecAuditLogs  | Yes | TBA | Yes | Yes | Requests from IP Rules |
-| AppServicePlatformLogs  | TBA | TBA | Yes | Yes | Container operation logs |
+| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
+| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; only available for Premium tier and above |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat | Java SE & Tomcat | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
