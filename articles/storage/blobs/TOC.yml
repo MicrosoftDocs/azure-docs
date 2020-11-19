@@ -330,11 +330,11 @@
       - name: Authorization options for users
         items:
         - name: Portal
-          href: authorize-blob-access-portal.md
+          href: authorize-data-operations-portal.md
         - name: PowerShell
-          href: authorize-active-directory-powershell.md
+          href: authorize-data-operations-powershell.md
         - name: Azure CLI
-          href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
         items:
         - name: Portal
@@ -735,8 +735,10 @@
       items:
       - name: Migrate from Data Lake Storage Gen1
         href: data-lake-storage-migrate-gen1-to-gen2.md
-      - name: Migrate an on-premises HDFS store
+      - name: Migrate an HDFS store offline
         href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+      - name: Migrate an HDFS store online
+        href: migrate-gen2-wandisco-live-data-platform.md
     - name: Manage
       items:
       - name: .NET
