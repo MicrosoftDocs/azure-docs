@@ -103,7 +103,7 @@ You can reject a private endpoint that's in the pending state or approved state.
 
 1. Select the **private endpoint** you wish to reject, and select **Reject** on the toolbar.
 
-    ![Screenshot that shows the "Networking - Private endpoint connections (preview)" with "Reject" selected.](./media/configure-private-endpoints/reject-button.png)
+    ![Screenshot that shows the "Networking - Private endpoint connections" with "Reject" selected.](./media/configure-private-endpoints/reject-button.png)
 1. On the **Reject connection** dialog box, enter a comment (optional), and select **Yes**. 
 
     ![Private endpoint - reject](./media/configure-private-endpoints/reject.png)
