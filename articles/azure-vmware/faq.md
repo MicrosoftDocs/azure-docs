@@ -233,7 +233,7 @@ Yes, customers can deploy Azure VMware Solution within an Azure subscription man
 
 Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-For CSP-managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
+For CSP-managed subscriptions, the first level of support is provided by the Solution Provider in the same fashion as CSP does for other Azure services.
 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
@@ -257,7 +257,6 @@ For EA subscriptions, use the following procedure. First, you'll need:
 * An Azure account in an Azure subscription.
 
 Before you create your Azure VMware Solution resource, you must submit a support ticket to allocate your nodes. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
-
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
