@@ -42,7 +42,7 @@ You can then either create a new key vault, or establish a private link connecti
 
 ### Create a new key vault and establish a private link connection
 
-You can create an Azure Key Vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
+You can create a new key vault with the [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
 After configuring the key vault basics, select the Networking tab and follow these steps:
 

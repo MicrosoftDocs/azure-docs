@@ -131,27 +131,10 @@ The following errors commonly happen when either the `leapp preupgrade` process 
 
     This error happens when root SSH access isn't enabled in */etc/sshd_config*. For more information, see the [Preparations](#preparations) section in this article. 
 
-## Common Issues
-These are some of the common instances that either the `leapp preupgrade` or `leapp upgrade` process could fail.
-
-**Error: No matches found for the following disabled plugin patterns**
-```plaintext
-STDERR:
-No matches found for the following disabled plugin patterns: subscription-manager
-Warning: Packages marked by Leapp for upgrade not found in repositories metadata: gpg-pubkey
-```
-**Solution**\
-Disable subscription-manager plugin by editing the file `/etc/yum/pluginconf.d/subscription-manager.conf` and changing enabled to `enabled=0`.
-
-This is caused by the subscription-manager yum plugin being enabled, which is not used for PAYG VMs.
-
-**Error: Possible problems with remote login using root**
-The `leapp preupgrade` could fail with the following error:
-```structured-text
 
 ## Next steps
 * Learn more about [Red Hat images in Azure](./redhat-images.md).
 * Learn more about [Red Hat update infrastructure](./redhat-rhui.md).
 * Learn more about the [RHEL BYOS offer](./byos.md).
-* Information on the Red Hat in-place upgrade processes can be found on the Red Hat documentation, [Upgrading from RHEL 7 TO RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index)
-* Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
+* To learn more about the Red Hat in-place upgrade processes, see [Upgrading from RHEL 7 TO RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index) in the Red Hat documentation.
+* To learn more about Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata) in the Red Hat documentation.
