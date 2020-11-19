@@ -34,7 +34,7 @@ The following screenshot shows the throughput and cost estimation by using the c
 
 :::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Cost estimate in Azure Cosmos DB capacity calculator":::
 
-## Estimating serverless costs before using Azure Cosmos DB
+## <a id="estimating-serverless-costs"></a> Estimating serverless costs before using Azure Cosmos DB
 
 If you plan to use Azure Cosmos DB in serverless mode, you need to estimate how many [Request Units](request-units.md) and GB of storage you may consume on a monthly basis. You can estimate the required amount of Request Units by evaluating the number of database operations that would be issued in a month, and multiply their amount by their corresponding RU cost. The following table lists estimated RU charges for common database operations:
 
