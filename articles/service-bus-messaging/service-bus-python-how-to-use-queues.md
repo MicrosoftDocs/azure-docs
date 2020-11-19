@@ -96,12 +96,12 @@ This article shows you how to use Python to send messages to, and receive messag
     ```
  
 ## Receive messages from a queue
-Add the following code after the print statement. 
+Add the following code after the print statement. This code continually receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds. 
 
 ```python
 with servicebus_client:
     # get the Queue Receiver object for the queue
-    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
+    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
     with receiver:
         for msg in receiver:
             print("Received: " + str(msg))
@@ -153,7 +153,7 @@ print("Done sending messages")
 print("-----------------------")
 
 with servicebus_client:
-    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
+    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
     with receiver:
         for msg in receiver:
             print("Received: " + str(msg))
