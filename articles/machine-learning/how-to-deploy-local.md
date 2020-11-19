@@ -14,7 +14,7 @@ ms.custom: how-to, deploy
 
 # Deploy models trained with Azure Machine Learning on your local machine
 
-This article teaches you how to use your local computer as a target for training or deploying models originating on Azure Machine Learning. Azure Machine Learning's flexibility allows it to work with most Python machine learning frameworks. Machine learning solutions generally have complex dependencies that can be difficult to duplicate. This article will show you how to trade off total control versus ease of use.
+This article teaches you how to use your local computer as a target for training or deploying models created in Azure Machine Learning. Azure Machine Learning's flexibility allows it to work with most Python machine learning frameworks. Machine learning solutions generally have complex dependencies that can be difficult to duplicate. This article will show you how to trade off total control versus ease of use.
 
 Some scenarios for local deploy include:
 
@@ -35,8 +35,6 @@ Some scenarios for local deploy include:
 The most foolproof way to locally run an Azure Machine Learning model is with a Docker image. A Docker image provides an isolated, containerized experience that duplicates, except for hardware issues, the Azure execution environment. For more information on installing and configuring Docker for development scenarios, see [Overview of Docker remote development on Windows](../../../windows/dev-environment/docker/overview.md).
 
 While it's possible to attach a debugger to a process running in Docker (see [Attach to a running container](https://code.visualstudio.com/docs/remote/attach-container)), you may prefer to debug and iterate your Python code without involving Docker. In this scenario, it's important that your local machine uses the same libraries that are used when you run your experiment in Azure Machine Learning. To manage Python dependencies, Azure uses [conda](https://docs.conda.io/). While you may recreate the environment using other package managers, installing and configuring conda on your local machine is the easiest way to synchronize. 
-
-If, instead of running in Docker or a conda environment, you wish total control of your development environment, you will need to manage your Python versions, package dependencies, and machine learning libraries. Currently, the Azure Machine Learning Python SDK supports Python 3.6 and 3.7. Beyond that, there are too many variations and dependencies to document. 
 
 ## Prepare your entry script
 
@@ -81,7 +79,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-For more advanced examples, including automatic Swagger schema generation and binary (i.e. image) data, read [Advanced entry script authoring](how-to-deploy-advanced-entry-script.md). 
+For more advanced examples, including automatic Swagger schema generation and how to score binary data (for instance, images) data, read [Advanced entry script authoring](how-to-deploy-advanced-entry-script.md). 
 
 ## Deploy as a local web service using Docker
 
@@ -205,11 +203,49 @@ myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
 myenv.build_local(workspace=ws, useDocker=False) #Creates conda env
 ```
 
-If you set `build_local()`'s argument `useDocker` to `True`, the function will create a Docker image rather than a conda environment. If you want more control, you can use `Environment`'s `save_to_directory()` method, which writes **conda_dependencies.yml** and **azureml_environment.json** definition files that you can fine tune and use as the basis for extension. 
+If you set `build_local()`'s argument `useDocker` to `True`, the function will create a Docker image rather than a conda environment. If you want more control, you can use `Environment`'s `save_to_directory()` method, which writes **conda_dependencies.yml** and **azureml_environment.json** definition files that you can fine-tune and use as the basis for extension. 
 
 The `Environment` class has a number of other methods for synchronizing environments across your compute hardware, your Azure workspace, and Docker images. For more information, see the [`Environment` API reference](../../python/api/azureml-core/azureml.core.environment(class)).
 
 Once you have downloaded the model and resolved its dependencies, there are no Azure-defined restrictions on how you perform scoring, fine-tune the model, use transfer learning, and so forth. 
+
+## Upload a retrained model to Azure Machine Learning
+
+If you have a locally-trained or retrained model, you can register it with Azure. Once registered, you can then continue tuning it using Azure compute or deploy it using Azure facilities such as [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](how-to-deploy-with-triton.md).
+
+To be used with Azure Machine Learning's Python SDK, a model must be stored as a serialized Python object in pickle format (a **pkl** file) and must implement a `predict(data)` method that returns a JSON-serializable object. For instance, you might store a locally-trained scikit-learn diabetes model with: 
+
+```python
+import joblib
+
+from sklearn.datasets import load_diabetes
+from sklearn.linear_model import Ridge
+
+dataset_x, dataset_y = load_diabetes(return_X_y=True)
+
+sk_model = Ridge().fit(dataset_x, dataset_y)
+
+joblib.dump(sk_model, "sklearn_regression_model.pkl")
+```
+
+To make the model available  in Azure, you can then use the `register()` method of the `Model` class:
+
+```python
+from azureml.core.model import Model
+
+model = Model.register(model_path="sklearn_regression_model.pkl",
+                       model_name="sklearn_regression_model",
+                       tags={'area': "diabetes", 'type': "regression"},
+                       description="Ridge regression model to predict diabetes",
+                       workspace=ws)
+```
+
+You can then find your newly registered model in Azure Machine Learning's **Model** tab:
+
+![Screenshot of Azure Machine Learning Model tab, showing uploaded model](media/how-to-deploy-local/registered-model.png)
+
+For more on uploading and updating models and environments, see [Register model and deploy locally with advanced usages](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb).
+
 
 ## Next steps
 
