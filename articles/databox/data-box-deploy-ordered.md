@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -280,7 +280,7 @@ Do the following steps in the Azure portal to order a device.
 
     A customer-managed key doesn't affect how data on the device is encrypted. The key is only used to encrypt the device unlock passkey.
 
-    If you don't want to use a customer-managed key, skip to Step 15.<!--Very long section to traverse if they don't want to use their own key. Let's help them out. Can we link?-->
+    If you don't want to use a customer-managed key, skip to Step 15.
 
    ![Security screen showing Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-01.png)
 
