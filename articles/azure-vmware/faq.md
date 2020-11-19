@@ -256,7 +256,7 @@ For EA subscriptions, use the following procedure. First, you'll need:
 * An [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * An Azure account in an Azure subscription.
 
-Before you create your Azure VMware Solution resource, you must submit a support ticket to allocate your nodes. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
+Before you create your Azure VMware Solution resource, submit a support ticket to have your nodes allocated. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
