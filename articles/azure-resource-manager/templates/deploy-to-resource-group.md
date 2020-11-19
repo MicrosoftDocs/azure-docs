@@ -92,7 +92,7 @@ To deploy resources to the target resource, add those resources to the resources
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
-For an example template, see [Deploy resource to resource group](#[deploy-resource-to-resource-group).
+For an example template, see [Deploy resource to resource group](#deploy-resource-to-resource-group).
 
 ### Scope to resource group in same subscription
 
@@ -122,42 +122,15 @@ For an example template, see [Create resource group](#create-resource-group).
 
 ### Scope to tenant
 
-You can create resources at the tenant by adding a nested deployment with the `scope` set to `/`. Also, set the `location` property for the nested deployment.
+You can create resources at the tenant by setting the `scope` set to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+
+You can use a nested deployment with `scope` and `location` set.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
-The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+Or, you can set the scope to `/` for some resource types, like management groups.
 
-You can also set scope to `\` for some resource types, such as management groups.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string",
-            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-        }
-    },
-    "resources": [
-        {
-            "name": "[parameters('mgName')]",
-            "type": "Microsoft.Management/managementGroups",
-            "apiVersion": "2020-05-01",
-            "scope": "/",
-            "location": "eastus",
-            "properties": {}
-        }
-    ],
-    "outputs": {
-        "output": {
-            "type": "string",
-            "value": "[parameters('mgName')]"
-        }
-    }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
 
 ## Deploy to target resource group
 
@@ -333,12 +306,6 @@ From a resource group deployment, you can switch to the level of a subscription 
     ]
 }
 ```
-
-## Create management group
-
-From a resource group deployment, you can switch to the level of the tenant and create a management group.  The following template creates a management group in the tenant. Notice the `scope` property is set to `"/"`.
-
-
 
 ## Next steps
 
