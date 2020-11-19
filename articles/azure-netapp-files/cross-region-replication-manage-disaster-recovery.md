@@ -26,11 +26,9 @@ After disaster recovery, you can fail back to the source volume with a [resync o
 
 The details are described below. 
 
-## Break replication peering
+## <a name="break-replication-peering"></a>Failover to destination volume
 
 When you need to activate the destination volume (for example, when you want to failover to the destination region), you need to break replication peering and then mount the destination volume.  
-
-If you want to [delete volume replication](cross-region-replication-delete.md), you also need to break replication peering first.
 
 1. To break replication peering, select the destination volume. Click **Replication** under Storage Service.  
 
@@ -51,7 +49,7 @@ If you want to [delete volume replication](cross-region-replication-delete.md), 
 5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     This step enables a client to access the destination volume.
 
-## Resync replication
+## <a name="resync-replication"></a>Reactivate replication after disaster recovery
 
 After disaster recovery, you can reactivate the source volume by performing a resync operation.  The resync operation reverses the replication process and synchronizes data from the destination volume to the source volume.  
 

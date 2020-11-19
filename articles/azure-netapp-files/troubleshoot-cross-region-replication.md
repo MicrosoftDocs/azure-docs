@@ -45,13 +45,13 @@ This article describes error messages and resolutions that can help you troubles
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validate that   either replication has been broken or it is uninitialized and idle (failed   initialization).    |
 |     `Cannot delete   source replication`    |     Deleting the   replication from the source side is not allowed. Make sure that you are   deleting the replication from the destination side.    |
-| `Volume with replication cannot be deleted`  |  Delete replication before deleting the volume. See [Delete replications](cross-region-replication-delete.md). This operation requires that you break the peering before deleting the replication for the volume. 
 
 ## Errors deleting volume
 
 |     Error Message    |     Resolution    |
 |-|-|
-| `Volume is a member of an active volume replication relationship`  |  Delete replication before deleting the volume. See [Delete replications](cross-region-replication-delete.md). This operation requires that you break the peering before deleting the replication for the volume. 
+| `Volume is a member of an active volume replication relationship`  |  Delete replication before deleting the volume. See [Delete replications](cross-region-replication-delete.md). This operation requires that you break the peering before deleting the replication for the volume. |
+| `Volume with replication cannot be deleted`  |  Delete replication before deleting the volume. See [Delete replications](cross-region-replication-delete.md). This operation requires that you break the peering before deleting the replication for the volume. 
 
 ## Errors resyncing volume
 
