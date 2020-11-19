@@ -20,14 +20,12 @@ ms.custom: contperfq2
 
 This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](/rest/api/digital-twins/dataplane/query).
 
-## Query syntax
-
-This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
+This article contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
 > [!TIP]
 > If you're running the queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
-### Show all existing digital twins
+## Show all existing digital twins
 
 Here is the basic query that will return a list of all digital twins in the instance:
 
@@ -36,7 +34,7 @@ SELECT *
 FROM DIGITALTWINS
 ```
 
-### Select top items
+## Select top items
 
 You can select the several "top" items in a query using the `Select TOP` clause.
 
@@ -46,7 +44,7 @@ FROM DIGITALTWINS
 WHERE ...
 ```
 
-### Count items
+## Count items
 
 You can count the number of items in a result set using the `Select COUNT` clause:
 
@@ -79,7 +77,7 @@ AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
 AND Room.$dtId IN ['room1', 'room2']
 ```
 
-### Specify return set with projections
+## Specify return set with projections
 
 Using projections, you can choose which columns a query will return.
 
@@ -137,7 +135,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 ```
 
-### Query by property
+## Query by property
 
 Get digital twins by **properties** (including ID and metadata):
 
@@ -170,7 +168,7 @@ You can also get twins based on the **type of a property**. Here is a query that
 SELECT * FROM DIGITALTWINS​ T WHERE IS_NUMBER(T.Temperature)
 ```
 
-### Query by model
+## Query by model
 
 The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md).
 
@@ -211,7 +209,7 @@ Here is a query example specifying a value for all three parameters:
 SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
-### Query based on relationships
+## Query based on relationships
 
 When querying based on digital twins' **relationships**, the Azure Digital Twins query language has a special syntax.
 
@@ -225,7 +223,7 @@ The following section gives several examples of what this looks like.
 > [!TIP]
 > Conceptually, this feature mimics the document-centric functionality of CosmosDB, where `JOIN` can be performed on child objects within a document. CosmosDB uses the `IN` keyword to indicate the `JOIN` is intended to iterate over array elements within the current context document.
 
-#### Relationship-based query examples
+### Relationship-based query examples
 
 To get a dataset that includes relationships, use a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
 
@@ -241,7 +239,7 @@ WHERE T.$dtId = 'ABC'
 >[!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 
-#### Query the properties of a relationship
+### Query the properties of a relationship
 
 Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. You can query twins **based on the properties of their relationships**.
 The Azure Digital Twins query language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause.
@@ -258,7 +256,7 @@ AND R.reportedCondition = 'clean'
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
-### Query with multiple JOINs
+## Query with multiple JOINs
 
 Up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
 
@@ -274,7 +272,7 @@ AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
 AND Room.$dtId IN ['room1', 'room2']
 ```
 
-### Build efficient queries with the IN operator
+## Build efficient queries with the IN operator
 
 You can significantly reduce the number of queries you need by building an array of twins and querying with the `IN` operator. For example, consider a scenario in which *Buildings* contain *Floors* and *Floors* contain *Rooms*. To search for rooms within a building that are hot, one way is to follow these steps.
 
@@ -308,7 +306,7 @@ You can significantly reduce the number of queries you need by building an array
     
     ```
 
-### Other compound query examples
+## Other compound query examples
 
 You can **combine** any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
 
