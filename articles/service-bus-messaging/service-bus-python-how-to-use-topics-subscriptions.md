@@ -98,12 +98,12 @@ This article shows you how to use Python to send messages a Service Bus topic an
     ```
  
 ## Receive messages from a subscription
-Add the following code after the print statement. 
+Add the following code after the print statement. This code continually receives messages until it doesn't receive any messages for 5 (`max_wait-time`) seconds. 
 
 ```python
 with servicebus_client:
     # get the Subscription Receiver object for the subscription    
-    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME)
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
     with receiver:
         for msg in receiver:
             print("Received: " + str(msg))
