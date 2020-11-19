@@ -188,7 +188,7 @@ The following table shows the supported log types and descriptions:
 | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; only available for Premium tier and above |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat | Java SE & Tomcat | Application logs |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images | Java SE & Tomcat Blessed Images | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 
