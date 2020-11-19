@@ -29,7 +29,7 @@ Implementing platform security starts with keeping unauthorized users off the ne
 - Specifying and restricting host ports that are using for Azure SQL Edge
 - Ensuring that proper access control is applied to all data volumes which host Azure SQL Edge data. 
 
-For more information on Azure SQL Edge network protocols and TDS endpoints refer, [Network Protocols and TDS Endpoints](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+For more information on Azure SQL Edge network protocols and TDS endpoints refer, [Network Protocols and TDS Endpoints](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## Authentication and authorization 
 

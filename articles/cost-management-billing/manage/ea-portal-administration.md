@@ -277,7 +277,7 @@ The Azure EA portal helps you to administer your Azure EA costs and usage. There
 
 Each role has a different level of access and authority.
 
-For more information about user roles, see [Enterprise user roles](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+For more information about user roles, see [Enterprise user roles](../../../understand-ea-roles#enterprise-user-roles).
 
 ## Add an Azure EA account
 

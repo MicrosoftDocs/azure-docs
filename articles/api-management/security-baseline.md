@@ -502,7 +502,7 @@ Administrators can create custom groups or leverage external groups in associate
 
 * [How to manage user accounts in Azure API Management](./api-management-howto-create-or-invite-developers.md)
 
-* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuse)
+* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 * [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md)
 
