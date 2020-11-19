@@ -44,7 +44,7 @@ Now that you have set up the sample enrollment app, you can tailor it to your ow
 
 For example, you may want to add situation-specific information on your consent page:
 
-![profile management page](./media/enrollment-app/1_consent1.jpg)
+![app consent page](./media/enrollment-app/1_consent1.jpg)
 
 The service provides image quality checks to help you make the choice of whether the image is of sufficient quality to enroll the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, select the highest-quality frames, and enroll the detected face into the Face API service. 
 
@@ -55,7 +55,7 @@ Many face recognition issues are caused by low-quality reference images. Some fa
 * Occlusion (partially hidden or obstructed faces) including accessories like hats or thick-rimmed glasses)
 * Blur (such as by rapid face movement when the photograph was taken). 
 
-![profile management page](./media/enrollment-app/4_instruction.jpg)
+![app image capture instruction page](./media/enrollment-app/4_instruction.jpg)
 
 Notice the app also offers functionality for deleting the user's enrollment and the option to re-enroll.
 
