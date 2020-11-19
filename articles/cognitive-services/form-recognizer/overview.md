@@ -19,14 +19,33 @@ keywords: automated data processing, document processing, automated data entry, 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs and table data from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications.
+Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables and structure from your documents&mdash;the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents search capabilities.
 
-Form Recognizer is comprised of custom document processing models, the prebuilt receipt and business card models, and the layout API. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
+Form Recognizer is comprised of custom document processing models, prebuilt models for invoices, receipts and business cards, and the layout model. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
-Form Recognizer is made up of the following services:
-* **[Custom models](#custom-models)** - Extract key/value pairs and table data from forms. These models are trained with your own data, so they're tailored to your forms.
-* **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are prebuilt models for sales receipts and business cards in English.
-* **[Layout API](#layout-api)** - Extract text and table structures, along with their bounding box coordinates, from documents.
+Form Recognizer is comprised of the following services:
+* **[Layout API](#layout-api)** - Extract text, selection marks and tables structures, along with their bounding box coordinates, from documents.
+* **[Custom models](#custom-models)** - Extract text, key/value pairs, selection marks and table data from forms. These models are trained with your own data, so they're tailored to your forms.
+* **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are the following prebuilt models
+    * [Invoices](./concept-invoices.md) 
+    * [Sales receipts](./concept-receipts.md)
+    * [Business cards](./concept-business-cards.md) 
+
+
+## Try it out
+
+To try out the Form Recognizer Service, go to the online Sample UI Tool:
+
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service. 
+
+## Layout API
+
+Form Recognizer can extract text, selection marks and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR) and a enhanced deep learning  model from docuements. See the [Layout](./concept-layout.md) conceptual guide for more info
+
+![sample tables](./media/tables-example.jpg)
 
 ## Custom models
 
@@ -44,27 +63,31 @@ See [Build a training data set](./build-training-data-set.md) for tips on how to
 
 When you train with labeled data, the model does supervised learning to extract values of interest, using the labeled forms you provide. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses user-specified labels to learn the key/value associations in the documents. We recommend that you use five manually labeled forms of the same type to get started when training a new model and add more labeled data as needed to improve the model accuracy.
+Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses user-specified labels to learn the key/value associations in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy.
+
+[Get started with Train with labels](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
 ## Prebuilt models
 
 Form Recognizer also includes Prebuilt models for automated data processing of unique form types.
 
+### Prebuilt Invoice model
+The Prebuilt Invoce model extracts data from invoices in a variety of formats and return structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal and more. In addition, the prebuilt invoice model is trained to recognize and return all of the text and tables  on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
+
+![sample invoice](./media/overview-invoices.jpg)
+
 ### Prebuilt Receipt model
 
 The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. See the [Receipts](./concept-receipts.md) conceptual guide for more info.
 
-![sample receipt](./media/contoso-receipt-small.png)
+![sample receipt](./media/overview-receipt.jpg)
 
 ### Prebuilt Business Cards model
 
 The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. See the [Business cards](./concept-business-cards.md) conceptual guide for more info.
 
-![sample business card](./media/business-card-english.jpg)
+![sample business card](./media/overview-business-card.jpg)
 
-## Layout API
-
-Form Recognizer can also extract text and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR).
 
 ## Get started
 
