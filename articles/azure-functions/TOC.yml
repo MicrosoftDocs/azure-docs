@@ -4,6 +4,8 @@
   items:
     - name: About Azure Functions
       href: functions-overview.md
+    - name: Getting started
+      href: functions-get-started.md
     - name: Durable Functions
       href: durable/durable-functions-overview.md
     - name: Serverless comparison

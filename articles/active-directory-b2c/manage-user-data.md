@@ -16,13 +16,13 @@ ms.custom: fasttrack-edit
 
 # Manage user data in Azure Active Directory B2C
 
- This article discusses how you can manage the user data in Azure Active Directory B2C (Azure AD B2C) by using the operations that are provided by the [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api). Managing user data includes deleting or exporting data from audit logs.
+ This article discusses how you can manage the user data in Azure Active Directory B2C (Azure AD B2C) by using the operations that are provided by the [Microsoft Graph API](/graph/use-the-api). Managing user data includes deleting or exporting data from audit logs.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## Delete user data
 
-User data is stored in the Azure AD B2C directory and in the audit logs. All user audit data is retained for 7 days in Azure AD B2C. If you want to delete user data within that 7-day period, you can use the [Delete a user](https://docs.microsoft.com/graph/api/user-delete) operation. A DELETE operation is required for each of the Azure AD B2C tenants where data might reside.
+User data is stored in the Azure AD B2C directory and in the audit logs. All user audit data is retained for 7 days in Azure AD B2C. If you want to delete user data within that 7-day period, you can use the [Delete a user](/graph/api/user-delete) operation. A DELETE operation is required for each of the Azure AD B2C tenants where data might reside.
 
 Every user in Azure AD B2C is assigned an object ID. The object ID provides an unambiguous identifier for you to use to delete user data in Azure AD B2C. Depending on your architecture, the object ID can be a useful correlation identifier across other services, such as financial, marketing, and customer relationship management databases.
 

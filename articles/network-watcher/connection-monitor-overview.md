@@ -209,7 +209,7 @@ To show only failed tests in Connection Monitor where the source IP is 10.192.64
 To show only failed tests in Connection Monitor where the destination is outlook.office365.com:
 1. Change view to **Test**.
 1. For the state-based filter, select **Fail**.
-1. In the search field, enter *outlook.office365.com*
+1. In the search field, enter *office.live.com*
 1. In **Scope** in top level filter, select **Destinations**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot showing a view that's filtered to show only failed tests for the Outlook.Office365.com destination" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
