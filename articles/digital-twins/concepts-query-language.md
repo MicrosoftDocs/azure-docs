@@ -18,19 +18,25 @@ ms.custom: contperfq2
 
 # About the query language for Azure Digital Twins
 
-Recall that the center of Azure Digital Twins is the [**twin graph**](concepts-twins-graph.md), constructed from **digital twins** and **relationships**. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This is similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
+Recall that the center of Azure Digital Twins is the [twin graph](concepts-twins-graph.md), constructed from digital twins and relationships. 
+
+This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language, referred to as the **Azure Digital Twins query language**. This is similar to the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) with many comparable features.
+
+This article describes the basics of the query language and its capabilities. For more detailed examples of query syntax and how to run query requests, see [*How-to: Query the twin graph*](how-to-query-graph.md).
+
+## About the queries
 
 You can use the Azure Digital Twins query language to retrieve digital twins according to their...
-* models
 * properties (including [tag properties](how-to-use-tags.md))
+* models
 * relationships
   - properties of the relationships
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet&preserve-view=true). This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
+To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) for Azure Digital Twins.
 
 ## Reference: Expressions and conditions
 
-This section describes the operators and functions that are available to write Azure Digital Twins queries.
+This section describes the operators and functions that are available to write Azure Digital Twins queries. For examples queries that illustrate use of these features, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 
 > [!NOTE]
 > All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
