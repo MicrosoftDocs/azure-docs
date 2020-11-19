@@ -33,12 +33,12 @@ Currently you can use Azure Premium SSD disks as an Azure shared disk for the SA
 The following limitations are in place:
 
 -  [Azure Ultra disk](../../disks-types.md#ultra-disk) is not supported as Azure Shared Disk for SAP workloads. Currently it is not possible to place Azure VMs, using Azure Ultra Disk in Availability Set
--  [Azure Shared disk](../../windows/disks-shared.md) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
+-  [Azure Shared disk](../../disks-shared.md) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
 -  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
 -  All SAP ASCS/SCS cluster VMs must be deployed in the same [Azure proximity placement group](../../windows/proximity-placement-groups.md).   
    Although you can deploy Windows cluster  VMs in Availability Set with Azure shared disk without PPG, PPG will ensure close physical proximity of Azure shared disks and the cluster VMs, therefore achieving lower latency between the VMs and the storage layer.    
 
-For further details on limitations for Azure shared disk, review carefully the [Limitations](../../linux/disks-shared.md#limitations) section of Azure Shared Disk documentation.  
+For further details on limitations for Azure shared disk, review carefully the [Limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.  
 
 > [!IMPORTANT]
 > When deploying SAP ASCS/SCS Windows Failover cluster with Azure shared disk, be aware that your deployment will be operating with a single shared disk in one storage cluster. 

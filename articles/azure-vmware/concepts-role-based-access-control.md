@@ -1,11 +1,11 @@
 ---
-title: Concepts - Role-based access control (RBAC)
-description: Learn about the key capabilities of role-based access control for Azure VMware Solution 
+title: Concepts - vSphere role-based access control (vSphere RBAC)
+description: Learn about the key capabilities of vSphere role-based access control for Azure VMware Solution 
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/23/2020
 ---
 
-# Role-based access control (RBAC) for Azure VMware Solution
+# vSphere role-based access control (vSphere RBAC) for Azure VMware Solution
 
 In Azure VMware Solution, vCenter has a built-in local user called cloudadmin and assigned to the built-in CloudAdmin role. The local cloudadmin user is used to set up users in AD. In general, the CloudAdmin role creates and manages workloads in your private cloud. In Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions.     
 

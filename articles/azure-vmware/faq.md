@@ -2,7 +2,7 @@
 title: Frequently asked questions
 description: Provides answers to some of the common questions about Azure VMware Solution.
 ms.topic: conceptual
-ms.date:  09/25/2020
+ms.date:  11/12/2020
 ms.author: dikamath
 ---
 
@@ -214,7 +214,7 @@ You'll have CloudAdmin group privileges. For more information, see [Access and I
 
 #### What privileges and permissions will I have on the NSX-T manager?
 
-You'll have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
+You'll have full administrator privileges on NSX-T and can manage vSphere role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 > [!NOTE]
 > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
@@ -225,9 +225,15 @@ You'll have full administrator privileges on NSX-T and can manage role-based acc
 
 For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
 
+#### Can Azure VMware Solution be purchased through a Microsoft CSP?
+
+Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.
+
 #### Who supports Azure VMware Solution?
 
-Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+For CSP-managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
@@ -243,8 +249,12 @@ VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a 
 
 #### How do I request a host quota increase for Azure VMware Solution?
 
-* You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
-* You'll need an Azure account in an Azure subscription.
+For CSP-managed subscriptions, the customer must submit the request to the partner. The partner team then engages with Microsoft to get the quota increased for the subscription. See [How to enable Azure VMware Solution resource article](enable-azure-vmware-solution.md) for the details. 
+
+For EA subscriptions, use the following procedure. First, you'll need:
+
+* An [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
+* An Azure account in an Azure subscription.
 
 Before you create your Azure VMware Solution resource, you must submit a support ticket to allocate your nodes. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
 
@@ -279,9 +289,20 @@ Before you create your Azure VMware Solution resource, you must submit a support
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances for their customers. For more information, see the [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution doesn't offer multi-tenancy.
+
+#### Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
 
 ## Customer communication

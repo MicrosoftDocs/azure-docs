@@ -45,7 +45,7 @@
   - name: 13 - Monitor VMs
     href: tutorial-monitor.md
   - name: 14 - Manage VM security
-    href: tutorial-azure-security.md
+    href: ../tutorial-azure-security.md
   - name: 15a - Build with Jenkins
     href: /azure/developer/jenkins/pipeline-with-github-and-docker
   - name: 15b - Integrate Jenkins with Azure DevOps
@@ -336,7 +336,9 @@
     - name: Backup and disaster recovery for disks
       href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Shared disks
-      href: disks-shared.md
+      href: ../disks-shared.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Disk performance tiers
+      href: ../disks-change-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Ephemeral OS disks
       href: ../ephemeral-os-disks.md
   - name: Networking
@@ -411,17 +413,17 @@
     - name: Retirement starting March 1, 2023
       href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Migration Overview
-      href: migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Deep dive on migration
       href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Plan for migration
-      href: migration-classic-resource-manager-plan.md
+      href: ../migration-classic-resource-manager-plan.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Migrate using the CLI
-      href: migration-classic-resource-manager-cli.md
+      href: ../migration-classic-resource-manager-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Common migration errors
-      href: migration-classic-resource-manager-errors.md
+      href: migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Community tools for migration
-      href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: FAQ
       href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Use Images
@@ -687,7 +689,15 @@
     - name: Time sync
       href: time-sync.md
     - name: Tag a VM
-      href: tag.md
+      items:
+      - name: CLI
+        href: ../tag-cli.md
+      - name: Portal
+        href: ../tag-portal.md
+      - name: PowerShell
+        href: ../tag-powershell.md
+      - name: Template
+        href: ../tag-template.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
       items:
@@ -963,8 +973,10 @@
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
-    - name: Change disk tier
+    - name: Change disk tier - PowerShell/CLI
       href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Change disk tier - Portal
+      href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template
@@ -1140,6 +1152,8 @@
         href: upload-vhd.md
       - name: Use Azure Site Recovery
         href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+    - name: Migrate WebLogic to Azure
+      href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
 - name: Reference
   items:
   - name: Azure CLI

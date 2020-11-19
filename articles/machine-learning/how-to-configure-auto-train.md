@@ -346,6 +346,9 @@ See [Evaluate automated machine learning experiment results](how-to-understand-a
 
 To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
+> [!NOTE]
+> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended models final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
+
 ## Register and deploy models
 
 For details on how to download or register a model for deployment to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md).
