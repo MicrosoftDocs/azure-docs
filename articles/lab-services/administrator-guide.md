@@ -72,7 +72,7 @@ When you're determining how to structure your labs, consider the following point
 
     As a result, if you have a class that requires different lab images to be published at the same time, a separate lab must be created for each image.
   
-- **Usage quotas are set at the lab level and apply to all users within the lab**
+- **The usage quota is set at the lab level and applies to all users within the lab**
 
     To set different quotas for users, you must create separate labs. However, it's possible to add more hours to specific users after you've set the quota.
   
@@ -238,7 +238,7 @@ A network egress charge occurs when an image version is replicated from the sour
 
 Egress charges might be waived for [Education Solutions](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) customers. To learn more, contact your account manager. 
 
-For more information, see **refer to the FAQ** section in the linked document, specifically the question "What data transfer programs exist for academic customers and how do I qualify?"
+For more information, see "What data transfer programs exist for academic customers and how do I qualify?" in the FAQ section of the [Programs for educational institutions](https://azure.microsoft.com/pricing/details/bandwidth/) page.
 
 #### Pricing example
 
@@ -258,7 +258,7 @@ In this  example, the cost is:
 * 1 custom image (32 GB) &times; 2 versions &times; 8 US regions &times; $1.54 = $24.64 per month
 
 > [!NOTE]
-> The preceding calculation is for estimation purposes only. For actual pricing, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
+> The preceding calculation is for example purposes only. It covers storage costs associated with using Shared Image Gallery and does *not* include egress costs. For actual pricing for storage, see [Managed Disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
 
 #### Cost management
 
