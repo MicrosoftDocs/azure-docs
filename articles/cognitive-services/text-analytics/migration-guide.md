@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ---
 
@@ -16,7 +16,7 @@ ms.author: aahi
 
 [!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
-If you're using version 2.1 of the Text Analytics API, this article will help you upgrade your application to use version 3.x. Version 3.0 is generally available and introduces new features such as expanded [Named Entity Recognition (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) and [model versioning](concepts/model-versioning.md). A preview version of v3.1 (v3.1-preview.x) is also available, which adds features such as [opinion mining](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). The models used in v2 will not receive future updates. 
+If you're using version 2.1 of the Text Analytics API, this article will help you upgrade your application to use version 3.x. Version 3.0 is generally available and introduces new features such as expanded [Named Entity Recognition (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) and [model versioning](concepts/model-versioning.md). A preview version of v3.1 (v3.1-preview.x) is also available, which adds features such as [opinion mining](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). The models used in v2 will not receive future updates. 
 
 #### [Sentiment analysis](#tab/sentiment-analysis)
 
@@ -33,7 +33,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
 ### Client libraries
 
@@ -65,7 +65,7 @@ You will also need to update your application to use the [entity categories](nam
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
+* [Version 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
 
 ### Client libraries
 
@@ -87,7 +87,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ### Client libraries
 

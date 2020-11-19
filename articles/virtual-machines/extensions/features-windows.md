@@ -7,9 +7,9 @@ author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
-
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -351,7 +351,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
+2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\\<extensionName>*
 
 3. Check extension specific documentation troubleshooting sections for error codes, known issues etc.
 

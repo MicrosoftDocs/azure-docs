@@ -43,7 +43,7 @@ Below is the sample code to retrieve all metadata for an instance, to access spe
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-09-01 | ConvertTo-Json
 ```
 > [!NOTE]
 > The `-NoProxy` flag is only available in PowerShell 6 or greater. You may omit the flag if you don't
@@ -56,97 +56,122 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ```json
 {
-	"compute": {
-		"azEnvironment": "AZUREPUBLICCLOUD",
-		"isHostCompatibilityLayerVm": "true",
-		"location": "westus",
-		"name": "examplevmname",
-		"offer": "Windows",
-		"osType": "linux",
-		"placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
-		"plan": {
-			"name": "planName",
-			"product": "planProduct",
-			"publisher": "planPublisher"
-		},
-		"platformFaultDomain": "36",
-		"platformUpdateDomain": "42",
-		"publicKeys": [{
-				"keyData": "ssh-rsa 0",
-				"path": "/home/user/.ssh/authorized_keys0"
-			},
-			{
-				"keyData": "ssh-rsa 1",
-				"path": "/home/user/.ssh/authorized_keys1"
-			}
-		],
-		"publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
-		"resourceGroupName": "macikgo-test-may-23",
-		"resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
-		"securityProfile": {
-			"secureBootEnabled": "true",
-			"virtualTpmEnabled": "false"
-		},
-		"sku": "Windows-Server-2012-R2-Datacenter",
-		"storageProfile": {
-			"dataDisks": [{
-				"caching": "None",
-				"createOption": "Empty",
-				"diskSizeGB": "1024",
-				"image": {
-					"uri": ""
-				},
-				"lun": "0",
-				"managedDisk": {
-					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-					"storageAccountType": "Standard_LRS"
-				},
-				"name": "exampledatadiskname",
-				"vhd": {
-					"uri": ""
-				},
-				"writeAcceleratorEnabled": "false"
-			}],
-			"imageReference": {
-				"id": "",
-				"offer": "UbuntuServer",
-				"publisher": "Canonical",
-				"sku": "16.04.0-LTS",
-				"version": "latest"
-			},
-			"osDisk": {
-				"caching": "ReadWrite",
-				"createOption": "FromImage",
-				"diskSizeGB": "30",
-				"diffDiskSettings": {
-					"option": "Local"
-				},
-				"encryptionSettings": {
-					"enabled": "false"
-				},
-				"image": {
-					"uri": ""
-				},
-				"managedDisk": {
-					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-					"storageAccountType": "Standard_LRS"
-				},
-				"name": "exampleosdiskname",
-				"osType": "Linux",
-				"vhd": {
-					"uri": ""
-				},
-				"writeAcceleratorEnabled": "false"
-			}
-		},
-		"subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
-		"tags": "baz:bash;foo:bar",
-		"version": "15.05.22",
-		"vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
-		"vmScaleSetName": "crpteste9vflji9",
-		"vmSize": "Standard_A3",
-		"zone": ""
-	}
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "Windows",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformUpdateDomain": "42",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false"
+        },
+        "sku": "Windows-Server-2012-R2-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "caching": "None",
+                "createOption": "Empty",
+                "diskSizeGB": "1024",
+                "image": {
+                    "uri": ""
+                },
+                "lun": "0",
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampledatadiskname",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                    "enabled": "false"
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
 }
 ```
 
@@ -194,8 +219,12 @@ The supported API versions are:
 - 2019-08-15
 - 2019-11-01
 - 2020-06-01
+- 2020-07-15
+- 2020-09-01
+- 2020-10-01
 
-Note when new version is released, it will take a while to roll out to all regions.
+> [!NOTE]
+> Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -216,9 +245,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 {
     "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
     "newest-versions": [
-        "2018-10-01",
-        "2018-04-02",
-        "2018-02-01"
+        "2020-10-01",
+        "2020-09-01",
+        "2020-07-15"
     ]
 }
 ```
@@ -244,9 +273,13 @@ Data | Description | Version Introduced
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
 isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
+osProfile.adminUsername | Specifies the name of the admin account | 2020-07-15
+osProfile.computerName | Specifies the name of the computer | 2020-07-15
+osProfile.disablePasswordAuthentication | Specifies if password authentication is disabled. Note that this is only present for Linux VMs | 2020-10-01
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
@@ -312,7 +345,7 @@ As a service provider, you may get a support call where you would like to know m
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01
 ```
 
 **Response**
@@ -322,86 +355,101 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ```json
 {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "Windows",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
     },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
+    "osType": "linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "Windows-Server-2012-R2-Datacenter",
     "storageProfile": {
-        "dataDisks": [
-          {
+        "dataDisks": [{
             "caching": "None",
             "createOption": "Empty",
             "diskSizeGB": "1024",
             "image": {
-              "uri": ""
+                "uri": ""
             },
             "lun": "0",
             "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
             "vhd": {
-              "uri": ""
+                "uri": ""
             },
             "writeAcceleratorEnabled": "false"
-          }
-        ],
+        }],
         "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
+            "id": "",
+            "offer": "UbuntuServer",
+            "publisher": "Canonical",
+            "sku": "16.04.0-LTS",
+            "version": "latest"
         },
         "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Linux",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
 }
 ```
 
@@ -689,15 +737,16 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 The document contains the following fields:
 
-Data | Description
------|------------
-nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used
-plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan id (name), product image or offer (product), and publisher id (publisher).
-timestamp/createdOn | The UTC timestamp for when the signed document was created
-timestamp/expiresOn | The UTC timestamp for when the signed document expires
-vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
-subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
-sku | Specific SKU for the VM image, introduced in `2019-11-01`
+Data | Description | Version Introduced
+-----|-------------|-----------------------
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
+nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used | 2018-10-01
+plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
+timestamp/createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
+timestamp/expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
+vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
+subscriptionId | Azure subscription for the Virtual Machine | 2019-04-30
+sku | Specific SKU for the VM image | 2019-11-01
 
 > [!NOTE]
 > For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
@@ -708,7 +757,7 @@ Marketplace vendors want to ensure that their software is licensed to run only i
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -855,7 +904,7 @@ HTTP Status Code | Reason
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
 1. Why am I not getting compute information for my VM?
-   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
+   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager.
 1. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
 1. I am not seeing all data populated for new version
@@ -903,15 +952,15 @@ HTTP Status Code | Reason
                Subnet Mask . . . . . . . . . . . : 255.255.255.0
             ... (continues) ...
             ```
-        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure Portal or by looking it up [with the Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the cli). PowerShell CLI example:
+        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure portal or by looking it up [with the Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the CLI). PowerShell CLI example:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
             $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
             foreach($NicName in $NicNames)
             {
-            	$Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-            	Write-Host $NicName, $Nic.primary, $Nic.macAddress
+                $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+                Write-Host $NicName, $Nic.primary, $Nic.macAddress
             }
             # Output: wintest767 True 00-0D-3A-E5-1C-C0
             ```

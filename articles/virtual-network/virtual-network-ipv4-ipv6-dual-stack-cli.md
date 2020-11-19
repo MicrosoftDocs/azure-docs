@@ -21,12 +21,11 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application with
 
 To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer using Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+- This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

@@ -1,8 +1,9 @@
 ---
 title: FAQ - Azure Monitor for SAP Solutions | Microsoft Docs
-description: In this article, learn answers to frequently asked questions (FAQ) about Azure monitor for SAP solutions.
+description: In this article, learn answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
@@ -10,10 +11,10 @@ ms.reviewer: cynthn
 
 ---
 
-# Azure monitor for SAP solutions FAQ (preview)
+# Azure Monitor for SAP solutions FAQ (preview)
 ## Frequently asked questions
 
-This article provides answers to frequently asked questions (FAQ) about Azure monitor for SAP solutions.  
+This article provides answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.  
 
  - **Do I have to pay for Azure Monitor for SAP Solutions?**  
 There is no licensing fee for Azure Monitor for SAP Solutions.  

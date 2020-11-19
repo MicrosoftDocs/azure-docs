@@ -16,7 +16,7 @@ ms.custom: how-to, contperfq1, devx-track-python, data4ml
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
 
-# Connect to storage services Azure
+# Connect to storage services on Azure
 
 In this article, learn how to **connect to  storage services on Azure via Azure Machine Learning datastores**. Datastores securely connect to your Azure storage service without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can use the [Azure Machine Learning Python SDK](#python) or the [Azure Machine Learning studio](how-to-connect-data-ui.md) to create and register datastores.
 
@@ -178,7 +178,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-In order to utilize your service principal, you need to [register your application](../active-directory/develop/app-objects-and-service-principals.md) and grant the service principal with **Storage Blob Data Reader** access. Learn more about [access control set up for ADLS Gen 2](../storage/blobs/data-lake-storage-access-control.md). 
+In order to utilize your service principal, you need to [register your application](../active-directory/develop/app-objects-and-service-principals.md) and grant the service principal data access via either Azure role-based access control (Azure RBAC) or access control lists (ACL). Learn more about [access control set up for ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 The following code creates and registers the `adlsgen2_datastore_name` datastore to the `ws` workspace. This datastore accesses the file system `test` in the `account_name` storage account, by using the provided service principal credentials. 
 Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 

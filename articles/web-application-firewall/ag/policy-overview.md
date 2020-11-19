@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/19/2020
 ms.author: victorh
 ---
 
@@ -48,11 +48,11 @@ This global policy is suitable for contoso.com and fabrikam.com, but you need to
 
 The adatum.com/payments URI is where you need to be careful. So apply another policy on that URI and leave all rules enabled, and also remove all exclusions.
 
-In this example, you have a global policy that applies to two sites. You have a per-site policy that applies to one site, and then a per-URI policy that applies to one specific path-based rule. See (insert link here when it exists) how-to create per-site and per-URI policies for the corresponding PowerShell for this example.
+In this example, you have a global policy that applies to two sites. You have a per-site policy that applies to one site, and then a per-URI policy that applies to one specific path-based rule. See [Configure per-site WAF policies using Azure PowerShell](per-site-policies.md) for the corresponding PowerShell for this example.
 
 ## Existing WAF configurations
 
-All new Web Application Firewall's WAF settings (custom rules, managed rule set configurations, exclusions, and so on.) exist in a WAF policy. If you have an existing WAF, these settings may still exist in your WAF configuration. For more information about moving to the new WAF policy, [Migrate WAF Config to a WAF Policy](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+All new Web Application Firewall's WAF settings (custom rules, managed rule set configurations, exclusions, and so on.) exist in a WAF policy. If you have an existing WAF, these settings may still exist in your WAF configuration. For more information about moving to the new WAF policy, [Migrate WAF Config to a WAF Policy](./migrate-policy.md). 
 
 
 ## Next steps

@@ -28,9 +28,9 @@ For customers who provided an address in Australia or New Zealand, Azure AD keep
 
 All other Azure AD services store customer data in global datacenters. To locate the datacenter for a service, see [Azure Active Directory – Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-## Microsoft Azure multi-factor authentication (MFA)
+## Microsoft Azure AD Multi-Factor Authentication (MFA)
 
-MFA stores Identity Customer Data in global datacenters. To learn more about the user information collected and stored by cloud-based Azure MFA and Azure MFA Server, see [Azure Multi-Factor Authentication user data collection](../authentication/concept-mfa-data-residency.md).
+MFA stores Identity Customer Data in global datacenters. To learn more about the user information collected and stored by cloud-based Azure AD MFA and Azure MFA Server, see [Azure Multi-Factor Authentication user data collection](../authentication/concept-mfa-data-residency.md).
 
 ## Next steps
 For more information about any of the features and functionality described above, see these articles:
