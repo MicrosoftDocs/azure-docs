@@ -34,29 +34,29 @@ The **Data sources** page appears.
 
 ## Add a new data source
 
-Select **+ New** to add a new data source.
+1. Select **+ New** to add a new data source.
 
-:::image type="content" source="media/bring-new-data-sources-under-management/add-new-data-source.png" alt-text="The left pane is the navigation pane. 'Data sources' is selected, and the right pane is the 'Data sources' dialog box. The + New option is highlighted, and data sources are listed, each with a check box. None is checked." border="true":::
+    :::image type="content" source="media/bring-new-data-sources-under-management/add-new-data-source.png" alt-text="The left pane is the navigation pane. 'Data sources' is selected, and the right pane is the 'Data sources' dialog box. The + New option is highlighted, and data sources are listed, each with a check box. None is checked." border="true":::
 
-**New data source** appears with a list of data source types. Select a type, and then select **Continue**.
+1. **New data source** appears with a list of data source types. Select a type, and then select **Continue**.
 
-:::image type="content" source="media/bring-new-data-sources-under-management/data-sources-list.png" alt-text="The 'New data source' dialog box is a menu of various data sources, such as Azure blob storage." border="true":::
+    :::image type="content" source="media/bring-new-data-sources-under-management/data-sources-list.png" alt-text="The 'New data source' dialog box is a menu of various data sources, such as Azure blob storage." border="true":::
 
-Enter a name for your data source, and specify which one to add, in this case which Azure blob. You can use the drop-down lists to choose an instance to add, or you can specify the URI of your data instance, if it's in a different subscription.
+1. Enter a name for your data source, and specify which one to add, in this case which Azure blob. You can use the drop-down lists to choose an instance to add, or you can specify the URI of your data instance, if it's in a different subscription.
 
-:::image type="content" source="media/bring-new-data-sources-under-management/new-azure-blob-storage.png" alt-text="The New Azure Blob Storage dialog box has AzureBlobStorage for 'Friendly name'. The 'Enter manually' radio button is selected. Nothing is entered for Endpoint." border="true":::
+    :::image type="content" source="media/bring-new-data-sources-under-management/new-azure-blob-storage.png" alt-text="The New Azure Blob Storage dialog box has AzureBlobStorage for 'Friendly name'. The 'Enter manually' radio button is selected. Nothing is entered for Endpoint." border="true":::
 
-Your selection now appears in the list of data sources.
+1. Your selection now appears in the list of data sources.
 
 ## Edit a data source
 
-Select the check box for the data source you want to edit.
+1. Select the check box for the data source you want to edit.
 
-:::image type="content" source="media/bring-new-data-sources-under-management/select-data-source.png" alt-text="The 'Data Sources' dialog box has the AzureBlobStorage data source checked." border="true":::
+    :::image type="content" source="media/bring-new-data-sources-under-management/select-data-source.png" alt-text="The 'Data Sources' dialog box has the AzureBlobStorage data source checked." border="true":::
 
-Select **Edit** to edit the data source.
+1. Select **Edit** to edit the data source.
 
-:::image type="content" source="media/bring-new-data-sources-under-management/edit-data-source.png" alt-text="In the Data Sources dialog box, the Edit button is highlighted." border="true":::
+    :::image type="content" source="media/bring-new-data-sources-under-management/edit-data-source.png" alt-text="In the Data Sources dialog box, the Edit button is highlighted." border="true":::
 
 ## Delete data sources
 
