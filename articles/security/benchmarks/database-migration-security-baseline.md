@@ -104,7 +104,7 @@ Azure Database Migration Service does not allow for its management endpoints to 
 
 **Guidance**: Not Applicable; Azure Database Migration Service is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -642,7 +642,7 @@ It is recommended that the customer create a process to capture the attribute an
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service does not currently produce customer facing resource logs that can be used for threat detection.
+**Guidance**: Not Applicable; Azure Database Migration Service does not currently produce customer facing resource logs that can be used for threat detection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -683,6 +683,8 @@ Audit activity reports in the Azure Active Directory
 
 **Guidance**: Enable and collect network security group (NSG) resource logs, NSG flow logs, Azure Firewall logs, and Web Application Firewall (WAF) logs for security analysis to support incident investigations, threat hunting, and security alert generation. You can send the flow logs to an Azure Monitor Log Analytics workspace and then use Traffic Analytics to provide insights.
 
+Note: Azure Database Migration Service does not produce or process DNS query logs which would need to be enabled.
+
 - [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
 - [How to enable network security group flow logs](../../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
@@ -693,8 +695,7 @@ Audit activity reports in the Azure Active Directory
 
 - [Monitoring with Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) 
 
-- [Azure networking monitoring solutions in Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md) 
-Azure Database Migration Service does not produce or process DNS query logs which would need to be enabled.
+- [Azure networking monitoring solutions in Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -742,7 +743,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39971).
 
-**Guidance**: Azure Database Migration Service does not currently produce any security-related logs, and the customer is unable to set any log retention.
+**Guidance**: Not Applicable; Azure Database Migration Service does not currently produce any security-related logs, and the customer is unable to set any log retention.
 
 **Azure Security Center monitoring**: Yes
 
@@ -756,7 +757,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service does not support configuring your own time synchronization sources. The Azure Database Migration service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
+**Guidance**: Not Applicable; Azure Database Migration Service does not support configuring your own time synchronization sources. The Azure Database Migration service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1021,9 +1022,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
-
-Azure Database Migration Service does not provide any of it's specific capabilities for EDR processes. Because of this, there will be no guidance or feedback into EDR processes for this offering.
+**Guidance**: Not Applicable; Azure Database Migration Service is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection. And Azure Database Migration Service does not provide any of it's specific capabilities for EDR processes. Because of this, there will be no guidance or feedback into EDR processes for this offering.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1037,7 +1036,7 @@ Azure Database Migration Service does not provide any of it's specific capabilit
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
+**Guidance**: Not Applicable; Azure Database Migration Service or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1051,7 +1050,7 @@ Azure Database Migration Service does not provide any of it's specific capabilit
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service is not comprised of any virtual machines or containers which would require anti-malware protection.
+**Guidance**: Not Applicable; Azure Database Migration Service is not comprised of any virtual machines or containers which would require anti-malware protection.
 Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
 **Azure Security Center monitoring**: Not applicable
@@ -1084,7 +1083,7 @@ Thus it does not require you to configure any additional settings or deploy any 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't support any data backup encryption.
+**Guidance**: Not applicable; Azure Database Migration Service doesn't support any data backup encryption within the service.
 
 **Azure Security Center monitoring**: Not applicable
 
