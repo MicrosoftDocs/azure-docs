@@ -36,7 +36,7 @@ To submit a query to the service from a client app, you will use the Azure Digit
 
 ## Reference: Expressions and conditions
 
-This section describes the operators and functions that are available to write Azure Digital Twins queries. For examples queries that illustrate use of these features, see [*How-to: Query the twin graph*](how-to-query-graph.md).
+This section describes the operators and functions that are available to write Azure Digital Twins queries. For example queries that illustrate use of these features, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 
 > [!NOTE]
 > All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.

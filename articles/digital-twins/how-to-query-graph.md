@@ -18,9 +18,9 @@ ms.custom: contperfq2
 
 # Query the Azure Digital Twins twin graph
 
-This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query your [twin graph](concepts-twins-graph.md) for information. 
+This article offers query examples and more detailed instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language and a full list of its features, see [*Concepts: Query language*](concepts-query-language.md).)
 
-This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [**Query API**](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
+This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
 > [!TIP]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
@@ -318,7 +318,7 @@ You can **combine** any of the above types of query using combination operators 
 | Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
 | Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contoso:com:DigitalTwins:Room;1')​` |
 
-## Run your queries with the API
+## Run queries with the API
 
 Once you have decided on a query string, you execute it by making a call to the [**Query API**](/rest/api/digital-twins/dataplane/query).
 
