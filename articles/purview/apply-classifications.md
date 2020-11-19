@@ -1,61 +1,63 @@
 ---
-title: 'Apply classifications on assets'
-titleSuffix: Azure Purview
-description: This document describes how to apply classifications on assets
+title: Apply classifications on assets
+description: This document describes how to apply classifications on assets.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 11/19/2020
 ---
-# Apply classifications on assets
+# Apply classifications on assets in Azure Purview
 
-Classifications can be system or custom types. System classifications come out of the box, with Babylon. And custom classifications are created by you based on Regex pattern set by you. Classifications are applied to assets either automatically or manually. 
+This article discusses how to apply classifications on assets.
+
+## Introduction
+
+Classifications can be system or custom types. System classifications are present in Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
 
 This document explains how to apply classifications to your data.
 
 ## Prerequisites
+
 - Create custom classifications based on your need.
 - Set up scan on your data sources.
 
 ## Apply classifications
 
-### Step 1
+Use the following steps to apply classifications for specific columns in your data assets:
 
-Use Browse by asset type or Search experiences to navigate to the asset you would like to see and apply classifications on.
+1. Use the **Browse by asset type** or **Search** experience to navigate to the asset you would like to see and apply classifications on.
 
-### Step 2
+1. Select the asset. The **Overview** tab of the asset will be open.
 
-Select an asset. "Overview" tab of the asset is open.
+1. Select the **Schema** tab. Some columns may already have **Classifications** applied to them if the asset has been scanned and classification rules have applied on them. Select **Edit** button on the page.
 
-### Step 3
+1. Under **Column level classification**, select **Add a classification**. Select a classification that you would like to apply against a column.
 
-Select **Schema** tab. Some columns may already have **classifications** applied to them if the asset has been scanned and classification rules have applied on them. Click **Edit** button on the page. 
+1. Select **Save**.
 
-A column called **Column level classification** has an **add a classification** with plus sign (+) next to it. Select **Add a classification** and select a classification that you would like to apply against a column. 
+Now you can see that the **Schema** tab contains new classifications added by you against the relevant columns.
 
-Select **Save**. 
+To apply classifications at the asset or schema level, do the following steps:
 
-Now you can see Schema tab contains new classifications added by you against the relevant columns.
+1. Go to asset's **Overview** tab.
 
-### Step 4
+1. Select **Edit** and **Classifications** field with a drop-down list will appear.
 
-To apply classification at asset level, go to asset's **Overview** tab. 
+1. Select a classification from the list.
 
-Select **Edit** and **Classifications** field with a drop down list will appear. 
-
-Pick a classification from the list. Note, this is the same list that you got at Schema tab in step 3. 
-
-Pick the classifications you want to apply at asset level and click **Save**. 
+1. Select the classifications you want to apply at the asset level and click **Save**. 
 
 This completes the process of applying asset and schema level classifications.
 
-## Impact of re-scan on existing classifications
+## Impact of rescanning on existing classifications
 
 Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern.
 
-At the time of re-scan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column.
+At the time of rescan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column, and must be removed manually.
 
-> [!NOTE] 
-> You need to manually remove existing classifications.
+## Next steps
+
+- [Create a custom classification](create-a-custom-classification.md)
+- [Create a custom classification rule](create-custom-classification-rule.md)
