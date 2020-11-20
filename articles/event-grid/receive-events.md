@@ -135,7 +135,7 @@ Test the validation response function by pasting the sample event into the test 
 }]
 ```
 
-When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
+When you click Run, the Output should be 200 OK and `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
 
 ![validation response](./media/receive-events/validation-response.png)
 
