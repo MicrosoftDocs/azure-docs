@@ -10,7 +10,7 @@ ms.date: 08/17/2020
 
 # Azure Active Directory authorization - REST API reference
 
-When you use Azure Active Directory (Azure AD) authentication, authorization is handled by role-based access control RBAC. RBAC requires users to be assigned to roles in order to grant access to resources. Each role contains a set of actions that users assigned to the role are able to perform.
+When you use Azure Active Directory (Azure AD) authentication, authorization is handled by role-based access control (RBAC). RBAC requires users to be assigned to roles in order to grant access to resources. Each role contains a set of actions that users assigned to the role are able to perform.
 
 ## Roles
 
