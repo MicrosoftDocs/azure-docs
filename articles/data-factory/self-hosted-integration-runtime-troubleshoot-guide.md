@@ -787,21 +787,21 @@ The issue could be caused by the VM where the SHIR is trying to be installed. Pu
 
 - Navigate to the below link.
     
-    https://docs.microsoft.com/en-us/rest/api/datafactory/Factories/Update
+    https://docs.microsoft.com/rest/api/datafactory/Factories/Update
 
 - Click on **Try It** option and fill all required details. Paste below property in the **Body** as well:
 ```
 { "tags": { "publicNetworkAccess":"Enabled" } }
 ``` 
 
-- Click **Run** at the end of the page to run the function. Make sure that you would get Response Code 200. Above property will also be shown in JSON definition.
+- Click **Run** at the end of the page to run the function. Make sure that you would get Response Code 200. Above property will be shown in JSON definition as well.
 
 - Then you can try to add IR authentication key again in the integration runtime.
 
 
 **Solution 2:** You can refer to below article for solution:
 
-https://docs.microsoft.com/en-us/azure/data-factory/data-factory-private-link
+https://docs.microsoft.com/azure/data-factory/data-factory-private-link
 
 Try to enable the public network access with user interface.
 
