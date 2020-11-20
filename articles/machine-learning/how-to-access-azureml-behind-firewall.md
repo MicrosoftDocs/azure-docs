@@ -170,7 +170,7 @@ The hosts in this section are used to install Python packages. They are required
 The hosts in this section are used to install R packages. They are required during development, training, and deployment.
 
 > [!NOTE]
-> This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+> This is not a complete list of the hosts required for all R resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
