@@ -13,6 +13,18 @@ ms.custom:
 # Deploy an Azure Cloud Service (extended support) using the Azure portal
 Cloud Services (extended support) provides various methods to create a deployment.  This article shows you how to use the Azure portal to create a Cloud Service (extended support) deployment. 
 
+> [!IMPORTANT]
+> Cloud Services (extended support) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Register the feature for your subscription
+Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
+
+```azurepowershell
+Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
+```
+
 ## Create a Cloud Service (extended support)
 1.	Log in to the Azure portal
 2.	Select **Create a resource** and search for Cloud Services (extended support)
