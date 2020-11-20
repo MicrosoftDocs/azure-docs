@@ -23,8 +23,8 @@ In hub-and-spoke network architecture, gateway transit allows spoke virtual netw
 
 There are two scenarios in this article:
 
-* **RM VNet to RM VNet**: Both virtual networks are using the Resource Manager deployment model.
-* **Classic VNet to RM VNet**: The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager.
+* **Same deployment model**: Both virtual networks are created in the Resource Manager deployment model.
+* **Different deployment models**: The spoke virtual network is created in the classic deployment model, and the hub virtual network and gateway is in the Resource Manager deployment model.
 
 >[!NOTE]
 > If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
@@ -32,17 +32,15 @@ There are two scenarios in this article:
 
 ## Prerequisites
 
-Before you begin, verify that you have the following VNets and permissions:
+Before you begin, verify that you have the following virtual networks and permissions:
 
-* Hub-RM virtual network with a VPN gateway.
-* Spoke-RM virtual network.
-* Spoke-Classic virtual network with the classic deployment model.
-* The account you use requires the necessary roles and permission. See the [Permissions](#permissions) section of this article for details.
+### <a name="vnet"></a>Virtual networks
 
-For configuration steps, see the following articles:
-
-* [Create a VPN gateway in a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-
+|VNet|Deployment model| Virtual network gateway|
+|---|---|---|---|
+| Hub-RM| [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| [Yes](tutorial-create-gateway-portal.md)|
+| Spoke-RM | [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| No |
+| Spoke-Classic | [Classic](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | No |
 
 ### <a name="permissions"></a>Permissions
 
@@ -57,11 +55,13 @@ The accounts you use to create a virtual network peering must have the necessary
 
 Learn more about [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%252fazure%252fvirtual-network%252ftoc.json) (Resource Manager only).
 
-## <a name="RM-RM"></a>RM VNet to RM VNet
+## <a name="RM-RM"></a>Transit - same deployment model
 
 In this scenario, the virtual networks are both created using the Resource Manager deployment model. Use the following instructions to create or update the virtual network peerings to enable gateway transit.
 
-1. In the [Azure portal](https://portal.azure.com), create or update the virtual network peering from the Spoke-RM to the Hub-RM. Navigate to the **Spoke-RM** virtual network resource, select **Peerings**, then **+ Add**. Then, configure the following values:
+1. In the [Azure portal](https://portal.azure.com), create or update the virtual network peering from the Spoke-RM to the Hub-RM. Navigate to the **Spoke-RM** virtual network, select **Peerings**, then **+ Add**.
+
+   Configure the following values:
 
    * Set the **Resource Manager** option.
    * Select the **Hub-RM** virtual network in the corresponding subscription.
@@ -113,9 +113,9 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="Classic-RM"></a>Classic VNet to RM VNet
+## <a name="Classic-RM"></a>Transit - different deployment models
 
-The steps are similar to the RM VNet to RM VNet example, except the operations are applied on the Hub-RM virtual network only. Notice that the gateway is on the Resource Manager VNet, not  the classic VNet.
+For this configuration, the spoke VNet (Spoke-Classic) is created using the classic deployment model. The hub VNet (Hub-RM) is created using the Resource Manager deployment model. The virtual network gateway must be on the Resource Manager VNet, not the classic VNet. Operations are applied to the Hub-RM virtual network only.
 
 1. In the Azure portal, create or update the virtual network peering from **Hub-RM** to **Spoke-RM**. Navigate to the Hub-RM virtual network resource, select **Peerings**, then **+ Add**:
 
