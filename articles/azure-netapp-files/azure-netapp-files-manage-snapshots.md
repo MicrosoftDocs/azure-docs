@@ -21,7 +21,7 @@ ms.author: b-juche
 Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation. You can also restore a snapshot to a new volume, restore a single file by using a client, or revert an existing volume by using a snapshot.
 
 > [!NOTE] 
-> For snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).
+> For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).
 
 ## Create an on-demand snapshot for a volume
 
