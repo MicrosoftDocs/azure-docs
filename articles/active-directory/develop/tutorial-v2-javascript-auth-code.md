@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-js
 
 # Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page app (SPA) using auth code flow
 
-In this tutorial, you build a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library to sign in users and call Microsoft Graph.
+In this tutorial, you build a JavaScript single-page application (SPA) that signs in users and calls Microsoft Graph by using the authorization code flow with PKCE. The SPA you build uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0.
 
 In this tutorial:
 > [!div class="checklist"]
