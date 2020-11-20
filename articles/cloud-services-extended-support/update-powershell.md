@@ -11,13 +11,13 @@ ms.custom:
 ---
 # Update a Cloud Service (extended support) using PowerShell
 
-Template & parameters file define the desired state of your Cloud Service (extended support) deployment. There are two methods to update a resource using Template
+Template & parameters file define the desired state of your Cloud Service (extended support) deployment. There are two methods to update a resource using template.
 
 1. Reuse old template by making necessary changes and leaving rest of the template untouched. Azure Resource Manager is smart enough to understand the changes and only incorporate those changes.
 
 2. Define a new template containing desired state of all the resources that needs changes. 
 
-## Update Method #1
+## Update method #1
 1.	Update/Create new template & parameters file for your Cloud Services (extended support) deployment. Incorporate changes for all resources. 
 
 2.	Update Storage Account or upload newer copy of Cscfg/Cspkg, obtain SAS URLs & add SAS URLs to Cloud Services resource section of Template. 
@@ -28,19 +28,19 @@ Template & parameters file define the desired state of your Cloud Service (exten
     New-AzResourceGroupDeployment -ResourceGroupName “Resource group name” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file"
     ```
 
-## Update Method #2
+## Update method #2
  
-The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by PowerShell command or Portal
+The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by PowerShell command or Portal.
 
 1.	Update Storage Account.
 
-2.	Update `.cscfg`, upload `.cscfg` to storage account & obtain SAS URL. 
+2.	Update cscfg, upload cscfg to storage account & obtain SAS URL. 
 
-3.	Update `.cspkg` file, upload `.cspkg` to storage account and obtain SAS URL.
+3.	Update cspkg file, upload cspkg to storage account and obtain SAS URL.
 
 4.	Update public IP.
 
-5.	Update key vault and upload updated certificates.
+5.	Update Key Vault and upload updated certificates.
 
 6.	Get and update role profile object.
 
@@ -69,5 +69,5 @@ The steps below mention the order to update resources. Depending on the update s
     ```
 
 ## Next steps
-For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 
+For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/).
 

@@ -14,7 +14,7 @@ ms.custom:
 
 These samples cover various was to retrieve information about existing Azure Cloud Service (extended support) deployments.
 
-## Example 1: Get all cloud service under a resource group
+## Get all Cloud Services under a resource group
 
 ```powershell
 Get-AzCloudService -ResourceGroup "ContosOrg"
@@ -25,7 +25,7 @@ ContosOrg         ContosoCS         eastus2euap Succeeded
 ContosOrg         ContosoCSTest     eastus2euap Failed
 ```
 
-## Example 2: Get cloud service
+## Get single Cloud Service
 ```powershell
 Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
@@ -60,7 +60,7 @@ UniqueId                                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 UpgradeMode                             : Auto
 ```
 
-## Example 3: Get cloud service instance view
+## Get Cloud Service instance view
 ```powershell
 Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS" -InstanceView | Format-List
 
@@ -83,15 +83,15 @@ Statuses                    : {{
                                 "time": "2020-10-20T13:13:45.0067685Z"
                               }, {
                                 "code": "CurrentUpgradeDomain/-1",
-                                "displayStatus": "Current Upgrade Domain of cloud service is -1.",
+                                "displayStatus": "Current Upgrade Domain of Cloud Service is -1.",
                                 "level": "Info"
                               }, {
                                 "code": "MaxUpgradeDomain/1",
-                                "displayStatus": "Max Upgrade Domain of cloud service is 1.",
+                                "displayStatus": "Max Upgrade Domain of Cloud Service is 1.",
                                 "level": "Info"
                               }}
 ```
 
 ## Next steps
 
-For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md)
+For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md).

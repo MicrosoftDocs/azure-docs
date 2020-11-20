@@ -12,12 +12,12 @@ ms.custom:
 
 # Swap between two Azure Cloud Service (extended support) deployments
 
-Cloud Services (extended support) allows users to swap between two independent Cloud Service deployments. Unlike Cloud Services (classic), the concept of deployment slots no longer exists in the Azure Resource Manager model . 
+Cloud Services (extended support) allows users to swap between two independent Cloud Service deployments. Unlike Cloud Services (classic), the concept of deployment slots no longer exists in the Azure Resource Manager model. 
 
 When you deploy a new release of a Cloud Service (extended support), you can make it “swappable” with another existing Cloud Service. This enables users to stage and test the new release. 
 
 > [!NOTE]
-> You cannot swap between a Cloud Service (classic) and a Cloud Service (extended support) deployment. 
+> You cannot swap between a Cloud Service (classic) and Cloud Service (extended support) deployments. 
 
 ## Use Swap to change deployments
 

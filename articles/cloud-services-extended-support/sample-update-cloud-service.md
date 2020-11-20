@@ -14,41 +14,41 @@ ms.custom:
 
 These samples cover various ways to update an existing Azure Cloud Service (extended support) deployment.
 
-## Example 1: Add an extension to existing cloud service
+## Add an extension to existing Cloud Service
 ```powershell
 # Create RDP extension object
 $rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name "RDPExtension" -Credential $credential -Expiration $expiration -TypeHandlerVersion "1.2.1"
-# Get existing cloud service
+# Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
-# Add RDP extension to existing cloud service extension object
+# Add RDP extension to existing Cloud Service extension object
 $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension + $rdpExtension
-# Update cloud service
+# Update Cloud Service
 $cloudService | Update-AzCloudService
 ```
 
-## Example 2: Remove all extensions from cloud service
+## Remove all extensions from Cloud Service
 ```powershell
-# Get existing cloud service
+# Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 # Set extension to empty list
 $cloudService.ExtensionProfileExtension = @()
-# Update cloud service
+# Update Cloud Service
 $cloudService | Update-AzCloudService
 ```
 
-## Example 3: Remove RDP extension from cloud service
+## Remove RDP extension from Cloud Service
 ```powershell
-# Get existing cloud service
+# Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 # Remove extension by name RDPExtension
 $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension | Where-Object { $_.Name -ne "RDPExtension" }
-# Update cloud service
+# Update Cloud Service
 $cloudService | Update-AzCloudService
 ```
 
-## Example 4: Scale-Out / Scale-In role instances
+## Scale-out / scale-in role instances
 ```powershell
-# Get existing cloud service
+# Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
 # Scale-out all role instance count by 1
@@ -58,12 +58,12 @@ $cloudService.RoleProfileRole | ForEach-Object {$_.SkuCapacity += 1}
 $role = $cloudService.RoleProfileRole | Where-Object {$_.Name -eq "ContosoFrontend"}
  $role.SkuCapacity -= 1
 
-# Update cloud service configuration as per the new role instance count
+# Update Cloud Service configuration as per the new role instance count
 $cloudService.Configuration = $configuration
 
-# Update cloud service
+# Update Cloud Service
 $cloudService | Update-AzCloudService
 ```
 
 ## Next steps
-For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md)
+For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md).

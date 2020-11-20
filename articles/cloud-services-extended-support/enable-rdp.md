@@ -1,6 +1,6 @@
 ---
-title: Enable Remote Desktop in Cloud Services (extended support) using the Azure Portal
-description: Enable Remote Desktop for Cloud Services (extended support) instances using the Azure Portal
+title: Enable Remote Desktop in Cloud Services (extended support) using the Azure portal
+description: Enable Remote Desktop for Cloud Services (extended support) instances using the Azure portal
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Enable Remote Desktop for Cloud Services (extended support) instances using the Azure Portal
+# Enable Remote Desktop for Cloud Services (extended support) instances using the Azure portal
 
 Remote Desktop enables you to access a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
 
@@ -20,11 +20,11 @@ Remote Desktop can be enabled in your role during development by including the R
 
 1. Navigate to the Cloud Service you want to enable Remote Desktop on and select **"Remote Desktop"** in the left navigation pane.
 
-    :::image type="content" source="media/remote-desktop-1.png" alt-text="Image shows selecting the Remote Desktop option in the Azure Portal":::
+    :::image type="content" source="media/remote-desktop-1.png" alt-text="Image shows selecting the Remote Desktop option in the Azure portal":::
 
 2. Switch Remote Desktop from disabled to enabled. 
 
-3. Fill in the required fields for user name, password, expiry, and certificate (not required)
+3. Fill in the required fields for user name, password, expiry, and certificate (not required).
 
     :::image type="content" source="media/remote-desktop-2.png" alt-text="Image shows inputting the information required to connect to remote desktop.":::
 
@@ -40,7 +40,7 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 3. Click Connect to download an RDP file for the role instance.
 4. Click Open and then connect to start the Remote Desktop connection.
  
-    :::image type="content" source="media/remote-desktop-3.png" alt-text="Image shows selecting the worker role instance in the Azure Portal.":::
+    :::image type="content" source="media/remote-desktop-3.png" alt-text="Image shows selecting the worker role instance in the Azure portal.":::
 
 ## Next steps
 For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 

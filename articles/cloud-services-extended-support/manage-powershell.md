@@ -43,7 +43,7 @@ Invoke-AzCloudServiceRebuild -ResourceGroupName $resourceGroupName -CloudService
 ```
  
 
-## Role Instance
+## Role instance
 
 ### Restart
 
@@ -115,13 +115,13 @@ Get-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $clou
 Get-AzCloudServiceRoleInstance -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
 ```
 
-### Get Instance view of a Cloud Services (extended support) deployment
+### Get instance view of a Cloud Services (extended support) deployment
 
 ```PowerShell
 Get-AzCloudServiceInstanceView -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName  
 ```
 
-### Get Instance view of a specific role instance within a Cloud Services (extended support) deployment
+### Get instance view of a specific role instance within a Cloud Services (extended support) deployment
 
 ```PowerShell
 Get-AzCloudServiceRoleInstanceView -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName  
@@ -133,7 +133,7 @@ Get-AzCloudServiceRoleInstanceView -ResourceGroupName $resourceGroupName -CloudS
 Get-AzVMExtensionImageType  
 ```
 
-## Start & Stop Cloud Services (extended support) deployment
+## Start & stop Cloud Services (extended support) deployments
 
 ```PowerShell
 Start-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName
@@ -146,11 +146,11 @@ Stop-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $clo
 
 ## VIP Swap deployment
 Process to define swappable relationship between two deployments and swap Virtual IP addresses.
-1.	Create first Cloud Services (extended support) deployment 
-2.	Get cloudServicesId of the first deployment
+1.	Create first Cloud Services (extended support) deployment.
+2.	Get cloudServicesId of the first deployment.
 3.	Create second Cloud Services (extended support) deployment, but now by adding `-SwappableCloudServiceId` property to `New-AzCloudService` command. 
-4.	Get cloudServiceId for second deployment
-5.	Perform VIP Swap 
+4.	Get cloudServiceId for second deployment.
+5.	Perform VIP Swap.
 
     ```PowerShell
     Switch-AzCloudService -SourceCloudService $sourceCloudServiceId -TargetCloudService $targetCloudServiceId    
@@ -158,10 +158,10 @@ Process to define swappable relationship between two deployments and swap Virtua
 
 To update the swappable relationship for a Cloud Service deployment, call update-AzCloudService command with `-SwappableCloudServiceId` property containing the Cloud Services Id of the newer deployment.
 
-## RDP using Plugin or Extension
+## RDP using plugin or extension
 
 ### Enable RDP
-1.	Import RemoteAccess & RemoteAccessForwarder Plugins using Csdef
+1.	Import `RemoteAccess` and `RemoteAccessForwarder` plugins using csdef.
 
     ```PowerShell
     <Imports>
@@ -171,7 +171,7 @@ To update the swappable relationship for a Cloud Service deployment, call update
     ```
 
 2.	Create a self-signed PFX cert, define the RDP username & password & encrypt the password using certificate
-3.	Add settings for RDP in Cscfg. Set plugin enabled properties to True. 
+3.	Add settings for RDP in cscfg. Set plugin enabled properties to true. 
 
     ```PowerShell
     <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
@@ -181,14 +181,14 @@ To update the swappable relationship for a Cloud Service deployment, call update
     <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
     ```
 
-4.	 Add certificate details to Cscfg.
+4.	 Add certificate details to cscfg.
         ```PowerShell 
         <Certificates>
         <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="Add certificate thumbprint" thumbprintAlgorithm="sha1" />
         </Certificates>
         ```
 
-5.	Upload the certificate  to Key Vault and reference the key vault during CS create operation
+5.	Upload the certificate  to Key Vault and reference the Key Vault during CS create operation
 6.	Create Cloud Services deployment
 
 ### RDP into role instance
