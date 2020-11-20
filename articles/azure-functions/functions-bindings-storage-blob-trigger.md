@@ -109,6 +109,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# [Java](#tab/java)
+
+This function writes a log when a blob is added or updated in the `myblob` container.
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a blob trigger binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` container.
@@ -142,6 +160,10 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+# [PowerShell](#tab/powershell)
+
+TODO
 
 # [Python](#tab/python)
 
@@ -178,24 +200,6 @@ import azure.functions as func
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
-```
-
-# [Java](#tab/java)
-
-This function writes a log when a blob is added or updated in the `myblob` container.
-
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
 ```
 
 ---
@@ -262,17 +266,21 @@ The storage account to use is determined in the following order:
 
 Attributes are not supported by C# Script.
 
+# [Java](#tab/java)
+
+The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
+
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
 
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
 
 ---
 
@@ -300,17 +308,21 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# [Java](#tab/java)
+
+The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
+
 # [JavaScript](#tab/javascript)
 
 Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*.
 
 # [Python](#tab/python)
 
+TODO
+
+# [Python](#tab/python)
+
 Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [trigger example](#example) for details.
-
-# [Java](#tab/java)
-
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
 
 ---
 
