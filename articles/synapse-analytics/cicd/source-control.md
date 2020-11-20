@@ -175,51 +175,45 @@ A side pane will open where you confirm that the publish branch and pending chan
 
 ### Permissions
 
-Typically you don't want every team member to have permissions to update the Data Factory. The following permissions settings are recommended:
+After you have a git repository connected to your workspace, anyone who can access to your git repo with any role in your workspace will be able to update artifacts, like sql script, notebook,spark job definition, dataset, dataflow and pipeline in git mode. Typically you don't want every team member to have permissions to update workspace. The following permissions settings are recommended:
 
-*   All team members should have read permissions to the Data Factory.
-*   Only a select set of people should be allowed to publish to the Data Factory. To do so, they must have the **Data Factory contributor** role on the **Resource Group** that contains the Data Factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
+*   For now, Workspace contributors or higher level roles of Azure RBAC roles can configure git/disconnect/setting . 
+
+*   Only grant git repository permission to Synapse workspace admin and artifact authors. For more information on permissions, see [Roles and permissions for Synapse](concepts-roles-permissions.md).
 
 It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
-### Using passwords from Azure Key Vault
-
-It's recommended to use Azure Key Vault to store any connection strings or passwords or managed identity authentication for Data Factory Linked Services. For security reasons, data factory doesn't store secrets in Git. Any changes to Linked Services containing secrets such as passwords are published immediately to the Azure Data Factory service.
-
-Using Key Vault or MSI authentication also makes continuous integration and deployment easier as you won't have to provide these secrets during Resource Manager template deployment.
 
 ## Troubleshooting Git integration
 
 ### Stale publish branch
 
-If the publish branch is out of sync with the master branch and contains out-of-date resources despite a recent publish, try following these steps:
+If the publish branch is out of sync with the collaboration   branch and contains out-of-date resources despite a recent publish, try following these steps:
 
 1. Remove your current Git repository
-1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
+1. Reconfigure Git with the same settings, but make sure **Import existing resources to repository** is selected and choose **New branch**
 1. Create a pull request to merge the changes to the collaboration branch 
 
 Below are some examples of situations that can cause a stale publish branch:
-- A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
-- A user modified the data factory using the SDK or PowerShell
+- A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) or and never merged the feature branch into the collaboration branch.
+- A user modified using the SDK or PowerShell
 - A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
-- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
+- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the service.
 
 ## Switch to a different Git repository
 
 To switch to a different Git repository, go to Git configuration page in the management hub under **Source control**. Select **Disconnect**. 
 
-![Git icon](media/author-visually/remove-repository.png)
+![Git icon](media/remove-repository.png)
 
-Enter your data factory name and click **confirm** to remove the Git repository associated with your data factory.
+Enter your workspace name and click **Disconnect** to remove the Git repository associated with your data factory.
 
-![Remove the association with the current Git repo](media/author-visually/remove-repository-2.png)
-
-After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing Data Factory resources to the new repo.
+After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing resources to the new repo.
 
 > [!IMPORTANT]
-> Removing Git configuration from a data factory doesn't delete anything from the repository. The factory will contain all published resources. You can continue to edit the factory directly against the service.
+> Removing Git configuration from a workspace doesn't delete anything from the repository. The factory will contain all published resources. You can continue to edit the factory directly against the service.
 
 ## Next steps
 
 * To learn more about monitoring and managing pipelines, see [Monitor and manage pipelines programmatically](monitor-programmatically.md).
-* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-deployment.md).
+* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-deployment.md).
