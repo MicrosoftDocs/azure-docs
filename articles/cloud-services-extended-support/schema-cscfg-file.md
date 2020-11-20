@@ -62,4 +62,4 @@ The service configuration file must contain one `ServiceConfiguration` element. 
 
 ## See also
 
-[Azure Cloud Services (extended support) definition schema (csdef file)](schema-csdef.md)
+[Azure Cloud Services (extended support) definition schema (csdef file)](schema-csdef-file.md)

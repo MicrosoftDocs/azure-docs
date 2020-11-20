@@ -67,4 +67,4 @@ The following table describes the attributes of the `ServiceDefinition` element.
 
 ## See also
 
-[Azure Cloud Services (extended support) config schema (cscfg File)](schema-cscfg.md).
+[Azure Cloud Services (extended support) config schema (cscfg File)](schema-cscfg-file.md).
