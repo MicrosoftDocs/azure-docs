@@ -73,7 +73,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|**[Serverless app model](https://azure.microsoft.com/solutions/serverless/) with [automatic scaling](functions-scale.md#how-the-consumption-and-premium-plans-work)**|✔||
+|**[Serverless app model](https://azure.microsoft.com/solutions/serverless/) with [automatic scaling](event-driven-scaling.md)**|✔||
 |**[Develop and test in browser](functions-create-first-azure-function.md)** |✔||
 |**[Pay-per-use pricing](consumption-plan.md)**|✔||
 |**[Integration with Logic Apps](functions-twitter-email.md)**|✔||

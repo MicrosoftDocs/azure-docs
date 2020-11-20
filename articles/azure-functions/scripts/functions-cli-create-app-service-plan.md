@@ -18,7 +18,7 @@ This Azure Functions sample script creates a function app, which is a container 
 
 ## Sample script
 
-This script creates an Azure Function app using a dedicated [App Service plan](../functions-scale.md#app-service-plan).
+This script creates an Azure Function app using a dedicated [App Service plan](../dedicated-plan.md).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
 

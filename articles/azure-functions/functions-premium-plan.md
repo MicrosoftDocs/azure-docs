@@ -81,7 +81,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### Maximum function app instances
 
-In addition to the [plan maximum instance count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./functions-scale.md#limit-scale-out).
+In addition to the [plan maximum instance count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out).
 
 ## Private network connectivity
 

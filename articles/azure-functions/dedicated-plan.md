@@ -1,29 +1,24 @@
 ---
-title: Azure Functions Dedicated (App Service) hosting plan 
-description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
+title: Azure Functions Dedicated hosting 
+description: Learn about the benefits of running Azure Functions on a dedicated App Service hosting plan.
 ms.topic: conceptual
 ms.date: 10/29/2020
-
 ---
 
-# Dedicated (App Service) hosting plan for Azure Functions
+# Dedicated hosting plans for Azure Functions
 
-This article is about hosting your function app in a Dedicated (App Service) plan, including in an App Service Environment (ASE). For other hosting plan options, see the [hosting plan article](functions-scale.md).
+This article is about hosting your function app in an App Service plan, including in an App Service Environment (ASE). For other hosting options, see the [hosting plan article](functions-scale.md).
 
-Your function apps can also run on the same dedicated VMs as other App Service apps (Basic, Standard, Premium, and Isolated SKUs).
+An App Service plan defines a set of compute resources for an app to run. These compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional hosting. One or more function apps can be configured to run on the same computing resources (App Service plan) as other App Service apps, such as web apps. These plans include Basic, Standard, Premium, and Isolated SKUs. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
 Consider an App Service plan in the following situations:
 
 * You have existing, underutilized VMs that are already running other App Service instances.
 * You want to provide a custom image on which to run your functions.
 
-You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
+## Billing
 
-## App Service Environments
-
-Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of higher numbers of instances than an App Service Plan. To get started, see .
-
-If you just want to run your function app in a virtual network, you can do this using the [Premium plan](functions-premium-plan.md). To learn more, see [Establish Azure Functions private site access](functions-create-private-site-access.md). 
+You pay for function apps in an App Service Plan as you would for other App Service resources. This differs from Azure Functions [Consumption plan](consumption-plan.md) or [Premium plan](functions-premium-plan.md) hosting, which have consumption-based cost components. You are billed ony for the plan, regardless of how many function apps or web apps run in the plan. To learn more, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/). 
 
 ## <a name="always-on"></a> Always On
 
@@ -38,3 +33,9 @@ Using an App Service plan, you can manually scale out by adding more VM instance
 > [!NOTE] 
 > When running JavaScript (Node.js) functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
+
+## App Service Environments
+
+Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of higher numbers of instances than an App Service Plan. To get started, see .
+
+If you just want to run your function app in a virtual network, you can do this using the [Premium plan](functions-premium-plan.md). To learn more, see [Establish Azure Functions private site access](functions-create-private-site-access.md). 
