@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use serverless SQL pool (preview) to analyze Azure Open Datasets in Azure Synapse Studio (preview)'
+title: 'Tutorial: Explore and Analyze data lakes with serverless Synapse SQL'
 description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool (preview) and visualize the results in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
@@ -11,19 +11,11 @@ ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Tutorial: Use serverless SQL pool to analyze Azure Open Datasets and visualize the results in Azure Synapse Studio
+# Tutorial: Explore and Analyze data lakes with serverless Synapse SQL
 
 In this tutorial, you learn how to perform exploratory data analysis by combining different Azure Open Datasets using serverless SQL pool and then visualizing the results in Azure Synapse Studio.
 
-In particular, you analyze the [New York City (NYC) Taxi dataset](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) that includes:
-
-- Pickup and drop-off dates and times.
-- Pick up and drop-off locations. 
-- Trip distances.
-- Itemized fares.
-- Rate types.
-- Payment types. 
-- Driver-reported passenger counts.
+The OPENROWSET(BULK...) function allows you to access files in Azure Storage. [OPENROWSET](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-openrowset) function reads content of a remote data source (for example file) and returns the content as a set of rows.
 
 ## Automatic schema inference
 
@@ -39,9 +31,15 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-The following snippet shows the result for the NYC Taxi data:
+[New York City (NYC) Taxi dataset](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) includes:
 
-![NYC Taxi data result snippet](./media/tutorial-data-analyst/1.png)
+- Pickup and drop-off dates and times.
+- Pick up and drop-off locations. 
+- Trip distances.
+- Itemized fares.
+- Rate types.
+- Payment types. 
+- Driver-reported passenger counts.
 
 Similarly, you can query the Public Holidays dataset by using the following query:
 
@@ -52,10 +50,6 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [holidays]
 ```
-
-The following snippet shows the result for the Public Holidays dataset:
-
-![Public Holidays dataset result snippet](./media/tutorial-data-analyst/2.png)
 
 Lastly, you can also query the Weather Data dataset by using the following query:
 
@@ -68,10 +62,6 @@ FROM
         FORMAT='PARQUET'
     ) AS [weather]
 ```
-
-The following snippet shows the result for the Weather Data dataset:
-
-![Weather Data dataset result snippet](./media/tutorial-data-analyst/3.png)
 
 You can learn more about the meaning of the individual columns in the descriptions of the [NYC Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/), and [Weather Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) datasets.
 
@@ -213,4 +203,5 @@ This tutorial has shown how a data analyst can quickly perform exploratory data 
 ## Next steps
 
 To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
+To learn how to use External tables in serverless SQL pool see [Use external tables with Synapse SQL](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool)
  
