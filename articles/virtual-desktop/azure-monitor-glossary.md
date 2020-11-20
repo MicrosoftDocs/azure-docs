@@ -187,10 +187,8 @@ To learn more about Windows events, see [Windows event records properties](../az
 
 To get started with Azure Monitor for Windows Virtual Desktop, check out these articles:
 
-- [How to use Azure Monitor for Windows Virtual Desktop]()
-- [Azure Monitor for Windows Virtual Desktop troubleshooting]()
-
-<!---Add links here when available--->
+- [How to use Azure Monitor for Windows Virtual Desktop](azure-monitor.md)
+- [Azure Monitor for Windows Virtual Desktop troubleshooting](troubleshoot-azure-monitor.md)
 
 You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Use Azure Advisor with Windows Virtual Desktop](azure-advisor.md).
 
