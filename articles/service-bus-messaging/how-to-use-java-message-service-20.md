@@ -67,6 +67,14 @@ To connect with Azure Service Bus using JMS clients, you need the **connection s
     JMSContext jmsContext = factory.createContext();
     ```
 
+    >[!IMPORTANT]
+    > Although similarly named, a JMS 'Session' and Service Bus 'Session' is completely independent of each other.
+    >
+    > In JMS 1.1, Session is an essential building block of the API that allows creation of the MessageProducer, MessageConsumer and the Message itself. For more details, review the [JMS API programming model](https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
+    >
+    > In Service Bus, [sessions](message-sessions.md) are service and client side construct to enable FIFO processing on Queues and Subscriptions.
+    >
+
 ### Write the JMS application
 
 Once the `Session` or `JMSContext` has been instantiated, your application can use the familiar JMS APIs to perform both management and data operations.
