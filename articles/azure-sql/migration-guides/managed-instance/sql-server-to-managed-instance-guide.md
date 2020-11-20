@@ -93,7 +93,7 @@ If you need to compare the performance of your workload on a SQL Managed Instanc
 
 ### Create SQL Managed Instance 
 
-Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](/../../managed-instance/create-template-quickstart). 
+Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](/azure/azure-sql/managed-instance/create-template-quickstart). 
 
 
 ## Migrate
