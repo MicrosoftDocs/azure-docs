@@ -33,7 +33,7 @@ You use vSphere and NSX-T Manager to manage most other aspects of cluster config
 
 ## Hosts
 
-Azure VMware Solution private cloud clusters use hyper-converged, bare-metal infrastructure nodes. The following table shows the RAM, CPU, and disk capacities of the host. 
+Azure VMware Solution private cloud clusters use hyper-converged, bare-metal infrastructure hosts. The following table shows the RAM, CPU, and disk capacities of the host. 
 
 | Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
