@@ -29,7 +29,7 @@ To build the samples, you'll need the Java Development Kit (JDK) and the [Azure 
 
 ## Set up your application to use Azure Files
 
-To use the Azure Files APIs, add the following statement to the top of the Java file from where you intend to access Azure Files.
+To use the Azure Files APIs, add the following code to the top of the Java file from where you intend to access Azure Files.
 
 # [Java v12](#tab/java)
 
@@ -69,17 +69,17 @@ public static final String storageConnectionString =
 
 ---
 
-## Connecting to an Azure storage account
+## Access Azure Files storage
 
 # [Java v12](#tab/java)
 
-To connect to your storage account, create a [ShareClient](/java/api/com.azure.storage.file.share.shareclient) object. Use the [ShareClientBuilder](/java/api/com.azure.storage.file.share.shareclientbuilder) class to build a new **ShareClient** object.
+To access Azure Files, create a [ShareClient](/java/api/com.azure.storage.file.share.shareclient) object. Use the [ShareClientBuilder](/java/api/com.azure.storage.file.share.shareclientbuilder) class to build a new **ShareClient** object.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createClient":::
 
 # [Java v11](#tab/java11)
 
-To connect to your storage account, use the **CloudStorageAccount** object, passing the connection string to its **parse** method.
+To access your storage account, use the **CloudStorageAccount** object, passing the connection string to its **parse** method.
 
 ```java
 // Use the CloudStorageAccount object to connect to your storage account
@@ -94,7 +94,7 @@ try {
 
 ---
 
-## Create an Azure file share
+## Create a file share
 
 All files and directories in Azure Files are stored in a container called a share.
 
@@ -132,7 +132,7 @@ At this point, **share** holds a reference to a share named **sample share**.
 
 ---
 
-## Delete an Azure file share
+## Delete a file share
 
 The following sample code deletes a file share.
 
@@ -174,7 +174,7 @@ Organize storage by putting files inside subdirectories instead of having all of
 
 # [Java v12](#tab/java)
 
-The following method creates the *dirName* specified directory in the file share passed in through the *shareName* parameter by calling [ShareDirectoryClient.create](/java/api/com.azure.storage.file.share.sharedirectoryclient.create). The example method returns a `Boolean` value indicating if it successfully created the directory.
+The following code creates a directory by calling [ShareDirectoryClient.create](/java/api/com.azure.storage.file.share.sharedirectoryclient.create). The example method returns a `Boolean` value indicating if it successfully created the directory.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createDirectory":::
 
@@ -204,7 +204,7 @@ Deleting a directory is a straightforward task. You can't delete a directory tha
 
 # [Java v12](#tab/java)
 
-The [ShareDirectoryClient.delete](/java/api/com.azure.storage.file.share.sharedirectoryclient.delete) method throws an exception if the directory isn't empty. Put the call to **delete** in a `try/catch` block and handle the exception.
+The [ShareDirectoryClient.delete](/java/api/com.azure.storage.file.share.sharedirectoryclient.delete) method throws an exception if the directory doesn't exist or isn't empty. Put the call to **delete** in a `try/catch` block and handle the exception.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteDirectory":::
 
