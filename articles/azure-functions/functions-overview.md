@@ -25,7 +25,9 @@ Providing compute resources on-demand is the essence of [serverless computing](h
 
 ## Scenarios
 
-The following are common, _but by no means exhaustive_, set of scenarios for Azure Functions. In many cases, a function also [integrates with other cloud services](./functions-triggers-bindings.md).
+In many cases, a function [integrates with an array of cloud services](./functions-triggers-bindings.md) to provide feature-rich implementations.
+
+The following are a common, _but by no means exhaustive_, set of scenarios for Azure Functions.
 
 | If you want to... | then... |
 | --- | --- |
