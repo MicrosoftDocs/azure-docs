@@ -45,9 +45,7 @@ Customized templates won't update when the product group updates the original te
 
 ## I can't interpret the data
 
-Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glossary]().
-
-<!---Link here, when available--->
+Learn more about data terms at the Azure Monitor for Window Virtual Desktop glossary.
 
 ## The data I need isn't available
 
