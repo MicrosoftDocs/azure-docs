@@ -167,6 +167,12 @@
           href: iot-hub-devguide-sdks.md
         - name: MQTT support
           href: iot-hub-mqtt-support.md
+        - name: MQTT 5 support (preview)
+          items:
+            - name: MQTT 5 overview
+              href: iot-hub-mqtt-5.md
+            - name: MQTT 5 API reference
+              href: iot-hub-mqtt-5-reference.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
         - name: Glossary
