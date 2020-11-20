@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Live Video Analytics on IoT Edge - Azure
 description: This article covers troubleshooting steps for Live Video Analytics on IoT Edge.
-author: IngridAtMicrosoft
-ms.topic: how-to
-ms.author: inhenkel
+author: naiteeks
+ms.topic: upgrading-doc
+ms.author: naiteeks
 ms.date: 05/24/2020
 
 ---
