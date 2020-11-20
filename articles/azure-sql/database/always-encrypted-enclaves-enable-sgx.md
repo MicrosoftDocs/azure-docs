@@ -6,7 +6,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.devlang: 
-ms.topic: how-to
+ms.topic: conceptual
 author: jaszymas
 ms.author: vanto
 ms.reviwer: 
