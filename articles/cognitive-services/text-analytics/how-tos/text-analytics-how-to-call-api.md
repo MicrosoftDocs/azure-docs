@@ -107,7 +107,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 |`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`, `keyPhraseExtractionTasks` or `entityRecognitionPiiTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi`. If unspecified, the system defaults to `pii`. |
 |`parameters` | Includes the `model-version` and `stringIndexType` fields below | Required | This field is included within the above feature tasks that you choose. They contain information about the model version that you want to use and the index type. |
 |`model-version` | String | Required | Specify which version of the model being called that you want to use.  |
-|`stringIndexType` | String | Required | Specify the text decoder that matches your programming environment.  Types supported are `textElement_v8` (default), `unicodeCodePoint`, `utf16CodeUnit`. Please see the [Text offsets article](../concepts/text-offsets#offsets-in-api-version-31-preview) for more information.  |
+|`stringIndexType` | String | Required | Specify the text decoder that matches your programming environment.  Types supported are `textElement_v8` (default), `unicodeCodePoint`, `utf16CodeUnit`. Please see the [Text offsets article](../concepts/text-offsets.md#offsets-in-api-version-3-1-preview) for more information.  |
 |`domain` | String | Optional | Only applies as a parameter to the `entityRecognitionPiiTasks` task and can be set to `pii` or `phi`. It defaults to `pii` if unspecified.  |
 
 ```json
