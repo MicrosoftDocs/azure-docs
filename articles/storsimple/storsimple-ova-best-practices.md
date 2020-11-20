@@ -115,7 +115,7 @@ If your virtual array is domain-joined, GPOs can be applied to it. These GPOs ca
 Therefore, we recommend that you:
 
 * Ensure that your virtual array is in its own organizational unit (OU) for Active Directory.
-* Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
+* Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### Networking
 The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. Use the [Network Settings](storsimple-virtual-array-deploy3-fs-setup.md) page to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
@@ -285,4 +285,3 @@ Multiple virtual arrays may need to be deployed to account for a growing working
 
 ## See also
 Learn how to [administer your StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) via the StorSimple Manager service.
-
