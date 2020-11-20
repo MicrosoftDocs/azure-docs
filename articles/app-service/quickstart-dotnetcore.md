@@ -31,7 +31,7 @@ When you're finished, you'll have an Azure resource group consisting of an App S
 
 Create an ASP.NET Core web app in Visual Studio by following these steps:
 
-# [.NET Core 3.1](#tab/3.1)
+# [.NET Core 3.1](#tab/netcore31)
 
 1. Open Visual Studio and select **Create a new project**.
 
@@ -49,7 +49,7 @@ Create an ASP.NET Core web app in Visual Studio by following these steps:
 
    ![Web app running locally](./media/quickstart-dotnetcore/web-app-running-locally.png)
 
-# [.NET 5.0](#tab/5.0)
+# [.NET 5.0](#tab/net50)
 
 1. Open Visual Studio and select **Create a new project**.
 
@@ -192,14 +192,14 @@ You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 ## Set up your initial environment
 
-# [.NET Core 3.1](#tab/3.1)
+# [.NET Core 3.1](#tab/netcore31)
 
 To complete this quickstart:
 
 * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>.
 * <a href="/cli/azure/install-azure-cli" target="_blank">Install the latest Azure CLI</a>.
 
-# [.NET 5.0](#tab/5.0)
+# [.NET 5.0](#tab/net50)
 
 To complete this quickstart:
 
@@ -263,11 +263,11 @@ az webapp up --sku F1 --name <app-name> --os-type linux
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
-# [.NET Core 3.1](#tab/3.1)
+# [.NET Core 3.1](#tab/netcore31)
 
 ![Example output of the az webapp up command](./media/quickstart-dotnetcore/az-webapp-up-output-3.1.png)
 
-# [.NET 5.0](#tab/5.0)
+# [.NET 5.0](#tab/net50)
 
 <!-- Deploy the code in your local folder (*hellodotnetcore*) using the `az webapp up` command:
 
