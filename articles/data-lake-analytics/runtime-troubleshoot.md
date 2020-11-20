@@ -49,9 +49,16 @@ There are two possible runtime version issues that you may encounter:
 
 ## Known issues
 
-* Referencing Newtonsoft.Json v12.0.3 or onwards in a USQL script will cause the following compilation failure: `System.IndexOutOfRangeException: Index was outside the bounds of the array.`
+* Referencing Newtonsoft.Json file version 12.0.3 or onwards in a USQL script will cause the following compilation failure:
 
-    **Solution**: Please use Newtonsoft.Json v12.0.2 or lower.
+    *"We are sorry; jobs running in your Data Lake Analytics account will likely run more slowly or fail to complete. An unexpected problem is preventing us from automatically restoring this functionality to your Azure Data Lake Analytics account. Azure Data Lake engineers have been contacted to investigate."*  
+
+    Where the call stack will contain:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Solution**: Please use Newtonsoft.Json file v12.0.2 or lower.
 
 
 ## See also
