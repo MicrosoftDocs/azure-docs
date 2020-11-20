@@ -56,17 +56,7 @@
   - name: Architecture
     href: concepts-architecture.md
   - name: Device developer guide
-    items:
-    - name: C#
-      href: concepts-developer-guide-device-csharp.md
-    - name: Node.js
-      href: concepts-developer-guide-device-node.md
-    - name: Java
-      href: concepts-developer-guide-device-java.md
-    - name: Python
-      href: concepts-developer-guide-device-python.md
-    - name: C
-      href: concepts-developer-guide-device-c.md
+    href: concepts-developer-guide-device.md
   - name: Service developer guide
     href: concepts-developer-guide-service.md
   - name: Components

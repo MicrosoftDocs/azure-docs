@@ -1,19 +1,10 @@
 ---
-title: Device developer guide (Java) - IoT Plug and Play | Microsoft Docs
-description: Description of IoT Plug and Play for Java device developers
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/24/2020
-ms.topic: conceptual
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
+ms.topic: include
+ms.date: 11/19/2020
 ---
-
-# IoT Plug and Play device developer guide (Java)
-
-[!INCLUDE [iot-pnp-device-devguide-selector.md](../../includes/iot-pnp-device-devguide-selector.md)]
-
-[!INCLUDE [iot-pnp-device-devguide-intro.md](../../includes/iot-pnp-device-devguide-intro.md)]
 
 ## Model ID announcement
 
@@ -452,5 +443,3 @@ private static class GetMaxMinReportMethodCallback implements DeviceMethodCallba
 
 > [!Tip]
 > The request and response names aren't present in the serialized payloads transmitted over the wire.
-
-[!INCLUDE [iot-pnp-device-devguide-summary.md](../../includes/iot-pnp-device-devguide-summary.md)]

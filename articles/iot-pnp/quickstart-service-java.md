@@ -139,4 +139,4 @@ The device output shows how the device responds to this command.
 In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device-csharp.md)
+> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device.md)
