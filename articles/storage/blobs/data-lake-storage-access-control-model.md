@@ -48,16 +48,16 @@ ACLs give you the ability to apply "finer grain" level of access to directories 
 
 During security principal-based authorization, permissions are evaluated in the following order.
 
-:one:&nbsp;&nbsp; Azure RBAC role assignments are evaluated first and take priority over any ACL assignments.
+:one:&nbsp;&nbsp; Azure role assignments are evaluated first and take priority over any ACL assignments.
 
-:two:&nbsp;&nbsp; If the operation is fully authorized based on Azure RBAC role assignment, then ACLs are not evaluated at all.
+:two:&nbsp;&nbsp; If the operation is fully authorized based on Azure role assignment, then ACLs are not evaluated at all.
 
 :three:&nbsp;&nbsp; If the operation is not fully authorized, then ACLs are evaluated.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure RBAC role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
+Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
@@ -66,7 +66,7 @@ The following diagram shows the permission flow for three common operations: lis
 
 ## Permissions table: Combining Azure RBAC and ACL
 
-The following table shows you how to combine Azure RBAC roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
+The following table shows you how to combine Azure roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
 |    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
@@ -108,7 +108,7 @@ This table shows a column that represents each level of a fictitious directory h
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## Limits on Azure RBAC role assignments and ACL entries
+## Limits on Azure role assignments and ACL entries
 
 By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACL entries per file or directory. The following table describes these limits.
 
