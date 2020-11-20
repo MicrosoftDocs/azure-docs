@@ -47,7 +47,6 @@ az eventgrid event-subscription create \
 
 [!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-## Message headers
 When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 
 The internal system ID for the message will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
