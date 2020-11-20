@@ -19,6 +19,7 @@ To get started quickly, see one of the following tutorials:
 * [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 * [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
 * [How to configure your app to login using an OpenID Connect provider (Preview)](configure-authentication-provider-openid-connect.md)
+* [How to configure your app to login using an Apple provider (Preview)](configure-authentication-provider-apple.md)
 
 ## Use multiple sign-in providers
 
@@ -310,7 +311,6 @@ The following exhausts possible configuration options within the file:
         "enabled": <true|false>
     },
     "globalValidation": {
-        "requireAuthentication": <true|false>,
         "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
@@ -344,13 +344,13 @@ The following exhausts possible configuration options within the file:
             }
         },
         "preserveUrlFragmentsForLogins": <true|false>,
-        "allowedExternalRedirectUri": [
+        "allowedExternalRedirectUrls": [
             "https://uri1.azurewebsites.net/",
             "https://uri2.azurewebsites.net/",
             "url_scheme_of_your_app://easyauth.callback"
         ],
         "cookieExpiration": {
-            "convention": "FixedTime|IdentityProviderDerived",
+            "convention": "FixedTime|IdentityDerived",
             "timeToExpiration": "<timespan>"
         },
         "nonce": {
@@ -432,13 +432,26 @@ The following exhausts possible configuration options within the file:
                 "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
             }
         },
+        "apple": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
         "openIdConnectProviders": {
             "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
                     "clientCredential": {
-                        "secretSettingName": "<name of app setting containing client secret>"
+                        "clientSecretSettingName": "<name of app setting containing client secret>"
                     },
                     "openIdConnectConfiguration": {
                         "authorizationEndpoint": "<url specifying authorization endpoint>",
@@ -450,7 +463,7 @@ The following exhausts possible configuration options within the file:
                 },
                 "login": {
                     "nameClaimType": "<name of claim containing name>",
-                    "scope": [
+                    "scopes": [
                         "openid",
                         "profile",
                         "email"
