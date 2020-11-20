@@ -74,7 +74,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
-5. Run the following script to check the name of the BEK:
+5. Run the following script to check the name of the BEK file:
 
     ```powershell
     $vmName = "myVM"
@@ -87,12 +87,12 @@ If this method does not the resolve the problem, follow these steps to restore t
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
 
-    The following is sample of the output. In this case, we assume that the BEK name is EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK.
+    The following is sample of the output. In this case, we assume that the file name is EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK.
 
     ```
     Created             Content Type Volume DiskEncryptionKeyFileName               
     -------             ------------ ------ -------------------------               
-    4/5/2018 7:14:59 PM  BEK  C:\    B4B3E070-836C-4AF5-AC5B-66F6FDE6A971.BEK
+    4/5/2018 7:14:59 PM  BEK  C:\    EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
     If you see two duplicated volumes, the volume that has the newer timestamp is the current BEK file that is used by the recovery VM.
 
@@ -104,7 +104,7 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     ```powershell
     $vault = "myKeyVault"
-    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C"
+    $bek = "EF7B2F5A-50C6-4637-0001-7F599C12F85C"
     $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $vault -Name $bek
     $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($keyVaultSecret.SecretValue)
     $bekSecretBase64 = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
@@ -116,7 +116,7 @@ If this method does not the resolve the problem, follow these steps to restore t
 7.	To unlock the attached disk by using the BEK file, run the following command.
 
     ```powershell
-    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
+    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
