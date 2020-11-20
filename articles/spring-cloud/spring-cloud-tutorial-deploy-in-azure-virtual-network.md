@@ -128,6 +128,8 @@ az role assignment create \
 
 1. Verify your specifications, and click **Create**.
 
+    ![Verify specifications](./media/spring-cloud-v-net-injection/verify-specifications.png)
+
 After the deployment, two additional resource groups will be created in your subscription to host the network resources for the Azure Spring Cloud service instance.  Navigate to **Home** then select **Resource groups** from the top menu items to find the following new resource groups.
 
 The resource group named as *ap-svc-rt_{service instance name}_{service instance region}* contains network resources for the Service Runtime of the service instance.
