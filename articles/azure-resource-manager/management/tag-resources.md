@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 11/19/2020 
+ms.date: 11/20/2020 
 ms.custom: devx-track-azurecli
 ---
 # Use tags to organize your Azure resources and management hierarchy
@@ -398,42 +398,36 @@ To get resource groups that have a specific tag name and value, use:
 az group list --tag Dept=Finance
 ```
 
+### Remove tags
+
+To remove specific tags, use **az tag update** and set **--operation** to **Delete**. Pass in the tags you want to delete.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+The specified tags are removed.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+To remove all tags, use the [az tag delete](/cli/azure/tag#az_tag_delete) command.
+
+```azurecli-interactive
+az tag delete --resource-id $resource
+```
+
 ### Handling spaces
 
-If your tag names or values include spaces, you must take a couple extra steps. 
-
-The `--tags` parameters in the Azure CLI can accept a string that consists of an array of strings. The following example overwrites the tags in a resource group where the tags have spaces and hyphen: 
+If your tag names or values include spaces, enclose them in double quotes.
 
 ```azurecli-interactive
-TAGS=("Cost Center=Finance-1222" "Location=West US")
-az group update --name examplegroup --tags "${TAGS[@]}"
-```
-
-You can use the same syntax when you create or update a resource group or resources by using the `--tags` parameter.
-
-To update the tags by using the `--set` parameter, you must pass the key and value as a string. The following example appends a single tag to a resource group:
-
-```azurecli-interactive
-TAG="Cost Center='Account-56'"
-az group update --name examplegroup --set tags."$TAG"
-```
-
-In the this case, the tag value is marked with single quotes because the value has a hyphen.
-
-You might also need to apply tags to many resources. The following example applies all tags from a resource group to its resources when the tags might contain spaces:
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
 ## Templates
