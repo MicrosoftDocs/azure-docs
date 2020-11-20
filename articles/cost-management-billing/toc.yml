@@ -189,7 +189,7 @@
       - name: Create MCA subscriptions programmatically with latest API
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
       - name: Create MPA subscriptions programmatically with latest API
-        href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+        href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
       - name: Create subscriptions programmatically with an ARM template
         href: manage/create-subscription-template.md
       - name: Create subscriptions programmatically with old preview API

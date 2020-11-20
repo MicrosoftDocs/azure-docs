@@ -54,6 +54,8 @@ The appropriate approach for your business typically depends on the following fa
 - Supportability life cycle of your existing products
 - Window for application downtime during migration
 
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="virtual machine migration downtime":::
+
 The following table describes differences in the two migration strategies: 
 <br />
 

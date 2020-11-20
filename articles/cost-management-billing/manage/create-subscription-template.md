@@ -210,7 +210,7 @@ The following ARM template creates a subscription named *Dev Team subscription* 
 PUT https://management.azure.com/providers/Microsoft.Resources/deployments/sampleTemplate?api-version=2019-10-01
 ```
 
-### Request Body
+### Request body
 
 ```json
 {

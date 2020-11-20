@@ -100,7 +100,26 @@ You can add or modify a CRM connection at any time during or after offer creatio
 
 ## Selecting an online store
 
-When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements. AppSource is for business solutions and Azure Marketplace is for IT solutions. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the solution type. For detailed information about listing options supported by online stores, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). For more information about categories and subcategories, see [Categories and subcategories in the commercial marketplace](categories.md).
+When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements. AppSource is for business solutions and Azure Marketplace is for IT solutions. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the solution type. 
+
+If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
+
+> [!IMPORTANT]
+> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
+
+| Metered billing | Public plan | Private plan | Available in: |
+|---|---|---|---|
+| Yes             | Yes         | No           | Azure Marketplace and Azure portal |
+| Yes             | Yes         | Yes          | Azure Marketplace and Azure portal * |
+| Yes             | No          | Yes          | Azure portal only |
+| No              | No          | Yes          | Azure portal only |
+|||||
+
+&#42; The private plan of the offer will only be available via the Azure portal
+
+For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
+
+For detailed information about listing options supported by online stores, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). For more information about categories and subcategories, see [Categories and subcategories in the commercial marketplace](categories.md).
 
 ## Legal contracts
 

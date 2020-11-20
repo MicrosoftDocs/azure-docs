@@ -104,12 +104,6 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## [Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps to ship in Australia.
@@ -129,12 +123,6 @@ Azure datacenters in Australia have an additional security notification. All the
 ## Erasure of data from Data Box
 
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -180,12 +168,6 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## [Singapore](#tab/in-singapore)
 
 1. Retain the original box used to ship the device for return shipment.
@@ -221,19 +203,13 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
-
-::: zone-end
-
 ## [South Africa](#tab/in-sa)
 
 1. Pack the device for return shipment in the original box.
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
 3. To book a pickup with DHL:
 
-    * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number.
+    * Call the customer service contact center on +27(0) 11 9213600, select option 1, and then specify the waybill number.
     * The call must be made before 2:00 PM to schedule a pickup.
     * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
@@ -258,12 +234,6 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ## Erasure of data from Data Box
 
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -299,12 +269,6 @@ Should you encounter any issues, email Data Box Operations Asia [adbo@microsoft.
 ## Erasure of data from Data Box
  
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
-::: zone-end
-
-::: zone target="docs"
-
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
 
@@ -367,8 +331,6 @@ If you are using Data Box in US Government, Japan, Singapore, Korea, India, Sout
 
 ::: zone target="chromeless"
 
----
-
 ## Verify data upload to Azure
 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
@@ -379,7 +341,11 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
+---
+
 ::: zone target="docs"
+
+## Verify data upload to Azure
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 

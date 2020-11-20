@@ -3,6 +3,7 @@ title: Considerations for Azure Virtual Machines DBMS deployment for SAP workloa
 description: Considerations for Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent

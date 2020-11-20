@@ -2,17 +2,17 @@
 title: Tutorial - Deploy and configure VMware HCX
 description: Learn how to deploy and configure a VMware HCX solution for your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 11/18/2020
 ---
 
 # Deploy and configure VMware HCX
 
 This article shows you how to deploy and configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. With VMware HCX, you can migrate your VMware workloads to Azure VMware Solution and other connected sites through various migration types. Because Azure VMware Solution deploys and configures the HCX Cloud Manager, you must download, activate, and configure the HCX Connector in your on-premises VMware datacenter.
 
-VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, submit a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on. The add-on is currently in preview. 
+VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on. The add-on is currently in preview. 
 
 >[!NOTE]
->VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX EE service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt-out of the service. There is no simple downgrade path from VMware HCX EE to VMware HCX Advanced. If you decide to downgrade, you'll have to redeploy, incurring downtime.
+>VMware HCX Enterprise is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt-out of the service. There is no simple downgrade path from VMware HCX Enterprise to VMware HCX Advanced. If you decide to downgrade, you'll have to redeploy, incurring downtime.
 
 First, review [Before you begin](#before-you-begin), [Software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html), and the [Prerequisites](#prerequisites). 
 
@@ -41,17 +41,14 @@ As you prepare your deployment, we recommend that you review the following VMwar
 
 ## Prerequisites
 
-* If you plan to use VMware HCX EE, make sure you've requested activation through the Azure VMware Solution support channels.
+If you plan to use VMware HCX Enterprise, make sure you've requested activation through the Azure VMware Solution support channels.
 
-* Whether you're using VMware HCX Advanced or VMware HCX EE, you must install the patch from VMware's [KB article 81558](https://kb.vmware.com/s/article/81558).
 
 ### On-premises vSphere environment
 
-Make sure that your on-premises vSphere environment (source environment) meets the [minimum requirements](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-7C79D1AF-B213-4767-9DAB-D96B9D97A2BB). 
+Make sure that your on-premises vSphere environment (source environment) meets the [minimum requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html). 
 
 ### Network and ports
-
-* Review the basic Azure VMware Solution Software-Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md)
 
 * [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) is configured between on-premises and Azure VMware Solution SDDC ExpressRoute circuits.
 
@@ -60,7 +57,6 @@ Make sure that your on-premises vSphere environment (source environment) meets t
 ### IP addresses
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
-
    
 ## Download the VMware HCX Connector OVA
 
@@ -75,7 +71,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 1. Select **Manage** > **Identity** and select **vCenter admin password** to identify the password.
 
    > [!TIP]
-   > The vCenter password was defined when you set up the private cloud.
+   > The vCenter password was defined when you set up the private cloud, It's the same password you'll use to sign in to Azure VMware Solution HCX Manager.
 
    :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="find hcx password." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
 
@@ -110,7 +106,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 1. Verify the configuration, and then select **Finish** to deploy the HCX Connector OVA.
    
    > [!IMPORTANT]
-   > You might need to turn on the virtual appliance manually.  If that's the case, wait 10-15 minutes before proceeding to the next step.
+   > You will need to turn on the virtual appliance manually.  After powering on, wait 10-15 minutes before proceeding to the next step.
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Appliance Deployment](https://www.youtube.com/embed/BwSnQeefnso) video. 
 
@@ -143,14 +139,14 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
 1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter server and the appropriate credentials, and then select **Continue**.
    
    > [!TIP]
-   > The vCenter server is where you deployed VMware HCX.
+   > The vCenter server is where you deployed the VMware HCX Connector in your datacenter.
 
 1. In **Configure SSO/PSC**, provide the FQDN or IP address of your Platform Services Controller, and then select **Continue**.
    
    > [!NOTE]
    > Typically, this entry is the same as your vCenter FQDN or IP address.
 
-1. Verify that all the inputs are correct, and select **Restart**.
+1. Verify that the information entered is correct, and select **Restart**.
     
    > [!NOTE]
    > You'll experience a delay after restarting before being prompted for the next step.
@@ -161,6 +157,8 @@ After the services restart, you'll see vCenter showing as green on the screen th
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Activate HCX](https://www.youtube.com/embed/BkAV_TNYxdE) video.
 
+   > [!IMPORTANT]
+   > Whether you're using VMware HCX Advanced or VMware HCX Enterprise, you may need to install the patch from VMware's [KB article 81558](https://kb.vmware.com/s/article/81558). 
 
 ## Configure the VMware HCX Connector
 
@@ -174,7 +172,7 @@ You can connect (pair) the VMware HCX Cloud Manager in Azure VMware Solution wit
 
 1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in the middle of the screen). 
 
-1. Enter the Azure VMware Solution HCX URL or IP address that you noted earlier, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair, your HCX connector must be able to route to your HCX Cloud Manager IP over port 443.
@@ -187,11 +185,9 @@ You can connect (pair) the VMware HCX Cloud Manager in Azure VMware Solution wit
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Site Pairing](https://www.youtube.com/embed/sKizDCRHOko) video.
 
-
-
 ### Create network profiles
 
-VMware HCX deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you define the IP segments you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](production-ready-deployment-steps.md#vmware-hcx-network-segments).
+VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](production-ready-deployment-steps.md#vmware-hcx-network-segments).
 
 You'll create four network profiles:
 
@@ -242,9 +238,6 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="Screenshot that shows the selection of a management network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
 
-   > [!NOTE]
-   > The management network profile allows the VMware HCX appliances to communicate with vCenter. The ESXi hosts can be reached through this profile.
-
 1. From **Select Uplink Network Profile**, select the uplink network profile you created in the previous procedure. Then select **Continue**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="Screenshot that shows the selection of an uplink network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
@@ -255,12 +248,13 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
 1. From **Select vSphere Replication Network Profile**, select the replication network profile that you created in prior steps. Then select **Continue**.
 
-   In most cases, the replication network profile is the same as the management network profile.  
-
    :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="Screenshot that shows the selection of a replication network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
 
 1. From **Select Distributed Switches for Network Extensions**, select the switches that contain the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
 
+   > [!NOTE]
+   > If you are not migrating virtual machines on layer-2 extended networks you can skip this step.
+   
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot that shows the selection of distributed virtual switches and the Continue button." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
 1. Review the connection rules and select **Continue**.  
