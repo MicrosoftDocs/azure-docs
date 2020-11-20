@@ -119,15 +119,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1.  Click on **Administration**
 
-    ![Configuring Software AG Cloud](./media/software-ag-cloud-tutorial/admin.png)
+    ![Configuring Software AG Cloud Administration](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Go to the **Single-sign on > Add identity provider**
 
-    ![Configuring Software AG Cloud](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Configuring Software AG Cloud identity provider](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. Perform the following steps in the following page.
 
-    ![Configuring Software AG Cloud](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Configuring Software AG Cloud follow steps](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. In the **Identity provider display name** textbox, give the name like `azure ad`.
 
