@@ -43,19 +43,19 @@ On the access control screen, click **+Add** to create a new role assignment
 
 ![Click + Add to create a new role assignment](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add.png)
 
-On the Add role assignment blade that opens allows assignments to be created at workspace scope or workspace item scope. 
-
-![Add role assignments blade](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-role-assignment-blade.png)
+On the Add role assignment blade that opens you can create role assignments at workspace scope or workspace item scope. 
 
 ## Add workspace-scoped role assignment
 
-Select **Workspace** as the scope, then select the **Synapse RBAC role**, and then the **principal(s)** who are to be assigned the role.  You can select multiple principals. Select **Apply** to create the role assignments.  
+Select **Workspace** as the scope, then select the **Synapse RBAC role**, and then the **principal** who is to be assigned the role.  You can iteratively select multiple principals. Select **Apply** to create the role assignment(s). 
 
-The assigned role will apply to all applicable objects in the workspace.
+![Add workspace role assignment - select role](./media/how-to-manage-synapse-rbac-role-assignments/access-control-workspace-role-assignment.png) 
+
+The assigned role will apply to the principal for all applicable objects in the workspace.
 
 ## Add workspace item-scoped role assignment
 
-Select **Workspace item** as the scope, then select the **scoping item type**, which may be Apache Spark pool, Integration runtime, Linked service or Credential.       
+Select **Workspace item** as the scope, then select the scoping **item type**, which may be Apache Spark pool, Integration runtime, Linked service or Credential.       
 
 ![Add workspace item role assignment - select item type](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
@@ -63,7 +63,9 @@ Then **select the item** to be used as the scope (e.g. a specific ApacheSpark po
 
 ![Add workspace item role assignment - select role](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
-Then **select the principal(s)** to which the role is to be assigned.  Multiple principals may be selected.  Select **Apply** to create the role assignment(s).
+Then **select the principal(s)** to which the role is to be assigned.  You can iteratively selecte multiple principals.  Select **Apply** to create the role assignment(s).
+
+
 
 ## Delete a Synapse RBAC role assignment
 

@@ -26,13 +26,13 @@ To review role assignments first [open the Synapse Studio](https://web.azuresyna
  
  Once you've opened your workspace, click on **Manage** (toolbox) on the left, expand the **Security** section  and select **Access control**. 
 
- ![Select Access Control in Security section on left](./media/how-to-assign-a-synapse-rbac-role/left-nav-security-access-control.png)
+ ![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/left-nav-security-access-control.png)
 
 The Access control screen lists all current role assignments for the workspace, grouped by role. 
 
  For each assignment, the principal name, principal type (individual, group, or service principal), role and the scope at which it was assigned are shown.  All assignments are shown, including those at workspace and lower level scopes.
 
-![Select Access Control in Security section on left](./media/how-to-assign-a-synapse-rbac-role/access-control-assignments.png)
+![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/access-control-assignments.png)
 
 If a principal is assigned the same role at different scopes you will see multiple assignments for the principal, one for each scope.  
 

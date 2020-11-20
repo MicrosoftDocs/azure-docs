@@ -11,15 +11,18 @@ ms.reviewer: jrasnick
 ---
 # What is Synapse role-based access control (Synapse RBAC)?
 
-Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) to provide additional access control over the Azure resources created or provided in Synapse (like Apache Spark Pools and Integration Runtimes, SQL pool or SQL serverless endpoints) and code artifacts like SQL scripts, Apache Spark notebooks and job definitions, and pipeline definitions.  Whereas Azure RBAC is used to manage who can create, update, or delete Synapse resources, Synapse RBAC allows you to manage who can read, update, and delete code artifacts, as well as who can execute this code, who can monitor or cancel job execution and who can review execution logs.  Note that initially, while Synapse RBAC is used to manage access to SQL scripts created in Synapse, Synapse RBAC is _not_ currently used to control execution of SQL scripts in SQL Pools, which continues to be managed using SQL security.
+Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) to provide additional access control over the Azure resources created or provided in Synapse (like Apache Spark Pools and Integration Runtimes, SQL pool or SQL serverless endpoints) and code artifacts like SQL scripts, Apache Spark notebooks and job definitions, and pipeline definitions.  Whereas Azure RBAC is used to manage who can create, update, or delete Synapse resources, Synapse RBAC allows you to manage who can read, update, and delete code artifacts, as well as who can execute this code, who can monitor or cancel job execution and who can review job output and execution logs.  
+
+>[!Note]
+>Note that initially, while Synapse RBAC is used to manage access to SQL scripts created in Synapse, Synapse RBAC is _not_ used to control execution of SQL scripts in SQL Pools, which is managed using SQL security.
 
 # What can I do with Synapse RBAC?
 
 Here are some examples of what you can do with Synapse RBAC:
-  - Allow a user to create and update Apache Spark notebooks and jobs in a workspace.
-  - Grant a user rights to use specific credentials so they can configure a pipeline to run dataflows that access linked services secured with those credentials. 
-  - Allow a user to execute an Apache Spark notebook or job against a specific Spark pool.
-  - Allow an administrator to manage, monitor, and cancel job execution on specific Spark Pools and Integration Runtimes. 
+  - Allow a user to publish changes made to Apache Spark notebooks and jobs to the live service.
+  - Grant a user rights to run and cancel notebooks and spark jobs on a specific Apache Spark pool.
+  - Grant a user rights to use specific credentials so they can run a pipeline that contains dataflows that access linked services that are secured with those credentials. 
+  - Allow an administrator to manage, monitor, and cancel job execution on specific Spark Pools and Integration Runtimes.    
 
 # How Synapse RBAC works
 Like Azure RBAC, Synapse RBAC works by creating role assignments. A role assignment consists of three elements: a security principal, a role definition and a scope.  
