@@ -65,7 +65,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ### Create a maintenance configuration with scheduled window
 
-Use New-AzMaintenanceConfiguration to create a maintenance configuration with a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
+You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -81,12 +81,10 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
 
-Maintenance **recurrence** can be expressed as:
- | Value | Example |
-	  |-------|-------------|
-	  | daily | recurEvery: Day **or** recurEvery: 3Days | 
-	  | weekly | recurEvery: 3Weeks **or** recurEvery: Week Saturday,Sunday | 
-	  | monthly | recurEvery: Month day23,day24 **or** recurEvery: Month Last Sunday **or** recurEvery: Month Fourth Monday | 
+Maintenance **recurrence** can be expressed as daily, weekly or monthly. Some examples are:
+ - daily- "recurEvery: Day" **or** "recurEvery: 3Days" 
+ - weekly- "recurEvery: 3Weeks" **or** "recurEvery: Week Saturday,Sunday" 
+ - monthly- "recurEvery: Month day23,day24" **or** "recurEvery: Month Last Sunday" **or** "recurEvery: Month Fourth Monday"  
 	  
 
 ## Assign the configuration
