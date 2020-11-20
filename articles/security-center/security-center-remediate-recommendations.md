@@ -31,11 +31,18 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 1. Once completed, a notification appears informing you if the remediation succeeded.
 
-## Quick Fix remediation<a name="one-click"></a>
+## Quick fix remediation<a name="one-click"></a>
 
-Quick Fix enables you to quickly remediate a recommendation on multiple resources. It's only available for specific recommendations. Quick Fix simplifies remediation and enables you to quickly increase your Secure Score, improving your environment's security.
+Quick fix simplifies remediation and enables you to quickly increase your secure score, improving your environment's security.
 
-To implement Quick Fix remediation:
+Quick fix enables you to quickly remediate a recommendation on multiple resources. 
+
+> [!TIP]
+> Quick fix is only available for specific recommendations. To find the recommendations that have the quick fix option, use the dedicated filter at the top of the list of recommendations:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use the filters above the recommendations list to find recommendations that have the quick fix option":::
+
+To implement a quick fix remediation:
 
 1. From the list of recommendations that have the **Quick Fix!** label, click on the recommendation.
 
@@ -48,10 +55,10 @@ To implement Quick Fix remediation:
 
 1. In the confirmation box, read the remediation details and implications.
 
-    ![Quick Fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![Quick fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the Quick Fix remediation.
+    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the quick fix remediation.
 
 1. Insert the relevant parameters if necessary, and approve the remediation.
 
@@ -60,7 +67,7 @@ To implement Quick Fix remediation:
 
 1. Once completed, a notification appears informing you if the remediation succeeded.
 
-## Quick Fix remediation logging in the activity log <a name="activity-log"></a>
+## Quick fix remediation logging in the activity log <a name="activity-log"></a>
 
 The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/management/view-activity-logs.md).
 

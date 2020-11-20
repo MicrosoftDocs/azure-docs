@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/20/2020
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -25,11 +25,6 @@ In this article, you'll learn about security and governance features available f
 ## Restrict access to resources and operations
 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is the identity service provider for Azure Machine Learning. It allows you to create and manage the security objects (user, group, service principal, and managed identity) that are used to _authenticate_ to Azure resources. Multi-factor authentication is supported if Azure AD is configured to use it.
-
-Azure role-based access control (Azure RBAC) is an _authorization_ system that allows you to control access to Azure resources. Using Azure RBAC, you define the capabilities (role) that is assigned to a security object. For example, you might create a role that allows Data Scientists to run experiments and train models, but not to create the underlying compute resources used by experiment or training process. A separate role (assigned to DevOps or MLOps) would have the ability to create and manage the compute resources.
-
-> [!WARNING]
-> Azure Machine Learning is supported with Azure Active Directory business-to-business collaboration, but is not currently supported with Azure Active Directory business-to-consumer collaboration.
 
 Here's the authentication process for Azure Machine Learning using multi-factor authentication in Azure AD:
 

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
 ---
 
@@ -36,6 +36,9 @@ In this article, you'll learn how to display and configure Azure IoT Connector f
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Screenshot of the 'IoT Connector' pane, displaying a '1 hour' time period line graph for 'connector 1'." lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## Metric types for Azure IoT Connector for FHIR (preview) 
+
+> [!TIP]
+> To learn about data flow in Azure IoT Connector for FHIR, view [Azure IoT Connector for FHIR (preview) data flow](./iot-data-flow.md) and [Azure IoT Connector for FHIR (preview) troubleshooting guide](./iot-troubleshoot-guide.md) to learn more about error messages and fixes.
 
 The IoT Connector metrics you can display are listed in the following table:
 
