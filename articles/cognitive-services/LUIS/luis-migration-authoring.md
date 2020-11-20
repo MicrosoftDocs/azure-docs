@@ -171,7 +171,7 @@ If you plan to edit your apps programmatically, you'll need the authoring key va
 
 Learn [how to add contributors](luis-how-to-collaborate.md) on your authoring resource. Contributors will have access to all applications under that resource.
 
-You can add contributors to the authoring resource from the Azure portal, on the **Access Control (IAM)** page for that resource. For more information, see [Add contributor access](#after-the-migration-process-add-contributors-to-your-authoring-resource).
+You can add contributors to the authoring resource from the Azure portal, on the **Access Control (IAM)** page for that resource. For more information, see [Add contributors to your app](luis-how-to-collaborate.md).
 
 > [!Note]
 > If the owner of the LUIS app migrated and added the collaborator as a contributor on the Azure resource, the collaborator will still have no access to the app unless they also migrate.

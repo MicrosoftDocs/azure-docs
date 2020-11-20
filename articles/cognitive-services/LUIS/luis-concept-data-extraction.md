@@ -228,7 +228,7 @@ Getting names from an utterance is difficult because a name can be almost any co
 
 ### Names of people
 
-People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md#simple-entity)** with [roles](./luis-concept-entity-types.md#entity-role-defines-context) of first and last name.
+People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md)** with roles of first and last name.
 
 If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
