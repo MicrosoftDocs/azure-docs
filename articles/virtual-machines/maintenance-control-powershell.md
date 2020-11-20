@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -63,15 +63,9 @@ You can query for available maintenance configurations using [Get-AzMaintenanceC
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### Create a maintenance configuration with scheduled window (in preview)
+### Create a maintenance configuration with scheduled window
 
-
-> [!IMPORTANT]
-> Scheduled window feature is currently in Public Preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Use New-AzMaintenanceConfiguration to create a maintenance configuration with a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
+You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -87,8 +81,11 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
 
-Maintenance **recurrence** can be expressed as daily, weekly, or monthly schedules. Daily schedule examples are recurEvery: Day, recurEvery: 3Days. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedule examples are recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-
+Maintenance **recurrence** can be expressed as daily, weekly or monthly. Some examples are:
+ - daily- "recurEvery: Day" **or** "recurEvery: 3Days" 
+ - weekly- "recurEvery: 3Weeks" **or** "recurEvery: Week Saturday,Sunday" 
+ - monthly- "recurEvery: Month day23,day24" **or** "recurEvery: Month Last Sunday" **or** "recurEvery: Month Fourth Monday"  
+	  
 
 ## Assign the configuration
 
