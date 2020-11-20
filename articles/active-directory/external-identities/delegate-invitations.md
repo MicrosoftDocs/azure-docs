@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 11/30/2020
 
 ms.author: mimart
 author: msmimart
@@ -59,17 +59,26 @@ By default, all users, including guests, can invite guest users.
 
    - **Guests can invite**: To allow guests to invite other guests, set this policy to **Yes**.
 
-   - **Enable Email One-Time Passcode for guests (Preview)**: For more information about the one-time passcode feature, see [Email one-time passcode authentication (Preview)](one-time-passcode.md).
-
-   - **Enable guest self-service sign up via user flows (Preview)**: For more information about this setting, see [Add a self-service sign-up user flow to an app (Preview)](self-service-sign-up-user-flow.md).
+    ![Guest invite settings](./media/delegate-invitations/guest-invite-settings.png)
 
    > [!NOTE]
    > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
-    ![Guest invite settings](./media/delegate-invitations/guest-invite-settings.png)
+6. Under **Email one-time passcode for guests**, choose the appropriate settings (for more information, see [Email one-time passcode authentication](one-time-passcode.md)):
 
-6. Under **Collaboration restrictions**, choose whether to allow or deny invitations to the domains you specify. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
+   - **Automatically enable email one-time passcode for guests in March 2021**. (Default) If the email one-time passcode feature is not already enabled for your tenant, it will be automatically turned on in March 2021. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
 
+   - **Enable email one-time passcode for guests effective now**. Turns on the email one-time passcode feature for your tenant.
+
+   - **Disable email one-time passcode for guests**. Turns off the email one-time passcode feature for your tenant, and prevents the feature from turning on in March 2021.
+
+   ![Email one-time passcode settings](./media/delegate-invitations/email-otp-settings.png)
+
+7. Under **Enable guest self-service sign up via user flows (Preview)**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app (Preview)](self-service-sign-up-user-flow.md).
+
+7. Under **Collaboration restrictions**, choose whether to allow or deny invitations to the domains you specify. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
+
+    ![Email one-time passcode settings](./media/delegate-invitations/collaboration-restrictions.png)
 ## Assign the Guest Inviter role to a user
 
 With the Guest Inviter role, you can give individual users the ability to invite guests without assigning them a global administrator or other admin role. Assign the Guest inviter role to individuals. Then make sure you set **Admins and users in the guest inviter role can invite** to **Yes**.
