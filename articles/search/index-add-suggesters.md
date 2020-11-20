@@ -115,23 +115,20 @@ In the REST API, add suggesters through [Create Index](/rest/api/searchservice/c
 
 ## Create using .NET
 
-In C#, define a [SearchSuggester object](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` is a collection on a SearchIndex object, but it can only take one item. 
+In C#, define a [SearchSuggester object](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` is a collection on a SearchIndex object, but it can only take one item. Add a suggester to the index definition.
 
 ```csharp
-private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new SearchIndex()
-    {
-        FieldBuilder builder = new FieldBuilder();
-        Fields = builder.Build(typeof(Hotel);
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    }
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    await indexClient.CreateIndexAsync(definition);
+    var definition = new SearchIndex(indexName, searchFields);
+
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
