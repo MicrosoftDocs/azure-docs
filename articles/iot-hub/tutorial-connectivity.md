@@ -210,7 +210,7 @@ The simulated device prints a message to the console when it receives a direct m
 
 When the simulated device successfully receives the direct method call, it sends an acknowledgement back to the hub:
 
-![Receive direct method acknowledgement](media/tutorial-connectivity/method-acknowledgement.png)
+![Receive direct method acknowledgment](media/tutorial-connectivity/method-acknowledgement.png)
 
 ## Check twin synchronization
 
