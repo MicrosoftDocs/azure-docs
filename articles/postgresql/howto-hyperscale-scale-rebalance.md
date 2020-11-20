@@ -29,7 +29,7 @@ function rebalances all tables in the
 argument. Thus you do not have to call the function for every distributed
 table, just call it on a representative table from each colocation group.
 
-## Next steps
+### Next steps
 
 - Learn more about server group [performance
   options](concepts-hyperscale-configuration-options.md).
