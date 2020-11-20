@@ -75,5 +75,3 @@ These are the issues we're currently aware of and working to fix:
 ## Next steps
 
 If you're unsure how to interpret the data, check out the references. If you want to learn more about common terms, check out our glossary.
-
-<!---Add new articles once I have links--->
