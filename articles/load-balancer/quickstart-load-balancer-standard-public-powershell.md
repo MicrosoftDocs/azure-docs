@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ms.author: allensu
 ms:custom: seodec18
 ---
