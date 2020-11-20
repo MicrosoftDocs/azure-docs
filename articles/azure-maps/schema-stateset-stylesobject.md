@@ -63,10 +63,10 @@ The JSON below shows example usage of each of the three style types.  The `Boole
       "type": "string",
       "rules": [
         {
-          "Private": "#FF0000",
-          "Confidential": "#FF00AA",
-          "AllHands": "#00FF00",
-          "BrownBag": "#964B00"
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
         }
       ]
     }
@@ -189,10 +189,10 @@ The following JSON illustrates a `StringTypeStyleRule` that defines styles assoc
       "type": "string",
       "rules": [
         {
-          "Private": "#FF0000",
-          "Confidential": "#FF00AA",
-          "AllHands": "#00FF00",
-          "BrownBag": "#964B00"
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
         }
       ]
     }
