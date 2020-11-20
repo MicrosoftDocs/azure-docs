@@ -151,6 +151,9 @@ For information on restricting access to models deployed to Azure Kubernetes Ser
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
 
+> [!NOTE]
+> This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
@@ -163,13 +166,15 @@ The hosts in this section are used to install Python packages. They are required
 
 The hosts in this section are used to install R packages. They are required during development, training, and deployment.
 
-> [!IMPORTANT]
-> Internally, the R SDK for Azure Machine Learning uses Python packages. So you must also allow Python hosts through the firewall.
+> [!NOTE]
+> This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
 
+> [!IMPORTANT]
+> Internally, the R SDK for Azure Machine Learning uses Python packages. So you must also allow Python hosts through the firewall.
 ## Next steps
 
 * [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md)
