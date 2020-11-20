@@ -48,7 +48,7 @@ Set up billing information for the Business Applications ISV Connect Program.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 1. Select **Settings** (gear icon) > **Account Settings**.
-1. Under **Account settings**, select **Billing profile**.
+1. Under **Organization profile**, select **Billing profile** and then the **Developer** tab.
 1. Review the primary contact and billing information that is populated from your legal entity.
 1. To make changes, select **Update**.
 1. If applicable, provide Tax ID/VAT ID settings.
