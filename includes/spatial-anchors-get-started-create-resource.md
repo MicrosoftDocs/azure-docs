@@ -1,5 +1,5 @@
 ---
-author: radparker
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/27/2020
