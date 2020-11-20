@@ -1,6 +1,6 @@
 ---
-title: How to Map Azure Disks to VM Guest Disks
-description: How to determine the Azure Disks that underlay a VM guest disks.
+title: How to Map Azure Disks to Linux VM Guest Disks
+description: How to determine the Azure Disks that underlay a Linux VM's guest disks.
 author: timbasham
 ms.service: virtual-machines-linux
 ms.subservice: disks
@@ -10,9 +10,9 @@ ms.date: 11/17/2020
 ms.author: tibasham
 
 ---
-# How to Map Azure Disks to VM guest disks
+# How to Map Azure Disks to Linux VM guest disks
 
-You may need to determine the Azure Disks that back a VM's guest disks. In some scenarios, you can compare the disk or volume size to the size of the attached Azure Disks. In scenarios where there are multiple Azure Disks of the same size attached to the VM you will need to use the Logical Unit Number (LUN) of the data disks. 
+You may need to determine the Azure Disks that back a VM's guest disks. In some scenarios, you can compare the disk or volume size to the size of the attached Azure Disks. In scenarios where there are multiple Azure Disks of the same size attached to the VM you need to use the Logical Unit Number (LUN) of the data disks. 
 
 ## What is a LUN?
 
@@ -21,7 +21,7 @@ A Logical Unit Number (LUN) is a number that is used to identify a specific stor
 For example:
 ***Bus Number 0, Target ID 0, LUN 3***
 
-For our exercise, you only need to utilize the LUN.
+For our exercise, you only need to use the LUN.
 
 ## Finding the LUN
 
@@ -47,11 +47,11 @@ You can locate the LUN for an Azure Disk using the Azure portal, Azure CLI.
 
 ### Finding an Azure Disk's LUN in the Azure portal
 
-1. In the Azure portal select "Virtual Machines" to display a list of your Virtual Machines
+1. In the Azure portal, select "Virtual Machines" to display a list of your Virtual Machines
 1. Select the Virtual Machine
 1. Select "Disks"
 1. Select a data disk from the list of attached disks.
-1. The LUN of the disk will be displayed in the disk detail pane. The LUN displayed here correlates to the LUNs that were looked up in the Guest using lsscsi, or listing the block devices.
+1. The LUN of the disk will be displayed in the disk detail pane. The LUN displayed here correlate to the LUNs that you looked up in the Guest using lsscsi, or listing the block devices.
 
 ### Finding an Azure Disk's LUN using Azure CLI
 
