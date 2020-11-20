@@ -74,7 +74,7 @@ optimizer = optim.SGD(
 )
 ```
 > [!div class="nextstepaction"]
-> [I adjusted the training script](?success=adjust-training-script#test-locally) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I adjusted the training script](?success=adjust-training-script#test-locally) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
 ## <a name="test-locally"></a> Test the script locally
 
@@ -108,7 +108,7 @@ python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
 You avoid having to download the CIFAR10 dataset by passing in a local path to the data. You can also experiment with different values for _learning rate_ and _momentum_ hyperparameters without having to hard-code them in the training script.
 
 > [!div class="nextstepaction"]
-> [I tested the script locally](?success=test-locally#upload) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I tested the script locally](?success=test-locally#upload) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=test-locally)
 
 ## <a name="upload"></a> Upload the data to Azure
 
@@ -145,7 +145,7 @@ Uploaded 9 files
 ```
 
 > [!div class="nextstepaction"]
-> [I uploaded the data](?success=upload-data#control-script) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I uploaded the data](?success=upload-data#control-script) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
 ## <a name="control-script"></a> Create a control script
 
@@ -175,7 +175,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [I created the control script](?success=control-script#submit-to-cloud) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I created the control script](?success=control-script#submit-to-cloud) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=control-script)
 
 ## <a name="submit-to-cloud"></a> Submit the run to Azure Machine Learning
 
@@ -188,7 +188,7 @@ python 06-run-pytorch-data.py
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
 
 > [!div class="nextstepaction"]
-> [I resubmitted the run](?success=submit-to-cloud#inspect-log) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I resubmitted the run](?success=submit-to-cloud#inspect-log) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=submit-to-cloud)
 
 ### <a name="inspect-log"></a> Inspect the log file
 
@@ -232,7 +232,7 @@ Notice:
 - The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point.
 
 > [!div class="nextstepaction"]
-> [I inspected the log file](?success=inspect-log#clean-up-resources) [I ran into an issue](https://www.research.net/r/7C6W7BQ)
+> [I inspected the log file](?success=inspect-log#clean-up-resources) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## Clean up resources
 
