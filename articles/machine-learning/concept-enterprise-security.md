@@ -16,14 +16,14 @@ ms.date: 09/09/2020
 
 In this article, you'll learn about security features available for Azure Machine Learning.
 
-When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. You may also want to create polices to enforce certain configurations or log when non-compliant configurations are created. Finally, you need to be able to monitor the service and produce an audit log of all activity.
+When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. You may also want to create policies to enforce certain configurations or log when non-compliant configurations are created. Finally, you need to be able to monitor the service and produce an audit log of all activity.
 
 > [!NOTE]
 > The information in this article works with the Azure Machine Learning Python SDK version 1.0.83.1 or higher.
 
 ## Authentication & authorization
 
-Most authentication to Azure Machine Learning resources use Azure Active Directory (Azure AD) for authentication, and role-based access control (Azure RBAC) for authorization. The exceptions to this are:
+Most authentication to Azure Machine Learning resources use Azure Active Directory (Azure AD) for authentication, and Azure role-based access control (Azure RBAC) for authorization. The exceptions to this are:
 
 * __SSH__: You can enable SSH access to some compute resources such as Azure Machine Learning compute instance. SSH access uses key-based authentication. For more information on creating SSH keys, see [Create and manage SSH keys](../virtual-machines/linux/create-ssh-keys-detailed.md). For information on enabling SSH access, see [Create and manage Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 * __Models deployed as web services__: Web service deployments can use __key__ or __token__-based access control. Keys are static strings. Tokens are retrieved by using an Azure AD account. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
@@ -44,7 +44,7 @@ For more information, see [Authentication for Azure Machine Learning workspace](
 
 ### Azure RBAC
 
-You can create multiple workspaces, and each workspace can be shared by multiple people. You can control what features or operations of the workspace users can access by assigning their Azure AD account to Azure RBAC roles. The following are the built-in roles:
+You can create multiple workspaces, and each workspace can be shared by multiple people. You can control what features or operations of the workspace users can access by assigning their Azure AD account to Azure roles. The following are the built-in roles:
 
 * Owner
 * Contributor
@@ -70,6 +70,8 @@ The following table lists some of the major Azure Machine Learning operations an
 | Call web service | ✓ | ✓ | ✓ |
 
 If the built-in roles don't meet your needs, you can create custom roles. Custom roles control all operations inside a workspace, such as creating a compute, submitting a run, registering a datastore, or deploying a model. Custom roles can have read, write, or delete permissions on the various resources of a workspace, such as clusters, datastores, models, and endpoints. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
+
+For more information on using RBAC with Kubernetes, see [Azure Role-Based Access Control for Kubernetes authorization](../aks/manage-azure-rbac.md).
 
 > [!IMPORTANT]
 > Azure Machine Learning depends on other Azure services such as Azure Blob Storage and Azure Kubernetes Services. Each Azure service has its own Azure RBAC configurations. To achieve your desired level of access control, you may need to apply both Azure RBAC configurations for Azure Machine Learning and those for the services used with Azure Machine Learning.
@@ -100,7 +102,13 @@ Optionally, you can configure your own managed identities for use with Azure Vir
 
 To restrict physical access to Azure Machine Learning resources, you can use Azure Virtual Network (VNet). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
 
-For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
+For more information, see the following documents:
+
+* [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+* [Secure workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure training environment](how-to-secure-training-vnet.md)
+* [Secure inference environment](how-to-secure-inferencing-vnet.md)
+* [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -118,10 +126,11 @@ You may also want to encrypt [diagnostic information logged from your deployed e
 
 There are several monitoring scenarios with Azure Machine Learning, depending on the role and what is being monitored.
 
-| Role | Monitoring to use |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) |
-| Data Scientist, MLOps | [Monitor runs](#monitor-runs) |
+| Role | Monitoring to use | Description |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) | Service level information |
+| Data Scientist, MLOps | [Monitor runs](#monitor-runs) | Information logged during training runs |
+| MLOps | [Collect model data](how-to-enable-data-collection.md), [Monitor with Application Insights](how-to-enable-app-insights.md) | Information logged by models deployed as web services or IoT Edge modules|
 
 ### Monitor runs
 

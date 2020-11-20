@@ -9,7 +9,7 @@
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
     - name: What's new
-      href: ./ag/whats-new.md
+      href: ./ag/ag-overview.md#whats-new
   - name: Front Door
     items:
     - name: Web Application Firewall on Azure Front Door
@@ -152,25 +152,25 @@
   - name: Azure CLI
     items:
     - name: Front Door
-      href: https://docs.microsoft.com/cli/azure/ext/front-door/network?view=azure-cli-latest
+      href: /cli/azure/ext/front-door/network?view=azure-cli-latest
     - name: Application Gateway
-      href: https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest
+      href: /cli/azure/network/application-gateway?view=azure-cli-latest
     - name: CDN
-      href: https://docs.microsoft.com/cli/azure/cdn/waf?view=azure-cli-latest
+      href: /cli/azure/cdn/waf?view=azure-cli-latest
   - name: Azure PowerShell
     items:
     - name: Front Door
-      href: https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0
+      href: /powershell/module/az.frontdoor/?view=azps-3.3.0
     - name: Application Gateway
-      href: https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway
+      href: /powershell/module/az.network/?view=azps-3.3.0#application_gateway
     - name: CDN
       href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
   - name: REST API
     items:
     - name: Front Door
-      href: https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies
+      href: /rest/api/frontdoorservice/webapplicationfirewall/policies
     - name: Application Gateway
-      href: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy
+      href: /rest/api/application-gateway
   - name: .NET
     href: /dotnet/api
   - name: Java

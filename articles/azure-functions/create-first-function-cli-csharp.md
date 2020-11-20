@@ -22,6 +22,8 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
++ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
+
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
 + One of the following tools for creating Azure resources:
@@ -42,6 +44,8 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
++ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
+
 # [Azure PowerShell](#tab/azure-powershell)
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
@@ -49,6 +53,8 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
+
++ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
 
 ---
 

@@ -28,6 +28,10 @@ This article focuses on managing digital twins; to work with relationships and t
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
+## Ways to manage twins
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
 ## Create a digital twin
 
 To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the service client like this:
@@ -188,6 +192,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 You can read more about the serialization helper classes in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
+
+## View all digital twins
+
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md).
+
+Here is the body of the basic query that will return a list of all digital twins in the instance:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## Update a digital twin
 
@@ -361,7 +376,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 For an example of how to delete all twins at once, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins()` function.
 
-## Manage twins using runnable code sample
+## Runnable digital twin code sample
 
 You can use the runnable code sample below to create a twin, update its details, and delete the twin. 
 
@@ -535,21 +550,6 @@ namespace minimal
 Here is the console output of the above program: 
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated, and deleted" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
-
-## Manage twins with CLI
-
-Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
-
-## View all digital twins
-
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md).
-
-Here is the body of the basic query that will return a list of all digital twins in the instance:
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
 
 ## Next steps
 

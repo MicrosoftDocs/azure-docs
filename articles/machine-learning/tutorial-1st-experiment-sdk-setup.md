@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Get started in Jupyter Notebooks (Python)"
 titleSuffix: Azure Machine Learning
-description: Setup for Jupyter Notebook tutorials. Create an Azure Machine Learning workspace, clone Jupyter Notebooks into the workspace, and create a compute instance where you run the notebooks.
+description: Setup for Jupyter Notebook tutorials. Create  a workspace, clone  notebooks into the workspace, and create a compute instance where you run the notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

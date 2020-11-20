@@ -65,7 +65,7 @@ Windows Virtual Desktop has many built-in security controls. In this section, yo
 
 ### Require multi-factor authentication
 
-Requiring multi-factor authentication for all users and admins in Windows Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure Multi-Factor Authentication for Windows Virtual Desktop](set-up-mfa.md).
+Requiring multi-factor authentication for all users and admins in Windows Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure AD Multi-Factor Authentication for Windows Virtual Desktop](set-up-mfa.md).
 
 ### Enable Conditional Access
 
