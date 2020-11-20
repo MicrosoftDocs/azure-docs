@@ -178,19 +178,21 @@ By selecting the status, you can see additional information about the quarantine
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
 ## Repairing the the Cloud Sync service account
-If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.  Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the steps below.
+If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.  
 
-  1.  From a Windows PowerShell session with administrative priviledges
-  2.  Type or copy and paste the following: 
+
+   1.  Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
+   2.  From a Windows PowerShell session with administrative priviledges
+   3.  Type or copy and paste the following: 
 	```
 	Connect-AADCloudSyncTools
 	```  
-  3. Enter your Azure AD global admin credentials
-  4. Type or copy and paste the following: 
+   4. Enter your Azure AD global admin credentials
+   5. Type or copy and paste the following: 
 	```
 	Repair-AADCloudSyncToolsAccount
 	```  
-   5. Once this completes it should say that the account was repaired successfully.
+   6. Once this completes it should say that the account was repaired successfully.
 
 ## Next steps 
 
