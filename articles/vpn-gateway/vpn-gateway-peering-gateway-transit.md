@@ -61,7 +61,7 @@ Learn more about [built-in roles](../role-based-access-control/built-in-roles.md
 
 In this scenario, the virtual networks are both created using the Resource Manager deployment model. Use the following instructions to create or update the virtual network peerings to enable gateway transit.
 
-1. In the [Azure portal](https://portal.azure.com), create or update the virtual network peering from the Spoke-RM to the Hub-RM. Navigate to the Spoke-RM virtual network resource, select **Peerings**, then **+ Add**. Then, configure the following values:
+1. In the [Azure portal](https://portal.azure.com), create or update the virtual network peering from the Spoke-RM to the Hub-RM. Navigate to the **Spoke-RM** virtual network resource, select **Peerings**, then **+ Add**. Then, configure the following values:
 
    * Set the **Resource Manager** option.
    * Select the **Hub-RM** virtual network in the corresponding subscription.
