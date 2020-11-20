@@ -104,7 +104,13 @@ In the *GET NEW ACCESS TOKEN* window that appears, fill in the following fields.
 
 Then, select *Request Token*.
 
-:::image type="content" source="media/how-to-use-postman/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted.":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-use-postman/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 This will open the *MANAGE ACCESS TOKENS* window with a token that has been generated based on the information you've provided. Select *Use Token*.
 
@@ -132,7 +138,13 @@ Choose *Request*.
 
 This opens the *Save request* window, where you can enter a name for your request, give it an optional description, and choose the collection that it's a part of. Fill in the details and save the request to the collection you created earlier.
 
-:::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="View of the 'Save request' window where you can fill out the fields described. The 'Save to Azure Digital Twins collection' button is highlighted":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="View of the 'Save request' window where you can fill out the fields described. The 'Save to Azure Digital Twins collection' button is highlighted":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 You can now view your request under the collection, and select it to pull up its editable details.
 
