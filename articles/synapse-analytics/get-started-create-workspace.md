@@ -62,7 +62,7 @@ The Spark pool tells Azure Synapse how many Spark resources to use. You only pay
 
 ## The Built-in serverless SQL pool
 
-Every workspace comes with a pre-built pool called **Built-in**. This pool can't be deleted. The serverless SQL pool allows you to work with SQL without having to create or think about managing a serverless SQL pool in Azure Synapse. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
+Every workspace comes with a pre-built serverless SQL pool called **Built-in**. This pool can't be deleted. Serverless SQL pools let you use SQL withou having to reserve capacity with dedicated SQL pools. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of capacity allocated to the pool.
 
 ## Next steps
 
