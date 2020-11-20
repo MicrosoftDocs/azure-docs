@@ -215,6 +215,11 @@ If your cluster's provisioning status changes from *Ready* to *Failed* with or w
 
 If your cluster's provisioning status remains as *Failed* or the applications on your cluster stop working, [submit a support request](https://azure.microsoft.com/support/options/#submit).
 
+## I'm seeing Python application latency with load balancer.
+
+This is due to single threaded Flask + Azure LoadBalancer probe. The up to 5 seconds latency is caused by the TCP probe from load balancer. When Azure Load Balancer does a probe, it will initiate a tcp connection to the application, however it will not send any http headers. Flask, on the other hand, is single threaded and will wait for the http headers and while it is waiting, other request will be queued. This will cause the unexpected latency.
+
+To mitigate this, either enable multi-threading for the application, or, set the externalTrafficPolicy: Local on the service. With the external traffic local, the load balancer health probe will be handled by a node port instead of the application port. The issue should be gone after that.
 
 ## Azure Storage and AKS Troubleshooting
 
