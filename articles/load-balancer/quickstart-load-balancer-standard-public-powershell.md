@@ -46,7 +46,7 @@ New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'eastus'
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Create a public IP address - Standard SKU
+## Create a public IP address - Standard
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
@@ -79,7 +79,7 @@ New-AzPublicIpAddress @publicip
 
 ```
 
-## Create standard load balancer - Standard SKU
+## Create standard load balancer - Standard
 
 This section details how you can create and configure the following components of the load balancer:
 
@@ -142,7 +142,7 @@ New-AzLoadBalancer @loadbalancer
 
 ```
 
-## Configure virtual network - Standard SKU
+## Configure virtual network - Standard
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
@@ -231,7 +231,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ```
 
-## Create virtual machines - Standard SKU
+## Create virtual machines - Standard
 
 In this section, you'll create the virtual machines for the backend pool of the load balancer.
 
@@ -536,10 +536,11 @@ $nicvm3 | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
 ```
 
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
+
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
-## Create a public IP address - Basic SKU
+## Create a public IP address - Basic
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
@@ -620,7 +621,7 @@ New-AzLoadBalancer @loadbalancer
 
 ```
 
-## Configure virtual network - Basic SKU
+## Configure virtual network - Basic
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
@@ -709,7 +710,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ```
 
-## Create virtual machines - Basic SKU
+## Create virtual machines - Basic
 
 In this section, you'll create the virtual machines for the backend pool of the load balancer.
 
