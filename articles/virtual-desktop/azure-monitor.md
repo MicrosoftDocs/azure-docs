@@ -24,11 +24,11 @@ Before you start using Azure Monitor for Windows Virtual Desktop, you'll need to
 
 - Enable data collection for the following things in your Log Analytics workspace:
     - Any required performance counters
+    - Any performance counters or events used in Azure Monitor for Windows Virtual Desktop
     - Data from the Diagnostics tool for all objects in the environment you'll be monitoring.
     - Virtual machines (VMs) in the environment you'll monitor.
 
-Anyone monitoring the Azure Monitor for Windows Virtual Desktop for your environment will also
-need the following read-access permissions:
+Anyone monitoring the Azure Monitor for Windows Virtual Desktop for your environment will also need the following read-access permissions:
 
 - Read access to the resource group where the environment's resources are located.
 
@@ -54,7 +54,7 @@ Once you have Azure Monitor for Windows Virtual Desktop open, select one or more
 
 <!---Link to troubleshooting doc, when available-->
 
-## Use the configuration workbook
+## Set up with the configuration workbook
 
 If this is your first time opening Azure Monitor for Windows Virtual Desktop, you'll need to configure Azure Monitor for your Windows Virtual Desktop resources. To configure your resources:
 
@@ -63,7 +63,36 @@ If this is your first time opening Azure Monitor for Windows Virtual Desktop, yo
 
 The configuration workbook sets up your monitoring environment and lets you check the configuration after you've finished the setup process. It's important to check your configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates that require additional data points.
 
-## Set up Log Analytics
+## Host pool diagnostic settings
+
+You'll need to enable Azure Monitor diagnostic settings on all objects within the Windows Virtual Desktop environment that support this feature.
+
+1. Open Azure Monitor for Windows Virtual Desktop at [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), then select **Configuration Workbook**.
+
+2. Select an environment to monitor under **Subscription**, **Resource Group**, and **Host Pool**.
+
+3. Under **Host Pool Diagnostic Settings**, check to see whether Windows Virtual Desktop diagnostics are enabled for the host pool. If they aren't, an error message will appear that says "No existing Diagnostic configuration was found for the selected host pool." 
+   
+   The following tables should be enabled:
+
+    - Checkpoint
+    - Error
+    - Management
+    - Connection
+    - HostRegistration
+
+    >[!NOTE]
+    > If you don't see the error message, you don't need to do step 4.
+
+4. Select **Configure host pool**.
+
+5. Select **Deploy**.
+
+6. Refresh the workbook.
+
+You can learn more about how to enable diagnostics on all objects in the Windows Virtual Desktop environment or access the Log Analytics workspace at [Send Windows Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
+
+## Configure Log Analytics
 
 To start using Azure Monitor for Windows Virtual Desktop, you'll also need at least one Log Analytics workspace to collect data from the environment you plan to monitor and supply it to the workbook. If you already have one set up, skip ahead to [Set up performance counters](#set-up-performance-counters). To set up a new Log Analytics workspace for the Azure subscription containing your Windows Virtual Desktop environment, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -74,9 +103,7 @@ To start using Azure Monitor for Windows Virtual Desktop, you'll also need at le
 
 You need to enable specific performance counters for collection at the corresponding sample interval in the Log Analytics workspace. These performance counters are the only counters you'll need to monitor Windows Virtual Desktop. You can disable all others to save costs.
 
-If you already have performance counters enabled want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md) to reconfigure your performance counters.
-
-<!---This article doesn't mention how to remove counters. Should we link something else?--->
+If you already have performance counters enabled and want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md) to reconfigure your performance counters. While the article describes how to add counters, you can also remove them in the same location.
 
 If you haven't already set up performance counters, here's how to configure them for Azure Monitor for Windows Virtual Desktop:
 
@@ -92,14 +119,14 @@ If you haven't already set up performance counters, here's how to configure them
 
 6. Refresh the configuration workbook and continue setting up your environment.
 
-You can also add new performance counters after the initial configuration whenever the service updates and requires new monitoring tools. You can verify that all the required counters are enabled by selectingg them in the **Missing counters** list.
+You can also add new performance counters after the initial configuration whenever the service updates and requires new monitoring tools. You can verify that all the required counters are enabled by selecting them in the **Missing counters** list.
 
 >[!NOTE]
 >Input delay performance counters are only compatible with Windows 10 RS5 and later or Windows Server 2019 and later.
 
 To learn more about how to manually add performance counters that aren’t already enabled for collection, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md).
 
-## Set up Windows Events
+### Set up Windows Events
 
 Next, you'll need to enable specific Windows Events for collection in the Log Analytics workspace. The events described in this section are the only ones Azure Monitor for Windows Virtual Desktop needs. You can disable all others to save costs.
 
