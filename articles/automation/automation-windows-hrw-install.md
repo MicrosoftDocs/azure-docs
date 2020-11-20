@@ -59,7 +59,7 @@ For networking requirements for the Hybrid Runbook Worker, see [Configuring your
 You can add the worker machine to a Hybrid Runbook Worker group in your Automation account. Note that you must support Automation runbooks as long as you're using the same account for both the Azure Automation feature and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
 
 >[!NOTE]
->Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups already defined in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group.
+>Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 6 under the section [Manual deployment](#manual-deployment) to add it to a group.
 
 ## Enable for management with Azure Automation State Configuration
 
@@ -198,6 +198,8 @@ To install and configure a Windows Hybrid Runbook Worker, perform the following 
     * For the `GroupName` parameter, use the name of the Hybrid Runbook Worker group. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it's added.
 
     * If required, set the `Verbose` parameter to receive details about the installation.
+
+7. Verify the deployment after the command is completed. From the **Hybrid Runbook Worker Groups** page in your Automation account, under the **User hybrid runbook workers group** tab, it shows the new or existing group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the page, from the left-hand menu choose **Hybrid Workers** . On the **Hybrid Workers** page, you can see each member of the group listed.
 
 ## Install PowerShell modules
 
