@@ -8,14 +8,14 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
 
 # How to use your workspace with a custom DNS server
 
-When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries for the workspace.
+When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries for the workspace.
 
 > [!IMPORTANT]
 > This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
@@ -27,6 +27,8 @@ When using Azure Machine Learning with a virtual network, there are [several way
 - An Azure Machine Learning workspace with a private endpoint. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 - Familiarity with using [Network isolation during training & inference](./how-to-network-security-overview.md).
+
+- Familiarity with [Azure Private Endpoint DNS zone configuration](../private-link/private-endpoint-dns.md)
 
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
