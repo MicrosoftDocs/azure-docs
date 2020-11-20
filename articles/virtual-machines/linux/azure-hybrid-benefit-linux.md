@@ -12,16 +12,15 @@ ms.date: 09/22/2020
 ms.author: mathapli
 ---
 
-# Public Preview: Azure Hybrid Benefit – how it applies for Linux Virtual Machines
+# Azure Hybrid Benefit – how it applies for Linux Virtual Machines
 
 ## Overview
 
 Azure Hybrid Benefit allows you to more easily migrate your on-premise Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) to Azure by using your own pre-existing Red Hat or SUSE software subscription. With this benefit, you only pay for the infrastructure costs of your VM because the software fee is covered by your RHEL or SLES subscription. The benefit is applicable to all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
 
 > [!IMPORTANT]
-> Azure Hybrid Benefit for Linux VMs is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Hybrid Benefit for Linux VMs is available to public now
+
 
 ## Benefit description
 
@@ -40,12 +39,6 @@ Azure Hybrid Benefit is available for all RHEL and SLES Marketplace PAYG images.
 Reserved Instances, Dedicated Hosts, and SQL hybrid benefits are not eligible for the Azure Hybrid Benefit if you are already using the benefit with Linux VMs.
 
 ## How to get started
-
-Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using Azure CLI.
-
-### Public Preview
-
-Azure Hybrid Benefit (for Linux) is in public preview phase now. You can use the below steps to enable the benefit for Red Hat and SUSE distributions. 
 
 ### Red Hat customers
 

@@ -78,7 +78,7 @@ The metric names present different packet types, and bytes vs. packets, with a b
 - **Forwarded tag name** (for example **Inbound Packets Forwarded DDoS**): The number of packets forwarded by the DDoS system to the destination VIP – traffic that was not filtered.
 - **No tag name** (for example **Inbound Packets DDoS**): The total number of packets that came into the scrubbing system – representing the sum of the packets dropped and forwarded.
 
-To simulate a DDoS attack to validate telemetry, see [Validate DDoS detection](test-through-simulations.md).
+This [Azure Monitor alert rule](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) will run a simple query to detect when an active DDoS mitigation is occurring. To simulate a DDoS attack to validate telemetry, see [Validate DDoS detection](test-through-simulations.md). 
 
 ## View DDoS mitigation policies
 
