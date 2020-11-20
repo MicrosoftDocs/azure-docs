@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -28,7 +28,7 @@ The following code example creates a SAS for a container. If the name of an exis
 
 A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) object and call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForContainer":::
 
 ### [\.NET v11](#tab/dotnetv11)
 
@@ -114,7 +114,7 @@ The following code example creates a SAS on a blob. If the name of an existing s
 
 A service SAS is signed with the account access key. Use the [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) class to create the credential that is used to sign the SAS. Next, create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) object and call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForBlob":::
 
 ### [\.NET v11](#tab/dotnetv11)
 
