@@ -41,6 +41,9 @@ When you configure registry encryption with a customer-managed key, you have two
 
 * **Manually update the key version** - To use a specific version of a key for registry encryption, specify that key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a specific key version, Azure Container Registry uses that version for encryption until you manually rotate the customer-managed key.
 
+> [!NOTE]
+> Currently you can only use the Azure CLI to configure the registry to automatically update the customer-managed key version. When using the portal to enable encryption, you must manualy update the key version.
+
 For details, see [Choose key ID with or without key version](#choose-key-id-with-or-without-key-version) and [Update key version](#update-key-version), later in this article.
 
 ## Prerequisites
@@ -271,15 +274,13 @@ Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md
     1. Assign access to **User assigned managed identity**.
     1. Select the resource name of your user-assigned managed identity, and select **Save**.
 
-### Create key (optional)
-
-Optionally create a key in the key vault for use to encrypt the registry. Follow these steps if you want to select a specific key version as a customer-managed key. 
+### Create key
 
 1. Navigate to your key vault.
 1. Select **Settings** > **Keys**.
 1. Select **+Generate/Import** and enter a unique name for the key.
 1. Accept the remaining default values and select **Create**.
-1. After creation, select the key and then select the current version. Copy the **Key identifier** for the key version.
+1. After creation, select the key and take note of the current key version.
 
 ### Create Azure container registry
 
@@ -287,13 +288,10 @@ Optionally create a key in the key vault for use to encrypt the registry. Follow
 1. In the **Basics** tab, select or create a resource group, and enter a registry name. In **SKU**, select **Premium**.
 1. In the **Encryption** tab, in **Customer-managed key**, select **Enabled**.
 1. In **Identity**, select the managed identity you created.
-1. In **Encryption**, do one of the following:
-    1. To provide a non-versioned key that enables automatic updates of key versions, select **Select from Key Vault**, and then select a new key.
-      
-       In the **Select key from Azure Key Vault** window, select an existing key vault and key, or **Create new**. 
-    1. To provide a versioned key, which doesn't support automatic updates of key values, select **Enter key URI**. Provide the key identifier of a versioned key. 
+1. In **Encryption**, select **Select from Key Vault**.
+1. In the **Select key from Azure Key Vault** window, select the key vault, key, and version you created in the preceding section.
 1. In the **Encryption** tab, select **Review + create**.
-1. Select **Create** to deploy the registry instance.
+1. Select **Create** to create the registry instance.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Create encrypted registry in the Azure portal":::
 
@@ -495,13 +493,11 @@ For example, to configure a new key:
 
 1. In the portal, navigate to your registry.
 1. Under **Settings**, select  **Encryption** > **Change key**.
+1. Select **Select key**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Rotate key in the Azure portal":::
-1. In **Encryption**, do one of the following:
-    1. To provide a non-versioned key that enables automatic updates of key versions, select **Select from Key Vault**, and then select a new key.
-      
-       In the **Select key from Azure Key Vault** window, select an existing key vault and key, or **Create new**. 
-    1. To provide a versioned key, which doesn't support automatic updates of key values, select **Enter key URI**. Provide the key identifier of a versioned key.
+1. In the **Select key from Azure Key Vault** window, select the key vault and key you configured previously, and in **Version**, select **Create new**.
+1. In the **Create a key** window, select **Generate**, and then **Create**.
 1. Complete the key selection and select **Save**.
 
 ## Revoke key
