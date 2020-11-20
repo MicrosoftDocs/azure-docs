@@ -1,25 +1,16 @@
 ---
-title: Quickstart - Connect IoT Plug and Play sample Java device code to Azure IoT Hub | Microsoft Docs
-description: Quickstart - Build and run IoT Plug and Play sample device code on that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 07/14/2020
-ms.topic: quickstart
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)
-
-[!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
@@ -48,7 +39,7 @@ mvn install -T 2C -DskipTests
 
 ## Run the device sample
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/pnp-device-sample/readme.md).
 
@@ -66,11 +57,11 @@ The device is now ready to receive commands and property updates, and has starte
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+[!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
 
 ## Review the code
 
-This sample implements a simple IoT Plug and Play thermostat device. The model this sample implements doesn't use IoT Plug and Play [components](concepts-components.md). The [DTDL model file for the thermostat device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) defines the telemetry, properties, and commands the device implements.
+This sample implements a simple IoT Plug and Play thermostat device. The model this sample implements doesn't use IoT Plug and Play [components](../articles/iot-pnp/concepts-components.md). The [DTDL model file for the thermostat device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) defines the telemetry, properties, and commands the device implements.
 
 The device code uses the standard `DeviceClient` class to connect to your IoT hub. The device sends the model ID of the DTDL model it implements in the connection request. A device that sends a model ID is an IoT Plug and Play device:
 
@@ -110,10 +101,3 @@ import com.google.gson.Gson;
 
 Date since = new Gson().fromJson(jsonRequest, Date.class);
 ```
-
-## Next steps
-
-In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
-
-> [!div class="nextstepaction"]
-> [How-to: Connect to and interact with a device](./quickstart-service-node.md)

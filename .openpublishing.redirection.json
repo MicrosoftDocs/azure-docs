@@ -49791,6 +49791,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-c.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-csharp.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-java.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-python.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/retail/howto-deploy-video-analytics-template.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": true

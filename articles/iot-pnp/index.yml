@@ -27,16 +27,8 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect a sample device to IoT Hub (C)
-          url: quickstart-connect-device-c.md
-        - text: Connect a sample device to IoT Hub (C#)
-          url: quickstart-connect-device-csharp.md
-        - text: Connect a sample device to IoT Hub (Java)
-          url: quickstart-connect-device-java.md
-        - text: Connect a sample device to IoT Hub (Node.js)
-          url: quickstart-connect-device-node.md
-        - text: Connect a sample device to IoT Hub (Python)
-          url: quickstart-connect-device-python.md
+        - text: Connect a sample device to IoT Hub
+          url: quickstart-connect-device.md
     - linkListType: concept
       links:
         - text: Developer guide
