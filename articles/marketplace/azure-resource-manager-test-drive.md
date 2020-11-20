@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: keferna
-author: keferna
+ms.author: trkeya
+author: trkeya
 ---
 
 # Azure Resource Manager test drive

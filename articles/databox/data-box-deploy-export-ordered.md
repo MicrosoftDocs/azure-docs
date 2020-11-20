@@ -98,7 +98,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Storage account     | The Azure Storage account from where you want to export data. |
     |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<ul><li> **All objects** - Specifies that the job exports all data depending on your selection for **Transfer options**.</li><li> **Use XML file** – Specifies an XML file that contains a set of paths and prefixes for blobs and/or files to be exported from the storage account. The XML file needs to be in the selected storage account's container, and selecting from file shares is currently not supported. The file needs to be a non-empty .xml file.</li></ul>        |
-    |Transfer options     |  Specifies the data transfer options from **Select all**, **All blobs**, and **All files**. <ul><li> **Select All** - Specifies that all blobs and Azure files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.</li><li> **All Blobs** - Specifies that only block and page blobs are exported.</li><li> **All Files** - Specifies that all files are exported excluding blobs. The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export. For more information, see [Supported storage accounts for export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Transfer options     |  Specifies the data transfer options from **Select all**, **All blobs**, and **All files**. <ul><li> **Select All** - Specifies that all blobs and Azure Files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.</li><li> **All Blobs** - Specifies that only block and page blobs are exported.</li><li> **All Files** - Specifies that all files are exported excluding blobs. The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export. For more information, see [Supported storage accounts for export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Include verbose log     | Indicates whether you want a verbose log file that contains a list of all files that were exported successfully.        |
 
     > [!NOTE]
@@ -179,11 +179,11 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
    ![View container details](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. Double-clicking on the container will bring up the container properties view. You now want to attach (or browse to) your XML file that contains your list of blobs and/or Azure files you want to export. Select **Upload**.
+6. Double-clicking on the container will bring up the container properties view. You now want to attach (or browse to) your XML file that contains your list of blobs and/or Azure Files you want to export. Select **Upload**.
 
    ![Upload blob to container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
-7. You have successfully added the XML file to the container. Only blobs and Azure files you specified in this XML will be exported.
+7. You have successfully added the XML file to the container. Only blobs and Azure Files you specified in this XML will be exported.
 
    ![XML file added to container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
@@ -223,7 +223,7 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ## Sample XML file
 
-The following xml shows an example of blob names, blob prefixes, and Azure files contained in the xml format that the export order uses when you select the **use XML file** option:
+The following xml shows an example of blob names, blob prefixes, and Azure Files contained in the xml format that the export order uses when you select the **use XML file** option:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

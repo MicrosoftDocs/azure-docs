@@ -107,8 +107,6 @@ landingContent:
             url: /javascript/api/@azure/cognitiveservices-face
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-          - text: iOS SDK
-            url: https://github.com/Microsoft/Cognitive-Face-iOS
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)

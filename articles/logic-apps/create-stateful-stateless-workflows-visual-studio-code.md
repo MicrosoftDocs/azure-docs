@@ -5,15 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/17/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, and 
-> is not recommended for production workloads. Certain features might not be supported or might 
-> have constrained capabilities. For more information, see 
+> This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. 
+> Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](#stateful-stateless) in your development environment.
@@ -49,11 +48,9 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
     > [!NOTE]
-    > By default, a **Logic App (Preview)** resource has its 
-    > [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at runtime. 
-    > This identity differs from the authentication credentials or connection string that you use 
-    > when you create a connection. If you disable this identity, connections won't work at runtime.
+    > By default, a **Logic App (Preview)** resource has its [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
+    > automatically enabled to authenticate connections at runtime. This identity differs from the authentication credentials or connection 
+    > string that you use when you create a connection. If you disable this identity, connections won't work at runtime.
 
 * Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
 
@@ -112,8 +109,6 @@ For this public preview, these capabilities are not available or not supported:
   Except for the previously specified triggers, *stateful* workflows can use both triggers and actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), which are deployed in Azure versus built-in triggers and actions that run natively with the Logic Apps runtime. However, *stateless* workflows currently support only *actions* for managed connectors, not triggers. Although you can enable connectors in Azure for your stateless workflow, the designer doesn't show any managed connector triggers for you to select.
 
 * You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Consumption** hosting plans aren't supported nor available for deploying this resource type.
-
-* In the Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
 
 ## Prerequisites
 
@@ -574,6 +569,11 @@ To test your logic app, follow these steps to start a debugging session and find
 
    ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
+   > [!NOTE]
+   > If a run failed and a step in monitoring view shows the `400 Bad Request` error, this problem might result 
+   > from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed 
+   > the default character limit. For more information, see ["400 Bad Request"](#400-bad-request).
+
    Here are the possible statuses that each step in the workflow can have:
 
    | Action status | Icon | Description |
@@ -806,14 +806,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 ## Find and manage deployed logic apps in the portal
 
-In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure.
-
-> [!NOTE]
-> For public preview, you can only view deployed **Logic App (Preview)** resources in the Azure portal, 
-> not create new **Logic App (Preview)** resources. You can create these logic apps only in Visual Studio Code. 
-> However, you can [add workflows](#add-workflows) to deployed logic apps with this resource type.
-
-To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
+In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
 1. In the Azure portal search box, enter `logic app preview`. When the results list appears, under **Services**, select **Logic App (Preview)**.
 
@@ -1055,6 +1048,48 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
   * The limit on code characters increases from 1,024 characters to 100,000 characters.
 
   * The limit on time to run the code increases from five seconds to 15 seconds.
+
+<a name="troubleshooting"></a>
+
+## Troubleshoot errors and problems
+
+<a name="400-bad-request"></a>
+
+### "400 Bad Request"
+
+When a run fails, and you inspect the run in monitoring view, this error might appear on a trigger or action that has a longer name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
+
+To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys on your computer by following the steps below. These key's default values are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
+
+> [!IMPORTANT]
+> Before you start, make sure that you save your work. This solution requires you 
+> to restart your computer after you're done so that the changes can take effect.
+
+1. On your computer, open the **Run** window, and run the `regedit` command, which opens the registry editor.
+
+1. In the **User Account Control** box, select **Yes** to permit your changes to your computer.
+
+1. In the left pane, under **Computer**, expand the nodes along the path, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters**, and then select **Parameters**.
+
+1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys.
+
+1. Increase these key values enough so that the URIs can accommodate the names that you want to use. If these keys don't exist, add them to the **Parameters** folder by following these steps:
+
+   1. From the **Parameters** shortcut menu, select **New** > **DWORD (32-bit) Value**.
+
+   1. In the edit box that appears, enter `UrlSegmentMaxCount` as the new key name.
+
+   1. Open the new key's shortcut menu, and select **Modify**.
+
+   1. In the **Edit String** box that appears, enter the **Value data** key value that you want in hexadecimal or decimal format. For example, `400` in hexadecimal is equivalent to `1024` in decimal.
+
+   1. To add the `UrlSegmentMaxLength` key value, repeat these steps.
+
+   After you increase or add these key values, the registry editor looks like this example:
+
+   ![Screenshot that shows the registry editor.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. When you're ready, restart your computer so that the changes can take effect.
 
 ## Next steps
 

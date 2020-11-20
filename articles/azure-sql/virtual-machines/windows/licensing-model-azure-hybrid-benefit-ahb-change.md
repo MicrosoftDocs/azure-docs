@@ -37,7 +37,7 @@ To indicate the use of Azure Hybrid Benefit for SQL Server on Azure VM and be co
 
 - Provision a virtual machine by using a bring-your-own-license SQL Server image from Azure Marketplace. This option is available only for customers who have an Enterprise Agreement.
 - Provision a virtual machine by using a pay-as-you-go SQL Server image from Azure Marketplace and activate the Azure Hybrid Benefit.
-- Self-install SQL Server on Azure VM, manually [register with the SQL IaaS Agent Extension](sql-vm-resource-provider-register.md), and activate Azure Hybrid Benefit.
+- Self-install SQL Server on Azure VM, manually [register with the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md), and activate Azure Hybrid Benefit.
 
 The license type of SQL Server can be configured when the VM is provisioned, or anytime afterward. Switching between license models incurs no downtime, does not restart the VM or the SQL Server service, doesn't add any additional costs, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
 
@@ -102,7 +102,7 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 
 - Azure Cloud Solution Provider (CSP) customers can use the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license, if they have active Software Assurance.
 - If you drop your SQL virtual machine resource, you will go back to the hard-coded license setting of the image. 
-- The ability to change the license model is a feature of the SQL IaaS Agent Extension. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the extension. But customers who are self-installing SQL Server will need to manually [register their SQL Server VM](sql-vm-resource-provider-register.md). 
+- The ability to change the license model is a feature of the SQL IaaS Agent Extension. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the extension. But customers who are self-installing SQL Server will need to manually [register their SQL Server VM](sql-agent-extension-manually-register-single-vm.md). 
 - Adding a SQL Server VM to an availability set requires re-creating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type. Azure Hybrid Benefit will need to be enabled again. 
 
 
@@ -128,7 +128,7 @@ This error occurs when you try to change the license model on a SQL Server VM th
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-You'll need to register your subscription with the resource provider, and then [register your SQL Server VM with the SQL IaaS Agent Extension](sql-vm-resource-provider-register.md). 
+You'll need to register your subscription with the resource provider, and then [register your SQL Server VM with the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md). 
 
 
 **The virtual machine '\<vmname\>' has more than one NIC associated**

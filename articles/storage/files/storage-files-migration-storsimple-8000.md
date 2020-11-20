@@ -40,7 +40,7 @@ Migrations to Azure file shares from StorSimple volumes via data transformation 
 
 Azure file shares open up a whole new world of opportunities for structuring your file services deployment. An Azure file share is just an SMB share in the cloud that you can set up to have users access directly over the SMB protocol with the familiar Kerberos authentication and existing NTFS permissions (file and folder ACLs) working natively. Learn more about [identity-based access to Azure file shares](storage-files-active-directory-overview.md).
 
-An alternative to direct access is [Azure File Sync](https://aka.ms/AFS). Azure File Sync is a direct analog for StorSimple's ability to cache frequently used files on-premises.
+An alternative to direct access is [Azure File Sync](./storage-sync-files-planning.md). Azure File Sync is a direct analog for StorSimple's ability to cache frequently used files on-premises.
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
@@ -51,7 +51,7 @@ Azure file shares retain important file fidelity aspects on stored files like at
 
 This article focuses on the migration steps. If you want to learn more about Azure File Sync before migrating, see the following articles:
 
-* [Azure File Sync overview](https://aka.ms/AFS "Overview")
+* [Azure File Sync overview](./storage-sync-files-planning.md "Overview")
 * [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md)
 
 ### StorSimple Service Data Encryption Key
@@ -380,7 +380,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 * [How to configure a Windows P2S VPN](storage-files-configure-p2s-vpn-windows.md)
 * [How to configure a Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
 * [How to configure DNS forwarding](storage-files-networking-dns.md)
-* [Configure DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Configure DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -530,7 +530,7 @@ If you use Azure File Sync, you likely need to create the SMB shares on that Azu
 
 If you have a DFS-N deployment, you can point the DFN-Namespaces to the new server folder locations. If you don't have a DFS-N deployment, and you fronted your 8100 or 8600 appliance locally with a Windows Server instance, you can take that server off the domain. Then domain join your new Azure File Sync-enabled Windows Server instance. During that process, give the server the same server name and share names as the old server so that cut-over remains transparent for your users, group policy, and scripts.
 
-Learn more about [DFS-N](https://aka.ms/AzureFiles/Namespaces).
+Learn more about [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## Deprovision
 
@@ -556,7 +556,7 @@ Your migration is complete.
 
 ## Next steps
 
-* Get more familiar with [Azure File Sync: aka.ms/AFS](https://aka.ms/AFS).
+* Get more familiar with [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md).
 * Understand the flexibility of [cloud tiering](storage-sync-cloud-tiering.md) policies.
 * [Enable Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) on your Azure file shares to schedule snapshots and define backup retention schedules.
 * If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](storage-sync-files-troubleshoot.md) for steps to resolve these issues.

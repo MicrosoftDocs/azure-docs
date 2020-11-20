@@ -388,7 +388,7 @@ Kubernetes is quickly becoming the new standard for deploying and managing softw
 The new capabilities in this public preview release include:
 
 - **Discovery & Visibility** - Continuous discovery of managed AKS instances within Security Center’s registered subscriptions.
-- **Secure Score recommendations** - Actionable items to help customers comply to security best practices in AKS as part of the customer’s Secure Score, such as "Role-Based Access Control should be used to restrict access to a Kubernetes Service Cluster".
+- **Secure Score recommendations** - Actionable items to help customers comply with security best practices for AKS, and increase their secure score. Recommendations include items such as "Role-based access control should be used to restrict access to a Kubernetes Service Cluster".
 - **Threat Detection** - Host and cluster-based analytics, such as “A privileged container detected”.
 
 

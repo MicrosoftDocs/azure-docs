@@ -222,4 +222,4 @@ In this tutorial, you learned how to:
 Next, you can monitor the Azure Firewall logs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

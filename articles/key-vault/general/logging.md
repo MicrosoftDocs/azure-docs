@@ -89,12 +89,14 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultDelete** |[Delete a key vault](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Update a key vault](/rest/api/keyvault/vaults) |
 | **VaultList** |[List all key vaults in a resource group](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Purge deleted vault](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Recover deleted vault|
+| **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Create a key](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Get information about a key](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Import a key into a vault](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[Back up a key](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[Delete a key](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[Restore a key](/rest/api/keyvault/restorekey) |
 | **KeySign** |[Sign with a key](/rest/api/keyvault/sign) |
 | **KeyVerify** |[Verify with a key](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[Wrap a key](/rest/api/keyvault/wrapkey) |
@@ -102,14 +104,56 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyEncrypt** |[Encrypt with a key](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[Decrypt with a key](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[Update a key](/rest/api/keyvault/updatekey) |
-| **KeyList** |[List the keys in a vault](/rest/api/keyvault/vaults) |
+| **KeyList** |[List the keys in a vault](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[List the versions of a key](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[Purge a key](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Backup a key](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Restore a key](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[Recover a key](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Get information about a certificate](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Create a certificate](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Import a certificate into a vault](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Update a certificate](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[List the certificates in a vault](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[List the versions of a certificate](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Delete a certificate](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Purge a certificate](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Backup a certificate](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Restore a certificate](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Recover a certificate](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Get deleted certificate](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[List the deleted certificates in a vault](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Get certificate policy](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Update certificate policy](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Create certificate policy](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Get certificate contacts](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Set certificate contacts](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Delete certificate contacts](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Get certificate issuer](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Set certificate issuer](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Update certificate issuer](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Delete certificate issuer](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[List the certificate issuers](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Enroll a certificate |
+| **CertificateRenew** |Renew a certificate |
+| **CertificatePendingGet** |Retrieve pending certificate |
+| **CertificatePendingMerge** |Pending a certificate merge |
+| **CertificatePendingUpdate** |Pending a certificate update |
+| **CertificatePendingDelete** |Delete pending certificate |
 | **SecretSet** |[Create a secret](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Get a secret](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Update a secret](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[Delete a secret](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[List secrets in a vault](/rest/api/keyvault/vaults) |
+| **SecretList** |[List secrets in a vault](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[List versions of a secret](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Purge a secret](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Backup a secret](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Restore a secret](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Recover a secret](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
 | **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
 | **SecretExpiredEventGridNotification** |Secret expired event published |

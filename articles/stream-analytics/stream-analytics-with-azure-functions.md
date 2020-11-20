@@ -17,6 +17,9 @@ You can run Azure Functions from Azure Stream Analytics by configuring Functions
 
 Stream Analytics invokes Functions through HTTP triggers. The Functions output adapter allows users to connect Functions to Stream Analytics, such that the events can be triggered based on Stream Analytics queries. 
 
+> [!NOTE]
+> Connection to Azure Functions inside a virtual network (VNet) from an Stream Analytics job that is running in a multi-tenant cluster is not supported.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

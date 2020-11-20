@@ -2,7 +2,7 @@
 title: Enable Azure Automation Update Management from Automation account
 description: This article tells how to enable Update Management from an Automation account.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -43,7 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable non-Azure VMs
 
-Machines not in Azure need to be added manually.
+For machines or servers hosted outside of Azure, including the ones registered with Azure Arc enabled servers, perform the following steps to enable them with Update Management.  
 
 1. From your Automation account, select **Update management** under **Update management**.
 

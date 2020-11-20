@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: cherylmc
 
 ---
@@ -22,7 +22,8 @@ In this tutorial, you learn how to:
 > * Create a P2S configuration
 > * Create a virtual hub
 > * Specify DNS servers
-> * Generate and install VPN client profile configuration package
+> * Generate VPN client profile configuration package
+> * Configure VPN clients
 > * View your virtual WAN
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
@@ -51,15 +52,16 @@ You can configure this setting when you create the hub, or modify it at a later 
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="custom DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
-## <a name="download"></a>Generate and install client profile package
+## <a name="download"></a>Generate VPN client profile package
 
-Generate the VPN client profile package to configure your VPN clients.
+Generate and download the VPN client profile package to configure your VPN clients.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
-### Configure VPN clients
+## <a name="configure-client"></a>Configure VPN clients
 
-Use the downloaded profile to configure the remote access VPN clients. The procedure for each operating system is different. Follow the instructions that apply to your system.
+Use the downloaded profile package to configure the remote access VPN clients. The procedure for each operating system is different. Follow the instructions that apply to your system.
+Once you have finished configuring your client, you can connect.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 

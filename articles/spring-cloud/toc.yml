@@ -81,6 +81,8 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Use persistent storage
           href: spring-cloud-howto-persistent-storage.md
+        - name: Identify outbound public IP addresses
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitor
       items:
         - name: Distributed tracing and App Insights

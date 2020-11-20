@@ -233,17 +233,17 @@ Content: {
 
 # [.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](./scenario-daemon-call-api.md?tabs=dotnet)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](./scenario-daemon-call-api.md?tabs=python)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=python).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](./scenario-daemon-call-api.md?tabs=java)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=java).
 
 ---

@@ -64,7 +64,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 ### Azure Functions and Azure Service Web Jobs
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) and [Azure App Service Web Jobs](https://docs.microsoft.com/azure/app-service/) both provide code-first integration services designed for developers and are built on [Azure App Services](https://docs.microsoft.com/azure/app-service/). These products provide serverless infrastructure for writing code. Within that code you can make calls to our services using our client libraries and REST APIs. 
+[Azure Functions](../azure-functions/index.yml) and [Azure App Service Web Jobs](../app-service/index.yml) both provide code-first integration services designed for developers and are built on [Azure App Services](../app-service/index.yml). These products provide serverless infrastructure for writing code. Within that code you can make calls to our services using our client libraries and REST APIs. 
 
 * **Target user(s)**: Developers and data scientists
 * **Benefits**: Serverless compute service that lets you run event-triggered code. 
@@ -73,7 +73,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 ### Azure Logic Apps 
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) share the same workflow designer and connectors as Power Automate but provides more advanced and control including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your cognitive services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
+[Azure Logic Apps](../logic-apps/index.yml) share the same workflow designer and connectors as Power Automate but provides more advanced and control including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your cognitive services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
 
 * **Target user(s)**: Developers, integrators, IT pros, DevOps
 * **Benefits**: Designer-first (declarative) development model providing advanced options and integration in a low-code solution
@@ -82,7 +82,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 ### Power Automate 
 
-Power automate is a service in the [Power Platform](https://docs.microsoft.com/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
+Power automate is a service in the [Power Platform](/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
 
 * **Target user(s)**: Business users (analysts) and Sharepoint administrators
 * **Benefits**: Automate repetitive manual tasks simply by recording mouse clicks, keystrokes and copy paste steps from your desktop!
@@ -91,7 +91,7 @@ Power automate is a service in the [Power Platform](https://docs.microsoft.com/p
 
 ### AI Builder 
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Form Recognizer, Text Analytics, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
+[AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Form Recognizer, Text Analytics, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
 
 * **Target user(s)**: Business users (analysts) and Sharepoint administrators
 * **Benefits**: A turnkey solution that brings the power of AI through a point-and-click experience. No coding or data science skills required.
@@ -119,24 +119,24 @@ The tools that you will use to train and configure models are different than tho
 
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
-| Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | Sample labeling tool | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
-| Decision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
-| Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
+| Vision | Form Recognizer | Sample labeling tool | [Quickstart](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
+| Decision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Quickstart](./metrics-advisor/quickstarts/web-portal.md) |
+| Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](./personalizer/quickstart-personalizer-sdk.md) |
 | Language | Language Understanding (LUIS) | https://www.luis.ai/ | |
-| Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
-| Language | Translator/Custom Translator | https://portal.customtranslator.azure.ai/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
-| Speech | Custom Commands | https://speech.microsoft.com/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
-| Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
-| Speech | Custom Voice | https://speech.microsoft.com/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
+| Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
+| Language | Translator/Custom Translator | https://portal.customtranslator.azure.ai/ | [Quickstart](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| Speech | Custom Commands | https://speech.microsoft.com/ | [Quickstart](./speech-service/custom-commands.md) |
+| Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](./speech-service/how-to-custom-speech.md) |
+| Speech | Custom Voice | https://speech.microsoft.com/ | [Quickstart](./speech-service/how-to-custom-voice.md) |  
 
 ### Continuous integration and delivery with DevOps and GitHub Actions
 
 Language Understanding and the Speech service offer continuous integration and continuous deployment solutions that are powered by Azure DevOps and GitHub actions. These tools are used for automated training, testing, and release management of custom models. 
 
-* [CI/CD for Custom Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-* [CI/CD for LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
+* [CI/CD for Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [CI/CD for LUIS](./luis/luis-concept-devops-automation.md)
 
 ## On-prem containers 
 
@@ -145,4 +145,4 @@ Many of the Cognitive Services can be deployed in containers for on-prem access 
 ## Next steps
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [Create a Cognitive Services resource and start building](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [Create a Cognitive Services resource and start building](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

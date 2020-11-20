@@ -1,27 +1,27 @@
 ---
 title: Install and use Azure IoT explorer | Microsoft Docs
-description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play devices connected to IoT hub.
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: Install the Azure IoT explorer tool and use it to interact with IoT Plug and Play devices connected to IoT hub. Although this article focuses on working with IoT Plug and Play devices, you can use the tool with any device connected to your hub.
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
+ms.custom: contperfq2
 
 # As a solution builder, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
 ---
 
 # Install and use Azure IoT explorer
 
-The Azure IoT explorer is a graphical tool for interacting with and testing your IoT Plug and Play devices. After installing the tool on your local machine, you can use it to connect to a hub. You can use the tool to view the telemetry the devices are sending, work with device properties, and invoke commands.
+The Azure IoT explorer is a graphical tool for interacting with and devices connected to your IoT hub. This article focuses on using the tool to test your IoT Plug and Play devices. After installing the tool on your local machine, you can use it to connect to a hub. You can use the tool to view the telemetry the devices are sending, work with device properties, and invoke commands.
 
 This article shows you how to:
 
 - Install and configure the Azure IoT explorer tool.
-- Use the tool to interact with and test your devices.
+- Use the tool to interact with and test your IoT Plug and Play devices.
 
-## Prerequisites
+For more general information about using the tool, see the GitHub [readme](https://github.com/Azure/azure-iot-explorer/blob/master/README.md).
 
 To use the Azure IoT explorer tool, you need:
 
@@ -37,7 +37,7 @@ Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/
 
 ## Use Azure IoT explorer
 
-For a device, you can either connect your own device, or use one of the sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) to run the simulated device sample.
+For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](quickstart-connect-device-node.md) quickstarts.
 
 ### Connect to your hub
 
@@ -86,7 +86,7 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 
 ### IoT Plug and Play components
 
-If the device is connected to the hub using a **Model ID**, the tool shows the **IoT Plug and Play components** tab `` where you can see the **Model ID**.
+If the device is connected to the hub using a **Model ID**, the tool shows the **IoT Plug and Play components** tab where you can see the **Model ID**.
 
 If the **Model ID** is available in one of the configured sources - Public Repo or Local Folder, the list of components is displayed. Selecting a component shows the properties, commands, and telemetry available.
 
@@ -123,13 +123,7 @@ To view the telemetry for the selected interface, go to its **Telemetry** tab.
 
 #### Known Issues
 
-- IoT Edge support: The current version doesn't show IoT Edge devices in the device list.
-- DTDL language features: IoT Explorer 0.12.x is not fully DTDL v2 compliant, features not supported include:
-  - Interface inheritance with `extends`
-  - Map in map (nested map)
-  - Array type
-  - Custom schemas
-  - Custom semantic types
+For a list of the IoT features supported by the latest version of the tool, see [Feature list](https://github.com/Azure/azure-iot-explorer/wiki).
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
+ms.date: 11/09/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -253,7 +253,20 @@ Limitations and known issues for data drift monitors:
 
 ## Azure Machine Learning designer
 
-* **Long compute preparation time:**
+### Dataset visualization in the designer
+
+After you register a dataset in **Datasets** asset page or using SDK, you can find it under **Datasets** category in the list left to the designer canvas.
+
+However, when you drag the dataset to the canvas and visualize, it may be unable to visualize due to some of the following reasons:
+
+- Currently you can only visualize tabular dataset in the designer. If you register a file dataset outside designer, you cannot visualize it in the designer canvas.
+- Your dataset is stored in virtual network (VNet). If you want to visualize, you need to enable workspace managed identity of the datastore.
+    1. Go the the related datastore and click **Update Credentials**
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Update Credentials":::
+    1. Select **Yes** to enable workspace managed identity.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Enable Workspace Managed Identity":::
+
+### Long compute preparation time
 
 It may be a few minutes or even longer when you first connect to or create a compute target. 
 
@@ -264,7 +277,7 @@ import time
 time.sleep(600)
 ```
 
-* **Log for real-time endpoints:**
+### Log for real-time endpoints
 
 Logs of real-time endpoints are customer data. For real-time endpoint troubleshooting, you can use following code to enable logs. 
 
