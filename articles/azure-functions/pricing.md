@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Pricing
+title: Azure Functions pricing
 description: Learn how billing works for Azure Functions.
 author: craigshoemaker
 ms.author: cshoe
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ---
 
-# Azure Functions Pricing
+# Azure Functions pricing
 
 Azure Functions has three kinds of pricing plans. Choose the one that best fits your needs:
 
