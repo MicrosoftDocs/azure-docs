@@ -170,6 +170,8 @@
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
+  - name: Azure Monitor
+    href: troubleshoot-azure-monitor.md
 - name: Reference
   items:
   - name: Security best practices
