@@ -25,7 +25,7 @@ Disclaimer: Hyperspace helps accelerate your workloads or queries under two circ
 
 You might want to carefully monitor your workloads and determine whether indexing is helping you on a case-by-case basis.
 
-This document is also available in notebook form, for [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), and [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
+This document is also available in notebook form, for [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), and [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb).
 
 ## Setup
 
@@ -1548,23 +1548,27 @@ Project [deptName#675]
    +- *(1) FileScan parquet [deptId#674,deptName#675] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-## Hybrid Scan for Mutable Datasets
-Often times, if your underlying source data had some new files appended or existing files deleted, your index will get stale and Hyperspace decides not to use it. However, there are times where you just want to use the index without having to refresh it everytime. There could be multiple reasons for doing so:
+## Hybrid scan for mutable datasets
 
-1. You do not want to continuosly refresh your index but instead want to do it periodically since you understand your workloads the best.
-2. You added/removed only a few files and do not want to wait for yet another refresh job to finish.
+Often, if your underlying source data had some new files appended or existing files deleted, your index will get stale and Hyperspace decides not to use it. However, there are times when you just want to use the index without having to refresh it every time. There could be multiple reasons for doing so:
 
-To allow you to still use a stale index, Hyperspace introduces Hybrid Scan, a novel technique that allows users to utilize outdated or stale indexes (e.g., the underlying source data had some new files appended or existing files deleted), without refreshing indexes.
+- You don't want to continuously refresh your index, but instead want to do it periodically because you understand your workloads the best.
+- You added/removed only a few files and don't want to wait for yet another refresh job to finish.
 
-To achieve this, when you set the appropriate configuration to enable Hybrid Scan, Hyperspace modifies the query plan to leverage the changes as following:
+To allow you to still use a stale index, Hyperspace introduces hybrid scan, a novel technique that allows users to utilize outdated or stale indexes (for example, the underlying source data had some new files appended or existing files deleted) without refreshing indexes.
+
+To achieve this, when you set the appropriate configuration to enable hybrid scan, Hyperspace modifies the query plan to leverage the changes as following:
 * Appended files can be merged to index data by using Union or BucketUnion (for join). Shuffling appended data can also be applied before merging, if needed.
 * Deleted files can be handled by injecting Filter-NOT-IN condition on lineage column of index data, so that the indexed rows from the deleted files can be excluded at query time.
-You can check the transformation of the query plan in below examples.
 
-`Note: Hybrid scan is only supported for non-partitioned data. Support for partitioned data is currently being worked upon.`
+You can check the transformation of the query plan in following examples.
 
-### Hybrid Scan for appended files - non-partitioned data
-Non-partitioned data is used in below example. In this example, we expect Join index can be used for the query and BucketUnion is introduced for appended files.
+> [!NOTE]
+> Currently, hybrid scan is supported only for non-partitioned data.
+
+### Hybrid scan for appended files - non-partitioned data
+
+Non-partitioned data is used in the following example. In this example, we expect that the Join index can be used for the query and BucketUnion is introduced for appended files.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1786,9 +1790,9 @@ appendData.Write().Mode("Append").Parquet(testDataLocation);
 
 ::: zone-end
 
-Hybrid scan is disabled by default. Therefore, you will see that since we appended new data, Hyperspace will decide NOT to use the index.
+Hybrid scan is disabled by default. Therefore, you will see that because we appended new data, Hyperspace will decide *not* to use the index.
 
-In the output, you will see no plan differences (hence no highlighting).
+In the output, you will see no plan differences (hence, no highlighting).
 
 :::zone pivot = "programming-language-scala"
 
@@ -1887,8 +1891,9 @@ Project [name#678, qty#679, date#680, qty#685, date#686]
 +------+---+----------+---+----------
 ```
 
-### Enable Hybrid Scan
-In plan with indexes, you can see Exchange hashpartitioning required only for appended files so that we could still utilize the "shuffled" index data with appended files. BucketUnion is used to merge "shuffled" appended files with the index data.
+### Enable hybrid scan
+
+In plan with indexes, you can see Exchange hash partitioning required only for appended files so that we could still utilize the "shuffled" index data with appended files. BucketUnion is used to merge "shuffled" appended files with the index data.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1992,10 +1997,11 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 +------+---+----------+---+----------+
 ```
 
-## Incremental Index Refresh
-When you ready to update your indexes but do not want to rebuild your entire index, Hyperspace supports updating indexes in an incremental manner using `hs.refreshIndex("name", "incremental")` API. This will allow eliminate the need for a full rebuild of index from scratch, utilizing previously created index files as well as updating indexes on only the newly added data.
+## Incremental index refresh
 
-Of course, please be sure to use the complementary `optimizeIndex` API (shown below) periodically to make sure you do not see performance regressions. We recommend calling optimize at least once for every 10 times you call `refreshIndex(..., "incremental")`, assuming the data you added/removed is < 10% of the original dataset. For instance, if your original dataset is 100 GB, and you've added/removed data in increments/decrements of 1 GB, you can call `refreshIndex` 10 times before calling `optimizeIndex`. Please note that this example is simply used for illustration and you have to adapt this for your workloads.
+When you're ready to update your indexes but don't want to rebuild your entire index, Hyperspace supports updating indexes in an incremental manner using the `hs.refreshIndex("name", "incremental")` API. This will eliminates the need for a full rebuild of index from scratch, utilizing previously created index files as well as updating indexes on only the newly added data.
+
+Of course, be sure to use the complementary `optimizeIndex` API (shown below) periodically to make sure you do not see performance regressions. We recommend calling optimize at least once for every 10 times you call `refreshIndex(..., "incremental")`, assuming the data you added/removed is < 10% of the original dataset. For instance, if your original dataset is 100 GB, and you've added/removed data in increments/decrements of 1 GB, you can call `refreshIndex` 10 times before calling `optimizeIndex`. Please note that this example is simply used for illustration and you have to adapt this for your workloads.
 
 In the example below, notice the addition of a Sort node in the query plan when indexes are used. This is because partial indexes are created on the appended data files, causing Spark to introduce a `Sort`. Please also note that `Shuffle` i.e. Exchange is still eliminated from the plan, giving you the appropriate acceleration.
 
@@ -2076,7 +2082,8 @@ Project [name#820, qty#821, date#822, qty#827, date#828]
 +------+---+----------+---+----------+
 ```
 
-## Optimize Index layout
+## Optimize index layout
+
 After calling incremental refreshes multiple times on newly appended data (e.g. if the user writes to data in small batches or in case of streaming scenarios), the number of index files tend to become large affecting the performance of the index (large number of small files problem). Hyperspace provides `hyperspace.optimizeIndex("indexName")` API to optimize the index layout and reduce the large files problem.
 
 In the plan below, notice that Hyperspace has removed the additional Sort node in the query plan. Optimize can help avoiding sorting for any index bucket which contains only one file. However, this will only be true if ALL the index buckets have at most 1 file per bucket, after `optimizeIndex`.
@@ -2172,7 +2179,8 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 ```
 
 ### Optimize modes
-The default mode for optimization is "quick" mode where files smaller than a predefined threshold are picked for optmization. To maximize the effect of optimization, Hyperspace allows another optimize mode "full" as shown below. This mode picks ALL index files for optimization irrespective of their file size and creates the best possible layout of the index. This is also slower than the default optimize mode because more data is being processed here.
+
+The default mode for optimization is "quick" mode where files smaller than a predefined threshold are picked for optimization. To maximize the effect of optimization, Hyperspace allows another optimize mode "full" as shown below. This mode picks ALL index files for optimization irrespective of their file size and creates the best possible layout of the index. This is also slower than the default optimize mode because more data is being processed here.
 
 :::zone pivot = "programming-language-scala"
 
