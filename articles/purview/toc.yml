@@ -72,9 +72,6 @@ items:
     - name: Azure Files
       href: register-scan-azure-files-storage-source.md
       displayName: Register and scan Azure files
-    - name: Teradata
-      href: register-scan-teradata-source.md
-      displayName: Register and scan Teradata 
     - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
       displayName: Register and scan azure blob storage
