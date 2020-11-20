@@ -31,7 +31,7 @@ To install and use the AADCloudSyncTools module use the following steps:
 2.  Type `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` and hit enter.
 3.  Type or copy and paste the following: 
 	``` powershell
-	Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect Provisioning Agent\Utility\AADCloudSyncTools"
+	Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
 	```
 3.  Hit enter.
 4.  To verify the module was installed, enter or copy and paste the following"
