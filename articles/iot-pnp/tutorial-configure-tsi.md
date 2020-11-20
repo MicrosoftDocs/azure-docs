@@ -54,7 +54,7 @@ As an IoT Plug and Play user, for your TS ID you should specify a _composite key
 
 My IoT Plug & Play devices are no component [devices](https://docs.microsoft.com/azure/iot-pnp/concepts-convention)--why should I include the component name as part of my TS ID? 
 
-Even if components aren't currently used as part of your device capability models, by adding `dt-subject` as part of a composite key you're ensuring that you can use them in the future. Becuase your TS ID is immutable, we recommend enabling this option for your solution down the road. 
+Even if components aren't currently used as part of your device capability models, by adding `dt-subject` as part of a composite key you're ensuring that you can use them in the future. Because your TS ID is immutable, we recommend enabling this option for your solution down the road. 
 
 > [!NOTE]
 > The examples below are for the multi component TemperatureController, but the concepts are the same for the no component Thermostat device.
@@ -128,7 +128,7 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
 | `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
-|`contents` (array)| `variables` (object)  | View the exampe below
+|`contents` (array)| `variables` (object)  | View the example below
 
 
 ![DTDL to TSM Type](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
