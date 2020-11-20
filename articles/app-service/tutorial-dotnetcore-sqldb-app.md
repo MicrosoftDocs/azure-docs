@@ -41,8 +41,10 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+- <a href="https://git-scm.com/" target="_blank">Install Git</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create local .NET Core app
 
@@ -76,8 +78,6 @@ Navigate to `http://localhost:5000` in a browser. Select the **Create New** link
 ![connects successfully to SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
 To stop .NET Core at any time, press `Ctrl+C` in the terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create production SQL Database
 

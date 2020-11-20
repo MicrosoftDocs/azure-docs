@@ -21,11 +21,9 @@ In this tutorial:
 > * Display the triggered task
 > * Verify updated application image
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you'd like to use the Azure CLI locally, you must have the Azure CLI version **2.0.68** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
-
-## Prerequisites
+- This article requires version 2.0.68 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### Complete the previous tutorials
 
