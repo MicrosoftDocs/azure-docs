@@ -88,7 +88,7 @@ For HTTPS health probes, the Application Gateway v1 SKU uses an exact match of t
 Only connections to known and allowed backends are then allowed. The remaining backends are considered unhealthy by the health probes. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must be allow listed with the application gateway as described in the preceding steps before they can be used.
 
 > [!NOTE]
-> Authentication and trusted root certificate setup are not required for trusted Azure services such as Azure App Service. They are considered trusted by default.
+> Authentication and trusted root certificate setup are not required for trusted Azure services such as Azure App Service. They are considered trusted by default. If you set a default FQDN of webapps as a backend pool and set custom domain auth cert uploaded in the corralated http setting, it will cause a cert issue when the cert of web apps rollover.
 
 ## End-to-end TLS with the v2 SKU
 
