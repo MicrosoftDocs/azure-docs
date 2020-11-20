@@ -47,6 +47,8 @@
       href: marketplace-co-sell.md 
     - name: Co-sell option in Partner Center
       href: partner-center-portal/commercial-marketplace-co-sell.md 
+    - name: Migration of co-sell solutions from OCP GTM
+      href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  

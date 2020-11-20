@@ -91,7 +91,7 @@ Select this option when you may have an OCP GTM solution that does not yet have 
 
     :::image type="content" source="media/co-sell-migrate/migration-new-step-2.png" alt-text="Select the publisher account.":::
 
-Your offer will be migrated into the commercial marketplace in Partner Center as a draft. Your offer must be completed and fully published to retain its co-sell status, incentives, and referral pipeline. For steps to publish in commercial marketplace in Partner Center, see [Publishing a draft offer in the commercial marketplace](#publishing-a-draft-offer-in-the-commercial-marketplace) below.
+Your offer will be migrated into the commercial marketplace in Partner Center as a draft. Your offer must be completed and fully published to retain its co-sell status, incentives, and referral pipeline. For steps to publish in commercial marketplace in Partner Center, see [Publishing a draft offer in the commercial marketplace](#publish-a-draft-offer-in-the-commercial-marketplace) below.
 
 ### This offer is no longer relevant
 
@@ -140,4 +140,4 @@ If you selected that your offer is new to the commercial marketplace, your OCP G
 
 ## Next steps
 
-- TBD
+- [Resell through CSP Partners](cloud-solution-providers.md)
