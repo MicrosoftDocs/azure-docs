@@ -29,7 +29,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |mrsglobalsteus2prod.blob.core.windows.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
-| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/security-overview.md#azure-platform-considerations) | N/A |
+| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
@@ -51,7 +51,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |mrsglobalstugviffx.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
-| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/security-overview.md#azure-platform-considerations) | N/A |
+| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 
