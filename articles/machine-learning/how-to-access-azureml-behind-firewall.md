@@ -81,8 +81,6 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
-    | **usgovarizona.api.ml.azure.us** | Required if your workspace is in the US-Arizona (Azure Government) region. |
-    | **usgovvirginia.api.ml.azure.us** | Required if your workspace is in the US-Virginia (Azure Government) region |
 
     For __Protocol:Port__, select use __http, https__.
 
@@ -98,31 +96,47 @@ If not configured correctly, the firewall can cause problems using your workspac
 
 ### Microsoft hosts
 
-The hosts in this section are owned by Microsoft, and provide services required for the proper functioning of your workspace.
+The hosts in this section are owned by Microsoft, and provide services required for the proper functioning of your workspace. The following tables list the host names for the Azure public, Azure Government, and Azure China 21Vianet regions.
 
-| **Host name** | **Purpose** |
-| ---- | ---- |
-| **login.microsoftonline.com** | Authentication |
-| **management.azure.com** | Used to get the workspace information |
-| **\*.batchai.core.windows.net** | Training clusters |
-| **ml.azure.com** | Azure Machine Learning studio |
-| **default.exp-tas.com** | Used by the Azure Machine Learning studio |
-| **\*.azureml.ms** | Used by Azure Machine Learning APIs |
-| **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning |
-| **\*.modelmanagement.azureml.net** | Used to register and deploy models|
-| **mlworkspace.azure.ai** | Used by the Azure portal when viewing a workspace |
-| **\*.aether.ms** | Used when running Azure Machine Learning pipelines |
-| **\*.instances.azureml.net** | Azure Machine Learning compute instances |
-| **\*.instances.azureml.ms** | Azure Machine Learning compute instances when workspace has Private Link enabled |
-| **windows.net** | Azure Blob Storage |
-| **vault.azure.net** | Azure Key Vault |
-| **azurecr.io** | Azure Container Registry |
-| **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
-| **your-acr-server-name.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. Use the ACR server name for your Azure Machine Learning workspace. |
-| **\*.notebooks.azure.net** | Needed by the notebooks in Azure Machine Learning studio. |
-| **\*.file.core.windows.net** | Needed by the file explorer in Azure Machine Learning studio. |
-| **\*.dfs.core.windows.net** | Needed by the file explorer in Azure Machine Learning studio. |
-| **graph.windows.net** | Needed for notebooks |
+**General Azure hosts**
+| **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
+| Azure portal | management.azure.com | management.azure.us | management.azure.cn |
+
+**Azure Machine Learning hosts**
+| **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Machine Learning studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn
+| EXP Flight | default.exp-tas.com | NA | NA
+| API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn
+| Experimentation, History, Hyperdrive, labelling | \*.experiments.azureml.net | \*.ml.azure.us | \*.ml.azure.cn
+| Modelmgmt | \*.modelmanagement.azureml.net | \*.ml.azure.us | \*.ml.azure.cn
+| Pipeline | \*.aether.ms | \*.ml.azure.us | \*.ml.azure.cn
+| Designer(studio service) | \*.studioservice.azureml.com | \*.ml.azure.us | \*.ml.azure.cn
+| Notebook | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn
+| Notebook | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn
+| Notebook | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn
+| Notebook(new) | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | \*.blob.core.chinacloudapi.cn
+| Notebook(new) | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn
+| Notebook(new) | \*.aznbcontent.net |  | 
+| Others | mlworkspace.azure.ai |  |  | 
+
+**Azure Machine Learning compute instance and compute cluster hosts**
+| **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Compute cluster & compute instance | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn
+| Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn
+| Compute instance (with private link) | \*.instances.azureml.ms | NA | NA
+
+**Associated resources used by Azure Machine Learning**
+| **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
+| ----- | ----- | ----- | ----- |
+| Azure Storage Account | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn
+| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn
+| Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn
+| Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com
+
 
 > [!TIP]
 > If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
