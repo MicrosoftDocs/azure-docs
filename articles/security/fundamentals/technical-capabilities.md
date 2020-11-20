@@ -89,7 +89,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, a
 
 #### Multi-factor authentication
 
-[Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. [MFA helps safeguard](../../active-directory/authentication/concept-mfa-howitworks.md) access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third-party OAuth tokens.
+[Azure AD Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. [MFA helps safeguard](../../active-directory/authentication/concept-mfa-howitworks.md) access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third-party OAuth tokens.
 
 #### Security monitoring, alerts, and machine learning-based reports
 

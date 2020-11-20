@@ -72,7 +72,7 @@ Depending on the region where the availability set that uses Managed Disks is lo
 
 You set up a private storage account for VM diagnostics.
 
-**What kind of Role-Based Access Control support is available for Managed Disks?**
+**What kind of Azure role-based access control support is available for Managed Disks?**
 
 Managed Disks supports three key default roles:
 

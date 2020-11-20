@@ -9,13 +9,13 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
 ---
 
 # Examine the Video Indexer output
 
-When a video is indexed, Video Indexer poduces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Video Indexer produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. 
 
@@ -183,6 +183,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |textualContentModeration|The [textualContentModeration](#textualcontentmoderation) insight.|
 |emotions| The [emotions](#emotions) insight.|
 |topics|The [topics](#topics) insight.|
+|speakers|The [speakers](#speakers) insight.|
 
 Example:
 
@@ -218,36 +219,45 @@ instances|A list of time ranges of this block.|
 |---|---|
 |id|The line ID.|
 |text|The transcript itself.|
+|confidence|The transcript accuracy confidence.|
+|speakerId|The ID of the speaker.|
 |language|The transcript language. Intended to support transcript where each line can have a different language.|
 |instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only 1 instance.|
 
 Example:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+	"adjustedStart":"0:00:10.21",
+	"adjustedEnd":"0:00:12.81",
+	"start":"0:00:10.21",
+	"end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+	"adjustedStart":"0:00:12.81",
+	"adjustedEnd":"0:00:17.03",
+	"start":"0:00:12.81",
+	"end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### ocr
@@ -823,6 +833,42 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 . . .
 ```
 
+#### speakers
+
+|Name|Description|
+|---|---|
+|id|The speaker ID.|
+|name|The speaker name in the form of "Speaker #*<number>*" For example: "Speaker #1".|
+|instances |A list of time ranges where this speaker appeared.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+	"adjustedStart":"0:00:10.21",
+	"adjustedEnd":"0:00:12.81",
+	"start":"0:00:10.21",
+	"end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+	"adjustedStart":"0:00:12.81",
+	"adjustedEnd":"0:00:17.03",
+	"start":"0:00:12.81",
+	"end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## Next steps
 
 [Video Indexer Developer Portal](https://api-portal.videoindexer.ai)
