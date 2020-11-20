@@ -80,7 +80,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure resource manager's resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
@@ -100,6 +100,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 		* preferHTTPS - Specify whether to use HTTPS over HTTP
 		* port - Specify the destination port of your choice.
 		* disableTraceRoute - This applies to test groups whose protocol is TCP or ICMP. It stop sources from discovering topology and hop-by-hop RTT.
+		* method - This applies to test configurations whose protocol is HTTP. Select the HTTP request method--either GET or POST
+		* path - Specify path parameters to append to URL
+		* validStatusCodes - Choose applicable status codes. If response code does not match this list, you will get a diagnostic message
+		* requestHeaders - Specify custom request header strings that will make be passed to the destination
 	* successThreshold - You can set thresholds on the following network parameters:
 		* checksFailedPercent - Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the percentage of HTTP requests that received no response.
 		* roundTripTimeMs - Set the RTT in milliseconds for how long sources can take to connect to the destination over the test configuration.
