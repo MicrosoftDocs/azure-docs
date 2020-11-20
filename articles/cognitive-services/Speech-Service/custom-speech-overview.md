@@ -58,9 +58,9 @@ To create your first project, select **Speech-to-text/Custom speech**, and then 
 
 ## Model lifecycle
 
-Custom Speech uses both *base models* and *custom models*. Each language has one or more base models. Generally, when a new speech model is released to the regular speech service, it's also imported to the Custom Speech service as a new base model. They're updated every 3 to 6 months. Older models typically become less useful over time because the newest model typically has substantially higher accuracy.
+Custom Speech uses both *base models* and *custom models*. Each language has one or more base models. Generally, when a new speech model is released to the regular speech service, it's also imported to the Custom Speech service as a new base model. They're updated every 3 to 6 months. Older models typically become less useful over time because the newest model usually has higher accuracy.
 
-In contrast, custom models are created by adapting a chosen base model to a particular customer scenario. You can keep using a particular custom model for a long time after you have one that meets your needs. Or you can keep retraining it over time with additional data. 
+In contrast, custom models are created by adapting a chosen base model to a particular customer scenario. You can keep using a particular custom model for a long time after you have one that meets your needs. But we recommend that you periodically update to the latest base model and retrain it over time with additional data. 
 
 Other key terms related to the model lifecycle include:
 
@@ -70,7 +70,7 @@ Other key terms related to the model lifecycle include:
 
 ### Expiration timeline
 
-Changes to base models to add functionality and improve performance can cause problems with backward compatibility for older models. These changes can also result in changes to the accuracy observed with a given model on a particular test data set. To manage the effort of maintaining models and endpoints, see the following model and endpoint expiration timelines.
+As new models and new functionality become available and older, less accurate models are retired, see the following timelines for model and endpoint expiration:
 
 **Base models** 
 
@@ -89,7 +89,11 @@ When either a base model or custom model expires, it will always fall back to th
 * Model training detail
 * Deployment summary
 * Deployment detail
- 
+
+You can also check the expiration dates via the [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) and [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) custom speech APIs under the `deprecationDates` property in the JSON response.
+
+Note that you can upgrade the model on a custom speech endpoint without downtime by changing the model used by the endpoint in the deployment section of the custom speech portal, or via the custom speech API.
+
 ## Next steps
 
 * [Prepare and test your data](how-to-custom-speech-test-data.md)

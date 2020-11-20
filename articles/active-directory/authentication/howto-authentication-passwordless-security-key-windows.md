@@ -26,7 +26,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 
 | Device Type | Azure AD joined | Hybrid Azure AD joined |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1903 or higher | X | X |
@@ -161,4 +161,4 @@ If you'd like to share feedback or encounter issues while previewing this featur
 
 [Learn more about device registration](../devices/overview.md)
 
-[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

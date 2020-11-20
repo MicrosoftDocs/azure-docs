@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions about classic to Azure Resource Manager migration 
-description: Frequently asked questions about classic to Azure Resource Manager migration
+description: Frequently asked questions about migrating from classic to Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -38,12 +38,13 @@ Customer who had active or stopped but allocated IaaS VMs (Classic) in their sub
 
 ## Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
 
-As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](./windows/quick-create-powershell.md). If you cannot use Azure VMs using ARM, please contact support to add your subscription to the allow list.
+As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, please contact support to add your subscription to the allow list.
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 
-Not until March 1st, 2023 for IaaS VMs (classic). The IaaS VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure. On March 1st, 2023, these VMs will be fully retired and any active or allocated VMs will be stopped & deallocated. 
-There will be no impact to other classic resources like Cloud Services (Classic), Storage Accounts (Classic), etc.   
+Not until March 1st, 2023 for IaaS VMs (classic). The IaaS VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure. On March 1st, 2023, these VMs will be fully retired and any active or allocated VMs will be stopped & deallocated.
+
+There will be no impact to other classic resources like Cloud Services (Classic), Storage Accounts (Classic), etc.
 
 ## What happens to my VMs if I don’t plan on migrating in the near future? 
 
@@ -70,9 +71,9 @@ You cannot abort migration if the commit operation fails. All migration operatio
 
 No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
 
-## What if I had configured Role-Based Access Control policies for my classic IaaS resources? 
+## What if I had configured Azure role-based access control policies for my classic IaaS resources? 
 
-During migration, the resources transform from classic to Resource Manager. So we recommend that you plan the RBAC policy updates that need to happen after migration.
+During migration, the resources transform from classic to Resource Manager. So we recommend that you plan the Azure RBAC policy updates that need to happen after migration.
 
 ## I backed up my classic VMs in a vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 
@@ -122,20 +123,20 @@ This message is received when the VM does not have outbound connectivity to the 
 
 For Linux:
 
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](./migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Review most common migration errors](./linux/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
+* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+* [Review most common migration errors](migration-classic-resource-manager-errors.md)
 
 For Windows:
 
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](./migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Review most common migration errors](./windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
+* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+* [Review most common migration errors](migration-classic-resource-manager-errors.md)

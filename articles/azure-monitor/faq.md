@@ -77,7 +77,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ### How do I retrieve log data?
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
-
+ p
 ### Can I delete data from a Log Analytics workspace?
 Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
 
@@ -591,10 +591,6 @@ The OpenTelemetry Collector is described in its [GitHub readme](https://github.c
 
 ## Azure Monitor for containers
 
-### Health feature is in private preview
-
-We are planning to make a series of changes to add functionality and address your feedback. The Health feature is going to transition to a private preview at the end of June 2020, and for additional information review the following [Azure updates announcement](https://azure.microsoft.com/updates/ci-health-limited-preview/).
-
 ### What does *Other Processes* represent under the Node view?
 
 **Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
@@ -686,7 +682,7 @@ The Container Monitoring solution doesn't support RBAC, but it is supported with
 
 ### How do I enable log collection for containers in the kube-system namespace through Helm?
 
-The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Azure Monitor for containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub page. 
+The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Azure Monitor for containers](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page. 
 
 ### How do I update the omsagent to the latest released version?
 

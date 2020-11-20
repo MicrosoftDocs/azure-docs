@@ -27,7 +27,7 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-- [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## List role assignments for the current subscription
 

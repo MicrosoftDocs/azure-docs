@@ -18,6 +18,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ## Cluster configuration requirements
 
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
+* The cluster must have a minimum of one worker node. Do not scale the cluster workers to zero.
 * Don't remove or modify the cluster Prometheus and Alertmanager services.
 * Don't remove Service Alertmanager rules.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).

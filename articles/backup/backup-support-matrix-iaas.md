@@ -45,7 +45,7 @@ Monthly/yearly backup| Not supported when backing up with Azure VM extension. On
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
 Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
-Azure VMs in [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Backup and restore are supported for VMs with [orchestration mode](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) set to 3. <br><br>Availability sets are unsupported.
+Azure VMs in [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) |Availability sets are unsupported.
 
 ## Operating system support (Windows)
 
@@ -104,7 +104,7 @@ Recovery points on DPM/MABS disk | 64 for file servers, and 448 for app servers.
 
 **Restore** | **Supported**
 --- | ---
-Restoring files across operating systems | You can restore files on any machine that has the same (or compatible) OS as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements).
+Restoring files across operating systems | You can restore files on any machine that has the same (or compatible) OS as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 Restoring files from encrypted VMs | Not supported.
 Restoring files from network-restricted storage accounts | Not supported.
 Restoring files on VMs using Windows Storage Spaces | Restore not supported on same VM.<br/><br/> Instead, restore the files on a compatible VM.
@@ -135,7 +135,7 @@ Restore VM in different virtual network |Supported.<br/><br/> The virtual networ
 VM size |Any Azure VM size with at least 2 CPU cores and 1-GB RAM.<br/><br/> [Learn more.](../virtual-machines/sizes.md)
 Back up VMs in [availability sets](../virtual-machines/availability.md#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set by using the option to quickly create a VM. Instead, when you restore the VM, restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk.
 Back up VMs that are deployed with [Hybrid Use Benefit (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Supported.
-Back up VMs that are deployed in a [scale set](../virtual-machine-scale-sets/overview.md) |Supported. [Orchestration mode](../virtual-machine-scale-sets/orchestration-modes.md) should be set to 2 for Fault Domain. Availability set is unsupported.
+Back up VMs that are deployed in a [scale set](../virtual-machine-scale-sets/overview.md) |Supported. Availability set is unsupported.
 Back up VMs that are deployed from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS). We don't restore Azure Marketplace VMs backed as VMs, as these need purchase information. They are only restored as disks.
 Back up VMs that are deployed from a custom image (third-party) |Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.

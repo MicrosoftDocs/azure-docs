@@ -13,6 +13,10 @@
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
+- name: Concepts
+  items:
+  - name: Security baseline
+    href: security-baseline.md
 - name: Tutorials
   items:
   - name: Get started with Advisor

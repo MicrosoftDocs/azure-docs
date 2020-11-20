@@ -27,8 +27,10 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
 - An **IoT Hub** of SKU either F1, S1, S2 or S3.
 - Have an **IoT Edge device with version 1.2 or above**. Since IoT Edge MQTT broker is currently in public preview, set the following environment variables to true on the edgeHub container to enable the MQTT broker:
 
-    - experimentalFeatures__enabled
-    - mqttbroker__enabled
+   | Name | Value |
+   | - | - |
+   | `experimentalFeatures__enabled` | `true` |
+   | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
 - **Mosquitto clients** installed on the IoT Edge device. This article uses the popular Mosquitto clients that includes [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
 
@@ -203,7 +205,7 @@ Now that you understand how to connect to the IoT Edge MQTT broker, let's see ho
 
 ## Publish and subscribe on user-defined topics
 
-In this article, you'll use one client named **sub_client** that subscribes to a topic and another client named **pub_client** that publishes to a topic. We'll use the [symmetric key authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) but the same can be done with [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) or [X.509 self-signed authentication](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+In this article, you'll use one client named **sub_client** that subscribes to a topic and another client named **pub_client** that publishes to a topic. We'll use the [symmetric key authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) but the same can be done with [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) or [X.509 CA-signed authentication](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).
 
 ### Create publisher and subscriber clients
 

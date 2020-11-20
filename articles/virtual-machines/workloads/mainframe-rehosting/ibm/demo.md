@@ -3,6 +3,7 @@ title: Set up an Application Developers Controlled Distribution (ADCD) in IBM zD
 description: Run an IBM Z Development and Test Environment (zD&T) environment on Azure Virtual Machines (VMs).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter:
 author: njray
 manager: edprice
