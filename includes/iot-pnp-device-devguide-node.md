@@ -22,7 +22,7 @@ await client.open();
 
 ## DPS payload
 
-Devices using the [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload.
+Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload.
 
 ```json
 {
@@ -32,7 +32,7 @@ Devices using the [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.m
 
 ## Implement telemetry, properties, and commands
 
-As described in [Understand components in IoT Plug and Play models](concepts-components.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
+As described in [Understand components in IoT Plug and Play models](../articles/iot-pnp/concepts-components.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
 
 ### Telemetry
 
