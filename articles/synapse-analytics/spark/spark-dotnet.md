@@ -73,7 +73,7 @@ You can install NuGet packages of your choice into your notebook by using the `#
 
 ![Screenshot that shows using #r to install a Spark .NET notebook NuGet package](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
 
-To learn more about how to work with Nuget packages in notebooks please refer to the [official documentation for dotnet-interactive](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
+To learn more about how to work with NuGet packages in notebooks, see the [.NET Interactive Documentation](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
 
 ### .NET for Apache Spark C# kernel features
 
