@@ -3,9 +3,9 @@ title: Set up customer-managed keys to encrypt data at rest in ISEs
 description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 11/20/2020
 ---
 
 # Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps
@@ -22,11 +22,11 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* To support customer-managed keys, your ISE requires requires having its [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) enabled. This identity lets the ISE authenticate access to resources in other Azure Active Directory (Azure AD) tenants so that you don't have to sign in with your credentials.
+* To support customer-managed keys, your ISE requires that you enable either the [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). This identity lets your ISE authenticate access to secured resources, such as virtual machines and other systems or services, that are in or connected to an Azure virtual network. That way, you don't have to sign in with your credentials.
 
-* Currently, to create an ISE that supports customer-managed keys and has its system-assigned identity enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
+* Currently, to create an ISE that supports customer-managed keys and has either managed identity type enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
 
-* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
+* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## Create ISE with key vault and managed identity support
 
@@ -86,7 +86,7 @@ In the request header, include these properties:
 
 In the request body, enable support for these additional items by providing their information in your ISE definition:
 
-* The system-assigned managed identity that your ISE uses to access your key vault
+* The managed identity that your ISE uses to access your key vault
 * Your key vault and the customer-managed key that you want to use
 
 #### Request body syntax
@@ -104,7 +104,7 @@ Here is the request body syntax, which describes the properties to use when you 
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": < "SystemAssigned" | "UserAssigned" >
    },
    "properties": {
       "networkConfiguration": {
@@ -151,7 +151,7 @@ This example request body shows the sample values:
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned"
    },
    "sku": {
       "name": "Premium",
