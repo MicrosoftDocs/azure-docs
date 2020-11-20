@@ -23,8 +23,6 @@
         href: spring-cloud-quickstart-deploy-apps.md
       - name: Use logs, metrics and tracing
         href: spring-cloud-quickstart-logs-metrics-tracing.md
-    - name: Deploy Azure Spring Cloud with Azure PowerShell
-      href: spring-cloud-quickstart-powershell.md
 - name: Tutorials
   items:
     - name: Manually scale an app
@@ -77,12 +75,16 @@
           href: spring-cloud-howto-launch-from-source.md
         - name: Use IntelliJ to deploy apps
           href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Deploy Azure Spring Cloud with Azure PowerShell
+          href: spring-cloud-howto-deploy-powershell.md
     - name: Configure
       items:
         - name: Start, stop, and delete an app
           href: spring-cloud-howto-start-stop-delete.md
         - name: Use persistent storage
           href: spring-cloud-howto-persistent-storage.md
+        - name: Identify outbound public IP addresses
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitor
       items:
         - name: Distributed tracing and App Insights
