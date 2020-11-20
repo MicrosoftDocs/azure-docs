@@ -181,7 +181,7 @@ Downloading the model can be done:
 
 - From the portal, by choosing the **Models** tab, selecting the desired model, and from the **Details** page, choosing **Download**
 - From the command line, by using `az ml model download` (see the [model download reference](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download&preserve-view=false))
-- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false)
+- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false))
 
 An Azure model is one or more serialized Python objects, packaged as a Python pickle file (**.pkl** extension). The contents of the pickle file depend upon the ML library or technique used to train the model. For instance, with the model from the tutorial, you might load the model with:
 
@@ -192,7 +192,7 @@ with open('sklearn_mnist_model.pkl', 'rb') as f :
     logistic_model = pickle.load(f, encoding='latin1')
 ```
 
-Dependencies are always tricky to get right, especially it seems with machine learning, where there can often be a dizzying web of specific version requirements. You can recreate an Azure Machine Learning environment on your local machine either as a complete conda environment or as a Docker image by using the `Environment` class's `build_local()` method. 
+Dependencies are always tricky to get right, especially with machine learning, where there can often be a dizzying web of specific version requirements. You can recreate an Azure Machine Learning environment on your local machine either as a complete conda environment or as a Docker image by using the `Environment` class's `build_local()` method. 
 
 ```python
 ws = Workspace.from_config()
