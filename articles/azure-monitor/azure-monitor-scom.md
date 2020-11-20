@@ -30,7 +30,7 @@ Operations Manager has an extensive library of management packs that monitor a v
 The Cloud Monitoring Guide defines a [hybrid cloud monitoring model](https:///azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) that uses a combination of Azure Monitor and Operations Manager. The general strategy of this model is to use Azure Monitor for monitoring your Azure resources while using Operations Manager to monitor the workloads running in your virtual machines.
 
 
-# Workloads to monitor
+## Workloads to monitor
 Each of the applications and services that you must monitor are each considered a workload. The following diagram illustrates the different types of workloads that need to be monitored and the recommendation for what to move to Azure Monitor as opposed to those that should continue to be monitored by management packs in Azure Monitor. 
 
 ![Workloads](media/azure-monitor-scom/workloads.png)
@@ -42,41 +42,40 @@ The following table describes these recommendations in more detail.
 | IaaS Custom Applications | These are your custom applications built on an IaaS platform including virtual machines and containers. | Custom applications are typically monitored by custom management packs that you develop and maintain. These management packs will typically identify different components of the application and measure its performance and availability. | Configure Application Insights for each custom application. Application Insights will provide rich monitoring of applications in any environment, leveraging the Azure Monitor platform. |
 | IaaS Packaged Applications | Packaged applications in your IaaS environment include such applications and SQL Server, SharePoint, and Exchange. They also include your Windows and Linux operating systems and core services such as DNS, DHCP, and Active Directory. | Management packs are available for most of these applications that include predefined logic to discover and monitor their components. | Continue using management packs for these applications since Azure Monitor doesn't include built-in logic to monitor them. Enable Azure Monitor for VMs on your virtual machines to discover relationships with external processes and to collect telemetry for query analysis. |
 | PaaS App Services | Includes your custom applications built on application services in Azure such as Azure App Service and Logic Apps. Also includes automation services such as Logic Apps. | These services would typically be monitored with the Azure Management pack and custom management packs for the application. | Configure Application Insights for each application. Configure resource logs to be collected for the Azure services and leverage core Azure Monitor features including insights for the services that have them. |
-| | | These services would typically be monitored with the Azure Management pack and custom management packs for the application. | Configure Application Insights for each application. Configure resource logs to be collected for the Azure services and leverage core Azure Monitor features including insights for the services that have them. |
+| PaaS Data Services | Azure services that store and process data including databases such as SQL and CosmosDB in addition to Azure Storage. | These services would typically be monitored with the Azure Management pack and custom management packs for the application. | Configure Application Insights for each application. Configure resource logs to be collected for the Azure services and leverage core Azure Monitor features including insights for the services that have them. |
 
 
 ## Monitor Azure resources and PaaS workloads
 
-### Azure Monitor
+### Background
 Azure resources actually require Azure Monitor to collect telemetry, and Azure Monitor is enabled the moment that you create an Azure subscription. The [Activity log]() is automtically collected for the subscription, and [Platform metrics]() are automatically collected from any Azure resources you create. Add a [diagnostic setting]() for each resource to send resource logs a Log Analytics workspace.
 
-Analysis of telemetry collected by Azure resources is integrated into the Azure portal for several services, and Azure Monitor includes tools for their analysis. Use [Metrics explorer]() to analyze platform metrics and [Log Analytics]() to analyze log and performance data. [Insights]() analyze and present this data to provide a customized experience for different services, similar to the function of a management pack in Operations Manager.
+Analysis of telemetry collected by Azure resources is integrated into the Azure portal, and Azure Monitor includes tools for their analysis. Use [Metrics explorer]() to analyze platform metrics and [Log Analytics]() to analyze log and performance data. [Insights]() analyze and present this data to provide a customized experience for different services, similar to the function of a management pack in Operations Manager.
 
-### Operations Manager
-Operations Manager can monitor Azure services with the [Azure management pack](). This will discover Azure resources and monitor their health based on metric values. You can set a threshold for each resource to determine a health state and create alerts. This is a limited view of each resource though since it doesn't include resource logs and isn't able to perform detailed analysis beyond a limited set of performance counters.
-
-### Recommendation
-
-1. [Configure Azure Policy]() to send resource logs for all your Azure resources to a Log Analytics workspace. 
-2. Become familiar with Azure tools for monitoring Azure resources including [metrics explorer](), [Log Analytics](), and any insights for particular resources.
-3. Install and configure the Azure management pack.
-4. Evaluate.
-
-
-## Monitor virtual machines and Iaa workloads
-In addition to monitoring virtual machine resources, you must monitor their guest operating system and any workloads running on them. 
-
-### Azure Monitor
-[Azure Monitor for VMs]() collects performance data from the guest operating system of virtual machines, and you can configure additional logs and metrics to be collected. It also collects relationships between virtual machines and their external dependencies, presenting them for interactive analysis. There aren't preexisting rules though to identify issues in the virtual machine. You must create your own alert rules to be proactively notified of any detected issues. There also isn't a standard method to collect data beyond the predefined set of data sources.
-
-A new [guest health feature for Azure Monitor for VMs]() is now in public preview and does alert based on the health state of a set of performance metrics. This is currently limited though to a specific set of performance counters.
-
-### Operations Manager
-Operations Manager was designed for workloads running on virtual machines. An extensive collection of management packs is available to monitor various applications. Each includes predefined logic to discover different components of the application, measure their health, and generate alerts when issues are detected. You can create your own management packs for any custom requirements.
-
-Management packs in Operations Manager typically use performance and log data, but can also run custom scripts to colleted and analyze data. Since scripts run locally on the agent virtual machine, you can collect virtually any data that you require.
+Operations Manager can discover Azure resources and monitor their health based on metric values using . You can set a threshold for each resource to determine a health state and create alerts. This is a limited view of each resource though since it doesn't include resource logs and isn't able to perform detailed analysis beyond a limited set of performance counters.
 
 ### Recommendation
+Configure Azure Monitor to collect telemetry from your Azure resources. This will typically include [configuring Azure Policy]() to send resource logs for all your Azure resources to a Log Analytics workspace. Become familiar with insights that are available for the Azure services that you use in addition to Azure tools for monitoring Azure resources including [metrics explorer]() and [Log Analytics]().
+
+If you want to integrate alerting for critical Azure services into your Operations Manager environment, then install and configure the Azure management pack.
+
+
+## Monitor virtual machines and IaaS workloads
+
+### Background
+[Azure Monitor for VMs]() collects performance data from the guest operating system of virtual machines. You can also configure additional logs and metrics to be collected which is some of the same data used by management packs. There aren't preexisting rules though to identify issues in the virtual machine. You must create your own alert rules to be proactively notified of any detected issues. There also isn't a standard method, such as a scheduled PowerShell script, to collect data beyond the predefined set of data sources.
+
+A new [guest health feature for Azure Monitor for VMs]() is now in public preview and does alert based on the health state of a set of performance metrics. This is currently limited though to a specific set of performance counters related to the guest operating system and not workloads running in the virtual machine.
+
+Azure Monitor VMs does collect relationships between virtual machines and their external dependencies, visually presenting them for interactive analysis. This is not information that is not typically available from a management pack 
+
+
+
+Operations Manager was designed for workloads running on virtual machines, and an extensive collection of management packs is available to monitor various applications. Each includes predefined logic to discover different components of the application, measure their health, and generate alerts when issues are detected. You may have also invested in custom management packs for any custom requirements.
+
+### Recommendation
+Keep using management packs the monitor 
+
 1. Configure Azure Monitor for VMs and onboard a select group of virtual machines. 
 2. Configure the workspace to [collect additional data sources]() on the virtual machines.
 3. Configure gueat 
