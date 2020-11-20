@@ -55,7 +55,7 @@ Hit *Configure* to finish.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-postman/authentication-configure-web.png" alt-text="The Configure platforms page, highlighting the info described above onscreen":::
+        :::image type="content" source="media/how-to-use-postman/authentication-configure-web.png" alt-text="The Configure platforms page, highlighting the info described above onscreen" lightbox="media/how-to-use-postman/authentication-configure-web.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -63,7 +63,7 @@ Hit *Configure* to finish.
 
 Now you have a web configuration configured that Postman will use. The Authentication tab in the Azure portal should reflect this. After verifying the sections below, hit *Save*.
 
-:::image type="content" source="media/how-to-use-postman/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of https://www.getpostman.com/oauth2/callback, and Implicit Grant being enabled for access tokens. The Save button is also highlighted.":::
+:::image type="content" source="media/how-to-use-postman/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of https://www.getpostman.com/oauth2/callback, and Implicit Grant being enabled for access tokens. The Save button is also highlighted." lightbox="media/how-to-use-postman/authentication-post.png":::
 
 ## Set up Postman
 
@@ -148,7 +148,7 @@ This opens the *Save request* window, where you can enter a name for your reques
 
 You can now view your request under the collection, and select it to pull up its editable details.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-details.png" alt-text="View of the main Postman window. The Azure Digital Twins collection is expanded, and the 'Query twins' request is highlighted. Details of the request are shown in the center of the page.":::
+:::image type="content" source="media/how-to-use-postman/postman-request-details.png" alt-text="View of the main Postman window. The Azure Digital Twins collection is expanded, and the 'Query twins' request is highlighted. Details of the request are shown in the center of the page." lightbox="media/how-to-use-postman/postman-request-details.png":::
 
 ### Set request details
 
