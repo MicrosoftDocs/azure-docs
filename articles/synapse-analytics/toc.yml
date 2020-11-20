@@ -465,8 +465,10 @@
       href: quickstart-create-apache-spark-pool-studio.md
   - name: Tutorials
     items:
-    - name: Data visualization with Apache Spark
+    - name: Data visualization with Synapse Studio notebooks
       href: ./spark/apache-spark-data-visualization-tutorial.md
+    - name: Analyze data with Apache Spark and Power BI
+      href: ./spark/apache-spark-to-power-bi.md
     - name: Create machine learning models
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
