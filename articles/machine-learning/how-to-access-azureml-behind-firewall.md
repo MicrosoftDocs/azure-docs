@@ -73,6 +73,9 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
 
 1. Add __Application rules__ for the following hosts:
 
+    > [!NOTE]
+    > This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+
     | **Host name** | **Purpose** |
     | ---- | ---- |
     | **anaconda.com**</br>**\*.anaconda.com** | Used to install default packages. |
