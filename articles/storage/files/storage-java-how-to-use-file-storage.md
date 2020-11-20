@@ -73,13 +73,13 @@ public static final String storageConnectionString =
 
 # [Java v12](#tab/java)
 
-To connect to your storage account, you need to create a [ShareClient](/java/api/com.azure.storage.file.share.shareclient) object, passing in a connection string.
+To connect to your storage account, create a [ShareClient](/java/api/com.azure.storage.file.share.shareclient) object. Use the [ShareClientBuilder](/java/api/com.azure.storage.file.share.shareclientbuilder) class to build a new **ShareClient** object.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createClient":::
 
 # [Java v11](#tab/java11)
 
-To connect to your storage account, you need to use the **CloudStorageAccount** object, passing a connection string to its **parse** method.
+To connect to your storage account, use the **CloudStorageAccount** object, passing the connection string to its **parse** method.
 
 ```java
 // Use the CloudStorageAccount object to connect to your storage account
@@ -96,7 +96,7 @@ try {
 
 ## Create an Azure file share
 
-All files and directories in Azure Files are stored in a container called a share. To obtain access to a share and its contents, create an Azure Files client.
+All files and directories in Azure Files are stored in a container called a share.
 
 # [Java v12](#tab/java)
 
@@ -105,6 +105,8 @@ The [ShareClient.create](/java/api/com.azure.storage.file.share.shareclient.crea
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createFileShare":::
 
 # [Java v11](#tab/java11)
+
+To obtain access to a share and its contents, create an Azure Files client.
 
 ```java
 // Create the Azure Files client.
@@ -172,7 +174,7 @@ Organize storage by putting files inside subdirectories instead of having all of
 
 # [Java v12](#tab/java)
 
-The following method creates the *dirName* specified directory in the file share passed in through the *shareName* parameter. The method calls [ShareDirectoryClient.create](/java/api/com.azure.storage.file.share.sharedirectoryclient.create) and returns a `Boolean` value indicating if it successfully created the directory.
+The following method creates the *dirName* specified directory in the file share passed in through the *shareName* parameter by calling [ShareDirectoryClient.create](/java/api/com.azure.storage.file.share.sharedirectoryclient.create). The example method returns a `Boolean` value indicating if it successfully created the directory.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createDirectory":::
 
@@ -198,7 +200,7 @@ if (sampleDir.createIfNotExists()) {
 
 ## Delete a directory
 
-Deleting a directory is a straightforward task. You can't delete a directory that still contains files or other directories.
+Deleting a directory is a straightforward task. You can't delete a directory that still contains files or subdirectories.
 
 # [Java v12](#tab/java)
 
@@ -252,7 +254,7 @@ Learn how to upload a file from local storage.
 
 # [Java v12](#tab/java)
 
-The following code uploads a local file to Azure File storage by calling the [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile) method. The following method returns a `Boolean` value indicating if it successfully uploaded the specified file.
+The following code uploads a local file to Azure File storage by calling the [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile) method. The following example method returns a `Boolean` value indicating if it successfully uploaded the specified file.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_uploadFile":::
 
@@ -279,11 +281,11 @@ cloudFile.uploadFromFile(filePath);
 
 ## Download a file
 
-One of the more frequent operations is to download from Azure Files storage.
+One of the more frequent operations is to download files from Azure Files storage.
 
 # [Java v12](#tab/java)
 
-The following example downloads the specified file to the local directory specified in the *destDir* parameter. The method makes the downloaded filename unique by prepending the date and time.
+The following example downloads the specified file to the local directory specified in the *destDir* parameter. The example method makes the downloaded filename unique by prepending the date and time.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_downloadFile":::
 
@@ -313,7 +315,7 @@ Another common Azure Files operation is file deletion.
 
 # [Java v12](#tab/java)
 
-The following code deletes the file specified by the *dirName* and *fileName* parameters.
+The following code deletes the specified file specified. First, the example creates a [ShareDirectoryClient](/java/api/com.azure.storage.file.share.sharedirectoryclient) based on the *dirName* parameter. Then, the code gets a [ShareFileClient](/java/api/com.azure.storage.file.share.sharefileclient) from the directory client, based on the *fileName* parameter. Finally, the example method calls [ShareFileClient.delete](/java/api/com.azure.storage.file.share.sharefileclient.delete) to delete the file.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteFile":::
 
@@ -343,11 +345,11 @@ if ( file.deleteIfExists() ) {
 
 If you would like to learn more about other Azure storage APIs, follow these links.
 
-- [Azure for Java developers](/java/azure)/)
-- [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
-- [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
-- [Azure Storage Client SDK Reference](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
+- [Azure for Java developers](/azure/developer/java)
+- [Azure SDK for Java](https://github.com/azure/azure-sdk-for-java)
+- [Azure SDK for Android](https://github.com/azure/azure-sdk-for-android)
+- [Azure File Share client library for Java SDK Reference](/java/api/overview/azure/storage-file-share-readme)
 - [Azure Storage Services REST API](/rest/api/storageservices/)
-- [Azure Storage Team Blog](/archive/blogs/windowsazurestorage/)
+- [Azure Storage Team Blog](https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/)
 - [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy-v10.md)
 - [Troubleshooting Azure Files problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
