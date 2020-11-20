@@ -29,6 +29,7 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 ## Access your account settings
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account to:
+
 - Check your company's account verification status.
 - Confirm your Symantec ID, Seller ID, Microsoft Partner Network (MPN) ID, Publisher ID, and contact information, including the company approver and seller contact.
 - Create user accounts for anyone who will use your business account in Partner Center.
