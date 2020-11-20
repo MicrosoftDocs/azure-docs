@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: how-to, deploy
 ---
 
-# Deploy models trained with Azure Machine Learning on your local machine
+# Deploy on your local machines models trained with Azure Machine Learning
 
 This article teaches you how to use your local computer as a target for training or deploying models created in Azure Machine Learning. Azure Machine Learning's flexibility allows it to work with most Python machine learning frameworks. Machine learning solutions generally have complex dependencies that can be difficult to duplicate. This article will show you how to trade off total control versus ease of use.
 
