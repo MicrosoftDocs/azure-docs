@@ -76,7 +76,7 @@ Perform the following steps in the Azure portal to order a device.
 
    ![Select Data Box capacity](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. In **Order**, specify the **Basic** order details. Enter or select the following information and select **Next**.
+6. In **Order**, specify the **Basic** order details. Enter or select the following information.
 
     |Setting  |Value  |
     |---------|---------|
@@ -84,13 +84,13 @@ Perform the following steps in the Azure portal to order a device.
     |Resource group | The resource group you selected previously. |
     |Export order name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
 
-    ![Export order basics](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Export order basics](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Select **Next: Data Selection** to proceed.
 
 7. In **Data Selection**, select **Add storage account and export type**.
 
-    ![Add storage account and export type](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Add storage account and export type](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
 8. In **Select Export option**, specify the export option details. Enter or select the following information and select **Add**.
 
@@ -155,7 +155,7 @@ Perform the following steps in the Azure portal to order a device.
 
     If you want to create a new key, select **Create new**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
-      ![Create a new key option](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)<!--Update breadcrumbs-->
+      ![Create a new key option](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
 
       You'll be notified when the key has been created in your key vault.
 
@@ -185,9 +185,11 @@ Perform the following steps in the Azure portal to order a device.
 
     The user identity is shown in **Encryption type** settings.
 
+    You can collapse the **Encryption type** settings now.
+
     ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
 
-16. If you want to enable software-based double encryption, select **Enable double encryption for the order**. 
+16. If you want to enable software-based double encryption, expand **Double encryption (for high-security environments)**, and select **Enable double encryption for the order**. 
 
     The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
 
