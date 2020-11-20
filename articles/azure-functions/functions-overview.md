@@ -11,17 +11,17 @@ ms.custom: H1Hack27Feb2017, mvc
 
 # Introduction to Azure Functions
 
-We often build systems based on a series of important events. Whether you're building an API for a web application, reacting to data as it changes in a database, processing streams of IoT data, or even managing message queues - every application needs a way to run some logic as these events occur.
+We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  IoT data streams, or even managing message queues - every application needs a way to run computational logic as these events occur.
 
 To meet this need, Azure Functions provides "compute on-demand" - and in two significant ways.
 
 First, Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called "functions". Different functions can run anytime you need to respond to critical events.
 
-Second, as requests for a function increase, Azure makes available as many servers and instances of these blocks of code as necessary to meet demand - but only while needed. As demand falls, extra servers and application instances drop off automatically.
+Second, as requests for a function increase, Azure Functions makes available as many resources and instances of these blocks of code as necessary to meet demand - but only while needed. As requests fall, any extra resources and application instances drop off automatically.
 
-Where do all the compute resources come from? Azure Functions can [provide as many or as few resources as needed](./functions-scale.md) to meet your application's demand, and you might only be [billed when your functions are running](./pricing.md).
+Where do all the compute resources come from? Azure Functions [provides as many or as few compute resources as needed](./functions-scale.md) to meet your application's demand.
 
-Providing you with compute resources on-demand managed by Azure, where you pay for only what you use, is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/).
+Providing you with compute resources on-demand managed by Azure Functions, where you pay for only what you use, is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/).
 
 ## Scenarios
 
@@ -34,12 +34,17 @@ The following are common, _but by no means exhaustive_, set of scenarios for Azu
 | **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable-functions-overview.md) |
 | **Respond to database changes** | Run custom logic when a document is created or updated in [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Run scheduled tasks** | Execute code at [set times](./functions-bindings-timer.md) |
-| **Create reliable message queue** systems | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
+| **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analyze IoT data streams** | Collect and process [data from IoT devices](./functions-bindings-event-iot.md) |
 | **Process data in real time** | Use [Functions and Signal R](./functions-bindings-signalr-service.md) to respond to data in the moment |
-| **Troubleshoot code** | Use [monitoring tools](./functions-monitoring.md) and [testing strategies](./functions-test-a-function.md) |
-| **Use a preferred language** |  Write functions in your choice of [C#, Java, JavaScript, PowerShell, and Python](./supported-languages.md), or use a [custom handler](./functions-custom-handlers.md) to use virtually any other language |
-| **Automate deployment** | From a tools-based approach to using external pipelines, there's a [myriad of deployment options](./functions-deployment-technologies.md). |
+
+As you build your functions, you have the following options and resources available:
+
+- **Use your preferred language**: Write functions in [C#, Java, JavaScript, PowerShell, or Python](./supported-languages.md), or use a [custom handler](./functions-custom-handlers.md) to use virtually any other language.
+
+- **Automate deployment**: From a tools-based approach to using external pipelines, there's a [myriad of deployment options](./functions-deployment-technologies.md) available
+
+- **Troubleshoot code**: Use [monitoring tools](./functions-monitoring.md) and [testing strategies](./functions-test-a-function.md) to gain insights into your apps
 
 ## Next Steps
 
