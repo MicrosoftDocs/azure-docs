@@ -127,4 +127,3 @@ Use the new alert experience/near-realtime alerts if you need to notify users ba
 
 * [Multi-step web testing](availability-multistep.md)
 * [URL ping tests](monitor-web-app-availability.md)
-
