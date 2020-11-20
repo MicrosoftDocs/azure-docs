@@ -150,6 +150,8 @@
         href: app-attach-glossary.md
       - name: FAQ
         href: app-attach-faq.md
+  - name: Azure Monitor glossary
+    href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot
