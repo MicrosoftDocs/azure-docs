@@ -39,6 +39,8 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
     Authorized IP ranges only works with Standard Load Balancer.
 
+- When **attaching** an AKS cluster, it must be in the same Azure subscription as your Azure Machine Learning workspace.
+
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
 
 - The compute name for the AKS cluster MUST be unique within your Azure ML workspace.
@@ -301,5 +303,6 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 
 ## Next steps
 
+* [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [How and where to deploy a model](how-to-deploy-and-where.md)
 * [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md)

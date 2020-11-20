@@ -48,12 +48,12 @@ ms.date: 10/28/2020
 Refer to PLTW’s site for the [full list of software](https://www.pltw.org/pltw-software) for each class.
 
 ## Lab configuration
-To set up labs for PLTW, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). You can also use an existing lab account.
+To set up labs for PLTW, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
 
 Once you have a lab account, you should create separate labs for each session of a PLTW class that your school offers.  We also recommend that you create separate images for each type of PLTW class.  For more details on how to structure your labs and images, read the blog post: [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
 ### Lab account settings
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see the article on [how to specify Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see the article on [how to specify Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
 | -------------------- | ----- |
@@ -75,19 +75,19 @@ Most of the software that is used in the above PLTW classes do ***not*** require
 
 To use network licensing with Autodesk’s software, [PLTW provides detailed steps](https://www.pltw.org/pltw-software) to install Autodesk’s License Manager on your licensing server.  This licensing server is typically located in either your on-premise network or hosted on an Azure virtual machine (VM) within in Azure virtual network (VNet).
 
-After your license server is set up, you'll need to [peer the VNet](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) to your [lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). The network peering must be done *before* creating the lab so that lab virtual machines can access the license server and the other way around.
+After your license server is set up, you'll need to [peer the VNet](./how-to-connect-peer-virtual-network.md) to your [lab account](./tutorial-setup-lab-account.md). The network peering must be done *before* creating the lab so that lab virtual machines can access the license server and the other way around.
 
 Autodesk’s generated license files embed the MAC address of the licensing server.  If you decide to host your licensing server using an Azure VM, it’s important to make sure that your licensing server’s MAC address doesn’t change.   Otherwise, when the MAC address changes, your licensing files will need to be regenerated.  Follow these tips to prevent your MAC address from changing:
 
-- [Set a static private IP and MAC address](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource#static-private-ip-and-mac-address) for the Azure VM that hosts your licensing server.
+- [Set a static private IP and MAC address](./how-to-create-a-lab-with-shared-resource.md#static-private-ip-and-mac-address) for the Azure VM that hosts your licensing server.
 - Make sure that you set up both your lab account and licensing server’s VNet in a region\location that has sufficient VM capacity so that you don’t have to move these resources to a new region\location later.
 
-Also, read the article on [how to set up a licensing server as a shared resource](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource) for more information.
+Also, read the article on [how to set up a licensing server as a shared resource](./how-to-create-a-lab-with-shared-resource.md) for more information.
 
 ### Template machine
 Some of the installation files that you need for PLTW are large and take a long time to copy when you download them to a lab’s template machine.
 
-Instead of downloading install files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  Then, you can import the images into Shared Image Gallery so that you can use these custom images to create your labs.  Read the following article for details: [Upload a custom image to Shared Image Gallery](https://docs.microsoft.com/azure/lab-services/upload-custom-image-shared-image-gallery).
+Instead of downloading install files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  Then, you can import the images into Shared Image Gallery so that you can use these custom images to create your labs.  Read the following article for details: [Upload a custom image to Shared Image Gallery](./upload-custom-image-shared-image-gallery.md).
 
 Following this recommendation, here are the major tasks for setting up a lab:
 
@@ -98,11 +98,11 @@ Following this recommendation, here are the major tasks for setting up a lab:
     > [!NOTE]    
     > When you install Autodesk’s applications, the computer that you are installing Autodesk on needs to be able to communicate with your licensing server (Autodesk’s install wizard will prompt you to specify the computer name of the machine the license server is hosted on).  If you are hosting your licensing server on an Azure VM, you may need to wait to install Autodesk on the lab’s template machine so that Autodesk’s install wizard can access your licensing server
 
-    b.	[Install and configure OneDrive](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive) (or other back-up options that your school may use).
+    b.	[Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive) (or other back-up options that your school may use).
     
-    c.	[Install and configure Windows Updates](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-updates).
+    c.	[Install and configure Windows Updates](./how-to-prepare-windows-template.md#install-and-configure-updates).
 
-1.  Upload the custom image to the [Shared Image Gallery that is attached to your lab account](https://docs.microsoft.com/azure/lab-services/how-to-attach-detach-shared-image-gallery).
+1.  Upload the custom image to the [Shared Image Gallery that is attached to your lab account](./how-to-attach-detach-shared-image-gallery.md).
 
 1.  Create a lab and select the custom image that you uploaded in the previous step.
 
@@ -113,9 +113,9 @@ Following this recommendation, here are the major tasks for setting up a lab:
 ## Student devices
 Your students can connect to their lab VMs from Windows\Mac computers and Chromebooks.  Here are links to instructions for each of these options:
 
-- [Connect from Windows](https://docs.microsoft.com/azure/lab-services/how-to-use-classroom-lab#connect-to-the-vm)
-- [Connect from Mac](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-mac-remote-desktop)
-- [Connect from Chromebook](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-chromebook-remote-desktop)
+- [Connect from Windows](./how-to-use-classroom-lab.md#connect-to-the-vm)
+- [Connect from Mac](./connect-virtual-machine-mac-remote-desktop.md)
+- [Connect from Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
 ## Cost
 Let’s cover a possible cost estimate for the above PLTW classes.  This estimate doesn’t include the cost of running a licensing server or for using Shared Image Gallery.  We’ll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside of scheduled class time.  Refer to the below cost estimates for both the **Large** and **Small GPU (Visualization)** sizes.
@@ -140,4 +140,4 @@ Next steps are common to setting up any lab:
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users). 
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users).

@@ -149,7 +149,7 @@ For more information, see [Set up managed identity for compute cluster](how-to-c
 ## Use interactive authentication
 
 > [!IMPORTANT]
-> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md).
+> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 Most examples in the documentation and samples use interactive authentication. For example, when using the SDK there are two function calls that will automatically prompt you with a UI-based authentication flow:
 

@@ -17,7 +17,9 @@ ms.custom: aaddev, identityplatformtop40
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
 
-In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) application that can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
+In this quickstart, you download and run a code sample that demonstrates how a Windows desktop .NET (WPF) application can sign in users and obtain an access token to call the Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="docs"]
 > ## Prerequisites

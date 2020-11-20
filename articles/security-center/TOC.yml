@@ -89,7 +89,7 @@
     href: security-center-powershell-onboarding.md
   - name: Enable Security Center for a management group
     href: onboard-management-group.md
-  - name: Configure data collection
+  - name: Configure auto provisioning
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
