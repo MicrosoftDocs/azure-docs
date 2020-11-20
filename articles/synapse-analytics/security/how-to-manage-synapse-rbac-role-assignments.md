@@ -12,9 +12,9 @@ ms.reviewer: jrasnick
 
 ## How to manage Synapse RBAC role assignments in Synapse Studio
 
-Synapse RBAC uses roles to assign permissions to users, groups and other security principals to enable access and use of Synapse resources and code artifacts.  [Learn more](fwlink)
+Synapse RBAC uses roles to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources and code artifacts.  [Learn more](fwlink)
 
-This article explains how to add and delete Synapse RBAC role assignments to grant and revoke access to Apache Spark pools, Integration runtimes, Linked Services, Credentials and code artifacts like SQL scripts and Spark notebooks and jobs. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306) about Synapse RBAC.
+This article explains how to add and delete Synapse RBAC role assignments to grant and revoke access to Apache Spark pools, Integration runtimes, Linked Services, Credentials, and to code artifacts like SQL scripts and Spark notebooks and jobs. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306) about Synapse RBAC.
 
 >[!Note]
 >To manage Synapse RBAC role assignments you need to have the Synapse Administrator role on the workspace or at a lower level scope that includes the objects you want to manage. If you are a Synapse Administrator on the workspace you can grant access to all objects in the workspace. 
@@ -35,15 +35,15 @@ To assign a role to a user, group, service principal, or managed identity first 
 
  ![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/left-nav-security-access-control.png)
 
-The Access control screen lists current role assignments.  You can filter the list by principal name or email and  selectively filter which object types, roles, and/or scopes are included.
+The Access control screen lists current role assignments.  You can filter the list by principal name or email, and  selectively filter which object types, roles, or scopes are included.
 
 ## Add a Synapse role assignment
 
-On the access control screen, click **+Add** to create a new role assignment
+On the access control screen, select **+Add** to create a new role assignment
 
 ![Click + Add to create a new role assignment](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add.png)
 
-On the Add role assignment blade that opens you can create role assignments at workspace scope or workspace item scope. 
+On the Add role assignment tab, you can create role assignments at workspace scope or workspace item scope. 
 
 ## Add workspace-scoped role assignment
 
@@ -55,21 +55,21 @@ The assigned role will apply to the principal for all applicable objects in the 
 
 ## Add workspace item-scoped role assignment
 
-Select **Workspace item** as the scope, then select the scoping **item type**, which may be Apache Spark pool, Integration runtime, Linked service or Credential.       
+Select **Workspace item** as the scope, then select the scoping **item type**, which may be Apache Spark pool, Integration runtime, Linked service, or Credential.       
 
 ![Add workspace item role assignment - select item type](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Then **select the item** to be used as the scope (e.g. a specific ApacheSpark pool or Linked service), then **select the role** to be assigned from the drop down.  The drop down lists only those roles that are valid for the given item type. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306).  
+Select the **item** to be used as the scope, then select the **role** to be assigned from the drop-down.  The drop-down lists only those roles that are valid for the selected item type. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306).  
 
 ![Add workspace item role assignment - select role](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
-Then **select the principal(s)** to which the role is to be assigned.  You can iteratively selecte multiple principals.  Select **Apply** to create the role assignment(s).
+Then **select the principal(s)** to which the role is to be assigned.  You can iteratively select multiple principals.  Select **Apply** to create the role assignment(s).
 
 
 
 ## Delete a Synapse RBAC role assignment
 
-To revoke Synapse RBAC access you delete the applicable role assignment.  On the Access control use the filters to locate the role assignment(s) to be deleted.  Check the role assignments and then click Remove access.   
+To revoke Synapse RBAC access, you remove the applicable role assignments.  On the Access control screen, use the filters to locate the role assignment(s) to be removed.  Check the role assignments and then select **Remove access**.   
 
 ![Delete a role assignment to remove access](./media/how-to-manage-synapse-rbac-role-assignments/access-control-remove-access.png)
 

@@ -9,45 +9,45 @@ ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
 ---
-# Understand which roles are required to perform common tasks in Synapse
+# Understand the roles required to perform common tasks in Synapse
 
-This article will help you understand which Synapse role based access control (RBAC) or Azure RBAC roles you need to get work done in Synapse Studio.  
+This article will help you understand which Synapse RBAC (role-based access control) or Azure RBAC roles you need to get work done in Synapse Studio.  
 
 ## Synapse Studio access control and workflow summary 
 
 ### Accessing Synapse Studio
-- You can open Synapse Studio on a Synapse workspace if you have been assigned any Synapse RBAC role on the workspace or any of the resources in it, or if you have Azure Owner, Contributor, or Reader roles on the workspace. 
+- You can open Synapse Studio on a Synapse workspace if you have been assigned any Synapse RBAC role on the workspace or any of its content, or if you have Azure Owner, Contributor, or Reader roles on the workspace. 
 
 ### Resource management
-- You can list and view details of the workspace or any of its ARM resources (SQL pools, Spark pools, or integration runtimes) if you are an Azure Owner, Contributor, or Reader on the workspace or have been assigned any Synapse RBAC role at any scope.
-- You can create SQL pools, Apache Spark pools, integration runtimes if you are an Azure Owner or Contributor on the workspace.
-- You can manage these resources (e.g. pause or scale dedicated SQL pools, configure Spark pools or integration runtimes) if you are an Azure Owner or Contributor on the workspace or on a specific resource.
+- You can list and view details of the workspace or any of its Azure resources (SQL pools, Spark pools, or integration runtimes) if you're an Azure Owner, Contributor, or Reader on the workspace or have been assigned any Synapse RBAC role.
+- You can create SQL pools, Apache Spark pools, integration runtimes if you're an Azure Owner or Contributor on the workspace.
+- You can pause or scale dedicated SQL pools, configure Spark pools or integration runtimes if you're an Azure Owner or Contributor on the workspace or a specific resource.
 
 ### Editing code artifacts
 
-- With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, notebooks, spark jobs, linked services, pipelines, dataflows, triggers and credentials.  (These artifacts can be published or saved with additional permissions.)  
-- If you are a Synapse Artifact Reader, Synapse Artifact Author, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts.
+- With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, notebooks, spark jobs, linked services, pipelines, dataflows, triggers, and credentials.  (These artifacts can be published or saved with additional permissions.)  
+- If you're a Synapse Artifact Reader, Synapse Artifact Author, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts.
 
 ### Executing your code
 
-- With the necessary SQL permissions (defined in the SQL pools) you can execute SQL scripts on those SQL pools.  
+- You can execute SQL scripts on SQL pools if you have the necessary SQL permissions defined in those SQL pools.  
 - You can run notebooks and Spark jobs if you have Synapse Compute Manager permissions on the workspace or specific Apache Spark pools.  
 - With compute usage on the workspace of specific integration runtimes and appropriate credential permissions you can execute pipelines and the activities orchestrated within them.
 
 ### Monitoring and managing execution
-- You can review the status of running notebooks and jobs in Apache Spark pools if you are a Synapse Reader.
-- You can review logs and cancel running jobs and pipelines if you are a Synapse Compute Manager at the workspace or for a specific Spark pool or pipeline.  
+- You can review the status of running notebooks and jobs in Apache Spark pools if you're a Synapse Reader.
+- You can review logs and cancel running jobs and pipelines if you're a Synapse Compute Manager at the workspace or for a specific Spark pool or pipeline.  
 
 ### Publishing and saving your code
 
-- You can publish new or updated code artifacts to the service if you are a Synapse Artifact Author, Synapse Contributor or Synapse Administrator. 
-- If the workspace is Git-enabled and you have Git permissions (and it is in Git mode and not Synapse live mode, you can commit (save) code artifacts to a working branch of your configured repository.  With Git enabled, publishing to the service is only recommended from the collaboration branch. 
-- If you close Synapse Studio without first publishing or committing any changes you have made to any code artifacts, then those changes will be lost.
+- You can publish new or updated code artifacts to the service if you're a Synapse Artifact Author, Synapse Contributor, or Synapse Administrator. 
+- You can commit/save code artifacts to a working branch of your configured repository if the workspace is Git-enabled and you have Git permissions. With Git enabled, publishing to the service is only recommended from the collaboration branch. 
+- If you close Synapse Studio without publishing or committing any changes you've made to any code artifacts, then those changes will be lost.
 
 
 ## Tasks and required roles
 
-The table below lists common tasks and for each task, the Synapse RBAC or Azure RBAC roles required. Tasks are grouped by analytics runtime, and then organized into resource management and monitoring, code editing, code execution, code publishing and saving.   
+The table below lists common tasks and for each task, the Synapse RBAC, or Azure RBAC roles required. Tasks are grouped by analytics runtime, and then organized into resource management and monitoring, code editing, code execution, code publishing, and saving.   
 
 >[!Note]
 >- Synapse Administrator is not listed for each task unless it is the only role that provides the necessary permission.  A Synapse Administrator can perform all tasks enabled by other Synapse RBAC roles.</br>
@@ -67,7 +67,7 @@ Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor 
 Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
 Create a SQL script</br>|Synapse Reader, or </br>Azure Owner, Contributor of the workspace, </br>*Additional permissions are required to run, publish, or save the SQL script*|
 List and open any published SQL script| Synapse Artifact Reader, Artifact Author, Contributor|artifacts/read
-Run a SQL script on a serverless SQL pool|Requires SQL permissions on the pool. </br>*Basic SQL data read, write and grant permissions are provided with the Synapse Administrator role.*|
+Run a SQL script on a serverless SQL pool|Requires SQL permissions on the pool. </br>*Basic SQL data read, write, and grant permissions are provided with the Synapse Administrator role.*|
 Run a SQL script on a dedicated SQL pool|Requires SQL permissions on the pool. </br>*Basic SQL data read, write and grant permissions are provided with the Synapse Administrator role.*|
 Publish a new, updated, or deleted SQL script|Synapse Artifact Author, Synapse Contributor|sqlScripts/write, delete
 Commit changes to a SQL script to a Git repo|Requires Git permissions on the repo|
