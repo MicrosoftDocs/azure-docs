@@ -146,7 +146,7 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 Release note for `2.7.0-amd64`:
 
 **Features**
-* Prunctuation is set as enabled by default.
+* Punctuation is set as enabled by default.
 
 Note that due to the included phrase lists, the size of this container image has increased.
 
