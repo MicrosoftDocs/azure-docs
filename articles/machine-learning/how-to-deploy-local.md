@@ -25,7 +25,7 @@ Some scenarios for local deploy include:
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
-- A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-models-with-aml.md)
+- A model and environment. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](tutorial-train-models-with-aml.md)
 - The [Azure Machine Learning software development kit (SDK) for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 - A conda manager such as Anaconda or miniconda, if you wish to mirror Azure Machine Learning's package dependencies
 - Docker, if you wish to use a containerized version of the Azure Machine Learning environment
@@ -56,7 +56,6 @@ The object you return from the `run()` method must implement `toJSON() -> string
 The following example demonstrates how to load a registered scikit-learn model and score it with numpy data. This example is based on the model and dependencies of [this tutorial](tutorial-train-models-with-aml.md):
 
 ```python
-%%writefile score.py
 import json
 import numpy as np
 import os
@@ -96,7 +95,6 @@ The easiest way to replicate the environment used by Azure Machine Learning is t
 The following code shows these steps:
 
 ```python
-%%writefile deploy_local_with_docker.py
 from azureml.core.webservice import Webservice
 from azure.core.model import InferenceConfig
 from azureml.core.environment import Environment
@@ -129,7 +127,6 @@ The call to `Model.deploy()` can take a few minutes. After you've initially depl
 When you run the previous deployment script, it will output the URI to which you can POST data for scoring (for instance, `http://localhost:6789/score`). The following sample shows a script that scores sample data with the `"sklearn-mnist-local"` locally deployed model. The model, if properly trained, infers that `normalized_pixel_values` should be interpreted as a "2". 
 
 ```python
-%%writefile invoke_local_webservice.py
 import requests
 
 normalized_pixel_values = "[\
@@ -178,13 +175,13 @@ print("prediction:", resp.text)
 While using Docker to deploy your model as a web service is the most common option, you may also want to run your code directly with local Python scripts. There are two important elements that you will need: 
 
 - The model itself
-- The dependencies upon which the model relies (the tk Environment or InferenceConfig tk)
+- The dependencies upon which the model relies 
 
 Downloading the model can be done:  
 
 - From the portal, by choosing the **Models** tab, selecting the desired model, and from the **Details** page, choosing **Download**
-- From the command line, by using `az ml model download` (see the [model download reference](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download))
-- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-)
+- From the command line, by using `az ml model download` (see the [model download reference](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download&preserve-view=false))
+- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false)
 
 An Azure model is one or more serialized Python objects, packaged as a Python pickle file (**.pkl** extension). The contents of the pickle file depend upon the ML library or technique used to train the model. For instance, with the model from the tutorial, you might load the model with:
 
