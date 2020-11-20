@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate ekarda with Azure Active Directo
 * Enable your users to be automatically signed in to ekarda by using their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is single sign-on (SSO)?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is single sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * ekarda supports SP-initiated and IDP-initiated SSO.
 * ekarda supports just-in-time user provisioning.
-* After you configure ekarda, you can enforce session control. This precaution protects against exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access App Control. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure ekarda, you can enforce session control. This precaution protects against exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access App Control. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add ekarda from the gallery
 
@@ -166,14 +166,14 @@ In this section, a user called B.Simon is created in ekarda. ekarda supports jus
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select the ekarda tile in the My Apps portal, you should be automatically signed in to the ekarda site for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the ekarda tile in the My Apps portal, you should be automatically signed in to the ekarda site for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-* [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-* [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [List of tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 * [Try ekarda with Azure AD](https://aad.portal.azure.com/)
 * Use [ekarda's enterprise eCard solution](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) to provision any number of your staff to send eCards, branded with your company logo, to their clients and colleagues. Learn more about [provisioning ekarda as an SSO solution](https://support.ekarda.com/#SSO-Implementation).
-* [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-* [How to protect ekarda with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+* [How to protect ekarda with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -236,7 +236,7 @@ You should get the following results once the command completes:
     done
     ```
 
-The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](https://docs.microsoft.com/cli/azure/vm) article.
+The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](/cli/azure/vm) article.
 
 You should get results similar to the following once the command completes for each VM:
 

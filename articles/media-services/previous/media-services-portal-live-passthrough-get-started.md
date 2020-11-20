@@ -129,7 +129,7 @@ For more details about pass-through channels, see [Live streaming with on-premis
 ## Get ingest URLs
 Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
-![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Screenshot that shows the "Live streaming" page with a channel selected and the channel pane displayed.](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## Watch the event
 To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 

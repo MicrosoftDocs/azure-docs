@@ -56,5 +56,5 @@ Click **Security alerts** under **THREAT PROTECTION** to launch the Azure Securi
 
 ## Next steps
 
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* For more information on pricing, see the [Azure Database for PostgreSQL Pricing page](https://azure.microsoft.com/pricing/details/postgresql/)  
+* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)
+* For more information on pricing, see the [Azure Database for PostgreSQL Pricing page](https://azure.microsoft.com/pricing/details/postgresql/)

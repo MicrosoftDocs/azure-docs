@@ -13,6 +13,7 @@
   - name: Create an ExpressRoute circuit - CLI
     href: howto-circuit-cli.md
   - name: Create an ExpressRoute circuit - ARM template
+    displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Tutorials
@@ -95,6 +96,10 @@
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Security attributes
     href: expressroute-security-controls.md
   - name: BFD over ExpressRoute
@@ -108,7 +113,7 @@
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
     - name: Using VPN as a backup
-      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md    
+      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: How-to guides
   items:
   - name: Configuring ExpressRoute Direct
@@ -269,5 +274,3 @@
       href: expressroute-howto-add-gateway-classic.md
     - name: Create and modify public peering
       href: about-public-peering.md
-  - name: Security baseline
-    href: security-baseline.md

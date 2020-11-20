@@ -1,13 +1,13 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 09/09/2020
+ms.date: 10/30/2020
 ms.topic: conceptual
 ---
 
 # Managing and maintaining the Connected Machine agent
 
-After initial deployment of the Azure Arc enabled servers Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Azure Arc enabled servers Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Before uninstalling agent
 
@@ -33,7 +33,11 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
 ## Upgrading agent
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. The following table describes the methods supported to perform the agent upgrade.
+The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Arc enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
+
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements.
+
+The following table describes the methods supported to perform the agent upgrade.
 
 | Operating system | Upgrade method |
 |------------------|----------------|
@@ -133,7 +137,7 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
     zypper update
     ```
 
-Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file. 
+Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file.
 
 ## About the Azcmagent tool
 
@@ -143,9 +147,11 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **Disconnect** - To disconnect the machine from Azure Arc
 
-* **Reconnect** - To reconnect a disconnected machine to Azure Arc
+* **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
 
-* **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent.
+* **Logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
+
+* **Version** - Shows the Connected Machine agent version.
 
 * **-h or --help** - Shows available command-line parameters
 
@@ -153,7 +159,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **-v or --verbose** - Enable verbose logging
 
-You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
+You can perform a **Connect** and **Disconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
 
 >[!NOTE]
 >You must have *root* access permissions on Linux machines to run **azcmagent**.
@@ -193,28 +199,7 @@ To disconnect using an access token, run the following command:
 
 To disconnect with your elevated logged-on credentials (interactive), run the following command:
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### Reconnect
-
-> [!WARNING]
-> The `reconnect` command is deprecated and should not be used. The command will be removed in a future agent release and existing agents will be unable to complete the reconnect request. Instead, [disconnect](#disconnect) your machine then [connect](#connect) it again.
-
-This parameter reconnects the already registered or connected machine with Azure Arc enabled servers. This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
-
-This command requires higher privileges than the [Azure Connected Machine Onboarding](agent-overview.md#required-permissions) role.
-
-To reconnect using a service principal, run the following command:
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-To reconnect using an access token, run the following command:
-
-`azcmagent reconnect --access-token <accessToken>`
-
-To reconnect with your elevated logged-on credentials (interactive), run the following command:
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## Remove the agent
 

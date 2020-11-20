@@ -87,7 +87,7 @@ The name of this setting is `deviceAutoDeleteProperties`. If you are using the I
 | Property | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | deleteOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. <br><br> Environment variable: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires. <br><br> Environment variable: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires. Current maximum minutes allowed is 35791. <br><br> Environment variable: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true.  <br><br> **CAUTION**: If you are using append blobs, this setting will delete append blobs from local storage when the value expires, and any future Append Block operations to those blobs will fail. You may want to make sure the expiry value is large enough for the expected frequency of append operations performed by your application.<br><br> Environment variable: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## Using SMB share as your local storage
@@ -190,7 +190,7 @@ The following quickstart samples use languages that are also supported by IoT Ed
 
 ## Connect to your local storage with Azure Storage Explorer
 
-You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account.
+You can use [Azure Storage Explorer](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) to connect to your local storage account.
 
 1. Download and install Azure Storage Explorer
 

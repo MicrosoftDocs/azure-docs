@@ -18,7 +18,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:U
 
 # Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-This quickstart uses a code sample to demonstrate how a Universal Windows Platform (UWP) application can sign in users with personal accounts or work and school accounts, get an access token, and call the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users and obtain an access token to call the Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="docs"]
 > ## Prerequisites

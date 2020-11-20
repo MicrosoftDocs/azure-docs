@@ -58,7 +58,7 @@ To learn how to configure a security policy, see [Setting security policies in A
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
 
 * Provisioning of anti-malware to help identify and remove malicious software
-* [Network security groups](../virtual-network/security-overview.md) and rules to control traffic to virtual machines
+* [Network security groups](../virtual-network/network-security-groups-overview.md) and rules to control traffic to virtual machines
 * Provisioning of a web application firewall to help defend against attacks targeting your web applications
 * Deploying missing system updates
 * Addressing OS configurations that do not match the recommended baselines

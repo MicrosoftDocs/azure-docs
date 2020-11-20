@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: [mvc, mqtt, 'Role: Cloud Development']
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 04/10/2019
 ms.author: wesmc
 # As a C developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
@@ -23,9 +23,7 @@ The quickstart uses a C sample application from the [Azure IoT device SDK for C]
 
 This article is written for Windows, but you can complete this quickstart on Linux as well.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -35,12 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-
-* Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

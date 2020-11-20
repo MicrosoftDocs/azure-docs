@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 03/21/2018
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 ### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
 

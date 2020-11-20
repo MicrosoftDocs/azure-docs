@@ -61,7 +61,7 @@ You can use the Azure Storage client libraries in any type of .NET application, 
 You need to reference the following four packages in your project to complete this tutorial:
 
 - [Azure Core library for .NET](https://www.nuget.org/packages/Azure.Core/): This package provides shared primitives, abstractions, and helpers for modern .NET Azure SDK client libraries.
-- [Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Azure.Storage.Common/): This package  provides infrastructure shared by the other Azure Storage client libraries.
+- [Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Azure.Storage.Common/): This package provides infrastructure shared by the other Azure Storage client libraries.
 - [Azure Storage Queue Library for .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): This package enables working with the Azure Storage Queue service for storing messages that may be accessed by a client.
 - [Configuration Manager library for .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): This package provides access to configuration files for client applications.
 
@@ -345,7 +345,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## Use Async-Await pattern with common Queue storage APIs
 
-This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # [\.NET v12](#tab/dotnet)
 
@@ -394,8 +394,7 @@ The following code example uses the [ReceiveMessages](/dotnet/api/azure.storage.
 
 # [\.NET v11](#tab/dotnetv11)
 
-The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since
-the call to `GetMessages`, any messages which have not been deleted will become visible again.
+The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since the call to `GetMessages`, any messages which have not been deleted will become visible again.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -486,10 +485,10 @@ queue.Delete();
 Now that you've learned the basics of Queue storage, follow these links to learn about more complex storage tasks.
 
 - View the Queue service reference documentation for complete details about available APIs:
-  - [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Storage Client Library for .NET reference](/dotnet/api/overview/azure/storage)
+  - [REST API reference](/rest/api/storageservices/)
 - View more feature guides to learn about additional options for storing data in Azure.
-  - [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) to store structured data.
-  - [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
+  - [Get started with Azure Table storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) to store structured data.
+  - [Get started with Azure Blob storage using .NET](../blobs/storage-quickstart-blobs-dotnet.md) to store unstructured data.
   - [Connect to SQL Database by using .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) to store relational data.
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

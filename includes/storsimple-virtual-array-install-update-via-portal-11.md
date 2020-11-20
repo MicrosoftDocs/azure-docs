@@ -25,23 +25,23 @@ ms.custom: include file
  
 4. Once the updates are scanned, click **Download updates**. Under **New updates**, review the release notes. Also note that after the updates are downloaded, you need to confirm the installation. Click **OK**.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate6m.png)
+    ![update device 2](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate6m.png)
 
     You are notified when the upload starts and completes successfully.
 
 5. Under **Device updates**, click **Install**.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate11m1.png)
+     ![update device 3](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate11m1.png)
 
 6. Under **New updates**, you are warned that the update is disruptive. As virtual array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click **OK** to install the updates.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate12m.png)
+    ![update device 4](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate12m.png)
 
     You are notified when the install job starts.
 
 7.  After the install job completes successfully, click **View Job** link. This action takes you to the **Install Updates** blade. You can view detailed information about the job here. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate16m1.png)
+    ![update device 5](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate16m1.png)
 
 8. If you started with a virtual array running software version Update 1 (10.0.10296.0), you are now running Update 1.1 and are done. You can skip the remaining steps. 
 

@@ -108,7 +108,7 @@ To authenticate to your search service, you will need the service URL and an acc
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
 
 Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -346,7 +346,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(blobIndexer);
 try
 {
     // Run the indexer.
-    await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+    await searchService.Indexers.RunAsync(blobIndexer.Name);
 }
 catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 {

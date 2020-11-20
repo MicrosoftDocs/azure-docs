@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 This article helps you connect virtual networks (VNets) by using the VNet-to-VNet connection type. Virtual networks can be in different regions and from different subscriptions. When you connect VNets from different subscriptions, the subscriptions don't need to be associated with the same Active Directory tenant. 
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram":::
 
 The steps in this article apply to the Azure Resource Manager deployment model and use the Azure portal. You can create this configuration with a different deployment tool or model by using options that are described in the following articles:
 
@@ -61,7 +61,7 @@ You may want to connect virtual networks by using a VNet-to-VNet connection for 
 
 VNet-to-VNet communication can be combined with multi-site configurations. These configurations lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
-![About connections](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="VNet connections diagram":::
 
 This article shows you how to connect VNets by using the VNet-to-VNet connection type. When you follow these steps as an exercise, you can use the following example settings values. In the example, the virtual networks are in the same subscription, but in different resource groups. If your VNets are in different subscriptions, you can't create the connection in the portal. Use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or [CLI](vpn-gateway-howto-vnet-vnet-cli.md) instead. For more information about VNet-to-VNet connections, see [VNet-to-VNet FAQ](#vnet-to-vnet-faq).
 
@@ -128,6 +128,8 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. Your connection won't work properly if you have overlapping subnets.
 
 ### To create a virtual network
+
+[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
@@ -204,6 +206,6 @@ View the FAQ details for additional information about VNet-to-VNet connections.
 
 ## Next steps
 
-* For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/security-overview.md).
+* For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/network-security-groups-overview.md).
 
 * For information about how Azure routes traffic between Azure, on-premises, and Internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).

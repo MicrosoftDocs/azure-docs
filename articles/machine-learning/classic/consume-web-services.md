@@ -13,7 +13,7 @@ ms.date: 05/29/2020
 ---
 # How to consume a Machine Learning Studio (classic) web service
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Once you deploy an Azure Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.

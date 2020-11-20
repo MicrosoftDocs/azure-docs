@@ -91,7 +91,7 @@ From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web ap
    dotnet add package Microsoft.AspNetCore.SignalR.Client --version 3.1.7
    ```
 
-1. Create `ChartRoom.razor` under `Pages` folder to implement SignalR client. Follow steps below or simply copy the [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
+1. Create `ChatRoom.razor` under `Pages` folder to implement SignalR client. Follow steps below or simply copy the [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
 
    1. Add page link and reference.
       
@@ -280,7 +280,7 @@ From Visual Studio 2019 version 16.2.0, Azure SignalR Service is build-in web ap
    </li>
    ```
    
-1. Update `site.css` to optimize for chart area bubble views. Append below code in the end.
+1. Update `site.css` to optimize for chat area bubble views. Append below code in the end.
 
    ```css
    /* improved for chat text box */

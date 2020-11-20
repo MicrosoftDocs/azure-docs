@@ -164,7 +164,7 @@ In a Spark compute context, you can create data sources by using the following f
 |`RxParquetData` | Generates a Parquet Data Source object.|
 |`RxOrcData` | Generates an Orc Data Source object.|
 
-Create an [RxTextData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxtextdata) object by using the files you copied to HDFS. In RStudio, enter the following code:
+Create an [RxTextData](/machine-learning-server/r-reference/revoscaler/rxtextdata) object by using the files you copied to HDFS. In RStudio, enter the following code:
 
 ```R
 airDS <- RxTextData( airDataDir,
@@ -175,7 +175,7 @@ airDS <- RxTextData( airDataDir,
 
 ## Create a compute context for Spark
 
-To load data and run analyses on worker nodes, you set the compute context in your script to [RxSpark](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark). In this context, R functions automatically distribute the workload across all the worker nodes, with no built-in requirement for managing jobs or the queue. The Spark compute context is established through `RxSpark` or `rxSparkConnect()` to create the Spark compute context, and it uses `rxSparkDisconnect()` to return to a local compute context. In RStudio, enter the following code:
+To load data and run analyses on worker nodes, you set the compute context in your script to [RxSpark](/machine-learning-server/r-reference/revoscaler/rxspark). In this context, R functions automatically distribute the workload across all the worker nodes, with no built-in requirement for managing jobs or the queue. The Spark compute context is established through `RxSpark` or `rxSparkConnect()` to create the Spark compute context, and it uses `rxSparkDisconnect()` to return to a local compute context. In RStudio, enter the following code:
 
 ```R
 # Define the Spark compute context
@@ -187,7 +187,7 @@ rxSetComputeContext(mySparkCluster)
 
 ## Fit a linear model
 
-1. Use the [rxLinMod](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxlinmod) function to fit a linear model using your `airDS` data source. In RStudio, enter the following code:
+1. Use the [rxLinMod](/machine-learning-server/r-reference/revoscaler/rxlinmod) function to fit a linear model using your `airDS` data source. In RStudio, enter the following code:
 
     ```R
     system.time(
@@ -243,7 +243,7 @@ rxSetComputeContext(mySparkCluster)
 
 As you've seen, you can analyze CSV files directly with R on Hadoop. But you can do the analysis more quickly if you store the data in a more efficient format. The R XDF file format is efficient, but it's modified somewhat for HDFS so that individual files remain within a single HDFS block. (The HDFS block size varies from installation to installation but is typically either 64 MB or 128 MB.) 
 
-When you use [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) on Hadoop to create a set of composite XDF files, you specify an `RxTextData` data source such as `AirDS` as the inData and an `RxXdfData` data source with fileSystem set to an HDFS file system as the outFile argument. You can then use the `RxXdfData` object as the data argument in subsequent R analyses.
+When you use [rxImport](/machine-learning-server/r-reference/revoscaler/rximport) on Hadoop to create a set of composite XDF files, you specify an `RxTextData` data source such as `AirDS` as the inData and an `RxXdfData` data source with fileSystem set to an HDFS file system as the outFile argument. You can then use the `RxXdfData` object as the data argument in subsequent R analyses.
 
 1. Define an `RxXdfData` object. In RStudio, enter the following code:
 
@@ -294,7 +294,7 @@ When you use [rxImport](https://docs.microsoft.com/machine-learning-server/r-ref
 
 ### In a Spark context
 
-If you converted your CSV files to XDF file format for greater efficiency while running the analyses, but now want to convert your data back to CSV, you can do so by using [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep).
+If you converted your CSV files to XDF file format for greater efficiency while running the analyses, but now want to convert your data back to CSV, you can do so by using [rxDataStep](/machine-learning-server/r-reference/revoscaler/rxdatastep).
 
 To create a folder of CSV files, first create an `RxTextData` object by using a directory name as the file argument. This object represents the folder in which to create the CSV files. This directory is created when you run the `rxDataStep`. Then, point to this `RxTextData` object in the `outFile` argument of the `rxDataStep`. Each CSV that's created is named based on the directory name and followed by a number.
 
@@ -362,4 +362,4 @@ To delete a cluster, see [Delete an HDInsight cluster by using your browser, Pow
 In this tutorial, you learned how to use R functions in Apache Spark that are running on an HDInsight Machine Learning services cluster. For more information, see the following articles:
 
 * [Compute context options for an Azure HDInsight Machine Learning services cluster](r-server-compute-contexts.md)
-* [R Functions for Spark on Hadoop](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)
+* [R Functions for Spark on Hadoop](/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)

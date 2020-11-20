@@ -32,13 +32,13 @@ This action takes you to the data flow canvas, where you can create your transfo
 
 Mapping data flow has a unique authoring canvas designed to make building transformation logic easy. The data flow canvas is separated into three parts: the top bar, the graph, and the configuration panel. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Screenshot shows the data flow canvas with top bar, graph, and configuration panel labeled.](media/data-flow/canvas1.png "Canvas")
 
 ### Graph
 
 The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Screenshot shows the graph part of the canvas with a Search text box.](media/data-flow/canvas2.png "Canvas")
 
 ### Configuration panel
 

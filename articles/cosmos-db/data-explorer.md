@@ -10,6 +10,7 @@ ms.author: dech
 ---
 
 # Work with data using Azure Cosmos explorer 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB. Azure Cosmos DB explorer is equivalent to the existing **Data Explorer** tab that is available in Azure portal when you create an Azure Cosmos DB account. The key advantages of Azure Cosmos DB explorer over the existing Data explorer are:
 
@@ -21,7 +22,7 @@ Azure Cosmos DB explorer is a standalone web-based interface that allows you to 
 
 ## Access Azure Cosmos DB explorer
 
-1. Sign in to [Azure Portal](https://portal.azure.com/). 
+1. Sign in to [Azure portal](https://portal.azure.com/). 
 
 2. From **All resources**, find and navigate to your Azure Cosmos DB account, select Keys, and copy the **Primary Connection String**.  
 
@@ -45,10 +46,10 @@ Currently the **Open Full Screen** experience that allows you to share temporary
 
 Currently, viewing documents that contain a UUID is not supported in Data Explorer. This does not affect loading collections, only viewing individual documents or queries that include these documents. To view and manage these documents, users should continue to use the tool that was originally used to create these documents.
 
-Customers receiving HTTP-401 errors may be due to insufficient RBAC permissions for the customer's Azure account, particularly if the account has a custom RBAC role. Any custom roles must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action to use Data Explorer if signing in using their Azure Active Directory credentials.
+Customers receiving HTTP-401 errors may be due to insufficient Azure RBAC permissions for the customer's Azure account, particularly if the account has a custom role. Any custom roles must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action to use Data Explorer if signing in using their Azure Active Directory credentials.
 
 ## Next steps
 
 Now that you have learned how to get started with Azure Cosmos DB explorer to manage your data, next you can:
 
-* Start defining [queries](sql-api-query-reference.md) using SQL syntax and perform [server side programming](stored-procedures-triggers-udfs.md) by using stored procedures, UDFs, triggers. 
+* Start defining [queries](./sql-query-getting-started.md) using SQL syntax and perform [server side programming](stored-procedures-triggers-udfs.md) by using stored procedures, UDFs, triggers.

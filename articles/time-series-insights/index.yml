@@ -62,6 +62,8 @@ landingContent:
         links:
           - text: Provision and manage
             url: time-series-insights-update-how-to-manage.md
+          - text: How to select a TSID
+            url: how-to-select-tsid.md
           - text: Grant data access
             url: time-series-insights-data-access.md
           - text: Create Time Series Model

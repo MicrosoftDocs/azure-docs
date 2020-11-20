@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/05/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -194,7 +194,7 @@ To enable Azure AD OAuth for your logic app in the Azure portal, follow these st
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Policy name** | Yes | The name that you want to use for the authorization policy |
-   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
+   | **Claims** | Yes | The claim types and values that your logic app accepts from inbound calls. The claim value is limited to 80 characters. Here are the available claim types: <p><p>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token ID) <p><p>At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Azure AD issuer ID. For more information about these claim types, see [Claims in Azure AD security tokens](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). You can also specify your own claim type and value. |
    |||
 
 1. To add another claim, select from these options:
@@ -303,28 +303,91 @@ To add more [authentication protocols](../active-directory/develop/authenticatio
 
 Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app. For example, if you manage your request endpoint by using [Azure API Management](../api-management/api-management-key-concepts.md), you can restrict your logic app to accept requests only from the IP address for the [API Management service instance that you create](../api-management/get-started-create-service-instance.md).
 
+> [!NOTE]
+> Regardless of any IP addresses that you specify, you can still run a logic app that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+
+<a name="restrict-inbound-ip-portal"></a>
+
 #### Restrict inbound IP ranges in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
 1. On your logic app's menu, under **Settings**, select **Workflow settings**.
 
-1. Under **Access control configuration** > **Allowed inbound IP addresses**, select **Specific IP ranges**.
+1. In the **Access control configuration** section, under **Allowed inbound IP addresses**, choose the path for your scenario:
 
-1. When the **IP ranges for triggers** box appears, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
+   * To make your logic app callable only as a nested logic app by using the built-in [Azure Logic Apps action](../logic-apps/logic-apps-http-endpoint.md), select **Only other Logic Apps**, which works *only* when you use the **Azure Logic Apps** action to call the nested logic app.
+   
+     This option writes an empty array to your logic app resource and requires that only calls from parent logic apps that use the built-in **Azure Logic Apps** action can trigger the nested logic app.
 
-   For example, to make your logic app callable only as a nested logic app through the HTTP action, use the **Specific IP ranges** option (not the **Only other Logic Apps** option), and enter the parent logic app's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound).
+   * To make your logic app callable only as a nested app by using the HTTP action, select **Specific IP ranges**, *not* **Only other Logic Apps**. When the **IP ranges for triggers** box appears, enter the parent logic app's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound). A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
+   
+     > [!NOTE]
+     > If you use the **Only other Logic Apps** option and the HTTP action to call your nested logic app, 
+     > the call is blocked, and you get a "401 Unauthorized" error.
+        
+   * For scenarios where you want to restrict inbound calls from other IPs, when the **IP ranges for triggers** box appears, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
 
-   However, to make your logic app callable only as a nested logic app through the built-in [Azure Logic Apps action](../logic-apps/logic-apps-http-endpoint.md), select the **Only other Logic Apps** option instead. This option writes an empty array to your logic app resource and requires that only calls from other "parent" logic apps can trigger the nested logic app through the built-in **Azure Logic Apps** action.
-
-   > [!NOTE]
-   > Regardless of any IP addresses that you specify, you can still run a logic app that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+1. Optionally, under **Restrict calls to get input and output messages from run history to the provided IP addresses**, you can specify the IP address ranges for inbound calls that can access input and output messages in run history.
 
 <a name="restrict-inbound-ip-template"></a>
 
 #### Restrict inbound IP ranges in Azure Resource Manager template
 
-If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can specify the IP ranges in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format by using the `accessControl` section and by including the `triggers` and `actions` sections in your logic app's resource definition, for example:
+If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can specify the permitted inbound IP address ranges in your logic app's resource definition by using the `accessControl` section. In this section, use the `triggers`, `actions`, and the optional `contents` sections as appropriate by including the `allowedCallerIpAddresses` section with the `addressRange` property and set the property value to the permitted IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format.
+
+* If your nested logic app uses the **Only other Logic Apps** option, which permits inbound calls only from other logic apps that use the Azure Logic Apps action,  set the `addressRange` property to an empty array (**[]**).
+
+* If your nested logic app uses the **Specific IP ranges** option for other inbound calls, such as other logic apps that use the HTTP action, set the `addressRange` property to the permitted IP range.
+
+This example shows a resource definition for a nested logic app that permits inbound calls only from logic apps that use the built-in Azure Logic Apps action:
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {},
+   "variables": {},
+   "resources": [
+      {
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
+            "accessControl": {
+               "triggers": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               }
+            },
+            "endpointsConfiguration": {}
+         }
+      }
+   ],
+   "outputs": {}
+}
+```
+
+This example shows a resource definition for a nested logic app that permits inbound calls from logic apps that use the HTTP action:
 
 ```json
 {
@@ -356,7 +419,11 @@ If you [automate deployment for logic apps by using Resource Manager templates](
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses": []
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": "192.168.12.0/23"
+                     }
+                  ]
                }
             },
             "endpointsConfiguration": {}
@@ -1063,7 +1130,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
-  * [Azure Dedicated Hosts for virtual machines](../virtual-machines/windows/dedicated-hosts.md)
+  * [Azure Dedicated Hosts for virtual machines](../virtual-machines/dedicated-hosts.md)
   * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 

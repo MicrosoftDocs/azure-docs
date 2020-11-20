@@ -44,7 +44,10 @@ Set the following RDP property to configure camera redirection:
 - `camerastoredirect:s:*` redirects all cameras.
 - `camerastoredirect:s:` disables camera redirection.
 
-You can also redirect specific cameras using a semicolon-delimited list of KSCATEGORY_VIDEO_CAMERA interfaces, such as `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`.
+>[!NOTE]
+>Even if the `camerastoredirect:s:` property is disabled, local cameras may be redirected through the `devicestoredirect:s:` property. To fully disable camera redirection set `camerastoredirect:s:` and either set `devicestoredirect:s:` or define some subset of plug and play devices that does not include any camera.
+
+You can also redirect specific cameras using a semicolon-delimited list of KSCATEGORY_VIDEO_CAMERA interfaces, such as `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`. 
 
 ### Clipboard redirection
 

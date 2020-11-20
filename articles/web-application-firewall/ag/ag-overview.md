@@ -69,6 +69,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Create custom rules to suit the specific needs of your applications.
 - Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
 - Protect your applications from bots with the bot mitigation ruleset. (preview)
+- Inspect JSON and XML in the request body
 
 ## WAF policy and rules
 
@@ -154,7 +155,7 @@ Application Gateway logs are integrated with [Azure Monitor](../../azure-monitor
 
 #### Azure Security Center
 
-[Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway is [integrated with Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center scans your environment to detect unprotected web applications. It can recommend Application Gateway WAF to protect these vulnerable resources. You create the firewalls directly from Security Center. These WAF instances are integrated with Security Center. They send alerts and health information to Security Center for reporting.
+[Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway is [integrated with Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center scans your environment to detect unprotected web applications. It can recommend Application Gateway WAF to protect these vulnerable resources. You create the firewalls directly from Security Center. These WAF instances are integrated with Security Center. They send alerts and health information to Security Center for reporting.
 
 ![Security Center overview window](../media/ag-overview/figure1.png)
 

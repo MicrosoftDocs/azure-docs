@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 # As an operator of an IoT monitoring solution, I want to detect anomalies at the edge in order to reduce the volume of telemetry sent to my Remote Monitoring solution and to respond quickly to those anomalies.
 ---

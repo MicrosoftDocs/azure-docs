@@ -25,7 +25,7 @@ Azure Defender provides a set of advanced SQL security capabilities, including S
 - [Vulnerability Assessment](sql-vulnerability-assessment.md) is an easy-to-configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and it includes actionable steps to resolve security issues and enhance your database fortifications.
 - [Advanced Threat Protection](threat-detection-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your database. It continuously monitors your database for suspicious activities, and it provides immediate security alerts on potential vulnerabilities, Azure SQL injection attacks, and anomalous database access patterns. Advanced Threat Protection alerts provide details of the suspicious activity and recommend action on how to investigate and mitigate the threat.
 
-Enable Azure Defender for SQL once to enable all these included features. With one click, you can enable Azure Defender for all databases on your [server](logical-servers.md) in Azure or in your SQL Managed Instance. Enabling or managing Azure Defender settings requires belonging to the [SQL security manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) role, or one of the database or server admin roles.
+Enable Azure Defender for SQL once to enable all these included features. With one click, you can enable Azure Defender for all databases on your [server](logical-servers.md) in Azure or in your SQL Managed Instance. Enabling or managing Azure Defender settings requires belonging to the [SQL security manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role, or one of the database or server admin roles.
 
 For more information about Azure Defender for SQL pricing, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -62,4 +62,4 @@ Azure Defender for SQL settings for your server or managed instance can also be 
 
 - Learn more about [Vulnerability Assessment](sql-vulnerability-assessment.md)
 - Learn more about [Advanced Threat Protection](threat-detection-configure.md)
-- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Learn more about [Azure Security Center](../../security-center/security-center-introduction.md)

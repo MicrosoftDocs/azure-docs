@@ -4,7 +4,7 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/17/2020
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 ## Prepare an IoT hub

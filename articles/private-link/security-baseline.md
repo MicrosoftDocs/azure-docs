@@ -267,7 +267,7 @@ Ingest data into Azure Sentinel for further investigation.
 
 Restrict the level of access to your Azure resources with your applications and enterprise environments based on business requirements. 
 
-Control access to Azure resources via Azure Active Directory role-based access control.
+Control access to Azure resources via Azure role-based access control (Azure RBAC).
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
@@ -291,7 +291,7 @@ Follow Security Center recommendations for encryption at rest and encryption in 
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to control access to data and resources, otherwise use service specific access control methods.
 

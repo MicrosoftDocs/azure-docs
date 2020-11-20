@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ---
 
 # Tutorial: Create Apache Spark job definition in Synapse Studio
 
-This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to an Apache Spark pool.
+This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to a serverless Apache Spark pool.
 
 This tutorial covers the following tasks:
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ This tutorial covers the following tasks:
 Before you start with this tutorial, make sure to meet the following requirements:
 
 * An Azure Synapse Analytics workspace. For instructions, see [Create an Azure Synapse Analytics workspace](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
-* An Apache Spark pool.
+* A serverless Apache Spark pool.
 * An ADLS Gen2 storage account. You need to be the **Storage Blob Data Owner** of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
 * If you don’t want to use the workspace default storage, link the required ADLS Gen2 storage account in Synapse Studio. 
 

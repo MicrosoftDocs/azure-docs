@@ -56,7 +56,7 @@ This connectivity scenario requires that the customer connects directly through 
 
 The choices between these two options are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 
-* **Azure role-based access control (Azure RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC, see [here](../role-based-access-control/role-assignments-portal.md).
+* **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Azure Active Directory.  For more information on Azure RBAC, see [here](../role-based-access-control/role-assignments-portal.md).
 * **Networking** – Covers the various topics of networking in Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Azure AD, see [here](https://azure.microsoft.com/documentation/services/active-directory/).  
 

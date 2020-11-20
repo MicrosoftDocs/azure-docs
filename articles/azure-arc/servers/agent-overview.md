@@ -55,7 +55,7 @@ The following versions of the Windows and Linux operating system are officially 
 
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
 
-* To read, modify, reonboard, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
+* To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
 
 ### Azure subscription and service limits
 
@@ -198,7 +198,7 @@ After installing the Connected Machine agent for Windows, the following addition
 
 * During uninstall of the agent, the following artifacts are not removed.
 
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * *%ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent and subdirectories
     * %ProgramData%\GuestConfig
 

@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -419,6 +419,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - M-series VMs with Write Accelerator disks.
 - Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](disk-encryption.md).
+- [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md); specifically, Dv4, Dsv4, Ev4, and Esv4.
 
 ## Next steps
 

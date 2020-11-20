@@ -22,7 +22,7 @@ Access metrics from the host by exposing and mapping the metrics port from the m
 ```
 {
   "ExposedPorts": {
-    "9600/tcp": {},
+    "9600/tcp": {}
   },
   "HostConfig": {
     "PortBindings": {

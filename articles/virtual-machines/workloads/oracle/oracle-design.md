@@ -3,6 +3,7 @@ title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
@@ -97,11 +98,11 @@ One thing you might look at is the top five timed foreground events that indicat
 
 For example, in the following diagram, the log file sync is at the top. It indicates the number of waits that are required before the LGWR writes the log buffer to the redo log file. These results indicate that better performing storage or disks are required. In addition, the diagram also shows the number of CPU (cores) and the amount of memory.
 
-![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
+![Screenshot that shows the log file sync at the top of the table.](./media/oracle-design/cpu_memory_info.png)
 
 The following diagram shows the total I/O of read and write. There were 59 GB read and 247.3 GB written during the time of the report.
 
-![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
+![Screenshot that shows the total I/O of read and write.](./media/oracle-design/io_info.png)
 
 #### 2. Choose a VM
 
@@ -193,7 +194,7 @@ There are three options for host caching:
 
 To maximize the throughput, we recommend that you start with **None** for host caching. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** or **None** options. Update the /etc/fstab file with the UUID to the disks.
 
-![Screenshot of the managed disk page](./media/oracle-design/premium_disk02.png)
+![Screenshot of the managed disk page that shows the ReadOnly and None options.](./media/oracle-design/premium_disk02.png)
 
 - For OS disks, use default **Read/Write** caching.
 - For SYSTEM, TEMP, and UNDO use **None** for caching.

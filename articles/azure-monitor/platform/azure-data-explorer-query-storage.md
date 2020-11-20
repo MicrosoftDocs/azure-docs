@@ -82,7 +82,6 @@ foreach ($record in $output) {
     $FirstCommand += $record.ColumnName + ":" + "$dataType" + ","
     $SecondCommand += "{`"column`":" + "`"" + $record.ColumnName + "`"," + "`"datatype`":`"$dataType`",`"path`":`"$." + $record.ColumnName + "`"},"
 }
-
 $schema = ($FirstCommand -join '') -replace ',$'
 $mapping = ($SecondCommand -join '') -replace ',$'
 
@@ -93,15 +92,14 @@ partition by (TimeGeneratedPartition:datetime = bin(TimeGenerated, 1min))
 pathformat = (datetime_pattern("'y='yyyy'/m='MM'/d='dd'/h='HH'/m='mm", TimeGeneratedPartition))
 dataformat=multijson
 (
-   h@'{2}/subscriptions/{4}/resourcegroups/{6}/providers/microsoft.operationalinsights/workspaces/{5};{3}'
-
+   h@'{2}/WorkspaceResourceId=/subscriptions/{4}/resourcegroups/{6}/providers/microsoft.operationalinsights/workspaces/{5};{3}'
 )
 with
 (
    docstring = "Docs",
    folder = "ExternalTables"
 )
-'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName, $resourcegroupname
+'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName, $resourcegroupname,$WorkspaceId
 
 $createMapping = @'
 .create external table {0} json mapping "{1}" '[{2}]'

@@ -3,6 +3,7 @@ title: Troubleshooting known issues with HPC and GPU VMs - Azure Virtual Machine
 description: Learn about troubleshooting known issues with HPC and GPU VM sizes in Azure. 
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/19/2020
 ms.author: amverma
@@ -38,7 +39,7 @@ This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. The workaround 
       ethernets:
         eth0:
           dhcp4: true
-        version: 2
+      version: 2
     EOF
     ```
 

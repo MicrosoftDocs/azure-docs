@@ -12,6 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # How to use Azure Table storage or Azure Cosmos DB Table API from Java
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -627,5 +628,5 @@ For more information, visit [Azure for Java developers](/java/azure).
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: https://azure.github.io/azure-storage-java/
-[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage REST API]: /rest/api/storageservices/
 [Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/

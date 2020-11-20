@@ -7,7 +7,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/02/2020
+ms.date: 10/20/2020
 ---
 
 # Overview of Azure Monitor agents
@@ -158,26 +158,26 @@ The following tables list the operating systems that are supported by the Azure 
 | CentOS Linux 7                                           | X | X |   | X |
 | CentOS Linux 7.8                                         | X | X | X | X |
 | CentOS Linux 7.6                                         | X | X | X | X |
-| CentOS Linux 6                                           | X | X |   |   |
-| CentOS Linux 6.5+                                        | X | X |   | X |
+| CentOS Linux 6                                           |   | X |   |   |
+| CentOS Linux 6.5+                                        |   | X |   | X |
 | Debian 10                                                | X |   |   |   |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
 | Oracle Linux 7                                           | X | X |   | X |
-| Oracle Linux 6                                           | X | X |   |   |
-| Oracle Linux 6.4+                                        | X | X |   | X |
+| Oracle Linux 6                                           |   | X |   |   |
+| Oracle Linux 6.4+                                        |   | X |   | X |
 | Red Hat Enterprise Linux Server 8                        |   | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                        | X | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                     | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                        |   | X | X |   |
+| Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
-| Ubuntu 14.04 LTS                                         | X | X |   | X |
+| Ubuntu 14.04 LTS                                         |   | X |   | X |
 
 
 #### Dependency agent Linux kernel support

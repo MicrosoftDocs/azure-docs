@@ -20,7 +20,7 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](/cli/azure/install-azure-cli).
 
 * An Azure IoT hub. If you don't have an IoT hub, you can use the [`az iot hub create` command](/cli/azure/iot/hub#az-iot-hub-create) to create one or [Create an IoT hub using the portal](iot-hub-create-through-portal.md).
 
@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 
 Sign in to your Azure account and select your subscription.
 
-1. At the command prompt, run the [login command](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
+1. At the command prompt, run the [login command](/cli/azure/get-started-with-azure-cli):
 
     ```azurecli
     az login
@@ -133,8 +133,7 @@ For more information about the file upload capabilities of IoT Hub, see [Upload 
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)
 
 To further explore the capabilities of IoT Hub, see:
 

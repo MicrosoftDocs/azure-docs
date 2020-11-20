@@ -150,7 +150,7 @@ Returns the first not null value from a set of inputs. All inputs should be of t
 ___
 ### <code>collect</code>
 <code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Collects all values of the expression in the aggregated group into a array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
+Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  
 * ``collect(salesPerson)``
 * ``collect(firstName + lastName))``
 * ``collect(@(name = salesPerson, sales = salesAmount) )``
@@ -761,7 +761,7 @@ Right pads the string by the supplied padding until it is of a certain length. I
 ___
 ### <code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Right trims a string of leading characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
+Right trims a string of trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
 * ``rtrim('  dumbo  ') -> '  dumbo'``  
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
 ___

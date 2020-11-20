@@ -227,95 +227,144 @@ When the VM has restarted, perform the following steps:
    
    In the preceding example, we can see that the file system size for the OS disk has been increased.
 
-### RHEL
-
-To increase the size of the OS disk in RHEL 7.x with LVM:
-
-1. Stop the VM.
-1. Increase the size of the OS disk from the portal.
-1. Start the VM.
-
-When the VM has restarted, perform the following steps:
+### RHEL with LVM
 
 1. Access your VM as a **root** user by using the following command:
- 
-   ```
-   #sudo su
+
+   ```bash
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Install the **gptfdisk** package, which is required to increase the size of the OS disk.
+1. Use the `lsblk` command to find which logical volume (LV) is mounted on the root of the filesystem ("/"). In this case, we see that ***rootvg-rootlv*** is mounted on **/**.  If another filesystem is desired, substitute the LV and mount point through this document.
 
-   ```
-   #yum install gdisk -y
-   ```
-
-1. To see the largest sector available on the disk, run the following command:
-
-   ```
-   #sgdisk -e /dev/sda
-   ```
-
-1. Resize the partition without deleting it by using the following command. The **parted** command has an option named **resizepart** to resize the partition without deleting it. The number 4 after **resizepart** indicates resizing the fourth partition.
-
-   ```
-   #parted -s /dev/sda "resizepart 4 -1" quit
-   ```
-    
-1. Run the following command to verify that the partition has been increased:
-
-   ```
-   #lsblk
+   ```shell
+   [root@dd-rhel7vm ~]# lsblk -f
+   NAME                  FSTYPE      LABEL   UUID                                   MOUNTPOINT
+   fd0
+   sda
+   ├─sda1                vfat                C13D-C339                              /boot/efi
+   ├─sda2                xfs                 8cc4c23c-fa7b-4a4d-bba8-4108b7ac0135   /boot
+   ├─sda3
+   └─sda4                LVM2_member         zx0Lio-2YsN-ukmz-BvAY-LCKb-kRU0-ReRBzh
+      ├─rootvg-tmplv      xfs                 174c3c3a-9e65-409a-af59-5204a5c00550   /tmp
+      ├─rootvg-usrlv      xfs                 a48dbaac-75d4-4cf6-a5e6-dcd3ffed9af1   /usr
+      ├─rootvg-optlv      xfs                 85fe8660-9acb-48b8-98aa-bf16f14b9587   /opt
+      ├─rootvg-homelv     xfs                 b22432b1-c905-492b-a27f-199c1a6497e7   /home
+      ├─rootvg-varlv      xfs                 24ad0b4e-1b6b-45e7-9605-8aca02d20d22   /var
+      └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-   The following output shows that the **/dev/sda4** partition has been resized to 99 GB.
+1. Check if there is free space in the LVM volume group containing the root partition.  If there is free space, skip to step **12**
 
-   ```
-   [user@myvm ~]# lsblk
-   NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-   fd0                 2:0    1    4K  0 disk
-   sda                 8:0    0  100G  0 disk
-   ├─sda1              8:1    0  500M  0 part /boot/efi
-   ├─sda2              8:2    0  500M  0 part /boot
-   ├─sda3              8:3    0    2M  0 part
-   └─sda4              8:4    0   99G  0 part
-   ├─rootvg-tmplv    253:0    0    2G  0 lvm  /tmp
-   ├─rootvg-usrlv    253:1    0   10G  0 lvm  /usr
-   ├─rootvg-optlv    253:2    0    2G  0 lvm  /opt
-   ├─rootvg-homelv   253:3    0    1G  0 lvm  /home
-   ├─rootvg-varlv    253:4    0    8G  0 lvm  /var
-   └─rootvg-rootlv   253:5    0    2G  0 lvm  /
-   sdb                 8:16   0   50G  0 disk
-   └─sdb1              8:17   0   50G  0 part /mnt/resource
+   ```bash
+   [root@dd-rhel7vm ~]# vgdisplay rootvg
+   --- Volume group ---
+   VG Name               rootvg
+   System ID
+   Format                lvm2
+   Metadata Areas        1
+   Metadata Sequence No  7
+   VG Access             read/write
+   VG Status             resizable
+   MAX LV                0
+   Cur LV                6
+   Open LV               6
+   Max PV                0
+   Cur PV                1
+   Act PV                1
+   VG Size               <63.02 GiB
+   PE Size               4.00 MiB
+   Total PE              16132
+   Alloc PE / Size       6400 / 25.00 GiB
+   Free  PE / Size       9732 / <38.02 GiB
+   VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-1. Use the following command to resize the physical volume (PV):
+   In this example, the line **Free  PE / Size** states that there is 38.02GB free in the volume group.  No disk resizing is required before adding space to the volume group
 
-   ```
-   #pvresize /dev/sda4
+1. To increase the size of the OS disk in RHEL 7.x with LVM:
+
+   1. Stop the VM.
+   1. Increase the size of the OS disk from the portal.
+   1. Start the VM.
+
+1. When the VM has restarted, perform the following steps:
+
+   1. Install the **cloud-utils-growpart** package to provide the **growpart** command, which is required to increase the size of the OS disk.
+
+      This package is preinstalled on most Azure Marketplace images.
+
+      ```bash
+      [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
+      ```
+
+1. Determine which disk and partition holds the LVM physical volume(s) (PV) in the volume group (VG) named rootvg with the **pvscan** command.  Take note of the size and free space listed between the brackets **[]**.
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+     PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-   The following output shows that the PV has been resized to 99.02 GB.
+1. Verify the size of the partition with **lsblk**.  Look at the 
 
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  63G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
-   [user@myvm ~]# pvresize /dev/sda4
+
+1. Expand the partition containing this PV using **growpart**, the device name, and partition number.  This will expand the specified partition to use all of the free contiguous space on the device.
+
+   ```bash
+   [root@dd-rhel7vm ~]# growpart /dev/sda 4
+   CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
+   ```
+
+1. Verify that the partition has resized to the expected size with the **lsblk** command again.  Notice that in the example sda4 has changed from 63G to 95G.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  95G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
+   ```
+
+1. Expand the PV to use the rest of the newly expanded partition
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvresize /dev/sda4
    Physical volume "/dev/sda4" changed
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
-
-   [user@myvm ~]# pvs
-   PV         VG     Fmt  Attr PSize   PFree
-   /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
    ```
 
-1. In the following example, **/dev/mapper/rootvg-rootlv** is being resized from 2 GB to 12 GB (an increase of 10 GB) through the following command. This command will also resize the file system.
+1. Verify the new size of the PV is the expected size, comparing to original **[size / free]** values.
 
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+   PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
-   #lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+
+1. Expand the desired logical volume (lv) by the desired amount, which does not need to be all the free space in the volume group.  In the following example, **/dev/mapper/rootvg-rootlv** is being resized from 2 GB to 12 GB (an increase of 10 GB) through the following command. This command will also resize the file system.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    ```
 
    Example output:
 
-   ```
-   [user@myvm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    Size of logical volume rootvg/rootlv changed from 2.00 GiB (512 extents) to 12.00 GiB (3072 extents).
    Logical volume rootvg/rootlv successfully resized.
    meta-data=/dev/mapper/rootvg-rootlv isize=512    agcount=4, agsize=131072 blks
@@ -329,24 +378,148 @@ When the VM has restarted, perform the following steps:
    realtime =none                   extsz=4096   blocks=0, rtextents=0
    data blocks changed from 524288 to 3145728
    ```
-         
-1. Verify whether **/dev/mapper/rootvg-rootlv** has an increased file system size by using the following command:
 
-   ```
-   #df -Th /
+1. The lvresize command automatically calls the appropriate resize command for the filesystem in the LV. Verify whether **/dev/mapper/rootvg-rootlv**, which is mounted on **/** has an increased file system size by using the following command:
+
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    ```
 
    Example output:
 
-   ```
-   [user@myvm ~]# df -Th /
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    Filesystem                Type  Size  Used Avail Use% Mounted on
    /dev/mapper/rootvg-rootlv xfs    12G   71M   12G   1% /
-   [user@myvm ~]#
+   [root@dd-rhel7vm ~]#
    ```
 
 > [!NOTE]
-> To use the same procedure to resize any other logical volume, change the **lv** name in step 7.
+> To use the same procedure to resize any other logical volume, change the **lv** name in step **12**.
+
+### RHEL RAW
+>[!NOTE]
+>Always take a snapshot of the VM before increasing OS disk size.
+
+To increase the size of the OS disk in RHEL with RAW partition:
+
+Stop the VM.
+Increase the size of the OS disk from the portal.
+Start the VM.
+When the VM has restarted, perform the following steps:
+
+1. Access your VM as a **root** user by using the following command:
+ 
+   ```
+   sudo su
+   ```
+
+1. Install the **gptfdisk** package, which is required to increase the size of the OS disk.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  To see all the  sectors available on the disk, run the following command:
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. You will see the details informing the partition type. Ensure it is GPT. Identify the root partition. Do not change or delete the boot partition (BIOS boot partition) and the system partition ('EFI System Partition')
+
+1. Use the following command to start the partitioning for the first time. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. Now you will see a message asking for the next command ('Command: ? for help'). 
+
+   ```
+   w
+   ```
+
+1. You will receive a warning stating "Warning! Secondary header is placed too early on the disk! Do you want to
+correct this problem? (Y/N):". You have to press 'Y'
+
+   ```
+   Y
+   ```
+
+1. You should see a message informing that final checks are complete and asking for confirmation. Press 'Y'
+
+   ```
+   Y
+   ```
+
+1. Check if everything happened correctly using partprobe command
+
+   ```
+   partprobe
+   ```
+
+1. The above steps have ensured that the secondary GPT header is placed at the end. The next step is to start the process of resizing by using the gdisk tool again. Use the following command.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. In the command menu, press 'p' to see list of partition. Identify the root partition (In the steps, sda2 is considered as the root partition) and the boot partition (In the steps, sda3 is considered as the boot partition) 
+
+   ```
+   p
+   ```
+    ![Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Press 'd' to delete the partition and select the partition number assigned to boot (in this example it is '3')
+   ```
+   d
+   3
+   ```
+1. Press 'd' to delete the partition and select the partition number assigned to boot (in this example it is '2')
+   ```
+   d
+   2
+   ```
+    ![Delete Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. To recreate root partition with increased size, Press 'n', enter the partition number you deleted previously for root('2' for this example) and choose the First Sector as 'Default Value', Last Sector as 'Last sector value -  boot size sector' ('4096 in this case' corresponding to 2MB boot) and Hex Code as '8300'
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. To recreate boot partition, Press 'n', enter the partition number you deleted previously for boot('3' for this example) and choose the First Sector as 'Default Value', Last Sector as 'Default value'  and Hex Code as 'EF02'
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Write the changes with the 'w' command and press 'Y' to confirm
+   ```
+   w
+   Y
+   ```
+1. Run command 'partprobe' to check for disk stability
+   ```
+   partprobe
+   ```
+1. Reboot the VM and the root partition size would have been increased
+   ```
+   reboot
+   ```
+
+   ![New Root Partition and Boot Partition](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Run the xfs_growfs command on the partition to resize it
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS Grow FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## Next steps
 

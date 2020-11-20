@@ -148,7 +148,7 @@ Next, publish your function to Azure, using the steps described in the [*Publish
 
 1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -243,14 +243,8 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
-```
-
-If you're deleting your Azure Digital Twins instance, you can also delete the Azure AD app registration you created for it in the end-to-end tutorial, using this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Finally, delete the project sample folders that you downloaded to your local machine (*Azure_Digital_Twins_end_to_end_samples.zip* and *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).

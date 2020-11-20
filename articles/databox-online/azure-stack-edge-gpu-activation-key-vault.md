@@ -18,7 +18,7 @@ Azure Key Vault is integrated with Azure Stack Edge resource for secret manageme
 
 ## About Key vault and Azure Stack Edge
 
-Azure Key Vault cloud service is used to securely store and control access to tokens, passwords, certificates, API keys, and other secrets. Key Vault also makes it easy to create and control the encryption keys used to encrypt your data. 
+Azure Key Vault cloud service is used to securely store and control access to tokens, passwords, certificates, API keys, and other secrets. Key Vault also makes it easy to create and control the encryption keys used to encrypt your data. For more information about allowed transactions and corresponding charges, see [Pricing for Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 For Azure Stack Edge service, one of the secrets used is Channel Integrity Key (CIK). This key allows you to encrypt your secrets. With the integration of key vault, the CIK is securely stored in the key vault. For more information, see [Securely store secrets and keys](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
@@ -40,6 +40,8 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 - You can choose to accept the default key name or specify a custom name for the key vault. The key vault name must be from 3 to 24 characters long. You cannot use a key vault that is already in use. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![MSI created during Azure Stack Edge resource creation](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- To browse to the Azure key vault, go to the **Properties** in your Azure Stack Edge resource and select the key vault name. 
 
 - To prevent accidental deletion, a resource lock is enabled on the key vault. A soft-delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. For more information, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md)
 

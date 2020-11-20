@@ -44,7 +44,7 @@ This article uses an Azure Digital Twins code sample to deploy an Azure Digital 
 
 Here are the steps to run the deployment script in Cloud Shell.
 1. Go to an [Azure Cloud Shell](https://shell.azure.com/) window in your browser. Sign in using this command:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     If the CLI can open your default browser, it will do so and load an Azure sign-in page. Otherwise, open a browser page at *https://aka.ms/devicelogin* and enter the authorization code displayed in your terminal.
@@ -61,11 +61,11 @@ Here are the steps to run the deployment script in Cloud Shell.
 
 4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. You can copy the command below (recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu).
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance.
+    The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Data Owner* role on the instance.
 
     As the script runs through the automated setup steps, you will be asked to pass in the following values:
     * For the instance: the *subscription ID* of your Azure subscription to use
@@ -80,10 +80,10 @@ Here is an excerpt of the output log from the script:
 If the script completes successfully, the final printout will say `Deployment completed successfully`. Otherwise, address the error message, and re-run the script. It will bypass the steps that you've already completed and start requesting input again at the point where you left off.
 
 > [!NOTE]
-> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Owner (Preview)*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Data Owner*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Owner (Preview)_ was not created**.
+>There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Data Owner_ was not created**.
 >
 >You can verify the role assignment with the [*Verify user role assignment*](#verify-user-role-assignment) section later in this article, and—if needed—set up the role assignment manually using the [Azure portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
