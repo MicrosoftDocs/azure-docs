@@ -154,7 +154,7 @@ The location that a lab exists in varies, depending on the following factors:
 > [!NOTE]
 > To help ensure that a region has sufficient VM capacity, it's important to first request capacity through the lab account when you're creating the lab.
 
-A general rule is to set a resource's region to one that's closest to its users. For labs, this means creating the lab that's closest to your students. For online courses whose students are located all over the world, use your best judgment to create a lab that's centrally located. Or you can split a class into multiple labs according your students' regions.
+A general rule is to set a resource's region to one that's closest to its users. For labs, this means creating the lab that's closest to your students. For online courses whose students are located all over the world, use your best judgment to create a lab that's centrally located. Or you can split a class into multiple labs according to your students' regions.
 
 ## VM sizing
 
