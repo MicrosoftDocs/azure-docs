@@ -56,7 +56,7 @@
           href: database-encryption-at-rest.md
         - name: Service tags
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Role-based access control
+        - name: Azure role-based access control
           displayName: rbac
           href: role-based-access-control.md
         - name: Azure Policy support
@@ -839,9 +839,9 @@
         - name: Azure Event Hubs and Azure Storage
           href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
         - name: Use Spring Boot Starter
-          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Spring Data developer guide
-          href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+          href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: ODBC driver
           href: odbc-driver.md
     - name: Reference
@@ -945,6 +945,8 @@
           href: oracle-migrate-cosmos-db-blitzz.md
         - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
           href: cassandra-migrate-cosmos-db-blitzz.md
+        - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+          href: cassandra-migrate-cosmos-db-databricks.md          
       - name: Change feed
         href: cassandra-change-feed.md
       - name: Create a container - Cassandra API
@@ -956,7 +958,7 @@
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge-cassandra.md
       - name: Store and manage Spring Data 
-        href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+        href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: Cassandra and Spark
         items:
         - name: Introduction
@@ -1092,7 +1094,7 @@
       - name: Troubleshoot query performance
         href: mongodb-troubleshoot-query.md
       - name: Store and manage Spring Data
-        href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+        href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: MongoDB extension commands
         href: mongodb-custom-commands.md
         displayName: custom commands
@@ -1173,7 +1175,7 @@
       - name: Visualize graph data
         href: graph-visualization.md
       - name: Store and manage Spring Data
-        href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext
+        href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
       - name: Manage using Resource Manager templates
         href: templates-samples-gremlin.md
         displayName: ARM

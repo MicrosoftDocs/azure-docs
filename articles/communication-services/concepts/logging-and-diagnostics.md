@@ -27,7 +27,7 @@ New settings take effect in about ten minutes. Logs will begin appearing in the 
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS Diagnostic Settings Options.":::
 
-For more information about configuring diagnostics, see the overview of [Azure resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+For more information about configuring diagnostics, see the overview of [Azure resource logs](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## Resource log categories
 

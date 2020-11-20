@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/13/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-csharp
 
 ---
@@ -34,6 +34,8 @@ Before you begin, have the following tools and services:
 
 When setting up your project, you will download the [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/).
 
+Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.0 as minimum requirements.
+
 ## Set up your project
 
 Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on .NET Core.
@@ -48,7 +50,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you are creating or deleting objects. There are two interchangeable primary and secondary keys. You can use either one.
 
-   ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -185,7 +187,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
     }
    ```
 
-1. Create two more classes: **Hotel.Methods.cs** and **Address.Methods.cs** for ToString() overrides. These classes are used to render search results in the console output.  The contents of these classes are not provided in this article, but you can copy the content from [files in GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11/AzureSearchQuickstart-v11).
+1. Create two more classes: **Hotel.Methods.cs** and **Address.Methods.cs** for ToString() overrides. These classes are used to render search results in the console output.  The contents of these classes are not provided in this article, but you can copy the code from [files in GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11/AzureSearchQuickstart-v11).
 
 1. In **Program.cs**, create a [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) object, and then call the [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) method to express the index in your search service.
 
@@ -320,7 +322,7 @@ When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azur
 
     Once you initialize the [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object, you can send it to the index by calling [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) on your [SearchClient](/dotnet/api/azure.search.documents.searchclient) object.
 
-1. Add the following lines to Main(). Loading documents is done using SearchClient, but the operation also requires admin rights on the service, which is typically associated with SearchIndexClient. One way to set up the client is to leverage the Admin API key associated with SearchIndexClient (adminClient in this example), and then get the SearchClient that way.
+1. Add the following lines to Main(). Loading documents is done using SearchClient, but the operation also requires admin rights on the service, which is typically associated with SearchIndexClient. One way to set up this operation is to get SearchClient through SearchIndexClient (adminClient in this example).
 
    ```csharp
     SearchClient ingesterClient = adminClient.GetSearchClient(indexName);
@@ -348,7 +350,7 @@ This section adds two pieces of functionality: query logic, and results. For que
 
 The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) class represents the results.
 
-1. In **Program.cs**, create a WriteDocuments method that prints search results to the console.
+1. In **Program.cs**, create a **WriteDocuments** method that prints search results to the console.
 
     ```csharp
     // Write search results to console
@@ -363,7 +365,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     }
     ```
 
-1. Create a RunQueries method to execute queries and return results. Results are Hotel objects.
+1. Create a **RunQueries** method to execute queries and return results. Results are Hotel objects. This sample shows the method signature and the first query. This query demonstrates the Select parameter that lets you compose the result using selected fields from the document.
 
     ```csharp
     // Run queries, use WriteDocuments to print output
@@ -372,8 +374,6 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
         SearchOptions options;
         SearchResults<Hotel> response;
 
-        // PROB 1: Total count doesn't show up
-        // PROB 2: Search score, from previous quickstart, doesn't show up
         Console.WriteLine("Query #1: Search on empty term '*' to return all documents, showing a subset of fields...\n");
 
         options = new SearchOptions()
@@ -385,49 +385,90 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 
         options.Select.Add("HotelId");
         options.Select.Add("HotelName");
-        options.Select.Add("Rating");
+        options.Select.Add("Address/City");
 
         response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
+        ```
 
+1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. 
 
-        // PROB 3: we need two states in FL with different ratings. Does it matter if WIFI is there?
-        // PROB 4: JS query should have different SELECT fields for this query
-        Console.WriteLine("Query #2: Search on 'wifi', filter on 'FL', sort by Rating...\n");
+    ```csharp
+    Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");
 
-        options = new SearchOptions()
-        {
-            Filter = "Address/StateProvince eq 'FL'",
-            OrderBy = { "Rating desc" }
-        };
+    options = new SearchOptions()
+    {
+        Filter = "Rating gt 4",
+        OrderBy = { "Rating desc" }
+    };
 
-        options.Select.Add("HotelId");
-        options.Select.Add("HotelName");
-        options.Select.Add("Rating");
-        options.Select.Add("Tags");
-        options.Select.Add("Address/StateProvince");
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Rating");
 
-        response = srchclient.Search<Hotel>("wifi", options);
-        WriteDocuments(response);
-
-        // PROB: For SearchField, JS query should search on a term, like motel or hotel, instead of *
-        Console.WriteLine("Query #3: Limit search to specific fields (pool in Tags field)...\n");
-
-        options = new SearchOptions()
-        {
-            SearchFields = { "Tags" }
-        };
-
-        options.Select.Add("HotelId");
-        options.Select.Add("HotelName");
-        options.Select.Add("Tags");
-
-        response = srchclient.Search<Hotel>("pool", options);
-        WriteDocuments(response);
-    }
+    response = srchclient.Search<Hotel>("hotels", options);
+    WriteDocuments(response);
     ```
 
-1. Add WriteDocuments and RunQueries to `Main()`.
+1. The third query demonstrates searchFields, used to scope a full text search operation to specific fields.
+
+    ```csharp
+    Console.WriteLine("Query #3: Limit search to specific fields (pool in Tags field)...\n");
+
+    options = new SearchOptions()
+    {
+        SearchFields = { "Tags" }
+    };
+
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Tags");
+
+    response = srchclient.Search<Hotel>("pool", options);
+    WriteDocuments(response);
+    ```
+
+1. The fourth query demonstrates facets, which can be used to structure a faceted navigation structure. 
+
+   ```csharp
+    Console.WriteLine("Query #4: Facet on 'Category'...\n");
+
+    options = new SearchOptions()
+    {
+        Filter = ""
+    };
+
+    options.Facets.Add("Category");
+
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Category");
+
+    response = srchclient.Search<Hotel>("*", options);
+    WriteDocuments(response);
+   ```
+
+1. In the fifth query, return a specific document. A document lookup is a typical response to OnClick event in a result set.
+
+   ```csharp
+    Console.WriteLine("Query #5: Look up a specific document...\n");
+
+    Response<Hotel> lookupResponse;
+    lookupResponse = srchclient.GetDocument<Hotel>("3");
+
+    Console.WriteLine(lookupResponse.Value.HotelId);
+   ```
+
+1. The last query shows the syntax for autocomplete, simulating a partial user input of "sa" that resolves to two possible matches in the sourceFields associated with the suggester you defined in the index.
+
+   ```csharp
+    Console.WriteLine("Query #6: Call Autocomplete on HotelName that starts with 'sa'...\n");
+
+    var autoresponse = srchclient.Autocomplete("sa", "sg");
+    WriteDocuments(autoresponse);
+   ```
+
+1. Add **RunQueries** to Main().
 
     ```csharp
     // Call the RunQueries method to invoke a series of queries
@@ -439,15 +480,9 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     Console.ReadKey();
     ```
 
-The queries show two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters:
+The previous queries show multiple [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, filters, and autocomplete.
 
-+ Full-text search queries for one or more terms in searchable fields in your index. The first query is full text search. Full-text search produces relevance scores used to rank the results.
-
-+ Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. The last two queries demonstrate filter search.
-
-You can use full-text search and filters together or separately.
-
-Both searches and filters are performed using the [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) property of the [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) class. To filter without searching, just pass `"*"` for the `searchText` parameter of the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. To search without filtering, leave the `Filter` property unset, or do not pass in a `SearchOptions` instance at all.
+Full text search and filters are performed using the [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) property of the [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) class. To filter without searching, just pass `"*"` for the `searchText` parameter of the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. To search without filtering, leave the `Filter` property unset, or do not pass in a `SearchOptions` instance at all.
 
 ## Run the program
 

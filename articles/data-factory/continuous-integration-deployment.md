@@ -628,6 +628,10 @@ If you deploy a factory to production and realize there's a bug that needs to be
 
 10.   Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
 
+See the video below an in-depth video tutorial on how to hot-fix your environments. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
 ## Best practices for CI/CD
 
 If you're using Git integration with your data factory and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:

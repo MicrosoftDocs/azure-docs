@@ -177,7 +177,7 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 
 ### Querying behavior analytics data
 
-Using [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
+Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
 
 For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country, and connections from that country are uncommon even for the user's peers, we can use the following query:
 

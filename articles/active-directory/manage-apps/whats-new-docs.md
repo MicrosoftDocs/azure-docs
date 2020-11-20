@@ -65,7 +65,7 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [What is single sign-on (SSO)?](what-is-single-sign-on.md)
 - [Take action on overprivileged or suspicious applications in Azure Active Directory](manage-application-permissions.md)
 - [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
-- [Automate SAML-based SSO app configuration with Microsoft Graph API](application-saml-sso-configure-api.md)
+- [Automate SAML-based SSO app configuration with Microsoft Graph API](/graph/application-saml-sso-configure-api)
 
 
 ## July 2020

@@ -10,7 +10,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
 ---
 
@@ -119,9 +119,9 @@ The `tenantId` property identifies what Azure AD tenant the identity belongs to.
 > [!NOTE]
 > An API Management instance can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 
-### Supported scenarios
+## Supported scenarios using System Assigned Identity
 
-#### <a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtain a custom TLS/SSL certificate for the API Management instance from Azure Key Vault
+### <a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtain a custom TLS/SSL certificate for the API Management instance from Azure Key Vault
 You can use the system-assigned identity of an API Management instance to retrieve custom TLS/SSL certificates stored in Azure Key Vault. You can then assign these certificates to custom domains in the API Management instance. Keep these considerations in mind:
 
 - The content type of the secret must be *application/x-pkcs12*.
@@ -258,7 +258,7 @@ The following example shows an Azure Resource Manager template that contains the
 }
 ```
 
-#### Authenticate to the back end by using an API Management identity
+### Authenticate to the back end by using an API Management identity
 
 You can use the system-assigned identity to authenticate to the back end through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
 
@@ -383,9 +383,32 @@ The `principalId` property is a unique identifier for the identity that's used f
 > [!NOTE]
 > An API Management instance can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 
-### Supported scenarios
+## Supported scenarios using User Assigned Managed Identity
 
-#### Authenticate to the back end by using a user-assigned identity
+### <a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Obtain a custom TLS/SSL certificate for the API Management instance from Azure Key Vault
+You can use any user-assigned identity to establish trust between an API Management instance and KeyVault. This trust can then be used to retrieve custom TLS/SSL certificates stored in Azure Key Vault. You can then assign these certificates to custom domains in the API Management instance. 
+
+Keep these considerations in mind:
+
+- The content type of the secret must be *application/x-pkcs12*.
+- Use the Key Vault certificate secret endpoint, which contains the secret.
+
+> [!Important]
+> If you don't provide the object version of the certificate, API Management will automatically obtain the newer version of the certificate within four hours after it's updated in Key Vault.
+
+For the complete template, see [API Management with KeyVault based SSL using User Assigned Identity](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+
+In this template, you will deploy:
+
+* Azure API Management
+* Azure Managed User Assigned Identity
+* Azure KeyVault for storing the SSL/TLS certificate
+
+To run the deployment automatically, click the following button:
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### Authenticate to the back end by using a user-assigned identity
 
 You can use the user-assigned identity to authenticate to the back end through the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
 
