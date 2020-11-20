@@ -72,7 +72,7 @@ Follow the instructions to create or update the virtual network peerings to enab
 
      :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png" alt-text="Add peering page for Spoke-RM":::
 
-1. If the peering is already created, navigate to the peering resource, then enable the "**Use remote gateways**" option similar to the screenshot shown in step (1)
+1. If the peering is already created, navigate to the peering resource, then enable the "**Use remote gateways**" option similar to the screenshot shown in step (1).
 
 1. Create or update the virtual network peering from Hub-RM to Spoke-RM from the Azure portal. Navigate to the Hub-RM virtual network resource, select **Peerings**, then **+ Add**:
 
@@ -84,9 +84,9 @@ Follow the instructions to create or update the virtual network peerings to enab
 
      :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png" alt-text="Add peering page for Spoke-RM transit":::
 
-1. If the peering is already created, navigate to the peering resource, then enable the "**Allow gateway transit**" option similar to the screenshot shown in step (3)
+1. If the peering is already created, navigate to the peering resource, then enable the "**Allow gateway transit**" option similar to the screenshot shown in step (3).
 
-1. Verify the peering status as "**Connected**" on both virtual networks
+1. Verify the peering status as "**Connected**" on both virtual networks.
 
 ### PowerShell sample
 
