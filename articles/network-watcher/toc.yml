@@ -70,7 +70,7 @@
     items:
     - name: From Network Performance Monitor
       href: migrate-to-connection-monitor-from-network-performance-monitor.md
-    - name: From Connection Monitor (Classic)
+    - name: From Connection Monitor (classic)
       href: migrate-to-connection-monitor-from-connection-monitor-classic.md
   - name: Diagnose VM network problems
     items:
