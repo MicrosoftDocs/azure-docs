@@ -92,6 +92,4 @@ Given the user risk is cumulative in nature and does not expire, a user may have
 
 The high aggregate risk score could be based on other features of the sign-in, or the fact that more than one detection fired for that sign-in. And conversely, a sign-in may have a sign-in risk (aggregate) of Medium even if the detections associated with the sign-in are of High risk. 
 
-### Why is the detection which is linked to a risky sign-in have a different risk level than the sign-in risk level (real-time)? 
 
-We've recently made improvements to how real-time sign-in risk is calculated. The discrepancy observed between the risk detection level and the sign-in risk level is a result of those changes. Note that the real-time sign-in risk is the value that is used during policy enforcement. 
