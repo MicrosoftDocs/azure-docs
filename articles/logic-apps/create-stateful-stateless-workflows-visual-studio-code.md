@@ -570,9 +570,9 @@ To test your logic app, follow these steps to start a debugging session and find
    ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
-   > If a run failed and a step in monitoring view shows the `503 Service Unavailable` error, this problem can result 
+   > If a run failed and a step in monitoring view shows the `404 Bad Request` error, this problem might result 
    > from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed 
-   > the default character limit. For more information, see ["503 Service Unavailable"](#503-service-unavailable).
+   > the default character limit. For more information, see ["404 Bad Request"](#404-bad-request).
 
    Here are the possible statuses that each step in the workflow can have:
 
@@ -1053,11 +1053,11 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 ## Troubleshoot errors and problems
 
-<a name="503-service-unavailable"></a>
+<a name="404-bad-request"></a>
 
-### "503 Service Unavailable"
+### "404 Bad Request"
 
-When a run fails, and you inspect the run in monitoring view, this error can appear on a trigger or action that has a longer name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
+When a run fails, and you inspect the run in monitoring view, this error might appear on a trigger or action that has a longer name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
 
 To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys on your computer by following the steps below. These key's default values are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
 
