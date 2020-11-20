@@ -91,7 +91,7 @@ Start by preparing your environment for the Azure CLI:
 1. View the resource properties by using the [az spatial-anchors-account show](/cli/azure/ext/mixed-reality/spatial-anchors-account#ext_mixed_reality_az_spatial_anchors_account_show) command:
 
    ```azurecli
-   az spatial-anchors-account show --resource-group myResourceGroup --name example
+   az spatial-anchors-account show --resource-group myResourceGroup --name MySpatialAnchorsQuickStart
    ```
 
    Copy the resource **Account ID** value and the resource **Account Domain** value into a text editor for later use.
