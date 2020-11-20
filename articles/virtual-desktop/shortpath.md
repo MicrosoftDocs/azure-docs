@@ -184,7 +184,7 @@ The possible values are:
 * **0** - user connection isn't using RDP Shortpath
 * **1** - user connection is using RDP Shortpath
   
-The following query list lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). For each query, replace `userupn` with the UPN of the user you want to look up.
+The following query list lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;
