@@ -244,11 +244,11 @@ Live Video Analytics via the HTTP extension processor can extend the media graph
     {"inferences": [{"type": "entity", "entity": {"tag": {"value": "car", "confidence": 0.8668569922447205}, "box": {"l": 0.3853073438008626, "t": 0.6063712999658677, "w": 0.04174524943033854, "h": 0.02989496027381675}}}]}
     ```
 
-* If you're running one or more instances of a graph that uses the HTTP extension processor, you should have a frame rate filter before each HTTP extension processor to manage the frames per second (fps) rate of the video feed. 
+* If you're running one or more instances of a graph that uses the HTTP extension processor, you should the `samplingOptions` field to manage the frames per second (fps) rate of the video feed. 
 
-   In certain situations, where the CPU or memory of the edge machine is highly utilized, you can lose certain inference events. To address this issue, set a low value for the maximumFps property on the frame rate filter. You can set it to 0.5 ("maximumFps": 0.5 ) on each instance of the graph and then rerun the instance to check for inference events on the hub.
+   * In certain situations, where the CPU or memory of the edge machine is highly utilized, you can lose certain inference events. To address this issue, set a low value for the `maximumSamplesPerSecond` property on the `samplingOptions` field. You can set it to 0.5 ("maximumSamplesPerSecond": "0.5") on each instance of the graph and then re-run the instance to check for inference events on the hub.
 
-   Alternatively, you can obtain a more powerful edge machine with higher CPU and memory.
+   * Alternatively, you can obtain a more powerful edge machine with higher CPU and memory.
     
 ### Multiple direct methods in parallel – timeout failure 
 

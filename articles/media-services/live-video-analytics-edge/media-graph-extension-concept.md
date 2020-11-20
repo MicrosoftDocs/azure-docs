@@ -41,7 +41,7 @@ So, use a gRPC extension processor node when you:
 
 ## Use your inferencing model with Live Video Analytics
 
-Media Graph Extensions allow you to run inference models of your choice on any available inference runtime, such as ONNX, TensorFlow, PyTorch, or others in your own docker container. The inferencing custom extension should be deployed alongside Live Video Analytics edge module for best performance and will then be invoked via the HTTP extension processor or the gRPC extension processor included in your graph topology. Additionally, the frequency of the calls into your custom extension can be throttled by optionally adding a [motion detector processor](media-graph-concept.md#motion-detection-processor) and a [frame rate filter processor](media-graph-concept.md#frame-rate-filter-processor) upstream to the media extension processor.
+Media Graph Extensions allow you to run inference models of your choice on any available inference runtime, such as ONNX, TensorFlow, PyTorch, or others in your own docker container. The inferencing custom extension should be deployed alongside Live Video Analytics edge module for best performance and will then be invoked via the HTTP extension processor or the gRPC extension processor included in your graph topology. Additionally, the frequency of the calls into your custom extension can be throttled by optionally adding a [motion detector processor](media-graph-concept.md#motion-detection-processor) upstream to the media extension processor.
 
 The diagram below depicts the high-level data flow:
 
