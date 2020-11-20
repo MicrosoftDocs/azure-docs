@@ -239,7 +239,7 @@ model = Model.register(model_path="sklearn_regression_model.pkl",
 
 You can then find your newly registered model in Azure Machine Learning's **Model** tab:
 
-![Screenshot of Azure Machine Learning Model tab, showing uploaded model](media/how-to-deploy-local/registered-model.png)
+:::image type="content" source="media/how-to-deploy-local/registered-model.png" alt-text="Screenshot of Azure Machine Learning Model tab, showing uploaded model.":::
 
 For more on uploading and updating models and environments, see [Register model and deploy locally with advanced usages](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local-advanced.ipynb).
 
