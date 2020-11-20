@@ -108,7 +108,7 @@ in terms of setup and call/chat lifecycle.
 
 | Contoso Responsibilities                                 | UI Framework Composite Responsibilities                         |
 |----------------------------------------------------------|-----------------------------------------------------------------|
-| Retrieve/Pass access token from Azure                    | Pass through given access token to initialize components        |
+| Provide access token from Azure                    | Pass through given access token to initialize components        |
 | Provide refresh function                                 | Refresh access token using developer provided function          |
 | Retrieve/Pass join information for call or chat          | Pass through call and chat information to initialize components |
 | Retrieve/Pass user information for any custom data model | Pass through custom data model to components to render          |
