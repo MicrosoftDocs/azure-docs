@@ -2,7 +2,7 @@
 title: Azure security baseline for Azure App Configuration
 description: The Azure App Configuration security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: app-configuration
+ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin

@@ -2,7 +2,7 @@
 title: Azure security baseline for Azure Bastion
 description: The Azure Bastion security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: azure-bastion
+ms.service: bastion
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
