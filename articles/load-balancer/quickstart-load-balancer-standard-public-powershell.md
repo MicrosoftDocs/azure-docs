@@ -48,9 +48,7 @@ New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'eastus'
 
 ## Create a public IP address - Standard
 
-To access your web app on the Internet, you need a public IP address for the load balancer. 
-
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address.
 
 ```azurepowershell-interactive
 $publicip = @{
@@ -542,9 +540,7 @@ $nicvm3 | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
 
 ## Create a public IP address - Basic
 
-To access your web app on the Internet, you need a public IP address for the load balancer. 
-
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address.
 
 ```azurepowershell-interactive
 $publicip = @{
@@ -604,7 +600,7 @@ $lbrule = @{
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
 }
-$rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset -DisableOutboundSNAT
+$rule = New-AzLoadBalancerRuleConfig @lbrule
 
 ## Create the load balancer resource. ##
 $loadbalancer = @{
