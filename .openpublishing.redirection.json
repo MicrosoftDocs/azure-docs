@@ -49816,6 +49816,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-pnp/quickstart-service-csharp.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-java.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-python.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/retail/howto-deploy-video-analytics-template.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": true

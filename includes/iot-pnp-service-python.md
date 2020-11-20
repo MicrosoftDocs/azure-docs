@@ -1,26 +1,16 @@
 ---
-title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (Python) | Microsoft Docs
-description: Quickstart - Use Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
-author: elhorton
-ms.author: elhorton
-ms.date: 10/05/2020
-ms.topic: quickstart
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-ms.custom: mvc, devx-track-azurecli
-
-# As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Quickstart: Interact with an IoT Plug and Play device that's connected to your solution (Python)
-
-[!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
 IoT Plug and Play simplifies IoT by enabling you to interact with a device's model without knowledge of the underlying device implementation. This quickstart shows you how to use Python to connect to and control an IoT Plug and Play device that's connected to your solution.
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
@@ -44,7 +34,7 @@ pip install azure-iot-hub
 
 ## Run the sample device
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md).
 
@@ -77,11 +67,11 @@ In this quickstart, you use a sample IoT solution in Python to interact with the
 1. Open the *registry_manager_pnp_sample.py* file and review the code. This sample shows how to use the **IoTHubRegistryManager** class to interact with your IoT Plug and Play device.
 
 > [!NOTE]
-> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](concepts-developer-guide-service.md).
+> These service samples use the **IoTHubRegistryManager** class from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-pnp/concepts-developer-guide-service.md).
 
 ### Get the device twin
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-pnp/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.

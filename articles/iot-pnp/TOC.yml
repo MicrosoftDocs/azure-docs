@@ -14,15 +14,7 @@
   - name: Connect a device to IoT Hub
     href: quickstart-connect-device.md
   - name: Interact with a device from your solution
-    items:
-      - name: Node.js
-        href: quickstart-service-node.md
-      - name: Python
-        href: quickstart-service-python.md
-      - name: C#
-        href: quickstart-service-csharp.md
-      - name: Java
-        href: quickstart-service-java.md
+    href: quickstart-service.md
 - name: Tutorials
   items:
   - name: Connect a multiple component device (C)

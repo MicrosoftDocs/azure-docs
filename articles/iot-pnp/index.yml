@@ -43,10 +43,8 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Interact with a device from your solution (Node.js)
-          url: quickstart-service-node.md
-        - text: Interact with a device from your solution (Python)
-          url: quickstart-service-python.md
+        - text: Interact with a device from your solution
+          url: quickstart-service.md
     - linkListType: concept
       links:
         - text: Architecture
