@@ -99,6 +99,8 @@
     href: configure-signal-gate-how-to.md
   - name: Troubleshoot
     href: troubleshoot-how-to.md
+  - name: Upgrading
+    href: upgrading-lva-module.md
 - name: Reference
   items:
   - name: HTTP extension protocol
