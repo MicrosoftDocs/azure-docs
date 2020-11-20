@@ -183,8 +183,8 @@ While using Docker to deploy your model as a web service is the most common opti
 Downloading the model can be done:  
 
 - From the portal, by choosing the **Models** tab, selecting the desired model, and from the **Details** page, choosing **Download**
-- From the command line, by using `az ml model download` (see the [model download reference](../../../cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download))
-- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](../../../python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-)
+- From the command line, by using `az ml model download` (see the [model download reference](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download))
+- With the Python SDK, by using the `Model.download()` method (see the [Model API reference](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-)
 
 An Azure model is one or more serialized Python objects, packaged as a Python pickle file (**.pkl** extension). The contents of the pickle file depend upon the ML library or technique used to train the model. For instance, with the model from the tutorial, you might load the model with:
 
@@ -205,7 +205,7 @@ myenv.build_local(workspace=ws, useDocker=False) #Creates conda env
 
 If you set `build_local()`'s argument `useDocker` to `True`, the function will create a Docker image rather than a conda environment. If you want more control, you can use `Environment`'s `save_to_directory()` method, which writes **conda_dependencies.yml** and **azureml_environment.json** definition files that you can fine-tune and use as the basis for extension. 
 
-The `Environment` class has a number of other methods for synchronizing environments across your compute hardware, your Azure workspace, and Docker images. For more information, see the [`Environment` API reference](../../python/api/azureml-core/azureml.core.environment(class)).
+The `Environment` class has a number of other methods for synchronizing environments across your compute hardware, your Azure workspace, and Docker images. For more information, see the [`Environment` API reference](/python/api/azureml-core/azureml.core.environment(class)).
 
 Once you have downloaded the model and resolved its dependencies, there are no Azure-defined restrictions on how you perform scoring, fine-tune the model, use transfer learning, and so forth. 
 
