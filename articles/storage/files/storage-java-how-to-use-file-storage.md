@@ -14,7 +14,7 @@ ms.subservice: files
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Learn the basics of using Java to develop applications or services that use Azure Files to store file data. Create a console application and and learn how to perform basic actions with Java and Azure Files:
+Learn the basics developing Java applications that use Azure Files to store data. Create a console application and learn basic actions using Azure Files APIs:
 
 - Create and delete Azure file shares
 - Create and delete directories
@@ -25,7 +25,7 @@ Learn the basics of using Java to develop applications or services that use Azur
 
 ## Create a Java application
 
-To build the samples, you will need the Java Development Kit (JDK) and the [Azure Storage SDK for Java](https://github.com/azure/azure-sdk-for-java). You should also have created an Azure storage account.
+To build the samples, you'll need the Java Development Kit (JDK) and the [Azure Storage SDK for Java](https://github.com/azure/azure-sdk-for-java). You should also have created an Azure storage account.
 
 ## Set up your application to use Azure Files
 
@@ -96,7 +96,7 @@ try {
 
 ## Create an Azure file share
 
-All files and directories in Azure Files reside in a container called a share. To obtain access to a share and its contents, create an Azure Files client.
+All files and directories in Azure Files are stored in a container called a share. To obtain access to a share and its contents, create an Azure Files client.
 
 # [Java v12](#tab/java)
 
@@ -126,7 +126,7 @@ if (share.createIfNotExists()) {
 }
 ```
 
-At this point, **share** holds a reference to a share named **sampleshare**.
+At this point, **share** holds a reference to a share named **sample share**.
 
 ---
 
@@ -198,11 +198,11 @@ if (sampleDir.createIfNotExists()) {
 
 ## Delete a directory
 
-Deleting a directory is a straightforward task. You cannot delete a directory that still contains files or other directories.
+Deleting a directory is a straightforward task. You can't delete a directory that still contains files or other directories.
 
 # [Java v12](#tab/java)
 
-The [ShareDirectoryClient.delete](/java/api/com.azure.storage.file.share.sharedirectoryclient.delete) method throws an exception if the directory is not empty. Put the call to **delete** in a `try/catch` block and handle the exception.
+The [ShareDirectoryClient.delete](/java/api/com.azure.storage.file.share.sharedirectoryclient.delete) method throws an exception if the directory isn't empty. Put the call to **delete** in a `try/catch` block and handle the exception.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteDirectory":::
 
@@ -227,13 +227,13 @@ if ( containerDir.deleteIfExists() ) {
 
 # [Java v12](#tab/java)
 
-Obtain a list of files and directories within a share by calling [ShareDirectoryClient.listFilesAndDirectories](/java/api/com.azure.storage.file.share.sharedirectoryclient.listfilesanddirectories). The method returns a list of [ShareFileItem](/java/api/com.azure.storage.file.share.models.sharefileitem) objects on which you can iterate. The following code lists files and directories inside the directory specified by the *dirName* parameter.
+Get a list of files and directories by calling [ShareDirectoryClient.listFilesAndDirectories](/java/api/com.azure.storage.file.share.sharedirectoryclient.listfilesanddirectories). The method returns a list of [ShareFileItem](/java/api/com.azure.storage.file.share.models.sharefileitem) objects on which you can iterate. The following code lists files and directories inside the directory specified by the *dirName* parameter.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_enumerateFilesAndDirs":::
 
 # [Java v11](#tab/java11)
 
-Obtain a list of files and directories within a share by calling **listFilesAndDirectories** on a **CloudFileDirectory** reference. The method returns a list of **ListFileItem** objects which you can iterate on. The following code lists files and directories inside the root directory.
+Get a list of files and directories by calling **listFilesAndDirectories** on a **CloudFileDirectory** reference. The method returns a list of **ListFileItem** objects on which you can iterate. The following code lists files and directories inside the root directory.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -258,7 +258,7 @@ The following code uploads a local file to Azure File storage by calling the [Sh
 
 # [Java v11](#tab/java11)
 
-The first step in uploading a file is to obtain a reference to the directory where it should reside. Do this by calling the **getRootDirectoryReference** method of the share object.
+Get a reference to the directory where the file will be uploaded by calling the **getRootDirectoryReference** method on the share object.
 
 ```java
 //Get a reference to the root directory for the share.
