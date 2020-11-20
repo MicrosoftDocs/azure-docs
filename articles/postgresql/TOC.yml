@@ -606,11 +606,11 @@
     - name: Server group size
       items:
       - name: Pick initial size
-        href: howto-hyperscale-scaling-initial.md
+        href: howto-hyperscale-scale-initial.md
       - name: Scale server group
-        href: howto-hyperscale-scaling-grow.md
+        href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
-        href: howto-hyperscale-scaling-rebalance.md
+        href: howto-hyperscale-scale-rebalance.md
     - name: Firewall rules
       items:
       - name: Azure portal
