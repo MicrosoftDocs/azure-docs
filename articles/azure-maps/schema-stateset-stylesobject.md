@@ -3,7 +3,7 @@ title:  StylesObject Schema reference guide for dynamic Maps
 description: Reference guide to the dynamic Azure Maps StylesObject schema and syntax.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/19/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
@@ -22,7 +22,7 @@ A `StyleObject` is one of the following style rules:
  * [`NumericTypeStyleRule`](#numerictypestylerule)
  * [`StringTypeStyleRule`](#stringtypestylerule)
 
-The JSON below shows example usage of each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to `MeetingType`.
+The JSON below shows example usage of each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to `meetingType`.
 
 
 
@@ -59,7 +59,7 @@ The JSON below shows example usage of each of the three style types.  The `Boole
         ]
     },
     {
-      "keyname": "MeetingType",
+      "keyname": "meetingType",
       "type": "string",
       "rules": [
         {
@@ -185,7 +185,7 @@ The following JSON illustrates a `StringTypeStyleRule` that defines styles assoc
 
 ```json
     {
-      "keyname": "MeetingType",
+      "keyname": "meetingType",
       "type": "string",
       "rules": [
         {
