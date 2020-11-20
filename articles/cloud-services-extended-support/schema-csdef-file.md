@@ -66,3 +66,5 @@ The following table describes the attributes of the `ServiceDefinition` element.
 | upgradeDomainCount      | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a Cloud Service role or deployment](sample-update-cloud-service.md), [Manage the availability of virtual machines](../virtual-machines/manage-availability.md) and [What is a Cloud Service Model](../cloud-services/cloud-services-model-and-package.md).<br /><br /> You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5.|
 
 ## See also
+
+[Azure Cloud Services (extended support) config schema (cscfg File)](schema-cscfg.md).

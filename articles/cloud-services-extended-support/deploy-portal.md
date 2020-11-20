@@ -35,7 +35,7 @@ Cloud Services (extended support) provides various methods to create a deploymen
 9. Select your Configuration (cscfg) file. You can use an existing configuration or upload a new configuration.
 10. Select Service Definition (csdef) file. You can use an existing definition file or upload a new one. 
     :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows the basics tab in the Azure portal for creating a Cloud Service (extended support).":::
-11. Once all fields have been completed, move to the Configuration tab
+11. Once all fields have been completed, move to the Configuration tab.
 
 
 
@@ -52,7 +52,7 @@ Cloud Services (extended support) provides various methods to create a deploymen
     - Cloud Services (extended support) only supports the Basic IP address SKU.
     - If your cscfg contains a reserved IP address, the allocation type for the public IP address must be **Static**. 
 
-3. (Optional) Swappable Cloud Service. Select an existing Cloud Service for swapping deployments. For more information, see [Cloud Services Swap](cloud-services-swap.md)
+3. (Optional) Swappable Cloud Service. Select an existing Cloud Service for swapping deployments. For more information, see [Cloud Services Swap](cloud-services-swap.md).
 
 4. (Optional) Start Cloud Service. Choose start or not start the service after immediately after creation.
 
@@ -60,7 +60,7 @@ Cloud Services (extended support) provides various methods to create a deploymen
 
     :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the configuration blade in the Azure portal when creating a Cloud Services (extended support).":::
 
-6. One all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your deployment
+6. One all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your deployment.
 
 
 

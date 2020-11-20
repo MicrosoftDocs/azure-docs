@@ -146,11 +146,11 @@ Stop-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $clo
 
 ## VIP Swap deployment
 Process to define swappable relationship between two deployments and swap Virtual IP addresses.
-1.	Create first Cloud Services (extended support) deployment 
-2.	Get cloudServicesId of the first deployment
+1.	Create first Cloud Services (extended support) deployment.
+2.	Get cloudServicesId of the first deployment.
 3.	Create second Cloud Services (extended support) deployment, but now by adding `-SwappableCloudServiceId` property to `New-AzCloudService` command. 
-4.	Get cloudServiceId for second deployment
-5.	Perform VIP Swap 
+4.	Get cloudServiceId for second deployment.
+5.	Perform VIP Swap.
 
     ```PowerShell
     Switch-AzCloudService -SourceCloudService $sourceCloudServiceId -TargetCloudService $targetCloudServiceId    
@@ -161,7 +161,7 @@ To update the swappable relationship for a Cloud Service deployment, call update
 ## RDP using plugin or extension
 
 ### Enable RDP
-1.	Import RemoteAccess & RemoteAccessForwarder Plugins using Csdef
+1.	Import `RemoteAccess` and `RemoteAccessForwarder` plugins using csdef.
 
     ```PowerShell
     <Imports>
@@ -171,7 +171,7 @@ To update the swappable relationship for a Cloud Service deployment, call update
     ```
 
 2.	Create a self-signed PFX cert, define the RDP username & password & encrypt the password using certificate
-3.	Add settings for RDP in Cscfg. Set plugin enabled properties to True. 
+3.	Add settings for RDP in cscfg. Set plugin enabled properties to true. 
 
     ```PowerShell
     <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
@@ -181,7 +181,7 @@ To update the swappable relationship for a Cloud Service deployment, call update
     <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
     ```
 
-4.	 Add certificate details to Cscfg.
+4.	 Add certificate details to cscfg.
         ```PowerShell 
         <Certificates>
         <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="Add certificate thumbprint" thumbprintAlgorithm="sha1" />

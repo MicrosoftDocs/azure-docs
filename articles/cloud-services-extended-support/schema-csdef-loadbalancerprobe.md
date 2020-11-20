@@ -60,4 +60,4 @@ The following table describes the attributes of the `LoadBalancerProbe` element:
 | `timeoutInSeconds`  | `integer` | Optional. The timeout period, in seconds, applied to the probe where no response will result in stopping further traffic from being delivered to the endpoint. This value allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure (which are the defaults).<br /><br /> The default value is 31, the minimum value is 11.|
 
 ## See also
-[Cloud Service (extended support) Definition Schema](schema-csdef-file.md)
+[Cloud Service (extended support) Definition Schema](schema-csdef-file.md).

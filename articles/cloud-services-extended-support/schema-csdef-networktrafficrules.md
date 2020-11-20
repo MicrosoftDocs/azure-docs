@@ -90,7 +90,7 @@ The `FromRole` element specifies the roles that can communicate with the endpoin
 | `roleName` | `string` | Required. The name for role from which to allow communication.|
 
 ## See also
-[Cloud Service (extended support) Definition Schema](schema-csdef-file.md)
+[Cloud Service (extended support) Definition Schema](schema-csdef-file.md).
 
 
 

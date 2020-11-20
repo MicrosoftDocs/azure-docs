@@ -49,4 +49,4 @@ The following table describes the child elements of the `Role` element.
 | Certificate | Optional. Specifies the name, thumbprint, and algorithm of a service certificate that is to be associated with the role. The certificate name is defined by a string for the `name` attribute. The certificate thumbprint is defined by a string of hexadecimal numbers containing no spaces for the `thumbprint` attribute. The hexadecimal numbers must be represented using digits and uppercase alpha characters. The certificate algorithm is defined by a string for the `thumbprintAlgorithm` attribute.|
 
 ## See also
-[Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md)
+[Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md).

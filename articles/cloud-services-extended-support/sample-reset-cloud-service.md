@@ -36,4 +36,4 @@ Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS
 
 ## Next steps
 
-For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md)
+For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md).

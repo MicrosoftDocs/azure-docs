@@ -61,3 +61,5 @@ The following table describes the attributes of the `ServiceConfiguration` eleme
 The service configuration file must contain one `ServiceConfiguration` element. The `ServiceConfiguration` element may include any number of `Role` elements and zero or 1 `NetworkConfiguration` elements.
 
 ## See also
+
+[Azure Cloud Services (extended support) definition schema (csdef file)](schema-csdef.md)

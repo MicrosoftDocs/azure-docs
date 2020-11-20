@@ -24,7 +24,7 @@ Remote Desktop can be enabled in your role during development by including the R
 
 2. Switch Remote Desktop from disabled to enabled. 
 
-3. Fill in the required fields for user name, password, expiry, and certificate (not required)
+3. Fill in the required fields for user name, password, expiry, and certificate (not required).
 
     :::image type="content" source="media/remote-desktop-2.png" alt-text="Image shows inputting the information required to connect to remote desktop.":::
 

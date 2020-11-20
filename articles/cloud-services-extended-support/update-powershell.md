@@ -11,7 +11,7 @@ ms.custom:
 ---
 # Update a Cloud Service (extended support) using PowerShell
 
-Template & parameters file define the desired state of your Cloud Service (extended support) deployment. There are two methods to update a resource using Template
+Template & parameters file define the desired state of your Cloud Service (extended support) deployment. There are two methods to update a resource using template.
 
 1. Reuse old template by making necessary changes and leaving rest of the template untouched. Azure Resource Manager is smart enough to understand the changes and only incorporate those changes.
 
@@ -30,7 +30,7 @@ Template & parameters file define the desired state of your Cloud Service (exten
 
 ## Update method #2
  
-The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by PowerShell command or Portal
+The steps below mention the order to update resources. Depending on the update scenarios, the steps will change. Updates can be done by PowerShell command or Portal.
 
 1.	Update Storage Account.
 
@@ -69,5 +69,5 @@ The steps below mention the order to update resources. Depending on the update s
     ```
 
 ## Next steps
-For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 
+For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/).
 

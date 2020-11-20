@@ -466,7 +466,7 @@ The following table describes the attributes of the `SourceDirectory` element.
 |path|string|Required. Relative or absolute path of a local directory whose contents will be copied to the Azure virtual machine. Expansion of environment variables in the directory path is supported.|  
   
 ## See also
-[Cloud Service (extended support) Definition Schema](schema-csdef-file.md)
+[Cloud Service (extended support) Definition Schema](schema-csdef-file.md).
 
 
 

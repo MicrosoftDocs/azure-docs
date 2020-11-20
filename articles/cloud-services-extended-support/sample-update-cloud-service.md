@@ -66,4 +66,4 @@ $cloudService | Update-AzCloudService
 ```
 
 ## Next steps
-For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md)
+For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md).

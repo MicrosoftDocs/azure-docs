@@ -27,7 +27,7 @@ Minimal changes are required to cscfg and csdef files to deploy to Azure Resourc
 - While Staging and Production slots do not exist in deployments created through the Azure Resource Manager, VIP Swap continues to be supported for Cloud Services (extended support). VIP Swap can be used to swap between two Cloud Services (extended support) deployments, that are tagged as 'VIP swappable' with each other.
 - Services need to use KeyVault to manage certificates in Cloud Services (extended support) and need to reference KeyVault and certificate information in cscfg and Azure Resource Manager template. 
 - Unlike Cloud Services (classic) where a virtual network for the Cloud Service is optional, virtual networks are mandatory for any resource deployed through the Azure Resource Manager. 
-- Network Configuration File (netcfg) does not exist in Azure Resource Manager . Virtual networks & subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs (netcfg is not supported in Azure Resource Manager) and referenced in the cscfg, within the `NetworkConfiguration` section 
+- Network Configuration File (netcfg) does not exist in Azure Resource Manager . Virtual networks & subnets in Azure Resource Manager are created through existing Azure Resource Manager APIs (netcfg is not supported in Azure Resource Manager) and referenced in the cscfg, within the `NetworkConfiguration` section.
 
 ## What does not change
 - You create the code, define the configurations, and deploy it to Azure. Azure sets up the compute environment, runs your code then monitors and maintains it for you.

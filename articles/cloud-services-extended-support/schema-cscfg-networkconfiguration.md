@@ -16,9 +16,9 @@ The `NetworkConfiguration` element of the service configuration file specifies V
 
 You can use the following resource to learn more about Virtual Networks and the associated schemas:
 
-- [Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md)
-- [Cloud Service (extended support) Definition Schema](schema-csdef-file.md)
-- [Create a Virtual Network (extended support)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
+- [Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md).
+- [Cloud Service (extended support) Definition Schema](schema-csdef-file.md).
+- [Create a Virtual Network (extended support)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal).
 
 ## NetworkConfiguration element
 The following example shows the `NetworkConfiguration` element and its child elements.
@@ -68,4 +68,4 @@ The following table describes the child elements of the `NetworkConfiguration` e
 | ReservedIP | Optional. Specifies the reserved IP address that should be associated with the deployment. You must use Create Reserved IP Address to create the reserved IP address. Each deployment in a Cloud Service can be associated with one reserved IP address. The name of the reserved IP address is defined by a string for the `name` attribute.|
 
 ## See also
-[Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md)
+[Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md).

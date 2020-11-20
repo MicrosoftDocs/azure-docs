@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 # Frequently asked questions for Azure Cloud Services (extended support)
-This article covers frequently asked questions related to Azure Cloud Services (extended support)
+This article covers frequently asked questions related to Azure Cloud Services (extended support).
 
 ## General
 
@@ -111,7 +111,7 @@ Virtual networks are a required resource for any deployment on Azure Resource Ma
 In Azure Resource Manager, components of your Cloud Services (extended support) deployment are exposed as a resource for better visibility and improved control. 
 
 ###	What restrictions apply for a subnet with respective to Cloud Services (extended support)
-A Subnet containing Cloud Services (extended support) deployment cannot be shared with deployment from other compute products like Virtual Machines, Virtual Machines Scale Sets, Service Fabric. Etc. 
+A Subnet containing Cloud Services (extended support) deployment cannot be shared with deployment from other compute products like Virtual Machines, Virtual Machines Scale Sets, Service Fabric, etc.
 
 Customers need to use a different subnet in the same Virtual Network. 
 
