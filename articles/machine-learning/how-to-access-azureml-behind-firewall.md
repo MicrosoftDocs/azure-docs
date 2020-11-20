@@ -112,7 +112,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | Azure Machine Learning studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | EXP Flight | default.exp-tas.com | NA | NA |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Experimentation, History, Hyperdrive, labelling | \*.experiments.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
+| Experimentation, History, Hyperdrive, labeling | \*.experiments.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
 | Modelmgmt | \*.modelmanagement.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
 | Pipeline | \*.aether.ms | \*.ml.azure.us | \*.ml.azure.cn |
 | Designer (studio service) | \*.studioservice.azureml.com | \*.ml.azure.us | \*.ml.azure.cn |
