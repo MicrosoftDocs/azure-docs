@@ -21,10 +21,10 @@ In the diagram, gateway transit allows the peered virtual networks to use the Az
 
 In hub-and-spoke network architecture, gateway transit allows spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. Routes to the gateway-connected virtual networks or on-premises networks will propagate to the routing tables for the peered virtual networks using gateway transit. You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.md).
 
-There are two scenarios described in this article:
+There are two scenarios in this article:
 
-* **Resource Manager VNet to Resource Manager VNet**: Both virtual networks are using the Resource Manager deployment model.
-* **Classic VNet to Resource Manager VNet**: The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager.
+* **RM VNet to RM VNet**: Both virtual networks are using the Resource Manager deployment model.
+* **Classic VNet to RM VNet**: The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager.
 
 >[!NOTE]
 > If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
