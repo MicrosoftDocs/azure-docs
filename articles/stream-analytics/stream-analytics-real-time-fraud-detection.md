@@ -1,61 +1,58 @@
 ---
-title: Real-time fraud detection using Azure Stream Analytics
-description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
+title: 'Tutorial: Real-time fraud detection with Azure Stream Analytics'
+description: In this tutorial, you learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics 
-ms.topic: how-to 
-ms.date: 03/24/2020
-ms.custom: seodec18 
+ms.topic: tutorial 
+ms.date: 11/13/2020
+ms.custom: seodec18, contperfq2
 ---
-# Get started using Azure Stream Analytics: Real-time fraud detection
+# Tutorial: Real-time fraud detection with Azure Stream Analytics
 
-This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics. You learn how to: 
+This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics. You'll use a few different queries to analyze phone call data for fraudulent calls. The techniques illustrated in this scenario are also suited for other types of fraud detection, such as credit card fraud or identity theft.
 
-* Bring streaming events into an instance of Azure Event Hubs. In this tutorial, you'll use an app that simulates a stream of mobile-phone metadata records.
+A telecommunications company has a large volume of data for incoming calls. The company wants to detect fraudulent calls in real time so that they can notify customers or shut down service for a specific number. One type of SIM fraud involves multiple calls from the same identity around the same time but in geographically different locations. To detect this type of fraud, the company needs to examine incoming phone records and look for calls made around the same time in different countries or regions. Any phone records that fall into this category are written to storage for subsequent analysis.
 
-* Write SQL-like Stream Analytics queries to transform data, aggregating information or looking for patterns. You will see how to use a query to examine the incoming stream and look for calls that might be fraudulent.
+In this tutorial, you learn how to:
 
-* Send the results to an output sink (storage) that you can analyze for additional insights. In this case, you'll send the suspicious call data to Azure Blob storage.
+> [!div class="checklist"]
+> * Bring streaming events into an instance of Azure Event Hubs.
+> * Write SQL-like Stream Analytics queries to transform data, aggregate information, and look for patterns.
+> * Send the results to an output sink (storage) that you can analyze for additional insights.
 
-This tutorial uses the example of real-time fraud detection based on phone-call data. The technique illustrated is also suited for other types of fraud detection, such as credit card fraud or identity theft. 
-
-## Scenario: Telecommunications and SIM fraud detection in real time
-
-A telecommunications company has a large volume of data for incoming calls. The company wants to detect fraudulent calls in real time so that they can notify customers or shut down service for a specific number. One type of SIM fraud involves multiple calls from the same identity around the same time but in geographically different locations. To detect this type of fraud, the company needs to examine incoming phone records and look for specific patterns—in this case, for calls made around the same time in different countries/regions. Any phone records that fall into this category are written to storage for subsequent analysis.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-In this tutorial, you'll simulate phone-call data by using a client app that generates sample phone call metadata. Some of the records that the app produces look like fraudulent calls. 
-
 Before you start, make sure you have the following:
 
-* An Azure account.
-* The call-event generator app, [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), which can be downloaded from the Microsoft Download Center. Unzip this package into a folder on your computer. If you want to see the source code and run the app in a debugger, you can get the app source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* The call-event generator app, [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), which can be downloaded from the Microsoft Download Center. Unzip this package into a folder on your computer. If you want to see the source code and run the app in a debugger, you can get the app source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 
     >[!NOTE]
-    >Windows might block the downloaded .zip file. If you can't unzip it, right-click the file and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** option and then click **Apply**.
+    > Windows might block the downloaded .zip file. If you can't unzip it, right-click the file and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** option and then click **Apply**.
 
-If you want to examine the results of the Streaming Analytics job, you also need a tool for viewing the contents of an Azure Blob Storage container. If you use Visual Studio, you can use [Azure Tools for Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) or [Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Alternatively, you can install standalone tools like [Azure Storage Explorer](https://storageexplorer.com/) or [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage). 
+* [Visual Studio Code](https://code.visualstudio.com/) or [Azure Storage Explorer](https://azure.microsoft.comfeatures/storage-explorer/) to view the results.
 
 ## Create an Azure Event Hubs to ingest events
 
-To analyze a data stream, you *ingest* it into Azure. A typical way to ingest data is to use [Azure Event Hubs](../event-hubs/event-hubs-about.md), which lets you ingest millions of events per second and then process and store the event information. For this tutorial, you will create an event hub and then have the call-event generator app send call data to that event hub.
+Use [Azure Event Hubs](../event-hubs/event-hubs-about.md) to ingest the call data into Azure. Create an event hub and then have the call-event generator app send call data to that event hub.
 
->[!NOTE]
->For a more detailed version of this procedure, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). 
+> [!NOTE]
+> For a more detailed version of this procedure, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
 
-### Create a namespace and event hub
-In this procedure, you first create an event hub namespace, and then you add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
+### Create a namespace and an event hub
 
-1. Log in to the Azure portal, and click **Create a resource** at the top left of the screen.
+First, create an event hub namespace, and then add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances.
 
-2. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
+1. Log in to the Azure portal, and select **Create a resource** at the top of the screen.
+
+2. Search for **Event Hubs** in the Azure Marketplace search bar. When the Event Hubs page appears, select **Create**.
 
    ![Search for Event Hubs](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
 
-3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
+3. On the *Create Namespace* page, select your resource group and enter a unique name for the namespace. Choose the **Standard** pricing tier. Then select **Review + create**.
 
    ![Add button](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
 
