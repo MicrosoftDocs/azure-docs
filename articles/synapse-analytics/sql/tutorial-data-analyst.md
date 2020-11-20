@@ -206,5 +206,6 @@ This tutorial has shown how a data analyst can quickly perform exploratory data 
 ## Next steps
 
 To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
+
 To learn how to use External tables in serverless SQL pool see [Use external tables with Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool)
  
