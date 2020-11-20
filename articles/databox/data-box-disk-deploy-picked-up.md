@@ -164,21 +164,24 @@ Take the following steps if returning the device in South Africa.
 
 3. Request a return code from Azure Data Box Operations. A return code is required for delivering the package back to the datacenter. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Note this code on the shipping label next to the return address so it is clearly visible.
 
-4. To book a pickup with DHL:
+4. Book a pickup with DHL using one of the following methods:
+   * Book a pickup online by going to [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
-    * Call the customer service contact center on +27(0) 11 9213600, select option 1 and specify waybill number.
-    * You must call before 2:00 PM South Africa Standard Time (ZA) to schedule a pickup.  
-    * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) to organize pickup using the following email template:
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject:Pickup request for Microsoft Azure
-    Body:  Need pick up for the below shipment
-    *  DHL tracking number (reference number/waybill number)
-    *  Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```
-
-    * Alternatively, you can drop off the package at the nearest DHL service point.
+    * Or drop off the package at the nearest DHL service point.
 
 5. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
