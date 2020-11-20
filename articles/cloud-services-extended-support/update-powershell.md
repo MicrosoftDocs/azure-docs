@@ -34,9 +34,9 @@ The steps below mention the order to update resources. Depending on the update s
 
 1.	Update Storage Account.
 
-2.	Update `.cscfg`, upload `.cscfg` to storage account & obtain SAS URL. 
+2.	Update cscfg, upload cscfg to storage account & obtain SAS URL. 
 
-3.	Update `.cspkg` file, upload `.cspkg` to storage account and obtain SAS URL.
+3.	Update cspkg file, upload cspkg to storage account and obtain SAS URL.
 
 4.	Update public IP.
 

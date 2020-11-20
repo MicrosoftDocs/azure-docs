@@ -116,7 +116,7 @@ A Subnet containing Cloud Services (extended support) deployment cannot be share
 Customers need to use a different subnet in the same Virtual Network. 
 
 ###	What IP allocation methods are supported on Cloud services (extended support)?
-Cloud Services (extended support) supports dynamic & static IP allocation methods. Static IP addresses are referenced as reserved IP in the `.cscfg` file.
+Cloud Services (extended support) supports dynamic & static IP allocation methods. Static IP addresses are referenced as reserved IP in the cscfg file.
 
 ###	Why am I getting charged for IP addresses?
 Customers are billed for IP Address use on Cloud Services (extended support). 

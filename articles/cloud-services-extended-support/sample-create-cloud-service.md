@@ -13,7 +13,7 @@ ms.custom:
 # Create a new Azure Cloud Service (extended Support)
 These samples cover various ways to to create a new Azure Cloud Service (extended support).
 
-## Create new cloud service with single role
+## Create new Cloud Service with single role
 
 ```powershell
 # Create role profile object
@@ -28,7 +28,7 @@ $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'C
 $cscfgFile = "<Path to cscfg configuration file>"
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create cloud service
+# Create Cloud Service
 $cloudService = New-AzCloudService                                              `
 -Name ContosoCS                                               `
 -ResourceGroupName ContosOrg                                  `
@@ -41,7 +41,7 @@ $cloudService = New-AzCloudService                                              
 ```
 
 
-## Create new cloud service with single role and RDP extension
+## Create new Cloud Service with single role and RDP extension
 
 ```powershell
 # Create role profile object
@@ -61,7 +61,7 @@ $extension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension'
 $cscfgFile = "<Path to cscfg configuration file>"
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create cloud service
+# Create Cloud Service
 $cloudService = New-AzCloudService                                              `
 -Name ContosoCS                                               `
 -ResourceGroupName ContosOrg                                  `
@@ -74,7 +74,7 @@ $cloudService = New-AzCloudService                                              
 -ExtensionProfileExtension $extension
 ```
 
-## Create a cloud service with a single role and Windows Azure Diagnostics extension
+## Create a Cloud Service with a single role and Windows Azure Diagnostics extension
 
 ```PowerShell
 # Create role profile object
@@ -94,7 +94,7 @@ $extension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -Resour
 $cscfgFile = "<Path to cscfg configuration file>"
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-## Create cloud service
+## Create Cloud Service
 $cloudService = New-AzCloudService                                              `
 -Name ContosoCS                                               `
 -ResourceGroupName ContosOrg                                  `
@@ -106,7 +106,7 @@ $cloudService = New-AzCloudService                                              
 -NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
 -ExtensionProfileExtension $extension
 ```
-## Create new cloud service with single role and certificate from key vault
+## Create new Cloud Service with single role and certificate from key vault
 
 ```powershell
 # Create role profile object
@@ -126,7 +126,7 @@ $feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 
 $cscfgFile = "<Path to cscfg configuration file>"
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create cloud service
+# Create Cloud Service
 $cloudService = New-AzCloudService                                              `
 -Name ContosoCS                                               `
 -ResourceGroupName ContosOrg                                  `
@@ -139,7 +139,7 @@ $cloudService = New-AzCloudService                                              
 -OSProfileSecret $secretGroup
 ```
 
-## Create new cloud service with multiple roles and extensions
+## Create new Cloud Service with multiple roles and extensions
 
 ```powershell
 # Create role profile object
@@ -168,7 +168,7 @@ $tag=@{"Owner" = "Contoso"}
 $cscfgFile = "<Path to cscfg configuration file>"
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create cloud service
+# Create Cloud Service
 $cloudService = New-AzCloudService                                              `
 -Name ContosoCS                                               `
 -ResourceGroupName ContosOrg                                  `

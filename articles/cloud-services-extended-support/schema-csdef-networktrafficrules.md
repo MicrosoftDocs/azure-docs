@@ -14,7 +14,7 @@ ms.custom:
 
 The `NetworkTrafficRules` node is an optional element in the service definition file that specifies how roles communicate with each other. It limits which roles can access the internal endpoints of the specific role. The `NetworkTrafficRules` is not a standalone element; it is combined with two or more roles in a service definition file.
 
-The default extension for the service definition file is .csdef.
+The default extension for the service definition file is csdef.
 
 > [!NOTE]
 >  The `NetworkTrafficRules` node is only available using the Azure SDK version 1.3 or higher.

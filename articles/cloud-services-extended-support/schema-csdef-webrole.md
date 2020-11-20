@@ -14,7 +14,7 @@ ms.custom:
 
 The Azure web role is a role that is customized for web application programming as supported by IIS 7, such as ASP.NET, PHP, Windows Communication Foundation, and FastCGI.
 
-The default extension for the service definition file is .csdef.
+The default extension for the service definition file is csdef.
 
 ## Basic service definition schema for a web role  
 The basic format of a service definition file containing a web role is as follows.
@@ -372,7 +372,7 @@ The following table describes the attributes of the `Site` element.
 | Attribute | Type | Description |  
 | --------- | ---- | ----------- |  
 |name|string|Required. Name of the website or application.|  
-|physicalDirectory|string|The location of the content directory for the site root. The location can be specified as an absolute path or relative to the .csdef location.|  
+|physicalDirectory|string|The location of the content directory for the site root. The location can be specified as an absolute path or relative to the csdef location.|  
 
 ##  <a name="VirtualApplication"></a> VirtualApplication  
 The `VirtualApplication` element defines an application in Internet Information Services (IIS) 7 is a grouping of files that delivers content or provides services over protocols, such as HTTP. When you create an application in IIS 7, the application's path becomes part of the site's URL.

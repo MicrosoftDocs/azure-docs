@@ -14,7 +14,7 @@ ms.custom:
 
 The Azure worker role is a role that is useful for generalized development, and may perform background processing for a web role.
 
-The default extension for the service definition file is .csdef.
+The default extension for the service definition file is csdef.
 
 ## Basic service definition schema for a worker role.
 The basic format of the service definition file containing a worker role is as follows.

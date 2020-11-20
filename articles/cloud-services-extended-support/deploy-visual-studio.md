@@ -13,11 +13,11 @@ ms.author: ghogen
 
 # Create and deploy a Azure Cloud Service (extended support) using Visual Studio
 
-Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with cloud services using Azure Resource Manager, which greatly simplifies and modernizes maintenance and management of Azure resources. You can also convert an existing cloud service project to an extended support cloud service project.
+Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with Cloud Services using Azure Resource Manager, which greatly simplifies and modernizes maintenance and management of Azure resources. You can also convert an existing Cloud Service project to an extended support Cloud Service project.
 
 ## Create a project
 
-Visual Studio provides a project template that lets you create an Azure Cloud Service with extended support, named **Azure Cloud Service (extended support)**. A cloud service is a simple general-purpose Azure service. Once the project has been created, Visual Studio enables you to configure, debug, and deploy the cloud service to Azure.
+Visual Studio provides a project template that lets you create an Azure Cloud Service with extended support, named **Azure Cloud Service (extended support)**. A Cloud Service is a simple general-purpose Azure service. Once the project has been created, Visual Studio enables you to configure, debug, and deploy the Cloud Service to Azure.
 
 ### To create an Azure Cloud Service (extended support) project in Visual Studio
 
@@ -48,7 +48,7 @@ The Visual Studio Azure project has associations to the role projects in the sol
 
 For more information about these files, see [Configure the Roles for an Azure Cloud Service with Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
-## Publish a cloud service
+## Publish a Cloud Service
 
 1. Create or open an Azure Cloud Service project in Visual Studio.
 
@@ -58,27 +58,27 @@ For more information about these files, see [Configure the Roles for an Azure Cl
 
 1. **Account** - Select an account or select **Add an account** in the account dropdown list.
 
-1. **Choose your subscription** - Choose the subscription to use for your deployment. The subscription you use for deploying cloud services (extended support) needs to have Owner or Contributor roles assigned via role-based access control (RBAC). If your subscription does not have any one of these roles, see [Steps to add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) to add this before proceeding further.
+1. **Choose your subscription** - Choose the subscription to use for your deployment. The subscription you use for deploying Cloud Services (extended support) needs to have Owner or Contributor roles assigned via role-based access control (RBAC). If your subscription does not have any one of these roles, see [Steps to add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) to add this before proceeding further.
 
 1. Choose **Next** to move to the **Settings** page.
 
    ![Common Settings](./media/publish-settings.png)
 
-1. **Cloud service** - Using the dropdown, either select an existing cloud service, or select **Create new**, and create a cloud service. The data center displays in parentheses for each cloud service. It is recommended that the data center location for the cloud service be the same as the data center location for the storage account.
+1. **Cloud service** - Using the dropdown, either select an existing Cloud Service, or select **Create new**, and create a Cloud Service. The data center displays in parentheses for each Cloud Service. It is recommended that the data center location for the Cloud Service be the same as the data center location for the storage account.
 
-   If you choose to create a new cloud service, you'll see the **Create Cloud Service (extended support)** dialog. Specify the location and resource group you want to use for the cloud service.
+   If you choose to create a new Cloud Service, you'll see the **Create Cloud Service (extended support)** dialog. Specify the location and resource group you want to use for the Cloud Service.
 
-   ![Create a cloud service with extended support](./media/extended-support-dialog.png)
+   ![Create a Cloud Service with extended support](./media/extended-support-dialog.png)
 
 1. **Build configuration** - Select either **Debug** or **Release**.
 
 1. **Service configuration** - Select either **Cloud** or **Local**.
 
-1. **Storage account** - Select the storage account to use for this deployment, or **Create new** to create a storage account. The region displays in parentheses for each storage account. It is recommended that the data center location for the storage account is the same as the data center location for the cloud service (Common Settings).
+1. **Storage account** - Select the storage account to use for this deployment, or **Create new** to create a storage account. The region displays in parentheses for each storage account. It is recommended that the data center location for the storage account is the same as the data center location for the Cloud Service (Common Settings).
 
    The Azure storage account stores the package for the application deployment. After the application is deployed, the package is removed from the storage account.
 
-1. **Key vault** - Specify the key vault that contains the secrets for this cloud service. This is enabled if remote desktop is enabled or certificates are added to the configuration.
+1. **Key vault** - Specify the key vault that contains the secrets for this Cloud Service. This is enabled if remote desktop is enabled or certificates are added to the configuration.
 
 1. **Enable Remote Desktop for all roles** - Select this option if you want to be able to remotely connect to the service. You'll be asked to specify credentials.
 
@@ -101,7 +101,7 @@ For more information about these files, see [Configure the Roles for an Azure Cl
 
 1. Once you configure all the settings for your project's deployment, select **Publish** at the bottom of the dialog. You can monitor the process status in the **Azure Activity Log** output window in Visual Studio.
 
-Congratulations! You've published your extended support cloud service project to Azure. To publish again with the same settings, you can reuse the publishing profile, or repeat these steps to create a new one.
+Congratulations! You've published your extended support Cloud Service project to Azure. To publish again with the same settings, you can reuse the publishing profile, or repeat these steps to create a new one.
 
 ## Clean up Azure resources
 
