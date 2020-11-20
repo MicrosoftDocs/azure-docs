@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Users](./media/xmatters-ondemand-tutorial/add-user.png "Users")
 
-3. In the **Add Users** section, fill the required fileds and click on **Add User** button.
+3. In the **Add Users** section, fill the required fields and click on **Add User** button.
 
     ![Add a User](./media/xmatters-ondemand-tutorial/add-user-2.png "Add a User")
 
