@@ -44,11 +44,10 @@ To set up a Universal Windows Platform (UWP) client application with Speech SDK,
 - [How to: Set up web endpoints](./how-to-custom-commands-setup-web-endpoints.md)
 
 For other programming languages and platforms:
-- [Speech SDK programming languages, platforms, scenario capacities](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk)
+- [Speech SDK programming languages, platforms, scenario capacities](./speech-sdk.md)
 - [Voice assistant sample codes](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [See samples on GitHub](https://aka.ms/speech/cc-samples)
-

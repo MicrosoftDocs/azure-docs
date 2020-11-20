@@ -11,6 +11,16 @@
       "redirect_document_id": false
     },
 	{
+      "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-network-performance-monitor.md",
+      "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-connection-monitor.md",
+      "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic",
+      "redirect_document_id": false
+    },
+	{
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
@@ -59386,6 +59396,11 @@
     {
       "source_path": "articles/azure-monitor/app/powershell-alerts.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/how-to-create-transform",
       "redirect_document_id": false
     }
   ]
