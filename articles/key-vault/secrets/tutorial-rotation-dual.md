@@ -111,18 +111,18 @@ az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --sec
 
 You can now create a new secret with a storage account access key as its value. You'll also need the storage account resource ID, secret validity period, and key ID to add to the secret so the rotation function can regenerate the key in the storage account.
 
-Retrieve the storage account resource ID. You can find this value in the `id` property.
+Determine the storage account resource ID. You can find this value in the `id` property.
 ```azurecli
 az storage account show -n akvrotationstorage
 ```
 
-List the storage account access keys so you can retrieve the key values:
+List the storage account access keys so you can get the key values:
 
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
 
-Populate retrieved values for **key1Value** and **storageAccountResourceId**
+Run this command, using your retrieved values for `key1Value` and `storageAccountResourceId`:
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
