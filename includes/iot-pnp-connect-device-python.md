@@ -84,5 +84,3 @@ Keep the sample running as you complete the next steps.
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
-
-## Next steps

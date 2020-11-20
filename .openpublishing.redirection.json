@@ -49816,6 +49816,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-c.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-csharp.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-java.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-node.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-python.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-pnp/quickstart-service-csharp.md",
       "redirect_url": "/azure/iot-pnp/quickstart-service",
       "redirect_document_id": false

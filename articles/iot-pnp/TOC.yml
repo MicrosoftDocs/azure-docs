@@ -17,16 +17,8 @@
     href: quickstart-service.md
 - name: Tutorials
   items:
-  - name: Connect a multiple component device (C)
-    href: tutorial-multiple-components-c.md
-  - name: Connect a multiple component device (C#)
-    href: tutorial-multiple-components-csharp.md
-  - name: Connect a multiple component device (Java)
-    href: tutorial-multiple-components-java.md
-  - name: Connect a multiple component device (Node.js)
-    href: tutorial-multiple-components-node.md
-  - name: Connect a multiple component device (Python)
-    href: tutorial-multiple-components-python.md
+  - name: Connect a multiple component device
+    href: tutorial-multiple-components.md
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
   - name: Interact with an MXChip device (Sample)
