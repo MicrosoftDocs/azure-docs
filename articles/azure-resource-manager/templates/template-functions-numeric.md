@@ -158,7 +158,7 @@ The following example shows a copy loop and the index value included in the name
 # [Bicep](#tab/bicep)
 
 > [!NOTE]
-> Loops are not implemented yet.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+> Loops and `copyIndex` are not implemented yet in Bicep.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
 
 ---
 
@@ -276,7 +276,7 @@ The following example shows how to use float to pass parameters to a Logic App:
 # [Bicep](#tab/bicep)
 
 > [!NOTE]
-> The float function is not supported in Bicep.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
+> The `float` function is not supported in Bicep.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
 
 ---
 

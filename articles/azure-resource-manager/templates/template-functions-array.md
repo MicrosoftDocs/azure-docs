@@ -420,7 +420,7 @@ The following example shows how to use createArray with different types:
 # [Bicep](#tab/bicep)
 
 > [!NOTE]
-> createArray() is not supported by Bicep.  Construct an array literal by using [].
+> `createArray()` is not supported by Bicep.  Construct an array literal by using `[]`.
 
 ---
 
@@ -879,7 +879,7 @@ You can use this function with an array to specify the number of iterations when
 # [Bicep](#tab/bicep)
 
 > [!NOTE]
-> Loops are not implemented yet.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+> Loops are not implemented yet in Bicep.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
 
 ---
 
