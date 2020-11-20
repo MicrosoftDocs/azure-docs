@@ -37,7 +37,7 @@ The connection requires the following parameters:
 * **Database:** Database name
 
 > [!NOTE]
-> If you would like to use **serverless SQL pool (preview)** the URL should look like:
+> If you would like to use **serverless SQL pool** the URL should look like:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >

@@ -1,6 +1,6 @@
 ---
 title: Connect to Synapse SQL with sqlcmd
-description: Use the sqlcmd command-line utility to connect to and query serverless SQL pool (preview) and dedicated SQL pool.
+description: Use the sqlcmd command-line utility to connect to and query serverless SQL pool and dedicated SQL pool.
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -20,7 +20,7 @@ ms.reviewer: jrasnick
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-You can use the [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) command-line utility to connect to and query serverless SQL pool (preview) and dedicated SQL pool within Synapse SQL.  
+You can use the [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) command-line utility to connect to and query serverless SQL pool and dedicated SQL pool within Synapse SQL.  
 
 ## 1. Connect
 To get started with [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), open the command prompt and enter **sqlcmd** followed by the connection string for your Synapse SQL database. The connection string requires the following parameters:

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use serverless SQL pool (preview) to analyze Azure Open Datasets in Azure Synapse Studio (preview)'
-description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool (preview) and visualize the results in Azure Synapse Studio.
+title: 'Tutorial: Use serverless SQL pool to analyze Azure Open Datasets in Azure Synapse Studio'
+description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool and visualize the results in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics

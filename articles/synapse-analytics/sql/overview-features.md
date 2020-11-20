@@ -114,7 +114,7 @@ You can use various tools to connect to Synapse SQL to query data.
 | **SQL Server Management Studio** | Yes | Yes, version 18.5 or higher |
 
 > [!NOTE]
-> You can use SSMS to connect to serverless SQL pool (preview) and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
+> You can use SSMS to connect to serverless SQL pool and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
 
 Most of the applications use standard Transact-SQL language can query both dedicated and serverless consumption models of Synapse SQL.
 
