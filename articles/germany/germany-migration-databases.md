@@ -2,7 +2,7 @@
 title: Migrate Azure database resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 11/18/2020
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
@@ -35,6 +35,108 @@ For more information:
 - Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+
+## Migrate SQL Database using Active geo-replication
+
+For databases that are too large for BACPAC files, you can configure geo-replication from Azure Germany to global Azure.
+
+> [!IMPORTANT]
+> Configuring geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and you must [request access for your subscription](#requesting-access) to support migrating to global Azure by opening a support ticket in the Azure portal.
+
+Migrating databases with geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, CLI, etc., but configuring geo-replication to replicate (migrate) a database is only supported in Transact-SQL (T-SQL).
+
+The `ALTER DATABASE` statement allows you to specify a target server in global Azure by using its fully qualified dns server name on the target side: 
+
+
+```sql
+ALTER DATABASE [sourcedb] add secondary on server [public-server.database.windows.net]
+```
+
+
+- *`sourcedb`* represents the database name in an Azure SQL server in Azure Germany. 
+- *`public-server.database.windows.net`* represents the Azure SQL server name that exists in global Azure, where the database should be migrated. The namespace "database.windows.net" is required, replace *public-server* with the name of your logical SQL server in global Azure.
+
+
+The command is executed on the master database on the Azure Germany server hosting the local database to be migrated. 
+- The T-SQL start-copy API authenticates the logged-in user in the public cloud server by finding a user with the same SQL login/user name in master database of that server. This approach is cloud-agnostic; thus, the T-SQL API is used to start cross-cloud copies. For permissions and more information on this topic see [Creating and using active geo-replication](../azure-sql/database/active-geo-replication-overview.md) and [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql/).
+- Except for the initial T-SQL command extension indicating an Azure SQL logical server in global Azure, the rest of geo-replication process is identical to the existing execution in the local cloud. For detailed steps to create active geo-replication, see [Creating and using active geo-replication](../azure-sql/database/active-geo-replication-overview.md) with an exception the secondary database is created in the secondary logical server created in global Azure. 
+- Once the secondary database exists in global Azure (as its online copy of the Azure Germany database), customer can initiate a database failover from Azure Germany to global Azure for this database using the ALTER DATABASE T-SQL command (see the table below).
+- After the failover, once the secondary becomes a primary database in global Azure, customer can stop the geo-replication and remove the secondary database on the Azure Germany side at any time (see the table below and the steps present in the diagram).
+      
+- ALTER DATABASE command indicated above is the only user interface available to set up geo-replication to migrate an Azure Germany database to global Azure. 
+- No Azure portal, Azure Resource Manager (ARM), PowerShell, or CLI is available to configure geo-replication for this migration. 
+
+To migrate a database from Azure Germany to global Azure:   
+
+1.	Choose the user database in Azure Germany, for example, `azuregermanydb`
+2.	Create a logical server in global Azure (the public cloud), for example, `globalazureserver`. 
+Its fully qualified domain name (FQDN) is `globalazureserver.database.windows.net`.
+3.	Start geo-replication from Azure Germany to global Azure by executing this T-SQL command on the server in Azure Germany. Note that the fully qualified dns name is used for the public server `globalazureserver.database.windows.net`. This is to indicate that the target server is in global Azure, and not Azure Germany.
+
+    ```sql
+    ALTER DATABASE [azuregermanydb] ADD SECONDARY ON SERVER [globalazureserver.database.windows.net];
+    ```
+
+4.	When the replication is ready to move the read-write workload to the global Azure server, initiate a planned failover to global Azure by executing this T-SQL command on the global Azure server.
+
+   ```sql
+   ALTER DATABASE [azuregermanydb] FAILOVER;
+   ```
+
+5.	Use the following T-SQL to stop geo-replication. If this command is run after the planned failover, it will terminate the geo-link with the database in global Azure being the read-write copy. This will complete the migration process. However, if the command is executed before the planned failover, it will stop the migration process and the database in Azure Germany will remain the read-write copy. This T-SQL command should be run on the current geo-primary database's logical server, for example, on the Azure Germany server before planned failover and the global Azure server after planned failover.
+
+
+`ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [azuregermanyserver];`
+or
+`ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [globalazureserver];`
+
+
+These steps to migrate Azure SQL databases from Azure Germany to global Azure can also be followed using active geo-replication.
+
+
+For more information the following tables below indicates T-SQL commands for managing failover. The following commands are supported for cross-cloud geo-replication between Azure Germany and global Azure: 
+ 
+|Command |Description|
+|:--|:--| 
+|ALTER DATABASE| Use ADD SECONDARY ON SERVER argument to create a secondary database for an existing database and starts data replication| 
+|ALTER DATABASE |Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary to initiate failover  |
+|ALTER DATABASE|Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database.  |
+|sys.geo_replication_links | Returns information about all existing replication links for each database on the Azure SQL Database server. |
+ 
+### Geo-Dr monitoring system views 
+ 
+|Command |Description|
+|:--|:--| 
+|sys.geo_replication_links|Returns information about all existing replication links for each database on the Azure SQL Database server. |
+|sys.dm_geo_replication_link_status |Gets the last replication time, last replication lag, and other information about the replication link for a given SQL database. |
+|sys.dm_operation_status | Shows the status for all database operations including the status of the replication links. | 
+|sp_wait_for_database_copy_sync | Causes the application to wait until all committed transactions are replicated and acknowledged by the active secondary database. |
+ 
+
+
+
+### Limitations  
+
+- Failover Groups are not supported. This means that customers migrating Azure Germany database(s) will need to manage connection strings themselves during failover.
+- No support for Azure portal, ARM APIs, PowerShell, or CLI. This means that each Azure Germany migration will need to manage geo-replication setup and failover through T-SQL.
+- Customers cannot create multiple geo-secondaries in public cloud for databases in Azure Germany.
+- Creation of a geo secondary must be initiated from the Azure Germany region.
+- Geo-replication is not support for SQL DW, SQL Managed Instance (MI) and Cosmos-DB
+- Customers can migrate databases out of Azure Germany only to global Azure. Currently no other cross-cloud migration is supported. 
+- Azure AD users in Azure Germany user databases are migrated but are not available in the new Azure AD tenant where the migrated database resides. To enable these users, they must be manually dropped and recreated using the current Azure AD users available in the new Azure AD tenant where the newly migrated database resides.  
+
+
+### Requesting access
+
+To set up geo-replication between Azure Germany and global Azure, you must request access for your subscription through the portal.
+
+1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
+1. In **Help + support**, select **New support request**.
+1. For **Issue type**, select **Geo-replication, Failover Groups and DB Copy**.
+1. For **Issue sub-type**, select **Migration from German cloud to global cloud**.
+1. For **Subscription**, select the global Azure subscription. The global Azure subscription where the database will be migrated to.
+
 
 ## Azure Synapse Analytics
 
