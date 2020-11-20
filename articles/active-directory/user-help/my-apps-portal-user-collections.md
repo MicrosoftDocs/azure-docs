@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/18/2020
+ms.date: 11/20/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -27,29 +27,29 @@ In this article, you’ll learn how to:
 - Edit collections
 - Reorder collections
 - Hide collections
-- Make hidden collections visible
+- Show hidden collections
 - Delete collections
 
 ## Create a collection
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Once you’re signed in select the ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu"::: and the select **Create new**.  
+1. Select the page menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Create new**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/1-create-collection.png" alt-text="The page or ellipsis menu contains the Create new command":::
 
-1. Next you can give your new collection a name and hit ‘Continue’.
+1. Enter a name for your new collection and select **Continue**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/2-select-continue.png" alt-text="Select the Continue button to name your collection and start adding apps":::
 
-1. Select all the apps you’d like to include in the collection and select ‘Add’ once you’ve finished your selection.  
+1. Select all the apps you’d like to include in the collection and select **Add** to finish adding them to the collection.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Adding apps from the list to your collection":::
 
-1. From this screen you can reorder the apps, delete ones you don’t want, or select ‘Add apps’ to go back to app selection. Once you’re happy with the list hit ‘Create new’.  
+1. On the following you can reorder or delete apps, or select **Add apps** to select more apps for the collection. When you’re happy with your choices, select **Create new**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Select the Create new button to save the collection to My Apps":::
 
-1. You can see the collection you created now in My Apps.
+1. You can now see your new collection in My Apps.
 
     :::image type="content" source="media/my-apps-portal-user-collections/5-see-created-collection.png" alt-text="You can see the collection you created now in My Apps":::
 
@@ -58,26 +58,26 @@ In this article, you’ll learn how to:
 You can only edit collections you created. To edit a collection you already created:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Once you’re signed in select the ‘…’ and ‘Manage’.  
+1. Select the page menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and select **Manage**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/6-manage-apps.png" alt-text="The page or ellipsis menu contains the Manage command to manage your apps":::
 
-1. Here you will see all the collections you have access to whether they were created by you or your admin. Find the collection you want to edit, hit the ‘…’, then ‘Edit’.  
+1. You can see all the collections to which you have access, whether they were created by you or your admin. Find the collection you want to edit, select the collection menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon on a collection for the collection-level menu":::, and then select **Edit**.
 
-    :::image type="content" source="media/my-apps-portal-user-collections/7-edit-command.png" alt-text="The collection or ellipsis menu contains the Edit commend":::
+    :::image type="content" source="media/my-apps-portal-user-collections/7-edit-command.png" alt-text="The collection's ellipsis menu contains the Edit commend":::
 
-1. This will bring you back to the edit state where you can add more apps, remove some, or rename the collection itself.  
+1. On the edit pane, you can add or remove apps, or rename the collection.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/8-create-experience-for-edit.png" alt-text="The Create new button saves your editing changes":::
 
 ## Reorder collections
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Once you’re signed in select the ‘…’ and ‘Manage’.  
+1. Select the page menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/9-manage-apps-again.png" alt-text="Use the Manage command to manage your apps":::
 
-1. From here you can set the order in which collections appear in My Apps. Note: whichever collection you have first will be the default collection you see every time you go to myapps.microsoft.com.  
+1. From here you can set the order in which collections appear in My Apps. The collection that is first in order will be the default collection you see every time you go to myapps.microsoft.com.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/10-default-collection.png" alt-text="My Apps now contains your new collection":::
 
@@ -86,11 +86,11 @@ You can only edit collections you created. To edit a collection you already crea
 To hide a collection:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Once you’re signed in select the ‘…’ and ‘Manage’.  
+1. Select the collection menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 
-    :::image type="content" source="media/my-apps-portal-user-collections/11-manage-apps-again.png" alt-text="The ellipsis menu contains the Manage command to manage your apps":::
+    :::image type="content" source="media/my-apps-portal-user-collections/11-manage-apps-again.png" alt-text="The page-level ellipsis menu contains the Manage command to manage your apps":::
 
-1. Here you will see all the collections you have access to whether they were created by you or your admin. Find the collection you want to hide, hit the ‘…’, then ‘Hide’. Hidden collections show up in the same list of collections just under the Hidden drop down.  
+1. You can see all the collections to which you have access, whether they were created by you or your admin. Find the collection you want to edit, select the collection menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon on a collection for the collection-level menu":::, and then select **Hide**. Hidden collections show up in the same list of collections just under the Hidden drop down.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/12-hide-collection.png" alt-text="The collection ellipsis menu contains the Hide command":::
 
@@ -99,11 +99,11 @@ To hide a collection:
 To make a hidden collection visible:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Once you’re signed in select the ‘…’ and ‘Manage’.  
+1. Select the collection menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="The page menu contains the Manage command to manage your apps":::
 
-1. Here you will see all the collections you have access to whether they were created by you or your admin. Hidden collections show up in the same list of collections just under the Hidden drop down. Find the collection you want to show, hit the ‘…’, then ‘Show’. The collection will go to the end of your visible collections list.  
+1. Here you will see all the collections you have access to whether they were created by you or your admin. Hidden collections show up in the same list of collections just under the Hidden drop down. Find the collection you want to edit, select the collection menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon on a collection for the collection-level menu":::, and then select **Show**. The collection will go to the end of your visible collections list.
 
     :::image type="content" source="media/my-apps-portal-user-collections/14-show-collection.png" alt-text="The collection ellipsis menu contains the Show command":::
 
@@ -112,10 +112,10 @@ To make a hidden collection visible:
 You can delete only collections you created. To delete a collection:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Once you’re signed in, select the ‘…’ and ‘Manage’.  
+1. Select the collection menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/15-manage-apps-again.png" alt-text="Select the Manage command to manage your apps":::
 
-1. Here you will see all the collections you have access to whether they were created by you or your admin. Find the collection you want to delete, hit the ‘…’, then ‘Delete’.  
+1. Here you will see all the collections to which you have access, whether they were created by you or your admin. Find the collection you want to edit, select the collection menu ellipsis :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon on a collection for the collection-level menu":::, and then select **Delete**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/16-delete-collection.png" alt-text="The collection ellipsis menu contains the Delete command":::
