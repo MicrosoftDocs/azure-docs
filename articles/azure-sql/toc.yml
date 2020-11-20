@@ -382,7 +382,7 @@
         - name: Always Encrypted with secure enclaves >
           href: /sql/relational-databases/security/encryption/always-encrypted-enclaves
           items:
-          - name: Configure and use Always Encrypted with secure enclaves
+          - name: Configure and use Always Encrypted with secure enclaves >
             href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
           - name: Plan for Intel SGX enclaves and attestation
             href: database/always-encrypted-enclaves-plan.md
