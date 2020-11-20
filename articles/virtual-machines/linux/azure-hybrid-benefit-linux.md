@@ -140,15 +140,15 @@ A: No you cannot. Azure Hybrid Benefit supports conversion only on Pay-As-You-Go
 
 A: No you cannot. The Azure Hybrid Benefit capability is available only to RHEL and SLES Marketplace images today. 
 
-*Q: Can I use Azure Hybrid Benefit on VMs deployed from Marketplace RHEL and SLES SAP images? *
+*Q: Can I use Azure Hybrid Benefit on VMs deployed from Marketplace RHEL and SLES SAP images?*
 
 A: Yes, you can. You can use the license type of 'RHEL_BYOS' for RHEL VMs and 'SLES_BYOS' for conversions of VMs deployed from Marketplace RHEL and SLES SAP images.
 
-*Q: Can I use Azure Hybrid Benefit on Virtual Machine Scale Set(VMSS) for RHEL and SLES? *
+*Q: Can I use Azure Hybrid Benefit on Virtual Machine Scale Set(VMSS) for RHEL and SLES?*
 
 A: No, you cannot. VMSS are not in scope of Azure Hybrid Benefit today for RHEL and SLES currently.
 
-*Q: Can I use Azure Hybrid Benefit on Reserved Instances(RIs) for RHEL and SLES? *
+*Q: Can I use Azure Hybrid Benefit on Reserved Instances(RIs) for RHEL and SLES?*
 
 A: No, you cannot. RIs are not in scope of Azure Hybrid Benefit today for RHEL and SLES currently.
  
