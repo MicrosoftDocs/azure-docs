@@ -11,7 +11,7 @@ ms.date: 11/13/2020
 
 # Supported data stores
 
-Babylon supports the following data stores. Click each data store to
+Purview supports the following data stores. Click each data store to
 learn the supported capabilities and the corresponding configurations in
 details.
 

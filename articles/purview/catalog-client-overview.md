@@ -1,6 +1,6 @@
 ---
-title: Azure Babylon catalog client overview (preview)
-description: Learn about the main features of the Azure Babylon catalog client.
+title: Azure Purview catalog client overview (preview)
+description: Learn about the main features of the Azure Purview catalog client.
 author: darrenparker
 ms.author: dpark
 ms.service: data-catalog
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ---
 
-# Azure Babylon catalog client overview (preview)
+# Azure Purview catalog client overview (preview)
 
-This article provides an overview of the Azure Babylon catalog client.
+This article provides an overview of the Azure Purview catalog client.
 
 ## Home page
 
-**Home** is the starting page for the Azure Babylon client. To get to **Home**, select it in the left navigation pane.
+**Home** is the starting page for the Azure Purview client. To get to **Home**, select it in the left navigation pane.
 
 The highlighted numbers in the following screenshot mark features of **Home** that are described in this article.
 
@@ -76,7 +76,7 @@ Search results include only assets with one or more characteristics that match t
 
 #### Types of search criteria
 
-Azure Babylon supports the following types of search criteria.
+Azure Purview supports the following types of search criteria.
 
 > [!Note]
 > Always specify Boolean operators (**AND**, **OR**, **NOT**) in all caps. Otherwise, case doesn't matter, nor do extra spaces.
@@ -354,7 +354,7 @@ The numbers in the asset detail screenshot correspond to the numbers in the foll
 
 Select the **Schema** tab on the asset details to display schema information of an asset that's a structured file or table.
 
-This tab is present only on asset types for which the schema is relevant or could be determined by the system. Azure Babylon sorts the column names by ascending alphabetical order.
+This tab is present only on asset types for which the schema is relevant or could be determined by the system. Azure Purview sorts the column names by ascending alphabetical order.
 
 :::image type="content" source="./media/catalog-client-overview/schema-tab.png" alt-text="Screenshot showing the Schema tab of the asset details.":::
 
@@ -364,7 +364,7 @@ Select any item under the **Column name** column to jump to the asset details vi
 
 ### Lineage tab
 
-Select the **Lineage** tab to display the lineage, if available, for the asset. Azure Babylon provides lineage results for only Azure Data Factory Copy and Data Flow activities.
+Select the **Lineage** tab to display the lineage, if available, for the asset. Azure Purview provides lineage results for only Azure Data Factory Copy and Data Flow activities.
 
 :::image type="content" source="./media/catalog-client-overview/lineage-for-customer-table.png" alt-text="Screenshot showing the lineage for an asset.":::
 

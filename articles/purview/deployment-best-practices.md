@@ -18,7 +18,7 @@ A well-planned and executed data governance platform paves the way for better da
 ## Prerequisites
 
 * Access to Microsoft Azure with a Development or Production subscription
-* Ability to create Azure resources including Babylon
+* Ability to create Azure resources including Purview
 * Access data sources such as Azure Data Lake Storage or Azure SQL in Test, Development, or Production
   * For Data Lake, the required role is Reader Role in order to scan
   * For SQL, the identity must be able to query tables for sampling of classifications
@@ -57,12 +57,12 @@ The general approach is to break down those overarching objectives into various 
 Once your organization agrees on the high-level objectives and goals, there will be many questions from multiple groups. It’s crucial to gather these questions in order to craft a plan to address people’s concerns. Some example questions that you may run into during the kick start phase:
 
 1. What are the main organization data sources and data systems?
-2. For data sources that are not supported yet by Babylon, what are my options?
+2. For data sources that are not supported yet by Purview, what are my options?
 3. How many Purview instances do we need?
 4. Who are the users?
 5. Who can scan new data sources?
-6. Who can modify content inside of Babylon?
-7. What process do I need to have to improve the data quality in Babylon?
+6. Who can modify content inside of Purview?
+7. What process do I need to have to improve the data quality in Purview?
 8. How to bootstrap the platform with existing critical assets, glossary terms, and contacts?
 9. How to integrate with existing systems?
 10. How to gather feedback and build a sustainable process?
@@ -84,7 +84,7 @@ Some key stakeholders that you may want to include:
 |Data Scientist|Build analytical models and set up data products to be accessed by APIs.|
 |DB Admin|Own, track, and resolve database-related incidents and requests within service-level agreements (SLAs); Some are known to set up data pipelines.|
 |DevOps|Line-of-Business application development and implementation, which may include writing scripts and orchestration capability.|
-|Data Security Specialist|Assess overall network and data security, which involve data coming in and out of Babylon.|
+|Data Security Specialist|Assess overall network and data security, which involve data coming in and out of Purview.|
 
 ## Identify key scenarios
 
@@ -125,11 +125,11 @@ However, there are exceptions to this pattern:
 
 ### Create a process to promote to Production
 
-Some organizations may decide to keep things simple by working with a single Production version of Babylon. They probably don’t need to go beyond discovery, search, and browse scenarios. If some assets have incorrect glossary terms, it’s quite forgiving to let people to self-correct. However, most organizations that want to deploy Purview across various business units will want to have some form of process and control.
+Some organizations may decide to keep things simple by working with a single Production version of Purview. They probably don’t need to go beyond discovery, search, and browse scenarios. If some assets have incorrect glossary terms, it’s quite forgiving to let people to self-correct. However, most organizations that want to deploy Purview across various business units will want to have some form of process and control.
 
 Another important aspect to include in your production process is how classification and label can be migrated. Purview has over 90 system classifiers. You can apply system or custom classifications on File, Table, or Column assets. Classifications are like subject tags and are used to mark and identify content of a specific type found within your data estate during scanning. Sensitivity labels are used to identify the categories of classification types within your organizational data, and the group the policies you wish to apply to each category. It makes use of the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate. It can scan and automatically classify documentations. For example, if you have a file named multiple.docx and it has a National ID number in its content, Purview will add classification such as EU National Identification Number in the Asset Detail page.
 
-In Babylon, there are several areas where the Catalog Administrators need to ensure consistency and maintenance best practices over its life cycle:
+In Purview, there are several areas where the Catalog Administrators need to ensure consistency and maintenance best practices over its life cycle:
 
 * **Data assets** – Data sources will need to be rescanned across environments. It’s not recommended to scan only in Development and then regenerate them using APIs in Production. The main reason is that the Purview scanners did a lot more “wiring” behind the scene on the data assets, which could be complex to move them to a different Purview instance. It’s much easier to just add the same data source in Production and scan the sources again. The general best practice is to have documentation of all scans, connections, and authentication mechanisms being used.
 * **Scan rule sets** – This is your collection of rules assigned to specific scan such as file type and classifications to detect. If you don’t have that many scan rule sets, it’s possible to just re-create them manually again via Production. This will require an internal process and good documentation. However, if you rule sets change on the daily or weekly basis, this could be addressed by exploring the REST API route.
@@ -138,16 +138,16 @@ In Babylon, there are several areas where the Catalog Administrators need to ens
 * **Resource set pattern policies** – This functionality is very advance for any typical organizations to apply. In some cases, your Azure Data Lake Storage has folder naming convention and specific structure that may cause problem for Purview to generate the resource set. Your business unit may also want to change the resource set construction with additional customization to fit the business needs. For this scenario, it’s best to keep track of all changes via REST API and document the changes through external versioning platform.
 * **Role assignment** – This is where you control who has access to Purview and which permissions they have. Purview also has REST API to support export and import of users and roles but this is not Atlas API-compatible. The recommendation is to assign an Azure Security Group and manage the group membership instead.
 
-### Plan and implement different integration points with Babylon
+### Plan and implement different integration points with Purview
 
-It’s likely that a mature organization already has an existing data catalog. The key question is whether to continue to use the existing technology and sync with Babylon. Purview allows publishing information via the Atlas APIs but they really aren't intended to support this kind of scenario. Some organizations may decide initially to bootstrap the usage of Purview by migrating over the existing data assets from other data catalog solutions. This can be done via the Atlas APIs as a one-way approach. To synchronize between different catalog technologies should not be considered in the long-term design. What typically happened is that each business unit may continue to use the existing solutions for older data assets while Purview would be used to scan against newer data sources.
+It’s likely that a mature organization already has an existing data catalog. The key question is whether to continue to use the existing technology and sync with Purview. Purview allows publishing information via the Atlas APIs but they really aren't intended to support this kind of scenario. Some organizations may decide initially to bootstrap the usage of Purview by migrating over the existing data assets from other data catalog solutions. This can be done via the Atlas APIs as a one-way approach. To synchronize between different catalog technologies should not be considered in the long-term design. What typically happened is that each business unit may continue to use the existing solutions for older data assets while Purview would be used to scan against newer data sources.
 
-For other integration scenarios such as ticketing, custom user interface, orchestration, etc.… you can use Atlas APIs and Kafka Endpoint. In general, there are four integration points with Babylon:
+For other integration scenarios such as ticketing, custom user interface, orchestration, etc.… you can use Atlas APIs and Kafka Endpoint. In general, there are four integration points with Purview:
 
 * **Data Asset** – This enables Purview to scan a store’s assets in order to enumerate what those assets are and collect any readily available metadata about them. So for SQL this could be a list of DBs, tables, stored procedures, views and config data about them kept in places like sys.tables. For something like ADF this could be enumerating all the pipelines and getting data on when they were created, last run, current state, etc. 
 * **Lineage** – This enables Purview to collect information from an analysis/data mutation system on how data is moving around. For something like Spark this could be gathering information from the execution of a notebook to see what data the notebook ingested, how it transformed it and where it outputted it. For something like SQL, it could be analyzing query logs to reverse engineer what mutation operations were executed and what they did. We support both push and pull based Lineage depend on the needs. 
 * **Classification** – This enables Purview to take physical samples from data sources and run them through our classification system. The classification system figures out the semantics of a piece of data. For example, we may know that a file is a Parquet file and has three columns and the third one is a string. But the classifiers we run on the samples we take from the file will tell us that the string is someone’s name or address or phone number. Lighting up this integration point means that we have defined how Purview can open up objects like notebooks, pipelines, parquet files, tables, containers, etc. to authenticate and get samples we can use to drive classification. 
-* **Embedded Experience** – Products that have a “studio” like experience (ADF, Synapse, SQL Studio, PBI, Dynamics, etc.) usually want to enable users to discover data they want to interact with and also find places to output data. Babylon’s catalog can help to accelerate these experiences by providing an embedding experience. This experience can occur at the API or the UX level at the partner’s option. By embedding a call to Babylon, the organization can take advantage of Babylon’s map of the data estate to find data assets, see lineage, check schemas, look at ratings, contacts etc. 
+* **Embedded Experience** – Products that have a “studio” like experience (ADF, Synapse, SQL Studio, PBI, Dynamics, etc.) usually want to enable users to discover data they want to interact with and also find places to output data. Purview’s catalog can help to accelerate these experiences by providing an embedding experience. This experience can occur at the API or the UX level at the partner’s option. By embedding a call to Purview, the organization can take advantage of Purview’s map of the data estate to find data assets, see lineage, check schemas, look at ratings, contacts etc. 
 
 ## Phase 1: Pilot
 
@@ -159,7 +159,7 @@ In this phase, Purview must be created and configured for a very small set of us
 |---------|---------|---------|
 |Gather & agree on requirements|Discussion with all stakeholders to gather a full set of requirements. Different personas must participate to agree on a subset of requirements to complete for each phase of the project.|1 Week|
 |Set up Starter Kit|Go through Quick Start and set up the Starter Kit to demo Purview to all stakeholders.|1 Day|
-|Navigating Babylon|Understand how to use Purview from the home page.|1 Day|
+|Navigating Purview|Understand how to use Purview from the home page.|1 Day|
 |Configure ADF for lineage|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|1 Day|
 |Scan a data source such as Azure Data Lake Storage|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|2 Day|
 |Search and browse|Allow end users to access Purview and perform end-to-end search and browse scenarios.|1 Day|
@@ -167,7 +167,7 @@ In this phase, Purview must be created and configured for a very small set of us
 ### Acceptance criteria
 
 * Purview account is created successfully in organization subscription under the organization tenant.
-* A small group of users with multiple roles can access Babylon.
+* A small group of users with multiple roles can access Purview.
 * Purview is configured to scan at least one data source.
 * Users should be able to extract key values of Purview such as:
   * Search and browse
@@ -177,20 +177,20 @@ In this phase, Purview must be created and configured for a very small set of us
 * Buy-in from management to approve additional resources for MVP phase.
 
 ## Phase 2: Minimum Viable Product
-Once you have the agreed requirements and participated business units to onboard Babylon, the next step is to work on a Minimum Viable Product (MVP) release. In this phase, you will expand the usage of Purview to more users who will have additional needs horizontally and vertically. There will be key scenarios that must be met horizontally for all users such as glossary terms, search, and browse. There will be also in-depth requirement vertically for each business unit or group to cover specific end-to-end scenarios such as lineage from Azure Data Lake Storage to Azure Synapse DW to Power BI.
+Once you have the agreed requirements and participated business units to onboard Purview, the next step is to work on a Minimum Viable Product (MVP) release. In this phase, you will expand the usage of Purview to more users who will have additional needs horizontally and vertically. There will be key scenarios that must be met horizontally for all users such as glossary terms, search, and browse. There will be also in-depth requirement vertically for each business unit or group to cover specific end-to-end scenarios such as lineage from Azure Data Lake Storage to Azure Synapse DW to Power BI.
 
 ### Tasks to complete
 
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Scan Azure Synapse Analytics|Start to onboard your database sources and scan them to populate key assets|2 Days|
-|Create custom classifications and rules|Once your assets are scanned, your users may realize that there are additional use cases for more classification beside the default classifications from Babylon.|2-4 Weeks|
+|Create custom classifications and rules|Once your assets are scanned, your users may realize that there are additional use cases for more classification beside the default classifications from Purview.|2-4 Weeks|
 |Scan Power BI|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts which have requirements to include lineage from the storage layer.|1-2 Weeks|
 |Import glossary terms|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Purview via .csv file.|1 Week|
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|1 Week|
 |Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from M365.|1-2 Weeks|
-|Get classification and sensitive insights|For reporting and insight in Babylon, you can access this functionality to get various reports and provide presentation to management.|1 Day|
-|Onboard addition users using Purview managed users|This step will require the Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Babylon.|1 Week|
+|Get classification and sensitive insights|For reporting and insight in Purview, you can access this functionality to get various reports and provide presentation to management.|1 Day|
+|Onboard addition users using Purview managed users|This step will require the Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Purview.|1 Week|
 
 ### Acceptance criteria
 
@@ -202,7 +202,7 @@ Once you have the agreed requirements and participated business units to onboard
 
 ## Phase 3: Pre-production
 
-Once the MVP phase has passed, it’s time to plan for pre-production milestone. Depending on the objective, your organization may decide to have a separate instance of Purview for pre-production vs. production or keep the same instance but restrict access. Also in this phase, you may want to include scanning on on-premise data sources such as SQL Server. If there is any gap in data sources not supported by Babylon, it is time to explore Atlas API to understand additional options.
+Once the MVP phase has passed, it’s time to plan for pre-production milestone. Depending on the objective, your organization may decide to have a separate instance of Purview for pre-production vs. production or keep the same instance but restrict access. Also in this phase, you may want to include scanning on on-premise data sources such as SQL Server. If there is any gap in data sources not supported by Purview, it is time to explore Atlas API to understand additional options.
 Tasks to complete
 
 |Task|Detail|Duration|

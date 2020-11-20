@@ -1,6 +1,6 @@
 ---
-title: How to link Azure Data Share account with Babylon
-description: This article gives an overview of How to link Azure Data Share account with Babylon
+title: How to link Azure Data Share account with Purview
+description: This article gives an overview of How to link Azure Data Share account with Purview
 author: chanuengg
 ms.author: csugunan
 ms.service: data-catalog
@@ -8,7 +8,7 @@ ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 9/14/2020
 ---
-# How to link Azure Data Share account with Babylon
+# How to link Azure Data Share account with Purview
 This guide talks about how to connect your [Azure Data Share](https://docs.microsoft.com/azure/data-share/overview) account with Azure Purview and govern the shared(outgoing/incoming) datasets in your data estate. The data governance personas can discover and track lineage of data going cross boundaries like organizations, data centers, and departments.
 
 ## Common Scenarios
@@ -27,19 +27,19 @@ Data Producers want to know who are being impacted upon making a change to their
 All the Data Share lineage information will be collected by Purview account. You can use an existing one or create a new Purview account.
  
 ### Step 2: Connect your Azure Data Share to your Purview account.
-In Purview portal, you can go to Management Center and connect your Azure Data Share under the 'Others' section. Select New on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. It's mandatory to execute Step 3 in the next section. Run a data share snapshot after connecting your Data Share to Purview account, so that the Data Share assets and lineage information is visible in Babylon.
+In Purview portal, you can go to Management Center and connect your Azure Data Share under the 'Others' section. Select New on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. It's mandatory to execute Step 3 in the next section. Run a data share snapshot after connecting your Data Share to Purview account, so that the Data Share assets and lineage information is visible in Purview.
  
 :::image type="content" source="media/how-to-link-azure-data-share/connect-to-azure-data-share.png" alt-text="Management center to link Azure Data Share":::
 
 ### Step 3: Execute your Snapshot in Azure Data Share.
-Once the Azure Data share connection is established with Azure Purview, you can execute a snapshot for your existing shares. If you don’t have any existing shares, go to the Azure data share portal to [share your data](https://docs.microsoft.com/azure/data-share/share-your-data) [and subscribe to a data share](https://docs.microsoft.com/azure/data-share/subscribe-to-data-share). Once the data share snapshot is  complete, you can view associated Data Share assets and lineage in Babylon.
+Once the Azure Data share connection is established with Azure Purview, you can execute a snapshot for your existing shares. If you don’t have any existing shares, go to the Azure data share portal to [share your data](https://docs.microsoft.com/azure/data-share/share-your-data) [and subscribe to a data share](https://docs.microsoft.com/azure/data-share/subscribe-to-data-share). Once the data share snapshot is  complete, you can view associated Data Share assets and lineage in Purview.
 
 ### Step 4: Discover Data Share accounts and share Information in your Purview account.
 In the home page of Purview account, select Browse by asset type and select Azure data share tile. You can search for a data share account, share name, share snapshot, or partner organization. Otherwise apply filters on the Search result page by Azure Data Share Account, Azure Data Share Type (Sent vs Received Shares). 
 
 :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-search-result-page.png" alt-text="Azure Data share in Search result page":::
  
-Note: For Data Share assets to show in Babylon, a snapshot must be taken after you connect your Data Share to Babylon.
+Note: For Data Share assets to show in Purview, a snapshot must be taken after you connect your Data Share to Purview.
  
 ### Step 5: Track lineage of datasets shared with Azure Data Share.
 From the Purview Search result page, choose the Data share snapshot(received/sent) and select the Lineage tab, to see a lineage graph with upstream and downstream dependency. 
