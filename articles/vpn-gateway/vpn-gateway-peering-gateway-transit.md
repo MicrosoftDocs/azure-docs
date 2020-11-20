@@ -116,7 +116,7 @@ Add-AzVirtualNetworkPeering `
 
 ## <a name="Classic-RM"></a>Classic VNet to RM VNet
 
-The steps are similar to the Resource Manager-to-Resource Manager example, except the operations are applied on the Hub-RM virtual network only. Notice that the gateway is on the Resource Manager VNet, not not the classic VNet.
+The steps are similar to the RM VNet to RM VNet example, except the operations are applied on the Hub-RM virtual network only. Notice that the gateway is on the Resource Manager VNet, not  the classic VNet.
 
 1. In the Azure portal, create or update the virtual network peering from **Hub-RM** to **Spoke-RM**. Navigate to the Hub-RM virtual network resource, select **Peerings**, then **+ Add**:
 
