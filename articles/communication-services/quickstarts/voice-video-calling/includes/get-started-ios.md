@@ -27,21 +27,23 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
-### Install the package and dependencies with Cocoapods
+### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile for your application like this
-```
-platform :ios, '13.0'
-use_frameworks!
+1. Create a Podfile for your application, like this:
 
-target 'AzureCommunicationCallingSample' do
-  pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
-  pod 'AzureCommunication', '~> 1.0.0-beta.5'
-  pod 'AzureCore', '~> 1.0.0-beta.5'
-end
-```
-2. Run `pod install`
-3. Open the `.xcworkspace` with XCode
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
+
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
+
+2. Run `pod install`.
+3. Open the `.xcworkspace` with Xcode.
 
 ### Request access to the microphone
 
