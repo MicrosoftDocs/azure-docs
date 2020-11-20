@@ -61,7 +61,7 @@ With the new Azure VMware Solution, Microsoft and VMware have a direct cloud pro
 Yes, provided the system it is installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
 
 #### Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
-No, use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) and fulfill the VM prerequisites specified in those instructions. 
+No. Use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) to meet the VM prerequisites specified in those instructions. 
 
 #### Is VMware HCX supported on VPNs?
 No, because of bandwidth and latency requirements.
@@ -143,7 +143,7 @@ No. High-end ESXi hosts are reserved for use in production clusters.
 
 #### What versions of VMware software is used in private clouds?
 
-Private clouds use vSphere 6.7, vSAN 6.7, VMware HCX, and version 2.5 of NSX-T.  
+Private clouds use vSphere 6.7 U3, vSAN 6.7 U3, VMware HCX, and NSX-T 2.5.  For more information, see [the VMware software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
 
 #### Do private clouds use VMware NSX?
 
