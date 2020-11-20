@@ -23,7 +23,7 @@ A `StyleObject` is one of the following:
  * [`NumericTypeStyleRule`](#numerictypestylerule)
  * [`StringTypeStyleRule`](#stringtypestylerule)
 
-The JSON below shows each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to meeting types.
+The JSON below shows example usage of each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to `MeetingType`.
 
 
 
