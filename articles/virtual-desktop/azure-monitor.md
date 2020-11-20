@@ -50,9 +50,7 @@ You can open Azure Monitor for Windows Virtual Desktop with one of the following
 Once you have Azure Monitor for Windows Virtual Desktop open, select one or more of the check boxes labeled **Subscription**, **Resource group**, **Host pool**, and **Time range** based on which environment you want to monitor.
 
 >[!NOTE]
->Windows Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see our troubleshooting documentation for known feature requests and issues.
-
-<!---Link to troubleshooting doc, when available-->
+>Windows Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see [our troubleshooting documentation](troubleshoot-azure-monitor.md) for known feature requests and issues.!
 
 ## Set up with the configuration workbook
 
@@ -184,7 +182,5 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 Now that you’ve configured your Windows Virtual Desktop Azure portal, here are some resources that might help you:
 
-- Check out our [glossary]() to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.
-- If you encounter a problem, check out our [troubleshooting guide]() for help.
-
-<!---Links to new articles will go here--->
+- Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.
+- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help.
