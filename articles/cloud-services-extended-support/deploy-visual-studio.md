@@ -15,6 +15,18 @@ ms.author: ghogen
 
 Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with Cloud Services using Azure Resource Manager, which greatly simplifies and modernizes maintenance and management of Azure resources. You can also convert an existing Cloud Service project to an extended support Cloud Service project.
 
+> [!IMPORTANT]
+> Cloud Services (extended support) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Register the feature for your subscription
+Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
+
+```azurepowershell
+Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
+```
+
 ## Create a project
 
 Visual Studio provides a project template that lets you create an Azure Cloud Service with extended support, named **Azure Cloud Service (extended support)**. A Cloud Service is a simple general-purpose Azure service. Once the project has been created, Visual Studio enables you to configure, debug, and deploy the Cloud Service to Azure.
