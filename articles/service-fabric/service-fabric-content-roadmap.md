@@ -126,7 +126,7 @@ Clusters must be secured to prevent unauthorized users from connecting to your c
 The cluster security scenarios are:
 * Node-to-node security
 * Client-to-node security
-* Role-based access control (RBAC)
+* Service Fabric role-based access control
 
 For more information, read [Secure a cluster](service-fabric-cluster-security.md).
 

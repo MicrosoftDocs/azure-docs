@@ -5,17 +5,17 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2
 
 ACL inheritance is already available for new child items that are created under a parent directory. You can also now add, update, and remove ACLs recursively for existing child items of a parent directory without having to make these changes individually for each child item.
 
-[Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines) | [Give feedback](#provide-feedback)
+[Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines)
 
 ## Prerequisites
 
@@ -381,9 +381,11 @@ except Exception as e:
 
 ## Set an ACL recursively
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.   
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.  
 
-This section contains examples for how to set an ACL 
+If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities). 
+
+This section contains examples for how to set an ACL.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -1147,12 +1149,6 @@ To reduce latency, we recommend that you run the recursive ACL process in an Azu
 #### ACL limits
 
 The maximum number of ACLs that you can apply to a directory or file is 32 access ACLs and 32 default ACLs. For more information, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
-<a id="provide-feedback"></a>
-
-### Provide feedback or report issues
-
-You can provide your feedback or report an issue at  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com).
 
 ## See also
 

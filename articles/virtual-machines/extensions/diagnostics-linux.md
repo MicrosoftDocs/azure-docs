@@ -4,8 +4,8 @@ description: How to configure the Azure Linux Diagnostic Extension (LAD) to coll
 services: virtual-machines-linux
 author: axayjo
 manager: gwallace
-
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018 

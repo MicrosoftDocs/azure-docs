@@ -168,7 +168,7 @@ To collect this information:
 ### Use of optional claims (optional)
 
 Optional claims allows you to add standard-but-not-included-by-default claims that every user and tenant has. 
-You can configure optional claims for your application by modifying the application manifest. For more info, see the [Understanding the Azure AD application manifest article](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+You can configure optional claims for your application by modifying the application manifest. For more info, see the [Understanding the Azure AD application manifest article](../develop/reference-app-manifest.md)
 
 Example to include email address into the access_token that PingAccess will consume:
 ```
@@ -188,7 +188,7 @@ Example to include email address into the access_token that PingAccess will cons
 
 ### Use of claims mapping policy (optional)
 
-[Claims Mapping Policy (preview)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) for attributes which do not exist in AzureAD. Claims mapping allows you to migrate old on-prem apps to the cloud by adding additional custom claims that are backed by your ADFS or user objects
+[Claims Mapping Policy (preview)](../develop/active-directory-claims-mapping.md#claims-mapping-policy-properties) for attributes which do not exist in AzureAD. Claims mapping allows you to migrate old on-prem apps to the cloud by adding additional custom claims that are backed by your ADFS or user objects
 
 To make your application use a custom claim and include additional fields, be sure you've also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

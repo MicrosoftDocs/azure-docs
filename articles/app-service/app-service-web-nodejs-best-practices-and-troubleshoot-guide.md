@@ -116,13 +116,13 @@ Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/
 
 Many applications would want to make outbound connections as part of their regular operation. For example, when a request comes in, your node app would want to contact a REST API elsewhere and get some information to process the request. You would want to use a keep alive agent when making http or https calls. You could use the agentkeepalive module as your keep alive agent when making these outbound calls.
 
-The agentkeepalive module ensures that sockets are reused on your Azure webapp VM. Creating a new socket on each outbound request adds overhead to your application. Having your application reuse sockets for outbound requests ensures that your application doesn't exceed the maxSockets that are allocated per VM. The recommendation on Azure App Service is to set the agentKeepAlive maxSockets value to a total of (4 instances of node.exe \* 40 maxSockets/instance) 160 sockets per VM.
+The agentkeepalive module ensures that sockets are reused on your Azure webapp VM. Creating a new socket on each outbound request adds overhead to your application. Having your application reuse sockets for outbound requests ensures that your application doesn't exceed the maxSockets that are allocated per VM. The recommendation on Azure App Service is to set the agentKeepAlive maxSockets value to a total of (4 instances of node.exe \* 32 maxSockets/instance) 128 sockets per VM.
 
 Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000
