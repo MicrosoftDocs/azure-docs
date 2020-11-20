@@ -151,6 +151,10 @@ A: No, you cannot. VMSS are not in scope of Azure Hybrid Benefit today for RHEL 
 *Q: Can I use Azure Hybrid Benefit on Reserved Instances(RIs) for RHEL and SLES?*
 
 A: No, you cannot. RIs are not in scope of Azure Hybrid Benefit today for RHEL and SLES currently.
+
+*Q: Can I use Azure Hybrid Benefit on a Virtual Machine deployed for SQL Server on RHEL images?*
+
+A: No, you cannot. There is no plan for supporting these.
  
 
 ## Common issues
