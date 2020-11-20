@@ -77,7 +77,7 @@ You can only edit collections you created. To edit a collection you already crea
 
     :::image type="content" source="media/my-apps-portal-user-collections/9-manage-apps-again.png" alt-text="Use the Manage command to manage your apps":::
 
-1. From here you can set the order in which collections appear in My Apps. The collection that is first in order will be the default collection you see every time you go to myapps.microsoft.com.  
+1. From here you can set the order in which collections appear in My Apps. The collection at th top of the list will be the default collection you see every time you go to myapps.microsoft.com.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/10-default-collection.png" alt-text="My Apps now contains your new collection":::
 
@@ -116,6 +116,6 @@ You can delete only collections you created. To delete a collection:
 
     :::image type="content" source="media/my-apps-portal-user-collections/15-manage-apps-again.png" alt-text="Select the Manage command to manage your apps":::
 
-1. Here you will see all the collections to which you have access, whether they were created by you or your admin. Find the collection you want to edit, open the collection menu :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon on a collection for the collection-level menu":::, and then select **Delete**.  
+1. Here you will see all the collections to which you have access, whether they were created by you or your admin. Find the collection you want to edit, open the collection menu :::image type="content" source="media/my-apps-portal-user-collections/18-collection-menu-icon.png" alt-text="Select the ellipsis icon on a collection for the collection-level menu":::, and then select **Delete**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/16-delete-collection.png" alt-text="The collection ellipsis menu contains the Delete command":::
