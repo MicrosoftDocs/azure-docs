@@ -16,8 +16,7 @@ manager: philmea
 
 ## StyleObject
 
-
-A `StyleObject` is one of the following:
+A `StyleObject` is one of the following style rules:
 
  * [`BooleanTypeStyleRule`](#booleantypestylerule)
  * [`NumericTypeStyleRule`](#numerictypestylerule)
@@ -172,7 +171,7 @@ A `StringTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the f
 
 A `StringRuleObject` consists of up to N number of state values that are the possible string values of a feature's property. If the feature's property value doesn't match any of the defined state values, that feature won't have a dynamic style. If duplicate state values are given, the first one takes precedence.
 
-The string value matching is case sensitive.
+The string value matching is case-sensitive.
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
