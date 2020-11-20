@@ -390,17 +390,7 @@ Finally, test that your function can now handle your custom event type:
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.
 
-## Message headers
-These are the properties you receive in the message headers:
-
-| Property name | Description |
-| ------------- | ----------- | 
-| aeg-subscription-name | Name of the event subscription. |
-| aeg-delivery-count | Number of attempts made for the event. |
-| aeg-event-type | <p>Type of the event.</p><p>It can be one of the following values:</p><ul><li>SubscriptionValidation</li><li>Notification</li><li>SubscriptionDeletion</li></ul> | 
-| aeg-metadata-version | <p>Metadata version of the event.<p> For **Event Grid event schema**, this property represents the metadata version and for **cloud event schema**, it represents the **spec version**. </p>|
-| aeg-data-version | <p>Data version of the event.</p><p>For **Event Grid event schema**, this property represents the data version and for **cloud event schema**, it doesn't apply.</p> |
-| aeg-output-event-id | ID of the Event Grid event. |
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## Next steps
 
