@@ -71,8 +71,8 @@ The following steps are required for partners to configure integration with Azur
 
 - [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
 - [Azure DDoS Protection documentation](ddos-protection-overview.md)
-- [Azure DDoS Protection API reference](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
-- [Azure virtual network API reference](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
+- [Azure DDoS Protection API reference](/rest/api/virtualnetwork/ddosprotectionplans)
+- [Azure virtual network API reference](/rest/api/virtualnetwork/virtualnetworks)
 
 ### Get help
 
