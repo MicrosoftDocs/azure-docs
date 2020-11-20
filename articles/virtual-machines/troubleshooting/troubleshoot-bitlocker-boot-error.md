@@ -83,6 +83,7 @@ If this method does not the resolve the problem, follow these steps to restore t
             | Sort-Object -Property Created `
             | ft  Created, `
                 @{Label="Content Type";Expression={$_.ContentType}}, `
+                @{Label ="MachineName"; Expression = {$_.Tags.MachineName}}, `
                 @{Label ="Volume"; Expression = {$_.Tags.VolumeLetter}}, `
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
@@ -90,9 +91,9 @@ If this method does not the resolve the problem, follow these steps to restore t
     The following is sample of the output. In this case, we assume that the file name is EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK.
 
     ```
-    Created             Content Type Volume DiskEncryptionKeyFileName               
-    -------             ------------ ------ -------------------------               
-    4/5/2018 7:14:59 PM  BEK  C:\    EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
+    Created               Content Type Volume MachineName DiskEncryptionKeyFileName
+    -------               ------------ ------ ----------- -------------------------
+    11/20/2020 7:41:56 AM BEK          C:\    myVM   EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
     If you see two duplicated volumes, the volume that has the newer timestamp is the current BEK file that is used by the recovery VM.
 
