@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ---
 
+
 # DevOps practices for LUIS
 
 Software engineers who are developing a Language Understanding (LUIS) app can apply DevOps practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management) by following these guidelines.
