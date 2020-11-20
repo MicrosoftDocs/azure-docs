@@ -105,12 +105,11 @@ azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container
 
 Upload files and directories to Azure Storage account and set the query-string encoded tags on the blob. 
 
-	- To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax :
-		- azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"
+- To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax : `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
 	
-	- Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
+- Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
 
-	- While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
+- While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
 
 Download a single file by using OAuth authentication. If you have not yet logged into AzCopy, run the `azcopy login` command before you run the following command.
 
@@ -220,12 +219,11 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 Transfer files and directories to Azure Storage account and set the given query-string encoded tags on the blob. 
 
-	- To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax :
-		- azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"
+- To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax : `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
 		
-	- Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
+- Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
 	
-	- While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
+- While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
 
 ## Options
 

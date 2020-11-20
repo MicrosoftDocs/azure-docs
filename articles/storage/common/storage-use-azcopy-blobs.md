@@ -151,11 +151,11 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 ### Upload files and tag them
 
-You can upload a file and add index tags to the target blob. These tags help you to categorize blobs by using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. For information about this capability, and its regional availability, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md). To learn about what permissions you need to use this capability, see [Setting blob index tags](../blobs/storage-manage-find-blobs.md#setting-blob-index-tags). 
+You can upload a file and add index tags to the target blob. These tags help you to categorize blobs by using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. For information about this capability, and its regional availability, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md). To learn about what permissions you need to use this capability, see [Setting blob index tags](../blobs/storage-manage-find-blobs.md#setting-blob-index-tags). 
 
-To add an index tag, include the `--blob-tags` option for the destination parameter. Set that option to a URL encoded key-value pair. For example, to add the a key "my tag" and a value "my tag value", you would add `--blob-tags="my%20tag=my%20tag%20value"` to the destination parameter. Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key "my second tag" and a value "my second tag value", the complete option string would be `--blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&"`
+To add an index tag, append the `--blob-tags` option to with the destination parameter. Set that option to a URL encoded key-value pair. 
 
-The source parameter in your `azCopy copy` command can be a file, or a directory. If you specify a directory for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command. 
+For example, to add the a key `my tag` and a value `my tag value`, you would add `--blob-tags="my%20tag=my%20tag%20value"` to the destination parameter. Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&"`.
 
 The following examples show how to use the `--blob-tags` option.
 
@@ -164,6 +164,9 @@ The following examples show how to use the `--blob-tags` option.
 | **Upload a file** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&` |
 | **Upload a directory** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&`|
 | **Upload directory contents** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&` |
+
+> [!NOTE]
+> If you specify a directory for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command.
 
 ## Download files
 
@@ -367,11 +370,11 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 
 ### Copy blobs to another storage account and tag them
 
-You can copy blobs to another storage account and add index tags to the target blobs. These tags help you to categorize blobs by using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. For information about this capability, and its regional availability, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md). To learn about what permissions you need to use this capability, see [Setting blob index tags](../blobs/storage-manage-find-blobs.md#setting-blob-index-tags). 
+You can copy blobs to another storage account and add index tags to the target blobs. These tags help you to categorize blobs by using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. For information about this capability, and its regional availability, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md). To learn about what permissions you need to use this capability, see [Setting blob index tags](../blobs/storage-manage-find-blobs.md#setting-blob-index-tags). 
 
-To add an index tag, include the `--blob-tags` option for the destination parameter. Set that option to a URL encoded key-value pair. For example, to add the a key "my tag" and a value "my tag value", you would add `--blob-tags="my%20tag=my%20tag%20value"` to the destination parameter. Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key "my second tag" and a value "my second tag value", the complete option string would be `--blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&"`
+To add an index tag, append the `--blob-tags` option to the destination parameter. Set that option to a URL encoded key-value pair. 
 
-The source parameter in your `azCopy copy` command can be a file, a directory, a container, or an account. If you specify a directory, container, or account for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command. 
+For example, to add the a key `my tag` and a value `my tag value`, you would add `--blob-tags="my%20tag=my%20tag%20value"` to the destination parameter. Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&"`
 
 The following examples show how to use the `--blob-tags` option.
 
@@ -381,6 +384,9 @@ The following examples show how to use the `--blob-tags` option.
 | **Directory** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&"` |
 | **Container** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags="--blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&"` |
 | **Account** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive --blob-tags="--blob-tags="my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value&"` |
+
+> [!NOTE]
+> If you specify a directory, container, or account for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command.
 
 ## Synchronize files
 
