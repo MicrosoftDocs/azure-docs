@@ -1,5 +1,5 @@
 ---
-title: Connection Monitor | Microsoft Docs
+title: Connection Monitor (Preview) in Azure | Microsoft Docs
 description: Learn how to use Connection Monitor to monitor network communication in a distributed environment.
 services: network-watcher
 documentationcenter: na
@@ -18,10 +18,14 @@ ms.author: vinigam
 ms.custom: mvc
 #Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
-# Network Connectivity Monitoring with Connection Monitor
+# Network Connectivity Monitoring with Connection Monitor (Preview)
 
 Connection Monitor provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
+> [!IMPORTANT]
+> Connection Monitor is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 Here are some use cases for Connection Monitor:
 
 - Your front-end web server VM communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VMs.
