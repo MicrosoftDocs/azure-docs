@@ -6,14 +6,16 @@ ms.date: 11/20/2020
 ---
 
 # AMQP 1.0 support in Service Bus
-Both the Azure Service Bus cloud service and on-premises [Service Bus for Windows Server (Service Bus 1.1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and that run on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
+The Azure Service Bus cloud service uses the [Advanced Message Queueing Protocol (AMQP) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) as its primary means of communication. Microsoft has been engaged with partners across the industry, both customers and vendors of competing messaging brokers, to develop and evolve AMQP over the past decade, with new extensions being developed in the [OASIS AMQP Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp). AMQP 1.0 is an ISO and IEC standard ([ISO 19464:20149](https://www.iso.org/standard/64955.html)). 
+
+AMQP enables you to build cross-platform, hybrid applications using an vendor-neutral and implementation-neutral, open standard protocol. You can construct applications using components that are built using different languages and frameworks, and that run on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
 
 ## Introduction: What is AMQP 1.0 and why is it important?
-Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers. This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker. This results in a degree of dependence on that vendor, since porting an application to a different product requires code changes in all the connected applications. 
+Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers. This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker. This results in a degree of dependence on that vendor, since porting an application to a different product requires code changes in all the connected applications. In the Java community, language specific API standards like Java Message Service (JMS) and the Spring Framework's abstractions have alleviated that pain somewhat, but have a very narrow feature scope and exclude developers using other languages.
 
-Furthermore, connecting messaging brokers from different vendors is tricky. This typically requires application-level bridging to move messages from one system to another and to translate between their proprietary message formats. This is a common requirement; for example, when you must provide a new unified interface to older disparate systems, or integrate IT systems following a merger.
+Furthermore, connecting messaging brokers from different vendors is tricky. This typically requires application-level bridging to move messages from one system to another and to translate between their proprietary message formats. This is a common requirement; for example, when you must provide a new unified interface to older disparate systems, or integrate IT systems following a merger. AMQP allows for interconnecting connecting brokers directly, for instance using routers like [Apache Qpid Dispatch Router](https://qpid.apache.org/components/dispatch-router/index.html) or broker-native "shovels" like the one of [RabbitMQ](service-bus-integrate-with-rabbitmq.md).
 
-The software industry is a fast-moving business; new programming languages and application frameworks are introduced at a sometimes bewildering pace. Similarly, the requirements of IT systems evolve over time and developers want to take advantage of the latest platform features. However, sometimes the selected messaging vendor does not support these platforms. Because messaging protocols are proprietary, it's not possible for others to provide libraries for these new platforms. Therefore, you must use approaches such as building gateways or bridges that enable you to continue to use the messaging product.
+The software industry is a fast-moving business; new programming languages and application frameworks are introduced at a sometimes bewildering pace. Similarly, the requirements of IT systems evolve over time and developers want to take advantage of the latest platform features. However, sometimes the selected messaging vendor does not support these platforms. If messaging protocols are proprietary, it's not possible for others to provide libraries for these new platforms. Therefore, you must use approaches such as building gateways or bridges that enable you to continue to use the messaging product.
 
 The development of the Advanced Message Queuing Protocol (AMQP) 1.0 was motivated by these issues. It originated at JP Morgan Chase, who, like most financial services firms, are heavy users of message-oriented middleware. The goal was simple: to create an open-standard messaging protocol that made it possible to build message-based applications using components built using different languages, frameworks, and operating systems, all using best-of-breed components from a range of suppliers.
 
@@ -35,6 +37,8 @@ In October 2011, the development work transitioned to a technical committee with
 * **Technology vendors**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **User firms**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
+The current chairs of the [OASIS AMQP Technical Committee]((https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) represent Red Hat and Microsoft.
+
 Some of the commonly cited benefits of open standards include:
 
 * Less chance of vendor lock-in
@@ -45,7 +49,7 @@ Some of the commonly cited benefits of open standards include:
 * Lower and manageable risk
 
 ## AMQP 1.0 and Service Bus
-AMQP 1.0 support in Azure Service Bus means that you can now leverage the Service Bus queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.
+AMQP 1.0 support in Azure Service Bus means that you can leverage the Service Bus queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.
 
 The following figure illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API and .NET clients running on Windows, exchange messages via Service Bus using AMQP 1.0.
 
@@ -78,7 +82,6 @@ In addition, you can use Service Bus from any AMQP 1.0 compliant protocol stack:
 
 ## Summary
 * AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.
-* AMQP 1.0 support is now available in Azure Service Bus as well as Service Bus for Windows Server (Service Bus 1.1). Pricing is the same as for the existing protocols.
 
 ## Next steps
 Ready to learn more? Visit the following links:
