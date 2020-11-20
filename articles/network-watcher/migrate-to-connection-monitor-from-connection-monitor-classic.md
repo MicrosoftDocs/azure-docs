@@ -14,7 +14,7 @@ ms.date: 08/20/2020
 ms.author: vinigam
 #Customer intent: I need to migrate from Connection Monitor to Connection Monitor. 
 ---
-# Migrate to Connection Monitor from Connection Monitor
+# Migrate to Connection Monitor from Connection Monitor (Classic)
 
 You can migrate existing connection monitors to new, improved Connection Monitor with only a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
 
