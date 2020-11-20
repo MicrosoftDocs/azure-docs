@@ -71,7 +71,7 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 
 ### Risk levels
 
-Identity Protection categorizes risk into three tiers: low, medium, and high. While configuring [custom Identity protection policies](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies#custom-conditional-access-policy) there is a **No risk** level as well and this can be defined as per the organisational need and security policy. No Risk means the users Identity have not exhibited any kind of risky or suspicious behaviour. 
+Identity Protection categorizes risk into three tiers: low, medium, and high. While configuring [custom Identity protection policies](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies#custom-conditional-access-policy) there is a **No risk** level as well and this can be defined as per the organizational need and security policy. No Risk means there is no active indication that the user's identity has been compromised.
 
 While Microsoft does not provide specific details about how risk is calculated, we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
 
