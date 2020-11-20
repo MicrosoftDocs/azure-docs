@@ -210,7 +210,7 @@ Define the helper function `describeType`:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## Extract text (OCR) with Read
+## Read printed and handwritten text
 
 Computer Vision can extract the visible text in an image and convert it to a character stream. This sample uses the Read operations.
 

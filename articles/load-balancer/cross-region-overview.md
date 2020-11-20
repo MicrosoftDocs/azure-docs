@@ -70,7 +70,7 @@ Azure cross-region load balancer uses geo-proximity load-balancing algorithm for
 
 The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.
 
-For more information, see [Configure the distribution mode for Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
+For more information, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md).
 
 
 ### Ability to scale up/down behind a single endpoint
@@ -80,7 +80,7 @@ When you expose the global endpoint of a cross-region load balancer to customers
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### Static IP
-Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
+Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/public-ip-addresses.md#allocation-method)
 
 ### Client IP Preservation
 Cross-region load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet.  The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.

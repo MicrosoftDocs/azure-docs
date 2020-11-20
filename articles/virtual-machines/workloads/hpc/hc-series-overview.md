@@ -3,6 +3,7 @@ title: HC-series VM overview - Azure Virtual Machines| Microsoft Docs
 description: Learn about the preview support for the HC-series VM size in Azure. 
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma

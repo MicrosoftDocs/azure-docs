@@ -787,7 +787,7 @@ Azure service: Classic deployment model virtual network
 
 ### Microsoft.Network
 
-Azure service: [Application Gateway](../application-gateway/index.yml), [Azure Bastion](../bastion/index.yml), [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Azure Firewall](../firewall/index.yml), [Azure Front Door Service](../frontdoor/index.yml), [Azure Private Link](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [Virtual WAN](../virtual-wan/index.yml), [VPN Gateway](../vpn-gateway/index.yml)
+Azure service: [Application Gateway](../application-gateway/index.yml), [Azure Bastion](../bastion/index.yml), [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), [Azure DNS](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Azure Firewall](../firewall/index.yml), [Azure Front Door Service](../frontdoor/index.yml), [Azure Private Link](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [Virtual Network](../virtual-network/index.yml), [Virtual WAN](../virtual-wan/index.yml), [VPN Gateway](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -3845,7 +3845,7 @@ Azure service: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### Microsoft.Sql
 
-Azure service: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (formerly SQL Data Warehouse)](../sql-data-warehouse/index.yml)
+Azure service: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics (formerly SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -4326,7 +4326,7 @@ Azure service: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### Microsoft.Databricks
 
-Azure service: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
+Azure service: [Azure Databricks](/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -4614,7 +4614,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 
 ### Microsoft.PowerBIDedicated
 
-Azure service: [Power BI Embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
+Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -4707,7 +4707,7 @@ Azure service: [Azure Blockchain Service](../blockchain/workbench/index.yml)
 
 ### Microsoft.BotService
 
-Azure service: [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/)
+Azure service: [Azure Bot Service](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -6182,7 +6182,7 @@ Azure service: [Logic Apps](../logic-apps/index.yml)
 
 ### Microsoft.Relay
 
-Azure service: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
+Azure service: [Azure Relay](../azure-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -6252,7 +6252,7 @@ Azure service: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 
 ### Microsoft.ServiceBus
 
-Azure service: [Service Bus](../service-bus/index.md)
+Azure service: [Service Bus](../service-bus-messaging/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -6952,7 +6952,7 @@ Azure service: [Azure Lab Services](../lab-services/index.yml)
 
 ### Microsoft.VisualStudio
 
-Azure service: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
+Azure service: [Azure DevOps](/azure/devops/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -8919,7 +8919,7 @@ Azure service: [Azure Arc](../azure-arc/index.yml)
 
 ### Microsoft.Kubernetes
 
-Azure service: [Azure Arc enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Azure service: [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -9672,7 +9672,7 @@ Azure service: Microsoft Monitoring Insights
 
 ### Microsoft.BingMaps
 
-Azure service: [Bing Maps](https://docs.microsoft.com/BingMaps/)
+Azure service: [Bing Maps](/BingMaps/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

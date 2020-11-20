@@ -8,7 +8,7 @@ ms.author: jukullam
 ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript, github-actions-azure
+ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 
 ---
 

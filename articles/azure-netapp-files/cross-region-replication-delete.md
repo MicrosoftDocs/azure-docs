@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
 ---
 # Delete replications
@@ -21,6 +21,9 @@ ms.author: b-juche
 You can terminate the replication connection between the source and the destination volumes by deleting volume replication. You can perform the delete operation from either the source or the destination volume. The delete operation removes only authorization for replication; it does not remove the source or the destination volume. 
 
 ## Steps
+
+1. Ensure that the replication peering has been broken before you delete volume replication.    
+    See [Display health status of replication relationship](cross-region-replication-display-health-status.md) and [Break replication peering](cross-region-replication-manage-disaster-recovery.md#break-replication-peering-to-activate-the-destination-volume).  
 
 1. To delete volume replication, select **Replication** from the source or the destination volume.  
 

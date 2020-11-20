@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Azure Monitor logs for Azure Firewall
 
-The following Azure Monitor logs samples can be used to analyze your Azure Firewall logs. The sample file is built in View Designer in Azure Monitor, the [View Designer in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
+The following Azure Monitor logs samples can be used to analyze your Azure Firewall logs. The sample file is built in View Designer in Azure Monitor, the [View Designer in Azure Monitor](../azure-monitor/platform/view-designer.md) article has more information about the View Design concept.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -35,7 +35,7 @@ And for the network rule log data:
 
 ![Network rule log data]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallNetworkRule**. The data containing the details is stored in the msg_s field. Using the [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
+Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallNetworkRule**. The data containing the details is stored in the msg_s field. Using the [parse](/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
 
 ## Application rules log data query
 
@@ -172,4 +172,4 @@ The following log samples show the data included in a log entry.
 :::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Screenshot of a log entry. Multiple values are visible, such as a time stamp, a protocol, source and target I P addresses and ports, and a message." border="false":::
 ## Next steps
 
-To learn about Azure Firewall monitoring and diagnostics, see [Tutorial: Monitor Azure Firewall logs and metrics](tutorial-diagnostics.md).
+To learn about Azure Firewall monitoring and diagnostics, see [Tutorial: Monitor Azure Firewall logs and metrics](./firewall-diagnostics.md).
