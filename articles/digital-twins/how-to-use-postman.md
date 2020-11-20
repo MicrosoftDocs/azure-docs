@@ -106,7 +106,7 @@ Then, select *Request Token*.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-postman/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted.":::
+        :::image type="content" source="media/how-to-use-postman/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted." lightbox="media/how-to-use-postman/postman-token-values.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
