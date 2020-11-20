@@ -111,9 +111,10 @@ Select this option when some of your OCP GTM solutions are obsolete or no longer
 
     :::image type="content" source="media/co-sell-migrate/get-support-link.png" alt-text="The support link on the Get Help tab.":::
 
-## Publishing a draft offer in the commercial marketplace
+## Publish a draft offer in the commercial marketplace
 
 If you selected that your offer is new to the commercial marketplace, your OCP GTM offer will copy over as a draft. Your offer must be fully published in the commercial marketplace in Partner Center in order to retain its co-sell status, incentives, and referral pipeline.
+
 1. On the **Overview** page, search for your draft offer name and select it.
 
     :::image type="content" source="media/co-sell-migrate/offer-overview.png" alt-text="The offer overview page in Partner Center.":::
