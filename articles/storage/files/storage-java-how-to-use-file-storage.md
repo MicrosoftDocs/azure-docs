@@ -73,7 +73,7 @@ public static final String storageConnectionString =
 
 # [Java v12](#tab/java)
 
-To connect to your storage account, you need to create a [ShareClient](xref:com.azure.storage.file.share.ShareClient) object, passing in a connection string.
+To connect to your storage account, you need to create a [ShareClient](/java/api/com.azure.storage.file.share.shareclient) object, passing in a connection string.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createClient":::
 
@@ -100,7 +100,7 @@ All files and directories in Azure Files reside in a container called a share. T
 
 # [Java v12](#tab/java)
 
-The [ShareClient.create](xref:com.azure.storage.file.share.ShareClient.create*) method throws an exception if the share already exists. Put the call to **create** in a `try/catch` block and handle the exception.
+The [ShareClient.create](/java/api/com.azure.storage.file.share.shareclient.create) method throws an exception if the share already exists. Put the call to **create** in a `try/catch` block and handle the exception.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createFileShare":::
 
@@ -136,7 +136,7 @@ The following sample code deletes a file share.
 
 # [Java v12](#tab/java)
 
-Delete a share by calling the [ShareClient.delete](xref:com.azure.storage.file.share.ShareClient.delete*) method.
+Delete a share by calling the [ShareClient.delete](/java/api/com.azure.storage.file.share.shareclient.delete) method.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteFileShare":::
 
@@ -172,7 +172,7 @@ Organize storage by putting files inside subdirectories instead of having all of
 
 # [Java v12](#tab/java)
 
-The following method creates the *dirName* specified directory in the file share passed in through the *shareName* parameter. The method returns a `Boolean` value indicating if it successfully created the directory.
+The following method creates the *dirName* specified directory in the file share passed in through the *shareName* parameter. The method calls [ShareDirectoryClient.create](/java/api/com.azure.storage.file.share.sharedirectoryclient.create) and returns a `Boolean` value indicating if it successfully created the directory.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_createDirectory":::
 
@@ -202,7 +202,7 @@ Deleting a directory is a straightforward task. You cannot delete a directory th
 
 # [Java v12](#tab/java)
 
-The [ShareDirectoryClient.delete](xref:com.azure.storage.file.share.ShareDirectoryClient.delete*) method throws an exception if the directory is not empty. Put the call to **delete** in a `try/catch` block and handle the exception.
+The [ShareDirectoryClient.delete](/java/api/com.azure.storage.file.share.sharedirectoryclient.delete) method throws an exception if the directory is not empty. Put the call to **delete** in a `try/catch` block and handle the exception.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_deleteDirectory":::
 
@@ -227,7 +227,7 @@ if ( containerDir.deleteIfExists() ) {
 
 # [Java v12](#tab/java)
 
-Obtain a list of files and directories within a share by calling [ShareDirectoryClient.listFilesAndDirectories](xref:com.azure.storage.file.share.ShareDirectoryClient.listFilesAndDirectories*). The method returns a list of [ShareFileItem](xref:com.azure.storage.file.share.models.ShareFileItem) objects on which you can iterate. The following code lists files and directories inside the directory specified by the *dirName* parameter.
+Obtain a list of files and directories within a share by calling [ShareDirectoryClient.listFilesAndDirectories](/java/api/com.azure.storage.file.share.sharedirectoryclient.listfilesanddirectories). The method returns a list of [ShareFileItem](/java/api/com.azure.storage.file.share.models.sharefileitem) objects on which you can iterate. The following code lists files and directories inside the directory specified by the *dirName* parameter.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_enumerateFilesAndDirs":::
 
@@ -252,7 +252,7 @@ Learn how to upload a file from local storage.
 
 # [Java v12](#tab/java)
 
-The following code uploads a local file to Azure File storage by calling the [ShareFileClient.uploadFromFile](xref:com.azure.storage.file.share.ShareFileClient.uploadFromFile*) method. The following method returns a `Boolean` value indicating if it successfully uploaded the specified file.
+The following code uploads a local file to Azure File storage by calling the [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile) method. The following method returns a `Boolean` value indicating if it successfully uploaded the specified file.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_uploadFile":::
 
