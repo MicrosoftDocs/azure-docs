@@ -1,14 +1,14 @@
 ---
-title: Windows Virtual Desktop safe URL list - Azure
-description: A list of URLs you should unblock to ensure your Windows Virtual Desktop deployment works as intended.
+title: Windows Virtual Desktop required URL list - Azure
+description: A list of URLs you must unblock to ensure your Windows Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ---
 
-# Safe URL list
+# Required URL list
 
 You'll need to unblock certain URLs so your Windows Virtual Desktop deployment works properly. This article lists these URLs so you know which ones are safe.
 
