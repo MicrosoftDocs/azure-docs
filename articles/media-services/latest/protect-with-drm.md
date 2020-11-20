@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Learn how to use DRM dynamic encryption and license delivery service to deliver streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,16 +12,18 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/25/2019
-ms.author: juliako
+ms.topic: tutorial
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
 # Tutorial: Use DRM dynamic encryption and license delivery service
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 > [!NOTE]
-> Even though this tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
+> Even though this tutorial uses the [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses. For in-depth explanation, see [Content protection with dynamic encryption](content-protection-overview.md).
 
@@ -42,6 +44,8 @@ This tutorial shows you how to:
 > * Create a StreamingLocator with the specified streaming policy.
 > * Create a URL used to playback your file.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 The following items are required to complete the tutorial:
@@ -49,8 +53,8 @@ The following items are required to complete the tutorial:
 * Review the [Content protection overview](content-protection-overview.md) article.
 * Review the [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md).
 * Install Visual Studio Code or Visual Studio.
-* Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
-* Get credentials needed to use Media Services APIs by following [Access APIs](access-api-cli-how-to.md)
+* Create a new Azure Media Services account, as described in [this quickstart](./create-account-howto.md).
+* Get credentials needed to use Media Services APIs by following [Access APIs](./access-api-howto.md)
 * Set the appropriate values in the app configuration file (appsettings.json).
 
 ## Download code
@@ -138,7 +142,7 @@ When creating a **Streaming Locator**, you need to specify the desired `Streamin
 
 ## Get a test token
 
-In this tutorial, we specify for the content key policy to have a token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) formats and that's what we configure in the sample.
+In this tutorial, we specify for the content key policy to have a token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) formats and that's what we configure in the sample.
 
 The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the key delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the Streaming Locator, the system creates a random one for us. To generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
 
@@ -146,7 +150,7 @@ The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that 
 
 ## Build a streaming URL
 
-Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs. To build a URL, you need to concatenate the [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **Streaming Locator** path. In this sample, the *default* **Streaming Endpoint** is used. When you first create a Media Service account, this *default* **Streaming Endpoint** will be in a stopped state, so you need to call **Start**.
+Now that the [StreamingLocator](/rest/api/media/streaminglocators) has been created, you can get the streaming URLs. To build a URL, you need to concatenate the [StreamingEndpoint](/rest/api/media/streamingendpoints) host name and the **Streaming Locator** path. In this sample, the *default* **Streaming Endpoint** is used. When you first create a Media Service account, this *default* **Streaming Endpoint** will be in a stopped state, so you need to call **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -158,7 +162,7 @@ You can open a browser and paste the resulting URL to launch the Azure Media Pla
 
 ## Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, StreamingLocators, and so on). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes Jobs:
+Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, StreamingLocators, and so on). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes the job, created assets and content key policy:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 

@@ -1,17 +1,8 @@
 ---
 title: Create an Event Hubs dedicated cluster using the Azure portal
 description: In this quickstart, you learn how to create an Azure Event Hubs cluster using Azure portal.
-services: event-hubs
-documentationcenter: ''
-author: femila
-manager: 
-
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 12/20/2019
-ms.author: femila
-
+ms.date: 06/23/2020
 ---
 
 # Quickstart: Create a dedicated Event Hubs cluster using Azure portal 
@@ -104,9 +95,9 @@ If you wish to change the size of your cluster after creation or if your preferr
 In this article, you created an Event Hubs cluster. For step-by-step instructions to send and receive events from an event hub, and capture events to an Azure storage or Azure Data Lake Store, see the following tutorials:
 
 - Send and receive events 
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 - [Use Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
 - [Use Azure Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

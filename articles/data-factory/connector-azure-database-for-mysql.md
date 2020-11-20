@@ -15,6 +15,8 @@ ms.date: 08/25/2019
 
 # Copy data to and from Azure Database for MySQL using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for MySQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 This connector is specialized for [Azure Database for MySQL service](../mysql/overview.md). To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).
@@ -50,7 +52,7 @@ A typical connection string is `Server=<server>.mysql.database.azure.com;Port=<p
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |
-| SSLMode | This option specifies whether the driver uses SSL encryption and verification when connecting to MySQL. E.g. `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g. `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
 | UseSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | No |
 
 **Example:**

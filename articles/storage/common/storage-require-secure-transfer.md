@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Require secure transfer to ensure secure connections
@@ -21,7 +22,7 @@ When secure transfer is required, a call to an Azure Storage REST API operation 
 
 Connecting to an Azure File share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1, SMB 3.0 without encryption, or some versions of the Linux SMB client.
 
-By default, the **Secure transfer required** property is enabled when you create a storage account in Azure portal. However, it is disabled when you create a storage account with SDK.
+By default, the **Secure transfer required** property is enabled when you create a storage account.
 
 > [!NOTE]
 > Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name. And classic storage accounts are not supported.
@@ -47,7 +48,7 @@ You can turn on the **Secure transfer required** property when you create a stor
 
 ## Require secure transfer from code
 
-To require secure transfer programmatically, set the _supportsHttpsTrafficOnly_ property on the storage account. You can set this property by using the Storage Resource Provider REST API, client libraries, or tools:
+To require secure transfer programmatically, set the _enableHttpsTrafficOnly_ property to _True_ on the storage account. You can set this property by using the Storage Resource Provider REST API, client libraries, or tools:
 
 * [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)

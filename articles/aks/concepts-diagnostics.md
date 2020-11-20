@@ -8,9 +8,11 @@ ms.date: 11/04/2019
 ms.author: yunjchoi
 ---
 
-# Azure Kubernetes Service (AKS) Diagnostics overview
+# Azure Kubernetes Service Diagnostics (preview) overview
 
 Troubleshooting Azure Kubernetes Service (AKS) cluster issues is an important part of maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics is an intelligent, self-diagnostic experience that helps you identify and resolve problems in your cluster. AKS Diagnostics is cloud-native, and you can use it with no extra configuration or billing cost.
+
+This feature is now in public preview.
 
 ## Open AKS Diagnostics
 
@@ -75,5 +77,7 @@ Identity and Security Management detects authentication and authorization errors
 ## Next steps
 
 Collect logs to help you further troubleshoot your cluster issues by using [AKS Periscope](https://aka.ms/aksperiscope).
+
+Read the [triage practices section](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices) of the AKS day-2 operations guide.
 
 Post your questions or feedback at [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) by adding "[Diag]" in the title.

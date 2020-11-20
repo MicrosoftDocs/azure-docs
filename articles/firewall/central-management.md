@@ -5,22 +5,20 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 07/13/2020
 ms.author: victorh
 ---
 
 # Azure Firewall central management
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
 If you manage multiple firewalls, you know that continuously changing firewall rules make it difficult to keep them in sync. Central IT teams need a way to define base firewall policies and enforce them across multiple business units. At the same time, DevOps teams want to create their own local derived firewall policies for better agility.
 
-Azure Firewall Manager Preview can help solve these problems.
+Azure Firewall Manager can help solve these problems.
 
 
-## Azure Firewall Manager Preview
+## Azure Firewall Manager
 
-Azure Firewall Manager Preview is a network security management service that provides central security policy and route management for cloud-based security perimeters. It makes it easy for Enterprise IT teams to centrally define network and application level rules for traffic filtering across multiple Azure Firewall instances. You can span different Azure regions and subscriptions in hub and spoke architectures for traffic governance and protection. It also provides DevOps better agility with derived local firewall security policies that are implemented across organizations.
+Azure Firewall Manager is a network security management service that provides central security policy and route management for cloud-based security perimeters. It makes it easy for Enterprise IT teams to centrally define network and application level rules for traffic filtering across multiple Azure Firewall instances. You can span different Azure regions and subscriptions in hub and spoke architectures for traffic governance and protection. It also provides DevOps better agility with derived local firewall security policies that are implemented across organizations.
 
 ### Firewall policy
 
@@ -43,4 +41,4 @@ The following leading third-party solutions support Azure Firewall central manag
 
 ## Next steps
 
-For more information about Azure Firewall Manager Preview, see [What is Azure Firewall Manager Preview?](../firewall-manager/overview.md)
+For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](../firewall-manager/overview.md)

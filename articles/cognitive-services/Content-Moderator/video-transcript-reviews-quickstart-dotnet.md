@@ -11,6 +11,7 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
+ms.custom: devx-track-csharp
 
 ---
 
@@ -201,7 +202,7 @@ You add a transcript to a video review with **ContentModeratorClient.Reviews.Add
 The transcript must be in the WebVTT format. For more information, see [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
 > [!NOTE]
-> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](../../media-services/previous/media-services-index-content.md) from a video.
 
 Add the following method definition to namespace VideotranscriptReviews, class Program.
 
@@ -314,7 +315,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 Add the **Main** method definition to namespace VideoTranscriptReviews, class Program. Finally, close the Program class and the VideoTranscriptReviews namespace.
 
 > [!NOTE]
-> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
+> The program uses a sample transcript in the VTT format. In a real-world solution, you use the Azure Media Indexer service to [generate a transcript](../../media-services/previous/media-services-index-content.md) from a video.
 
 ```csharp
 static void Main(string[] args)

@@ -3,22 +3,24 @@ title: Deploy LUIS container on Azure Container instances
 titleSuffix: Azure Cognitive Services
 description: Deploy the LUIS container to an Azure Container instance, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.author: dapine
+ms.date: 04/07/2020
+ms.author: aahi
 ---
 
 # Deploy the Language Understanding (LUIS) container to Azure Container instances
 
-Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) container to Azure [Container instances](https://docs.microsoft.com/azure/container-instances/). This procedure demonstrates the creation of an Anomaly Detector resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
+Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) container to Azure [Container instances](../../container-instances/index.yml). This procedure demonstrates the creation of an Anomaly Detector resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
+
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## Create an Azure file share
 

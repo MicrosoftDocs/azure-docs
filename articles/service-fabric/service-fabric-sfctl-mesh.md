@@ -27,4 +27,4 @@ Delete and manage Service Fabric Mesh applications.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

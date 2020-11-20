@@ -1,6 +1,8 @@
 ---
 title: Where and how to use - Personalizer
 description: Personalizer can be applied in any situation where your application can select the right item, action, or product to display - in order to make the experience better, achieve better business results, or improve productivity.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ---
@@ -8,7 +10,7 @@ ms.date: 02/18/2020
 
 Use Personalizer in any situation where your application needs to select the correct action (content) to display - in order to make the experience better, achieve better business results, or improve productivity.
 
-Personalizer uses machine learning to select which action (content) to show the user. The selection can vary drastically depending on the quantity, quality, and distribution of data sent to the service.
+Personalizer uses reinforcement learning to select which action (content) to show the user. The selection can vary drastically depending on the quantity, quality, and distribution of data sent to the service.
 
 ## Example use cases for Personalizer
 

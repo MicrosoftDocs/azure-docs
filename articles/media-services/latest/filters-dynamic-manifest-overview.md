@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Learn how to create filters using Dynamic Packager to filter and selectively stream your manifests.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,13 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 #Customer intent: As a developer or a content provider, when delivering adaptive bitrate streaming content to devices, you often need to target specific device capabilities or available network bandwidth. Pre-filtering manifests with Dynamic Packager allows your clients to manipulate the streaming of your content without you needing to create multiple copies of the same media file. 
 ---
 
 # Filter your manifests using Dynamic Packager
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When you're delivering adaptive bitrate streaming content to devices, you sometimes need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) lets you specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly. This filtering removes the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
 
@@ -33,7 +35,7 @@ This ability to specify different filters on your stream provides a powerful **D
 
 ## Overview of manifests
 
-Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. For more information, see the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols).
+Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. For more information, see the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery).
 
 ### Get and examine manifest files
 

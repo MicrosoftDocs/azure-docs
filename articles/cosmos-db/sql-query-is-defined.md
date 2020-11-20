@@ -3,12 +3,15 @@ title: IS_DEFINED in Azure Cosmos DB query language
 description: Learn about SQL system function IS_DEFINED in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # IS_DEFINED (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a Boolean indicating if the property has been assigned a value.  
   
 ## Syntax
@@ -39,6 +42,10 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
 ```json
 [{"isDefined1":true,"isDefined2":false}]  
 ```  
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

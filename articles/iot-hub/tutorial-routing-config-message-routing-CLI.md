@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resource and the routing using the Azure CLI.
 ---
 
@@ -51,7 +51,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that 
 #   don't have to be globally unique.

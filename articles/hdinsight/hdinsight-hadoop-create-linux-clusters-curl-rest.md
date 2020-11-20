@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
 ---
 
@@ -209,16 +209,16 @@ This example is used in the steps in this document. Replace the example *values*
 
 ## Sign in to your Azure subscription
 
-Follow the steps documented in [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
+Follow the steps documented in [Get started with Azure CLI](/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 
 > [!NOTE]  
-> These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) document. These steps create a service principal that is used to authenticate to the Azure REST API.
+> These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli) document. These steps create a service principal that is used to authenticate to the Azure REST API.
 
 1. From a command line, use the following command to list your Azure subscriptions.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -226,7 +226,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
 2. Use the following command to create an application in Azure Active Directory.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
@@ -239,7 +239,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
 3. Use the following command to create a service principal using the **App ID**.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -247,7 +247,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
 4. Assign the **Owner** role to the service principal using the **Object ID** value. Use the **subscription ID** you obtained earlier.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 

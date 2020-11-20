@@ -3,12 +3,15 @@ title: REPLACE in Azure Cosmos DB query language
 description: Learn about SQL system function REPLACE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # REPLACE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Replaces all occurrences of a specified string value with another string value.  
   
 ## Syntax
@@ -37,7 +40,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
   The following example shows how to use `REPLACE` in a query.  
   
 ```sql
-SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
+SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```  
   
  Here is the result set.  
@@ -45,6 +48,10 @@ SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```json
 [{"replace": "This is a desk"}]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

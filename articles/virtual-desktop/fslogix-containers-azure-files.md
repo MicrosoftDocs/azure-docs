@@ -1,13 +1,11 @@
 ---
 title: Windows Virtual Desktop FSLogix profile containers files - Azure
 description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
+manager: lizross
 ---
 
 # FSLogix profile containers and Azure files
@@ -52,7 +50,7 @@ The following table shows benefits and limitations of previous user profile tech
 
 #### Performance
 
-UPD requires [Storage Spaces Direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged. UPD with S2D is the solution we recommend for Windows Virtual Desktop.  
+UPD requires [Storage Spaces Direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged. UPD with S2D is the solution we recommend for Windows Virtual Desktop.
 
 #### Cost
 
@@ -93,7 +91,7 @@ To ensure your Windows Virtual Desktop environment follows best practices:
 
 Use the following guides to set up a Windows Virtual Desktop environment.
 
-- To start building out your desktop virtualization solution, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- To start building out your desktop virtualization solution, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - To create a host pool within your Windows Virtual Desktop tenant, see [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md).
 - To set up fully managed file shares in the cloud, see [Set up Azure Files share](/azure/storage/files/storage-files-active-directory-enable/).
 - To configure FSLogix profile containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).

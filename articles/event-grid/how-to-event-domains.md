@@ -1,13 +1,9 @@
 ---
 title: Publish events with event domains with Azure Event Grid
 description: Shows how to manage large sets of topics in Azure Event Grid and publish events to them using event domains.
-services: event-grid
-author: banisadr
-
-ms.service: event-grid
-ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Manage topics and publish events using event domains
@@ -78,7 +74,7 @@ Note the `endpoint` and `id` as they're required to manage the domain and publis
 
 ## Manage access to topics
 
-Managing access to topics is done via [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Role assignment uses role-based access control to limit operations on Azure resources to authorized users at a certain scope.
+Managing access to topics is done via [role assignment](../role-based-access-control/role-assignments-cli.md). Role assignment uses Azure role-based access control to limit operations on Azure resources to authorized users at a certain scope.
 
 Event Grid has two built-in roles, which you can use to assign particular users access on various topics within a domain. These roles are `EventGrid EventSubscription Contributor (Preview)`, which allows for creation and deletion of subscriptions, and `EventGrid EventSubscription Reader (Preview)`, which only allows for listing of event subscriptions.
 
@@ -135,7 +131,7 @@ New-AzureRmEventGridSubscription `
 
 If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
 Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they have write access on a topic.
 

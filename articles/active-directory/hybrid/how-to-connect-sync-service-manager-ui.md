@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ---
 # Introduction to the Azure AD Connect Synchronization Service Manager UI
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
+![Screenshot that shows the Synchronization Service Manager U I.](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
 
 The **Synchronization Service Manager** UI is used to configure more advanced aspects of the sync engine and to see the operational aspects of the service.
 

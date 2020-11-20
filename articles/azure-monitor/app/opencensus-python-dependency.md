@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
+ms.custom: devx-track-python
 
 ---
 
@@ -12,7 +13,7 @@ ms.date: 10/15/2019
 
 A dependency is an external component that is called by your application. Dependency data is collected using OpenCensus Python and its various integrations. The data is then sent to Application Insights under Azure Monitor as `dependencies` telemetry.
 
-First, instrument your Python application with latest [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
 ## In-process dependencies
 
@@ -79,6 +80,9 @@ conn.close()
 ## Dependencies with "django" integration
 
 Track your outgoing Django requests with the OpenCensus `django` integration.
+
+> [!NOTE]
+> The only outgoing Django requests that are tracked are calls made to a database. For requests made to the Django application, see [incoming requests](./opencensus-python-request.md#tracking-django-applications).
 
 Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/) and add the following line to the `MIDDLEWARE` section in the Django `settings.py` file.
 
@@ -162,8 +166,9 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## Next steps
 
-* [Application Map](../../azure-monitor/app/app-map.md)
-* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Search](../../azure-monitor/app/diagnostic-search.md)
-* [Log (Analytics) query](../../azure-monitor/log-query/log-query-overview.md)
-* [Transaction diagnostics](../../azure-monitor/app/transaction-diagnostics.md)
+* [Application Map](./app-map.md)
+* [Availability](./monitor-web-app-availability.md)
+* [Search](./diagnostic-search.md)
+* [Log (Analytics) query](../log-query/log-query-overview.md)
+* [Transaction diagnostics](./transaction-diagnostics.md)
+

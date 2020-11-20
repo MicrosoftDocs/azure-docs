@@ -1,31 +1,31 @@
 ---
 title: Use Azure Storage Table service or Azure Cosmos DB Table API from PHP
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API from PHP.
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 ---
 # How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## Overview
-This guide shows you how to perform common scenarios using the Azure Storage Table service and the Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
-
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 
 ## Create an Azure service account
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### Create an Azure storage account
+**Create an Azure storage account**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### Create an Azure Cosmos DB Table API account
+**Create an Azure Cosmos DB Table API account**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -52,8 +52,8 @@ In this guide, you use Storage Table service or Azure Cosmos DB features that ca
    ```
    Alternatively, go to the [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) on GitHub to clone the source code.
 
-
 ## Add required references
+
 To use the Storage Table service or Azure Cosmos DB APIs, you must:
 
 * Reference the autoloader file using the [require_once][require_once] statement, and
@@ -68,25 +68,32 @@ use MicrosoftAzure\Storage\Table\TableRestProxy;
 
 In the examples below, the `require_once` statement is always shown, but only the classes necessary for the example to execute are referenced.
 
-## Add a Storage Table service connection
+## Add your connection string
+
+You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
+
+### Add a Storage Table service connection
+
 To instantiate a Storage Table service client, you must first have a valid connection string. The format for the Storage Table service connection string is:
 
 ```php
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-## Add an Azure Cosmos DB connection
-To instantiate an Azure Cosmos DB Table client, you must first have a valid connection string. The format for the Azure Cosmos DB connection string is:
+### Add a Storage Emulator connection
 
-```php
-$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
-```
-
-## Add a Storage emulator connection
 To access the emulator storage:
 
 ```php
 UseDevelopmentStorage = true
+```
+
+### Add an Azure Cosmos DB connection
+
+To instantiate an Azure Cosmos DB Table client, you must first have a valid connection string. The format for the Azure Cosmos DB connection string is:
+
+```php
+$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
 To create an Azure Table service client or Azure Cosmos DB client, you need to use the **TableRestProxy** class. You can:
@@ -107,6 +114,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## Create a table
+
 A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table service timeout. (For more information about the Table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].)
 
 ```php
@@ -134,6 +142,7 @@ catch(ServiceException $e){
 For information about restrictions on table names, see [Understanding the Table Service Data Model][table-data-model].
 
 ## Add an entity to a table
+
 To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity, you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table's entities over many Storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
 ```php
@@ -213,6 +222,7 @@ catch(ServiceException $e){
 ```
 
 ## Retrieve a single entity
+
 The **TableRestProxy->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
 ```php
@@ -242,6 +252,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## Retrieve all entities in a partition
+
 Entity queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*". The following example shows how to retrieve all entities in the `tasksSeattle` partition by passing a filter to the **queryEntities** method.
 
 ```php
@@ -275,6 +286,7 @@ foreach($entities as $entity){
 ```
 
 ## Retrieve a subset of entities in a partition
+
 The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve are determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
 ```php
@@ -308,6 +320,7 @@ foreach($entities as $entity){
 ```
 
 ## Retrieve a subset of entity properties
+
 A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to retrieve, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **TableRestProxy->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
 
 ```php
@@ -347,6 +360,7 @@ foreach($entities as $entity){
 ```
 
 ## Update an entity
+
 You can update an existing entity by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that you can remove a property by setting its value to **null**.
 
 ```php
@@ -381,6 +395,7 @@ catch(ServiceException $e){
 ```
 
 ## Delete an entity
+
 To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **TableRestProxy->deleteEntity** method.
 
 ```php
@@ -409,6 +424,7 @@ catch(ServiceException $e){
 For concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
 
 ## Batch table operations
+
 The **TableRestProxy->batch** method allows you to execute multiple operations in a single request. The pattern here involves adding operations to **BatchRequest** object and then passing the **BatchRequest** object to the **TableRestProxy->batch** method. To add an operation to a **BatchRequest** object, you can call any of the following methods multiple times:
 
 * **addInsertEntity** (adds an insertEntity operation)
@@ -469,6 +485,7 @@ catch(ServiceException $e){
 For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions].
 
 ## Delete a table
+
 Finally, to delete a table, pass the table name to the **TableRestProxy->deleteTable** method.
 
 ```php
@@ -495,6 +512,7 @@ catch(ServiceException $e){
 ```
 
 ## Next steps
+
 Now that you've learned the basics of the Azure Table service and Azure Cosmos DB, follow these links to learn more.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
@@ -503,8 +521,8 @@ Now that you've learned the basics of the Azure Table service and Azure Cosmos D
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: https://php.net/require_once
-[table-service-timeouts]: https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations
+[table-service-timeouts]: /rest/api/storageservices/setting-timeouts-for-table-service-operations
 
-[table-data-model]: https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model
-[filters]: https://docs.microsoft.com/rest/api/storageservices/Querying-Tables-and-Entities
-[entity-group-transactions]: https://docs.microsoft.com/rest/api/storageservices/Performing-Entity-Group-Transactions
+[table-data-model]: /rest/api/storageservices/Understanding-the-Table-Service-Data-Model
+[filters]: /rest/api/storageservices/Querying-Tables-and-Entities
+[entity-group-transactions]: /rest/api/storageservices/Performing-Entity-Group-Transactions

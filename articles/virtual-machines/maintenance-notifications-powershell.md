@@ -4,7 +4,7 @@ description: View maintenance notifications for virtual machines running in Azur
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 #pmcontact: shants
@@ -15,13 +15,25 @@ ms.author: shants
 
 **This article applies to virtual machines running both Linux and Windows.**
 
-You can use Azure PowerShell to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet when you use the `-status` parameter.
+You can use Azure PowerShell to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet when you use the `-status` parameter.
   
 Maintenance information is returned only if there is maintenance planned. If no maintenance is scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
 
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
+```
+
+Output
+
+```
+MaintenanceRedeployStatus               : 
+  IsCustomerInitiatedMaintenanceAllowed : True
+  PreMaintenanceWindowStartTime         : 5/14/2018 12:30:00 PM
+  PreMaintenanceWindowEndTime           : 5/19/2018 12:30:00 PM
+  MaintenanceWindowStartTime            : 5/21/2018 4:30:00 PM
+  MaintenanceWindowEndTime              : 6/4/2018 4:30
+  LastOperationResultCode               : None 
 ```
 
 The following properties are returned under MaintenanceRedeployStatus: 
@@ -37,7 +49,7 @@ The following properties are returned under MaintenanceRedeployStatus:
 
 
 
-You can also get the maintenance status for all VMs in a resource group by using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) and not specifying a VM.
+You can also get the maintenance status for all VMs in a resource group by using [Get-AzVM](/powershell/module/az.compute/get-azvm) and not specifying a VM.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status

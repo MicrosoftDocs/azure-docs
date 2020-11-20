@@ -4,7 +4,7 @@ description: This article provides information on how to enable multiple namespa
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -44,7 +44,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
   - list ingress resources from all accessible namespaces
   - filter to ingress resources annotated with `kubernetes.io/ingress.class: azure/application-gateway`
   - compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - apply the config to the associated Application Gateway via [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+  - apply the config to the associated Application Gateway via [ARM](../azure-resource-manager/management/overview.md)
 
 ## Conflicting Configurations
 Multiple namespaced [ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource)
@@ -59,6 +59,7 @@ and duplicates will be removed.
 
 For example, consider the following duplicate ingress resources defined
 namespaces `staging` and `production` for `www.contoso.com`:
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -128,9 +129,10 @@ By default AGIC will configure Application Gateway based on annotated Ingress wi
 any namespace. Should you want to limit this behavior you have the following
 options:
   - limit the namespaces, by explicitly defining namespaces AGIC should observe via the `watchNamespace` YAML key in [helm-config.yaml](#sample-helm-config-file)
-  - use [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to limit AGIC to specific namespaces
+  - use [Role/RoleBinding](../aks/azure-ad-rbac.md) to limit AGIC to specific namespaces
 
 ## Sample Helm config file
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -175,12 +177,11 @@ options:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
-
+```

@@ -3,12 +3,15 @@ title: TAN in Azure Cosmos DB query language
 description: Learn about SQL system function TAN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # TAN (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the tangent of the specified angle, in radians, in the specified expression.  
   
 ## Syntax
@@ -39,6 +42,10 @@ SELECT TAN(PI()/2) AS tan
 ```json
 [{"tan": 16331239353195370 }]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

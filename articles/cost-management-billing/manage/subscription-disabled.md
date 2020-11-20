@@ -6,8 +6,9 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 11/17/2020
 ms.author: banders
 ---
 
@@ -26,7 +27,7 @@ Azure subscriptions with credit such as Free Trial and Visual Studio Enterprise 
 > [!NOTE]
 > If you have a Free Trial subscription and you remove the spending limit, your subscription converts to an individual subscription with pay-as-you-go rates at the end of the Free Trial. You keep your remaining credit for the full 30 days after you created the subscription. You also have access to free services for 12 months.
 
-To monitor and manage billing activity for Azure, see [Prevent unexpected costs with Azure billing and cost management](getting-started.md).
+To monitor and manage billing activity for Azure, see [Plan to manage Azure costs](../understand/plan-manage-costs.md).
 
 
 ## Your bill is past due
@@ -49,9 +50,13 @@ If you're the Account Administrator and accidentally canceled an individual subs
 
 For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
+## After reactivation
+
+After your subscription is reactivated, there might be a delay in creating or managing resources. If the delay exceeds 30 minutes, please contact [Azure Billing Support](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance. Most Azure resources automatically resume and don't require any action. However, we recommend that you check your Azure service resources and restart any that don't resume automatically.
+
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
-- Learn how to [Monitor and manage billing activity for Azure](getting-started.md).
+- Learn how to [Plan to manage Azure costs](../understand/plan-manage-costs.md).

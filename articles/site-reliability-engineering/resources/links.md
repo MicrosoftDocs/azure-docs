@@ -2,10 +2,10 @@
 title: SRE link collections and digests | Microsoft Docs
 description: Expand your knowledge of site reliability engineering with these resources
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
 
 ---
@@ -18,7 +18,7 @@ There are many, many sources for site reliability engineering (SRE) information 
 Here are some good curated lists of links for SRE and SRE-related topics:
 
 * [Awesome Site Reliability Engineering](https://github.com/dastergon/awesome-sre)
-* [Awesome Site Reliability Engineering Tools](https://github.com/squadcastHQ/awesome-sre-tools)
+* [Awesome Site Reliability Engineering Tools](https://github.com/SquadcastHub/awesome-sre-tools)
 * [The Patterns of Scalable, Reliable, and Performant Large-Scale Systems](http://awesome-scalability.com)
 * [awesome-distributed-systems](https://github.com/theanalyst/awesome-distributed-systems)
 * [Awesome Consensus](https://github.com/dgryski/awesome-consensus)

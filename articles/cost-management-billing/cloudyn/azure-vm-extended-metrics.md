@@ -1,14 +1,15 @@
 ---
-title: Add extended metrics for Azure virtual machines | Microsoft Docs
+title: Add extended metrics for Azure virtual machines
 description: This article helps you enable and configure extended diagnostics metrics for your Azure VMs.
-keywords:
 author: bandersmsft
 ms.reviewer: vitavor
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Add extended metrics for Azure virtual machines
@@ -25,11 +26,13 @@ After you enable metric collection, you can:
 For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _Percentage CPU_ and _\Memory\% Committed Bytes In Use_.
 
 > [!NOTE]
-> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the [Log Analytics agent](../../azure-monitor/platform/agents-overview.md). 
+> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the [Log Analytics agent](../../azure-monitor/platform/agents-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Determine whether extended metrics are enabled
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Under **Virtual machines**, select a VM and then under **Monitoring**, select **Metrics**. A list of available metrics is shown.
 3. Select some metrics and a graph displays data for them.  
     ![Example metric – host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)
@@ -42,7 +45,7 @@ Standard metrics are host computer metrics. The _Percentage CPU_ metric is one e
 
 Enabling extended metrics is straightforward. For each VM, enable guest-level monitoring. When you enable guest-level monitoring, the Azure diagnostics agent is installed on the VM. By default, a basic set of extended metrics are added. The following process is the same for classic and regular VMs and the same for Windows and Linux VMs.
 
-Keep in mind that both Azure and Linux guest-level monitoring require a storage account. When you enable guest-level monitoring, if you don't choose an existing storage account, then one is created for you.
+Keep in mind that both Windows and Linux guest-level monitoring require a storage account. When you enable guest-level monitoring, if you don't choose an existing storage account, then one is created for you.
 
 ### Enable guest-level monitoring on existing VMs
 
@@ -66,7 +69,7 @@ For more information about enabling extended metrics for Azure virtual machines,
 
 ## Resource Manager credentials
 
-After you enable extended metrics, ensure that Cloudyn has access to your [Resource Manager credentials](../../cost-management/activate-subs-accounts.md). Your credentials are required for Cloudyn to collect and display performance data for your VMs. They're also used to create cost optimization recommendations. Cloudyn needs at least three days of performance data from an instance to determine if it is a candidate for a downsizing recommendation.
+After you enable extended metrics, ensure that Cloudyn has access to your [Resource Manager credentials](./activate-subs-accounts.md). Your credentials are required for Cloudyn to collect and display performance data for your VMs. They're also used to create cost optimization recommendations. Cloudyn needs at least three days of performance data from an instance to determine if it is a candidate for a downsizing recommendation.
 
 ## Enable VM metrics with a script
 
@@ -80,4 +83,4 @@ To view performance metrics on your Azure Instances in the Cloudyn portal, navig
 
 ## Next steps
 
-- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](../../cost-management/activate-subs-accounts.md).
+- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](./activate-subs-accounts.md).

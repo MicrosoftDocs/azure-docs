@@ -112,7 +112,7 @@ The workflow steps can be grouped into three activities:
 
 - Project Leads conduct sprint planning
 - Data Scientists develop artifacts on `git` branches to address work items
-- Project Leads or other team members do code reviews and merge working branches to the master branch
+- Project Leads or other team members do code reviews and merge working branches to the primary branch
 
 For detailed instructions on project execution workflow, see [Agile development of data science projects](agile-development.md).
 

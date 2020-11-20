@@ -123,7 +123,7 @@ Use the Power BI connector to create visual representations of data stored in Da
 
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
-* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or on-premises SQL Server.
+* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or a SQL Server instance.
 
 * Download data to your local computer for processing in IDE environments while building application prototypes.
 

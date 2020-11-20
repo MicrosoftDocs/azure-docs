@@ -5,6 +5,7 @@ author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
 
+ms.custom: devx-track-java
 ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial

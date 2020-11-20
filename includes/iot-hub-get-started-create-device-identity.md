@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 09/07/2018
  ms.author: dobett
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 In this section, you use the Azure CLI to create a device identity for this article. Device IDs are case sensitive.
@@ -17,7 +17,7 @@ In this section, you use the Azure CLI to create a device identity for this arti
 1. In Azure Cloud Shell, run the following command to install the Microsoft Azure IoT Extension for Azure CLI:
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     ```
 
 2. Create a new device identity called `myDeviceId` and retrieve the device connection string with these commands:

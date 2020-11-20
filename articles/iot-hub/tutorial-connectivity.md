@@ -5,7 +5,7 @@ services: iot-hub
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
-ms.custom: mvc
+ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
@@ -33,8 +33,10 @@ In this tutorial, you learn how to:
 The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 The device simulator application you run in this tutorial is written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
@@ -100,7 +102,7 @@ To reset the primary device key for **MyTestDevice**, run the following commands
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
 # Requires the IoT Extension for Azure CLI
-# az extension add --name azure-cli-iot-ext
+# az extension add --name azure-iot
 
 # Reset the primary device key for MyTestDevice
 az iot hub device-identity update --device-id MyTestDevice --set authentication.symmetricKey.primaryKey=$key --hub-name {YourIoTHubName}
@@ -261,4 +263,4 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 In this tutorial, you've seen how to check your device keys, check device-to-cloud connectivity, check cloud-to-device connectivity, and check device twin synchronization. To learn more about how to monitor your IoT hub, visit the how-to article for IoT Hub monitoring.
 
 > [!div class="nextstepaction"]
-> [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
+> [Monitor IoT Hub](monitor-iot-hub.md)

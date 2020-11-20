@@ -11,10 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
+ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
 ---
-# Use custom activities in an Azure Data Factory pipeline
+# Use custom activities in an Azure Data Factory version 1 pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-use-custom-activities.md)
 > * [Version 2 (current version)](../transform-data-using-dotnet-custom-activity.md)
@@ -25,7 +26,7 @@ robots: noindex
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
 - [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported source and sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning.
+- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning Studio (classic).
 
 To move data to/from a data store that Data Factory does not support, create a **custom activity** with your own data movement logic and use the activity in a pipeline. Similarly, to transform/process data in a way that isn't supported by Data Factory, create a custom activity with your own data transformation logic and use the activity in a pipeline.
 
@@ -72,7 +73,7 @@ Here are the two high-level steps you perform as part of this walkthrough:
 2. Create an Azure data factory with a pipeline that uses the custom activity.
 
 ### Create a custom activity
-To create a .NET custom activity, create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) and its signature is:
+To create a .NET custom activity, create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](/dotnet/api/microsoft.azure.management.datafactories.runtime.idotnetactivity) and its signature is:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -769,7 +770,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 See [Automatically scale compute nodes in an Azure Batch pool](../../batch/batch-automatic-scaling.md) for details.
 
-If the pool is using the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.  If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
+If the pool is using the default [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.  If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
 
 ## Create a custom activity by using .NET SDK
@@ -1019,30 +1020,30 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 | Sample | What custom activity does |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory. |
-| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure Machine Learning studio model and do sentiment analysis, scoring, prediction etc. |
+| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure Machine Learning Studio (classic) model and do sentiment analysis, scoring, prediction etc. |
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
 | [Reprocess a model in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Reprocesses a model in Azure Analysis Services. |
 
-[batch-net-library]: ../../batch/batch-dotnet-get-started.md
+[batch-net-library]: ../../batch/quick-run-dotnet.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
-[batch-get-started]: ../../batch/batch-dotnet-get-started.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
+[batch-get-started]: ../../batch/quick-run-dotnet.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
-[new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
-[new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
-[azure-batch-blog]: https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
+[new-azure-batch-account]: /previous-versions/azure/mt125880(v=azure.100)
+[new-azure-batch-pool]: /previous-versions/azure/mt125936(v=azure.100)
+[azure-batch-blog]: /archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account
 
 [nuget-package]: https://go.microsoft.com/fwlink/?LinkId=517478
-[adf-developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[adf-developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

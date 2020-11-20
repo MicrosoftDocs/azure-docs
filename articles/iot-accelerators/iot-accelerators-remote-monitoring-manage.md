@@ -63,7 +63,7 @@ To test that you can update the engine's configuration properties, select it in 
 
 To update the engine's location, set the job name to **UpdateEngineLocation**, set the longitude to **-122.15**, set the location to **Factory 2**, set the latitude to **47.62**, and click **Apply**:
 
-[![Update a device property value](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
+[![Screenshot that shows the "Device Explorer" page with the "Jobs" window highlighted.](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
 
 To track the status of the job, click **View job status**:
 
@@ -110,7 +110,7 @@ Create a text filter that uses the tag name **FieldService** and value **SmartBu
 
 Create a text filter that uses the tag name **FieldService** and value **ConnectedVehicle** in the condition. Save the filter as **Connected Vehicle**.
 
-[![Create connected vehicle filter](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
+[![Screenshot that shows the "Device Explorer" page with the "Manage device groups" window highlighted.](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
 
 Now the Contoso operator can query for devices based on the operating team:
 

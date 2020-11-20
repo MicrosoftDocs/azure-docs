@@ -47,7 +47,7 @@ File system corruption could cause this. However, it is difficult to diagnose an
 
 ## Solution
 
-To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md), and [attach the OS disk to a rescue VM](../windows/troubleshoot-recovery-disks-portal.md), and then follow the solution options accordingly, or try the solutions one by one.
+To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-disk.md), and [attach the OS disk to a rescue VM](./troubleshoot-recovery-disks-portal-windows.md), and then follow the solution options accordingly, or try the solutions one by one.
 
 ### Solution for cause 1
 
@@ -91,7 +91,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
 
 16.	[Create a new VM from the OS disk](../windows/create-vm-specialized.md).
 
-17.	If the issue is fixed, then you may have to reinstall the [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
+17.	If the issue is fixed, then you may have to reinstall the [RDAgent](/archive/blogs/mast/install-the-vm-agent-on-an-existing-azure-vm) (WaAppAgent.exe).
 
 ### Solution for cause 2
 
@@ -110,5 +110,3 @@ Restore the VM to the last known good configuration, follow the steps in [How to
 4. Remove the disk from the troubleshooting VM and wait about 2 minutes for Azure to release this disk.
 
 5. [Create a new VM from the OS disk](../windows/create-vm-specialized.md).
-
-

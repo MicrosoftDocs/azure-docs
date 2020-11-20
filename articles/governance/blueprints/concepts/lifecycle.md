@@ -1,13 +1,13 @@
 ---
 title: Understand the lifecycle of a blueprint
 description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
-ms.date: 07/30/2019
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Understand the lifecycle of an Azure Blueprint
 
 Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural
-lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant.
+lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant. Azure
 Blueprints supports standard lifecycle operations. It then builds upon them to provide additional
 levels of status that support common continuous integration and continuous deployment pipelines for
 organizations that manage their Infrastructure as Code – a key element in DevOps.
@@ -111,15 +111,15 @@ a newer version is being developed.
 
 As versions of blueprints are assigned, it's important to understand where they're assigned and with
 what parameters they've been assigned with. The parameters can either be static or dynamic. To learn
-more, see [static and dynamic parameters](parameters.md).
+more, see [static and dynamic parameters](./parameters.md).
 
 ### Updating assignments
 
 When a blueprint is assigned, the assignment can be updated. There are several reasons for updating
 an existing assignment, including:
 
-- Add or remove [resource locking](resource-locking.md)
-- Change the value of [dynamic parameters](parameters.md#dynamic-parameters)
+- Add or remove [resource locking](./resource-locking.md)
+- Change the value of [dynamic parameters](./parameters.md#dynamic-parameters)
 - Upgrade the assignment to a newer **Published** version of the blueprint
 
 To learn how, see [update existing assignments](../how-to/update-existing-assignments.md).
@@ -129,7 +129,7 @@ To learn how, see [update existing assignments](../how-to/update-existing-assign
 If the blueprint is no longer needed, it can be unassigned from the management group or
 subscription. During blueprint unassignment, the following occurs:
 
-- Removal of [blueprint resource locking](resource-locking.md)
+- Removal of [blueprint resource locking](./resource-locking.md)
 - Deletion of the blueprint assignment object
 - (Conditional) If a **system-assigned managed identity** was used, it's also deleted
 
@@ -139,8 +139,9 @@ subscription. During blueprint unassignment, the following occurs:
 
 ## Next steps
 
-- Understand how to use [static and dynamic parameters](parameters.md).
-- Learn to customize the [blueprint sequencing order](sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Understand how to use [static and dynamic parameters](./parameters.md).
+- Learn to customize the [blueprint sequencing order](./sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](./resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

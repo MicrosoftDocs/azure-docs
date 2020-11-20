@@ -40,7 +40,7 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -50,7 +50,7 @@ Create a VM with the [az vm create](/cli/azure/vm) command.
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -61,7 +61,7 @@ az vm create \
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -206,7 +206,7 @@ You see the syslog entries in your terminal echoed as they are sent to Elasticse
 Edit `/etc/kibana/kibana.yml` and change the IP address Kibana listens on so you can access it from your web browser.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 Start Kibana with the following command:
@@ -223,7 +223,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Open up the Kibana console and select **Create** to generate a default index based on the syslog data you sent to Elasticsearch earlier. 
 
-![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-index.png)
+![Screenshot that shows the Kibana console and highlights the Create button.](media/elasticsearch-install/kibana-index.png)
 
 Select **Discover** on the Kibana console to search, browse, and filter through the syslog events.
 

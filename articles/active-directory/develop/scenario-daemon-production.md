@@ -2,16 +2,12 @@
 title: Move a daemon app that calls web APIs to production - Microsoft identity platform | Azure
 description: Learn how to move a daemon app that calls web APIs to production
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
@@ -44,8 +40,8 @@ Here are a few links to help you learn more:
 
 - Quickstart: [Acquire a token and call Microsoft Graph API from a console app by using app's identity](./quickstart-v2-netcore-daemon.md).
 - Reference documentation for:
-  - Instantiating [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
-  - Calling [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
+  - Instantiating [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
+  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Other samples/tutorials:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a simple .NET Core daemon console application that displays the users of a tenant querying Microsoft Graph.
 

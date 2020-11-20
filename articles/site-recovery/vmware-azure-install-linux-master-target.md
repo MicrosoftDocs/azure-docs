@@ -6,7 +6,7 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
 ---
 
@@ -23,7 +23,7 @@ If your protected virtual machine is a Windows virtual machine, then you need a 
 ## Overview
 This article provides instructions for how to install a Linux master target.
 
-Post comments or questions at the end of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post comments or questions at the end of this article or on the [Microsoft Q&A question page for Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## Prerequisites
 
@@ -34,6 +34,9 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 * The version of the master target must be equal to or earlier than the versions of the process server and the configuration server. For example, if the version of the configuration server is 9.4, the version of the master target can be 9.4 or 9.3 but not 9.5.
 * The master target can only be a VMware virtual machine and not a physical server.
 
+> [!NOTE]
+> Make sure you do not turn on Storage vMotion on any management components such as a master target. If the master target moves after a successful reprotect, the virtual machine disks (VMDKs) cannot be detached. In this case, failback fails.
+
 ## Sizing guidelines for creating master target server
 
 Create the master target in accordance with the following sizing guidelines:
@@ -41,16 +44,7 @@ Create the master target in accordance with the following sizing guidelines:
 - **OS disk size**: 100 GB or more (to install OS)
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
-
-The following Ubuntu kernels are supported.
-
-
-|Kernel Series  |Support up to  |
-|---------|---------|
-|4.4      |4.4.0-81-generic         |
-|4.8      |4.8.0-56-generic         |
-|4.10     |4.10.0-24-generic        |
-
+- **Kernel**: 4.16.*
 
 ## Deploy the master target server
 
@@ -114,7 +108,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
      
-     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Screenshot that shows where to select Continue and then select Enter.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Select **No automatic updates** option in the selection for managing upgrades on your system, and then select **Enter**.
 
@@ -271,16 +265,22 @@ Use the following steps to create a retention disk:
 > [!NOTE]
 > Before you install the master target server, check that the **/etc/hosts** file on the virtual machine contains entries that map the local hostname to the IP addresses that are associated with all network adapters.
 
-1. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the configuration server. Then save it as **passphrase.txt** in the same local directory by running the following command:
+1. Run the following command to install the master target.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the configuration server. Then save it as **passphrase.txt** in the same local directory by running the following command:
 
 	`echo <passphrase> >passphrase.txt`
 
     Example: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
 	
 
-2. Note down the configuration server's IP address. Run the following command to install the master target server and register the server with the configuration server.
+3. Note down the configuration server's IP address. Run the following command to register the server with the configuration server.
 
     ```
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -311,16 +311,10 @@ After the installation has finished, register the configuration server by using 
 
 1. Note the IP address of the configuration server. You need it in the next step.
 
-2. Run the following command to install the master target server and register the server with the configuration server.
+2. Run the following command to register the server with the configuration server.
 
     ```
-	./install -q -d /usr/local/ASR -r MT -v VmWare
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-	Example: 
-
-    ```
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Wait until the script finishes. If the master target is registered successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
@@ -345,9 +339,13 @@ You will see that the **Version** field gives the version number of the master t
 
 * The master target should not have any snapshots on the virtual machine. If there are snapshots, failback fails.
 
-* Due to some custom NIC configurations, the network interface is disabled during startup, and the master target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*.
-	* BOOTPROTO=dhcp
-	* ONBOOT=yes
+* Due to some custom NIC configurations, the network interface is disabled during startup, and the master target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/network/interfaces.
+	* auto eth0
+	* iface eth0 inet dhcp <br>
+
+    Restart the networking service using the following command: <br>
+
+`sudo systemctl restart networking`
 
 
 ## Next steps

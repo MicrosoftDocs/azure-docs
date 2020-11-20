@@ -53,7 +53,7 @@ Get-AzNetworkUsage `
 
 You receive output formatted the same as the following example output:
 
-```powershell
+```output
 ResourceType            CurrentValue Limit
 ------------            ------------ -----
 Virtual Networks                   1    50
@@ -77,7 +77,7 @@ az network list-usages \
 
 You receive output formatted the same as the following example output:
 
-```azurecli
+```output
 Name                    CurrentValue Limit
 ------------            ------------ -----
 Virtual Networks                   1    50

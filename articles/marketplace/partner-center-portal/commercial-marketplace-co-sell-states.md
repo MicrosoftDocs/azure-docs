@@ -1,22 +1,21 @@
 ---
-title: Co-sell state codes | Azure Marketplace
-description: Use these state/province codes when providing contact info on your offer's Co-sell page.
-author: MaggiePucciEvans 
-manager: evansma
-ms.author: evansma 
+title: Co-sell state and province codes in Azure Marketplace
+description: Get the available state and province codes when providing contact info on your offer's Co-sell page in Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
+author: palanis-MSFT
+ms.author: palanis
+ms.date: 09/02/2020
 ---
 
-# Co-sell state codes
+# Co-sell state and province codes in Azure Marketplace
 
-If applicable, use these codes to provide State/Province info when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md#contacts).
+This article lists the available state and province codes when providing contact info on your offer's Co-sell page. If applicable, use these codes to provide State/Province info when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md#contacts).
 
-## State/Province table
+## US states and territories
 
-|   State/Province Name               |   Code    |
+|   State and territory name          |   Code    |
 |-------------------------------------|-----------|
 | Alabama                             | US-AL     |
 | Alaska                              | US-AK     |
@@ -74,7 +73,40 @@ If applicable, use these codes to provide State/Province info when [providing co
 | Northern Mariana Islands            | US-MP     |
 | Puerto Rico                         | US-PR     |
 | United States Minor Outlying Islands | US-UM    |
-|Virgin Islands, U.S.                 | US-VI     |
+| U.S. Virgin Islands                 | US-VI    |
+
+## Canadian provinces and territories
+
+|   Province and territory name       |   Code    |
+|-------------------------------------|-----------|
+| Alberta                             |  CA-AB    |
+| British Columbia                    |  CA-BC    |
+| Manitoba                            |  CA-MB    |
+| New Brunswick                       |  CA-NB    |
+| Newfoundland and Labrador           |  CA-NL    |
+| Nova Scotia                         |  CA-NS    |
+| Ontario                             |  CA-ON    |
+| Prince Edward Island                |  CA-PE    |
+| Quebec                              |  CA-QC    |
+| Saskatchewan                        |  CA-SK    |
+| Northwest Territories               |  CA-NT    |
+| Nunavut                             |  CA-NU    |
+| Yukon                               |  CA-YT    |
+
+
+## Australian states and territories
+
+|   State and territory name          |   Code    |
+|-------------------------------------|-----------|
+| New South Wales                     |  AU-NSW   |
+| Queensland                          |  AU-QLD   |
+| South Australia                     |  AU-SA    |
+| Tasmania                            |  AU-TAS   |
+| Victoria                            |  AU-VIC   |
+| Western Australia                   |  AU-WA    |
+| Australian Capital Territory        |  AU-ACT   |
+| Northern Territory                  |  AU-NT    |
+
 
 ## Next steps
 

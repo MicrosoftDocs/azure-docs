@@ -82,7 +82,7 @@ In some scenarios, failover requires additional processing that takes around 8 t
 
 ## Connect to failed-over VM
 
-1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met]((ailover-failback-overview.md#connect-to-azure-after-failover).
+1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met](failover-failback-overview.md#connect-to-azure-after-failover).
 2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
 3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
 4. After validation, select **Commit** to finalize the recovery point of the VM after failover.

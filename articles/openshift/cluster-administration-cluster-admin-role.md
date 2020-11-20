@@ -3,7 +3,6 @@ title: Azure Red Hat OpenShift cluster administrator role | Microsoft Docs
 description:  Assignment and usage of the Azure Red Hat OpenShift cluster administrator role
 services: container-service
 author: mjudeikis
-ms.author: b-majude
 ms.author: jzim
 ms.service: container-service
 ms.topic: article
@@ -12,6 +11,12 @@ ms.date: 09/25/2019
 ---
 
 # Azure Red Hat OpenShift customer administrator role
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
 
 You're the cluster administrator of an Azure Red Hat OpenShift cluster. Your account has increased permissions and access to all user-created projects.
 

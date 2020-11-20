@@ -2,12 +2,13 @@
 title: Template resource location
 description: Describes how to set resource location in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/04/2019 
+ms.custom:
 ---
 
-# Set resource location in Resource Manager template
+# Set resource location in ARM template
 
-When deploying a template, you must provide a location for each resource. The location doesn't need to be the same location as the resource group location.
+When deploying an Azure Resource Manager (ARM) template, you must provide a location for each resource. The location doesn't need to be the same location as the resource group location.
 
 ## Get available locations
 
@@ -39,7 +40,7 @@ The following example shows a storage account that is deployed to a location spe
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {
@@ -91,4 +92,4 @@ The following example shows a storage account that is deployed to a location spe
 ## Next steps
 
 * For the full list of template functions, see [Azure Resource Manager template functions](template-functions.md).
-* For more information about template files, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* For more information about template files, see [Understand the structure and syntax of ARM templates](template-syntax.md).

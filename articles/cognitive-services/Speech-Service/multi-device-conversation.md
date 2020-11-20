@@ -1,17 +1,18 @@
 ---
-title: About Multi-device Conversation (Preview) - Speech Service
+title: Multi-device Conversation (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description:
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
-ms.author: dapine
+ms.date: 03/11/2020
+ms.author: trbye
 ---
-# About Multi-device Conversation (Preview)
+
+# What is Multi-device Conversation (Preview)?
 
 **Multi-device conversation** makes it easy to create a speech or text conversation between multiple clients and coordinate the messages sent between them.
 
@@ -54,11 +55,11 @@ Real-time transcription and translation can help make conversations accessible f
 You can also provide captions for presentations and lectures both on-screen and on the audience members' own devices. After the audience joins with the conversation code, they can see the transcript in their preferred language, on their own device.
 
 > [!NOTE]
-> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://www.microsoft.com/download/details.aspx?id=55024).
+> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## How it works
 
-All clients will use the Speech SDK to create or join a conversation. The Speech SDK interacts with the multi-device conversation service, which manages the lifetime of a conversation, including the list of participants, each client’s chosen language(s), and messages sent.  
+All clients will use the Speech SDK to create or join a conversation. The Speech SDK interacts with the multi-device conversation service, which manages the lifetime of a conversation, including the list of participants, each client's chosen language(s), and messages sent.  
 
 Each client can send audio or instant messages. The service will use speech recognition to convert audio into text, and send instant messages as-is. If clients choose different languages, then the service will translate all messages to the specified language(s) of each client.
 
@@ -69,8 +70,8 @@ Each client can send audio or instant messages. The service will use speech reco
 A **conversation** is a session that one user starts for the other participating users to join. All clients connect to the conversation using the five-letter **conversation code**.
 
 Each conversation creates metadata that includes:
--	Timestamps of when the conversation started and ended
--	List of all participants in the conversation, which includes each user's chosen nickname and primary language for speech or text input.
+-    Timestamps of when the conversation started and ended
+-    List of all participants in the conversation, which includes each user's chosen nickname and primary language for speech or text input.
 
 
 There are two types of users in a conversation:  **host** and **participant**.
@@ -99,7 +100,7 @@ When creating or joining a conversation, each user must choose a **primary langu
 There are two kinds of languages: **speech-to-text** and **text-only**:
 - If the user chooses a **speech-to-text** language as their primary language, then they will be able to use both speech and text input in the conversation.
 
-- If the user chooses a **text-only** language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech-to-text. You can see available languages on the [language support](supported-languages.md) page.
+- If the user chooses a **text-only** language, then they will only be able to use text input and send instant messages in the conversation. Text-only languages are the languages that are supported for text translation, but not speech-to-text. You can see available languages on the [language support](./language-support.md) page.
 
 Apart from their primary language, each participant can also specify additional languages for translating the conversation.
 
@@ -113,7 +114,7 @@ Below is a summary of what the user will be able to do in a multi-device convers
 | Translate the conversation | ✔️ | ✔️ |
 
 > [!NOTE]
-> For lists of available speech-to-text and text translation languages, see [supported languages](supported-languages.md).
+> For lists of available speech-to-text and text translation languages, see [supported languages](./language-support.md).
 
 
 

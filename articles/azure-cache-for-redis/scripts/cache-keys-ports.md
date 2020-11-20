@@ -7,7 +7,8 @@ tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 08/30/2017
+ms.date: 08/30/2017 
+ms.custom: devx-track-azurecli
 ---
 
 # Get the hostname, ports, and keys for Azure Cache for Redis

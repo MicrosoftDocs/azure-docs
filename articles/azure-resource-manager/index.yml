@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 12/19/2019
+  ms.date: 03/04/2020
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -25,7 +25,7 @@ highlightedContent:
       itemType: overview
       url: management/overview.md
     # Card
-    - title: What are templates?
+    - title: What are ARM templates?
       itemType: overview
       url: templates/overview.md
     # Card
@@ -38,7 +38,7 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: Deploy Resource Manager templates
+    - title: Deploy ARM templates
       links:
         - url: templates/overview.md
           itemType: overview
@@ -102,7 +102,7 @@ conceptualContent:
         - url: managed-applications/create-uidefinition-overview.md
           itemType: how-to-guide
           text: Define portal pane for creating app
-        - url: managed-applications/publish-marketplace-app.md
+        - url: ../marketplace/partner-center-portal/create-new-azure-apps-offer.md
           itemType: tutorial
           text: Add app to Marketplace
       # footerLink (optional)

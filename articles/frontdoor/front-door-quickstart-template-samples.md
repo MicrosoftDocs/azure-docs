@@ -1,25 +1,25 @@
 ---
-title: Azure Resource Manager template samples - Azure Front Door Service
-description: Azure Resource Manager template samples for Azure Front Door Service
+title: Azure Resource Manager template samples - Azure Front Door
+description: Learn about Resource Manager template samples for Azure Front Door, including templates for creating a basic Front Door and configuring Front Door rate limiting.
 services: frontdoor
 documentationcenter: ""
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
-ms.author: sharadag
+ms.date: 02/04/2020
+ms.author: duau
 ---
 # Azure Resource Manager deployment model templates for Front Door
 
-The following table includes links to Azure Resource Manager deployment model templates for Azure Front Door Service. 
+The following table includes links to Azure Resource Manager deployment model templates for Azure Front Door. 
 
-| | |
+| Template | Description |
 | ---| ---|
 | [Create a basic Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Creates a basic Front Door configuration with a single backend. |
 | [Create a Front Door with multiple backends and backend pools and URL based routing](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Creates a Front Door with load balancing configured for multiple backends in ta backend pool and also across backend pools based on URL path. |
-| [Onboard a custom domain with HTTPS (Front Door managed cert) with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Add a custom domain to your Front Door and enable HTTPS traffic for it with a Front Door managed certificate generated via DigiCert. |
+| [Onboard a custom domain with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Add a custom domain to your Front Door. |
 | [Create Front Door with geo filtering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Create a Front Door that allows/blocks traffic from certain countries/regions. |
 | [Control Health Probes for your backends on Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes)| Update your Front Door to change the health probe settings by updating the probe path and also the intervals in which the probes will be sent. |
 | [Create Front Door with Active/Standby backend configuration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| Creates a Front Door that demonstrates priority-based routing for Active/Standby application topology, that is, by default send all traffic to the primary (highest-priority) backend until it becomes unavailable. |

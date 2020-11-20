@@ -6,12 +6,13 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 
 ---
 
 # Access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article covers how to access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight-Spark from spark-shell. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure that leverages object storage for HDFS, and comes in several flavors including [Spark](../hdinsight/spark/apache-spark-overview.md).  While the content in this document references HDInsight-Spark, it is applicable to all Hadoop distributions.  
 

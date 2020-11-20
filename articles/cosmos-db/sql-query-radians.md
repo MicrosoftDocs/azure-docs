@@ -3,12 +3,15 @@ title: RADIANS in Azure Cosmos DB query language
 description: Learn about SQL system function RADIANS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # RADIANS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns radians when a numeric expression, in degrees, is entered.  
   
 ## Syntax
@@ -45,6 +48,10 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
        "r5": 3.4402174274458375  
    }]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

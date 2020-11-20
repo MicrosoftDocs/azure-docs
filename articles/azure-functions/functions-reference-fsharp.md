@@ -4,7 +4,7 @@ description: Understand how to develop Azure Functions using F# script.
 author: sylvanc
 
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 
@@ -86,7 +86,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## Logging
-To log output to your [streaming logs](../app-service/troubleshoot-diagnostic-logs.md) in F#, your function should take an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). For consistency, we recommend this argument is named `log`. For example:
+To log output to your [streaming logs](../app-service/troubleshoot-diagnostic-logs.md) in F#, your function should take an argument of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). For consistency, we recommend this argument is named `log`. For example:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -289,4 +289,3 @@ For more information, see the following resources:
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Azure Functions testing](functions-test-a-function.md)
 * [Azure Functions scaling](functions-scale.md)
-

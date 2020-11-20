@@ -1,22 +1,11 @@
 ---
 title: How to resize a Linux VM with the Azure CLI 
 description: How to scale up or scale down a Linux virtual machine, by changing the VM size.
-services: virtual-machines-linux
-documentationcenter: na
-author: mikewasson
-manager: gwallace
-editor: ''
-tags: ''
-
-ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
+author: DavidCBerry13
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: how-to
 ms.date: 02/10/2017
-ms.author: mwasson
-ms.custom: H1Hack27Feb2017
+ms.author: daberry
 
 ---
 # Resize a Linux virtual machine using Azure CLI 
@@ -56,5 +45,5 @@ For additional scalability, run multiple VM instances and scale out. For more in
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
+[scale-set]: ../../virtual-machine-scale-sets/tutorial-autoscale-cli.md 
 [vm-sizes]:sizes.md

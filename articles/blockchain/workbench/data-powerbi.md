@@ -1,9 +1,9 @@
 ---
 title: Use Azure Blockchain Workbench data in Microsoft Power BI
 description: Learn how to load and view Azure Blockchain Workbench SQL DB data in Microsoft Power BI.
-ms.date: 05/09/2019
-ms.topic: article
-ms.reviewer: mmercuri
+ms.date: 04/22/2020
+ms.topic: how-to
+ms.reviewer: sunri
 #Customer intent: As a developer, I want to load and view Azure Blockchain Workbench data in Power BI for analysis.
 ---
 # Using Azure Blockchain Workbench data with Microsoft Power BI
@@ -14,7 +14,7 @@ This article contains a step by step walkthrough of how to connect to Azure Bloc
 
 ## Prerequisites
 
-* Download [Power BI Desktop](https://aka.ms/pbidesktopstore).
+* Download [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 ## Connecting Power BI to data in Azure Blockchain Workbench
 
@@ -36,7 +36,7 @@ This article contains a step by step walkthrough of how to connect to Azure Bloc
 
 6.  Once connected to the database, the **Navigator** dialog displays the tables and views available within the database. The views are designed for reporting and are all prefixed **vw**.
 
-    ![Navigator](./media/data-powerbi/navigator.png)
+    ![Screen capture of Power BI desktop with the Navigator dialog box with vwContractAction selected.](./media/data-powerbi/navigator.png)
 
 7.  Select the views you wish to include. For demonstration purposes, we include **vwContractAction**, which provides details on the actions that have taken place on a contract.
 

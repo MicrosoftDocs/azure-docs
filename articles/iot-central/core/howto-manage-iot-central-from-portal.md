@@ -6,7 +6,7 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/11/2020
-ms.topic: conceptual
+ms.topic: how-to
 manager: philmea
 ---
 
@@ -36,8 +36,7 @@ Fill in all the fields in the form. This form is similar to the form you fill ou
 
 ![Create IoT Central form](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **United States**, **Australia**, **Asia Pacific**, or in **Europe**.  Once you choose a location, you can't move your application to a different location later.
-
+**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. Once you choose a location, you can't move your application to a different location later.
 
 After filling out all fields, select **Create**.
 
@@ -52,11 +51,11 @@ To get started, select **All resources** in the portal. Select **Show hidden typ
 
 To navigate to the application, select the **IoT Central Application URL**:
 
-![Management portal: resource management](media/howto-manage-iot-central-from-portal/image3.png)
+![Screenshot that shows the "Overview" page with the "IoT Central Application URL" highlighted.](media/howto-manage-iot-central-from-portal/image3.png)
 
 To move the application to a different resource group, select **change** beside the resource group. On the **Move resources** page, choose the resource group you'd like to move this application to:
 
-![Management portal: resource management](media/howto-manage-iot-central-from-portal/image4a.png)
+![Screenshot that shows the "Overview" page with the "Resource group (change)" highlighted.](media/howto-manage-iot-central-from-portal/image4a.png)
 
 To move the application to a different subscription, select  **change** beside the subscription. On the **Move resources** page, choose the subscription you'd like to move this application to:
 

@@ -55,4 +55,4 @@ With the CloudSimple service, you can manage VMware virtual machines from the Az
 Learn more about:
 
 * [CloudSimple virtual machines](cloudsimple-virtual-machines.md)
-* [Azure subscription mapping](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)
+* [Azure subscription mapping](./azure-subscription-mapping.md)

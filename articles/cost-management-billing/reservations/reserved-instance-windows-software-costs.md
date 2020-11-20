@@ -5,6 +5,7 @@ author: yashesvi
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders

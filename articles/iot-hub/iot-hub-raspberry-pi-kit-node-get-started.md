@@ -2,14 +2,15 @@
 title: Connect Raspberry Pi to Azure IoT Hub in the cloud (Node.js)
 description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 author: wesmc7777
-manager:  philmea
+manager:  eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: wesmc
+ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (Node.js)
@@ -126,7 +127,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 ### Connect the sensor to Pi
 
-Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
+Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don't have the sensor, [skip this section](#connect-pi-to-the-network).
 
 ![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -151,7 +152,7 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 ### Connect Pi to the network
 
-Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 ![Connected to wired network](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
@@ -197,13 +198,13 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 3. Clone the sample application.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/azure-iot-samples-node.git
    ```
 
 4. Install all packages for the sample. The installation includes Azure IoT device SDK, BME280 Sensor library, and Wiring Pi library.
 
    ```bash
-   cd iot-hub-node-raspberrypi-client-app
+   cd azure-iot-samples-node/iot-hub/Tutorials/RaspberryPiApp
    npm install
    ```
 
@@ -251,6 +252,6 @@ For more ways to process data sent by your device, continue on to the next secti
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub.
+You've run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

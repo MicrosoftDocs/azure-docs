@@ -9,51 +9,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and Ruby
 
-In this quickstart, you will use the Azure Face REST API with Ruby to detect human faces in an image.
+In this quickstart, you'll use the Azure Face REST API with Ruby to detect human faces in an image.
 
 ## Prerequisites
 
-- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
-- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## Write the script
 
 Create a new file, _faceDetection.rb_, and add the following code. This code calls the Face API for a given image URL.
 
-```ruby
-require 'net/http'
-
-# replace <My Endpoint String> in the URL below with the string from your endpoint.
-uri = URI('https://<My Endpoint String>.com/face/v1.0/detect')
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'returnFaceId' => 'true',
-    'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,' +
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-})
-
-request = Net::HTTP::Post.new(uri.request_uri)
-
-# Request headers
-# Replace <Subscription Key> with your valid subscription key.
-request['Ocp-Apim-Subscription-Key'] = '<Subscription Key>'
-request['Content-Type'] = 'application/json'
-
-imageUri = "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
-request.body = "{\"url\": \"" + imageUri + "\"}"
-
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
-
-puts response.body
-```
+:::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/face/rest/detect.rb":::
 
 You'll need to update the `request['Ocp-Apim-Subscription-Key']` value with your subscription key and change the `uri` string so that it contains the correct endpoint.
 
@@ -70,6 +45,35 @@ ruby faceDetection.rb
 ```
 
 You should see a JSON string of detected face data printed to the console. The following text is an example of a successful JSON response.
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## Extract Face Attributes
+ 
+To extract face attributes, use detection model 1 and add the `returnFaceAttributes` query parameter.
+
+```ruby
+uri.query = URI.encode_www_form({
+    # Request parameters
+	'detectionModel' => 'detection_01',
+	'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId' => 'true'
+})
+```
+
+The response now includes face attributes. For example:
 
 ```json
 [

@@ -13,7 +13,7 @@ ms.date: 02/22/2020
 ---
 # Normalize Data module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to transform a dataset through *normalization*.
 
@@ -87,7 +87,7 @@ You can apply only one normalization method at a time using this module. Therefo
     
       ![normalization using the tanh function](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Run the pipeline, or double-click the **Normalize Data** module and select **Run Selected**. 
+6. Submit the pipeline, or double-click the **Normalize Data** module and select **Run Selected**. 
 
 ## Results
 

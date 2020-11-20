@@ -4,7 +4,7 @@ description: Use the DistCp tool to copy data to and from Azure Storage blobs to
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 

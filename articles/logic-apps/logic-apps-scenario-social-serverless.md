@@ -31,7 +31,7 @@ tweets based on predefined keywords.
 In this scenario, you create a logic app that triggers on finding feedback from customers. 
 Some connectors that help you respond to customer feedback include Outlook.com, 
 Office 365, Survey Monkey, Twitter, and an 
-[HTTP request from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). 
+[HTTP request from a web form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). 
 The workflow that you create monitors a hashtag on Twitter.
 
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
@@ -105,7 +105,7 @@ create a function app in your Azure subscription.
 Also, for your logic app to directly call a function, 
 the function must have an HTTP trigger binding, 
 for example, use the **HttpTrigger** template. 
-Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
 For this scenario, use the tweet text as 
 the request body for your Azure Function. 

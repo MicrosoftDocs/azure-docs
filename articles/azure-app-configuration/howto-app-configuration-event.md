@@ -8,7 +8,8 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/25/2020
-ms.author: lcozzens
+ms.author: lcozzens 
+ms.custom: devx-track-azurecli
 
 
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.
@@ -24,7 +25,7 @@ In this article, you learn how to set up Azure App Configuration event subscript
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you aren't using Cloud Shell, you must first sign in using `az login`.
 

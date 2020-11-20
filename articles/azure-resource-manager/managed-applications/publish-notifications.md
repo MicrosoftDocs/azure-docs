@@ -55,7 +55,7 @@ To get started, see [Publish a service catalog application through Azure portal]
 
 ```
 ## Add Azure Marketplace managed application notifications
-For more information, see [Create an Azure application offer](../../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+For more information, see [Create an Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 ![Azure Marketplace managed application notifications in the Azure portal](./media/publish-notifications/marketplace-notifications.png)
 ## Event triggers

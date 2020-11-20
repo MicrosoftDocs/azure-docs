@@ -70,12 +70,12 @@ If you already have a network watcher enabled in the East US region, skip to [Di
 8. While the test is running, **Running** appears in the **TROUBLESHOOTING STATUS** column where **Not started** is shown, in the previous picture. The test may take several minutes to run.
 9. View the status of a completed test. The following picture shows the status results of a completed diagnostic test:
 
-    ![Status](./media/diagnose-communication-problem-between-networks/status.png)
+    ![Screenshot shows the status results of a diagnostic test, unhealthy in this example, including a summary and detail.](./media/diagnose-communication-problem-between-networks/status.png)
 
     You can see that the **TROUBLESHOOTING STATUS** is **Unhealthy**, as well as a **Summary** and **Detail** of the problem on the **Status** tab.
 10. When you select the **Action** tab, VPN diagnostics provides additional information. In the example, shown in the following picture, VPN diagnostics lets you know that you should check the health of each connection:
 
-    ![Action](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Screenshot shows the Action tab, which gives you additional information.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## Diagnose a gateway connection
 
@@ -83,7 +83,7 @@ A gateway is connected to other networks via a gateway connection. Both the gate
 
 1. Complete step 7 of [Diagnose a gateway](#diagnose-a-gateway) again, this time, selecting a connection. In the following example, a connection named **VNet1toSite1** is tested:
 
-    ![Connection](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![Screenshot shows how to start troubleshooting for a selected connection.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     The test runs for several minutes.
 2. After the test of the connection is complete, you receive results similar to the results shown in the following pictures on the **Status** and **Action** tabs:

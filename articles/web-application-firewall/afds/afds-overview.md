@@ -4,8 +4,8 @@ description: Learn how Azure web application firewall on Azure Front Door servic
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 02/01/2020
+ms.topic: conceptual
+ms.date: 05/22/2020
 ms.author: victorh
 ---
 
@@ -21,7 +21,7 @@ WAF prevents malicious attacks close to the attack sources, before they enter yo
 
 ## WAF policy and rules
 
-You can configure a WAF policy and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules:
+You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules:
 
 - custom rules that are authored by the customer.
 

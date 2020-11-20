@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -33,7 +33,7 @@ Converts a `phoneNumber` data type into a `string` data type.
 
 In this example, the cellPhoneNumber claim with a value type of `phoneNumber` is converted to a cellPhone claim with a value type of `string`.
 
-```XML
+```xml
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
@@ -58,8 +58,8 @@ This claim transformation validates the format of the phone number. If it is in 
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumberString | string |  The string claim for the phone number. The phone number has to be in international format, complete with a leading "+" and country code. If input claim `country` is provided, the phone number is in local format (without the country code). |
-| InputClaim | country | string | [Optional] The string claim for the country code of the phone number in ISO3166 format (the two-letter ISO-3166 country code). |
+| InputClaim | phoneNumberString | string |  The string claim for the phone number. The phone number has to be in international format, complete with a leading "+" and country/region code. If input claim `country` is provided, the phone number is in local format (without the country/region code). |
+| InputClaim | country | string | [Optional] The string claim for the country/region code of the phone number in ISO3166 format (the two-letter ISO-3166 country/region code). |
 | OutputClaim | outputClaim | phoneNumber | The result of this claims transformation. |
 
 The **ConvertStringToPhoneNumberClaim** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md) or [display control](display-controls.md). The **UserMessageIfClaimsTransformationInvalidPhoneNumber** self-asserted technical profile metadata controls the error message that is presented to the user.
@@ -68,7 +68,7 @@ The **ConvertStringToPhoneNumberClaim** claims transformation is always executed
 
 You can use this claims transformation to ensure that the provided string claim is a valid phone number. If not, an error message is thrown. The following example checks that the **phoneString** ClaimType is indeed a valid phone number, and then returns the phone number in the standard Azure AD B2C format. Otherwise, an error message is thrown.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
@@ -82,7 +82,7 @@ You can use this claims transformation to ensure that the provided string claim 
 
 The self-asserted technical profile that calls the validation technical profile that contains this claims transformation can define the error message.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
@@ -109,26 +109,26 @@ The self-asserted technical profile that calls the validation technical profile 
 
 ## GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-This extracts the country code and the national number from the input claim, and optionally throws an exception if the supplied phone number is not valid.
+This extracts the country/region code and the national number from the input claim, and optionally throws an exception if the supplied phone number is not valid.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | string | The string claim of the phone number. The phone number has to be in international format, complete with a leading "+" and country code. |
+| InputClaim | phoneNumber | string | The string claim of the phone number. The phone number has to be in international format, complete with a leading "+" and country/region code. |
 | InputParameter | throwExceptionOnFailure | boolean | [Optional] A parameter indicating whether an exception is thrown when the phone number is not valid. Default value is false. |
-| InputParameter | countryCodeType | string | [Optional] A parameter indicating the type of country code in the output claim. Available values are **CallingCode** (the international calling code for a country, for example +1) or **ISO3166** (the two-letter ISO-3166 country code). |
+| InputParameter | countryCodeType | string | [Optional] A parameter indicating the type of country/region code in the output claim. Available values are **CallingCode** (the international calling code for a country/region, for example +1) or **ISO3166** (the two-letter ISO-3166 country/region code). |
 | OutputClaim | nationalNumber | string | The string claim for the national number of the phone number. |
-| OutputClaim | countryCode | string | The string claim for the country code of the phone number. |
+| OutputClaim | countryCode | string | The string claim for the country/region code of the phone number. |
 
 
 If the **GetNationalNumberAndCountryCodeFromPhoneNumberString** claims transformation is executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md) or a [display control action](display-controls.md#display-control-actions), then the **UserMessageIfPhoneNumberParseFailure** self-asserted technical profile metadata controls the error message that is presented to the user.
 
 ![Diagram of error message execution path](./media/phone-authentication/assert-execution.png)
 
-You can use this claims transformation to split a full phone number into the country code and the national number. If the phone number provided is not valid, you can choose to throw an error message.
+You can use this claims transformation to split a full phone number into the country/region code and the national number. If the phone number provided is not valid, you can choose to throw an error message.
 
-The following example tries to split the phone number into national number and country code. If the phone number is valid, the phone number will be overridden by the national number. If the phone number is not valid, an exception will not be thrown and the phone number still has its original value.
+The following example tries to split the phone number into national number and country/region code. If the phone number is valid, the phone number will be overridden by the national number. If the phone number is not valid, an exception will not be thrown and the phone number still has its original value.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
@@ -146,7 +146,7 @@ The following example tries to split the phone number into national number and c
 
 The self-asserted technical profile that calls the validation technical profile that contains this claims transformation can define the error message.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfPhoneNumberParseFailure">Custom error message if the phone number is not valid.</Item>

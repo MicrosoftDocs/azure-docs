@@ -55,7 +55,7 @@ Here is the function:
 
 All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. There are three significant differences between an orchestration function and other JavaScript functions:
 
-1. The function is a [generator function.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript).
+1. The function is a [generator function.](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. The function is wrapped in a call to the `durable-functions` module's `orchestrator` method (here `df`).
 3. The function must be synchronous. Because the 'orchestrator' method handles calling 'context.done', the function should simply 'return'.
 

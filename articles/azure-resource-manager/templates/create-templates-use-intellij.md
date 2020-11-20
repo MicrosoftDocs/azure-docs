@@ -4,12 +4,13 @@ description: Learn how to create your first Azure Resource Manager template usin
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
+ms.custom: devx-track-java
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the IntelliJ IDEA to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 
-# Create and deploy Azure Resource Manager templates by using the IntelliJ IDEA
+# Create and deploy ARM templates by using the IntelliJ IDEA
 
-Learn how to deploy a Resource Manager template to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+Learn how to deploy an Azure Resource Manager (ARM) template to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 ![Resource Manager template portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -23,11 +24,11 @@ To complete this article, you need:
 
 * An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 * The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) installed, check [IntelliJ's plugins management guide](https://www.jetbrains.com/help/idea/managing-plugins.html) for more information
-* Be [signed in](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
+* Be [signed in](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
 
 ## Deploy a Quickstart template
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for Resource Manager templates. The template used in this article is called [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). It defines an Azure Storage account resource.
+Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for ARM templates. The template used in this article is called [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). It defines an Azure Storage account resource.
 
 1. Right-click and save the [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) and [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) to your local computer.
 
@@ -61,7 +62,7 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. You can edit the two files on this page and deploy the changes to Azure. Here we modify the value of **storageAccountType** in parameter files, from `Standard_LRS` to `Standard_GRS`. Then, click **Update Deployment** on the bottom and confirm the update.
 
-    ![Resource Manager template edit deployment](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Screenshot shows the Resource Manager template with the Update Deployment prompt displayed.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. After update deployment completed, you can verify on the portal that the created storage account is changed to `Standard_GRS`.
 
@@ -82,4 +83,4 @@ The main focus of this article is to use IntelliJ IDEA to deploy an existing tem
 > [Beginner tutorials](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Visit Java on Azure Dev center](https://docs.microsoft.com/azure/java)
+> [Visit Java on Azure Dev center](/azure/java)

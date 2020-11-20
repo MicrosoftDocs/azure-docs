@@ -6,11 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 10/07/2020
 ---
 # High availability services supported by Azure HDInsight
 
- In order to provide you with optimal levels of availability for your analytics components, HDInsight was developed with a unique architecture for ensuring high availability (HA) of critical services. Some components of this architecture were developed by Microsoft to provide automatic failover. Other components are standard Apache components that are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to recover from other service interruptions.
+In order to provide you with optimal levels of availability for your analytics components, HDInsight was developed with a unique architecture for ensuring high availability (HA) of critical services. Some components of this architecture were developed by Microsoft to provide automatic failover. Other components are standard Apache components that are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to recover from other service interruptions.
+
+> [!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## High availability infrastructure
 
@@ -30,7 +33,7 @@ This infrastructure consists of a number of services and software components, so
 
 ![high availability infrastructure](./media/hdinsight-high-availability-components/high-availability-architecture.png)
 
-There are also other high availability services, which are supported by open source Apache reliability components. These components are also present on HDInsight clusters:
+There are also other high availability services, which are supported by open-source Apache reliability components. These components are also present on HDInsight clusters:
 
 - Hadoop File System (HDFS) NameNode
 - YARN ResourceManager
@@ -50,7 +53,7 @@ Microsoft provides support for the four Apache services in the following table i
 | Apache Livy | Active headnode | Spark | Enables easy interaction with a Spark cluster over a REST interface |
 
 >[!Note]
-> HDInsight Enterprise Security Package (ESP) clusters currently only provide the Ambari server high availability.
+> HDInsight Enterprise Security Package (ESP) clusters currently only provide the Ambari server high availability. Application Timeline Server, Job History Server and Livy are all running only on headnode0 and they don't failover to headnode1 when Ambari failsover. The application timeline database is also on headnode0 and not on Ambari SQL server.
 
 ### Architecture
 
@@ -87,7 +90,7 @@ The master-ha-service only runs on the active headnode, it stops the HDInsight H
 
 ![failover process](./media/hdinsight-high-availability-components/failover-steps.png)
 
-A health monitor runs on each headnode along with the master failover controller to send hearbeat notifications to the Zookeeper quorum. The headnode is regarded as an HA service in this scenario. The health monitor checks to see if each high availability service is healthy and if it's ready to join in the leadership election. If yes, this headnode will compete in the election. If not, it will quit the election until it becomes ready again.
+A health monitor runs on each headnode along with the master failover controller to send heartbeat notifications to the Zookeeper quorum. The headnode is regarded as an HA service in this scenario. The health monitor checks to see if each high availability service is healthy and if it's ready to join in the leadership election. If yes, this headnode will compete in the election. If not, it will quit the election until it becomes ready again.
 
 If the standby headnode ever achieves leadership and becomes active (such as in the case of a failure with the previous active node), its master failover controller will start all HDInsight HA services on it. The master failover controller will also stop these services on the other headnode.
 
@@ -127,5 +130,5 @@ HDInsight HBase clusters support HBase Master high availability. Unlike other HA
 
 ## Next steps
 
-- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
+- [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md)
 - [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)

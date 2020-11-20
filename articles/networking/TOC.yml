@@ -4,6 +4,8 @@
     href: networking-overview.md
   - name: Architecture
     items:
+    - name: Azure for network engineers
+      href: azure-for-network-engineers.md
     - name: Virtual Datacenters
       href: /azure/architecture/vdc/networking-virtual-datacenter
     - name: Asymmetric routing with multiple network paths
@@ -22,6 +24,8 @@
       href: disaster-recovery-dns-traffic-manager.md
   - name: Plan and design
     items:
+    - name: Support for working remotely
+      href: working-remotely-support.md  
     - name: Virtual networks
       href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - VPN
@@ -45,6 +49,8 @@
       items:
       - name: Azure network latency
         href: azure-network-latency.md
+      - name: Internet routing preference in Azure
+        href: ../virtual-network/routing-preference-overview.md
     - name: Virtual networks
       href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Network load balancing

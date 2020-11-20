@@ -4,7 +4,7 @@ description: View, download, and run sample code and applications for Azure Stor
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
@@ -47,18 +47,18 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Delete several blobs in one request](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L22)
+      [Delete several blobs in one request](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L22)
    :::column-end:::
    :::column span="":::
-      [Set several blob access tiers in one request](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L56)
+      [Set several blob access tiers in one request](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L56)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Fine-grained control in a batch request](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L90)
+      [Fine-grained control in a batch request](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L90)
    :::column-end:::
    :::column span="":::
-      [Catch errors from a failed sub-operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples/Sample03b_BatchingAsync.cs#L136)
+      [Catch errors from a failed sub-operation](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/samples/Sample03b_BatchingAsync.cs#L136)
    :::column-end:::
 :::row-end:::
 
@@ -332,4 +332,5 @@ For information on samples for other languages:
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
 * Python: [Azure Storage samples using Python](storage-samples-python.md)
 * JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
+* C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

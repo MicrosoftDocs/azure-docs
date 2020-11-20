@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to learn about logging so I can diagnose and troubleshoot my apps.
 ---
 

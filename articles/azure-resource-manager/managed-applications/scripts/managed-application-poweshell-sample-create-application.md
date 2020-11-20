@@ -29,10 +29,10 @@ This script uses the following command to deploy the managed application. Each c
 
 | Command | Notes |
 |---|---|
-| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Create a managed application. Provide the definition ID and parameters for the template. |
+| [New-AzManagedApplication](/powershell/module/az.resources/new-azmanagedapplication) | Create a managed application. Provide the definition ID and parameters for the template. |
 
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* For more information on PowerShell, see [Azure PowerShell documentation](/powershell/azure/get-started-azureps).

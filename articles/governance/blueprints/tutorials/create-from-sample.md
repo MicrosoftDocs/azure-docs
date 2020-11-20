@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Blueprint sample to new environment"
 description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
-ms.date: 11/21/2019
+ms.date: 08/27/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create an environment from a blueprint sample
@@ -12,7 +12,7 @@ intended as a starting place to explore using Azure Blueprints with various comb
 artifacts, designs, and parameters.
 
 The following tutorial uses the **Resource Groups with RBAC** blueprint sample to showcase different
-aspects of the Blueprints service. The following steps are covered:
+aspects of the Azure Blueprints service. The following steps are covered:
 
 > [!div class="checklist"]
 > - Create a new blueprint definition from the sample
@@ -36,8 +36,7 @@ on the sample.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select **Use
-   this sample**.
+1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select it.
 
 1. Enter the _Basics_ of the blueprint sample:
 
@@ -166,7 +165,7 @@ resources directly.
    From this page, we can see the assignment succeeded and the list of created resources along with
    their blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down
    shows details about the deployment of each definition version. Each listed resource that was
-   created can be clicked and opens that resources property page.
+   created can be selected and opens that resources property page.
 
 1. Select the **ProductionRG** resource group.
 
@@ -235,7 +234,7 @@ Removing the assignment doesn't remove the deployed artifacts.
 
 1. Select the **Access control (IAM)** page on the left and then the **Role assignments** tab.
 
-The security for each resource groups still has the deployed role assignments, but the blueprint
+The security for each resource group still has the deployed role assignments, but the blueprint
 assignment no longer has _Owner_ access.
 
 Once the **Removing blueprint assignment succeeded** portal notification appears, move to the next

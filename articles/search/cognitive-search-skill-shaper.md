@@ -247,5 +247,5 @@ In this case, the **Shaper** creates a complex type. This structure exists in-me
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to use complex types](search-howto-complex-data-types.md)
-+ [Knowledge store (preview)](knowledge-store-concept-intro.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
 + [Create a knowledge store in REST](knowledge-store-create-rest.md)

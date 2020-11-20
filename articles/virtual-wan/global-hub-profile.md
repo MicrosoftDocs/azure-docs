@@ -1,19 +1,22 @@
 ---
 title: 'Download Azure Virtual WAN global or hub-based VPN profiles | Microsoft Docs'
-description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
+description: Learn how Azure Virtual WAN offers two types of connectivity for remote users and how to download a profile. 
 services: virtual-wan
-author: anzaman
+author: kumudD
 
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 1/31/2020
+ms.topic: how-to
+ms.date: 09/22/2020
 ms.author: alzam
 
 ---
 
 # Download a global or hub-based profile for User VPN clients
 
-Azure Virtual WAN offers two types of connectivity for remote users: Global and Hub-based. Use the following sections to learn about and download a profile.
+Azure Virtual WAN offers two types of connectivity for remote users: Global and Hub-based. Use the following sections to learn about and download a profile. 
+
+> [!IMPORTANT]
+> RADIUS authentication supports only the Hub-based profile.
 
 ## Global profile
 

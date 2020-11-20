@@ -8,11 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/24/2020
 ms.author: aahi
 ---
 
 # Language and region support for the Ink Recognizer API
+
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 This article explains which languages are supported for the Ink Recognizer API. Digital ink content written in the following languages can be interpreted and processed by the API.
 
@@ -65,10 +67,10 @@ This article explains which languages are supported for the Ink Recognizer API. 
 | Russian                                    |     `ru-RU`     |
 | Scottish Gaelic                            |     `gd-GB`     |
 | Sesotho sa Leboa                           |    `nso-ZA`     |
-| Serbian (Cyrillic, Bosnia, and Herzegovina) |  `sr-Cyrl-BA`   |
+| Serbian (Cyrillic, Bosnia and Herzegovina) |  `sr-Cyrl-BA`   |
 | Serbian (Cyrillic, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbian (Cyrillic, Serbia)                 |  `sr-Cyrl-RS`   |
-| Serbian (Latin, Bosnia, and Herzegovina)    |  `sr-Latn-BA`   |
+| Serbian (Latin, Bosnia and Herzegovina)    |  `sr-Latn-BA`   |
 | Serbian (Latin, Montenegro)                |  `sr-Latn-ME`   |
 | Serbian (Latin, Serbia)                    |  `sr-Latn-RS`   |
 | Setswana (South Africa)                    |     `tn-ZA`     |

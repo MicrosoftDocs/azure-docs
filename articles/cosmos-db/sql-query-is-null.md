@@ -3,12 +3,15 @@ title: IS_NULL in Azure Cosmos DB query language
 description: Learn about SQL system function IS_NULL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # IS_NULL (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a Boolean value indicating if the type of the specified expression is null.  
   
 ## Syntax
@@ -46,6 +49,10 @@ SELECT
 ```json
 [{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
 ```  
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

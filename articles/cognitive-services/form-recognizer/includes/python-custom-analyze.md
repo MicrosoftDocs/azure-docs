@@ -9,14 +9,15 @@ ms.author: pafarley
 
 ## Analyze forms for key-value pairs and tables
 
-Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API by running the following code in a new Python script. Before you run the script, make these changes:
+Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** API by running the following code in a new Python script. Before you run the script, make these changes:
 
-1. Replace `<file path>` with the file path of your form (for example, C:\temp\file.pdf). This can also be the URL of a remote file. For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
+1. Replace `<file path>` with the file path of your form (for example, C:\temp\file.pdf). This can also be the URL of a remote file. For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 1. Replace `<model_id>` with the model ID you received in the previous section.
 1. Replace `<endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.
 1. Replace `<subscription key>` with your subscription key.
 
+    # [v2.0](#tab/v2-0)
     ```python
     ########### Python Form Recognizer Async Analyze #############
     import json
@@ -27,7 +28,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
     endpoint = r"<endpoint>"
     apim_key = "<subsription key>"
     model_id = "<model_id>"
-    post_url = endpoint + "/formrecognizer/v2.0-preview/custom/models/%s/analyze" % model_id
+    post_url = endpoint + "/formrecognizer/v2.0/custom/models/%s/analyze" % model_id
     source = r"<file path>"
     params = {
         "includeTextDetails": True
@@ -51,7 +52,48 @@ Next, you'll use your newly trained model to analyze a document and extract key-
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit() 
-    ```
+    ```    
+    # [v2.1 preview](#tab/v2-1)
+    ```python
+    ########### Python Form Recognizer Async Analyze #############
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<endpoint>"
+    apim_key = "<subsription key>"
+    model_id = "<model_id>"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/custom/models/%s/analyze" % model_id
+    source = r"<file path>"
+    params = {
+        "includeTextDetails": True
+    }
+    
+    headers = {
+        # Request headers
+        'Content-Type': '<file type>',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % json.dumps(resp.json()))
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit() 
+    ```    
+
+
+    ---
+
+
 
 1. Save the code in a file with a .py extension. For example, *form-recognizer-analyze.py*.
 1. Open a command prompt window.

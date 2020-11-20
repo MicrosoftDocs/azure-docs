@@ -1,6 +1,6 @@
 ---
 title: Connect AWS CloudTrail to Azure Sentinel | Microsoft Docs
-description: Learn how to connect AWS CloudTrail data to Azure Sentinel.
+description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -9,25 +9,28 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 05/27/2020
 ms.author: yelevin
 
 ---
 
 # Connect Azure Sentinel to AWS CloudTrail
 
-Use the AWS connector to stream all your AWS CloudTrail events into Azure Sentinel. This connection process delegates access for Azure Sentinel to your AWS resource logs, creating a trust relationship between AWS CloudTrail and
+Use the AWS connector to stream your AWS CloudTrail management events into Azure Sentinel. This connection process delegates access for Azure Sentinel to your AWS resource logs, creating a trust relationship between AWS CloudTrail and
 Azure Sentinel. This is accomplished on AWS by creating a role that gives permission to Azure Sentinel to access your AWS logs.
+
+> [!NOTE]
+> AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
 
 ## Prerequisites
 
 You must have write permission on the Azure Sentinel workspace.
 
 > [!NOTE]
-> Azure Sentinel collects CloudTrail events from all regions. It is recommended that you do not stream events from one region to another.
+> Azure Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
 
 ## Connect AWS 
 

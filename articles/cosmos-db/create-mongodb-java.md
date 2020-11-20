@@ -8,10 +8,11 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.custom: seo-java-august2019, seo-java-september2019
-
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
+
 # Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -19,7 +20,7 @@ ms.custom: seo-java-august2019, seo-java-september2019
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 In this quickstart, you create and manage an Azure Cosmos DB for MongoDB API account from the Azure portal, and add data by using a Java SDK app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -38,7 +39,7 @@ In this quickstart, you create and manage an Azure Cosmos DB for MongoDB API acc
 
 Name your new database **db**, and your new collection **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
 ## Clone the sample application
 
@@ -131,4 +132,4 @@ You can now use [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongoche
 In this quickstart, you learned how to create an Azure Cosmos DB API for Mongo DB account, add a database and container using Data Explorer, and add data using a Java console app. You can now import additional data to your Cosmos database. 
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

@@ -4,7 +4,7 @@ description: Learn how to remove a node type from a Service Fabric cluster runni
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap 
 ---
 
@@ -17,7 +17,7 @@ This article describes how to scale an Azure Service Fabric cluster by removing 
 > resource behind the node type. 
 
 ## Durability characteristics
-Safety is prioritized over speed when using Remove-AzServiceFabricNodeType. The node type must be Silver or Gold [durability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster), because:
+Safety is prioritized over speed when using Remove-AzServiceFabricNodeType. The node type must be Silver or Gold [durability level](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), because:
 - Bronze does not give you any guarantees about saving state information.
 - Silver and Gold durability trap any changes to the scale set.
 - Gold also gives you control over the Azure updates underneath scale set.
@@ -28,7 +28,7 @@ Service Fabric "orchestrates" underlying changes and updates so that data is not
 
 When removing a node type that is Bronze, all the nodes in the node type go down immediately. Service Fabric doesn't trap any Bronze nodes scale set updates, thus all the VMs go down immediately. If you had anything stateful on those nodes, the data is lost. Now, even if you were stateless, all the nodes in the Service Fabric participate in the ring, so an entire neighborhood may be lost, which might destabilize the cluster itself.
 
-## Remove a non-primary node type
+## Remove a node type
 
 1. Please take care of this pre-requisites before you start the process.
 
@@ -56,7 +56,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     - Cluster is healthy.
     - None of the nodes belonging to the node type are marked as Seed Node.
 
-4. Disable data for the node type.
+4. Disable each node in the node type.
 
     Connect to the cluster using PowerShell and then run the following step.
     
@@ -95,8 +95,20 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     ```
     
     Wait till all the nodes for node type are marked Down.
+
+6. Deallocate nodes in the original Virtual Machine Scale Set
     
-6. Remove data for the node type.
+    Login to the Azure subscription where the scale set was deployed and remove the Virtual Machine Scale Set. 
+
+    ```powershell
+    $scaleSetName="myscaleset"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Remove data for the node type.
 
     Connect to the cluster using PowerShell and then run the following step.
     
@@ -114,12 +126,12 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
     Wait till all the nodes are removed from the cluster. The nodes should not be displayed in SFX.
 
-7. Remove node type from Service Fabric section.
+8. Remove node type from Service Fabric section.
 
     - Locate the Azure Resource Manager template used for deployment.
     - Find the section related to the node type in the Service Fabric section.
     - Remove the section corresponding to the node type.
-    - For Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore fabric:/System application health by adding `applicationDeltaHealthPolicies` as given below. The below policy should ignore existing errors but not allow new health errors. 
+    - Only for Silver and higher durability clusters, update the cluster resource in the template and configure health policies to ignore fabric:/System application health by adding `applicationDeltaHealthPolicies` under cluster resource `properties` as given below. The below policy should ignore existing errors but not allow new health errors. 
  
  
      ```json
@@ -155,14 +167,14 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     },
     ```
 
-    Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case `forceRestart` is ignored. 
+    - Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case `forceRestart` is ignored. 
     The parameter `upgradeReplicaSetCheckTimeout` specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node.
     The value for the parameter `upgradeTimeout` can be reduced to 6 hours, but for maximal safety 12 hours should be used.
 
     Then validate that:
     - Service Fabric Resource in portal shows ready.
 
-8. Remove all reference to the resources relating to the node type.
+9. Remove all reference to the resources relating to the node type from the ARM template.
 
     - Locate the Azure Resource Manager template used for deployment.
     - Remove the virtual machine scale set and other resources related to the node type from the template.
@@ -170,8 +182,15 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
     Then:
     - Wait for deployment to complete.
+    
+10. Remove resources relating to the node type that are no longer in use. Example Load Balancer, and Public IP. 
+
+    - To remove these resources you can use the same PowerShell command as used in step 6 specifying the specific resource type and API version. 
+
+> [!Note]
+> This step is optional if same Load Balancer, and IP is reused between node types.
 
 ## Next steps
-- Learn more about cluster [durability characteristics](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+- Learn more about cluster [durability characteristics](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 - Learn more about [node types and Virtual Machine Scale Sets](service-fabric-cluster-nodetypes.md).
 - Learn more about [Service Fabric cluster scaling](service-fabric-cluster-scaling.md).

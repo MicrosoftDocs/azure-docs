@@ -1,119 +1,136 @@
 ---
 title: Label entity example utterance
-titleSuffix: Azure Cognitive Services
-description: Learn how to label a machine-learned entity with subcomponents in an example utterance in an intent detail page of the LUIS portal.
-services: cognitive-services
-author: diberry
-manager: nitinme
+description: Learn how to label a machine-learning entity with subentities in an example utterance in an intent detail page of the LUIS portal.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 12/16/2019
-ms.author: diberry
-#Customer intent: As a new user, I want to label a machine-learned entity in an example utterance.
+ms.topic: conceptual
+ms.date: 05/20/2020
+#Customer intent: As a new user, I want to label a machine-learning entity in an example utterance.
 ---
 
-# Label machine-learned entity in an example utterance
+# Label machine-learning entity in an example utterance
 
 Labeling an entity in an example utterance gives LUIS an example of what the entity is and where the entity can appear in the utterance.
 
-## Labeling machine-learned entity
+You can label machine-learned entities and subentities.
 
-Consider the phrase, `hi, please I want a cheese pizza in 20 minutes`.
+Because you can't label regular expression, list, or prebuilt entities, create an entity or subentity, then add these entities as features, when applicable, to the entity or subentity.
 
-1. Select the left-most text, then select the right-most text of the entity, then pick the entity you want to label with, in this case Complete Order. The _complete order_ is labeled in the following image.
+## Label example utterances from the Intent detail page
+
+To label examples of entities within the utterance, select the utterance's intent.
+
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Select the Intent that has the example utterances you want to label for extraction with an entity.
+1. Select the text you want to label then select the entity.
+
+## Two techniques to label entities
+
+Two labeling techniques are supported on the Intent detail page.
+* Select entity or subentity from [Entity Palette](#label-with-the-entity-palette-visible) then select within example utterance text. This is the recommended technique because you can visually verify you are working with the correct entity or subentity, according to your schema.
+* Select within the example utterance text first. When you do this, a pop-up menu of [labeling choices](#how-to-label-entity-from-in-place-menu) is presented.
+
+## Label with the Entity Palette visible
+
+After you've [planned your schema with entities](luis-how-plan-your-app.md), keep the **Entity palette** visible while labeling. The **Entity palette** is a reminder of what entities you planned to extract.
+
+To access the **Entity Palette**, select the **@** symbol in the contextual toolbar above the example utterance list.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of entity palette on Intent details page.](media/label-utterances/entity-palette-from-tool-bar.png)
+
+## How to label entity from Entity Palette
+
+The entity palette offers an alternative to the previous labeling experience. It allows you to brush over text to instantly label it with an entity.
+
+1. Open the entity palette by selecting on the **@** symbol at the top right of the utterance table.
+
+2. Select the entity from the palette that you want to label. This action is visually indicated with a new cursor. The cursor follows the mouse as you move in the LUIS portal.
+
+3. In the example utterance, _paint_ the entity with the cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Label complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
+    > ![Screenshot shows the entity painted with the cursor.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
-1. Select the entity from the pop-up window. The labeled complete pizza order entity includes all words (from left to right in English) that are labeled.
+## Adding entity as a feature from the Entity Palette
+
+The Entity Palette's lower section allows you to add features to the currently selected entity. You can select from all existing entities and phrase lists or create a new phrase list.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Entity palette with entity as a feature](media/label-utterances/entity-palette-entity-as-a-feature.png)
+
+## Labeling entity roles
+
+Entity roles are labeled using the **Entity palette**.
+
+1. In the Intent detail page, select the **Entity palette** from the context toolbar.
+1. After the Entity palette opens, select the entity from the list of entity.
+1. Below the list of entities, select an existing role.
+1. In the example utterance text, label the text with the entity role.
+
+## How to label entity from in-place menu
+
+Labeling in-place allows you to quickly select the text within the utterance and label it. You can also create a machine learning entity or list entity from the labeled text.
+
+Consider the example utterance, `hi, please I want a cheese pizza in 20 minutes`.
+
+Select the left-most text, then select the right-most text of the entity, then from the in-place menu, pick the entity you want to label with.
+
+> [!div class="mx-imgBorder"]
+> ![Label complete machine-learning entity](media/label-utterances/label-steps-in-place-menu.png)
 
 ## Review labeled text
 
 After labeling, review the example utterance and ensure the selected span of text has been underlined with the chosen entity. The solid line indicates the text has been labeled.
 
 > [!div class="mx-imgBorder"]
-> ![Labeled complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
+> ![Labeled complete machine-learning entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
 
 ## Confirm predicted entity
 
-If there is a dotted-lined box around the span of text and the entity name is above the utterance, it indicates the text is predicted but _not labeled yet_. To turn the prediction into a label, select the utterance row, then select **Confirm entity predictions**.
+If there is a dotted-lined box around the span of text, it indicates the text is predicted but _not labeled yet_. To turn the prediction into a label, select the utterance row, then select **Confirm entities** from the contextual toolbar.
 
-> [!div class="mx-imgBorder"]
-> ![Predict complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
+## Relabeling over existing entities
 
-Alternatively, you could select the entity name above the text, then select **Confirm Prediction** from the menu that appears.
+If you relabel text that is already labeled, LUIS may split or merge existing labels.
 
-> [!div class="mx-imgBorder"]
-> ![Predict complete machine-learned entity with menu](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted-menu.png)
+## Labeling for punctuation
 
-## Label entity by painting with entity palette cursor
-
-The entity palette offers an alternative to the previous labeling experience. It allows you to brush over text to instantly label it with an entity.
-
-1. Open the entity palette by selecting on the Highlighter icon at the top right of the utterance table.
-
-    > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
-
-2. Select the entity component. This action is visually indicated with a new cursor. The cursor follows the mouse as you move in the portal.
-
-    > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
-
-3. In the example utterance, _paint_ the entity with the cursor.
-
-    > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
-
-## Labeling subcomponents of a machine learned entity
-
-Subcomponents in entities are labeled exactly the same way as top level entities. When selecting text, the entities available in the pop-up window are relative to the context in which the text appears. For example, if you have a 5-level machine-learned entity, and you are selecting text that has been labeled with the 1st and 2nd levels (indicated by a labeled entity name under the example utterance), the entities available in the pop-up window are limited to the context of components of the 3rd level. To label the text with other entities, select **Label as another entity** option.
-
-> [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
-
-Subcomponents can be labeled only if the parent is also labeled.
-
-## Labeling entity roles
-
-Entity roles are labeled using the entity palette.
-
-1. In the Intent detail page, select the **Entity palette** from the context toolbar.
-1. After the Entity palette opens, select the entity from the list of entity.
-1. Move to the **Entity inspector**, and either select an existing role or create a new role.
-1. In the example utterance text, label the text with the entity role. 
+You do not need to label for punctuation. Use [application settings](luis-reference-application-settings.md) to control how punctuation impacts utterance predictions.
 
 ## Unlabel entities
 
-To unlabel an entity, select the entity name underneath the text and select **Unlabel**. If the entity you are trying to unlabel has labeled subcomponents, then the subcomponents must be unlabeled first.
+> [!NOTE]
+> Only machine learned entities can be unlabeled. You can't label or unlabel regular expression entities, list entities, or prebuilt entities.
 
-## Editing labels using the entity palette
+To unlabel an entity, select the entity and select **Unlabel** from the in-place menu.
 
-If you make a mistake while labeling, the entity palette is an easy tool that allows for quick edits. For example, if an entity label spans an extra word by mistake, and it already has labeled subcomponents, then you can use the entity palette to brush over the required shorter span of words.
+> [!div class="mx-imgBorder"]
+> ![Screenshot showing unlabeling entity](media/label-utterances/unlabel-entity-using-in-place-menu.png)
 
-For example:
+## Automatic labeling for parent and child entities
 
-1. Pizza Type subcomponent spans "cheese pizza with" which includes an extra incorrect word -- "with"
+If you are labeling a parent entity, any subentity that can be predicted based on the currently trained version, will be labeled.
 
-    > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-1.png)
+If you are labeling for a subentity, the parent will be labeled automatically.
 
-2. Use the entity palette to pick Pizza Type and brush over "cheese pizza". The outcome is that only cheese pizza is labeled as Pizza Type now.
+## Automatic labeling for non-machine learned entities
 
-    > [!div class="mx-imgBorder"]
-    > ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-2.png)
+Non-machine learned entities include prebuilt entities, regular expression entities, list entities, and pattern.any entities. These are automatically labeled by LUIS so they are not required to be manually labeled by users.
 
-## Labels for matching-text entities
+## Intent prediction errors
 
-Matching-text entities include prebuilt entities, regular expression entities, list entities, and pattern.any entities. These are automatically labeled by LUIS so they are not required to be manually labeled by users.
+An intent prediction error indicates that the example utterance, given the current trained app, would not be predicted for the intent.
+
+Learn how to [view these errors](luis-how-to-add-intents.md#intent-prediction-errors) on the Intent detail page.
 
 ## Entity prediction errors
 
 Entity prediction errors indicate the predicted entity doesn't match the labeled entity. This is visualized with a caution indicator next to the utterance.
 
 > [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/example-utterance-indicates-prediction-error.png)
+> ![Entity palette for machine-learning entity](media/label-utterances/example-utterance-indicates-prediction-error.png)
 
 ## Next steps
 

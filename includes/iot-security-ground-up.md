@@ -84,7 +84,7 @@ Using Azure Active Directory (AAD) for user authentication and authorization, Az
 
 Once data is in the cloud, it can be processed and stored in any user-defined workflow. Access to each part of the data is controlled with Azure Active Directory, depending on the storage service used.
 
-All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be reprovisioned. Data can be stored in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) or in [SQL databases](../articles/sql-database/sql-database-faq.md), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
+All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be reprovisioned. Data can be stored in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) or in [SQL Database](../articles/sql-database/sql-database-faq.md), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
 
 ## Conclusion
 

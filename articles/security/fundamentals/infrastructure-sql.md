@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
 
 ---
@@ -28,13 +28,13 @@ Azure SQL Database provides a relational database service in Azure. To protect c
 Azure SQL Database supports only the tabular data stream (TDS) protocol, which requires the database to be accessible over only the default port of TCP/1433.
 
 ### Azure SQL Database firewall
-To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to the SQL Database server, as shown below.
+To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to SQL Database, as shown below.
 
 ![Azure SQL Database firewall](./media/infrastructure-sql/sql-database-firewall.png)
 
 The gateway firewall can limit addresses, which allows customers granular control to specify ranges of acceptable IP addresses. The firewall grants access based on the originating IP address of each request.
 
-Customers can achieve firewall configuration by using a management portal or programmatically using the Azure SQL Database Management REST API. The Azure SQL Database gateway firewall by default prevents all customer TDS access to Azure SQL database instances. Customers must configure access by using access-control lists (ACLs) to permit Azure SQL Database connections by source and destination internet addresses, protocols, and port numbers.
+Customers can achieve firewall configuration by using a management portal or programmatically using the Azure SQL Database Management REST API. The Azure SQL Database gateway firewall by default prevents all customer TDS access to Azure SQL Database. Customers must configure access by using access-control lists (ACLs) to permit Azure SQL Database connections by source and destination internet addresses, protocols, and port numbers.
 
 ### DoSGuard
 Denial of service (DoS) attacks are reduced by a SQL Database gateway service called DoSGuard. DoSGuard actively tracks failed logins from IP addresses. If there are multiple failed logins from a specific IP address within a period of time, the IP address is blocked from accessing any resources in the service for a pre-defined time period.
@@ -72,7 +72,7 @@ The isolation of the root OS from the guest VMs and the guest VMs from one anoth
 ### Types of rules on firewalls
 A rule is defined as:
 
-{Security Response Center (Src) IP, Src Port, Destination IP, Destination Port, Destination Protocol, In/Out, Stateful/Stateless, Stateful Flow Timeout}.
+{Src IP, Src Port, Destination IP, Destination Port, Destination Protocol, In/Out, Stateful/Stateless, Stateful Flow Timeout}.
 
 Synchronous idle character (SYN) packets are allowed in or out only if any one of the rules permits it. For TCP, Azure uses stateless rules where the principle is that it allows only all non-SYN packets into or out of the VM. The security premise is that any host stack is resilient of ignoring a non-SYN if it has not seen a SYN packet previously. The TCP protocol itself is stateful, and in combination with the stateless SYN-based rule achieves an overall behavior of a stateful implementation.
 
@@ -101,5 +101,3 @@ To learn more about what Microsoft does to secure the Azure infrastructure, see:
 - [Azure infrastructure monitoring](infrastructure-monitoring.md)
 - [Azure infrastructure integrity](infrastructure-integrity.md)
 - [Azure customer data protection](protection-customer-data.md)
-
-

@@ -2,12 +2,12 @@
 title: Customize networking configurations for a failover VM  | Microsoft Docs
 description: Provides an overview of customize networking configurations for a failover VM in the replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
-ms.author: rajanaki
+ms.author: sideeksh
 
 ---
 # Customize networking configurations of the target Azure VM
@@ -22,9 +22,9 @@ Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-
 
 You can provide the following key resource configurations for the failover VM while replicating Azure VMs:
 
-- [Internal load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-- [Public IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
-- [Network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) both for the subnet and for the NIC
+- [Internal load balancer](../load-balancer/load-balancer-overview.md)
+- [Public IP](../virtual-network/public-ip-addresses.md)
+- [Network security group](../virtual-network/manage-network-security-group.md) both for the subnet and for the NIC
 
 ## Prerequisites
 

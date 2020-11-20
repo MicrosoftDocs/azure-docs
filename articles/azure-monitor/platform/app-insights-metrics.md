@@ -14,8 +14,8 @@ ms.subservice: application-insights
 
 Application Insights log-based metrics let you analyze the health of your monitored apps, create powerful dashboards, and configure alerts. There are two kinds of metrics:
 
-* [Log-based metrics](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](https://docs.microsoft.com/azure/kusto/query/) from stored events.
-* [Standard metrics](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
+* [Log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](/azure/kusto/query/) from stored events.
+* [Standard metrics](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
 
 Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](metrics-getting-started.md#create-your-first-metric-chart) to switch between log-based and standard metrics in [metrics explorer](metrics-getting-started.md).
 
@@ -34,11 +34,11 @@ When you plot the same metric in [metrics explorer](metrics-getting-started.md),
 - The selected **Split chart** dimension is translated into an extra summarize property. For example, if you split your chart by *location*, and plot using a 5-minute time granularity, the *summarize* clause is summarized *... by bin(timestamp, 5 m), location*.
 
 > [!NOTE]
-> If you're new to the Kusto query language, you start by copying and pasting Kusto statements into the Log Analytics query pane without making any modifications. Click **Run** to see basic chart. As you begin to understand the syntax of query language, you can start making small modifications and see the impact of your change. Exploring your own data is a great way to start realizing the full power of [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) and [Azure Monitor](../../azure-monitor/overview.md).
+> If you're new to the Kusto query language, you start by copying and pasting Kusto statements into the Log Analytics query pane without making any modifications. Click **Run** to see basic chart. As you begin to understand the syntax of query language, you can start making small modifications and see the impact of your change. Exploring your own data is a great way to start realizing the full power of [Log Analytics](../log-query/get-started-portal.md) and [Azure Monitor](../overview.md).
 
 ## Availability metrics
 
-Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to start using any metrics from this category.
+Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../app/monitor-web-app-availability.md) to start using any metrics from this category.
 
 ### Availability (availabilityResults/availabilityPercentage)
 The *Availability* metric shows the percentage of the web test runs that didn't detect any issues. The lowest possible value is 0, which indicates that all of the web test runs have failed. The value of 100 means that all of the web test runs passed the validation criteria.
@@ -55,7 +55,7 @@ availabilityResults
 
 ### Availability test duration (availabilityResults/duration)
 
-The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](../../azure-monitor/app/availability-multistep.md), the metric reflects the total execution time of all steps.
+The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](../app/availability-multistep.md), the metric reflects the total execution time of all steps.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|---|---|---|
@@ -88,7 +88,7 @@ availabilityResults
 Browser metrics are collected by the Application Insights JavaScript SDK from real end-user browsers. They provide great insights into your users' experience with your web app. Browser metrics are typically not sampled, which means that they provide higher precision of the usage numbers compared to server-side metrics which might be skewed by sampling.
 
 > [!NOTE]
-> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
+> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK](../app/javascript.md).
 
 ### Browser page load time (browserTimings/totalDuration)
 
@@ -206,7 +206,7 @@ dependencies
 
 ### Exceptions (exceptions/count)
 
-Each time when you log an exception to Application Insights, there is a call to the [trackException() method](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) of the SDK. The Exceptions metric shows the number of logged exceptions.
+Each time when you log an exception to Application Insights, there is a call to the [trackException() method](../app/api-custom-events-metrics.md#trackexception) of the SDK. The Exceptions metric shows the number of logged exceptions.
 
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
 |---|---|---|---|
@@ -220,7 +220,7 @@ exceptions
 
 ### Failed requests (requests/failed)
 
-The count of tracked server requests that were marked as *failed*. By default, the Application Insights SDK automatically marks each server request that returned HTTP response code 5xx or 4xx as a failed request. You can customize this logic by modifying  *success* property of request telemetry item in a [custom telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+The count of tracked server requests that were marked as *failed*. By default, the Application Insights SDK automatically marks each server request that returned HTTP response code 5xx or 4xx as a failed request. You can customize this logic by modifying  *success* property of request telemetry item in a [custom telemetry initializer](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
 |---|---|---|---|
@@ -250,7 +250,7 @@ exceptions
 
 ## Performance counters
 
-Use metrics in the **Performance counters** category to access [system performance counters collected by Application Insights](../../azure-monitor/app/performance-counters.md).
+Use metrics in the **Performance counters** category to access [system performance counters collected by Application Insights](../app/performance-counters.md).
 
 ### Available memory (performanceCounters/availableMemory)
 
@@ -488,3 +488,4 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
+

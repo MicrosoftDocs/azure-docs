@@ -1,6 +1,6 @@
 ---
 title: Azure API Management policy expressions | Microsoft Docs
-description: Learn about policy expressions in Azure API Management.
+description: Learn about policy expressions in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -22,7 +22,7 @@ For more information:
 
 - See how to supply context information to your backend service. Use the [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) and [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) policies to supply this information.
 - See how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize access to operations based on token claims.
-- See how to use an [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace to see how policies are evaluated and the results of those evaluations.
+- See how to use an [API Inspector](./api-management-howto-api-inspector.md) trace to see how policies are evaluated and the results of those evaluations.
 - See how to use expressions with the [Get from cache](api-management-caching-policies.md#GetFromCache) and [Store to cache](api-management-caching-policies.md#StoreToCache) policies to configure API Management response caching. Set a duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.
 - See how to perform content filtering. Remove data elements from the response received from the backend using the [Control flow](api-management-advanced-policies.md#choose) and [Set body](api-management-transformation-policies.md#SetBody) policies.
 - To download the policy statements, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub repo.
@@ -230,7 +230,7 @@ A variable named `context` is implicitly available in every policy [expression](
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|
 |Jwt AsJwt(input: this string)|input: string<br /><br /> If the input parameter contains a valid JWT token value, the method returns an object of type `Jwt`; otherwise the method returns `null`.|
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> If the input parameter contains a valid JWT token value, the method returns `true` and the result parameter contains a value of type `Jwt`; otherwise the method returns `false`.|
-|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
+|Jwt|Algorithm: string<br /><br /> Audiences: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Returns comma-separated claim values or `defaultValue` if the header is not found.|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - plaintext to be encrypted<br /><br />alg - name of a symmetric encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns encrypted plaintext.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - plaintext to be encrypted<br /><br />alg - encryption algorithm<br /><br />Returns encrypted plaintext.|
@@ -247,5 +247,5 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy samples](./policy-reference.md)

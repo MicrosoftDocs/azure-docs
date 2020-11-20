@@ -1,6 +1,6 @@
 ---
 title: Log alerts in Azure Monitor
-description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the analytic query conditions you specify are met for Azure Alerts.
+description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the log query condition you specify is met
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
@@ -10,159 +10,198 @@ ms.subservice: alerts
 
 # Log alerts in Azure Monitor
 
-This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and allow users to use Azure's analytics platform as basis for alerting.
+## Overview
 
-Log Alert consists of Log Search rules created for [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). To learn more about its usage, see [creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md)
+Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md).
 
 > [!NOTE]
-> Popular log data from [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md)
+> Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
+> [!NOTE]
+> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
 
-## Log search alert rule - definition and types
+## Prerequisites
 
-Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](../../azure-monitor/platform/action-groups.md). [Azure Monitoring Contributor](../../azure-monitor/platform/roles-permissions-security.md) role for creating, modifying, and updating log alerts may be required; along with access & query execution rights for the analytics target(s) in alert rule or alert query. In case the user creating doesn't have access to all analytics target(s) in alert rule or alert query - the rule creation may fail or the log alert rule will be executed with partial results.
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](resource-logs.md) and query the log data for issues. You can use the [alert query examples topic](../log-query/saved-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../log-query/get-started-portal.md).
 
-Log search rules are defined by the following details:
+[Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
-- **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is to be triggered. Analytics query can be for a specific Log Analytics workspace or Application Insights app and even span across [multiple Log Analytics and Application Insights resources](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) provided the user has access as well as query rights to all resources. 
-    > [!IMPORTANT]
-    > [cross-resource query](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) support in log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) only.
+> [!NOTE]
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
-    Some analytic commands and combinations are incompatible with use in log alerts; for more details view, [Log alert queries in Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
+## Query evaluation definition
 
-- **Time Period**.  Specifies the time range for the query. The query returns only records that were created within this range of the current time. Time period restricts the data fetched for log query to prevent abuse and circumvents any time command (like ago) used in log query. <br>*For example, If the time period is set to 60 minutes, and the query is run at 1:15 PM, only records created between 12:15 PM and 1:15 PM is returned to execute log query. Now if the log query uses time command like ago (7d), the log query would be run only for data between 12:15 PM and 1:15 PM - as if data exists for only the past 60 minutes. And not for seven days of data as specified in log query.*
+Log search rules condition definition starts from:
 
-- **Frequency**.  Specifies how often the query should be run. Can be any value between 5 minutes and 24 hours. Should be equal to or less than the time period.  If the value is greater than the time period, then you risk records being missed.<br>*For example, consider a time period of 30 minutes and a frequency of 60 minutes.  If the query is run at 1:00, it returns records between 12:30 and 1:00 PM.  The next time the query would run is 2:00 when it would return records between 1:30 and 2:00.  Any records created between 1:00 and 1:30 would never be evaluated.*
+- What query to run?
+- How to use the results?
 
-- **Threshold**.  The results of the log search are evaluated to determine whether an alert should be created.  The threshold is different for the different types of log search alert rules.
+The following sections describe the different parameters you can use to set the above logic.
 
-Log search rules be it for [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), can be of two types. Each of these types is described in detail in the sections that follow.
+### Log query
+The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
 
-- **[Number of results](#number-of-results-alert-rules)**. Single alert created when the number records returned by the log search exceed a specified number.
-- **[Metric measurement](#metric-measurement-alert-rules)**.  Alert created for each object in the results of the log search with values that exceed specified threshold.
+- A specific resource, such as a virtual machine.
+- An at scale resource, such as a subscription or resource group.
+- Multiple resources using [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+ 
+> [!IMPORTANT]
+> Alert queries have constraints to ensure optimal performance and the relevance of the results. [Learn more here](./alerts-log-query.md).
 
-The differences between alert rule types are as follows.
+> [!IMPORTANT]
+> Resource centric and [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) are only supported using the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md)
 
-- *Number of results* alert rules always creates a single alert, while *Metric measurement* alert rule creates an alert for each object that exceeds the threshold.
-- *Number of results* alert rules create an alert when the threshold is exceeded a single time. *Metric measurement* alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
+#### Query time Range
 
-### Number of results alert rules
+Time range is set in the rule condition definition. In workspaces and Application Insights, it's called **Period**. In all other resource types, it's called **Override query time range**.
 
-**Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold. This type of alert rule is ideal for working with events such as Windows event logs, Syslog, WebApp Response, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time period.
+Like in log analytics, the time range limits query data to the specified range. Even if **ago** command is used in the query, the time range will apply.
 
-**Threshold**: The threshold for a Number of results alert rules is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
+For example, a query scans 60 minutes, when time range is 60 minutes, even if the text contains **ago(1d)**. The time range and query time filtering need to match. In the example case, changing the **Period** / **Override query time range** to one day, would work as expected.
 
-To alert on a single event, set the number of results to greater than 0 and check for the occurrence of a single event that was created since the last time the query was run. Some applications may log an occasional error that shouldn't necessarily raise an alert.  For example, the application may retry the process that created the error event and then succeed the next time.  In this case, you may not want to create the alert unless multiple events are created within a particular time period.  
+### Measure
 
-In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time period, then an alert should be created.  In this case, you would set the threshold to **less than 1**.
+Log alerts turn log into numeric values that can be evaluated. You can measure two different things:
 
-#### Example of Number of Records type log alert
+#### Count of the results table rows
 
-Consider a scenario where you want to know when your web-based App gives a response to users with code 500 (that is) Internal Server Error. You would create an alert rule with the following details:  
+Count of results is the default measure. Ideal for working with events such as Windows event logs, syslog, application exceptions. Triggers when log records happen or doesn't happen in the evaluated time window.
 
-- **Query:** requests | where resultCode == "500"<br>
-- **Time period:** 30 minutes<br>
-- **Alert frequency:** five minutes<br>
-- **Threshold value:** Greater than 0<br>
+Log alerts work best when you try to detect data in the log. It works less well when you try to detect lack of data in the logs. For example, alerting on virtual machine heartbeat.
 
-Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and triggers the action configured.
+For workspaces and Application Insights, it's called **Based on** with selection **Number of results**. In all other resource types, it's called **Measure** with selection **Table rows**.
 
-### Metric measurement alert rules
+> [!NOTE]
+> Since logs are semi-structured data, they are inherently more latent than metric, you may experience misfires when trying to detect lack of data in the logs, and you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
-**Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold and specified trigger condition. Unlike **Number of results** alert rules, **Metric measurement** alert rules work when analytics result provides a time series. They have the following distinct differences from **Number of results** alert rules.
+##### Example of results table rows count use case
 
-- **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval. Aggregate function in query must be named/called: AggregatedValue and provide a numeric value. 
+You want to know when your application responded with error code 500 (Internal Server Error). You would create an alert rule with the following details:
 
-- **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**. In case, there are multiple group fields specified in alert query, user can specify which field to be used to sort results by using the **Aggregate On** (metricColumn) parameter
+- **Query:** 
 
-    > [!NOTE]
-    > *Aggregate On* (metricColumn) option is available for Metric Measurement type log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) only.
+```Kusto
+requests
+| where resultCode == "500"
+```
 
-- **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time period specified for the alert.
+- **Time period:** 15 minutes
+- **Alert frequency:** 15 minutes
+- **Threshold value:** Greater than 0
 
-    > [!NOTE]
-    > Bin function must be used in query to specify interval. As bin() can result in unequal time intervals  - Alert will automatically convert bin command to  bin_at command with appropriate time at runtime, to ensure results with a fixed point. Metric measurement type of log alert is designed to work with queries having up to three instances of bin() command
-    
-- **Threshold**: The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value, then an alert is created for that object.
+Then alert rules monitors for any requests ending with 500 error code. The query runs every 15 minutes, over the last 15 minutes. If even one record is found, it fires the alert and triggers the actions configured.
 
-Misconfiguration of the *Aggregate On* or *metricColumn* option can cause alert rules to misfire. For more information, see [troubleshooting when metric measurement alert rule is incorrect](alert-log-troubleshoot.md#metric-measurement-alert-rule-is-incorrect).
+#### Calculation of measure based on a numeric column (such as CPU counter value)
 
-#### Example of Metric Measurement type log alert
+For workspaces and Application Insights, it's called **Based on** with selection **Metric measurement**. In all other resource types, it's called **Measure** with selection of any number column name.
 
-Consider a scenario where you wanted an alert if any computer exceeded processor utilization of 90% three times over 30 minutes.  You would create an alert rule with the following details:  
+### Aggregation type
 
-- **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-- **Time period:** 30 minutes<br>
-- **Alert frequency:** five minutes<br>
-- **Alert Logic - Condition & Threshold:** Greater than 90<br>
-- **Group Field (Aggregate-on):** Computer
-- **Trigger alert based on:** Total breaches Greater than 2<br>
+The calculation that is done on multiple records to aggregate them to one numeric value. For example:
+- **Count** returns the number of records in the query
+- **Average** returns the average of the measure column [**Aggregation granularity**](#aggregation-granularity) defined.
 
-The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes. Since the Group Field (Aggregate-on) chosen is columnar 'Computer' -  the AggregatedValue is split for various values of 'Computer' and average processor utilization for each computer is determined for a time bin of 5 minutes.  Sample query result for (say) three computers, would be as below.
+In workspaces and Application Insights, it's supported only in **Metric measurement** measure type. The query result must contain a column called AggregatedValue that provide a numeric value after a user-defined aggregation. In all other resource types, **Aggregation type** is selected from the field of that name.
 
+### Aggregation granularity
 
-|TimeGenerated [UTC] |Computer  |AggregatedValue  |
-|---------|---------|---------|
-|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
-|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
-|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
-|...     |   ...      |    ...     |
-|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
-|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
-|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+Determines the interval that is used to aggregate multiple records to one numeric value. For example, if you specified **5 minutes**, records would be grouped by 5-minute intervals using the **Aggregation type** specified.
 
-If query result was to be plotted, it would appear as.
+In workspaces and Application Insights, it's supported only in **Metric measurement** measure type. The query result must contain [bin()](/azure/kusto/query/binfunction) that sets interval in the query results. In all other resource types, the field that controls this setting is called **Aggregation granularity**.
 
-![Sample query results](media/alerts-unified-log/metrics-measurement-sample-graph.png)
+> [!NOTE]
+> As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert [bin()](/azure/kusto/query/binfunction) function to [bin_at()](/azure/kusto/query/binatfunction) function with appropriate time at runtime, to ensure results with a fixed point.
 
-In this example, we see in bins of 5 mins for each of the three computers - average processor utilization as computed for 5 mins. Threshold of 90 being breached by srv01 only once at 1:25 bin. In comparison, srv02 exceeds 90 threshold at 1:10, 1:15 and 1:25 bins; while srv03 exceeds 90 threshold at 1:10, 1:15, 1:20 and 1:30.
-Since alert is configured to trigger based on total breaches are more than two, we see that srv02 and srv03 only meet the criteria. Hence separate alerts would be created for srv02 and srv03 since they breached the 90% threshold twice across multiple time bins.  If the *Trigger alert based on:* parameter was instead configured for *Continuous breaches* option, then an alert would be fired **only** for srv03 since it breached the threshold for three consecutive time bins from 1:10 to 1:20. And **not** for srv02, as it breached the threshold for two consecutive time bins from 1:10 to 1:15.
+### Split by alert dimensions
 
-## Log search alert rule - firing and state
+Split alerts by number or string columns into separate alerts by grouping into unique combinations. When creating resource-centric alerts at scale (subscription or resource group scope), you can split by Azure resource ID column. Splitting on Azure resource ID column will change the target of the alert to the specified resource.
 
-Log search alert rules work only on the logic you build into the query. The alert system doesn't have any other context of the state of the system, your intent, or the root cause implied by the query. As such, log alerts are referred to as state-less. The conditions are evaluated as "TRUE" or "FALSE" each time they are run.  An alert will fire each time the evaluation of the alert condition is "TRUE", regardless of it is fired previously.    
+In workspaces and Application Insights, it's supported only in **Metric measurement** measure type. The field is called **Aggregate On**. It's limited to three columns. Having more than three groups by columns in the query could lead to unexpected results. In all other resource types, it's configured in **Split by dimensions** section of the condition (limited to six splits).
 
-Let's see this behavior in action with a practical example. Assume we have a log alert rule called *Contoso-Log-Alert*, which is configured as shown in the [example provided for Number of Results type log alert](#example-of-number-of-records-type-log-alert). The condition is a custom alert query designed to look for 500 result code in logs. If one more more 500 result codes are found in logs, the condition of the alert is true. 
+#### Example of splitting by alert dimensions
 
-At each interval below, the Azure alerts system evaluates the condition for the *Contoso-Log-Alert*.
+For example, you want to monitor errors for multiple virtual machines running your web site/app in a specific resource group. You can do that using a log alert rule as follows:
 
+- **Query:** 
 
-| Time    | Num of records returned by log search query | Log condition evalution | Result 
+    ```Kusto
+    // Reported errors
+    union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+    | where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+    ```
+
+    When using workspaces and Application Insights with **Metric measurement** alert logic, this line needs to be added to the query text:
+
+    ```Kusto
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+- **Resource ID Column:** _ResourceId (Splitting by resource ID column in alert rules is only available for subscriptions and resource groups currently)
+- **Dimensions / Aggregated on:**
+  - Computer = VM1, VM2 (Filtering values in alert rules definition isn't available currently for workspaces and Application Insights. Filter in the query text.)
+- **Time period:** 15 minutes
+- **Alert frequency:** 15 minutes
+- **Threshold value:** Greater than 0
+
+This rule monitors if any virtual machine had error events in the last 15 minutes. Each virtual machine is monitored separately and will trigger actions individually.
+
+> [!NOTE]
+> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-05-01-preview` and above.
+
+## Alert logic definition
+
+Once you define the query to run and evaluation of the results, you need to define the alerting logic and when to fire actions. The following sections describe the different parameters you can use:
+
+### Threshold and operator
+
+The query results are transformed into a number that is compared against the threshold and operator.
+
+### Frequency
+
+The interval in which the query is run. Can be set from 5 minutes to one day. Must be equal to or less than the [query time range](#query-time-range) to not miss log records.
+
+For example, if you set the time period to 30 minutes and frequency to 1 hour.  If the query is run at 00:00, it returns records between 23:30 and 00:00. The next time the query would run is 01:00 that would return records between 00:30 and 01:00. Any records created between 00:00 and 00:30 would never be evaluated.
+
+### Number of violations to trigger alert
+
+You can specify the alert evaluation period and the number of failures needed to trigger an alert. Allowing you to better define an impact time to trigger an alert. 
+
+For example, if your rule [**Aggregation granularity**](#aggregation-granularity) is defined as '5 minutes', you can trigger an alert only if three failures (15 minutes) of the last hour occurred. This setting is defined by your application business policy.
+
+## State and resolving alerts
+
+Log alerts are stateless. Alerts fire each time the condition is met, even if fired previously. Fired alerts don't resolve. You can [mark the alert as closed](alerts-managing-alert-states.md). You can also mute actions to prevent them from triggering for a period after an alert rule fired.
+
+In workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
+
+See this alert evaluation example:
+
+| Time    | Log condition evaluation | Result 
 | ------- | ----------| ----------| ------- 
-| 1:05 PM | 0 records | 0 is not > 0 so FALSE |  Alert does not fire. No actions called.
-| 1:10 PM | 2 records | 2 > 0 so TRUE  | Alert fires and action groups called. Alert state ACTIVE.
-| 1:15 PM | 5 records | 5 > 0 so TRUE  | Alert fires and action groups called. Alert state ACTIVE.
-| 1:20 PM | 0 records | 0 is not > 0 so FALSE |  Alert does not fire. No actions called. Alert state left ACTIVE.
+| 00:05 | FALSE | Alert doesn't fire. No actions called.
+| 00:10 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
+| 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
+| 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Using the previous case as an example:
+## Pricing and billing of log alerts
 
-At 1:15 PM Azure alerts can't determine if the underlying issues seen at 1:10 persist and if the records are net new failures or repeats of older failures at 1:10PM. The query provided by user may or may not be taking into account earlier records and the system doesn't know. The Azure alerts system is built to err on the side of caution, and fires the alert and associated actions again at 1:15 PM. 
+Pricing information is located in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
 
-At 1:20 PM when zero records are seen with 500 result code, Azure alerts can't be certain that the cause of 500 result code seen at 1:10 PM and 1:15 PM is now solved. It doesn't know if the 500 error issues will happen for the same reasons again. Hence *Contoso-Log-Alert* does not change to **Resolved** in Azure Alert dashboard and/or notifications are not sent out stating the alert is resolved. Only you, who understands the exact condition or reason for the logic embedded in the analytics query, can [mark the alert as closed](alerts-managing-alert-states.md) as needed.
-
-## Pricing and Billing of Log Alerts
-
-Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
-
-- Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
-- Log Alerts on Log Analytics shown with exact alert name along with resource group and alert properties; when created using [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
-
-The [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) has alert actions and schedules as part of Log Analytics Saved Search and not proper [Azure Resources](../../azure-resource-manager/management/overview.md). Hence to enable billing for such legacy log alerts created for Log Analytics using of Azure portal **without** [switching to new API](../../azure-monitor/platform/alerts-log-api-switch.md) or via [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) - hidden pseudo alert rules are created on `microsoft.insights/scheduledqueryrules` for billing on Azure. The hidden pseudo alert rules created for billing on `microsoft.insights/scheduledqueryrules` as shown as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties.
+- Log Alerts on Application Insights shown with exact resource name along with resource group and alert properties.
+- Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules).
+- Log alerts created from [legacy Log Analytics API](./api-alerts.md) aren't tracked [Azure Resources](../../azure-resource-manager/management/overview.md) and don't have enforced unique resource names. These alerts are still created on `microsoft.insights/scheduledqueryrules` as hidden resources, which have this resource naming structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Log Alerts on legacy API are shown with above hidden resource name along with resource group and alert properties.
 
 > [!NOTE]
-> If invalid characters such as `<, >, %, &, \, ?, /` are present, they will be replaced with `_` in the hidden pseudo  alert rule name and hence also in the Azure bill.
+> Unsupported resource characters such as `<, >, %, &, \, ?, /` are replaced with `_` in the hidden resource names and this will also reflect in the billing information.
 
-To remove the hidden scheduleQueryRules resources created for billing of alert rules using [legacy Log Analytics API](api-alerts.md), user can do any of the following:
-
-- Either user can [switch API preference for the alert rules on the Log Analytics workspace](../../azure-monitor/platform/alerts-log-api-switch.md) and with no loss of their alert rules or monitoring move to Azure Resource Manager compliant [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Thereby eliminate the need to make pseudo hidden alert rules for billing.
-- Or if the user doesn't want to switch API preference, the user will need to **delete** the original schedule and alert action using [legacy Log Analytics API](api-alerts.md) or delete in [Azure portal the original log alert rule](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
-
-Additionally for the hidden scheduleQueryRules resources created for billing of alert rules using [legacy Log Analytics API](api-alerts.md), any modification operation like PUT will fail. As the `microsoft.insights/scheduledqueryrules` type pseudo rules are for purpose of billing the alert rules created using [legacy Log Analytics API](api-alerts.md). Any alert rule modification should be done using [legacy Log Analytics API](api-alerts.md) (or) user can [switch API preference for the alert rules](../../azure-monitor/platform/alerts-log-api-switch.md) to use [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) instead.
+> [!NOTE]
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md). Any alert rule management should be done using [legacy Log Analytics API](api-alerts.md) until you decide to switch and you can't use the hidden resources.
 
 ## Next steps
 
-* Learn about [creating in log alerts in Azure](../../azure-monitor/platform/alerts-log.md).
+* Learn about [creating in log alerts in Azure](./alerts-log.md).
 * Understand [webhooks in log alerts in Azure](alerts-log-webhook.md).
-* Learn about [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
-* Learn more about [Application Insights](../../azure-monitor/app/analytics.md).
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn about [Azure Alerts](./alerts-overview.md).
+* Learn more about [Log Analytics](../log-query/log-query-overview.md).
+

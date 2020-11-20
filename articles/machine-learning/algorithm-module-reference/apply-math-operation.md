@@ -14,15 +14,15 @@ ms.date: 09/09/2019
 
 # Apply Math Operation
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Use the Apply Math Operation to create calculations that are applied to numeric columns in the input dataset. 
 
-Supported math operations include common arithmetic functions such as multiplication and division, trigonometric functions, a variety of rounding functions, and special functions used in data science such as gamma and error functions.  
+Math operations include arithmetic functions, trigonometric functions, rounding functions, and special functions used in data science such as gamma and error functions.  
 
 After you define an operation and run the pipeline, the values are added to your dataset. Depending on how you configure the module, you can:
 
-+ Append the results to your dataset. This is particularly useful when you are verifying the result of the operation.
++ Append the results to your dataset (useful when verifying the result of the operation).
 + Replace columns values with the new, computed values.
 + Generate a new column for results, and not show the original data. 
 
@@ -38,7 +38,7 @@ Look for the operation you need in these categories:
   
 -   [Operations](#arithmetic-operations)  
   
-     The **Operations** category includes the basic mathematical functions: addition, subtraction, multiplication, and division. You can work with either columns or constants. For example, you might add the value in Column A to the value in Column B. Or, you might subtract a constant, such as a previously calculated mean, from each value in Column A.  
+     The **Operations** category includes basic mathematical functions: addition, subtraction, multiplication, and division. You can work with either columns or constants. For example, you might add the value in Column A to the value in Column B. Or, you might subtract a constant, such as a previously calculated mean, from each value in Column A.  
   
 -   [Rounding](#rounding-operations)  
   
@@ -51,7 +51,7 @@ Look for the operation you need in these categories:
 -   [Trigonometric](#trigonometric-functions)  
   
      The **Trigonometric** category includes all standard trigonometric functions. For example, you can convert radians to degrees, or compute functions such as tangent in either radians or degrees.
-     These functions are unary, meaning that they take a single column of values as input, apply the trigonometric function, and return a column of values as the result.  Therefore you need to make sure that the input column is the appropriate type and contains the right kind of values for the specified operation.   
+     These functions are unary, meaning that they take a single column of values as input, apply the trigonometric function, and return a column of values as the result. Ensure that the input column is the appropriate type and contains the correct type of values for the specified operation.   
 
 ## How to configure Apply Math Operation  
 
@@ -70,7 +70,7 @@ Each instance of this module can perform only one type of operation at a time. T
     - Any column that you choose must be a numeric data type. 
     - The range of data must be valid for the selected mathematical operation. Otherwise an error or NaN (not a number) result may occur. For example, Ln(-1.0) is an invalid operation and results in a value of `NaN`.
   
-1.  Click **Category** to select the **type** of math operation to perform.
+1.  Select **Category** to select the **type** of math operation to perform.
     
 1. Choose a specific operation from the list in that category.
   
@@ -82,7 +82,7 @@ Each instance of this module can perform only one type of operation at a time. T
     - **Inplace**. The values in the columns used as inputs are replaced with the new calculated values. 
     - **ResultOnly**. A single column is returned containing the results of the math operation.
   
-1.  Run the pipeline.  
+1.  Submit the pipeline.  
   
 ## Results
 
@@ -91,7 +91,7 @@ If you generate the results using the **Append** or **ResultOnly** options, the 
 -   **Equals(Col2_Col1)**,  indicating that you tested Col2 against Col1.  
 -   **Equals(Col2_$10)**, indicating that you compared column 2 to the constant 10.  
 
-Even if you use the **Inplace** option, the source data is not deleted or changed; the column in the original dataset is still available in the designer. To view the original data, you can connect the [Add Columns](add-columns.md) module and join it to the output of **Apply Math Operation**.  
+Even if you use the **In place** option, the source data is not deleted or changed; the column in the original dataset is still available in the designer. To view the original data, you can connect the [Add Columns](add-columns.md) module and join it to the output of **Apply Math Operation**.  
     
 ## Basic math operations 
 
@@ -109,7 +109,7 @@ Returns a four-quadrant inverse tangent.
 
 Select the columns that contain the point coordinates. For the second argument, which corresponds to the x-coordinate, you can also specify a constant.  
 
-Corresponds to the ATAN2 function in Matlab.  
+Corresponds to the ATAN2 function in MATLAB.  
 
 ### Conj
 
@@ -120,15 +120,15 @@ Returns the conjugate for the values in the selected column.
 Calculates the cube root for the values in the selected column.  
 
 ### DoubleFactorial  
- Calculates the double factorial for values in the selected column. The double factorial is an extension of the normal factorial function, and it is denoted as x!!.  
+ Calculates the double factorial for values in the selected column. The double factorial is an extension of the normal factorial function, and it is denoted as `x!!`.  
 
 ### Eps
 
-Returns the size of the gap between the current value and the next-highest, double-precision number. Corresponds to the EPS function in Matlab.  
+Returns the size of the gap between the current value and the next-highest, double-precision number. Corresponds to the EPS function in MATLAB.  
   
 ### Exp
 
-Returns e raised to the power of the value in the selected column. This is the same as the Excel EXP function.  
+Returns e raised to the power of the value in the selected column. This function is the same as the Excel EXP function.  
 
 ### Exp2
 
@@ -166,11 +166,11 @@ You can specify the base (the second argument) either as a constant or by select
 
 ### Log10
 
-Returns the base 10 logarithm values for the selected column.  
+Returns the base 10-logarithm values for the selected column.  
 
 ### Log2
 
-Returns the base 2 logarithm values for the selected column.  
+Returns the base 2-logarithm values for the selected column.  
 
 ### NthRoot
 Returns the nth root of the value, using an n that you specify.  
@@ -356,7 +356,7 @@ The error function (also called the Gauss error function) is a special function 
 
 Returns the value of the complementary error function.  
 
-Erfc is defined as 1 – erf(x).  
+`Erfc` is defined as 1 – erf(x).  
 
 ### ErfScaled
 
@@ -366,7 +366,7 @@ The scaled version of the error function can be used to avoid arithmetic underfl
 
 ### ErfInverse
 
-Returns the value of the inverse erf function.  
+Returns the value of the inverse `erf` function.  
 
 ### ExponentialIntegralEin
 

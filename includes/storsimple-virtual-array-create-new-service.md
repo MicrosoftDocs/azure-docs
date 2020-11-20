@@ -24,7 +24,7 @@ ms.custom: "include file"
 
     2.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
 
-    3.  For **Resource group**, select an existing or create a new group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+    3.  For **Resource group**, select an existing or create a new group. For more information, see [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
     4.  Supply a **Location** for your service. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about which services are available in which region. In general, choose a **Location** closest to the geographical region where you want to deploy your device. You may also want to factor in the following:
 
@@ -40,7 +40,7 @@ ms.custom: "include file"
 
     7.  Click **Create** to create the StorSimple Device Manager.
 
-        ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Create new service 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 You are directed to the **Service** landing page. The service creation takes a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
 

@@ -1,8 +1,10 @@
 ---
 title: Best practices - QnA Maker
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
+ms.date: 11/09/2020
 ---
 
 # Best practices of a QnA Maker knowledge base
@@ -109,11 +111,17 @@ By default, QnA Maker searches through questions and answers. If you want to sea
 [Metadata](../How-To/edit-knowledge-base.md) adds the ability for a client application to know it should not take all answers but instead to narrow down the results of a user query based on metadata tags. The knowledge base answer can differ based on the metadata tag, even if the query is the same. For example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different - that is, the metadata is *Location: Seattle* versus *Location: Redmond*.
 
 ### Use synonyms
-While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different form. Synonyms are added at the QnA Maker service-level and shared by all knowledge bases in the service.
+# [QnA Maker GA (stable release)](#tab/v1)
+While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms are added at the QnA Maker service-level and **shared by all knowledge bases in the service**.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms in QnA Maker managed (Preview) are **added per knowledge base**.
 
 |Original word|Synonyms|
 |--|--|
 |buy|purchase<br>net-banking<br>net banking|
+
+---
 
 ### Use distinct words to differentiate questions
 QnA Maker's ranking algorithm, that matches a user query with a question in the knowledge base, works best if each question addresses a different need. Repetition of the same word set between questions reduces the likelihood that the right answer is chosen for a given user query with those words.
@@ -134,7 +142,7 @@ QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md)
 
 ## Active learning
 
-[Active learning](../How-to/improve-knowledge-base.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
+[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform Windows desktop quickstart | Microsoft Docs
-description: Learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
+title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform desktop app | Azure"
+description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,15 +11,21 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app
 
-In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) application that can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
+In this quickstart, you download and run a code sample that demonstrates how a Windows desktop .NET (WPF) application can sign in users and obtain an access token to call the Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
+>
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -38,7 +44,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
+> 1. Go to the [App registrations](https://aka.ms/MobileAppReg) blade for Azure Active Directory in the Azure portal.
 > 1. Select **New registration**.
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Win-App-calling-MsGraph`.
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
@@ -59,20 +65,20 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 #### Step 2: Download your Visual Studio project
 
 > [!div renderon="docs"]
-> [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  
+> [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
-> We have configured your project with values of your app's properties and it's ready to run. 
+> We have configured your project with values of your app's properties and it's ready to run.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
@@ -84,7 +90,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 >    private static string ClientId = "Enter_the_Application_Id_here";
 >    private static string Tenant = "Enter_the_Tenant_Info_Here";
 >    ```
-> 
+>
 > Where:
 > - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
 > - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
@@ -125,7 +131,7 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 
@@ -147,9 +153,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Where:||
+> |Where:| Description |
 > |---------|---------|
-> | `_scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs. |
+> | `_scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 
 #### Get a user token silently
 
@@ -162,9 +168,9 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs. |
+> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 > | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
@@ -174,9 +180,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 Try out the Windows desktop tutorial for a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart.
 
 > [!div class="nextstepaction"]
-> [Call Graph API tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [Call Graph API tutorial](./tutorial-v2-windows-desktop.md)

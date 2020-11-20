@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Asymmetric routing'
 description: This article walks you through the issues you might face with asymmetric routing in a network that has multiple links to a destination.
 services: expressroute
-author: osamazia
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
+ms.author: duau
 
 ---
 # Asymmetric routing with multiple network paths
@@ -60,5 +60,5 @@ Another way of solving asymmetric routing issues is by using SNAT. For example, 
 ![Source-based NAT network configuration](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## Asymmetric routing detection
-Traceroute is the best way to make sure that your network traffic is traversing the expected path. If you expect traffic from your on-premises SMTP server to Microsoft to take the Internet path, the expected traceroute is from the SMTP server to Office 365. The result validates that traffic is indeed leaving your network toward the Internet and not toward ExpressRoute.
+Traceroute is the best way to make sure that your network traffic is traversing the expected path. If you expect traffic from your on-premises SMTP server to Microsoft to take the Internet path, the expected traceroute is from the SMTP server to Microsoft 365. The result validates that traffic is indeed leaving your network toward the Internet and not toward ExpressRoute.
 

@@ -2,12 +2,12 @@
 title: Troubleshoot Hyper-V disaster recovery with Azure Site Recovery 
 description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
-ms.author: rajanaki
+ms.author: sharrai
 
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
@@ -23,12 +23,12 @@ If you experience issues when you enable protection for Hyper-V VMs, check the f
 3. Check that the Hyper-V Virtual Machine Management service is running on Hyper-V hosts.
 4. Check for issues that appear in the Hyper-V-VMMS\Admin sign in to the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
 5. On the guest VM, verify that WMI is enabled and accessible.
-   - [Learn about](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) basic WMI testing.
-   - [Troubleshoot](https://aka.ms/WMiTshooting) WMI.
-   - [Troubleshoot](https://technet.microsoft.com/library/ff406382.aspx#H22) problems with WMI scripts and services.
+   - [Learn about](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) basic WMI testing.
+   - [Troubleshoot](/windows/win32/wmisdk/wmi-troubleshooting) WMI.
+   - [Troubleshoot](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problems with WMI scripts and services.
 6. On the guest VM, ensure that the latest version of Integration Services is running.
-    - [Check](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
-    - [Keep](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
+    - [Check](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
+    - [Keep](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
     
 ## Replication issues
 
@@ -61,7 +61,7 @@ Network bandwidth limitations can impact replication. Troubleshoot issues as fol
 3. After running the profiler, follow the [bandwidth](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) recommendations.
 4. Check [data churn limitations](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). If you see high data churn on a VM, do the following:
    - Check if your VM is marked for resynchronization.
-   - Follow [these steps](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) to investigate the source of the churn.
+   - Follow [these steps](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization) to investigate the source of the churn.
    - Churn can occur when the HRL log files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs on which the issue occurs.
    - Check that replication isn't paused. If it is, it continues writing the changes to the hrl file, which can contribute to its increased size.
  
@@ -110,9 +110,10 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
         - Counter: “Write Bytes / Sec”</br>
         - This data churn rate will increase or remain at a high level, depending on how busy the VM or its apps are.
         - The average source disk data churn is 2 MB/s for standard storage for Site Recovery. [Learn more](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - In addition you can [verify storage scalability targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
-8. Run the [Deployment Planner](hyper-v-deployment-planner-run.md).
-9. Review the recommendations for [network](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
+    - In addition you can [verify storage scalability targets](../storage/common/scalability-targets-standard-account.md).
+8. Make sure that if you're using a Linux based server, then you have enabled app-consistency on it. [Learn more](./site-recovery-faq.md#replication)
+9. Run the [Deployment Planner](hyper-v-deployment-planner-run.md).
+10. Review the recommendations for [network](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
 
 ### VSS failing inside the Hyper-V Host
@@ -124,7 +125,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 
 2. To generate VSS snapshots for the VM, check that Hyper-V Integration Services are installed on the VM, and that the Backup (VSS) Integration Service is enabled.
     - Ensure that the Integration Services VSS service/daemons are running on the guest, and are in an **OK** state.
-    - You can check this from an elevated PowerShell session on the Hyper-V host with command **Get-VMIntegrationService -VMName\<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - You can check this from an elevated PowerShell session on the Hyper-V host with command **Get-VMIntegrationService -VMName\<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Ensure that the Backup/VSS integration Services on the VM are running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requestor service on the Hyper-V host server.
 
 ### Common errors
@@ -132,7 +133,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 **Error code** | **Message** | **Details**
 --- | --- | ---
 **0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress.<br/><br/> Replication operation for virtual machine failed: More data is available." | Check if your VM has dynamic disk enabled. This isn't supported.
-**0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V | Check if the latest Windows updates are installed.<br/><br/> [Upgrade](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) to the latest version of Integration Services.
+**0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V | Check if the latest Windows updates are installed.<br/><br/> [Upgrade](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) to the latest version of Integration Services.
 
 
 
@@ -164,4 +165,3 @@ These tools can help with advanced troubleshooting:
 
 -	For VMM, perform Site Recovery log collection using the [Support Diagnostics Platform (SDP) tool](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -	For Hyper-V without VMM, [download this tool](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab), and run it on the Hyper-V host to collect the logs.
-

@@ -6,7 +6,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
+ms.topic: reference
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -253,7 +253,7 @@ Takes a date string from one format and converts it into a different format.
    | Name | Required/ Repeating | Type | Notes |
    | --- | --- | --- | --- |
    | **source** |Required |String |Usually name of the attribute from the source object. |
-   | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Required |String |Format of the output date. |
 
 ---
@@ -601,7 +601,7 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 
    | Name | Required/ Repeating | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Required |String |**Source** value to update. |
+   | **source** |Required |String |**Source** value to check. |
    | **defaultValue** |Optional |String |Default value to be used when source doesn't match any keys. Can be empty string (""). |
    | **key** |Required |String |**Key** to compare **source** value with. |
    | **value** |Required |String |Replacement value for the **source** matching the key. |
@@ -792,11 +792,13 @@ Based on the user's first name, middle name and last name, you need to generate 
 
 **Expression:** <br>
 
+```ad-attr-mapping-expr
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
+```
 
 **Sample input/output:**
 

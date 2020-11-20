@@ -1,43 +1,33 @@
 ---
-title: 'Azure ExpressRoute: Modify a circuit: PowerShell'
-description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
+title: 'Quickstart: Create and modify a circuit with ExpressRoute - Azure PowerShell'
+description: This quickstart shows you how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: article
-ms.date: 01/08/2020
-ms.author: cherylmc
+ms.topic: quickstart
+ms.date: 10/12/2020
+ms.author: duau
 
 ---
-# Create and modify an ExpressRoute circuit using PowerShell
-> [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
->
+# Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell
 
-This article helps you create an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+This quickstart shows you how to create an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
-## Before you begin
+## Prerequisites
 
-Before you begin, review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure PowerShell installed locally or Azure Cloud Shell
 
-### Working with Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
-
-[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
-### 1. Sign in to your Azure account and select your subscription
+### Sign in to your Azure account and select your subscription
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-### 2. Get the list of supported providers, locations, and bandwidths
+### Get the list of supported providers, locations, and bandwidths
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
 
 The PowerShell cmdlet **Get-AzExpressRouteServiceProvider** returns this information, which you’ll use in later steps:
@@ -54,14 +44,14 @@ Check to see if your connectivity provider is listed there. Make a note of the f
 
 You're now ready to create an ExpressRoute circuit.
 
-### 3. Create an ExpressRoute circuit
+### Create an ExpressRoute circuit
 If you don't already have a resource group, you must create one before you create your ExpressRoute circuit. You can do so by running the following command:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
-The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request. Use the following example to request a new service key:
+The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key:
 
 ```azurepowershell-interactive
 New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
@@ -69,12 +59,11 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*.
-* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is always *Unlimiteddata*.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*. You can't change the SKU from *Standard/Premium* to *Local*.
+* SKU family determines the billing type. You can specify *MeteredData* for a metered data plan and *UnlimitedData* for an unlimited data plan. You can change the billing type from *MeteredData* to *UnlimitedData*, but you can't change the type from *UnlimitedData* to *MeteredData*. A *Local* circuit is always *UnlimitedData*.
 
 > [!IMPORTANT]
 > Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
->
 >
 
 The response contains the service key. You can get detailed descriptions of all the parameters by running the following command:
@@ -84,7 +73,7 @@ get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
-### 4. List all ExpressRoute circuits
+### List all ExpressRoute circuits
 To get a list of all the ExpressRoute circuits that you created, run the **Get-AzExpressRouteCircuit** command:
 
 ```azurepowershell-interactive
@@ -93,27 +82,29 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 The response looks similar to the following example:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                          }
-    CircuitProvisioningState          : Enabled
-    ServiceProviderProvisioningState  : NotProvisioned
-    ServiceProviderNotes              :
-    ServiceProviderProperties         : {
-                                          "ServiceProviderName": "Equinix",
-                                          "PeeringLocation": "Silicon Valley",
-                                          "BandwidthInMbps": 200
-                                        }
-    ServiceKey                        : **************************************
-    Peerings                          : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState          : Enabled
+ServiceProviderProvisioningState  : NotProvisioned
+ServiceProviderNotes              :
+ServiceProviderProperties         : {
+                                    "ServiceProviderName": "Equinix",
+                                    "PeeringLocation": "Silicon Valley",
+                                    "BandwidthInMbps": 200
+                                    }
+ServiceKey                        : **************************************
+Peerings                          : []
+```
 
 You can retrieve this information at any time by using the `Get-AzExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits. Your service key is listed in the *ServiceKey* field:
 
@@ -121,93 +112,97 @@ You can retrieve this information at any time by using the `Get-AzExpressRouteCi
 Get-AzExpressRouteCircuit
 ```
 
-
 The response looks similar to the following example:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                          }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : NotProvisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                          }
-    ServiceKey                       : **************************************
-    Peerings                         : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : NotProvisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                    "ServiceProviderName": "Equinix",
+                                    "PeeringLocation": "Silicon Valley",
+                                    "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
-
-### 5. Send the service key to your connectivity provider for provisioning
-*ServiceProviderProvisioningState* provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+### Send the service key to your connectivity provider for provisioning
+*ServiceProviderProvisioningState* provides you information about the current state of provisioning on the service-provider side. Status provides you the state on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
-    ServiceProviderProvisioningState : NotProvisioned
-    CircuitProvisioningState         : Enabled
+```azurepowershell
+ServiceProviderProvisioningState : NotProvisioned
+CircuitProvisioningState         : Enabled
+```
 
+The circuit changes to the following state when the connectivity provider is currently enabling it for you:
 
+```azurepowershell
+ServiceProviderProvisioningState : Provisioning
+Status                           : Enabled
+```
 
-The circuit changes to the following state when the connectivity provider is in the process of enabling it for you:
+To use the ExpressRoute circuit, it must be in the following state:
 
-    ServiceProviderProvisioningState : Provisioning
-    Status                           : Enabled
+```azurepowershell
+ServiceProviderProvisioningState : Provisioned
+CircuitProvisioningState         : Enabled
+```
 
-For you to be able to use an ExpressRoute circuit, it must be in the following state:
-
-    ServiceProviderProvisioningState : Provisioned
-    CircuitProvisioningState         : Enabled
-
-### 6. Periodically check the status and the state of the circuit key
-Checking the status and the state of the circuit key lets you know when your provider has enabled your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
+### Periodically check the status and the state of the circuit key
+Checking the status and the state of the service key will let you know when your provider has provisioned your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
-
 The response looks similar to the following example:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                       }
-    ServiceKey                       : **************************************
-    Peerings                         : []
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                    "ServiceProviderName": "Equinix",
+                                    "PeeringLocation": "Silicon Valley",
+                                    "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
-### 7. Create your routing configuration
+### Create your routing configuration
 For step-by-step instructions, see the [ExpressRoute circuit routing configuration](expressroute-howto-routing-arm.md) article to create and modify circuit peerings.
 
 > [!IMPORTANT]
 > These instructions only apply to circuits that are created with service providers that offer layer 2 connectivity services. If you're using a service provider that offers managed layer 3 services (typically an IP VPN, like MPLS), your connectivity provider configures and manages routing for you.
 >
->
 
-### 8. Link a virtual network to an ExpressRoute circuit
+### Link a virtual network to an ExpressRoute circuit
 Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
 
 ## Getting the status of an ExpressRoute circuit
@@ -217,31 +212,31 @@ You can retrieve this information at any time by using the **Get-AzExpressRouteC
 Get-AzExpressRouteCircuit
 ```
 
-
 The response is similar to the following example:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                            "ServiceProviderName": "Equinix",
-                                            "PeeringLocation": "Silicon Valley",
-                                            "BandwidthInMbps": 200
-                                          }
-    ServiceKey                       : **************************************
-    Peerings                         : []
-
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_MeteredData",
+                                    "Tier": "Standard",
+                                    "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                        "ServiceProviderName": "Equinix",
+                                        "PeeringLocation": "Silicon Valley",
+                                        "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
 You can get information on a specific ExpressRoute circuit by passing the resource group name and circuit name as a parameter to the call:
 
@@ -249,31 +244,31 @@ You can get information on a specific ExpressRoute circuit by passing the resour
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
-
 The response looks similar to the following example:
 
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                            "Tier": "Standard",
-                                            "Family": "MeteredData"
-                                          }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             :
-    ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                          }
-    ServiceKey                       : **************************************
-    Peerings                         : []
-
+```azurepowershell
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                        "Name": "Standard_MeteredData",
+                                        "Tier": "Standard",
+                                        "Family": "MeteredData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                        "ServiceProviderName": "Equinix",
+                                        "PeeringLocation": "Silicon Valley",
+                                        "BandwidthInMbps": 200
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+```
 
 You can get detailed descriptions of all the parameters by running the following command:
 
@@ -286,9 +281,9 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 
 You can do the following tasks with no downtime:
 
-* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported.
-* Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
+* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit. Changing the SKU from *Standard/Premium* to *Local* isn't supported.
+* Increase the bandwidth of your ExpressRoute circuit provided there's capacity available on the port. Downgrading the bandwidth of a circuit isn't supported.
+* Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data isn't supported.
 * You can enable and disable *Allow Classic Operations*.
 
 For more information on limits and limitations, see the [ExpressRoute FAQ](expressroute-faqs.md).
@@ -311,13 +306,12 @@ The circuit now has the ExpressRoute premium add-on features enabled. We begin b
 > [!IMPORTANT]
 > If you're using resources that are greater than what is permitted for the standard circuit, this operation can fail.
 >
->
 
 Note the following information:
 
 * Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't, your update request fails, and we bill you at premium rates.
-* You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request fails, and we bill you at premium rates.
-* Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
+* All virtual networks in other geopolitical regions must be first unlinked. If you don't remove the link, your update request will fail and we continue to bill you at premium rates.
+* Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session will drop. The BGP session won't be re-enabled until the number of advertised prefixes is under 4,000.
 
 You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
 
@@ -349,8 +343,7 @@ $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-
-Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we will begin billing you for the updated bandwidth option.
+Your circuit will be upgraded on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we'll begin billing you for the updated bandwidth option.
 
 ### To move the SKU from metered to unlimited
 You can change the SKU of an ExpressRoute circuit by using the following PowerShell snippet:
@@ -367,12 +360,14 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ### To control access to the classic and Resource Manager environments
 Review the instructions in [Move ExpressRoute circuits from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).
 
-## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
+## <a name="delete"></a>Deprovisioning an ExpressRoute circuit
 Note the following information:
 
-* You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
+* All virtual networks must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
+* If the service provider has deprovisioned the circuit meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit will then stop.
+
+## Clean up resources
 
 You can delete your ExpressRoute circuit by running the following command:
 
@@ -382,7 +377,7 @@ Remove-AzExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Nam
 
 ## Next steps
 
-After you create your circuit, make sure that you do the following next steps:
+After you create your circuit and provision it with your provider, continue to the next step to configure the peering:
 
-* [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-arm.md)
-* [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
+> [!div class="nextstepaction"]
+> [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-arm.md)

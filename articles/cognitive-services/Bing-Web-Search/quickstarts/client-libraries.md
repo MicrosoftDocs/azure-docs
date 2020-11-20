@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use a Bing Web Search client library'
+title: "Quickstart: Use a Bing Web Search client library"
 titleSuffix: Azure Cognitive Services
 description: The Bing Web Search API offers client libraries that makes it easy to integrate search capabilities into your applications. Use this quickstart to start sending search requests, and get back results. 
 services: cognitive-services
@@ -10,11 +10,16 @@ zone_pivot_groups: programming-languages-set-ten
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/21/2020
+ms.date: 10/19/2020
 ms.author: aahi
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
-
 # Quickstart: Use a Bing Web Search client library
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 ::: zone pivot="programming-language-csharp"
 
@@ -30,7 +35,7 @@ ms.author: aahi
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [Node.js quickstart](../includes/quickstarts/web-search-client-library-javascript.md)]
+[!INCLUDE [JavaScript quickstart](../includes/quickstarts/web-search-client-library-javascript.md)]
 
 ::: zone-end
 

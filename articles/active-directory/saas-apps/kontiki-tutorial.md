@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Kontiki | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kontiki.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8d5e5413-da4c-40d8-b1d0-f03ecfef030b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Kontiki
 
@@ -29,7 +22,7 @@ Integrating Kontiki with Azure AD gives you the following benefits:
 * Users can be automatically signed in to Kontiki with their Azure AD accounts (single sign-on).
 * You can manage your accounts in one central location, the Azure portal.
 
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -187,6 +180,6 @@ After you set up single sign-on, when you select **Kontiki** in the My Apps port
 
 To learn more, review these articles:
 
-- [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [List of tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
+- [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

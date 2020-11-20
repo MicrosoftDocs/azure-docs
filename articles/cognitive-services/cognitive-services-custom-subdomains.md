@@ -13,7 +13,7 @@ ms.author: erhopf
 
 # Custom subdomain names for Cognitive Services
 
-Azure Cognitive Services use custom subdomain names for each resource created through the [Azure portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Unlike regional endpoints, which were common for all customers in a specific Azure region, custom subdomain names are unique to the resource. Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.
+Azure Cognitive Services use custom subdomain names for each resource created through the [Azure portal](https://portal.azure.com), [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), or [Azure CLI](/cli/azure/install-azure-cli). Unlike regional endpoints, which were common for all customers in a specific Azure region, custom subdomain names are unique to the resource. Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.
 
 ## How does this impact existing resources?
 
@@ -61,11 +61,11 @@ Each custom subdomain name is unique, so in order to reuse a custom subdomain na
 Yes. This is a list of regional endpoints that you can use with Azure Cognitive Services resources.
 
 > [!NOTE]
-> The Translator Text API and Bing Search APIs use global endpoints.
+> The Translator service and Bing Search APIs use global endpoints.
 
 | Endpoint type | Region | Endpoint |
 |---------------|--------|----------|
-| Public | Global (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
+| Public | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia East | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brazil South | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Canada Central | `https://canadacentral.api.cognitive.microsoft.com` |
@@ -93,5 +93,5 @@ Yes. This is a list of regional endpoints that you can use with Azure Cognitive 
 
 ## See also
 
-* [What are the Cognitive Services?](Welcome.md)
+* [What are the Cognitive Services?](./what-are-cognitive-services.md)
 * [Authentication](authentication.md)

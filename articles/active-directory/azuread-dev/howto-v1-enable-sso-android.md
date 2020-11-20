@@ -5,17 +5,17 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
+ROBOTS: NOINDEX
 ---
 
 # How to: Enable cross-app SSO on Android using ADAL

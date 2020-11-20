@@ -49,7 +49,7 @@ Error description contains "Failed to connect to Azure Storage Account” or “
 
 ### Cause
 
-Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outbound connections to all IPs to allow accessing these services. The exact resolution steps depend on whether you have set up a Network Security Group (NSG) or User-Defined Rules (UDR). Refer to the section on [controlling network traffic with HDInsight with network security groups and user-defined routes](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) for details on these configurations.
+Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outbound connections to all IPs to allow accessing these services. The exact resolution steps depend on whether you have set up a Network Security Group (NSG) or User-Defined Rules (UDR). Refer to the section on [controlling network traffic with HDInsight with network security groups and user-defined routes](../control-network-traffic.md) for details on these configurations.
 
 ### Resolution
 
@@ -63,6 +63,19 @@ Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outboun
 
     If there are routes defined, make sure that there are routes for IP addresses for the region where the cluster was deployed, and the **NextHopType** for each route is **Internet**. There should be a route defined for each required IP Address documented in the aforementioned article.
 
+## "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed."
+
+### Issue
+
+Error description contains "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed.”
+
+### Cause
+
+When using Private Linked HDInsight clusters, outbound access from the cluster must be configured to allow connections to be made to the HDInsight resource provider.
+
+### Resolution
+
+* To resolve this issue, refer to the HDInsight Private Link setup steps at [private link setup](../hdinsight-private-link.md)
 ---
 
 ## "Virtual network configuration is not compatible with HDInsight requirement"
@@ -140,4 +153,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

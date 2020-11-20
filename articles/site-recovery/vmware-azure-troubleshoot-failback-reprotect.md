@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot failback in VMware VM disaster recovery with Azure Site Recovery 
 description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
+ms.author: sharrai
 
 ---
 
@@ -25,7 +25,7 @@ Failback essentially involves two main steps. For the first step, after failover
 - If you can't reach the configuration server from the process server, use Telnet to check connectivity to the configuration server on port 443. You can also try to ping the configuration server from the process server. A process server should also have a heartbeat when it's connected to the configuration server.
 - A Windows Server 2008 R2 SP1 server that is protected as a physical on-premises server can't be failed back from Azure to an on-premises site.
 - You can't fail back in the following circumstances:
-    - You migrated machines to Azure. [Learn more](migrate-overview.md#what-do-we-mean-by-migration).
+    - You migrated machines to Azure. 
     - You moved a VM to another resource group.
     - You deleted the Azure VM.
     - You disabled protection of the VM.
@@ -60,12 +60,12 @@ This issue can happen if there's already a VM with the same name on the master t
 To resolve this issue:
 
 * Select a different master target server on a different host so that reprotection creates the machine on a different host, where the names don't collide.
-* You also can use vMotion to move the master target to a different host where the name collision won't happen. If the existing VM is a stray machine, rename it so that the new VM can be created on the same ESXi host.
+* You also can use VMotion to move the master target to a different host where the name collision won't happen. If the existing VM is a stray machine, rename it so that the new VM can be created on the same ESXi host.
 
 
 ### Error code 78093
 
-**The VM is not running, in a hung state, or not accessible.**
+**The VM is not running, not responding, or not accessible.**
 
 To resolve this issue:
 
@@ -94,4 +94,4 @@ This issue happens when the on-premises VM is brought up on a host that doesn't 
 To resolve this issue:
 
 * Provision more memory on the ESXi host.
-* In addition, you can use vMotion to move the VM to another ESXi host that has enough memory to boot the VM.
+* In addition, you can use VMotion to move the VM to another ESXi host that has enough memory to boot the VM.

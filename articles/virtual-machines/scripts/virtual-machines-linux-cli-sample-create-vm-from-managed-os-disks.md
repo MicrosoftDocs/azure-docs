@@ -48,10 +48,10 @@ This script uses the following commands to get managed disk properties, attach a
 
 | Command | Notes |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Gets managed disk properties using disk name and resource group name. Id property is used to attach a managed disk to a new VM |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Creates a VM using a managed OS disk |
+| [az disk show](/cli/azure/disk) | Gets managed disk properties using disk name and resource group name. Id property is used to attach a managed disk to a new VM |
+| [az vm create](/cli/azure/vm) | Creates a VM using a managed OS disk |
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

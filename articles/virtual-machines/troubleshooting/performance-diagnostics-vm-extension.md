@@ -19,14 +19,22 @@ ms.author: genli
 ---
 # Azure Performance Diagnostics VM Extension for Windows
 
-Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs. The extension performs analysis, and provides a report of findings and recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](https://aka.ms/perfinsights).
+Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs. The extension performs analysis, and provides a report of findings and recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](./how-to-use-perfinsights.md).
 
 > [!NOTE]
 > If you want to run diagnostics on your VM from the Azure portal for non-classic VMs, it is recommended to use the new experience. For more information, see [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md) 
 
 ## Prerequisites
 
-This extension can be installed on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. It can also be installed on Windows 8.1 and Windows 10.
+This extension can be installed on
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## Extension schema
 The following JSON shows the schema for Azure Performance Diagnostics VM Extension. This extension requires the name and key for a storage account to store the diagnostics output and report. These values are sensitive. Storage account key should be stored inside a protected setting configuration. Azure VM extension protected setting data is encrypted, and it is only decrypted on the target virtual machine. Note that **storageAccountName** and **storageAccountKey** are case-sensitive. Other required parameters are listed in the following section.
@@ -226,11 +234,11 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## Information on the data captured
-The PerfInsights tool collects various logs, configuration, and diagnostic data, depending on the selected scenario. For more information, see the [PerfInsights documentation](https://aka.ms/perfinsights).
+The PerfInsights tool collects various logs, configuration, and diagnostic data, depending on the selected scenario. For more information, see the [PerfInsights documentation](./how-to-use-perfinsights.md).
 
 ## View and share the results
 
-Output from the extension can be found in a zip file that uploaded to the storage account specified during the installation and is shared for 30 days by using [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). This zip file contains diagnostic logs and a report with findings and recommendations. A SAS link to the output zip file can be found inside a text file named *zipfilename*_saslink.txt under the folder **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>**. Anyone who has this link is able to download the zip file.
+Output from the extension can be found in a zip file that uploaded to the storage account specified during the installation and is shared for 30 days by using [Shared Access Signatures (SAS)](../../storage/common/storage-sas-overview.md). This zip file contains diagnostic logs and a report with findings and recommendations. A SAS link to the output zip file can be found inside a text file named *zipfilename*_saslink.txt under the folder **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>**. Anyone who has this link is able to download the zip file.
 
 To assist the support engineer working on your support ticket, Microsoft might use this SAS link to download the diagnostics data.
 
@@ -250,6 +258,6 @@ You should also be able to download the zip file directly from the portal by sel
     This issue can be safely ignored, as long as the extension status indicates that the extension is successfully provisioned.
 - You can address some issues during installation by using the extension logs. Extension execution output is logged to files found in the following directory:
 
-        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
+    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>`
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).

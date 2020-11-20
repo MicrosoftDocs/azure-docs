@@ -1,10 +1,9 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and backup the VM,  with the Azure portal.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
 ---
 
@@ -20,7 +19,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Select a VM to back up
 
-Create a simple scheduled daily backup to a Recovery Services Vault.
+Create a simple scheduled daily backup to a Recovery Services vault.
 
 1. In the menu on the left, select **Virtual machines**.
 2. From the list, choose a VM to back up. If you used the sample VM quickstart commands, the VM is named *myVM* in the *myResourceGroup* resource group.
@@ -35,7 +34,7 @@ A Recovery Services vault is a logical container that stores the backup data for
 
     ![Enable VM backup in the Azure portal](./media/quick-backup-vm-portal/enable-backup.png)
 
-    By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that is hundreds of miles away from the primary region.
+    By default, the vault is set for Geo-Redundant storage. To further protect your data, this storage redundancy level ensures that your backup data is replicated to a secondary Azure region that's hundreds of miles away from the primary region.
 
     You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM.
 
@@ -61,11 +60,11 @@ In the **Backup** window for your VM, the status of the backup and number of com
 
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources
 
-If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
+If you're going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
 
 1. Select the **Backup** option for your VM.
 
-2. Select **...More** to show additional options, then choose **Stop backup**.
+2. Choose **Stop backup**.
 
     ![Stop VM backup from the Azure portal](./media/quick-backup-vm-portal/stop-backup.png)
 
@@ -79,7 +78,7 @@ If you are going to continue on to a Backup tutorial that explains how to restor
 6. From the list, choose your resource group. If you used the sample VM quickstart commands, the resource group is named *myResourceGroup*.
 7. Select **Delete resource group**. To confirm, enter the resource group name, then select **Delete**.
 
-    ![Delete the resource group from the Azure portal](./media/quick-backup-vm-portal/delete-resource-group.png)
+    ![Delete the resource group from the Azure portal](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
 
 ## Next steps
 

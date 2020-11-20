@@ -8,9 +8,11 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
+ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Python app using Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -18,7 +20,7 @@ ms.date: 12/26/2018
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 In this quickstart, you use an Azure Cosmos DB for Mongo DB API account or the Azure Cosmos DB Emulator to run a Python Flask To-Do web app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -121,7 +123,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Deploy to Azure
 
-To deploy this app, you can create a new web app in Azure and enable continuous deployment with a fork of this GitHub repo. Follow this [tutorial](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) to set up continuous deployment with GitHub in Azure.
+To deploy this app, you can create a new web app in Azure and enable continuous deployment with a fork of this GitHub repo. Follow this [tutorial](../app-service/deploy-continuous-deployment.md) to set up continuous deployment with GitHub in Azure.
 
 When deploying to Azure, you should remove your application keys and make sure the section below is not commented out:
 
@@ -131,7 +133,7 @@ When deploying to Azure, you should remove your application keys and make sure t
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the application settings. You can follow this [tutorial](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) to learn more about Application Settings in Azure Web Apps.
+You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the application settings. You can follow this [tutorial](../app-service/configure-common.md#configure-app-settings) to learn more about Application Settings in Azure Web Apps.
 
 If you don't want to create a fork of this repo, you can also select the **Deploy to Azure** button below. You should then go into Azure and set up the application settings with your Azure Cosmos DB account info.
 
@@ -155,4 +157,4 @@ If you don't want to create a fork of this repo, you can also select the **Deplo
 In this quickstart, you learned how to create an Azure Cosmos DB for Mongo DB API account, and use the Azure Cosmos DB Emulator to run a Python Flask To-Do web app cloned from GitHub. You can now import additional data to your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

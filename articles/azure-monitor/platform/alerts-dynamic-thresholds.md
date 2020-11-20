@@ -88,11 +88,12 @@ When an alert rule is first created, the thresholds appearing in the chart are c
 
 ## How much data is needed to trigger an alert?
 
-If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days or 30 samples of metric data are available to ensure accurate thresholds.
+If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days and at least 30 samples of metric data are available, to ensure accurate thresholds.
+For existing resources with sufficient metric data, Dynamic Thresholds can trigger alerts immediately.
 
 ## Dynamic Thresholds best practices
 
-Dynamic Thresholds can be applied to any platform or custom metric in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
+Dynamic Thresholds can be applied to most platform and custom metrics in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
 The following items are best practices on how to configure alerts on some of these metrics using Dynamic Thresholds.
 
 ### Dynamic Thresholds on virtual machine CPU percentage metrics

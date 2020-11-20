@@ -1,18 +1,19 @@
 ---
-title: Evaluate the impact of a new Azure policy
+title: Evaluate the impact of a new Azure Policy definition
 description: Understand the process to follow when introducing a new policy definition into your Azure environment.
-ms.date: 09/23/2019
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
-# Evaluate the impact of a new Azure policy
+# Evaluate the impact of a new Azure Policy definition
 
 Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet
 compliance needs. When people, processes, or pipelines create or update resources, Azure Policy
-reviews the request. When the policy definition effect is [Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists),
-Policy alters the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit)
-or [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be
-created. And when the policy definition effect is [Deny](./effects.md#deny), Policy stops the
-creation or alteration of the request.
+reviews the request. When the policy definition effect is [Modify](./effects.md#modify),
+[Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters
+the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or
+[AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created
+for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny),
+Policy stops the creation or alteration of the request.
 
 These outcomes are exactly as desired when you know the policy is defined correctly. However, it's
 important to validate a new policy works as intended before allowing it to change or block work. The
@@ -45,9 +46,10 @@ and the properties you need to evaluate for compliance as possible.
 ## Audit existing resources
 
 Before looking to manage new or updated resources with your new policy definition, it's best to see
-how it evaluates a limited subset of existing resources, such as a test resource group. Use the [enforcement mode](./assignment-structure.md#enforcement-mode)
-_Disabled_ (DoNotEnforce) on your policy assignment to prevent the [effect](./effects.md) from
-triggering or activity log entries from being created.
+how it evaluates a limited subset of existing resources, such as a test resource group. Use the
+[enforcement mode](./assignment-structure.md#enforcement-mode) _Disabled_ (DoNotEnforce) on your
+policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from
+being created.
 
 This step gives you a chance to evaluate the compliance results of the new policy on existing
 resources without impacting work flow. Check that no compliant resources are marked as non-compliant
@@ -102,12 +104,14 @@ security and compliance organizations to ensure there are no gaps in coverage.
 
 ## Monitor your policy and compliance
 
-Implementing and assigning your policy definition isn't the final step. Continuously monitor the [compliance](../how-to/get-compliance-data.md)
-level of resources to your new policy definition and setup appropriate [Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md)
-for when non-compliant devices are identified. It's also recommended to evaluate the policy
-definition and related assignments on a scheduled basis to validate the policy definition is meeting
-business policy and compliance needs. Policies should be removed if no longer needed. Policies also
-need updating from time to time as the underlying Azure resources evolve and add new properties and
+Implementing and assigning your policy definition isn't the final step. Continuously monitor the
+[compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and
+setup appropriate
+[Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md) for
+when non-compliant devices are identified. It's also recommended to evaluate the policy definition
+and related assignments on a scheduled basis to validate the policy definition is meeting business
+policy and compliance needs. Policies should be removed if no longer needed. Policies also need
+updating from time to time as the underlying Azure resources evolve and add new properties and
 capabilities.
 
 ## Next steps

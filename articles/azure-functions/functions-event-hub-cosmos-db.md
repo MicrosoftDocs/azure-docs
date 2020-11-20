@@ -5,6 +5,8 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
+ms.custom: devx-track-java, devx-track-azurecli
+
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
 ---
 
@@ -25,7 +27,7 @@ In this tutorial, you'll:
 
 To complete this tutorial, you must have the following installed:
 
-* [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+* [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
 * [Apache Maven](https://maven.apache.org), version 3.0 or above
 * [Azure CLI](/cli/azure/install-azure-cli) if you prefer not to use Cloud Shell
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
@@ -441,9 +443,9 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates a Cosmos DB. For more information, see the [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java). For information on the annotations used, see the [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation) reference.
+In this tutorial, you learned how to create an Azure Function that handles Event Hub events and updates a Cosmos DB. For more information, see the [Azure Functions Java developer guide](./functions-reference-java.md). For information on the annotations used, see the [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation) reference.
 
-This tutorial used environment variables and application settings to store secrets such as connection strings. For information on storing these secrets in Azure Key Vault, see [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references).
+This tutorial used environment variables and application settings to store secrets such as connection strings. For information on storing these secrets in Azure Key Vault, see [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md).
 
 Next, learn how to use Azure Pipelines CI/CD for automated deployment:
 

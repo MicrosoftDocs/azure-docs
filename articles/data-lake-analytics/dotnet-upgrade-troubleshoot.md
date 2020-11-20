@@ -1,13 +1,9 @@
 ---
-title: How to troubleshoot the Azure Data Lake Analytics U-SQL job failures because of .NET 4.7.2 upgrade
-description: 'Troubleshoot U-SQL job failures because of the upgrade to .NET 4.7.2.'
-services: data-lake-analytics
-author: guyhay
-ms.author: guyhay
-ms.reviewer: jasonwhowell
+title: How to troubleshoot the Azure Data Lake Analytics U-SQL job failures because of .NET Framework 4.7.2 upgrade
+description: 'Troubleshoot U-SQL job failures because of the upgrade to .NET Framework 4.7.2.'
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
-ms.workload: big-data
 ms.date: 10/11/2019
 ---
 
@@ -17,12 +13,12 @@ The Azure Data Lake Analytics default runtime is upgrading from .NET Framework v
 
 This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL runtime (the default runtime) will now always be 4.7.2. There isn't a side-by-side option for .NET Framework versions.
 
-After this upgrade to .NET 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly has been generated for.
+After this upgrade to .NET Framework 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly has been generated for.
 
 - If your assembly DLLs are generated for version 4.5.2, the deployed framework will treat them as 4.5.2 libraries, providing (with a few exceptions) 4.5.2 semantics.
 - You can now use U-SQL custom assemblies that make use of version 4.7.2 features, if you target the .NET Framework 4.7.2.
 
-Because of this upgrade to .NET 4.7.2, there's a potential to introduce breaking changes to your U-SQL jobs that use .NET custom assemblies. We suggest you check for backwards-compatibility issues using the procedure below.
+Because of this upgrade to .NET Framework 4.7.2, there's a potential to introduce breaking changes to your U-SQL jobs that use .NET custom assemblies. We suggest you check for backwards-compatibility issues using the procedure below.
 
 ## How to check for backwards-compatibility issues
 

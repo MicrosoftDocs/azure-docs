@@ -3,7 +3,7 @@ title: Tutorial - Trigger image build on base image update
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated in the same registry.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: "seodec18, mvc"
+ms.custom: "seodec18, mvc, devx-track-js, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want container
 # images to be built automatically when the base image of a container is
 # updated in the registry.
@@ -97,7 +97,7 @@ az acr task create \
 
 This task is similar to the task created in the [previous tutorial](container-registry-tutorial-build-task.md). It instructs ACR Tasks to trigger an image build when commits are pushed to the repository specified by `--context`. While the Dockerfile used to build the image in the previous tutorial specifies a public base image (`FROM node:9-alpine`), the Dockerfile in this task, [Dockerfile-app][dockerfile-app], specifies a base image in the same registry:
 
-```Dockerfile
+```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
@@ -131,7 +131,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
-![Screenshot of sample application rendered in browser][base-update-01]
+![Screenshot shows a sample application rendered in browser.][base-update-01]
 
 To stop and remove the container, run the following command:
 
@@ -149,9 +149,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 If you completed the previous tutorial (and didn't delete the registry), you should see output similar to the following. Take note of the number of task runs, and the latest RUN ID, so you can compare the output after you update the base image in the next section.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da6       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T23:07:22Z  00:00:38
@@ -166,7 +164,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 Here you simulate a framework patch in the base image. Edit **Dockerfile-base**, and add an "a" after the version number defined in `NODE_VERSION`:
 
-```Dockerfile
+```dockerfile
 ENV NODE_VERSION 9.11.2a
 ```
 
@@ -188,9 +186,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Output is similar to the following. The TRIGGER for the last-executed build should be "Image Update", indicating that the task was kicked off by your quick task of the base image.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
 da8       taskhelloworld  Linux       Succeeded  Image Update  2018-09-17T23:11:50Z  00:00:33
@@ -233,10 +229,7 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 > [Run a task on a schedule](container-registry-tasks-scheduled.md)
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
 [base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [code-sample]: https://github.com/Azure-Samples/acr-build-helloworld-node
 [dockerfile-app]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-app
 [dockerfile-base]: https://github.com/Azure-Samples/acr-build-helloworld-node/blob/master/Dockerfile-base

@@ -2,10 +2,11 @@
 title: Refresh with Logic Apps for Azure Analysis Services models | Microsoft Docs
 description: This article describes how to code asynchronous refresh for Azure Analysis Services by using Azure Logic Apps.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
+ms.custom: references_regions 
 
 ---
 # Refresh with Logic Apps
@@ -18,10 +19,10 @@ To learn more about using REST APIs with Azure Analysis Services, see [Asynchron
 
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The examples in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## Design the Logic App
+## Design the logic app
 
 > [!IMPORTANT]
-> The following examples assume that the Azure Analysis Services firewall is disabled.  If the firewall is enabled, then the public IP address of the request initiator must be whitelisted in the Azure Analysis Services firewall. To learn more about Logic App IP ranges per region, see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> The following examples assume that the Azure Analysis Services firewall is disabled. If the firewall is enabled, the public IP address of the request initiator must be added to the approved list in the Azure Analysis Services firewall. To learn more about Azure Logic Apps IP ranges per region, see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### Prerequisites
 
@@ -47,9 +48,9 @@ This step will populate with the HTTP POST URL once the Logic App is saved.
 
 2. Add a new step and search for **HTTP**.  
 
-   ![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Screenshot of the "Choose an action" section with the "HTTP" tile selected.](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Add HTTP activity](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Screenshot of the "HTTP" window with the "HTTP - HTTP" tile selected.](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Select **HTTP** to add this action.
 
@@ -92,15 +93,15 @@ If you don't plan on using an Orchestration tool such as Data Factory to trigger
 
 Using the example above, delete the first activity and replace it with a **Schedule** activity.
 
-![Schedule Activity](./media/analysis-services-async-refresh-logic-app/12.png)
+![Screenshot that shows the "Logic Apps" page with the "Schedule" tile selected.](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Schedule Activity](./media/analysis-services-async-refresh-logic-app/13.png)
+![Screenshot that shows the "Triggers" page.](./media/analysis-services-async-refresh-logic-app/13.png)
 
 This example will use **Recurrence**.
 
 Once the activity has been added, configure the Interval and Frequency, then add a new parameter and choose **At these hours**.
 
-![Schedule Activity](./media/analysis-services-async-refresh-logic-app/16.png)
+![Screenshot that shows the "Recurrence" section with the "At these hours" parameter selected.](./media/analysis-services-async-refresh-logic-app/16.png)
 
 Select the wanted hours.
 
@@ -111,4 +112,4 @@ Save the Logic App.
 ## Next steps
 
 [Samples](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

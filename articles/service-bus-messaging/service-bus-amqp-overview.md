@@ -1,24 +1,12 @@
 ---
 title: Overview of AMQP 1.0 in Azure Service Bus
 description: Learn how Azure Service Bus supports Advanced Message Queuing Protocol (AMQP), an open standard protocol.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # AMQP 1.0 support in Service Bus
-Both the Azure Service Bus cloud service and on-premises [Service Bus for Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and that run on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
+Both the Azure Service Bus cloud service and on-premises [Service Bus for Windows Server (Service Bus 1.1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and that run on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
 
 ## Introduction: What is AMQP 1.0 and why is it important?
 Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers. This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker. This results in a degree of dependence on that vendor, since porting an application to a different product requires code changes in all the connected applications. 
@@ -61,7 +49,7 @@ AMQP 1.0 support in Azure Service Bus means that you can now leverage the Servic
 
 The following figure illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API and .NET clients running on Windows, exchange messages via Service Bus using AMQP 1.0.
 
-![][0]
+![Diagram showing one Service Bus exchanging messages with two Linux environments and two Windows environments.][0]
 
 **Figure 1: Example deployment scenario showing cross-platform messaging using Service Bus and AMQP 1.0**
 
@@ -91,6 +79,6 @@ Ready to learn more? Visit the following links:
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Using Service Bus from .NET with AMQP]: service-bus-amqp-dotnet.md
-[Using Service Bus from Java with AMQP]: service-bus-amqp-java.md
-[Installing Apache Qpid Proton-C on an Azure Linux VM]: service-bus-amqp-apache.md
-[AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Using Service Bus from Java with AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
+[Installing Apache Qpid Proton-C on an Azure Linux VM]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

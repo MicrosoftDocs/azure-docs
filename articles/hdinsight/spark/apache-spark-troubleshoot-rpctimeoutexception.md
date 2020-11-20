@@ -31,7 +31,7 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 ## Cause
 
-These errors are caused by a lack of memory resources during data processing. If the Java garbage collection process starts, it could lead to the Spark application hanging. Queries will begin to time out and stop processing. The `Futures timed out` error indicates a cluster under severe stress.
+These errors are caused by a lack of memory resources during data processing. If the Java garbage collection process starts, it could lead to the Spark application to stop responding. Queries will begin to time out and stop processing. The `Futures timed out` error indicates a cluster under severe stress.
 
 ## Resolution
 
@@ -41,10 +41,4 @@ The `spark.network.timeout` controls the timeout for all network connections. In
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

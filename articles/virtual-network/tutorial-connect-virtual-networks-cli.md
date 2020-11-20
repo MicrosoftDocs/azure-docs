@@ -11,12 +11,12 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom:
+ms.custom: devx-track-azurecli
 ---
 
 # Connect virtual networks with virtual network peering using the Azure CLI
@@ -28,11 +28,11 @@ You can connect virtual networks to each other with virtual network peering. Onc
 * Deploy a virtual machine (VM) into each virtual network
 * Communicate between VMs
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create virtual networks
 
@@ -140,7 +140,7 @@ az vm create \
 
 Create a VM in the *myVirtualNetwork2* virtual network.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm2 \
@@ -152,7 +152,7 @@ az vm create \
 
 The VM takes a few minutes to create. After the VM is created, the Azure CLI shows information similar to the following example: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",
@@ -171,13 +171,13 @@ Take note of the **publicIpAddress**. This address is used to access the VM from
 
 Use the following command to create an SSH session with the *myVm2* VM. Replace `<publicIpAddress>` with the public IP address of your VM. In the previous example, the public IP address is *13.90.242.231*.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
 Ping the VM in *myVirtualNetwork1*.
 
-```bash 
+```bash
 ping 10.0.0.4 -c 4
 ```
 
@@ -189,7 +189,7 @@ Close the SSH session to the *myVm2* VM.
 
 When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 
