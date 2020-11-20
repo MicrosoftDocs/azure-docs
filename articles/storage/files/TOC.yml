@@ -65,8 +65,16 @@
       href: storage-sync-files-planning.md
     - name: Networking considerations for hybrid access
       href: storage-sync-files-networking-overview.md
-    - name: About cloud tiering
-      href: storage-sync-cloud-tiering.md
+    - name: Cloud tiering
+      items:
+      - name: Cloud tiering overview
+        href: storage-sync-cloud-tiering-overview.md
+      - name: Choosing your cloud tiering policies
+        href: storage-sync-choosing-cloud-tiering-policy.md
+      - name: Monitoring cloud tiering
+        href: storage-sync-monitoring-cloud-tiering.md
+      - name: Cloud tiering - I have more questions (FAQ)
+        href: storage-sync-cloud-tiering-faq.md
   - name: Performance and scale
     items:
     - name: SMB Multichannel performance

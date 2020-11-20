@@ -19,7 +19,7 @@ There are two main ways you can monitor your cloud tiering policy: through the s
 1. Select the server endpoint name who's cloud tiering policy you want to monitor
 1. Scroll down to the cloud tiering section.
 
-![A screenshot of the cloud tiering section in server endpoint properties](media/storage-sync-cloud-tiering-overview/cloud-tiering-monitoring-5.png)
+![A screenshot of the cloud tiering section in server endpoint properties](media/storage-sync-monitoring-cloud-tiering/cloud-tiering-monitoring-5.png)
 
 **Space savings** tells you how much space you're saving by enabling cloud tiering. For example, if your local volume size is large enough to hold all of your data, you would have 0% space savings. If you have 0% or a low percent of space savings, it might be an indicator that cloud tiering isn't beneficial for you with your current local cache size. 
 
