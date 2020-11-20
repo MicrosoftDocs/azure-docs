@@ -100,7 +100,7 @@ When calling the Translator service via REST, you'll need to make sure the follo
   <th>Description</th>
   <tr>
     <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
+    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -118,7 +118,7 @@ When calling the Translator service via REST, you'll need to make sure the follo
 
 ## Keys and endpoints
 
-The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
+The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
 
 ## Translate text 
 
@@ -681,7 +681,7 @@ After a successful call, you should see the following response:
 
 ### Detect source language without translation
 
-It's possible to use the Translator service to detect the language of source text without performing a translation. To do this, you'll use the [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) endpoint. 
+It's possible to use the Translator service to detect the language of source text without performing a translation. To do this, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
 
 # [C#](#tab/csharp)
 

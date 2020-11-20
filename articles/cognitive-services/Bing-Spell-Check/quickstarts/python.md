@@ -149,4 +149,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

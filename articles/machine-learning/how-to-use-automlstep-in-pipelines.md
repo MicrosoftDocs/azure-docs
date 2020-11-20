@@ -10,7 +10,7 @@ author: lobrien
 manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, automl
 
 ---
 

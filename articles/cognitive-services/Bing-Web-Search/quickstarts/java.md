@@ -27,7 +27,7 @@ In this quickstart, you'll use a Java application to make your first call to the
 
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](https://aka.ms/azure-jdks)
+* [JDK 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Gson library](https://github.com/google/gson)
 * A subscription key
 
@@ -329,4 +329,4 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 > [!div class="nextstepaction"]
 > [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

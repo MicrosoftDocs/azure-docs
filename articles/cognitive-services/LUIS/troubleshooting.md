@@ -86,7 +86,7 @@ You get 403 and 429 error status codes when you exceed the transactions per seco
 
 When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code.
 
-To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-the-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 Solutions for this error include:
 
@@ -101,7 +101,7 @@ This status code is returned when your transactions per second exceeds your pric
 
 Solutions include:
 
-* You can [increase your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier), if you are not at the highest tier.
+* You can [increase your pricing tier](luis-how-to-azure-subscription.md#change-the-pricing-tier), if you are not at the highest tier.
 * If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
 * You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code.
 
@@ -263,7 +263,7 @@ The first issue is to isolate if the issue is related to LUIS or happens outside
 #### Resolve issue in LUIS
 Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### Resolve issue in Azure Bot Service
 

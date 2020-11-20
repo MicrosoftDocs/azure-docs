@@ -18,7 +18,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 
 # Quickstart: Sign in users and get an access token in a Node web app using the auth code flow
 
-In this quickstart, you run a code sample that demonstrates how a Node.js web app can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users using the authorization code flow. The code sample also demonstrates how to obtain an access token to call Microsoft Graph API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow.
 
@@ -138,4 +140,4 @@ npm install @azure/msal-node
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Adding Auth to an existing web app - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code/readme.md)
+> [Adding Auth to an existing web app - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)

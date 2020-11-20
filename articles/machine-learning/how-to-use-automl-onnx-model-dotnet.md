@@ -9,7 +9,7 @@ ms.topic: conceptual
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: how-to
+ms.custom: how-to, automl
 ---
 
 # Make predictions with an AutoML ONNX model in .NET

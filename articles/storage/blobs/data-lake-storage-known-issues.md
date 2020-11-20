@@ -48,7 +48,9 @@ These Blob REST APIs aren't supported:
 * [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
@@ -56,7 +58,7 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## Support for setting access control lists (ACLs) recursively
 
-The ability to apply ACL changes recursively from parent directory to child items is in [public preview](recursive-access-control-lists.md). In the current release of this capability, you can apply ACL changes by using PowerShell, the .NET SDK, and Python SDK. Support is not yet available for the Java SDK, Azure CLI, the Azure portal, or Azure Storage Explorer.
+The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal, or Azure Storage Explorer.
 
 <a id="known-issues-tools"></a>
 

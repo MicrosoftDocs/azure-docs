@@ -30,11 +30,11 @@ We recommend using Azure Storage integration with Azure Active Directory (Azure 
 
 Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application.
 
-Azure AD uses role-based access control (RBAC) to manage authorization, which is also supported by Key Vault.
+Azure AD uses Azure role-based access control (Azure RBAC) to manage authorization, which is also supported by Key Vault.
 
 ## Service principal application ID
 
-An Azure AD tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via RBAC.
+An Azure AD tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure RBAC.
 
 Key Vault is a Microsoft application that's pre-registered in all Azure AD tenants. Key Vault is registered under the same Application ID in each Azure cloud.
 
@@ -133,29 +133,13 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### Verify the shared access signature definition
 
-You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) and [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) commands.
+You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) command.
 
-First, find the shared access signature definition in your key vault using the [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) command.
-
-```azurecli-interactive
-az keyvault secret list --vault-name <YourKeyVaultName>
-```
-
-The secret corresponding to your SAS definition will have these properties:
-
-```console
-    "contentType": "application/vnd.ms-sastoken-storage",
-    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
-```
-
-You can now use the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command and the `id` property to view the content of that secret.
+You can now use the [az keyvault storage sas-definition show](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) command and the `id` property to view the content of that secret.
 
 ```azurecli-interactive
-az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
 ```
-
-The output of this command will show your SAS definition string as`value`.
-
 
 ## Next steps
 

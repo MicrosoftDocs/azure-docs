@@ -19,7 +19,7 @@ ms.custom: seodec18, devx-track-js
 > [!NOTE]
 > If you're extracting English language text, consider using the new [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text).
 
-In this quickstart, you'll extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+In this quickstart, you'll extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ## Prerequisites
 
@@ -213,4 +213,4 @@ When no longer needed, delete the file, and then uninstall the npm `request` pac
 Next, explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
 
 > [!div class="nextstepaction"]
-> [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore the Computer Vision API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)

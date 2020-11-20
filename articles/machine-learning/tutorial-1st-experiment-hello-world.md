@@ -134,6 +134,14 @@ Here's a description of how the control script works:
 
 Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
+The very first run will take 5-10 minutes to complete. This is because the following occurs:
+
+* A docker image is built in the cloud
+* The compute cluster is resized from 0 to 1 node
+* The docker image is downloaded to the compute. 
+
+Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute - you can test this by resubmitting the code below after the first run has completed.
+
 ```bash
 python 03-run-hello.py
 ```

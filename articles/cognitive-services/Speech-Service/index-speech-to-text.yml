@@ -22,6 +22,8 @@ landingContent:
         url: speech-to-text.md
       - text: What is batch speech-to-text?
         url: batch-transcription.md
+      - text: What is Custom Speech?
+        url: custom-speech-overview.md
       - text: Use the Speech CLI for speech-to-text with no code
         url: spx-overview.md
     - linkListType: quickstart

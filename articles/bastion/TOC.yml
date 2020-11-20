@@ -19,6 +19,8 @@
     href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
   - name: Leverage Bastion for remote working
     href: work-remotely-support.md
+  - name: Bastion and VNet peering
+    href: vnet-peering.md
 - name: How-to guides
   items:
   - name: Create a host

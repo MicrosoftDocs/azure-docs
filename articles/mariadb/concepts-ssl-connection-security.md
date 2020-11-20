@@ -1,8 +1,8 @@
 ---
 title: SSL/TLS connectivity - Azure Database for MariaDB
 description: Information for configuring Azure Database for MariaDB and associated applications to properly use SSL connections
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020

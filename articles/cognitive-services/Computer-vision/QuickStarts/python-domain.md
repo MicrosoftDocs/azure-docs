@@ -15,7 +15,7 @@ ms.custom: seodec18, devx-track-python
 ---
 # Quickstart: Use a domain model using the REST API and Python in Computer Vision
 
-In this quickstart, you'll use a domain model to identify landmarks or, optionally, celebrities in a remotely stored image using the Computer Vision REST API. With the [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) method, you can apply a domain-specific model to recognize content within an image.
+In this quickstart, you'll use a domain model to identify landmarks or, optionally, celebrities in a remotely stored image using the Computer Vision REST API. With the [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f311) method, you can apply a domain-specific model to recognize content within an image.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -207,4 +207,4 @@ Next, explore a Python application that uses Computer Vision to perform optical 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
 
-* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

@@ -1,7 +1,7 @@
 ---
 title: "Poisson Regression: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Poisson Regression module to create a Poisson regression model.
+description: Learn how to use the Poisson Regression module in Azure Machine Learning designer to create a Poisson regression model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

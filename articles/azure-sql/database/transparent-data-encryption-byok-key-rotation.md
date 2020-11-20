@@ -22,7 +22,7 @@ This article describes key rotation for a [server](logical-servers.md) using a T
 This guide discusses two options to rotate the TDE protector on the server.
 
 > [!NOTE]
-> A paused Azure Synapse Analytics SQL pool must be resumed before key rotations.
+> A paused dedicated SQL pool in Azure Synapse Analytics must be resumed before key rotations.
 
 > [!IMPORTANT]
 > Do not delete previous versions of the key after a rollover. When keys are rolled over, some data is still encrypted with the previous keys, such as older database backups.

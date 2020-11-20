@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2020
+ms.date: 11/03/2020
 ms.author: jeedes
 ---
 
@@ -22,6 +22,9 @@ In this tutorial, you'll learn how to integrate Amazon Web Services (AWS) with A
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+
+> [!Note]
+> Azure AD does not support single sign-on integration with AWS SSO, it is a different product from AWS. Although AWS mention about it [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html), Azure AD recommends customers to use AWS IAM integration instead so that you can achieve better security controls using Conditional Access policies on individual accounts and also do better governance of these applications.
 
 ![Diagram of Azure AD and AWS relationship](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
@@ -56,7 +59,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Amazon Web Services (AWS) supports **SP and IDP** initiated SSO
-* Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protect exfiltration and infiltration of your organization's sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -359,38 +361,40 @@ The objective of this section is to create a user called B.Simon in Amazon Web S
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Amazon Web Services (AWS) tile in the Access Panel, you should be automatically signed in to the Amazon Web Services (AWS) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
+
+* Click on **Test this application** in Azure portal. This will redirect to Amazon Web Services (AWS) Sign on URL where you can initiate the login flow.  
+
+* Go to Amazon Web Services (AWS) Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Amazon Web Services (AWS) for which you set up the SSO 
+
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Amazon Web Services (AWS) tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Amazon Web Services (AWS) for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 ## Known issues
 
  * In the **Provisioning** section, the **Mappings** subsection shows a "Loading..." message, and never displays the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during a user or group assignment. The attribute mappings for this are predetermined, and aren't configurable.
 
- * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the `appRoles` property of the Azure AD [`servicePrincipal` object](/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant.
+ * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the `appRoles` property of the Azure AD [`servicePrincipal` object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant.
 
    Multiple AWS tenants (represented by `servicePrincipals`) can be added to Azure AD from the gallery for provisioning. There's a known issue, however, with not being able to automatically write all of the imported roles from the multiple AWS `servicePrincipals` used for provisioning into the single `servicePrincipal` used for SSO.
 
-   As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/serviceprincipal?view=graph-rest-beta) to extract all of the `appRoles` imported into each AWS `servicePrincipal` where provisioning is configured. You can subsequently add these role strings to the AWS `servicePrincipal` where SSO is configured.
+   As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) to extract all of the `appRoles` imported into each AWS `servicePrincipal` where provisioning is configured. You can subsequently add these role strings to the AWS `servicePrincipal` where SSO is configured.
 
 * Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
 
   * Roles must have exactly one saml-provider defined in AWS
-  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 119 characters
+  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 120 characters
 
-## Additional resources
+## Next steps
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+Once you configure Amazon Web Services (AWS) you can enforce Session Control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Amazon Web Services (AWS) with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Amazon Web Services (AWS) with advanced visibility and controls](/cloud-app-security/protect-aws)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

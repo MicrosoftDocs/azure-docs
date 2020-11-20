@@ -77,7 +77,7 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
   - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
-  - On-premises via [ExpressRoute][expressroute-indexmd-744v]
+  - On-premises via [ExpressRoute](../../expressroute/index.yml)
 
 ### Considerations when using Service Endpoints
 

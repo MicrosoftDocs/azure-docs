@@ -3,10 +3,10 @@ title: Commercial marketplace partner and customer usage attribution
 description: Get an overview of tracking customer usage for Azure Marketplace solutions.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
 ---
 
@@ -38,12 +38,12 @@ Customer usage attribution supports three deployment options:
 A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator, for example via PowerShell.
 
 ```powershell
-[guid]::NewGuid()]
+[guid]::NewGuid()
 ```
 
 We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
-If you deploy a product by using a template and it is available on both Azure Marketplace and on GitHub, you can create and register two distinct GUIDS:
+If you deploy a product by using a template and it is available on both Azure Marketplace and on GitHub, you can create and register two distinct GUIDs:
 
 - Product A in Azure Marketplace
 - Product A on GitHub
@@ -69,9 +69,9 @@ After you add a GUID to your template or in the user agent, and register the GUI
    * Partners can register multiple GUIDs.
    * Partners can register GUIDs for non-marketplace solution templates and offers.
 
-1. In the upper-right corner, select the settings gear icon, and then select **Developer settings**.
+1. Select **Settings** (gear icon) in the top-right corner > **Account settings**.
 
-1. On the **Account settings page**, select **Add Tracking GUID.**
+1. On **Organization profile** > **Identifiers**, select **Add Tracking GUID**.
 
 1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the `pid-` prefix. In the **Description** box, enter your offer name or description.
 
@@ -154,7 +154,7 @@ For Python, use the **config** attribute. You can only add the attribute to a Us
 
 #### Example: The .NET SDK
 
-For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) library can be used to set the user agent with the following code (example in C#):
+For .NET, make sure to set the user agent. The [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent) library can be used to set the user agent with the following code (example in C#):
 
 ```csharp
 
@@ -178,9 +178,10 @@ If you deploy resources via Azure PowerShell, append your GUID by using the foll
 
 When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT** environment variable. You can set this variable within the scope of a script. You can also set the variable globally for shell scope:
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 For more information, see [Azure SDK for Go](/azure/developer/go/).
 
 ## Use Terraform
@@ -201,7 +202,6 @@ Partners who want to get their deployment via Terraform tracked by customer usag
 
 * Create a GUID (the GUID should be added for each Offer or SKU)
 * Update their Azure Provider to set the value of *partner_id* to the GUID (DO NOT pre-fix the GUID with "pid-", just set it to the actual GUID)
-
 
 ## Verify the GUID deployment
 
@@ -258,11 +258,11 @@ Partners should inform their customers about deployments that use customer usage
 
 ### Notification for Resource Manager template deployments
 
-When you deploy this template, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at https://www.microsoft.com/trustcenter.
+When you deploy this template, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
 
 ### Notification for SDK or API deployments
 
-When you deploy \<PARTNER> software, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at https://www.microsoft.com/trustcenter.
+When you deploy \<PARTNER> software, Microsoft is able to identify the installation of \<PARTNER> software with the Azure resources that are deployed. Microsoft is able to correlate the Azure resources that are used to support the software. Microsoft collects this information to provide the best experiences with their products and to operate their business. The data is collected and governed by Microsoft's privacy policies, which can be found at [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter).
 
 ## Get support
 
@@ -277,6 +277,7 @@ Learn about the support options in the commercial marketplace at [Support for th
     * Complete/review the contact information.
     * The consultation details may be pre-populated or select from the drop-downs.
     * Enter a title and the description of the problem (provide as much detail as possible).
+
 1. Click Submit
 
 View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
@@ -306,10 +307,6 @@ Customers can track their usage of individual resources or customer-defined reso
 **Is this methodology similar to the Digital Partner of Record (DPOR)?**
 
 This new method of connecting the deployment and usage to a partner's solution provides a mechanism to link a partner solution to Azure usage. DPOR is intended to associate a consulting (Systems Integrator) or management (Managed Service Provider) partner with a customer's Azure subscription.
-
-**What's the benefit to using Azure Storage's GUID Generator form?**
-
-Azure Storage's GUID Generator form is guaranteed to generate a GUID of the required format. Additionally, if you are using any of Azure Storage's data plane tracking methods, you can leverage the same GUID for Marketplace control plane tracking. This allows you to leverage a singled unified GUID for Partner attribution without having to maintain separate GUIDS.
 
 **Can I use a private, custom VHD for a solution template offer in the Azure Marketplace?**
 

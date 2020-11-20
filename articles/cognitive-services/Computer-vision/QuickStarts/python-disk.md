@@ -15,7 +15,7 @@ ms.custom: seodec18, devx-track-python
 ---
 # Quickstart: Analyze a local image using the Computer Vision REST API and Python
 
-In this quickstart, you'll analyze a locally stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+In this quickstart, you'll analyze a locally stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) method, you can extract visual features based on image content.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -176,4 +176,4 @@ Next, explore a Python application that uses Computer Vision to perform optical 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
 
-* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

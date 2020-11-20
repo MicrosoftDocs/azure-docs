@@ -61,7 +61,7 @@ You can use the Azure Storage client libraries in any type of .NET application, 
 You need to reference the following four packages in your project to complete this tutorial:
 
 - [Azure Core library for .NET](https://www.nuget.org/packages/Azure.Core/): This package provides shared primitives, abstractions, and helpers for modern .NET Azure SDK client libraries.
-- [Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Azure.Storage.Common/): This package  provides infrastructure shared by the other Azure Storage client libraries.
+- [Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Azure.Storage.Common/): This package provides infrastructure shared by the other Azure Storage client libraries.
 - [Azure Storage Queue Library for .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): This package enables working with the Azure Storage Queue service for storing messages that may be accessed by a client.
 - [Configuration Manager library for .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): This package provides access to configuration files for client applications.
 
@@ -394,8 +394,7 @@ The following code example uses the [ReceiveMessages](/dotnet/api/azure.storage.
 
 # [\.NET v11](#tab/dotnetv11)
 
-The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since
-the call to `GetMessages`, any messages which have not been deleted will become visible again.
+The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since the call to `GetMessages`, any messages which have not been deleted will become visible again.
 
 ```csharp
 // Retrieve storage account from connection string.

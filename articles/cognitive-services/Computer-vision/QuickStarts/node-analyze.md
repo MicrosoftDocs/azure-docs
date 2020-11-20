@@ -15,7 +15,7 @@ ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019, d
 ---
 # Quickstart: Analyze a remote image using the Computer Vision REST API with Node.js
 
-In this quickstart, you'll analyze a remotely stored image to extract visual features using the Computer Vision REST API with Node.js. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+In this quickstart, you'll analyze a remotely stored image to extract visual features using the Computer Vision REST API with Node.js. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) method, you can extract visual features based on image content.
 
 ## Prerequisites
 
@@ -178,4 +178,4 @@ When no longer needed, delete the file, and then uninstall the npm `request` pac
 Next, explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
 
 > [!div class="nextstepaction"]
-> [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore the Computer Vision API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)

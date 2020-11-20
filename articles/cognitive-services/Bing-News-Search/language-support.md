@@ -163,4 +163,4 @@ The following are the country/region codes that you may specify in the `cc` quer
 |United States|US|
 
 ## Next steps
-For more information about the Bing News Search endpoints, see [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+For more information about the Bing News Search endpoints, see [News Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

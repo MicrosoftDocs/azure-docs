@@ -1,7 +1,7 @@
 ---
 title: Create a data labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include ml assisted labeling, or human in the loop labeling to aid with the task.
+description: Learn how to create and run labeling projects to tag data for machine learning.  Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning

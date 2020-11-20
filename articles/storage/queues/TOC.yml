@@ -128,11 +128,11 @@
       - name: Authorization options for users
         items:
         - name: Portal
-          href: authorize-queue-access-portal.md
+          href: authorize-data-operations-portal.md
         - name: PowerShell
-          href: authorize-active-directory-powershell.md
+          href: authorize-data-operations-powershell.md
         - name: Azure CLI
-          href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
         items:
         - name: Portal

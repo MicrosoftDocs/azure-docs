@@ -5,7 +5,6 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
-author: jluk
 ---
 
 # Reduce latency with proximity placement groups

@@ -1,7 +1,7 @@
 ---
 title: Train scikit-learn machine learning models 
 titleSuffix: Azure Machine Learning
-description: Learn how to run your scikit-learn training scripts on Azure Machine Learning.
+description: Learn how Azure Machine Learning enables you to scale out a scikit-learn training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -68,6 +68,8 @@ Optionally, Azure ML provides prebuilt, curated environments if you don't want t
 If you want to use a curated environment, you can run the following command instead:
 
 ```python
+from azureml.core import Environment
+
 sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
 ```
 

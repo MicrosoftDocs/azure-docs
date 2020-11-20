@@ -452,6 +452,8 @@ Security Center's supported kill chain intents are based on the [MITRE ATT&CK&tr
 | **Impact**              | Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process. This would often refer to techniques such as ransomware, defacement, data manipulation, and others.                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> For alerts that are in preview: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## Next steps
 To learn more about alerts, see the following:

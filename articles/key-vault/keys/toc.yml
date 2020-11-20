@@ -36,6 +36,11 @@
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
 
+- name: Concepts 
+  items:
+  - name: Key types, algorithms, and operations
+    href: about-keys-details.md
+
 - name: Reference
   items:
   - name: Azure PowerShell

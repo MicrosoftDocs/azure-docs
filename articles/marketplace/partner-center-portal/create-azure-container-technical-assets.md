@@ -33,8 +33,8 @@ In addition to your solution domain, your engineering team should have knowledge
 
 Choose one or both of the following scripting environments to help manage your Container image:
 
-- [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
-- [Azure CLI](/cli/azure/?view=azure-cli-latest).
+- [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure/).
 
 We recommend adding these tools to your development environment:
 

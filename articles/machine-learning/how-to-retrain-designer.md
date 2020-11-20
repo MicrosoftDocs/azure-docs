@@ -1,7 +1,7 @@
 ---
 title: Retrain models by using Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Learn how to retrain models with published pipelines in Azure Machine Learning designer.
+description: Learn how to retrain machine learning models with published pipelines in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -44,7 +44,7 @@
   items:
   - name: Container support
     href: cognitive-services-container-support.md
-  - name: Container image tags
+  - name: Container image tags and releases notes
     href: ./containers/container-image-tags.md
   - name: Container FAQ
     href: ./containers/container-faq.md

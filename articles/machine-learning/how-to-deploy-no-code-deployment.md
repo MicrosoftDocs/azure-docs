@@ -1,7 +1,7 @@
 ---
 title: No code deployment (preview)
 titleSuffix: Azure Machine Learning
-description: 'Learn to deploy a model without an entry script.'
+description: 'No code deployment lets you deploy a model as a web service without having to manually create an entry script.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

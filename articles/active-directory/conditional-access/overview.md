@@ -77,7 +77,7 @@ Many organizations have [common access concerns that Conditional Access policies
 - Requiring multi-factor authentication for users with administrative roles
 - Requiring multi-factor authentication for Azure management tasks
 - Blocking sign-ins for users attempting to use legacy authentication protocols
-- Requiring trusted locations for Azure Multi-Factor Authentication registration
+- Requiring trusted locations for Azure AD Multi-Factor Authentication registration
 - Blocking or granting access from specific locations
 - Blocking risky sign-in behaviors
 - Requiring organization-managed devices for specific applications

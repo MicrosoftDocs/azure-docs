@@ -6,7 +6,7 @@ description: See how to view Azure Digital Twins metrics in Azure Monitor.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 8/4/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
