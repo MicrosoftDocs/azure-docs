@@ -11,13 +11,13 @@ ms.date: 11/12/2020
 
 # Quickstart: Use an ARM template to deploy Azure IoT Connector for FHIR (preview)
 
-In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure IoT Connector for FHIR, an optional feature of Azure API for FHIR. To deploy a working instance of Azure IoT Connector for FHIR, this template also deploys a parent Azure API for FHIR service and an Azure IoT Central application that  exports telemetry from a device simulator to Azure IoT Connector for FHIR. You can execute ARM template to deploy Azure IoT Connector for FHIR through the Azure portal, PowerShell, or CLI.
+In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure IoT Connector for FHIR, a feature of Azure API for FHIR. To deploy a working instance of Azure IoT Connector for FHIR, this template also deploys a parent Azure API for FHIR service and an Azure IoT Central application that  exports telemetry from a device simulator to Azure IoT Connector for FHIR. You can execute ARM template to deploy Azure IoT Connector for FHIR through the Azure portal, PowerShell, or CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-iot-connector-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fdocs.microsoft.com%2fazure%2fhealthcare-apis%2fsamples%2f101-azure-iot-connector-for-fhir%2fazuredeploy.json)
 
 ## Prerequisites
 
@@ -75,9 +75,7 @@ On the **Deploy Azure API for FHIR** page:
 
 8. Enter a name for your new Azure IoT Central application in **Iot Central Name**. This application will use *Continuous patient monitoring* template to simulate a device.
 
-9. Choose the location of your IoT Central application from **IoT Central Location** drop-down.
-
-    :::image type="content" source="./media/iot-fhir-arm-template-quickstart/deploy-iot-connector.png" alt-text="Deploy the Azure IoT Connector for FHIR using the ARM template in the Azure portal.":::
+9. Choose the location of your IoT Central application from **IoT Central Location** drop-down. 
 
 10. Select **Review + create**.
 
