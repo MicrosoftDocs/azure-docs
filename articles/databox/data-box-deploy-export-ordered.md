@@ -169,7 +169,7 @@ Perform the following steps in the Azure portal to order a device.
 
     On the **Create new key** screen, choose settings for the new key version, and select **Create**.
 
-    ![Create a new key version](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)<!--Edit bread crumbs-->
+    ![Create a new key version](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
 
     The **Encryption type** settings on the **Security** screen show your key vault and key.
 
