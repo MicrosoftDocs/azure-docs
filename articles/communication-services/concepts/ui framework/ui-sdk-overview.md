@@ -3,8 +3,8 @@
 Azure Communication Services UI Framework looks to simplify the integration of
 modern communication experiences for developers. Developers can choose from
 different production-ready UI Framework options depending on the customization
-and bundle size requirements; leverage a turn-key **Composite** quickly or use
-specific UI **Components** to build a custom communications experience. UI
+and bundle size requirements; leverage a turn-key **Composite Components** quickly or use
+specific UI **Base Components** to build a custom communications experience. UI
 Framework support scenarios across calling and chat on Web, Android and iOS. UI
 Framework does not have any additional cost to developers, you only pay for the
 usage of the underlying SDKs. The Framework is built using Fluent UI assets, the
@@ -14,28 +14,28 @@ same design assets used for Teams experiences.
 
 **ACS UI Framework** componentizes the communication experience powered by Azure
 Communication Services into discrete building blocks. At the most basic level,
-**Components** wrap around existing Azure Communication SDKs and extend core SDK
+**Baser Components** wrap around existing Azure Communication SDKs and extend core SDK
 functionality to perform basic actions from initializing our client SDKs to
 rendering video or enabling user controls for muting, video on/off, etc.
-**Components** are available across chat, calling and SMS clients.
-**Components** are built with Fluent UI assets built by Microsoft that offer a
+**Base Components** are available across chat, calling and SMS clients.
+**Base Components** are built with Fluent UI assets built by Microsoft that offer a
 uniform and easy to use UI.
 
 :::image type="content" source="../media/ui framework/preandcustomcomposite.png" alt-text="Comparison between pre-built and custom composites":::
 
-One layer above, **Composites** combine **Components** to create communication
+One layer above, **Composite Components** combine **Component Components** to create communication
 experiences. These higher-level components abstract the process of putting
-**Components** together from developers so they can concentrate on their own
+**Base Components** together from developers so they can concentrate on their own
 business logic and flow. For example, if I want to bring a chat experience into
-my app, I can import the chat composite into my app and build the logic of when
+my app, I can import the chat composite component into my app and build the logic of when
 it will show up. I don’t need to think about how the chat client works or get
 puts together, just where in my applications flow, I want the chat client to
 show up.
 
 :::image type="content" source="../media/ui framework/componentoverview.png" alt-text="Overview of component for UI Framework":::
 
-For custom experience, developers can create custom **Composite** Components
-using their desired **Components.** This allows developers to only take the
+For custom experience, developers can create custom **Composite Components** Components
+using their desired **Base Components.** This allows developers to only take the
 pieces of the experience that they need and leave behind what they don’t, thus
 optimizing their application size.
 
@@ -79,13 +79,13 @@ communication experience.
 UI Framework is built with customization in mind in terms of themes, sizing,
 layouts and data models:
 
--   Themes: Change color schemes on Components and Composites to match your
+-   Themes: Change color schemes on Base and Composite Components to match your
     branding style.
 
--   Sizing: Resize Components and Composites to match your desired
+-   Sizing: Resize Base and Composite Components to match your desired
     specification.
 
--   Layouts: Use Components to create custom layouts that match your specific
+-   Layouts: Use Base Components to create custom layouts that match your specific
     experience.
 
 -   Data Models: Provide your own application specific data models that match
@@ -96,14 +96,14 @@ layouts and data models:
 
 :::image type="content" source="../media/ui framework/frameworkarchitecture.png" alt-text="UI Framework recommended architecture with client server architecture ":::
 
-The UI Framework Composites and Components need to be initialized using an Azure
+The UI Framework Composite and Base Components need to be initialized using an Azure
 Communication Services access token and context for the call or chat it will
 join. Access tokens should be procured from Azure Communication Services using a
 Contoso service with a connections string. We don't recommend to procure the
 access token using a client side application. Similarly, call/chat context for
-what group call or thread the UI Framework Composite should join should be
+what group call or thread the UI Framework Composite component should join should be
 procured by Contoso through a service. Below is a complete breakdown in terms of
-actions performed by Contoso and actions performed by the UI Framework composite
+actions performed by Contoso and actions performed by the UI Framework Composite component
 in terms of setup and call/chat lifecycle.
 
 | Contoso Responsibilities                                 | UI Framework Composite Responsibilities                         |

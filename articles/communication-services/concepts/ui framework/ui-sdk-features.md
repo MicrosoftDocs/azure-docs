@@ -1,10 +1,11 @@
 # UI Framework Capabilities
 
 UI Framework is a client-side solution for developers to build communication
-experiences. It supports both Component and Composite level artifacts for
-developers to build experiences.
+experiences. It supports both Base and Composite Components for
+developers to build experiences. In addition, the Framework features pre-defined 
+state interface for developers to build their own Components on top of.
 
-## UI Framework Composites Overview
+## UI Framework Composite Components Overview
 
 | Composite               | Description                                               | Web   | Android | iOS   |
 |-------------------------|-----------------------------------------------------------|-------|---------|-------|
@@ -36,7 +37,7 @@ developers to build experiences.
 | Typing Indicators                                                   | X                       |                         | X                    |
 | Read Receipt                                                        | X                       |                         | X                    |
 
-## UI Framework Components
+## UI Framework Base Components
 
 | Component             | Description                                                                                                                                                                                                                                                                        | Web   | Android | iOS |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|---------|-----|
