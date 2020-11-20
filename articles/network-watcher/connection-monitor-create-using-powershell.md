@@ -95,6 +95,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 		* preferHTTPS - Specify whether to use HTTPS over HTTP
 		* port - Specify the destination port of your choice.
 		* disableTraceRoute - This applies to test groups whose protocol is TCP or ICMP. It stop sources from discovering topology and hop-by-hop RTT.
+		* method - This applied to test configurations whose protocol is HTTP. Select the HTTP request method--either GET or POST
+		* path - Specify path parameters to append to URL
+		* validStatusCodes - Choose applicable status codes. If response code does not match this list, you will get a diagnostic message
+		* requestHeaders - Specify custom request header strings that will make be passed to the destination
 	* successThreshold - You can set thresholds on the following network parameters:
 		* checksFailedPercent - Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the percentage of HTTP requests that received no response.
 		* roundTripTimeMs - Set the RTT in milliseconds for how long sources can take to connect to the destination over the test configuration.
