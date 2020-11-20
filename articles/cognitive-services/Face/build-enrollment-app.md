@@ -44,7 +44,8 @@ Now that you have set up the sample enrollment app, you can tailor it to your ow
 
 For example, you may want to add situation-specific information on your consent page:
 
-![app consent page](./media/enrollment-app/1_consent1.jpg)
+> [!div class="mx-imgBorder"]
+> ![app consent page](./media/enrollment-app/1-consent-1.jpg)
 
 The service provides image quality checks to help you make the choice of whether the image is of sufficient quality to enroll the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, select the highest-quality frames, and enroll the detected face into the Face API service. 
 
@@ -55,11 +56,13 @@ Many face recognition issues are caused by low-quality reference images. Some fa
 * Occlusion (partially hidden or obstructed faces) including accessories like hats or thick-rimmed glasses)
 * Blur (such as by rapid face movement when the photograph was taken). 
 
-![app image capture instruction page](./media/enrollment-app/4_instruction.jpg)
+> [!div class="mx-imgBorder"]
+> ![app image capture instruction page](./media/enrollment-app/4-instruction.jpg)
 
 Notice the app also offers functionality for deleting the user's enrollment and the option to re-enroll.
 
-![profile management page](./media/enrollment-app/10_manage2.jpg)
+> [!div class="mx-imgBorder"]
+> ![profile management page](./media/enrollment-app/10-manage-2.jpg)
 
 To extend the app's functionality to cover the full enrollment experience, read the [overview](enrollment-overview.md) for additional features to implement and best practices.
 
@@ -75,6 +78,6 @@ Follow the <a href="https://developer.android.com/studio/publish/preparing#publi
 
 Once you've created a signed APK, see the <a href="https://developer.android.com/studio/publish"  title="Publish your app"  target="_blank">Publish your app <span class="docon docon-navigate-external x-hidden-focus"></span></a> documentation to learn more about how to release your app.
 
-## Next Steps  
+## Next steps  
 
 In this guide, you learned how to set up your development environment and get started with the sample enrollment app. If you're new to React Native, you can read their [getting started docs](https://reactnative.dev/docs/getting-started) to learn more background information. It also may be helpful to familiarize yourself with [Face API](Overview.md). Read the other sections on enrollment app documentation before you begin development.
