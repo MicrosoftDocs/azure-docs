@@ -30,7 +30,7 @@ Based on Microsoft user research, Microsoft's Responsible AI principles, and [ex
 This section offers guidance for developing an enrollment application for facial recognition. This guidance has been developed based on Microsoft user research in the context of enrolling individuals in facial recognition for building entry. Therefore, these recommendations might not apply to all facial recognition solutions. Responsible use for Face API depends strongly on the specific context in which it's integrated, so the prioritization and application of these recommendations should be adapted to your scenario. 
 
 > [!NOTE]
-> Note: It is your responsibility to align your enrollment application with applicable legal requirements in your jurisdiction and accurately reflect all of your data collection and processing practices.
+> It is your responsibility to align your enrollment application with applicable legal requirements in your jurisdiction and accurately reflect all of your data collection and processing practices.
 
 ## Application development 
 
