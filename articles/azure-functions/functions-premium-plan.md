@@ -15,7 +15,7 @@ ms.custom:
 
 The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan) is a hosting option for function apps. For other hosting plan options, see the [hosting plan article](functions-scale.md).
 
-When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the Consumption plan. Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size. 
+When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the [Consumption plan](consumption-plan.md). Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size. 
 
 Premium plan hosting provides the following benefits to your functions:
 

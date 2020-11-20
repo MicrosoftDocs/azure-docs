@@ -1,12 +1,12 @@
 ---
-title: Azure Functions Consumption plan
+title: Azure Functions Consumption plan hosting
 description: Learn about how Azure Function Consumption plan hosting lets you run your code in an environment that scales dynamically, but you only pay for resources used during execution. 
 ms.date: 8/31/2020
 ms.topic: conceptual
 # Customer intent: As a developer, I want to understand the benefits of using the Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 
-# Consumption plan
+# Azure Functions Consumption plan hosting
 
 When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Consumption plan is the fully <em>serverless</em> hosting option for Azure Functions.
 
