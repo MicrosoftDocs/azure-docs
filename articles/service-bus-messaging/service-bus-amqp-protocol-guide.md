@@ -79,7 +79,7 @@ A .NET client would fail with a SocketException ("An attempt was made to access 
 
 AMQP transfers messages over links. A link is a communication path created over a session that enables transferring messages in one direction; the transfer status negotiation is over the link and bi-directional between the connected parties.
 
-![Screenshot showing a Session carryign a link connection between two containers.][2]
+![Screenshot showing a Session carrying a link connection between two containers.][2]
 
 Links can be created by either container at any time and over an existing session, which makes AMQP different from many other protocols, including HTTP and MQTT, where the initiation of transfers and transfer path is an exclusive privilege of the party creating the socket connection.
 
@@ -115,7 +115,7 @@ To compensate for possible duplicate sends, Service Bus supports duplicate detec
 
 In addition to the session-level flow control model that previously discussed, each link has its own flow control model. Session-level flow control protects the container from having to handle too many frames at once, link-level flow control puts the application in charge of how many messages it wants to handle from a link and when.
 
-![Screenshot of a log showing Source, Destination, Source Port, Destination Port, and Protocol Name. In the fiest row the Destination Port 10401 (0x28 A 1) is outlined in black.][4]
+![Screenshot of a log showing Source, Destination, Source Port, Destination Port, and Protocol Name. In the first row the Destination Port 10401 (0x28 A 1) is outlined in black.][4]
 
 On a link, transfers can only happen when the sender has enough *link credit*. Link credit is a counter set by the receiver using the *flow* performative, which is scoped to a link. When the sender is assigned link credit, it attempts to use up that credit by delivering messages. Each message delivery decrements the remaining link credit by 1. When the link credit is used up, deliveries stop.
 
