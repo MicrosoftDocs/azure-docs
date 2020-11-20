@@ -20,6 +20,9 @@ ms.custom: mvc
 
 # Tutorial: Monitor network communication between two virtual machines using the Azure portal
 
+> [!NOTE]
+> This tutorial cover Connection Monitor (classic). Try the new and improved [Connection Monitor](connection-monitor-overview.md) to experience enhanced connectivity monitoring
+
 Successful communication between a virtual machine (VM) and an endpoint such as another VM, can be critical for your organization. Sometimes, configuration changes are introduced which can break communication. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -29,6 +32,11 @@ Successful communication between a virtual machine (VM) and an endpoint such as 
 > * Diagnose a communication problem between two VMs, and learn how you can resolve it
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!IMPORTANT]
+> Connection Monitor is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Sign in to Azure
 
