@@ -18,7 +18,7 @@ ms.custom: seodec18
 Azure Time Series Insights Gen2 streaming data ingress limitations are described below.
 
 > [!TIP]
-> Read [Plan your Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md#review-preview-limits) for a comprehensive list of all limits.
+> Read [Plan your Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md#review-azure-time-series-insights-gen2-limits) for a comprehensive list of all limits.
 
 ## Per environment limitations
 
