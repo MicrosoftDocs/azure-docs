@@ -86,11 +86,11 @@ You can only edit collections you created. To edit a collection you already crea
 To hide a collection:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Open the page menu :::image type="content" source="media/my-apps-portal-user-collections/18-collection-menu-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
+1. Open the page menu :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/11-manage-apps-again.png" alt-text="The page-level ellipsis menu contains the Manage command to manage your apps":::
 
-1. You can see all the collections to which you have access, whether they were created by you or your admin. Find the collection you want to edit, open the collection menu :::image type="content" source="media/my-apps-portal-user-collections/18-collection-menu-icon.png" alt-text="Select the ellipsis icon on a collection for the collection-level menu":::, and then select **Hide**. Hidden collections show up in the same list of collections just under the Hidden drop down.  
+1. You can see all the collections to which you have access, whether they were created by you or your admin. Find the collection you want to edit, open the collection menu :::image type="content" source="media/my-apps-portal-user-collections/18-collection-menu-icon.png" alt-text="Select the three dots icon on a collection for the collection-level menu":::, and then select **Hide**. Hidden collections show up in the same list of collections just under the Hidden drop down.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/12-hide-collection.png" alt-text="The collection ellipsis menu contains the Hide command":::
 
@@ -99,7 +99,7 @@ To hide a collection:
 To make a hidden collection visible:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
-1. Open the page menu :::image type="content" source="media/my-apps-portal-user-collections/18-collection-menu-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
+1. Open the page menu :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="The page menu contains the Manage command to manage your apps":::
 
