@@ -26,6 +26,8 @@ Use the Text Analytics client library to perform:
 * Entity recognition
 * Key phrase extraction
 * Opinion mining
+* Asynchronous operations on healthcare documents 
+* Asynchronous, batch operations for entity recognition, key phrase extraction and personally identifiable information recognition.
 
 ::: zone pivot="programming-language-csharp"
 
