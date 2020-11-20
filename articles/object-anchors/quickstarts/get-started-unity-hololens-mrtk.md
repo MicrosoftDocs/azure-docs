@@ -6,7 +6,7 @@ manager: virivera
 services: azure-object-anchors
 
 ms.author: crtreasu
-ms.date: 04/02/2020
+ms.date: 11/19/2020
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -32,7 +32,11 @@ You'll learn how to:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
+[!INCLUDE [Download Unity Package](../../../includes/object-anchors-quickstart-unity-download-package.md)]
+
 In Unity, open the `quickstarts/apps/unity/ou-mrtk` project.
+
+[!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
 [!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
 
