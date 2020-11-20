@@ -193,7 +193,7 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![Weather Data dataset result visualization](./media/tutorial-data-analyst/10.png)
+![Weather Data dataset result visualization](./media/tutorial-data-analyst/weather-data-set-visualization.png)
 
 The results of the query indicate that the drop in the number of taxi rides occurred because:
 
