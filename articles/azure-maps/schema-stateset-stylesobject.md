@@ -176,9 +176,9 @@ The string value matching is case sensitive.
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `stateValue1` | string | The color when string value is stateValue1. | No |
-| `stateValue2` | string | The color when string value is stateValue2. | No |
-| `stateValueN` | string | The color when string value is stateValueN. | No |
+| `stateValue1` | string | The color when value string is stateValue1. | No |
+| `stateValue2` | string | The color when value string is stateValue. | No |
+| `stateValueN` | string | The color when value string is stateValueN. | No |
 
 ### Example of StringTypeStyleRule
 
