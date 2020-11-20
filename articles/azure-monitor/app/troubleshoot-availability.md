@@ -20,7 +20,7 @@ The Troubleshooting Report allows you to easily diagnose common problems that ca
 ![Animation of navigating from the availability tab by selecting a failure to the end-to-end transaction details to view the troubleshooting report](./media/troubleshoot-availability/availability-to-troubleshooter.gif)
 
 1. On the availability tab of your Application Insights resource, select overall or one of the availability tests.
-2. Under "Drill into" on the left select **Failed**, then a test.
+2. Either select **Failed** then a test under "Drill into" on the left or select one of the points on the scatter plot.
 3. On the end-to-end transaction detail page, select an event then under "Troubleshooting report summary" select **[Go to step]** to see the troubleshooting report.
 
 > [!NOTE]
