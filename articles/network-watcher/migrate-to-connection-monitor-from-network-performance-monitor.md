@@ -1,5 +1,5 @@
 ---
-title: Migrate to Connection Monitor from Network Performance Monitor
+title: Migrate to Connection Monitor (Preview) from Network Performance Monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate to Connection Monitor from Network Performance Monitor.
 services: network-watcher
@@ -14,9 +14,14 @@ ms.date: 08/20/2020
 ms.author: vinigam
 #Customer intent: I need to migrate from Network Performance Monitor to Connection Monitor. 
 ---
-# Migrate to Connection Monitor from Network Performance Monitor
+# Migrate to Connection Monitor (Preview) from Network Performance Monitor
 
-You can migrate tests from Network Performance Monitor (NPM) to new, improved Connection Monitor with a single click and with zero downtime. To learn more about the benefits, see [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
+You can migrate tests from Network Performance Monitor (NPM) to new, improved Connection Monitor with a single click and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
+
+> [!IMPORTANT]
+> Connection Monitor is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 >[!NOTE]
 > Only tests from Service Connectivity Monitor can be migrated to Connection Monitor.
@@ -31,7 +36,7 @@ The migration helps produce the following results:
 * Agents send data to both the Log Analytics workspace and the metrics.
 * Data monitoring:
    * **Data in Log Analytics**: Before migration, the data remains in the workspace in which NPM is configured in the NetworkMonitoring table. After the migration, the data goes to the NetworkMonitoring table and ConnectionMonitor_CL table in the same workspace. After the tests are disabled in NPM, the data is stored only in the ConnectionMonitor_CL table.
-   * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new ConnectionMonitor_CL table. To re-create the alerts in metrics, see [Network connectivity monitoring with Connection Monitor](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
+   * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new ConnectionMonitor_CL table. To re-create the alerts in metrics, see [Network connectivity monitoring with Connection Monitor](./connection-monitor-overview.md#metrics-in-azure-monitor).
 	
 ## Prerequisites
 
@@ -68,5 +73,5 @@ After the migration, be sure to:
 ## Next steps
 
 To learn more about Connection Monitor, see:
-* [Migrate from Connection Monitor to Connection Monitor](migrate-to-connection-monitor-preview-from-connection-monitor.md)
-* [Create Connection Monitor by using the Azure portal](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
+* [Migrate from Connection Monitor to Connection Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic)
+* [Create Connection Monitor by using the Azure portal](./connection-monitor-create-using-portal.md)
