@@ -1,12 +1,12 @@
 ---
 title: Common Data Model format
 description: Transform data using the Common Data Model metadata system
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.author: daperlov
+ms.author: makromer
 ---
 
 # Common Data Model format in Azure Data Factory
@@ -51,7 +51,7 @@ When selecting "Entity Reference" both in the Source and Sink transformations, y
 
 * Local uses the entity defined in the manifest file already being used by ADF
 * Custom will ask you to point to an entity manifest file that is different from the manifest file ADF is using
-* Standard will use an entity reference from the standard library of CDM entities maintained in Github.
+* Standard will use an entity reference from the standard library of CDM entities maintained in ```Github```.
 
 ### Sink settings
 
