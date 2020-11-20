@@ -203,7 +203,7 @@ To complete this quickstart:
 
 To complete this quickstart:
 
-* <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Install the latest .NET 5.0 SDK</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Install the latest .NET 5.0 SDK</a>.
 * <a href="/cli/azure/install-azure-cli" target="_blank">Install the latest Azure CLI</a>.
 
 ---
