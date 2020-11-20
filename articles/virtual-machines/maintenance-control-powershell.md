@@ -84,9 +84,9 @@ $config = New-AzMaintenanceConfiguration `
 Maintenance **recurrence** can be expressed as:
  | Value | Example |
  |-------|---------|
- | daily | recurEvery: Day **or** recurEvery: 3Days |
- | weekly | recurEvery: 3Weeks **or** recurEvery: Week Saturday,Sunday |
- | monthly | recurEvery: Month day23,day24 **or** recurEvery: Month Last Sunday **or** recurEvery: Month Fourth Monday | 
+ | daily | "recurEvery: Day" **or** "recurEvery: 3Days" |
+ | weekly | "recurEvery: 3Weeks" **or** "recurEvery: Week Saturday,Sunday" |
+ | monthly | "recurEvery: Month day23,day24" **or** "recurEvery: Month Last Sunday" **or** "recurEvery: Month Fourth Monday" | 
 	  
 
 ## Assign the configuration
