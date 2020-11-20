@@ -81,12 +81,10 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
 
-Maintenance **recurrence** can be expressed as:
- | Value | Example |
- |-------|---------|
- | daily | "recurEvery: Day" **or** "recurEvery: 3Days" |
- | weekly | "recurEvery: 3Weeks" **or** "recurEvery: Week Saturday,Sunday" |
- | monthly | "recurEvery: Month day23,day24" **or** "recurEvery: Month Last Sunday" **or** "recurEvery: Month Fourth Monday" | 
+Maintenance **recurrence** can be expressed as daily, weekly or monthly. Some examples are:
+ - daily- "recurEvery: Day" **or** "recurEvery: 3Days" 
+ - weekly- "recurEvery: 3Weeks" **or** "recurEvery: Week Saturday,Sunday" 
+ - monthly- "recurEvery: Month day23,day24" **or** "recurEvery: Month Last Sunday" **or** "recurEvery: Month Fourth Monday"  
 	  
 
 ## Assign the configuration
