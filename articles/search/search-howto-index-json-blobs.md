@@ -104,7 +104,7 @@ You can use the REST API to index JSON blobs, following a three-part workflow co
 
 You can review [REST example code](#rest-example) at the end of this section that shows how to create all three objects. This section also contains details about [JSON parsing modes](#parsing-modes), [single blobs](#parsing-single-blobs), [JSON arrays](#parsing-arrays), and [nested arrays](#nested-json-arrays).
 
-For code-based JSON indexing, use [Postman](search-get-started-postman.md) and the REST API to create these objects:
+For code-based JSON indexing, use [Postman or Visual Studio Code](search-get-started-rest.md) and the REST API to create these objects:
 
 + [index](/rest/api/searchservice/create-index)
 + [data source](/rest/api/searchservice/create-data-source)
@@ -122,7 +122,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 
 ### 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-postman.md) to send HTTP requests to Azure Cognitive Search.
+For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header), and the storage account name and key for blob storage. You can use a [Web API test tool](search-get-started-rest.md) to send HTTP requests to Azure Cognitive Search.
 
 Copy the following four values into Notepad so that you can paste them into a request:
 

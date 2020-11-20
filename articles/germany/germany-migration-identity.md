@@ -144,7 +144,7 @@ For more information:
 
 ## Multi-Factor Authentication
 
-You must re-create users and redefine your Azure Multi-Factor Authentication instance in your new environment. 
+You must re-create users and redefine your Azure AD Multi-Factor Authentication instance in your new environment. 
 
 To get a list of user accounts for which multi-factor authentication is enabled or enforced:
 
@@ -154,7 +154,7 @@ To get a list of user accounts for which multi-factor authentication is enabled 
 
 For more information:
 
-- Learn more about [Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+- Learn more about [Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## Next steps
 

@@ -173,7 +173,7 @@ To verify that connections are using RDP Shortpath, open the “Connection Infor
 To verify that session is using RDP Shortpath transport:
 
 1. Connect to the desktop of the VM using Windows Virtual Desktop client.
-2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Operational**
+2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operational**
 3. To determine if RDP Shortpath transport is used, look for event ID 131.
 
 ### Using Log Analytics to verify Shortpath connectivity
