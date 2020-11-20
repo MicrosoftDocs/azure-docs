@@ -570,9 +570,9 @@ To test your logic app, follow these steps to start a debugging session and find
    ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
-   > If a run failed and a step in monitoring view shows the `404 Bad Request` error, this problem might result 
+   > If a run failed and a step in monitoring view shows the `400 Bad Request` error, this problem might result 
    > from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed 
-   > the default character limit. For more information, see ["404 Bad Request"](#404-bad-request).
+   > the default character limit. For more information, see ["400 Bad Request"](#400-bad-request).
 
    Here are the possible statuses that each step in the workflow can have:
 
@@ -1053,9 +1053,9 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 ## Troubleshoot errors and problems
 
-<a name="404-bad-request"></a>
+<a name="400-bad-request"></a>
 
-### "404 Bad Request"
+### "400 Bad Request"
 
 When a run fails, and you inspect the run in monitoring view, this error might appear on a trigger or action that has a longer name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
 
