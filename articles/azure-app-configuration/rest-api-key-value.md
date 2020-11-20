@@ -180,7 +180,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 If a reserved character is part of the value, then it must be escaped by using `\{Reserved Character}`. Non-reserved characters can also be escaped.
 
-***Filter Validation***
+***Filter validation***
 
 In the case of a filter validation error, the response is HTTP `400` with error details:
 
