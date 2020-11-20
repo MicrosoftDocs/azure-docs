@@ -30,7 +30,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Solution scope
+## Prerequisites
 
 This tutorial demonstrates how to develop a module in **C#** using **Visual Studio Code** and deploy it to a **Linux device**. If you're developing modules for Windows devices, go to [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-windows.md) instead.
 
@@ -43,8 +43,6 @@ Use the following table to understand your options for developing and deploying 
 
 >[!NOTE]
 >Support for Linux ARM64 devices is available in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
-
-## Prerequisites
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module for a Linux device](tutorial-develop-for-linux.md). After completing that tutorial, you already should have the following prerequisites:
 
