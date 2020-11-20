@@ -1,6 +1,6 @@
 ---
 title: Manage access to workspaces, data, and pipelines
-description: Learn how to manage access control to workspaces, data, and pipelines in a Synapse workspace in Azure Synapse Analytics.
+description: Learn how to manage access control to workspaces, data, and pipelines in a Synapse workspace for Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Manage access to workspaces, data, and pipelines
 
-Learn how to manage access control to workspaces, data, and pipelines in a Synapse workspace in Azure Synapse Analytics.
+Learn how to manage access control to workspaces, data, and pipelines in a Synapse workspace for Azure Synapse Analytics.
 
 > [!NOTE]
 > For GA, Azure RBAC will be more developed through the introduction of Synapse-specific Azure roles

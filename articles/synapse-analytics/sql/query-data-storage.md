@@ -220,7 +220,7 @@ You can learn more about querying various types of data using the sample queries
 
 The tools you need to issue queries:
     - Azure Synapse Studio 
-    - Azure Data Studio (preview)
+    - Azure Data Studio
     - SQL Server Management Studio
 
 ### Demo setup
