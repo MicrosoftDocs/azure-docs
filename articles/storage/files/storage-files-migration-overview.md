@@ -148,4 +148,4 @@ Here is more information about the Azure Files technologies mentioned in this ar
 
 * [Azure file share overview](storage-files-introduction.md)
 * [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-* [Azure File Sync: Cloud tiering](storage-sync-cloud-tiering.md)
+* [Azure File Sync: Cloud tiering](storage-sync-cloud-tiering-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Choosing a Cloud Tiering Policy | Microsoft Docs
+title: Choosing Cloud Tiering Policies | Microsoft Docs
 description: Details on how to choose a cloud tiering policy and how the date and volume free space policy work together.
 author: mtalasila
 ms.service: storage
@@ -9,7 +9,7 @@ ms.author: mtalasila
 ms.subservice: files
 ---
 
-# Choosing a cloud tiering policy
+# Choosing cloud tiering policies
 
 ## I'm new to cloud tiering
 
@@ -110,7 +110,7 @@ Keeping more data local means lower egress costs as fewer files will be recalled
 
 When adjusting your volume free space policy, keep in mind that the amount of data you should keep local is determined by a few factors: your bandwidth, your dataset's access pattern, and your budget. If you have a low-bandwidth connection, you may want to keep more of your data local to ensure there is minimal lag for your users. Otherwise, you can base it on the churn rate during a given period. For example, if you know that about 10% of your 1-TB dataset changes or is actively accessed each month, then you may want to keep 100 GB local so you are not frequently recalling files. If your volume is 2 TB, then you will want to keep 5% (or 100 GB) local, meaning the remaining 95% is your volume free space percentage. However, we recommend that you add a buffer to account for periods of higher churn – in other words, starting with a larger volume free space percentage, and then adjusting it if needed later.
 
-## New server endpoint - Are files being tiered?
+## Are my files being tiered?
 
 Whether or not files need to be tiered per set policies is evaluated once an hour. You can come across two situations when a new server endpoint is created:
 
