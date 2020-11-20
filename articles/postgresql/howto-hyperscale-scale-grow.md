@@ -15,7 +15,7 @@ Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
 worker nodes, and to increase the vCores of existing nodes. Adding nodes causes
 no downtime, and even moving shards to the new nodes (called [shard
-rebalancing](howto-hyperscale-scaling-rebalance.md)) happens without interrupting
+rebalancing](howto-hyperscale-scale-rebalance.md)) happens without interrupting
 queries.
 
 ## Add worker nodes
@@ -33,7 +33,7 @@ Click the **Save** button to make the changed value take effect.
 
 > [!NOTE]
 > To take advantage of newly added nodes you must [rebalance distributed table
-> shards](howto-hyperscale-scaling-rebalance.md), which means moving some
+> shards](howto-hyperscale-scale-rebalance.md), which means moving some
 > [shards](concepts-hyperscale-distributed-data.md#shards) from existing nodes
 > to the new ones.
 
@@ -52,5 +52,5 @@ adjusted independently. Adjust the **vCores** slider under  **Configuration
 
 - Learn more about server group [performance
   options](concepts-hyperscale-configuration-options.md).
-- [Rebalance distributed table shards](howto-hyperscale-scaling-rebalance.md)
+- [Rebalance distributed table shards](howto-hyperscale-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries

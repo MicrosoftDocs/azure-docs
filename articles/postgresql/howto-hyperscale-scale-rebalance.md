@@ -33,7 +33,7 @@ table, just call it on a representative table from each colocation group.
 
 - Learn more about server group [performance
   options](concepts-hyperscale-configuration-options.md).
-- [Scale a server group](howto-hyperscale-scaling-grow.md) up or out
+- [Scale a server group](howto-hyperscale-scale-grow.md) up or out
 - See the
   [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards)
   reference material

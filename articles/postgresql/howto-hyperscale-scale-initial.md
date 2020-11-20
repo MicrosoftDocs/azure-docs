@@ -12,7 +12,7 @@ ms.date: 11/17/2020
 # Pick initial size for Hyperscale (Citus) server group
 
 The size of a server group, both its number of nodes and their hardware
-capacity, is [easy to change](howto-hyperscale-scaling-grow.md)). However you
+capacity, is [easy to change](howto-hyperscale-scale-grow.md)). However you
 still need to choose an initial size for a new server group. Here are some tips for a reasonable choice.
 
 ## Multi-tenant SaaS use-case
@@ -47,6 +47,6 @@ options](concepts-hyperscale-configuration-options.md) article.
 
 ## Next steps
 
-- [Scale a server group](howto-hyperscale-scaling-grow.md)
+- [Scale a server group](howto-hyperscale-scale-grow.md)
 - Learn more about server group [performance
   options](concepts-hyperscale-configuration-options.md).
