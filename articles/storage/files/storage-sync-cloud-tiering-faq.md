@@ -61,7 +61,7 @@ This behavior is not specific to Azure File Sync, Windows Explorer displays a "g
 
 There are two reasons why tiered files may exist in the server endpoint location:
 
-- When adding a new server endpoint to an existing sync group, if you choose either the recall namespace first option or recall namespace only option for initial download mode, files will show up as tiered until they're downloaded locally. To avoid this, select the avoid tiered files option for initial download mode. To manually recall files, use the [Invoke-StorageSyncFileRecall](#how-can-I-recall-a-tiered-file-to-disk-to-use-it-locally?) cmdlet.
+- When adding a new server endpoint to an existing sync group, if you choose either the recall namespace first option or recall namespace only option for initial download mode, files will show up as tiered until they're downloaded locally. To avoid this, select the avoid tiered files option for initial download mode. To manually recall files, use the [Invoke-StorageSyncFileRecall](#how-can-I-recall-a-tiered-file-to-disk-to-use-it-locally) cmdlet.
 
 - If cloud tiering was enabled on the server endpoint and then disabled, files will remain tiered until they're accessed.
 

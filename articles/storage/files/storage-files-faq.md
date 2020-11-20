@@ -114,18 +114,18 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="sizeondisk-versus-size"></a>
   **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
-  See [Cloud tiering overview](storage-sync-cloud-tiering-overview.md#what-is-cloud-tiering?).
+  See [Cloud tiering overview](storage-sync-cloud-tiering-overview.md#what-is-cloud-tiering).
 
 * <a id="is-my-file-tiered"></a>
   **How can I tell whether a file has been tiered?**  
-  See [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policy.md#are-my-files-being-tiered?).
+  See [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policy.md#are-my-files-being-tiered).
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
-  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#how-can-I-recall-a-tiered-file-to-disk-to-use-it-locally?).
+  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#how-can-I-recall-a-tiered-file-to-disk-to-use-it-locally).
 
 * <a id="afs-force-tiering"></a>
   **How do I force a file or directory to be tiered?**  
-  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#how-do-I-force-a-file-or-directory-to-be-tiered?).
+  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#how-do-I-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
@@ -133,7 +133,7 @@ This article answers common questions about Azure Files features and functionali
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
-  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#I-have-cloud-tiering-disabled.-why-are-there-tiered-files-in-the-server-endpoint-location?).
+  See [Cloud tiering FAQ](storage-sync-cloud-tiering-faq.md#I-have-cloud-tiering-disabled.-why-are-there-tiered-files-in-the-server-endpoint-location).
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  
