@@ -188,7 +188,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't use any identities or manage any secrets for identities.
+**Guidance**: Not applicable; Azure Database Migration Service does not use any identities or manage any secrets for identities.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -199,7 +199,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39942).
 
-**Guidance**: Azure Database Migration Service: Use Azure Active Directory to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
+**Guidance**: Azure Database Migration Service is integrated with Azure Active Directory for identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
 
 - [Understand Application SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -236,7 +236,7 @@ For administrator and privileged users, ensure the highest level of the strong a
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39944).
 
-**Guidance**: Azure Database Migration Service  is integrated with Azure Active Directory in which provides the following data sources:
+**Guidance**: Azure Database Migration Service is integrated with Azure Active Directory in which provides the following data sources:
 Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
 Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
@@ -272,7 +272,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39945).
 
-**Guidance**: Azure Database Migration Service supports Azure AD conditional access for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
+**Guidance**: Azure Database Migration Service uses Azure AD for authentication in which conditional access is available for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
 
 - [Azure conditional access overview](../../active-directory/conditional-access/overview.md) 
 
@@ -289,9 +289,9 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39946).
 
-**Guidance**: Azure Database Migration Service allows customers to deploy/run {code or configurations or persisted data} potentially with identities/secretes, it is recommend to implement Credential Scanner to identify credentials within {code or configurations or persisted data}. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
+**Guidance**: Azure Database Migration Service allows customers to deploy/run code or configurations or persisted data potentially with identities/secretes, it is recommend to implement Credential Scanner to identify credentials within code or configurations or persisted data. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-For GitHub, you can use native secret scanning feature to identify credentials or other form of secrets within the code.
+If GitHub is used, you can use native secret scanning feature to identify credentials or other form of secrets within the code.
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -309,7 +309,7 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't access any legacy applications.
+**Guidance**: Not applicable; Azure Database Migration Service does not involve access to any legacy applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -327,7 +327,7 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't use any administrative accounts.
+**Guidance**: Not applicable; Azure Database Migration Service does not involve highly privileged users at the Azure subscription level.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -352,7 +352,7 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39949).
 
-**Guidance**: Azure Database Migration Service uses Azure Active Directory (AAD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
+**Guidance**: Azure Database Migration Service uses Azure Active Directory (AAD) accounts to manage its resources. Review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
@@ -362,7 +362,7 @@ Note: Some Azure services support local users and roles which not managed throug
 
 - [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overvie)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -377,7 +377,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -392,7 +392,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [What is Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -407,7 +407,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -426,7 +426,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 - [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overview)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -456,7 +456,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service does not persist any data and does not provide this capability. Any data handled is only transient until written to the target data platform.
+**Guidance**: Not Applicable; Azure Database Migration Service does not provide native data classification, discovery and labelling feature.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -470,7 +470,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service does not provide this capability. The data is encrypted for transit and transient storage by Azure Database Migration Service.
+**Guidance**: Not Applicable; Azure Database Migration Service does not provide specific data protection feature. The data is encrypted for transit and transient storage by Azure Database Migration Service by default.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -484,7 +484,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Database Migration Service does not provide this capability. Data is encrypted for the transient storage before being written to the target data platform, as well as on transit. There is no customer accessible persisted data.
+**Guidance**: Not Applicable; Azure Database Migration Service does not provide this capability. Data is encrypted for the transient storage before being written to the target data platform, as well as on transit. There is no customer accessible persisted data. If Azure SQL and Azure Storage as part of your migration service, Advanced Threat Protection feature can be enabled to monitor of anomalous transfer of information.
+
+- [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
+
+- [Enable Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -497,9 +501,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 **Guidance**: Encryption is critical for traffic on external and public networks.
 
-Use access controls,
-data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
-
+Use access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 Ensure for HTTP traffic, that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater.
 For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of unencrypted protocol. Obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers should be disabled.
 
@@ -595,9 +597,7 @@ Azure Database Migration Service does not allow running an application or instal
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39986).
 
-**Guidance**: Not applicable. The Azure Database Migration Service can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
-
-It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
+**Guidance**: Not applicable. The Azure Database Migration Service can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact.  It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -706,16 +706,14 @@ Note: Azure Database Migration Service does not produce or process DNS query log
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39969).
 
-**Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your {offering_name} resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+**Guidance**: Not Applicable; Azure Database Migration Service currently does not produce Azure resource logs.
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md) 
-Azure Database Migration Service currently does not produce Azure resource logs.
+**Azure Security Center monitoring**: Currently not available
 
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### LT-5: Centralize security log management and analysis
 
@@ -743,11 +741,14 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39971).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not Applicable; Azure Database Migration Service does not currently produce any security-related logs, and the customer is unable to set any log retention.
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### LT-7: Use approved time synchronization sources
 
@@ -845,7 +846,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 - [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -864,7 +865,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -882,7 +883,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 - [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -898,7 +899,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't have any security configurations.
+**Guidance**: Not applicable; Azure Database Migration Service does not involve critical security configurations and it is a temporary service running for short period of time.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -912,7 +913,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't have any security configurations.
+**Guidance**: Not applicable; Azure Database Migration Service does not involve critical security configurations and it is a temporary service running for short period of time.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -926,7 +927,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't have any resource configurations..
+**Guidance**: Not applicable; Azure Database Migration Service does not involve critical security configurations and it is a temporary service running for short period of time.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -940,7 +941,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**: Not applicable; Azure Database Migration Service does not provide operating system or container level access.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -954,7 +955,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not Applicable; Azure Database Migration Service does not provide operating system or container level access.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -968,7 +969,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't support any vulnerability assessments.
+**Guidance**: Not applicable; Azure Database Migration Service does not support any vulnerability assessments.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -982,11 +983,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Rapidly deploy software updates to remediate software vulnerabilities in operating systems and applications.
-
-Prioritize use a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool and tailor to your environment using context of which applications present a high security risk and which ones require high uptime.
-
-Not Applicable; Azure Database Migration Service does not offer any compute resources that the customer can deploy.
+**Guidance**: Not Applicable; Azure Database Migration Service does not offer any compute resources that the customer can deploy.
 
 **Azure Security Center monitoring**: Not applicable
 
