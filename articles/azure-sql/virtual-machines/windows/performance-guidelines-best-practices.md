@@ -218,6 +218,10 @@ Consider the following best practices when deploying multiple SQL Server instanc
 
 Signs of overloaded systems can include, but are not limited to, worker thread exhaustion, slow response times, and/or stalled dispatcher system memory. 
 
+
+
+## Collect performance baseline
+
 Start by collecting the CPU, memory, [IOPS](../../../virtual-machines/premium-storage-performance.md#iops), [throughput](../../../virtual-machines/premium-storage-performance.md#throughput), and [latency](../../../virtual-machines/premium-storage-performance.md#latency) of the source workload at peak times following the [application performance checklist](../../../virtual-machines/premium-storage-performance.md#application-performance-requirements-checklist). 
 
 Gather data during peak hours such as workloads during your typical business day, but also other high load processes such as end-of-day processing, and weekend ETL workloads. Consider scaling up your resources for atypically heavily workloads, such as end-of-quarter processing, and then scale done once the workload completes. 
