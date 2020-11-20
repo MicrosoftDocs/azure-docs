@@ -425,6 +425,8 @@
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
         href: bpmonline-tutorial.md
+      - name: Crises Control
+        href: crises-control-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
@@ -1290,6 +1292,8 @@
         href: planview-enterprise-one-tutorial.md
       - name: Pluralsight
         href: pluralsight-tutorial.md
+      - name: Podbean
+        href: podbean-tutorial.md
       - name: PolicyStat
         href: policystat-tutorial.md
       - name: PostBeyond
