@@ -233,7 +233,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ## Create virtual machines - Standard SKU
 
-In this section you'll create the virtual machines for the backend pool of the load balancer.
+In this section, you'll create the virtual machines for the backend pool of the load balancer.
 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
@@ -711,7 +711,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ## Create virtual machines - Basic SKU
 
-In this section you'll create the virtual machines for the backend pool of the load balancer.
+In this section, you'll create the virtual machines for the backend pool of the load balancer.
 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
@@ -966,6 +966,6 @@ In this quickstart
 * Configured the load balancer traffic rule and health probe.
 * Tested the load balancer.
 
-To learn more about Azure Load Balancer, continue to..
+To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md)
