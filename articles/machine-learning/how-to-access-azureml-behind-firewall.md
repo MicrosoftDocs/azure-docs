@@ -120,8 +120,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | Integrated notebook | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
 | Integrated notebook | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | \*.blob.core.chinacloudapi.cn |
 | Integrated notebook | graph.microsoft.com | graph.microsoft.us | graph.chinacloudapi.cn |
-| Integrated notebook | \*.aznbcontent.net |  | 
-| Misc. | mlworkspace.azure.ai |  |  | 
+| Integrated notebook | \*.aznbcontent.net |  | |
 
 **Azure Machine Learning compute instance and compute cluster hosts**
 
@@ -129,7 +128,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ----- | ----- | ----- | ----- |
 | Compute cluster/instance | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
-| Compute instance (when Workspace has a private endpoint configured) | \*.instances.azureml.ms | NA | NA |
+| Compute instance | \*.instances.azureml.ms |  |  |
 
 **Associated resources used by Azure Machine Learning**
 
@@ -170,15 +169,6 @@ The hosts in this section are used to install R packages. They are required duri
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
-
-### Azure Government region
-
-Required URLs for the Azure Government regions.
-
-| **Host name** | **Purpose** |
-| ---- | ---- |
-| **usgovarizona.api.ml.azure.us** | The US-Arizona region |
-| **usgovvirginia.api.ml.azure.us** | The US-Virginia region |
 
 ## Next steps
 
