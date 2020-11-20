@@ -441,7 +441,7 @@ After pod security policy (preview) is deprecated, you must disable the feature 
 The following areas of the emails regarding security alerts have been improved: 
 
 - Added the ability to send email notifications about alerts for all severity levels
-- Added the ability to notify users with different RBAC roles on the subscription
+- Added the ability to notify users with different Azure roles on the subscription
 - We're proactively notifying subscription owners by default on high-severity alerts (which have a high-probability of being genuine breaches)
 - We've removed the phone number field from the email notifications configuration page
 
