@@ -329,6 +329,8 @@ Consider the following best practices when deploying multiple SQL Server instanc
 
 Signs of overloaded systems can include, but are not limited to, worker thread exhaustion, slow response times, and/or stalled dispatcher system memory. 
 
+
+
 ## Collect performance baseline
 
 For a more prescriptive approach, gather performance counters using PerfMon/LogMan and capture SQL Server wait statistics to better understand general pressures and potential bottlenecks of the source environment. 
