@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- An invoice document. You can use the [sample invoice](/media/sample-invoice.jpg) for this quickstart.
+- An invoice document. You can use the [sample invoice](../media/sample-invoice.jpg) for this quickstart.
 
 > [!NOTE]
 > This quickstart uses a local file. To use a invoice document accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
