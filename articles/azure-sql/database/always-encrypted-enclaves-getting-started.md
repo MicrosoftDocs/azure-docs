@@ -5,9 +5,8 @@ keywords: encrypt data, sql encryption, database encryption, sensitive data, Alw
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: how-to
+ms.topic: tutorial
 author: jaszymas
 ms.author: vanto
 ms.reviwer: 
@@ -17,16 +16,20 @@ ms.date: 12/09/2020
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!NOTE]
+> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
+
 This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves)] in Azure SQL Database. It will show you:
 
-- How to create a basic environment for testing and evaluating Always Encrypted with secure enclaves.
-- How to encrypt data in-place and issue rich confidential queries against encrypted columns using SQL Server Management Studio (SSMS).
+> [!div class="checklist"]
+> - How to create an environment for testing and evaluating Always Encrypted with secure enclaves.
+> - How to encrypt data in-place and issue rich confidential queries against encrypted columns using SQL Server Management Studio (SSMS).
 
 ## Prerequisites
 
-This tutorial requires Azure PowerShell and SQL Server Management Management Studio.
+This tutorial requires Azure PowerShell and [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-### PowerShell Requirements
+### PowerShell requirements
 
 See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure) for information on how to install and run Azure PowerShell. 
 
@@ -42,12 +45,12 @@ Run the below command to verify the installed version of all Az modules:
 Get-InstalledModule
 ```
 
-If the versions are not matching with the minimum requirement, run Update-Module commands.
+If the versions aren't matching with the minimum requirement, run the `Update-Module` command.
 
-Please note that, the PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
+The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. You may receive the following errors if you are using a TLS version lower than 1.2:
 
-- WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2'
-- PackageManagement\Install-Package: No match was found for the specified search criteria and module name.
+- `WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2'`
+- `PackageManagement\Install-Package: No match was found for the specified search criteria and module name.`
 
 To continue to interact with the PowerShell Gallery, run the following command before the Install-Module commands
 
@@ -55,7 +58,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 ```
 
-### SSMS Requirements
+### SSMS requirements
 
 See [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
 
@@ -64,13 +67,13 @@ The required minimum version of SSMS is 18.7.2.
 
 ## Step 1: Create a server and a DC-series database
 
- In this step, you will create a new Azure SQL Database server and a new database using the DC-series hardware configuration. Always Encrypted with secure enclaves in Azure SQL Database uses Intel SGX enclaves, which are supported in the DC-series hardware configuration. for more information, see [DC-series](service-tiers-vcore.md#dc-series).
+ In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware configuration. Always Encrypted with secure enclaves in Azure SQL Database uses Intel SGX enclaves, which are supported in the DC-series hardware configuration. For more information, see [DC-series](service-tiers-vcore.md#dc-series).
 
-1. Open a PowerShell console and s Sign in to Azure. If needed, switch to the subscription, you are using for this tutorial.
+1. Open a PowerShell console and sign into Azure. If needed, [switch to the subscription](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
 
   ```PowerShell
   Connect-AzAccount
-  $subscriptionId = '...'
+  $subscriptionId = <your subscription ID>
   Set-AzContext -Subscription $serverSubscriptionId
   ```
 
@@ -78,7 +81,7 @@ The required minimum version of SSMS is 18.7.2.
 
   ```powershell
   $serverResourceGroupName = "<server resource group name>"
-  $serverLocation = "<Azure region that supports DC-series in SQL DB>"
+  $serverLocation = "<Azure region that supports DC-series in SQL Database>"
   New-AzResourceGroup -Name $serverResourceGroupName -Location $serverLocation 
   ```
 
@@ -96,23 +99,23 @@ The required minimum version of SSMS is 18.7.2.
   
   ```powershell
   # The ip address range that you want to allow to access your server
-  $startIp = "..."
-  $endIp = "..."
+  $startIp = "<start of IP range>"
+  $endIp = "<end of IP range>"
   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
   ```
 
-5. Assign a managed system identity to your server. You will need it later to grant your server access to Microsoft Azure Attestation.
+5. Assign a managed system identity to your server. You'll need it later to grant your server access to Microsoft Azure Attestation.
 
   ```powershell
   Set-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -AssignIdentity 
   ```
 
-6. Retrieve an object id of the identity assigned to your server. Save the resulting object id. You will need it for the steps in a later section.
+6. Retrieve an object ID of the identity assigned to your server. Save the resulting object ID. You'll need the ID in a later section.
 
   > [!NOTE]
-  > It might take a few seconds for the newly assigned managed system identity to propagate in Azure Active Directory. If the below script commands return an empty result, retry them.
+  > It might take a few seconds for the newly assigned managed system identity to propagate in Azure Active Directory. If the below script return an empty result, retry them.
 
   ```PowerShell
   $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
@@ -132,11 +135,11 @@ The required minimum version of SSMS is 18.7.2.
 
 ## Step 2: Configure an attestation provider
 
-In this step, you will create an configure an attestation provider in Microsoft Azure Attestation. You will need to later to attest the secure enclave in your database server.
+In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave in your database server.
 
-1. Copy the below attestation policy and save the above policy in a text file, for example, by using a text editor. For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
+1. Copy the below attestation policy and save the policy in a text file (txt). For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
-  ```sql
+  ```output
   version= 1.0;
   authorizationrules 
   {
@@ -148,7 +151,7 @@ In this step, you will create an configure an attestation provider in Microsoft 
   };
   ```
 
-2. Import the required versions of Az.Accounts and Az.Attestation.  
+2. Import the required versions of `Az.Accounts` and `Az.Attestation`.  
 
   ```powershell
   Import-Module "Az.Accounts" -MinimumVersion "1.9.2"
@@ -173,20 +176,20 @@ In this step, you will create an configure an attestation provider in Microsoft 
 5. Configure your attestation policy.
   
   ```powershell
-  $policyFile = "<a pathname of the file from step 1 in this section"
+  $policyFile = "<the pathname of the file from step 1 in this section"
   $teeType = "SgxEnclave"
   $policyFormat = "Text"
   $policy=Get-Content -path $policyFile -Raw
   Set-AzAttestationPolicy -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Tee $teeType -Policy $policy -PolicyFormat  $policyFormat
   ```
 
-6. Grant your Azure SQL database server access to your attestation provider. Note that in this step, we are using the object id of the managed service identity, you assigned to your server earlier.
+6. Grant your Azure SQL logical server access to your attestation provider. In this step, We're using the object ID of the managed service identity that you assigned to your server earlier.
 
   ```powershell
   New-AzRoleAssignment -ObjectId $serverObjectId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName  
   ```
 
-9. Retrieve an attestation URL.
+9. Retrieve the attestation URL.
 
   ```powershell
   $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
@@ -194,19 +197,19 @@ In this step, you will create an configure an attestation provider in Microsoft 
   Write-Host "Your attestation URL is: " $attestationUrl 
   ```
 
-10.	Save the resulting attestation URL that points to an attestation policy you configured for SGX enclaves. You will need it later. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave?api-version=201 8-09-01-preview`
+10.	Save the resulting attestation URL that points to an attestation policy you configured for the SGX enclave. You'll need it later. The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave?api-version=201 8-09-01-preview`
 
 ## Step 3: Populate your database
 
-In this step, you will create a table and populate it with some data, you will later encrypt and query.
+In this step, you'll create a table and populate it with some data that you'll later encrypt and query.
 
-1. Open SSMS and connect to the ContosoHR database in the Azure SQL database server you created **without** Always Encrypted enabled in the database connection.
-    1. In the **Connect to Server** dialog, specify your server name (for example, myserver123.database.windows.net), and enter the user name and the password, you configured earlier.
+1. Open SSMS and connect to the **ContosoHR** database in the Azure SQL logical server you created **without** Always Encrypted enabled in the database connection.
+    1. In the **Connect to Server** dialog, specify your server name (for example, *myserver123.database.windows.net*), and enter the user name and the password you configured earlier.
     2. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     3. Select the **Always Encrypted** tab.
     4. Make sure the **Enable Always Encrypted (column encryption)** checkbox is **not** selected.
     5. Click **Connect**.
-    6. If you are prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
+    6. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
 
 2. Create a new table, named **Employees**.
 
@@ -254,7 +257,7 @@ In this step, you will create a table and populate it with some data, you will l
 
 ## Step 4: Provision enclave-enabled keys
 
-In this step, you will create a column master key and a column encryption key that allow enclave computations.
+In this step, you'll create a column master key and a column encryption key that allow enclave computations.
 
 1. Using the SSMS instance from the previous step, in **Object Explorer**, expand your database and navigate to **Security** > **Always Encrypted Keys**.
 1. Provision a new enclave-enabled column master key:
@@ -262,7 +265,7 @@ In this step, you will create a column master key and a column encryption key th
     2. Select your column master key name: **CMK1**.
     3. Make sure you select either **Windows Certificate Store (Current User or Local Machine)** or **Azure Key Vault**.
     4. Select **Allow enclave computations**.
-    5. If you selected Azure Key Vault, sign in to Azure and select your key vault. For more information on how to create a key vault for Always Encrypted, see [Manage your key vaults from Azure portal](/archive/blogs/kv/manage-your-key-vaults-from-new-azure-portal).
+    5. If you selected Azure Key Vault, sign into Azure and select your key vault. For more information on how to create a key vault for Always Encrypted, see [Manage your key vaults from Azure portal](/archive/blogs/kv/manage-your-key-vaults-from-new-azure-portal).
     6. Select your certificate or Azure Key Value key if it already exists, or click the **Generate Certificate** button to create a new one.
     7. Select **OK**.
 
@@ -277,19 +280,19 @@ In this step, you will create a column master key and a column encryption key th
 
 ## Step 5: Encrypt some columns in place
 
-In this step, you will encrypt the data stored in the **SSN** and **Salary** columns inside the server-side enclave, and then test a SELECT query on the data.
+In this step, you'll encrypt the data stored in the **SSN** and **Salary** columns inside the server-side enclave, and then test a SELECT query on the data.
 
 1. Open a new SSMS instance and connect to your database **with** Always Encrypted enabled for the database connection.
     1. Start a new instance of SSMS.
-    2. In the **Connect to Server** dialog, specify your server name, select an authentication method and specify your credentials.
+    2. In the **Connect to Server** dialog, specify your server name, select an authentication method, and specify your credentials.
     3. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     4. Select the **Always Encrypted** tab.
     5. Make sure the **Enable Always Encrypted (column encryption)** checkbox is selected.
-    6. Specify your enclave attestation URL, you've obtained by following the steps in [Step 2: Configure an attestation provider](#step-2-configure-an-attestation-provider).
+    6. Specify your enclave attestation URL that you've obtained by following the steps in [Step 2: Configure an attestation provider](#step-2-configure-an-attestation-provider).
     7. Select **Connect**.
-    8. If you are prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
+    8. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
 
-1. Using the same SSMS instance (with Always Encrypted enabled), open a new query window and encrypt the **SSN** and **Salary** columns by running the below queries.
+1. Using the same SSMS instance (with Always Encrypted enabled), open a new query window and encrypt the **SSN** and **Salary** columns by running the below statements.
 
     ```sql
     ALTER TABLE [dbo].[Employees]
@@ -308,7 +311,7 @@ In this step, you will encrypt the data stored in the **SSN** and **Salary** col
     ```
 
     > [!NOTE]
-    > Notice the ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE statement to clear the query plan cache for the database in the above script. After you have altered the table, you need to clear the plans for all batches and stored procedures that access the table, to refresh parameters encryption information. 
+    > Notice the ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE statement to clear the query plan cache for the database in the above script. After you have altered the table, you need to clear the plans for all batches and stored procedures that access the table to refresh parameters encryption information. 
 
 1. To verify the **SSN** and **Salary** columns are now encrypted, open a new query window in the SSMS instance **without** Always Encrypted enabled for the database connection and execute the below statement. The query window should return encrypted values in the **SSN** and **Salary** columns. If you execute the same query using the SSMS instance with Always Encrypted enabled, you should see the data decrypted.
 
@@ -318,7 +321,7 @@ In this step, you will encrypt the data stored in the **SSN** and **Salary** col
 
 ## Step 6: Run rich queries against encrypted columns
 
-Now, you can run rich queries against the encrypted columns. Some query processing will be performed inside your server-side enclave. 
+You can run rich queries against the encrypted columns. Some query processing will be performed inside your server-side enclave. 
 
 1. In the SSMS instance **with** Always Encrypted enabled, make sure Parameterization for Always Encrypted is also enabled.
     1. Select **Tools** from the main menu of SSMS.
@@ -326,7 +329,7 @@ Now, you can run rich queries against the encrypted columns. Some query processi
     3. Navigate to **Query Execution** > **SQL Server** > **Advanced**.
     4. Ensure that **Enable Parameterization for Always Encrypted** is checked.
     5. Select **OK**.
-2. Open a new query window, paste in and execute the below query. The query should return plaintext values and rows meeting the specified search criteria.
+2. Open a new query window, paste in the below query, and execute. The query should return plaintext values and rows meeting the specified search criteria.
 
     ```sql
     DECLARE @SSNPattern [char](11) = '%6818';
@@ -335,13 +338,15 @@ Now, you can run rich queries against the encrypted columns. Some query processi
     WHERE SSN LIKE @SSNPattern AND [Salary] >= @MinSalary;
     ```
 
-3. Try the same query again in the SSMS instance that does not have Always Encrypted enabled, and note the failure that occurs.
+3. Try the same query again in the SSMS instance that doesn't have Always Encrypted enabled. A failure should occur.
  
-## Next Steps
+## Next steps
+
 After completing this tutorial, you can go to one of the following tutorials:
 - [Tutorial: Develop a .NET application using Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)
 - [Tutorial: Develop a .NET Framework application using Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
 - [Tutorial: Creating and using indexes on enclave-enabled columns using randomized encryption](https://docs.microsoft.com/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
 ## See Also
+
 - [Configure and use Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

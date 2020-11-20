@@ -301,14 +301,16 @@
           href: database/active-geo-replication-configure-portal.md         
     - name: Security
       items:
+      - name: Always Encrypted with secure enclaves
+        href: database/always-encrypted-enclaves-getting-started.md
       - name: Configure security
         href: database/secure-database-tutorial.md
+      - name: Create users using service principals
+        href: database/authentication-aad-service-principal-tutorial.md
       - name: Rotate TDE BYOK keys
         href: database/transparent-data-encryption-byok-key-rotation.md
       - name: Remove TDE protector
         href: database/transparent-data-encryption-byok-remove-tde-protector.md
-      - name: Create users using service principals
-        href: database/authentication-aad-service-principal-tutorial.md
     - name: Move data
       items: 
       - name: Migrate using DMS
@@ -374,7 +376,20 @@
         href: database/sql-data-sync-troubleshoot.md
 
     - name: Security
-      items: 
+      items:
+        - name: Always Encrypted >
+          href: /sql/relational-databases/security/encryption/always-encrypted-database-engine
+        - name: Always Encrypted with secure enclaves >
+          href: /sql/relational-databases/security/encryption/always-encrypted-enclaves
+          items:
+          - name: Configure and use Always Encrypted with secure enclaves
+            href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+          - name: Plan for Intel SGX enclaves and attestation
+            href: database/always-encrypted-enclaves-plan.md
+          - name: Enable Intel SGX
+            href: database/always-encrypted-enclaves-enable-sgx.md
+          - name: Configure Azure Attestation
+            href: database/always-encrypted-enclaves-configure-attestation.md
         - name: Azure SQL Auditing
           href: database/auditing-overview.md
         - name: Audit log format
