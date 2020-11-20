@@ -107,6 +107,8 @@
         href: appblade-tutorial.md
       - name: AppDynamics
         href: appdynamics-tutorial.md
+      - name: Appian
+        href: appian-tutorial.md
       - name: Appinux
         href: appinux-tutorial.md
       - name: AppNeta Performance Monitor
@@ -423,6 +425,8 @@
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
         href: bpmonline-tutorial.md
+      - name: Crises Control
+        href: crises-control-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
@@ -1144,6 +1148,8 @@
         href: netskope-cloud-security-tutorial.md
       - name: Netskope User Authentication
         href: netskope-user-authentication-tutorial.md
+      - name: Netsparker Enterprise
+        href: netsparker-enterprise-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
       - name: Netvision Compas
@@ -1286,6 +1292,8 @@
         href: planview-enterprise-one-tutorial.md
       - name: Pluralsight
         href: pluralsight-tutorial.md
+      - name: Podbean
+        href: podbean-tutorial.md
       - name: PolicyStat
         href: policystat-tutorial.md
       - name: PostBeyond

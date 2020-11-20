@@ -87,8 +87,10 @@ The following is an example of an API request for the synchronous Text Analytics
 #### [Analyze](#tab/analyze)
 
 > [!NOTE]
-> The latest prerelease of the Text Analytics client library enables you to call Asynchronous Analyze operations using a client object. Refer to the reference documentation, and see the [C# example on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeOperation.md).
-
+> The latest prerelease of the Text Analytics client library enables you to call Asynchronous Analyze operations using a client object. You can find examples on GitHub:
+* [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 The `/analyze` endpoint lets you choose which of the supported Text Analytics features you want to use in a single API call. This endpoint currently supports:
 
@@ -98,14 +100,15 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
 |`displayName` | String | Optional | Used as the display name for the unique identifier to the job.|
-|`analysisInput` | Includes the below `documents` field | Required | Contains the information for the documents you want to send. |
-|`documents` | Includes the two below `id` and `text` fields | Required | Contains information for each document being sent, and the raw text of the document. |
+|`analysisInput` | Includes the `documents` field below | Required | Contains the information for the documents you want to send. |
+|`documents` | Includes the `id` and `text` fields below | Required | Contains information for each document being sent, and the raw text of the document. |
 |`id` | String | Required | The IDs you provide are used to structure the output. |
 |`text` | Unstructured raw text, up to 125,000 characters. | Required | Must be in the English language, which is the only language currently supported. |
-|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`, `keyPhraseExtractionTasks` or `entityRecognitionPiiTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi`. In unspecified, the system defaults to `pii`. |
-|`parameters` | Includes the below `model-version` and `stringIndexType` fields | Required | This field is included within the above feature tasks that you choose. They contain information about the model version that you want to use and the index type. |
-|`model-version` | Data type is string | Required | Specify which version of the model being called that you want to use.  |
-|`stringIndexType` | Data type is string | Required | Specify the text decoder that you want. |
+|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`, `keyPhraseExtractionTasks` or `entityRecognitionPiiTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi`. If unspecified, the system defaults to `pii`. |
+|`parameters` | Includes the `model-version` and `stringIndexType` fields below | Required | This field is included within the above feature tasks that you choose. They contain information about the model version that you want to use and the index type. |
+|`model-version` | String | Required | Specify which version of the model being called that you want to use.  |
+|`stringIndexType` | String | Required | Specify the text decoder that matches your programming environment.  Types supported are `textElement_v8` (default), `unicodeCodePoint`, `utf16CodeUnit`. Please see the [Text offsets article](../concepts/text-offsets.md#offsets-in-api-version-31-preview) for more information.  |
+|`domain` | String | Optional | Only applies as a parameter to the `entityRecognitionPiiTasks` task and can be set to `pii` or `phi`. It defaults to `pii` if unspecified.  |
 
 ```json
 {
