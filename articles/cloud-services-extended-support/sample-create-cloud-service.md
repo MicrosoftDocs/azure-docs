@@ -106,7 +106,7 @@ $cloudService = New-AzCloudService                                              
 -NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
 -ExtensionProfileExtension $extension
 ```
-## Create new Cloud Service with single role and certificate from key vault
+## Create new Cloud Service with single role and certificate from Key Vault
 
 ```powershell
 # Create role profile object

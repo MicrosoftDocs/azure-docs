@@ -40,7 +40,7 @@ The steps below mention the order to update resources. Depending on the update s
 
 4.	Update public IP.
 
-5.	Update key vault and upload updated certificates.
+5.	Update Key Vault and upload updated certificates.
 
 6.	Get and update role profile object.
 

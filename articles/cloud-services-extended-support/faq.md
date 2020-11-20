@@ -16,10 +16,10 @@ This article covers frequently asked questions related to Azure Cloud Services (
 ## General
 
 ### What new features come with Cloud Services (extended support)?
-Cloud Service (extended support) supports features such as templates, role-based access control, Azure Resource Manager policies for improved control on security and  privacy, resource tagging, private links, Azure firewall, VNET peering and key vault support.
+Cloud Service (extended support) supports features such as templates, role-based access control, Azure Resource Manager policies for improved control on security and  privacy, resource tagging, private links, Azure firewall, VNET peering and Key Vault support.
 
 ### Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)
-Yes. Cloud Services (extended support) supports additional features such as the use of key vault and dynamic/ static IP addresses. Customers will be charged for the utilization of these resources similar to any other Azure Resource Manager products. 
+Yes. Cloud Services (extended support) supports additional features such as the use of Key Vault and dynamic/ static IP addresses. Customers will be charged for the utilization of these resources similar to any other Azure Resource Manager products. 
 
 ### What is the resource name for Cloud Services (classic) & Cloud Services (extended support)?
 - Cloud Services (classic): `microsoft.classiccompute/domainnames`
@@ -67,7 +67,7 @@ No, Similar to Cloud Services (classic), Cloud Services (extended support) deplo
 Storage accounts, public IPs, load balancer, Cloud Service deployments, network security groups and route tables need to live in the same region and resource group. 
 
 ###	What resources linked to a Cloud Services (extended support) deployment need to live in the same region?
-key vault, virtual network, public IPs, Cloud Service deployments, network security groups and route tables need to live in the same region.
+Key Vault, virtual network, public IPs, Cloud Service deployments, network security groups and route tables need to live in the same region.
 
 ###	What resources linked to a Cloud Services (extended support) deployment need to live in the same virtual network?
 Public IPs, load balancer, Cloud Services deployment, network security groups and route tables need to live in the same virtual network. 
@@ -124,15 +124,15 @@ Customers are billed for IP Address use on Cloud Services (extended support).
 ### Can I use a DNS name with Cloud Services (extended support)? 
 Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments is `<userlabel>.<region>.cloudapp.azure.com`
 
-## Certificates & key vault
+## Certificates & Key Vault
 
 ###	Why do I need to manage my certificates on Cloud Services (extended support)?
-Cloud Services (extended support) has adopted the same process as other compute offerings where certificates reside within customer owned key vault. This enables customers to have complete control over their secrets & certificates. 
+Cloud Services (extended support) has adopted the same process as other compute offerings where certificates reside within customer owned Key Vault. This enables customers to have complete control over their secrets & certificates. 
 
-Cloud Services (extended support) will search the referenced key vault for the certificates mentioned in the deployment files and use it. Thus, simplifying the deployment process. 
+Cloud Services (extended support) will search the referenced Key Vault for the certificates mentioned in the deployment files and use it. Thus, simplifying the deployment process. 
 
-###	Can I use one key vault for all my deployments in all regions?
-No. Key vault is a regional resource and customers need one key vault in each region. However, one key vault can be used for all deployments within a region.
+###	Can I use one Key Vault for all my deployments in all regions?
+No. Key Vault is a regional resource and customers need one Key Vault in each region. However, one Key Vault can be used for all deployments within a region.
 
 
 ## Next steps

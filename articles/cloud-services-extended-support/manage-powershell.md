@@ -188,7 +188,7 @@ To update the swappable relationship for a Cloud Service deployment, call update
         </Certificates>
         ```
 
-5.	Upload the certificate  to Key Vault and reference the key vault during CS create operation
+5.	Upload the certificate  to Key Vault and reference the Key Vault during CS create operation
 6.	Create Cloud Services deployment
 
 ### RDP into role instance

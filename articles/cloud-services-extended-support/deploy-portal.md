@@ -56,7 +56,7 @@ Cloud Services (extended support) provides various methods to create a deploymen
 
 4. (Optional) Start Cloud Service. Choose start or not start the service after immediately after creation.
 
-5. Select the key vault associated with your cscfg file (based on their thumbprints). If any certificates are missing you can uploaded them and select **Refresh** in the drop down. 
+5. Select the Key Vault associated with your cscfg file (based on their thumbprints). If any certificates are missing you can uploaded them and select **Refresh** in the drop down. 
 
     :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the configuration blade in the Azure portal when creating a Cloud Services (extended support).":::
 

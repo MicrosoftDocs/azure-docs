@@ -22,17 +22,17 @@ Create an Azure resource group using  `New-AzResourceGroup`.
 New-AzResourceGroup -Name 'ContosoOrg' -Location 'East US'
 ```
 
-## Create a key vault
+## Create a Key Vault
 
-Create a key vault that will be used to store certificates associated to the Cloud Service roles.The key vault must use a unique name.
+Create a Key Vault that will be used to store certificates associated to the Cloud Service roles.The Key Vault must use a unique name.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoOrg' -Location 'East US' -EnabledForDeployment
 ```
 
-## Give user accounts permissions to manage certificates in key vault
+## Give user accounts permissions to manage certificates in Key Vault
 
-Use the `Set-AzKeyVaultAccessPolicy` cmdlet to update the key vault access policy and grant certificate permissions to the user accounts.
+Use the `Set-AzKeyVaultAccessPolicy` cmdlet to update the Key Vault access policy and grant certificate permissions to the user accounts.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
@@ -44,7 +44,7 @@ Optionally, you can set access policy using the ObjectId. This can be obtained b
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoOrg' -ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates create,get,list,delete
 ```
 
-## Add a certificate to the key vault
+## Add a certificate to the Key Vault
 
 > [!NOTE]
 > The certificate thumbprint needs to be added in Cloud Service configuration (cscfg) file for deployment on Cloud Service roles.

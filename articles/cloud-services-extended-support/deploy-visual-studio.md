@@ -78,7 +78,7 @@ For more information about these files, see [Configure the Roles for an Azure Cl
 
    The Azure storage account stores the package for the application deployment. After the application is deployed, the package is removed from the storage account.
 
-1. **Key vault** - Specify the key vault that contains the secrets for this Cloud Service. This is enabled if remote desktop is enabled or certificates are added to the configuration.
+1. **Key Vault** - Specify the Key Vault that contains the secrets for this Cloud Service. This is enabled if remote desktop is enabled or certificates are added to the configuration.
 
 1. **Enable Remote Desktop for all roles** - Select this option if you want to be able to remotely connect to the service. You'll be asked to specify credentials.
 
