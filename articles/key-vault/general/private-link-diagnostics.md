@@ -137,21 +137,29 @@ This section is intended for learning purposes. When the key vault has no privat
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 You can see that the name resolves to a public IP address, and there is no `privatelink` alias. The alias is explained later, don't worry about it now.
 
@@ -163,23 +171,29 @@ When the key vault has one or more private endpoint connections in approved stat
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
-
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 The notable difference from previous scenario is that there is a new alias with the value `{vaultname}.privatelink.vaultcore.azure.net`. This means the key vault Data Plane is ready to accept requests from private links.
 
@@ -193,19 +207,27 @@ When the key vault has one or more private endpoint connections in approved stat
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  10.1.2.3
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  10.1.2.3
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```
 
 There are two notable differences. First, the name resolves to a private IP address. That must be the IP address that we found in the [corresponding section](#find-the-key-vault-private-ip-address-in-the-virtual-network) of this article. Second, there are no other aliases after the `privatelink` one. This happens because the Virtual Network DNS servers *intercept* the chain of aliases and return the private IP address directly from the name `fabrikam.privatelink.vaultcore.azure.net`. That entry is actually an `A` record in a Private DNS Zone. More on this will follow.
 
@@ -222,7 +244,7 @@ If the DNS resolution is not working as described in previous section, there mig
 
 Your Azure subscription must have a [Private DNS Zone](../../dns/private-dns-privatednszone.md) resource with this exact name:
 
-    privatelink.vaultcore.azure.net
+`privatelink.vaultcore.azure.net`
 
 You can check for the presence of this resource by going to the subscription page in the Portal, and selecting "Resources" on the left menu. The resource name must be `privatelink.vaultcore.azure.net`, and the resource type must be **Private DNS zone**.
 
@@ -277,37 +299,48 @@ Your key vault provides the `/healthstatus` endpoint, which can be used for diag
 
 Windows (PowerShell):
 
-    PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```
 
-    Key                           Value
-    ---                           -----
-    Pragma                        no-cache
-    x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
-    x-ms-keyvault-service-version 1.2.27.0
-    x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security     max-age=31536000;includeSubDomains
-    Content-Length                4
-    Cache-Control                 no-cache
-    Content-Type                  application/json; charset=utf-8
+```output
+Key                           Value
+---                           -----
+Pragma                        no-cache
+x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
+x-ms-keyvault-service-version 1.2.27.0
+x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security     max-age=31536000;includeSubDomains
+Content-Length                4
+Cache-Control                 no-cache
+Content-Type                  application/json; charset=utf-8
+```
 
 Linux, or a recent version of Windows 10 that includes `curl`:
 
-    joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
-    x-ms-keyvault-service-version: 1.2.27.0
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security: max-age=31536000;includeSubDomains
-    Content-Length: 4
+```console
+joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
+```
+
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
+x-ms-keyvault-service-version: 1.2.27.0
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+Content-Length: 4
+```
 
 If you are not getting an output similar to that, or if you get a network error, it means your key vault is not accessible via the hostname you specified (`fabrikam.vault.azure.net` in the example). Either the hostname is not resolving to the correct IP address, or you have a connectivity issue at the transport layer. It may be caused by routing issues, package drops, and other reasons. You have to investigate further.
 
 The response must include header `x-ms-keyvault-network-info`:
 
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```console
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```
 
 The `addr` field in the `x-ms-keyvault-network-info` header shows the IP address of the origin of the request. This IP address can be one of the following:
 
@@ -325,11 +358,15 @@ The `addr` field in the `x-ms-keyvault-network-info` header shows the IP address
 
 If you installed a recent version of PowerShell, you can use `-SkipCertificateCheck` to skip HTTPS certificate checks, then you can target the [key vault IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network) directly:
 
-    PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```
 
 If you are using `curl`, you can do the same with the `-k` argument:
 
-    joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```console
+joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```
 
 The responses must be the same of previous section, which means it must include the `x-ms-keyvault-network-info` header with the same value. The `/healthstatus` endpoint doesn't care if you are using the key vault hostname or IP address.
 

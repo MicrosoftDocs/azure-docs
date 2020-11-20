@@ -16,6 +16,9 @@ ms.reviewer: calui
 ---
 # Sign-in to Azure Active Directory using email as an alternate login ID (preview)
 
+> [!NOTE]
+> Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Many organizations want to let users sign in to Azure Active Directory (Azure AD) using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
 
 Some organizations haven't moved to hybrid authentication for the following reasons:
@@ -29,7 +32,7 @@ To help with the move to hybrid authentication, you can now configure Azure AD t
 This article shows you how to enable and use email as an alternate login ID. This feature is available in the Azure AD Free edition and higher.
 
 > [!NOTE]
-> Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is for cloud-authenticated Azure AD users only.
 
 ## Overview of Azure AD sign-in approaches
 
@@ -166,6 +169,72 @@ With the policy applied, it can take up to an hour to propagate and for users to
 
 To test that users can sign in with email, browse to [https://myprofile.microsoft.com][my-profile] and sign in with a user account based on their email address, such as `balas@fabrikam.com`, not their UPN, such as `balas@contoso.com`. The sign-in experience should look and feel the same as with a UPN-based sign-in event.
 
+## Enable staged rollout to test user sign-in with an email address  
+
+[Staged rollout][staged-rollout] allows tenant administrators to enable features for specific groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use a Home Realm Discovery policy.  
+
+
+You need *tenant administrator* permissions to complete the following steps:
+
+1. Open a PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    If prompted, select **Y** to install NuGet or to install from an untrusted repository.
+
+2. Sign in to your Azure AD tenant as a *tenant administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    The command returns information about your account, environment, and tenant ID.
+
+3. List all existing staged rollout policies using the following cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. If there are no existing staged rollout policies for this feature, create a new staged rollout policy and take note of the policy ID:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Find the directoryObject ID for the group to be added to the staged rollout policy. Note the value returned for the *Id* parameter, because it will be used in the next step.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Add the group to the staged rollout policy as shown in the following example. Replace the value in the *-Id* parameter with the value returned for the policy ID in step 4 and replace the value in the *-RefObjectId* parameter with the *Id* noted in step 5. It may take up to 1 hour before users in the group can use their proxy addresses to sign-in.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+For new members added to the group, it may take up to 24 hours before they can use their proxy addresses to sign-in.
+
+### Removing groups
+
+To remove a group from a staged rollout policy, run the following command:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### Removing policies
+
+To remove a staged rollout policy, first disable the policy then remove it from the system:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## Troubleshoot
 
 If users have trouble with sign-in events using their email address, review the following troubleshooting steps:
@@ -199,4 +268,5 @@ For more information on hybrid identity operations, see [how password hash sync]
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

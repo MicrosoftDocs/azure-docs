@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: banders
 ms.custom: contentperfq2
 ---
@@ -67,7 +67,7 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 6. Verify your contact information and preferred contact method, and then select **Create**.
 
-If we need to run a credit check because of the amount of credit that you need, we'll send you a credit check application.
+If we need to run a credit check because of the amount of credit that you need, we'll send you a credit check application. We might ask you to provide your company’s audited financial statements. If no financial information is provided or if the information isn't strong enough to support the amount of credit limit required, we might ask for a security deposit or a standby letter of credit in order to approve your credit check request.
 
 ## Switch to invoice pay (check/wire transfer)
 

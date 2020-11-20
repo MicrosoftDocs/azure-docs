@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 11/04/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
@@ -180,7 +180,7 @@ On Android, you also need to specify the parent activity by using `.WithParentAc
 
 #### WithParentActivityOrWindow
 
-The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appear on the screen. This would be applicable for applications which are command line based , used to pass calls to any other backend service and do not need any windows for user interaction. 
+The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appear on the screen. This would be applicable for applications which are command line based , used to pass calls to any other backend service and do not need any windows for user interaction.
 
 ```csharp
 // net45
@@ -275,7 +275,7 @@ The MSAL.NET team has rewritten the UI tests to use this extensibility mechanism
 
 ##### Provide a great experience with SystemWebViewOptions
 
-From MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), you can specify:
+From MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions), you can specify:
 
 - The URI to go to (`BrowserRedirectError`) or the HTML fragment to display (`HtmlMessageError`) in case of sign-in or consent errors in the system web browser.
 - The URI to go to (`BrowserRedirectSuccess`) or the HTML fragment to display (`HtmlMessageSuccess`) in case of successful sign-in or consent.
@@ -301,7 +301,7 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### Other optional parameters
 
-To learn more about all the other optional parameters for `AcquireTokenInteractive`, see [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+To learn more about all the other optional parameters for `AcquireTokenInteractive`, see [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 # [Java](#tab/java)
 
@@ -529,7 +529,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthentication, see [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods).
+For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthentication, see [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder#methods).
 
 # [Java](#tab/java)
 
@@ -829,7 +829,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-For more information on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods).
+For more information on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder#methods).
 
 # [Java](#tab/java)
 
@@ -1384,6 +1384,10 @@ namespace CommonCacheMsalV3
  }
 }
 ```
+
+## (Advanced) Accessing the user's cached tokens in background apps and services
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Create and run ML pipelines
 titleSuffix: Azure Machine Learning
-description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. Use ML pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inference/scoring. 
+description: Create and run machine learning pipelines to create and manage the workflows that stitch together machine learning (ML) phases. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

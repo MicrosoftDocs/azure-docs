@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 

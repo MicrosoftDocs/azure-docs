@@ -55,17 +55,17 @@ Now, prepare your blob storage and SQL database for the tutorial by performing t
 
 Use the following SQL script to create the **dbo.emp** table in your SQL database:
 
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50)
-    )
-    GO
+```sql
+CREATE TABLE dbo.emp
+(
+    ID int IDENTITY(1,1) NOT NULL,
+    FirstName varchar(50),
+    LastName varchar(50)
+)
+GO
 
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
+CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+```
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.

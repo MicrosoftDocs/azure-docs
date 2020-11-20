@@ -50,7 +50,7 @@ You may configure IP Access Control List in your back-end to allow for only Fron
 
 ## Which Azure WAF options should I choose?
 
-There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
 
 ## Do you support same WAF features in all integrated platforms?

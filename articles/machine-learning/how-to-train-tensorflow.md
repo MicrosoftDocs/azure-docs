@@ -1,7 +1,7 @@
 ---
 title: Train and deploy a TensorFlow model
 titleSuffix: Azure Machine Learning
-description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
+description: Learn how Azure Machine Learning enables you to scale out a TensorFlow training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

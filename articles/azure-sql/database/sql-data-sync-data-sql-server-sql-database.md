@@ -160,7 +160,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | Tables in a sync group                                          | 500                    | Create multiple sync groups |
 | Columns in a table in a sync group                              | 1000                   |                             |
 | Data row size on a table                                        | 24 Mb                  |                             |
-| Minimum sync frequency interval                                 | 5 Minutes              |                             |
+| Minimum sync frequency interval (since previous sync start)     | 5 Minutes              |                             |
 
 > [!NOTE]
 > There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.

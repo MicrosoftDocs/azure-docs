@@ -57,7 +57,7 @@ In Azure AD B2C, you can trigger Conditional Access conditions from built-in use
 
 ## Microsoft Graph API
 
-You can also manage Conditional Access policies in Azure AD B2C with Microsoft Graph API. For details, see the [Conditional Access documentation](../active-directory/conditional-access/overview.md) and the [Microsoft Graph reference](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
+You can also manage Conditional Access policies in Azure AD B2C with Microsoft Graph API. For details, see the [Conditional Access documentation](../active-directory/conditional-access/overview.md) and the [Microsoft Graph reference](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
 
 ## Next steps
 

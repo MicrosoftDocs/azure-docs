@@ -48,6 +48,12 @@ This operation returns a series of key/value pairs:
 
 Copy the **appId** and **password** credentials for later use.
 
+## Flow for using Managed Identity
+
+This diagram illustrates the AKS–Key Vault integration flow for Managed Identity:
+
+![Diagram that shows the AKS–Key Vault integration flow for Managed Identity](../media/aks-key-vault-integration-flow.png)
+
 ## Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure CLI
 
 You don't need to use Azure Cloud Shell. Your command prompt (terminal) with the Azure CLI installed will suffice. 

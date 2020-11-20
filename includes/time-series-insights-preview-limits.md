@@ -4,7 +4,7 @@ description: include file
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 07/09/2020
+ms.date: 11/11/2020
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -13,11 +13,11 @@ ms.custom: include file
 
 ### Property limits
 
-Azure Time Series Insights property limits have increased to 1,000 from a maximum cap of 800 in Gen1. Supplied event properties have corresponding JSON, CSV, and chart columns that you can view within the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Azure Time Series Insights property limits have increased to 1,000 for warm storage and no property limit for cold storage. Supplied event properties have corresponding JSON, CSV, and chart columns that you can view within the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
 | SKU | Maximum properties |
 | --- | --- |
-| Gen2 (L1) | 1,000 properties (columns) |
+| Gen2 (L1) | 1,000 properties (columns) for warm storage and unlimited for cold storage|
 | Gen1 (S1) | 600 properties (columns) |
 | Gen1 (S2) | 800 properties (columns) |
 

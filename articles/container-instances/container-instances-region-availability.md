@@ -50,6 +50,9 @@ The following regions and maximum resources are available to container groups wi
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 
+> [!IMPORTANT]
+> At this time, deployments with GPU resources are not supported in an Azure virtual network deployment and are only available on Linux container groups.
+
 | GPU SKUs | GPU count | Max CPU | Max Memory (GB) | Storage (GB) |
 | --- | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 | 50 |
@@ -62,6 +65,9 @@ The following maximum resources are available to a container group deployed with
 ## Windows container groups
 
 The following regions and maximum resources are available to container groups with [supported and preview](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server containers.
+
+> [!IMPORTANT]
+> At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.
 
 ###  Windows Server 2016
 

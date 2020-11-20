@@ -8,14 +8,14 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
 
 # How to use your workspace with a custom DNS server
 
-When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. However, __when using your own custom DNS server__, you must manually create DNS entries for the workspace.
+When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead _use your own custom DNS server__, you must manually create DNS entries for the workspace.
 
 > [!IMPORTANT]
 > This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
@@ -35,13 +35,14 @@ When using Azure Machine Learning with a virtual network, there are [several way
 The following list contains the fully qualified domain names (FQDN) used by your workspace and private endpoint:
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with private IP of workspace private endpoint. Please note compute instance can be accessed only from within the virtual network.
+* If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with the private IP of the workspace private endpoint.
+
+    > [!NOTE]
+    > Compute instances can be accessed only from within the virtual network.
 
 To find the internal IP addresses for the FQDNs in the VNet, use one of the following methods:
 
@@ -77,8 +78,6 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | FQDN | IP Address |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

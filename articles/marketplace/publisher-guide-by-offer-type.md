@@ -4,8 +4,8 @@ description: This article describes the offer types that are available in the Mi
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/06/2020
 ---
 

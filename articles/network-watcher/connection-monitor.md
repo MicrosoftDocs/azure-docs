@@ -30,6 +30,11 @@ Successful communication between a virtual machine (VM) and an endpoint such as 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!IMPORTANT]
+> Connection Monitor is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -125,7 +130,7 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Connection Monitor that you want to use.
 
     ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
-1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
+1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
 
     ![alert page with signals selected](./media/connection-monitor/set-alert-signals.png)
 1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ---
@@ -38,7 +38,7 @@ Furthermore, we pre-package executables for machines with the [advanced vector e
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Finally, you can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
+You can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
 
 <br>
 </details>
@@ -479,6 +479,16 @@ Content-Length: 0
 
 **Answer:** We do not support REST API in either speech-to-text container, we only support WebSockets through the Speech SDK. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> Why is the container running as a non-root user? What issues might occur because of this?</b>
+</summary>
+
+**Answer:** Note that the default user inside the container is a non-root user. This provides protection against processes escaping the container and obtaining escalated permissions on the host node. By default, some platforms like the OpenShift Container Platform already do this by running containers using an arbitrarily assigned user ID. For these platforms, the non-root user will need to have permissions to write to any externally mapped volume that requires writes. For example a logging folder, or a custom model download folder.
 <br>
 </details>
 

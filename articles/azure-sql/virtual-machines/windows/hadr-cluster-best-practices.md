@@ -27,6 +27,10 @@ This article provides cluster configuration best practices for both [failover cl
 
 Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
+### Tuning Failover Cluster Network Thresholds
+
+When running Windows Failover Cluster nodes in Azure Vms with SQL Server AlwaysOn, changing the cluster setting to a more relaxed monitoring state is recommended.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+
 ## Quorum
 
 Although a two-node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support. Cluster validation won't pass any cluster without a quorum resource. 

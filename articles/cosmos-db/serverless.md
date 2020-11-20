@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/10/2020
 ---
 
 # Azure Cosmos DB serverless (Preview)
@@ -45,9 +45,6 @@ See the [how to choose between provisioned throughput and serverless](throughput
 ## Using serverless resources
 
 Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. During the preview release, the only supported way to create a new serverless account is by [using the Azure portal](create-cosmosdb-resources-portal.md). Migrating existing accounts to/from serverless mode is not currently supported.
-
-> [!NOTE]
-> Serverless is currently supported on the Azure Cosmos DB Core (SQL) API only.
 
 Any container that is created in a serverless account is a serverless container. Serverless containers expose the same capabilities as containers created in provisioned throughput mode, so you read, write and query your data the exact same way. However serverless accounts and containers also have specific characteristics:
 
