@@ -28,7 +28,9 @@
   expanded: true
   items:
   - name: Create and connect
-    items: 
+    items:
+    - name: Azure CLI
+      href: create-data-warehouse-azure-cli.md
     - name: Portal
       href: create-data-warehouse-portal.md
     - name: PowerShell
