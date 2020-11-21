@@ -12,7 +12,7 @@ ms.author: cynthn
 
 # Control updates with Maintenance Control and Azure PowerShell
 
-Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+Maintenance control lets you decide when to apply platform updates to the host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
  
 ## Enable the PowerShell module
 
@@ -82,9 +82,9 @@ $config = New-AzMaintenanceConfiguration `
 > Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
 
 Maintenance **recurrence** can be expressed as daily, weekly or monthly. Some examples are:
- - daily- "recurEvery: Day" **or** "recurEvery: 3Days" 
- - weekly- "recurEvery: 3Weeks" **or** "recurEvery: Week Saturday,Sunday" 
- - monthly- "recurEvery: Month day23,day24" **or** "recurEvery: Month Last Sunday" **or** "recurEvery: Month Fourth Monday"  
+ - **daily**- RecurEvery "Day" **or** "3Days" 
+ - **weekly**- RecurEvery "3Weeks" **or** "Week Saturday,Sunday" 
+ - **monthly**- RecurEvery "Month day23,day24" **or** "Month Last Sunday" **or** "Month Fourth Monday"  
 	  
 
 ## Assign the configuration
