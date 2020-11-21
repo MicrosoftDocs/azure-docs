@@ -308,7 +308,7 @@ New-AzVM @vm -AsJob
 
 ```
 
-The creations of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+The deployment of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
 
 ```azurepowershell-interactive
 Get-Job
