@@ -74,19 +74,8 @@
     
 - name: Reference
   items:
-<<<<<<< HEAD
-<<<<<<< HEAD
   - name: Azure AD Connect Cloud Sync agent version history
     href: reference-version-history.md
-=======
-  - name: Azure AD Connect cloud provisioning agent version history
-    href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
->>>>>>> 4c241916705a79d776ceef0ffffafbbb1eae87b6
-=======
-
-  - name: Azure AD Connect Cloud Sync agent version history
-    href: reference-version-history.md
->>>>>>> 53370b908cda485e88a88dd6409bb734387991d5
   - name: Azure AD Connect cloud provisioning FAQ
     href: reference-cloud-provisioning-faq.md
   - name: AADCloudSyncTools PowerShell Module 
