@@ -127,19 +127,19 @@ Australia bank state branch number:
 #### Keyword_australia_bank_account_number
 
 ```
-- swift bank code
-- correspondent bank
-- base currency
-- usa account
-- holder address
-- bank address
-- information account
-- fund transfers
-- bank charges
-- bank details
-- banking information
-- full names
-- iaea
+swift bank code
+correspondent bank
+base currency
+usa account
+holder address
+bank address
+information account
+fund transfers
+bank charges
+bank details
+banking information
+full names
+iaea
 ```
 
 ## Australia driver's license number
