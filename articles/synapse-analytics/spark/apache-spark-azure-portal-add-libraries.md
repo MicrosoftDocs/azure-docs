@@ -87,9 +87,9 @@ To install a library onto a Spark pool directly from the Azure portal:
 To verify if the correct versions of the correct libraries are installed run the following code
 
 ```python
-import pip #needed to use the pip functions
-for i in pip.get_installed_distributions(local_only=True):
-    print(i)
+import pkg_resources
+for d in pkg_resources.working_set:
+     print(d)
 ```
 ### Update Python packages
 Packages can be added or modified anytime between sessions. When a new package configuration file is uploaded, this will overwrite the existing packages and versions.  

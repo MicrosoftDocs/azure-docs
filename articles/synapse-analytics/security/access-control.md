@@ -18,7 +18,7 @@ Learn how to manage access control to workspaces, data, and pipelines in Azure S
 > [!NOTE]
 > For GA, Azure RBAC will be more developed through the introduction of Synapse-specific Azure roles
 
-## Access Control for Workspace
+## Access Control for workspace
 
 For a production deployment into an Azure Synapse workspace, we suggest organizing your environment to make it easy to provision users and admins.
 
@@ -61,7 +61,7 @@ When you provisioned your workspace, you had to pick an [Azure Data Lake Storage
 2. Go to **Manage**  > **Security** > **Access control**
 3. Select **Add Admin**, and select `Synapse_WORKSPACENAME_Admins`
 
-### Step 4: Configure SQL Admin Access for the workspace
+### Step 4: Configure SQL admin access for the workspace
 
 1. Go to the [Azure portal](https://portal.azure.com)
 2. Navigate to your workspace
@@ -74,7 +74,7 @@ When you provisioned your workspace, you had to pick an [Azure Data Lake Storage
 > [!NOTE]
 > WORKSPACENAME - you should replace this part with your actual workspace name.
 
-### Step 5: Add and Remove Users and Admins to Security groups
+### Step 5: Add and remove users and admins to security groups
 
 1. Add users that need administrative access to `Synapse_WORKSPACENAME_Admins`
 2. Add all other users to `Synapse_WORKSPACENAME_Users`
@@ -92,7 +92,7 @@ Access control to the underlying data is split into three parts:
 - Data-plane access to the SQL Databases (for both dedicated SQL pools and serverless SQL pool)
 - Creating a credential for serverless SQL pool databases over the storage account
 
-## Access control to SQL Databases
+## Access control to SQL databases
 
 > [!TIP]
 > The below steps need to be run for **each** SQL database to grant user access to all SQL databases except in section [Server level permission](#server-level-permission) where you can assign user a sysadmin role.
