@@ -202,7 +202,9 @@ function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPol
 
 ## Create a service SAS for a directory
 
-In a storage account with a hierarchical namespace enabled, you can create a service SAS for a directory. The following example shows how to create a service SAS for a directory with the v12 client library for .NET:
+In a storage account with a hierarchical namespace enabled, you can create a service SAS for a directory. To create the service SAS, make sure you have installed version 12.5.0 or later of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) package.
+
+The following example shows how to create a service SAS for a directory with the v12 client library for .NET:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
