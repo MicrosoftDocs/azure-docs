@@ -25,6 +25,10 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
+## Limitations
+
+* When creating a new workspace, you can either allow the workspace to create the Azure services it requires automatically or provide existing services. When providing existing services, these services must all be in the same Azure subscription as the workspace.
+
 ## Connect the CLI to your Azure subscription
 
 > [!IMPORTANT]

@@ -7,8 +7,8 @@ ms.reviewer: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 09/21/2020
+ms.topic: how-to
+ms.date: 11/20/2020
 ms.author: banders
 ---
 
@@ -24,7 +24,7 @@ If your default payment method is a credit card, we will automatically charge yo
 
 ## Pay now in the Azure portal
 
-To pay invoices in the Azure portal, you must be the Billing Account admin. The Billing Account admin is the user who originally signed up for the MCA account.
+To pay invoices in the Azure portal, you must have the correct [MCA permissions](../manage/understand-mca-roles.md) or be the Billing Account admin. The Billing Account admin is the user who originally signed up for the MCA account.
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.

@@ -48,7 +48,7 @@ Run this code in either of the following environments. We recommend that you try
     - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
     - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
-    - Run the virtual network [setup notebook](https://aka.ms/azure-rl-env-setup) to open network ports used for distributed reinforcement learning.
+    - Run the virtual network to open network ports used for distributed reinforcement learning.
 
 
 ## How to train a Pong-playing agent

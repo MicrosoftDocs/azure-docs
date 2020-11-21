@@ -40,13 +40,10 @@ Most of the technical content that's currently available assumes that applicatio
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).
 
 If you're interested in learning more about Azure Germany, use the following links:
 
 * [Sign up for a trial](https://azure.microsoft.com/free/germany/)
 * [Sign in](https://portal.microsoftazure.de/) (if you already have an Azure Germany account)
-* [Acquiring and accessing Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) 
-
-
-
+* [Acquiring and accessing Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
