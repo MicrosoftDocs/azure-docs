@@ -231,7 +231,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ## Create virtual machines - Standard
 
-In this section, you'll create the virtual machines for the backend pool of the load balancer.
+In this section, you'll create the three virtual machines for the backend pool of the load balancer.
 
 * Create three network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
@@ -262,25 +262,26 @@ $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 ## Place the network security group into a variable. ##
 $nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'CreatePubLBQS-rg'
 
-## VM 1 ##
-## Command to create network interface for VM1 ##
-$nic1 = @{
-    Name = 'myNicVM1'
+for ($i=1; $i -le 3; $i++)
+{
+## Command to create network interface for VMs ##
+$nic = @{
+    Name = "myNicVM$i"
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
     Subnet = $vnet.Subnets[0]
     NetworkSecurityGroup = $nsg
     LoadBalancerBackendAddressPool = $bepool
 }
-$nicVM1 = New-AzNetworkInterface @nic1
+$nicVM = New-AzNetworkInterface @nic
 
-## Create a virtual machine configuration for VM1 ##
+## Create a virtual machine configuration for VMs ##
 $vmsz = @{
-    VMName = 'myVM1'
-    VMSize = 'Standard_DS1_v2'
+    VMName = "myVM$i"
+    VMSize = 'Standard_DS1_v2'  
 }
 $vmos = @{
-    ComputerName = 'myVM1'
+    ComputerName = "myVM$i"
     Credential = $cred
 }
 $vmimage = @{
@@ -292,100 +293,31 @@ $vmimage = @{
 $vmConfig = New-AzVMConfig @vmsz `
     | Set-AzVMOperatingSystem @vmos -Windows `
     | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM1.Id
+    | Add-AzVMNetworkInterface -Id $nicVM.Id
 
-## Create the virtual machine for VM1 ##
+## Create the virtual machine for VMs ##
 $vm = @{
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
-    Zone = '1'
-    VM = $vmConfig    
+    VM = $vmConfig
+    Zone = "$i"
 }
 New-AzVM @vm -AsJob
-
-## VM 2 ##
-## Command to create network interface for VM2 ##
-$nic2 = @{
-    Name = 'myNicVM2'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    NetworkSecurityGroup = $nsg
-    LoadBalancerBackendAddressPool = $bepool
 }
-$nicVM2 = New-AzNetworkInterface @nic2 
-
-## Create a virtual machine configuration for VM2 ##
-$vmsz = @{
-    VMName = 'myVM2'
-    VMSize = 'Standard_DS1_v2'
-}
-$vmos = @{
-    ComputerName = 'myVM2'
-    Credential = $cred
-}
-$vmimage = @{
-    PublisherName = 'MicrosoftWindowsServer'
-    Offer = 'WindowsServer'
-    Skus = '2019-Datacenter'
-    Version = 'latest'    
-}
-$vmConfig = New-AzVMConfig @vmsz `
-    | Set-AzVMOperatingSystem @vmos -Windows `
-    | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM2.Id
-
-## Create the virtual machine for VM2 ##
-$vm = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Zone = '2'
-    VM = $vmConfig    
-}
-New-AzVM @vm -AsJob
-
-## VM 3 ##
-## Command to create network interface for VM3 ##
-$nic3 = @{
-    Name = 'myNicVM3'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    NetworkSecurityGroup = $nsg
-    LoadBalancerBackendAddressPool = $bepool
-}
-$nicVM3 = New-AzNetworkInterface @nic3 
-
-## Create a virtual machine configuration for VM3 ##
-$vmsz = @{
-    VMName = 'myVM3'
-    VMSize = 'Standard_DS1_v2'
-}
-$vmos = @{
-    ComputerName = 'myVM3'
-    Credential = $cred
-}
-$vmimage = @{
-    PublisherName = 'MicrosoftWindowsServer'
-    Offer = 'WindowsServer'
-    Skus = '2019-Datacenter'
-    Version = 'latest'    
-}
-$vmConfig = New-AzVMConfig @vmsz `
-    | Set-AzVMOperatingSystem @vmos -Windows `
-    | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM3.Id
-
-## Create the virtual machine for VM3 ##
-$vm = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Zone = '3'
-    VM = $vmConfig    
-}
-New-AzVM @vm
 
 ```
+
+The creation of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+
+```azurepowershell-interactive
+Get-Job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+1      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzBastion
+2      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
+```
+
 
 ## Create outbound rule configuration
 Load balancer outbound rules configure outbound source network address translation (SNAT) for VMs in the backend pool. 
@@ -486,51 +418,21 @@ $lbc = @{
 }
 $lb = Get-AzLoadBalancer @lbc
 
-## Add VM1 ##
-## Get the network interface configuration ##
-$nic1 = @{
+for ($i=1; $i -le 3; $i++)
+{
+$nic = @{
     ResourceGroupName = 'CreatePubLBQS-rg'
-    Name = 'myNicVM1'
+    Name = "myNicVM$i"
 }
-$nicvm1 = Get-AzNetworkInterface @nic1
+$nicvm = Get-AzNetworkInterface @nic
 
 ## Apply the backend to the network interface ##
 $be = @{
     Name = 'ipconfig1'
     LoadBalancerBackendAddressPoolId = $lb.BackendAddressPools[0].id,$lb.BackendAddressPools[1].id
 }
-$nicvm1 | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
-
-## Add VM2 ##
-## Get the network interface configuration ##
-$nic2 = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Name = 'myNicVM2'
+$nicvm | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
 }
-$nicvm2 = Get-AzNetworkInterface @nic2
-
-## Apply the backend to the network interface ##
-$be = @{
-    Name = 'ipconfig1'
-    LoadBalancerBackendAddressPoolId = $lb.BackendAddressPools[0].id,$lb.BackendAddressPools[1].id
-}
-$nicvm2 | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
-
-## Add VM3 ##
-## Get the network interface configuration ##
-$nic3 = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Name = 'myNicVM3'
-}
-$nicvm3 = Get-AzNetworkInterface @nic3
-
-## Apply the backend to the network interface ##
-$be = @{
-    Name = 'ipconfig1'
-    LoadBalancerBackendAddressPoolId = $lb.BackendAddressPools[0].id,$lb.BackendAddressPools[1].id
-}
-$nicvm3 | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
-
 ```
 
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
@@ -746,28 +648,33 @@ $set = @{
     Name = 'myAvSet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
+    Sku = 'Aligned'
+    PlatformFaultDomainCount = '2'
+    PlatformUpdateDomainCount =  '2'
 }
-New-AzAvailabilitySet @set
+$avs = New-AzAvailabilitySet @set
 
-## VM 1 ##
-## Command to create network interface for VM1 ##
-$nic1 = @{
-    Name = 'myNicVM1'
+for ($i=1; $i -le 3; $i++)
+{
+## Command to create network interface for VMs ##
+$nic = @{
+    Name = "myNicVM$i"
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
     Subnet = $vnet.Subnets[0]
     NetworkSecurityGroup = $nsg
     LoadBalancerBackendAddressPool = $bepool
 }
-$nicVM1 = New-AzNetworkInterface @nic1
+$nicVM = New-AzNetworkInterface @nic
 
-## Create a virtual machine configuration for VM1 ##
+## Create a virtual machine configuration for VMs ##
 $vmsz = @{
-    VMName = 'myVM1'
+    VMName = "myVM$i"
     VMSize = 'Standard_DS1_v2'
+    AvailabilitySetId = $avs.Id   
 }
 $vmos = @{
-    ComputerName = 'myVM1'
+    ComputerName = "myVM$i"
     Credential = $cred
 }
 $vmimage = @{
@@ -779,102 +686,29 @@ $vmimage = @{
 $vmConfig = New-AzVMConfig @vmsz `
     | Set-AzVMOperatingSystem @vmos -Windows `
     | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM1.Id
+    | Add-AzVMNetworkInterface -Id $nicVM.Id
 
-## Create the virtual machine for VM1 ##
+## Create the virtual machine for VMs ##
 $vm = @{
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
     VM = $vmConfig
-    AvailabilitySetName = 'myAvSet' 
 }
 New-AzVM @vm -AsJob
-
-## VM 2 ##
-## Command to create network interface for VM2 ##
-$nic2 = @{
-    Name = 'myNicVM2'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    NetworkSecurityGroup = $nsg
-    LoadBalancerBackendAddressPool = $bepool
 }
-$nicVM2 = New-AzNetworkInterface @nic2 
-
-## Create a virtual machine configuration for VM2 ##
-$vmsz = @{
-    VMName = 'myVM2'
-    VMSize = 'Standard_DS1_v2'
-}
-$vmos = @{
-    ComputerName = 'myVM2'
-    Credential = $cred
-}
-$vmimage = @{
-    PublisherName = 'MicrosoftWindowsServer'
-    Offer = 'WindowsServer'
-    Skus = '2019-Datacenter'
-    Version = 'latest'    
-}
-$vmConfig = New-AzVMConfig @vmsz `
-    | Set-AzVMOperatingSystem @vmos -Windows `
-    | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM2.Id
-
-## Create the virtual machine for VM2 ##
-$vm = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    VM = $vmConfig
-    AvailabilitySetName = 'myAvSet'   
-}
-New-AzVM @vm -AsJob
-
-## VM 3 ##
-## Command to create network interface for VM3 ##
-$nic3 = @{
-    Name = 'myNicVM3'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    NetworkSecurityGroup = $nsg
-    LoadBalancerBackendAddressPool = $bepool
-}
-$nicVM3 = New-AzNetworkInterface @nic3 
-
-## Create a virtual machine configuration for VM3 ##
-$vmsz = @{
-    VMName = 'myVM3'
-    VMSize = 'Standard_DS1_v2'
-}
-$vmos = @{
-    ComputerName = 'myVM3'
-    Credential = $cred
-}
-$vmimage = @{
-    PublisherName = 'MicrosoftWindowsServer'
-    Offer = 'WindowsServer'
-    Skus = '2019-Datacenter'
-    Version = 'latest'    
-}
-$vmConfig = New-AzVMConfig @vmsz `
-    | Set-AzVMOperatingSystem @vmos -Windows `
-    | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM3.Id
-
-## Create the virtual machine for VM3 ##
-$vm = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
-    VM = $vmConfig
-    AvailabilitySetName = 'myAvSet'  
-}
-New-AzVM @vm
 
 ```
 
-It takes a few minutes to create and configure the three VMs.
+The creation of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+
+```azurepowershell-interactive
+Get-Job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+1      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzBastion
+2      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
+```
 
 ---
 
@@ -885,45 +719,31 @@ Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to inst
 The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
 ```azurepowershell-interactive
-## VM1 ##
-$ext1 = @{
+for ($i=1; $i -le 3; $i++)
+{
+$ext = @{
     Publisher = 'Microsoft.Compute'
     ExtensionType = 'CustomScriptExtension'
     ExtensionName = 'IIS'
     ResourceGroupName = 'CreatePubLBQS-rg'
-    VMName = 'myVM1'
+    VMName = "myVM$i"
     Location = 'eastus'
     TypeHandlerVersion = '1.8'
     SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 }
-Set-AzVMExtension @ext1 -AsJob
-
-## VM2 ##
-$ext2 = @{
-    Publisher = 'Microsoft.Compute'
-    ExtensionType = 'CustomScriptExtension'
-    ExtensionName = 'IIS'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    VMName = 'myVM2'
-    Location = 'eastus'
-    TypeHandlerVersion = '1.8'
-    SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+Set-AzVMExtension @ext -AsJob
 }
-Set-AzVMExtension @ext2 -AsJob
+```
+The extensions are deployed as powershell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
 
-## VM3 ##
-$ext3 = @{
-    Publisher = 'Microsoft.Compute'
-    ExtensionType = 'CustomScriptExtension'
-    ExtensionName = 'IIS'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    VMName = 'myVM3'
-    Location = 'eastus'
-    TypeHandlerVersion = '1.8'
-    SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
-}
-Set-AzVMExtension @ext3
+```azurepowershell-interactive
+Get-Job
 
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+8      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+9      Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
+10     Long Running O… AzureLongRunni… Running       True            localhost            Set-AzVMExtension
 ```
 
 ## Test the load balancer
