@@ -102,7 +102,7 @@ Central identity management offers the following benefits:
 > [!NOTE]
 >
 > - Azure AD authentication is recorded in Azure SQL audit logs, but not in Azure AD sign-in logs.
-> - RBAC permissions granted in Azure do not apply to Azure SQL Database or SQL Managed Instance  permissions. Such permissions must be created/mapped manually using existing SQL permissions.
+> - Azure RBAC permissions granted in Azure do not apply to Azure SQL Database or SQL Managed Instance  permissions. Such permissions must be created/mapped manually using existing SQL permissions.
 > - On the client-side, Azure AD authentication needs access to the internet or via User Defined Route (UDR) to a virtual network.
 > - The Azure AD access token is cached on the client side and its lifetime depends on token configuration. See the article, [Configurable token lifetimes in Azure Active Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - For guidance on troubleshooting Azure AD Authentication issues, see the following blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).

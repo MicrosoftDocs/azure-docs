@@ -232,4 +232,4 @@ In this tutorial, you learned how to provision a Hyperscale (Citus) server group
 
 - Learn about server group [node types](./concepts-hyperscale-nodes.md)
 - Determine the best [initial
-  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group
+  size](howto-hyperscale-scale-initial.md) for your server group

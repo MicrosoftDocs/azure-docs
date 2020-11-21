@@ -40,7 +40,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 ## Access management
 
 > [!IMPORTANT]
-> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in the Azure portal](../../role-based-access-control/overview.md).
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Azure role-based access control in the Azure portal](../../role-based-access-control/overview.md).
 
 ### Authentication
 
@@ -59,7 +59,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
     Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](authentication-mfa-ssms-overview.md) connections including [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **SQL Managed Instance**. Please see the following article on [connecting to a managed instance](../managed-instance/connect-application-instance.md) for more information about the networking configuration needed.
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Azure role-based access control in Azure portal](../../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **SQL Managed Instance**. Please see the following article on [connecting to a managed instance](../managed-instance/connect-application-instance.md) for more information about the networking configuration needed.
 
 ## Authorization
 
