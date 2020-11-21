@@ -119,12 +119,10 @@
       - name: Access control
         items:
         - name: Overview
-          href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ./security/access-control.md
+          displayname: access, control
         - name: Synapse workspace managed Identity
           href: ./security/synapse-workspace-managed-identity.md
-        - name: SQL pools
-          href: ./sql/access-control.md
-          displayname: access, control
     - name: Tools integration (AI, ETL, BI)
       items:
       - name: Troubleshoot Synapse Studio
@@ -352,6 +350,8 @@
         href: ./sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Security 
       items:
+      - name: Database access control
+        href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Data security
         items:
         - name: Column-level security
