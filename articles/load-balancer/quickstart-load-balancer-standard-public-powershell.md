@@ -158,7 +158,6 @@ Create a network security group to define inbound connections to your virtual ne
 
 * Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-
 ```azurepowershell-interactive
 ## Create backend subnet config ##
 $subnet = @{
@@ -244,7 +243,6 @@ In this section, you'll create the three virtual machines for the backend pool o
     * [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
     * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
-
 ```azurepowershell-interactive
 # Set the administrator and password for the VMs. ##
 $cred = Get-Credential
@@ -321,7 +319,6 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
-
 ## Create outbound rule configuration
 Load balancer outbound rules configure outbound source network address translation (SNAT) for VMs in the backend pool. 
 
@@ -366,7 +363,6 @@ New-AzPublicIpAddress @publicipout
 
 * Apply the pool and frontend IP address to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 *  Create a new outbound rule for the outbound backend pool with [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 
-
 
 ```azurepowershell-interactive
 ## Place public IP created in previous steps into variable. ##
@@ -475,7 +471,6 @@ This section details how you can create and configure the following components o
 
 * Create a public load balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
 
-
 ```azurepowershell-interactive
 ## Place public IP created in previous steps into variable. ##
 $publicIp = Get-AzPublicIpAddress -Name 'myPublicIP' -ResourceGroupName 'CreatePubLBQS-rg'
@@ -541,7 +536,6 @@ Create a network security group to define inbound connections to your virtual ne
 * Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion).
 
 * Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
-
 
 ```azurepowershell-interactive
 ## Create backend subnet config ##
@@ -630,7 +624,6 @@ In this section, you'll create the virtual machines for the backend pool of the 
     * [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
     * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
-
 ```azurepowershell-interactive
 # Set the administrator and password for the VMs. ##
 $cred = Get-Credential
@@ -705,7 +698,7 @@ New-AzVM @vm -AsJob
 
 ```
 
-The creations of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+The deployment of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
 
 ```azurepowershell-interactive
 Get-Job
@@ -746,7 +739,9 @@ $ext = @{
 Set-AzVMExtension @ext -AsJob
 }
 ```
+
 The extensions are deployed as PowerShell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+
 
 ```azurepowershell-interactive
 Get-Job
