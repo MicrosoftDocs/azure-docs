@@ -246,11 +246,7 @@ foreach ($deployment in $deployments){
 
 ## Report
 
-You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
-
-Choose Tracked Template in the dropdown list of Partner Association Type to see the report.
-
-![Report for customer usage attribution](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+You can find the report for customer usage attribution in your Partner Center dashboard ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a [support request](#get-support).
 
 ## Notify your customers
 
