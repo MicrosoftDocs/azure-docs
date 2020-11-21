@@ -5,10 +5,11 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/19/2020
 ---
 
 # Azure Cosmos DB service quotas
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
@@ -189,8 +190,8 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 
 | Resource | Default limit |
 | --- | --- |
-|Maximum collection create rate per minute|    5|
-|Maximum Database create rate per minute|    5|
+|Maximum collection create rate per minute|    100|
+|Maximum Database create rate per minute|    100|
 |Maximum provisioned throughput update rate per minute|    5|
 
 ## Limits for autoscale provisioned throughput

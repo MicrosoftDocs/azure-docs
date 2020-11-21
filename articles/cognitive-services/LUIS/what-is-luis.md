@@ -45,7 +45,7 @@ The LUIS app provides intelligence so the client application can make smart choi
 
 Your LUIS app contains a domain-specific natural language model. You can start the LUIS app with a prebuilt domain model, build your own model, or blend pieces of a prebuilt domain with your own custom information.
 
-* **Prebuilt model** LUIS has many prebuilt domain models including intents, utterances, and prebuilt entities. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md "Prebuilt domain models") include the entire design for you and are a great way to start using LUIS quickly.
+* **Prebuilt model** LUIS has many prebuilt domain models including intents, utterances, and prebuilt entities. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. [Prebuilt domain models](./howto-add-prebuilt-models.md "Prebuilt domain models") include the entire design for you and are a great way to start using LUIS quickly.
 
 * **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learning entities, specific or literal entities, and a combination of machine-learning and literal.
 
@@ -111,7 +111,7 @@ Tools to quickly and easily use LUIS with a bot:
 
 ## Integrate with a bot
 
-Use the [Azure Bot service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Azure Bot service") with the [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") to build and deploy a chat bot. Design and develop with the graphical interface tool, [Composer](https://docs.microsoft.com/composer/ "Composer"), or [working bot samples](https://github.com/microsoft/BotBuilder-Samples "working bot samples") designed for top bot scenarios.
+Use the [Azure Bot service](/azure/bot-service/?view=azure-bot-service-4.0 "Azure Bot service") with the [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") to build and deploy a chat bot. Design and develop with the graphical interface tool, [Composer](/composer/ "Composer"), or [working bot samples](https://github.com/microsoft/BotBuilder-Samples "working bot samples") designed for top bot scenarios.
 
 ## Integrate with other Cognitive Services
 
@@ -133,8 +133,8 @@ Learn about LUIS with hands-on quickstarts using the [portal](get-started-portal
 * [Query the prediction endpoint](luis-get-started-get-intent-from-browser.md "Query the prediction endpoint").
 * [Developer resources](developer-reference-resource.md "Developer resources") for LUIS.
 
-[bot-framework]: https://docs.microsoft.com/bot-framework/
-[flow]: https://docs.microsoft.com/connectors/luis/
+[bot-framework]: /bot-framework/
+[flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
 [endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/
