@@ -33788,6 +33788,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/postgresql/howto-hyperscale-scaling.md",
+      "redirect_url": "/azure/postgresql/howto-hyperscale-scale-grow",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-adpetime-tutorial.md",
       "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
       "redirect_document_id": false
@@ -48388,6 +48393,16 @@
     {
       "source_path": "articles/sql-data-warehouse/index.yml",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/overview-faq.md",
+      "redirect_url": "/azure/synapse-analytics/overview-what-is",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/overview-cheat-sheet.md",
+      "redirect_url": "/azure/synapse-analytics/overview-terminology",
       "redirect_document_id": false
     },
     {
