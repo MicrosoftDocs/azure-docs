@@ -308,7 +308,7 @@ New-AzVM @vm -AsJob
 
 ```
 
-The creation of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+The creations of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
 
 ```azurepowershell-interactive
 Get-Job
@@ -705,7 +705,7 @@ New-AzVM @vm -AsJob
 
 ```
 
-The creation of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+The creations of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
 
 ```azurepowershell-interactive
 Get-Job
@@ -743,7 +743,7 @@ $ext = @{
 Set-AzVMExtension @ext -AsJob
 }
 ```
-The extensions are deployed as powershell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
+The extensions are deployed as PowerShell jobs. To view the status of the installation jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
 
 ```azurepowershell-interactive
 Get-Job
