@@ -91,7 +91,7 @@ Windows Registry Editor Version 5.00
 ```
 
 1. Save and then run the file by double-clicking it. You're prompted to merge the file into your registry.
-1. Start Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md) with your Azure Germany account.
+1. Start Visual Studio and begin using [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) with your Azure Germany account.
 
 > [!NOTE]
 > After this registry key is set, only Azure Germany subscriptions are accessible. You still see subscriptions that you configured previously, but they don't work because Visual Studio is now connected to Azure Germany instead of global Azure. To connect to global Azure, revert the changes.
