@@ -30,13 +30,6 @@ For example, consider an environment with a set of virtual machines running a li
 ## Create rule and association in Azure portal
 You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created for any virtual machines that don't already have it installed.
 
-> [!IMPORTANT]
-> You cannot currently create an association between a data collection rule and an Azure Arc enabled server using the Azure portal. You can create an association for any Azure Arc enabled servers once the data collection rule is created. The basic process is as follows:
-> 
-> 1. Create the data collection rule using the process below. Don't select any virtual machines unless you also have Azure virtual machines to assign.
-> 2. Install the Azure Monitor agent on the Azure Arc enabled servers using any of the methods described in [Install the Azure Monitor agent (preview)](azure-monitor-agent-install.md).
-> 3. Create an association for the virtual machine to the data collection rule using either the REST API or Resource Manager template as described below.
-
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
 
 [![Data Collection Rules](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -45,7 +38,7 @@ Click **Add** to create a new rule and set of associations. Provide a **Rule nam
 
 [![Data Collection Rule Basics](media/azure-monitor-agent/data-collection-rule-basics.png)](media/azure-monitor-agent/data-collection-rule-basics.png#lightbox)
 
-In the **Virtual machines** tab, add virtual machines that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on virtual machines that don't already have it installed.
+In the **Virtual machines** tab, add virtual machines that should have the Data Collection Rule applied. Both Azure virtual machines and Azure Arc enabled servers in your environment should be listed. The Azure Monitor Agent will be installed on virtual machines that don't already have it installed.
 
 [![Data Collection Rule virtual machines](media/azure-monitor-agent/data-collection-rule-virtual-machines.png)](media/azure-monitor-agent/data-collection-rule-virtual-machines.png#lightbox)
 
