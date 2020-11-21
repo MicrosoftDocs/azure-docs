@@ -1,6 +1,6 @@
 ---
-title: Supported Classifications
-description: This article lists the supported system classifications in Azure Purview.
+title: List of supported classifications
+description: This page lists the supported system classifications in Azure Purview.
 author: animukherjee
 ms.author: anmuk
 ms.service: data-catalog
