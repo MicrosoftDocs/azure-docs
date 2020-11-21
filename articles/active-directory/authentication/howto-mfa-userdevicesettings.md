@@ -43,8 +43,6 @@ To add authentication methods for a user via the Azure portal:
 
 1. Sign into the **Azure portal**. 
 1. Browse to **Azure Active Directory** > **Users** > **All users**. 
-1. Choose the user for whom you wish to add an authentication method and select **Authentication methods**.  
-1. At the top of the window, select **+ Add authentication method**.
    1. Select a method (phone number or email). Email may be used for self-password reset but not authentication. When adding a phone number, select a phone type and enter phone number with valid format (e.g. +1 4255551234).
    1. Select **Add**.
 
