@@ -726,6 +726,9 @@ Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to inst
 
 The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
+> [!IMPORTANT]
+> Ensure the virtual machine deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the virtual machine deployment jobs.
+
 ```azurepowershell-interactive
 ## For loop with variable to install custom script extension on virtual machines. ##
 for ($i=1; $i -le 3; $i++)
