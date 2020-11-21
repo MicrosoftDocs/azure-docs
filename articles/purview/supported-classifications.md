@@ -12,11 +12,11 @@ ms.date: 11/20/2020
 
 # Classifications
 
-This article describes the supported and defined system classifications in Azure Purview.
+This article lists the supported and defined system classifications in Azure Purview (Preview).
 
 ## Defined system classifications
 
-Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expression) and [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter). Below are the Azure Purview defined system classifications.
+Azure Purview classifies data by [RegEx](https://wikipedia.org/wiki/Regular_expression) and [Bloom Filter](https://wikipedia.org/wiki/Bloom_filter). The following lists describe the format, pattern, and keywords for the Azure Purview defined system classifications.
 
 Each classification name is prefixed by MICROSOFT.
 
