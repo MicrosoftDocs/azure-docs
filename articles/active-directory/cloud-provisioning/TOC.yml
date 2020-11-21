@@ -74,10 +74,12 @@
     
 - name: Reference
   items:
-  - name: Azure AD Connect cloud provisioning agent version history
-    href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+  - name: Azure AD Connect Cloud Sync agent version history
+    href: reference-version-history.md
   - name: Azure AD Connect cloud provisioning FAQ
     href: reference-cloud-provisioning-faq.md
+  - name: AADCloudSyncTools PowerShell Module 
+    href: reference-powershell.md
   - name: Attributes that are synchronized
     href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
   - name: Basic Active Directory and Azure AD environment
