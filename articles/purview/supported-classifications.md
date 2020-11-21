@@ -1460,8 +1460,10 @@ dl number
 
 #### Keywords\_croatia\_eu\_driver's\_license\_number
 
-- vozačka dozvola
-- vozačke dozvole
+```
+vozačka dozvola
+vozačke dozvole
+```
 
 ## Croatia identity card number
 
