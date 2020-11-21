@@ -17,14 +17,18 @@ This article helps you configure gateway transit for virtual network peering. [V
 
 ![Gateway transit diagram](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. The transit option is available for peering between the same, or different deployment models. The constraint is that the VPN gateway can only be in the virtual network using the Resource Manager (RM) deployment model, as shown in the diagram.
+In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. The transit option is available for peering between the same, or different deployment models. 
+
+>[!IMPORTANT]
+>The hub virtual network and virtual network gateway must be in the Resource Manager deployment model.
+>
 
 In hub-and-spoke network architecture, gateway transit allows spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. Routes to the gateway-connected virtual networks or on-premises networks will propagate to the routing tables for the peered virtual networks using gateway transit. You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.md).
 
 There are two scenarios in this article:
 
 * **Same deployment model**: Both virtual networks are created in the Resource Manager deployment model.
-* **Different deployment models**: The spoke virtual network is created in the classic deployment model, and the hub virtual network and gateway is in the Resource Manager deployment model.
+* **Different deployment models**: The spoke virtual network is created in the classic deployment model, and the hub virtual network and gateway are in the Resource Manager deployment model.
 
 >[!NOTE]
 > If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
@@ -55,23 +59,41 @@ The accounts you use to create a virtual network peering must have the necessary
 
 Learn more about [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%252fazure%252fvirtual-network%252ftoc.json) (Resource Manager only).
 
-## <a name="RM-RM"></a>Transit - same deployment model
+## <a name="Same"></a>Same deployment model
 
-In this scenario, the virtual networks are both created using the Resource Manager deployment model. Use the following instructions to create or update the virtual network peerings to enable gateway transit.
+In this scenario, the virtual networks are both in the Resource Manager deployment model. Use the following instructions to create or update the virtual network peerings to enable gateway transit.
 
-1. In the [Azure portal](https://portal.azure.com), create or update the virtual network peering from the Spoke-RM to the Hub-RM. Navigate to the **Spoke-RM** virtual network, select **Peerings**, then **+ Add**.
+### To add a peering and enable transit
 
-   Configure the following values:
+1. In the [Azure portal](https://portal.azure.com), create or update the virtual network peering from the Hub-RM. Navigate to the **Hub-RM** virtual network. Select **Peerings**, then **+ Add** to open **Add peering**.
+1. On the **Add peering** page, configure the values for **This virtaual network**.
 
-   * Set the **Resource Manager** option.
-   * Select the **Hub-RM** virtual network in the corresponding subscription.
-   * Make sure **Allow virtual network access** is **Enabled**.
-   * Set the **Use remote gateways** option.
-   * Select **OK**.
+   * Name: Name this peering link.
+   * Traffic to remote virtual network: **Allow**
+   * Traffic forwarded from remote virtual network: **Allow**
+   * Virtual network gateway: Use this virtual network's gateway
 
-     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png" alt-text="Add peering page for Spoke-RM":::
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/add-peering-this.png" alt-text="Screenshot shows add peering.":::
 
-1. If the peering is already created, navigate to the peering resource, then enable the "**Use remote gateways**" option similar to the screenshot shown in step (1).
+1. Continue on the same page to configure the values for the **Remote virtual network**.
+
+   * Peering link name:
+   * Deployment model: **Resource Manager**
+   * Virtual Network: **Spoke-RM**
+   * Traffic to remote virtual network: **Allow**
+   * Traffic forwarded from remote virtual network: **Allow**
+   * Virtual network gateway: **Use the remote virtual network's gateway**
+
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/add-peering-remote.png" alt-text="Screenshot shows vales for remote virtual network.":::
+
+1. Select **Add** to create the peering.
+1. Verify the peering status as **Connected** on both virtual networks.
+
+### To modify an existing peering for transit
+
+If the peering was already created, you can modify the peering by navigating to the virtual network. Select **Peerings** and select the peering that you want to modify. Then, select **Use the remote virtual network's gateway**.
+
+   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/use-remote.png" alt-text="Screenshot shows modify peering gateway.":::
 
 1. Create or update the virtual network peering from Hub-RM to Spoke-RM from the Azure portal. Navigate to the Hub-RM virtual network resource, select **Peerings**, then **+ Add**:
 
@@ -84,8 +106,6 @@ In this scenario, the virtual networks are both created using the Resource Manag
      :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png" alt-text="Add peering page for Spoke-RM transit":::
 
 1. If the peering is already created, navigate to the peering resource, then enable the "**Allow gateway transit**" option similar to the screenshot shown in step (3).
-
-1. Verify the peering status as "**Connected**" on both virtual networks.
 
 ### PowerShell sample
 
@@ -113,9 +133,9 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="Classic-RM"></a>Transit - different deployment models
+## <a name="Different"></a>Different deployment models
 
-For this configuration, the spoke VNet (Spoke-Classic) is created using the classic deployment model. The hub VNet (Hub-RM) is created using the Resource Manager deployment model. The virtual network gateway must be on the Resource Manager VNet, not the classic VNet. Operations are applied to the Hub-RM virtual network only.
+For this configuration, the spoke VNet (Spoke-Classic) is in the classic deployment model. The hub VNet (Hub-RM) is in the Resource Manager deployment model. The virtual network gateway must be configured for the Resource Manager VNet, not the classic VNet. Operations are applied to the Hub-RM virtual network only.
 
 1. In the Azure portal, create or update the virtual network peering from **Hub-RM** to **Spoke-RM**. Navigate to the Hub-RM virtual network resource, select **Peerings**, then **+ Add**:
 
