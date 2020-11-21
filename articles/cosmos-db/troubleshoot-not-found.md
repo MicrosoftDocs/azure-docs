@@ -21,6 +21,11 @@ There are many valid scenarios where an application expects a code 404 and corre
 ## A not found exception was returned for an item that should exist or does exist
 Here are the possible reasons for a status code 404 to be returned if the item should exist or does exist.
 
+### The read session is not available for the input session token
+
+#### Solution:
+1. Update your current SDK to the latest version available. The most common causes for this particular error have been fixed in the newest SDK versions.
+
 ### Race condition
 There are multiple SDK client instances and the read happened before the write.
 
