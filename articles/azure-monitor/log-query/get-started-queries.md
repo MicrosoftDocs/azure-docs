@@ -241,7 +241,7 @@ To make the output clearer, you select to display it as a time-chart, showing th
 
 ## Next steps
 
-- Learn more about using string data in a log query with [Work with strings in Azure Monitor log queries](string-operations.md).
-- Learn more about aggregating data in a log query with [Advanced aggregations in Azure Monitor log queries](advanced-aggregations.md).
-- Learn how to join data from multiple tables with [Joins in Azure Monitor log queries](joins.md).
+- Learn more about using string data in a log query with [Work with strings in Azure Monitor log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Learn more about aggregating data in a log query with [Advanced aggregations in Azure Monitor log queries](/azure/data-explorer/write-queries#advanced-aggregations).
+- Learn how to join data from multiple tables with [Joins in Azure Monitor log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Get documentation on the entire Kusto query language in the [KQL language reference](/azure/kusto/query/).
