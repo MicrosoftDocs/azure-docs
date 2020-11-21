@@ -77,7 +77,7 @@ New-AzPublicIpAddress @publicip
 
 ```
 
-## Create standard load balancer - Standard
+## Create standard load balancer
 
 This section details how you can create and configure the following components of the load balancer:
 
@@ -262,6 +262,7 @@ $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 ## Place the network security group into a variable. ##
 $nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'CreatePubLBQS-rg'
 
+## For loop with variable to create virtual machines for load balancer backend pool. ##
 for ($i=1; $i -le 3; $i++)
 {
 ## Command to create network interface for VMs ##
@@ -420,6 +421,7 @@ $lbc = @{
 }
 $lb = Get-AzLoadBalancer @lbc
 
+# For loop with variable to add virtual machines to backend outbound pool. ##
 for ($i=1; $i -le 3; $i++)
 {
 $nic = @{
@@ -657,6 +659,7 @@ $set = @{
 }
 $avs = New-AzAvailabilitySet @set
 
+## For loop with variable to create virtual machines. ##
 for ($i=1; $i -le 3; $i++)
 {
 ## Command to create network interface for VMs ##
@@ -724,6 +727,7 @@ Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to inst
 The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
 ```azurepowershell-interactive
+## For loop with variable to install custom script extension on virtual machines. ##
 for ($i=1; $i -le 3; $i++)
 {
 $ext = @{
