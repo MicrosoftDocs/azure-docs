@@ -132,43 +132,7 @@ only - Single Tenant)**.
 
    For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md).
 
-## Creating and running a scan
-
-1. Navigate to the management center. Select **Data sources** under **Sources and scanning**, then select the **Azure Data Lake Storage Gen2** data source.
-
-2. Select **+ New scan**. Choose the authentication method that you want to use and provide required details.
-
-   :::image type="content" source="media/register-scan-adls-gen2/choose-authentication.png" alt-text="Choose scan authentication method":::
-
-3. If you plan to scan the entire server, we do not provide scope functionality. If you did however provide a database name, then you can scope your scan to specific tables.
-
-4. Choose your scan trigger. You can set up a schedule or ran the scan once.
-
-   :::image type="content" source="media/register-scan-adls-gen2/setup-scan-trigger.png" alt-text="Setup scan trigger":::
-
-5. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
-
-   :::image type="content" source="media/register-scan-adls-gen2/select-scan-rule-set.png" alt-text="Select scan rule set":::
-
-6. Review your scan and select **Save** and run.
-
-## Viewing your scans and scan runs
-
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section select the **Azure Data Lake Storage Gen2** data source.
-
-2. Select the scan result that you want to view.
-
-3. You can view all the scan runs along with metrics and status for each scan run.
-
-## Manage your scans
-
-1. Navigate to the management center. Select **Data sources** under the Sources and scanning, select the **Azure Data Lake Storage Gen2** data source.
-
-2. Select the scan you would like to manage. You can edit the scan by select **Edit**.
-
-   :::image type="content" source="media/register-scan-adls-gen2/edit-scan.png" alt-text="edit scan":::
-
-3. You can delete your scan by selecting **Delete**.
+[!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 ## Next steps
 
