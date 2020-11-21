@@ -316,6 +316,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 --     ----            -------------   -----         -----------     --------             -------
 1      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzBastion
 2      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
+3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
+4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
 
@@ -433,6 +435,7 @@ $be = @{
 }
 $nicvm | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
 }
+
 ```
 
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
@@ -708,6 +711,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 --     ----            -------------   -----         -----------     --------             -------
 1      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzBastion
 2      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
+3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
+4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
 ---
