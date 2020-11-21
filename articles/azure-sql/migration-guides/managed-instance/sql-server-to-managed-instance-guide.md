@@ -93,7 +93,7 @@ If you need to compare the performance of your workload on a SQL Managed Instanc
 
 ### Create SQL Managed Instance 
 
-Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](/../../managed-instance/create-template-quickstart.md). 
+Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](/azure/azure-sql/managed-instance/create-template-quickstart). 
 
 
 ## Migrate
@@ -136,7 +136,7 @@ The following diagram provides a high-level overview of the process:
 
 To migrate using backup and restore, follow these steps: 
 
-1. Back up your database to Azure blob storage. For example, use [backup to url](/sql/relational-databases/backup-restore/sql-server-backup-to-url) in [SQL Server Management Studio](/ssms/download-sql-server-management-studio-ssms). Use the [Microsoft Azure Tool](https://go.microsoft.com/fwlink/?LinkID=324399) to support databases earlier than SQL Server 2012 SP1 CU2. 
+1. Back up your database to Azure blob storage. For example, use [backup to url](/sql/relational-databases/backup-restore/sql-server-backup-to-url) in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Use the [Microsoft Azure Tool](https://go.microsoft.com/fwlink/?LinkID=324399) to support databases earlier than SQL Server 2012 SP1 CU2. 
 1. Connect to your Azure SQL Managed Instance using SQL Server Management Studio. 
 1. Create a credential using a Shared Access Signature to access your Azure Blob storage account with your database backups. For example:
 

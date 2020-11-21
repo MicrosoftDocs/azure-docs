@@ -187,9 +187,11 @@ The following table shows the supported log types and descriptions:
 | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; only available for Premium tier and above |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images | Java SE & Tomcat Blessed Images | Application logs |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+
+<sup>1</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to 1 or to true.
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
