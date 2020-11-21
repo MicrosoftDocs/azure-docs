@@ -162,5 +162,8 @@ items:
       href: file-extension-insights.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
-#- name: Reference
+- name: Reference
+  items:
+    - name: Supported classifications
+      href: supported-classifications.md
 #- name: Resources
