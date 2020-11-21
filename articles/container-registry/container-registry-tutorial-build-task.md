@@ -129,7 +129,7 @@ You now have a task that defines your build. To test the build pipeline, trigger
 az acr task run --registry $ACR_NAME --name taskhelloworld
 ```
 
-By default, the `az acr task run` command streams the log output to your console when you execute the command.
+By default, the `az acr task run` command streams the log output to your console when you execute the command. The output is condensed to show key steps.
 
 ```output
 2020/11/19 22:51:00 Using acb_vol_9ee1f28c-4fd4-43c8-a651-f0ed027bbf0e as the home volume
