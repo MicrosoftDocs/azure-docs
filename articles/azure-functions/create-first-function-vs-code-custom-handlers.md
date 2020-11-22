@@ -103,6 +103,8 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     go build handler.go
     ```
 
+![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-go.png)
+
 ## Configure your function app
 
 The function host needs to be configured to run your custom handler binary when it starts.
@@ -162,7 +164,7 @@ This quickstart will deploy your application to an Azure Functions Linux Consump
 
 1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
 
-    **macOS**
+    **macOS or Linux**
 
     ```bash
     GOOS=linux GOARCH=amd64 go build handler.go
