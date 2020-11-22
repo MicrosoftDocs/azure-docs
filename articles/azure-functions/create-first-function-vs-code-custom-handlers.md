@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 11/22/2020
 ---
 
-# Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
+# Quickstart: Create a Go function in Azure using Visual Studio Code
 
 [!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
@@ -144,11 +144,11 @@ You can run this project on your local development computer before you publish t
 
 1. A response is returned, which looks like the following in a browser:
 
-    ![Browser - localhost example output](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Browser - localhost example output](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
 
 1. Information about the request is shown in **Terminal** panel.
 
-    ![Task host start - VS Code terminal output](./media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
+    ![Task host start - VS Code terminal output](../../includes/media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
 
 1. Press <kbd>Ctrl + C</kbd> to stop Core Tools.
 
