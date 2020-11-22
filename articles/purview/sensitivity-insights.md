@@ -49,15 +49,15 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
 
 1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/insights/view-insights-small.png" alt-text="View your insights in the Azure portal" lightbox="media/insights/view-insights.png":::
 
 1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Purview **Sensitivity labeling insights** report.
 
-   :::image type="content" source="media/insights/sensitivity-labeling-insights.png" alt-text="Sensitivity labeling insights":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights" lightbox="media/insights/sensitivity-labeling-insights.png":::
 
    The main **Sensitivity labeling insights** page displays the following areas:
 
@@ -81,13 +81,13 @@ In any of the following **Sensitivity labeling insights** graphs, select the **V
 
 For example:
 
-:::image type="content" source="media/insights/sensitivity-label-drilldown.png" alt-text="Sensitivity label drilldown":::
+:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Sensitivity label drilldown" lightbox="media/insights/sensitivity-label-drilldown.png":::
 
 Use the filters above the grid to filter the data shown, including the sensitivity label name, subscription name, or source type. If you're not sure of the exact sensitivity label name, you can enter part or all of the name in the **Filter by keyword** box.
 
 For example:
 
-:::image type="content" source="media/insights/sensitivity-labels-filter.png" alt-text="Filtered sensitivity insights report":::
+:::image type="content" source="media/insights/sensitivity-labels-filter-small.png" alt-text="Filtered sensitivity insights report" lightbox="media/insights/sensitivity-labels-filter.png":::
 
 Above the filters: 
 
@@ -97,7 +97,7 @@ Above the filters:
 
    The search results display all of the labeled assets found with the selected sensitivity label. For example:
 
-   :::image type="content" source="media/insights/sensitivity-label-search-results.png" alt-text="Sensitivity label search results":::
+   :::image type="content" source="media/insights/sensitivity-label-search-results-small.png" alt-text="Sensitivity label search results" lightbox="media/insights/sensitivity-label-search-results.png":::
  
    For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).
 ## Sensitivity label integration with Microsoft 365 compliance
