@@ -19,7 +19,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 
 |Aspect|Details|
 |----|:----|
-|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Generally available (GA)<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected SQL versions:|SQL on Azure virtual machines - [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Arc enabled SQL servers](https://docs.microsoft.com/sql/sql-server/azure-arc/overview) (includes on-premises SQL servers)<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
