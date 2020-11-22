@@ -67,9 +67,9 @@ Synapse RBAC is managed from within Synapse Studio using the Access control tool
 
 Understand the built-in [Synapse RBAC roles](./synapse-workspace-synapse-rbac-roles.md).
 
-Learn [how to review Synapse RBAC role assignments](./how-to-review-Synapse-Ra-synapse-rbac-role.md) for a workspace.
+Learn [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md) for a workspace.
 
-Learn [how to assign Synapse RBAC roles](./how-to-assign-a-synapse-rbac-role.md)
+Learn [how to assign Synapse RBAC roles](./how-to-manage-synapse-rbac-role-assignments.md)
 
 
  
