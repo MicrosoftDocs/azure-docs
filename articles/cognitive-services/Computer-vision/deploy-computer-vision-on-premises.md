@@ -239,6 +239,98 @@ deployment.apps/read   1/1     1            1           17s
 NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
+## Deploy multiple v3 containers on the Kubernetes cluster
+
+Start from v3, the parallelism can be achieved in both task level and page level.
+
+By design, each v3 container has a dispatcher and a recognition worker. The dispatcher is responsible for splitting a multi-page task into multiple single page sub-tasks. And the recognition worker is optimized for recognizing a single page document. To achieve the page level parallelism, simply deploy multiple v3 containers behind a load balancer, and let the containers share an universal Storage and an universal Queue. (NOTE that currently only Azure Storage and Azure Queue is supported!) In this case, the container receiving the request can split the task into single page sub-tasks, and enqueue to the universal Queue. Any recognition worker from a less busy container can consume single page sub-tasks from the Queue, do the recognition, then upload the result to Storage. The throughput could be boosted to `N` times on top (the ratio `N` depends on the number of containers that are deployed).
+
+Copy and paste the following YAML into a file named `deployment.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values. Replace the `# {AZURE_STORAGE_CONNECTION_STRING}` comment with your Azure Storage Connection String. Configure `replicas` to the number you want, set to `3` for the following example.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: read
+  labels:
+    app: read-deployment
+spec:
+  selector:
+    matchLabels:
+      app: read-app
+  replicas: # {NUMBER_OF_READ_CONTAINERS}
+  template:
+    metadata:
+      labels:
+        app: read-app
+    spec:
+      containers:
+      - name: cognitive-services-read
+        image: mcr.microsoft.com/azure-cognitive-services/vision/read
+        ports:
+        - containerPort: 5000
+        env:
+        - name: EULA
+          value: accept
+        - name: billing
+          value: # {ENDPOINT_URI}
+        - name: apikey
+          value: # {API_KEY}
+        - name: Storage__ObjectStore__AzureBlob__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+        - name: Queue__Azure__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-cognitive-service-read
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: read-app
+```
+
+```console
+kubectl apply -f deployment.yaml
+```
+
+Here is an example output you might expect to see from a successful deployment execution:
+
+```console
+deployment.apps/read created
+service/azure-cognitive-service-read created
+```
+
+The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
+
+```console
+kubectl get all
+```
+
+You should expect to see something similar to the following output:
+
+```console
+kubectl get all
+NAME                       READY   STATUS    RESTARTS   AGE
+pod/read-6cbbb6678-58s9t   1/1     Running   0          3s
+pod/read-6cbbb6678-kz7v4   1/1     Running   0          3s
+pod/read-6cbbb6678-s2pct   1/1     Running   0          3s
+
+NAME                                   TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)          AGE
+service/azure-cognitive-service-read   LoadBalancer   10.0.134.0   <none>         5000:30846/TCP   17h
+service/kubernetes                     ClusterIP      10.0.0.1     <none>         443/TCP          78d
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/read   3/3     3            3           3s
+
+NAME                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/read-6cbbb6678   3         3         3       3s
+```
+
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
