@@ -30,7 +30,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 | | Azure Monitor agent (preview) | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Arc Arc)  | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
+| **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc)  | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
 | **Agent requirements**  | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
 | **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
@@ -52,7 +52,7 @@ The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in previ
 
 Use the Azure Monitor agent if you need to:
 
-- Collect guest logs and metrics from any virtual machine in Azure, in other clouds, or on-premises. 
+- Collect guest logs and metrics from any virtual machine in Azure, in other clouds, or on-premises. (Azure Arc required for virtual machines outside of Azure.) 
 - Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
 - Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
