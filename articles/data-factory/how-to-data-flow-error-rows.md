@@ -57,7 +57,7 @@ This video walks through an example of setting-up error row handling logic in yo
 
 5. If you choose the error row handling option in the sink transformation and set "Output error rows", ADF will automatically generate a CSV file output of your row data along with the driver-reported error messages. You do not need to add that logic manually to your data flow with that alternative option. There will be a small performance penalty incurred with this option so that ADF can implement a 2-phase methodology to trap errors and log them.
 
-    ![complete data flow](media/data-flow/errorrows4.png)
+    ![complete data flow](media/data-flow/errorrow3.png)
 
 ## Next steps
 
