@@ -1,6 +1,6 @@
 ---
-title: Command-line and PowerShell reference for Azure Cosmos DB emulator 
-description: Learn the command-line parameters for Azure Cosmos DB emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within the emulator.   
+title: Command-line and PowerShell reference for Azure Cosmos DB Emulator 
+description: Learn the command-line parameters for Azure Cosmos DB Emulator, how to control the emulator with PowerShell, and how to change the number of containers that you can create within the emulator.   
 ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
@@ -9,7 +9,7 @@ ms.date: 09/17/2020
 ms.custom: contperfq1
 ---
 
-# Command-line and PowerShell reference for Azure Cosmos DB emulator
+# Command-line and PowerShell reference for Azure Cosmos DB Emulator
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for local development purposes. After [installing the emulator](local-emulator.md), you can control the emulator with command line and PowerShell commands. This article describes how to use the command-line and PowerShell commands to start and stop the emulator, configure options, and perform other operations. You have to run the commands from the installation location.
