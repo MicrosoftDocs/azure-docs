@@ -142,6 +142,7 @@ In the linked service settings, you specified the Azure Storage account that con
     f. Select **OK**.   
 
     ![Set properties for OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+1. After creating the two Datasets, select **Publish all** to publish the changes to Data Factory.
 
 ## Create a pipeline 
 In this procedure, you create and validate a pipeline with a copy activity that uses the input and output datasets. The copy activity copies data from the file you specified in the input dataset settings to the file you specified in the output dataset settings. If the input dataset specifies only a folder (not the file name), the copy activity copies all the files in the source folder to the destination. 
