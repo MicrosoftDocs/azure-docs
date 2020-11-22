@@ -35,7 +35,12 @@ To assign a role to a user, group, service principal, or managed identity first 
 
  ![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/left-nav-security-access-control.png)
 
-The Access control screen lists current role assignments.  You can filter the list by principal name or email, and  selectively filter which object types, roles, or scopes are included.
+The Access control screen lists current role assignments.  You can filter the list by principal name or email, and  selectively filter which object types, roles, or scopes are included. 
+
+From here you can add or remove role assignments.  
+
+>[!Note]
+>It can take a few minutes for role assignment changes to be available in Synapse Studio.
 
 ## Add a Synapse role assignment
 
@@ -47,7 +52,7 @@ On the Add role assignment tab, you can create role assignments at workspace sco
 
 ## Add workspace-scoped role assignment
 
-Select **Workspace** as the scope, then select the **Synapse RBAC role**, and then the **principal** who is to be assigned the role.  You can iteratively select multiple principals. Select **Apply** to create the role assignment(s). 
+First, select **Workspace** as the scope, then select the **Synapse RBAC role**.  Then using the dropdown, select the **principal(s)** to be assigned the role. Select **Apply** to create the role assignment(s). 
 
 ![Add workspace role assignment - select role](./media/how-to-manage-synapse-rbac-role-assignments/access-control-workspace-role-assignment.png) 
 
