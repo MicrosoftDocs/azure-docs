@@ -5,7 +5,7 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 11/18/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure
 ---
 

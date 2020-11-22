@@ -85,10 +85,10 @@
       href: event-aggregation.md
     - name: Pricing and associated costs
       href: concept-pricing.md
-      - name: Understand the Security Module for Azure RTOS
-        href: concept-rtos-security-module.md
-      - name: Security Module for Azure RTOS alerts and recommendations 
-        href: concept-rtos-security-alerts-recommendations.md
+  - name: Understand the Security Module for Azure RTOS
+    href: concept-rtos-security-module.md
+  - name: Security Module for Azure RTOS alerts and recommendations 
+    href: concept-rtos-security-alerts-recommendations.md
   - name: Security agent authentication
     href: concept-security-agent-authentication-methods.md
   - name: Security module
