@@ -19,26 +19,22 @@ The article explains the built-in Synapse RBAC roles and when you would use each
 The following table describes the permissions of each built-in role and the scopes at which these roles can be used.
 
 > [!Note]
-> Users with any Synapse RBAC role at any scope automatically have the Synapse Reader role at workspace scope
-
->[!Note]
->The Apache Spark Administrator and SQL Administrator roles are deprecated and can no longer be used in new role assignments.  Although deprecated, these roles are updated to the Synapse RBAC model. These roles are highlighted with an '*' in the tables below.
-
->[!Note]
->Where 'future' permissions are noted for a role below, these permissions will be added to the role in a later release and will automatically apply to all principals with that role. 
+> - Users with any Synapse RBAC role at any scope automatically have the Synapse Reader role at workspace scope
+>- The Apache Spark Administrator and SQL Administrator roles are deprecated and can no longer be used in new role assignments.  Although deprecated, these roles are updated to the Synapse RBAC model. These roles are highlighted with an '*' in the tables below.
+>- Where 'future' permissions are noted for a role below, these permissions will be added to the role in a later release and will automatically apply to all principals with that role. 
 
 |Role |Permissions|Scopes|
 |---|---|---|
-| Synapse Administrator  |Full Synapse access to all resources (SQL Pools, Apache Spark Pools, Integration Runtimes) and code artifacts, including granting access.  Includes administrative access to SQL Pools.</br>_Can read and write artifacts.</br> Can do all actions on Spark activities.</br>Can connect to SQL pool and SQL serverless endpoints with SQL datareader, datawriter, connect, and grant permissions at the workspace (server) level if role is assigned at workspace scope.</br> Can view Spark pool logs.</br> Can view saved notebook and pipeline output. </br> Can use the secrets stored by linked services or credentials. Can grant Synapse RBAC access to others_|Workspace </br> Spark pool<br/>Integration runtime </br>Linked service</br>Credential |
-|Synapse Contributor|Full Synapse access to Apache Spark Pools, Apache Spark job definitions, and notebooks, excluding granting access/br.</br>_Can read and write artifacts</br>Can view saved notebook and pipeline output</br>Can do all actions on Spark activities</br>Can view Spark pool logs</br>FUTURE: Can connect to SQL pool and SQL serverless endpoints with SQL datareader, datawriter, and connect permissions_|Workspace </br> Spark pool<br/> Integration runtime|
-|Synapse Artifact Author|Full Synapse access to code artifacts, excluding granting access.</br>_Can read and write artifacts</br>Can view saved Spark notebook, Spark job, and pipeline output_|Workspace
-|Synapse Artifact Reader|Read access to code artifacts.|Workspace
-|Synapse Compute Manager|Submission and canceling of jobs, including jobs submitted by others, and viewing logs and output.</br>_Can submit and cancel jobs, including jobs submitted by others</br>Can view Spark pool logs</br>Can view notebook and pipeline output._|Workspace</br>Spark pool</br>Integration runtime|
-|Synapse Credential User|Runtime and configuration-time use of secrets within credentials and linked services in activities like pipeline runs.</br>_Can access data in a linked service that is protected by a credential_|Workspace </br>Linked Service</br>Credential
+| Synapse Administrator  |Full Synapse access to all resources (SQL Pools, Apache Spark Pools, Integration Runtimes) and code artifacts, including granting access.  Includes administrative access to SQL Pools.</br></br>_Can read and write artifacts.</br> Can do all actions on Spark activities.</br> Can view Spark pool logs.</br> Can view saved notebook and pipeline output. </br> Can use the secrets stored by linked services or credentials. Can grant Synapse RBAC access to others_|Workspace </br> Spark pool<br/>Integration runtime </br>Linked service</br>Credential |
+|Synapse Contributor|Full Synapse access to Apache Spark Pools, Apache Spark job definitions, and notebooks, excluding granting access/br.</br></br>_Can read and write artifacts</br>Can view saved notebook and pipeline output</br>Can do all actions on Spark activities</br>Can view Spark pool logs_|Workspace </br> Spark pool<br/> Integration runtime|
+|Synapse Artifact Author|Full Synapse access to published code artifacts, excluding granting access.</br></br>_Can read published artifacts and publish artifacts</br>Can view saved notebook, Spark job, and pipeline output_|Workspace
+|Synapse Artifact Reader|Read access to published code artifacts.|Workspace
+|Synapse Compute Manager|Submission and canceling of jobs, including jobs submitted by others, viewing logs and output.</br></br>_Can submit and cancel jobs, including jobs submitted by others</br>Can view Spark pool logs</br>FUTURE: can view pipeline output._|Workspace</br>Spark pool</br>Integration runtime|
+|Synapse Credential User|Runtime and configuration-time use of secrets within credentials and linked services in activities like pipeline runs.</br></br>_Can access data in a linked service that is protected by a credential_|Workspace </br>Linked Service</br>Credential
 |Synapse Managed Private Endpoint Administrator|Creation and management of private endpoints.|Workspace|
 |Synapse Reader|Access to metadata for Spark pools, Integration runtimes. Does not give access to data. </br>_Can list and read Spark pools, Integration Runtimes._|Workspace, Spark pool</br>Linked service </br>Credential|
 |_DEPRECATED ROLES_|_The following roles are deprecated and cannot be assigned_|
-|Apache Spark Administrator*</br>|Full Synapse access to Apache Spark Pools, Apache Spark job definitions, and notebooks, excluding granting access. </br>_Can do all actions on Spark artifacts</br>Can do all actions on Spark activities_|Workspace</br>Spark pool|
+|Apache Spark Administrator*</br>|Full Synapse access to Apache Spark Pools, Apache Spark job definitions, and notebooks, excluding granting access. </br></br>_Can do all actions on Spark artifacts</br>Can do all actions on Spark activities_|Workspace</br>Spark pool|
 |SQL Administrator*|Full Synapse access to SQL On-demand and SQL scripts, excluding granting access. </br>_Can do all actions on SQL script artifacts</br>Can do all activities on SQL activities<br/>Can connect to SQL pool and SQL serverless endpoints with {datareader, datawriter, connect, and grant} at the workspace (server) level if role is assigned at the workspace scope._|Workspace|
   
 
@@ -91,3 +87,9 @@ workspaces/notebooks/viewOutputs/action|Synapse Administrator</br>Synapse Contri
 workspaces/pipelines/viewOutputs/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Author</br>Synapse Artifact Reader
 workspaces/linkedServices/useSecret/action|Synapse Administrator</br>Synapse Credential User
 workspaces/credentials/useSecret/action|Synapse Administrator</br>Synapse Credential User
+
+## Next Steps
+
+Learn [how to review Synapse RBAC role assignments](./how-to-review-Synapse-Ra-synapse-rbac-role.md) for a workspace.
+
+Learn [how to assign Synapse RBAC roles](./how-to-assign-a-synapse-rbac-role.md)

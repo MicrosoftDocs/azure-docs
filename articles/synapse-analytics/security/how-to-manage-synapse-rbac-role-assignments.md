@@ -10,9 +10,9 @@ ms.author: billgib
 ms.reviewer: jrasnick
 ---
 
-## How to manage Synapse RBAC role assignments in Synapse Studio
+# How to manage Synapse RBAC role assignments in Synapse Studio
 
-Synapse RBAC uses roles to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources and code artifacts.  [Learn more](fwlink)
+Synapse RBAC uses roles to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources and code artifacts.  [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306)
 
 This article explains how to add and delete Synapse RBAC role assignments to grant and revoke access to Apache Spark pools, Integration runtimes, Linked Services, Credentials, and to code artifacts like SQL scripts and Spark notebooks and jobs. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306) about Synapse RBAC.
 

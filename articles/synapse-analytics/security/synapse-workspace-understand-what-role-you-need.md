@@ -1,5 +1,5 @@
 ---
-title: Synapse Role Based Access Control
+title: Understand the roles required to perform common tasks in Synapse
 description: An article that explains which Synapse RBAC role(s) are required to perform specific tasks
 author: billgib
 ms.service: synapse-analytics 
@@ -65,10 +65,10 @@ Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 **SQL pools**||
 Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the workspace|none
 Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
-Create a SQL script</br>|Synapse Reader, or </br>Azure Owner, Contributor of the workspace, </br>*Additional permissions are required to run, publish, or save the SQL script*|
+Create a SQL script</br>|Synapse Reader, or </br>Azure Owner, Contributor of the workspace, </br>*Additional SQL permissions are required to run a SQL script*.|
 List and open any published SQL script| Synapse Artifact Reader, Artifact Author, Contributor|artifacts/read
-Run a SQL script on a serverless SQL pool|Requires SQL permissions on the pool. </br>*Basic SQL data read, write, and grant permissions are provided with the Synapse Administrator role.*|
-Run a SQL script on a dedicated SQL pool|Requires SQL permissions on the pool. </br>*Basic SQL data read, write and grant permissions are provided with the Synapse Administrator role.*|
+Run a SQL script on a serverless SQL pool|Requires SQL permissions on the pool|none
+Run a SQL script on a dedicated SQL pool|Requires SQL permissions on the pool|none
 Publish a new, updated, or deleted SQL script|Synapse Artifact Author, Synapse Contributor|sqlScripts/write, delete
 Commit changes to a SQL script to a Git repo|Requires Git permissions on the repo|
 Assign Active Directory Admin on a dedicated SQL pool (via workspace properties in the Azure Portal)|Azure Owner, Contributor on the workspace |
@@ -77,7 +77,7 @@ Create an Apache Spark pool|Azure Owner or Contributor on the workspace|
 Monitor Apache Spark applications| Synapse Reader|read
 View the logs for notebook and job execution |Synapse Compute Manager|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Manager on the Apache Spark pool.|bigDataPools/useCompute
-Create a notebook or job definition|Synapse Reader</br> *Additional permissions are required to run, publish, or save*|read
+Create a notebook or job definition|Synapse Reader or Azure Owner, Contributor or Reader on the workspace</br> *Additional permissions are required to run, publish, or save*|read
 List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact Reader, Synapse Artifact Author, Synapse Contributor on the workspace|artifacts/read
 Run a notebook and review its output|Compute Manager on the selected Apache Spark pool|bigDataPools/useCompute 
 Publish or delete a notebook or job definition (including output) to the service|Artifact Author on the workspace|notebooks/write, delete
@@ -86,11 +86,12 @@ Commit changes to a notebook or job definition to the Git working branch|Git per
 Create, update, or delete an Integration runtime|Azure Owner or Contributor on the workspace|
 Monitor Integration runtime status|Synapse Reader|read, pipelines/viewOutputs
 Review pipeline runs|Artifact Author/Synapse Contributor|read, pipelines/viewOutputs 
-Create a pipeline |Synapse Reader </br>[***under consideration + Synapse Credential User on WorkspaceSystemIdentity***]</br>*Additional permissions are required to publish, or save the pipeline*|read, credentials/UseSecret/action
-Create a dataflow, dataset, or trigger |Synapse Reader</br>*Additional permissions are required to publish, or save the work*|read
+Create a pipeline |Synapse Reader </br>[***under consideration + Synapse Credential User on WorkspaceSystemIdentity***]</br>*Additional permissions are required to publish, or save*|read, credentials/UseSecret/action
+Create a dataflow, dataset, or trigger |Synapse Reader</br>*Additional permissions are required to publish, or save*|read
 List and open a published pipeline |Synapse Artifact Reader | artifacts/read
 Preview dataset data|Synapse Reader + Synapse Credential User on the WorkspaceSystemIdentity| 
 Debug a pipeline using the default Integration runtime|Synapse Reader + Synapse Credential User on the WorkspaceSystemIdentity credential|read, </br>credentials/useSecret
+Create a trigger, including trigger now|Synapse Reader + Synapse Credential User on the WorkspaceSystemIdentity|read, credentials/useSecret/action
 Copy data using the Copy Data tool|Synapse Reader + Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
 Ingest data (using a schedule)|Synapse Author + Synapse Credential User on the Workspace System Identity|read, credentials/useSecret/action
 Publish a new, updated or deleted pipeline, dataflow or trigger to the service|Artifact Author on the workspace|pipelines/write, delete</br>dataflows write, delete</br>triggers/write, delete
@@ -108,10 +109,10 @@ Assign and remove Synapse RBAC role assignments for users, groups and service pr
 Create or remove Synapse RBAC access to code artifacts|Synapse Administrator at the workspace scope|roleAssignments/write, delete   
 
 >[!Note]
->Guest users from another tenant are not able to review, add, or change role assignments regardless of the role assigned. 
+>Guest users from another tenant are not able to review, add, or change role assignments regardless of the role they have been assigned. 
 
 ## Next Steps
 
-Learn [how to review Synapse RBAC role assignments](../how-to-review-synapse-rbac-role-assignments.md)
+Learn [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
 
-Learn [how to manage Synapse RBAC role assignments](../how-to-manage-synapse-rbac-role-assignments.md). 
+Learn [how to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md). 

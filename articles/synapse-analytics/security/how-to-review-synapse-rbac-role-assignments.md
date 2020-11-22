@@ -10,9 +10,9 @@ ms.author: billgib
 ms.reviewer: jrasnick
 ---
 
-## How to review Synapse RBAC role assignments
+# How to review Synapse RBAC role assignments
 
-Synapse RBAC roles are used to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources.  [Learn more](fwlink)
+Synapse RBAC roles are used to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources.  [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306)
 
 This article explains how to review the current role assignments for a workspace.
 
@@ -32,7 +32,7 @@ The Access control screen lists all current role assignments for the workspace, 
 
  For each assignment, the principal name, principal type, role, and the scope at which it was assigned are shown.  All assignments are shown, including those at workspace and lower-level scopes.
 
-![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/access-control-assignments.png)
+![Access Control screen](./media/how-to-manage-synapse-rbac-role-assignments/access-control-assignments.png)
 
 If a principal is assigned the same role at different scopes, you will see multiple assignments for the principal, one for each scope.  
 
@@ -40,12 +40,13 @@ If a role is assigned at a group level, you'll see the group-level role assignme
 
 You can filter the list by principal name or email, and selectively filter the object types, roles, and scopes shown. To see your own role assignments, enter your name or your Azure Active Directory identity (typically your email alias) in the Name filter.  
 
->[!Important] If you are directly or indirectly a member of any group(s) that are assigned roles, you may have permissions that are not shown.
+>[!Important] 
+>If you are directly or indirectly a member of a group that is assigned roles, you may have permissions that are not shown.
 
-When a new workspace is created, the creator is automatically given the Synapse Administrator role at workspace scope.  The workspace MSI service principal is also automatically granted the Synapse Administrator role at workspace scope.
+When a new workspace is created, the creator and workspace MSI service principal are automatically given the Synapse Administrator role at workspace scope.
 
 ## Next Steps
 
-Learn [how to manage Synapse RBAC role assignments](../how-to-assign-a-synapse-rbac-role.md).
+Learn [how to manage Synapse RBAC role assignments](../how-to-manage-synapse-rbac-role-assignments.md).
 
 Learn [which role you need to perform specific tasks](synapse-workspace-understand-what-role-you-need.md)
