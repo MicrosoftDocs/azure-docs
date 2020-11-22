@@ -14,7 +14,7 @@ ms.date: 11/17/2020
 
 This how-to guide describes how to access, view, and filter Purview Classification insight reports for your data.
 
-Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB
+Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB, SQL Server
 
 In this how-to guide, you'll learn how to:
 
@@ -23,16 +23,13 @@ In this how-to guide, you'll learn how to:
 > - View classification insights on your data
 > - Drill down for more classification details on your data
 
-> [!NOTE]
-> If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
-
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- Extended Microsoft 365 sensitivity labels to assets in Azure Purview, and created or selected the labels you want to apply to your content
+- [Extended Microsoft 365 sensitivity labels to assets in Azure Purview](create-sensitivity-label.md), and created or selected the labels you want to apply to your content.
 
 - Set up and completed a scan on the test data in each data source
 
