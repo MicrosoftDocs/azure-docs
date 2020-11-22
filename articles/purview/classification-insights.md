@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
@@ -64,7 +64,7 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
    |Area  |Description  |
    |---------|---------|
    |**Overview of sources with classifications**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique classifications found in your data <br>- The number of classified sources found <br>- The number of classified files found <br>- The number of classified tables found         |
-   |**Total sources with classified data**     |Shows the number of sources found, such as Azure Blob Storage or Azure Files, with classified data over the last 30 days.          |
+   |**Total sources with classified data**     |Shows the trend, over the past 30 days, of the number of sources found with classified data.            |
    |**Total sources by classification categories**     |Shows the number of sources by classification category, such as **Financial** or **Government**.      |
    |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national identification numbers.         |
    |**Top classifications for tables**     | Shows the top classifications applied to database tables in your data, such as personal identifying information. |   

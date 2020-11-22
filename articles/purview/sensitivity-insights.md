@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
@@ -64,7 +64,7 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
    |Area  |Description  |
    |---------|---------|
    |**Overview of sources with sensitivity labels**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique sensitivity labels found in your data <br>- The number of labeled sources found <br>- The number of labeled files found <br>- The number of labeled tables found         |
-   |**Total sources with labeled data**     |Shows the number of sources found, such as Azure Blob Storage or Azure Files, with sensitivity labels over the last 30 days.          |
+   |**Total sources with labeled data**     | Shows the trend, over the past 30 days, of the number of sources found with sensitivity labels.       |
    |**Top labels applied across resources**     |Shows the top labels applied across all of your Purview data resources. |
    |**Top labels applied on files**     |Shows the top sensitivity labels applied to files in your data.          |
    |**Top classifications for tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
