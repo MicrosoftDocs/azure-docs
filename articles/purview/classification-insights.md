@@ -49,15 +49,15 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
 
 1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/insights/view-insights-small.png" alt-text="View your insights in the Azure portal" lightbox="media/insights/view-insights.png":::
 
 1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Purview **Classification insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report":::
+   :::image type="content" source="./media/insights/select-classification-labeling-small.png" alt-text="Classification insights report" lightbox="media/insights/select-classification-labeling.png":::
 
    The main **Classification insights** page displays the following areas:
 
@@ -82,13 +82,13 @@ In any of the following **Classification insights** graphs, select the **View mo
 
 For example:
 
-:::image type="content" source="media/insights/view-classifications.png" alt-text="View all classifications":::
+:::image type="content" source="media/insights/view-classifications-small.png" alt-text="View all classifications" lightbox="media/insights/view-classifications.png":::
 
 Use the filters above the grid to filter the data shown, including the time span, classification name, subscription name, or source type. If you're not sure of the exact classification name, you can enter part or all of the name in the **Filter by keyword** box.
 
 For example:
 
-:::image type="content" source="./media/insights/view-filtered-classifications.png" alt-text="View filtered classification report":::
+:::image type="content" source="./media/insights/view-filtered-classifications-small.png" alt-text="View filtered classification report" lightbox="media/insights/view-filtered-classifications.png":::
 
 To display more or fewer columns in your grid, select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order
 ## Next steps
