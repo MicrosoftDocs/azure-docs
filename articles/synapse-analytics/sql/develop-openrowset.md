@@ -1,6 +1,6 @@
 ---
-title: How to use OPENROWSET in serverless SQL pool (preview)
-description: This article describes syntax of OPENROWSET in serverless SQL pool (preview) and explains how to use arguments.
+title: How to use OPENROWSET in serverless SQL pool
+description: This article describes syntax of OPENROWSET in serverless SQL pool and explains how to use arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# How to use OPENROWSET using serverless SQL pool (preview) in Azure Synapse Analytics
+# How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
 
-The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
