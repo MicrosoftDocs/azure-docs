@@ -3,12 +3,12 @@ title: 'Quickstart: Create a HoloLens app with Unity and MRTK'
 description: In this quickstart, you learn how to build a HoloLens Unity app using MRTK and Object Anchors.
 author: craigktreasure
 manager: virivera
-services: azure-object-understanding
+services: azure-object-anchors
 
 ms.author: crtreasu
 ms.date: 04/02/2020
 ms.topic: quickstart
-ms.service: azure-object-understanding
+ms.service: azure-object-anchors
 ---
 # Quickstart: Create a HoloLens app with Azure Object Anchors, in Unity with MRTK
 
@@ -24,21 +24,21 @@ You'll learn how to:
 > * Export the HoloLens Visual Studio project.
 > * Deploy the app and run it on a HoloLens 2 device.
 
-[!INCLUDE [Unity quickstart prerequisites](../../../includes/object-understanding-quickstart-unity-prerequisites.md)]
+[!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
-[!INCLUDE [Unity device setup](../../../includes/object-understanding-quickstart-unity-device-setup.md)]
+[!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
 
 ## Open the sample project
 
-[!INCLUDE [Clone Sample Repo](../../../includes/object-understanding-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
 
 In Unity, open the `quickstarts/apps/unity/ou-mrtk` project.
 
-[!INCLUDE [Unity build and run](../../../includes/object-understanding-quickstart-unity-build-run.md)]
+[!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
 
-[!INCLUDE [Unity build sample scene](../../../includes/object-understanding-quickstart-unity-build-sample-scene.md)]
+[!INCLUDE [Unity build sample scene](../../../includes/object-anchors-quickstart-unity-build-sample-scene.md)]
 
-[!INCLUDE [Unity build and deploy](../../../includes/object-understanding-quickstart-unity-build-deploy.md)]
+[!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
 ### Run the sample app
 
@@ -66,11 +66,11 @@ You can also do other actions using the hand menu:
 
 :::image type="content" source="./media/unity-readme-handmenu.png" alt-text="Unity hand menu":::
 
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-understanding-quickstart-unity-setup-device-portal.md)]
+[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
 
-[!INCLUDE [Unity upload your model](../../../includes/object-understanding-quickstart-unity-upload-model.md)]
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
-[!INCLUDE [Unity troubleshooting](../../../includes/object-understanding-quickstart-unity-troubleshooting.md)]
+[!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
 
 ### Capturing diagnostics
 

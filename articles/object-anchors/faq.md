@@ -7,7 +7,7 @@ manager: vriveras
 ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
-ms.service: azure-object-understanding
+ms.service: azure-object-anchors
 #Customer intent: Address frequently asked questions regarding Azure Object Anchors.
 ---
 
