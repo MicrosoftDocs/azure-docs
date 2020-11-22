@@ -25,10 +25,10 @@ Consider you have a container in West US configured for single-region writes, pr
 
 |**Item**|**Usage (monthly)**|**Rate**|**Monthly Cost**|
 |----|----|----|----|
-|Throughput bill for container in West US (single write regions) |10K RU/s * 24 hours * 31 days |$0.008 per 100 RU/s per hour |$584.06 |
-|Throughput bill for container in 2 regions - West US & East US (multiple write regions) |2 * 10K RU/s * 24 hours * 31 days|$0.016 per 100 RU/s per hour |$2,336.26 |
+|Throughput bill for container in West US (single write regions) |10K RU/s * 24 hours * 31 days |$0.008 per 100 RU/s per hour |$595.2 |
+|Throughput bill for container in 2 regions - West US & East US (multiple write regions) |2 * 10K RU/s * 24 hours * 31 days|$0.016 per 100 RU/s per hour |$2,380.8 |
 |Storage bill for container in West US |1 TB (or 1,024 GB) |$0.25/GB |$256 |
-|Storage bill for 2 regions - West US & East US |2 * 1 TB (or 3,072 GB) |$0.25/GB |$768 |
+|Storage bill for 2 regions - West US & East US |2 * 1 TB (or 2,048 GB) |$0.25/GB |$512 |
 
 ## Improve throughput utilization on a per region-basis
 
