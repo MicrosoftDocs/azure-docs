@@ -16,7 +16,7 @@ Synapse RBAC roles are used to assign permissions to users, groups, and other se
 
 This article explains how to review the current role assignments for a workspace.
 
-Any user with Synapse Reader role can list Synapse RBAC role assignments for all scopes, including assignments for roles you don't have and objects you don't have access to. Only a Synapse Administrator can grant Synapse RBAC access.  If you want access to objects within a specific scope, you should contact a Synapse Administrator for that scope or a higher-level scope.    
+A user with any Synapse RBAC role can list Synapse RBAC role assignments for all scopes, including assignments objects you don't have access to. Only a Synapse Administrator can grant Synapse RBAC access.  To be assigned additional permissions, contact a Synapse Administrator.    
 
 ## Open Synapse Studio  
 
@@ -24,29 +24,29 @@ To review role assignments, first [open the Synapse Studio](https://web.azuresyn
 
 ![Log in to workspace](./media/common/login-workspace.png) 
  
- Once you've opened your workspace, select the **Manage** hub on the left, expand the **Security** section and select **Access control**. 
+ Once you've opened your workspace, select the **Manage** hub on the left, then expand the **Security** section and select **Access control**. 
 
  ![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/left-nav-security-access-control.png)
 
 The Access control screen lists all current role assignments for the workspace, grouped by role. 
 
- For each assignment, the principal name, principal type, role, and the scope at which it was assigned are shown.  All assignments are shown, including those at workspace and lower-level scopes.
+ For each assignment, the principal name, principal type, role, and the scope at which it was assigned are shown.  All assignments are shown, including those assignments at workspace and lower-level scopes.
 
 ![Access Control screen](./media/how-to-manage-synapse-rbac-role-assignments/access-control-assignments.png)
 
-If a principal is assigned the same role at different scopes, you will see multiple assignments for the principal, one for each scope.  
+If a principal is assigned the same role at different scopes, you'll see multiple assignments for the principal, one for each scope.  
 
 If a role is assigned at a group level, you'll see the group-level role assignment but not any assignments inherited by members of the group.  
 
-You can filter the list by principal name or email, and selectively filter the object types, roles, and scopes shown. To see your own role assignments, enter your name or your Azure Active Directory identity (typically your email alias) in the Name filter.  
+You can filter the list by principal name or email, and selectively filter the object types, roles, and scopes. To see roles assigned to you, enter your name or email alias in the Name filter.  
 
 >[!Important] 
 >If you are directly or indirectly a member of a group that is assigned roles, you may have permissions that are not shown.
 
-When a new workspace is created, the creator and workspace MSI service principal are automatically given the Synapse Administrator role at workspace scope.
+When you create a new workspace, you and workspace MSI service principal are automatically given the Synapse Administrator role at workspace scope.
 
 ## Next Steps
 
-Learn [how to manage Synapse RBAC role assignments](../how-to-manage-synapse-rbac-role-assignments.md).
+Learn [how to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md).
 
-Learn [which role you need to perform specific tasks](synapse-workspace-understand-what-role-you-need.md)
+Learn [which role you need to do specific tasks](./synapse-workspace-understand-what-role-you-need.md)

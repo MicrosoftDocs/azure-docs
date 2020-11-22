@@ -1,6 +1,6 @@
 ---
 title: Understand the roles required to perform common tasks in Synapse
-description: An article that explains which Synapse RBAC role(s) are required to perform specific tasks
+description: An article that explains which Synapse RBAC role(s) are required to do specific tasks
 author: billgib
 ms.service: synapse-analytics 
 ms.topic: access control
@@ -15,12 +15,13 @@ This article will help you understand which Synapse RBAC (role-based access cont
 
 ## Synapse Studio access control and workflow summary 
 
-### Accessing Synapse Studio
-- You can open Synapse Studio on a Synapse workspace if you have been assigned any Synapse RBAC role on the workspace or any of its content, or if you have Azure Owner, Contributor, or Reader roles on the workspace. 
+### Accessing Synapse Studio and listing its content
+
+- You can open Synapse Studio and view details of the workspace and list any of its Azure resources (SQL pools, Spark pools, or Integration runtimes) if you've been assigned any Synapse RBAC role or are an Azure Owner, Contributor, or Reader.
 
 ### Resource management
-- You can list and view details of the workspace or any of its Azure resources (SQL pools, Spark pools, or integration runtimes) if you're an Azure Owner, Contributor, or Reader on the workspace or have been assigned any Synapse RBAC role.
-- You can create SQL pools, Apache Spark pools, integration runtimes if you're an Azure Owner or Contributor on the workspace.
+
+- You can create SQL pools, Apache Spark pools, Integration runtimes if you're an Azure Owner or Contributor on the workspace.
 - You can pause or scale dedicated SQL pools, configure Spark pools or integration runtimes if you're an Azure Owner or Contributor on the workspace or a specific resource.
 
 ### Editing code artifacts
@@ -41,7 +42,7 @@ This article will help you understand which Synapse RBAC (role-based access cont
 ### Publishing and saving your code
 
 - You can publish new or updated code artifacts to the service if you're a Synapse Artifact Author, Synapse Contributor, or Synapse Administrator. 
-- You can commit/save code artifacts to a working branch of your configured repository if the workspace is Git-enabled and you have Git permissions. With Git enabled, publishing to the service is only recommended from the collaboration branch. 
+- You can commit code artifacts to a working branch of a Git repository if the workspace is Git-enabled and you have Git permissions. With Git enabled, publishing is only recommended from the collaboration branch. 
 - If you close Synapse Studio without publishing or committing any changes you've made to any code artifacts, then those changes will be lost.
 
 

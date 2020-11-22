@@ -35,9 +35,7 @@ To assign a role to a user, group, service principal, or managed identity first 
 
  ![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/left-nav-security-access-control.png)
 
-The Access control screen lists current role assignments.  You can filter the list by principal name or email, and  selectively filter which object types, roles, or scopes are included. 
-
-From here you can add or remove role assignments.  
+The Access control screen lists current role assignments.  You can filter the list by principal name or email, and  selectively filter the object types, roles, or scopes included. From this screen, you can add or remove role assignments.  
 
 >[!Note]
 >It can take a few minutes for role assignment changes to be available in Synapse Studio.
