@@ -48406,6 +48406,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/sql/access-control.md",
+      "redirect_url": "/azure/synapse-analytics/security/access-control",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/user/index.yml",
       "redirect_url": "/azure-stack/user",
       "redirect_document_id": false
