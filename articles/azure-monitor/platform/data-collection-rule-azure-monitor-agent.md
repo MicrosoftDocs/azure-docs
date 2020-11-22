@@ -65,8 +65,8 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 Follow the steps below to create a data collection rule and associations using the REST API. 
 
 1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule).
-2. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
-3. Create an association for each virtual machine to the data collection rule using the [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples).
+1. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
+1. Create an association for each virtual machine to the data collection rule using the [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 
 ## Create association using Resource Manager template
