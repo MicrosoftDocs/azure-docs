@@ -14,7 +14,7 @@ ms.author: negust
 
 # Tutorial: Code free machine learning model training in Synapse with AutoML (Preview)
 
-Learn how to easily enrich your data in Spark tables with new machine learning models that you train using [AutoML in Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml).  A user in Synapse can simply select a Spark table in the Synapse workspace to use as a training dataset for building machine learning models in a code free experience.
+Learn how to easily enrich your data in Spark tables with new machine learning models that you train using [AutoML in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  A user in Synapse can simply select a Spark table in the Synapse workspace to use as a training dataset for building machine learning models in a code free experience.
 
 In this tutorial, you'll learn how to:
 
@@ -115,7 +115,7 @@ Azure ML by clicking the link in the successful notification.
 Select *Open In Notebook* to generate a notebook. Click *Run all* to execute the notebook.
 This also gives you an opportunity to add additional settings to your AutoML run.
 
-![Notebook run all](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
+![Open Notebook](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
 After the run from the notebook has been submitted successfully, there will be a link to the experiment run in the Azure ML workspace in the notebook output. You can click the link to monitor your AutoML run in Azure ML.
 ![Notebook run all](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png))

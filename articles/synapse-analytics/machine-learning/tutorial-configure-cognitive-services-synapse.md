@@ -49,7 +49,7 @@ Create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.Cognitiv
 ## Create Key Vault and configure secrets and access
 
 1. Create a [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in Azure Portal.
-2. Go to **Key Vault -> Access policies**, and grant the [Synapse workspace MSI](https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-managed-identity) permissions to read secrets from Azure Key Vault.
+2. Go to **Key Vault -> Access policies**, and grant the [Synapse workspace MSI](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-identity) permissions to read secrets from Azure Key Vault.
 
 >Make sure that the policy changes are saved. This step is easy to miss.
 
