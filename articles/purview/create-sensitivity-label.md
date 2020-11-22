@@ -195,26 +195,11 @@ Once you've defined autolabeling rules for your labels in Microsoft 365 and scan
 
 In the Azure Purview Catalog, use the **Label** filtering options to show files with specific labels only. For example: 
 
-:::image type="content" source="media/create-sensitivity-label/filter-search-results.png" alt-text="Search for assets by label":::
+:::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Search for assets by label" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-For sample images of labeled assets in Purview, see:
+For example:
 
-- [Labeled file in Azure Blob Storage](#labeled-file-in-azure-blob-storage)
-- [Labeled file in Azure files](#labeled-file-in-azure-files)
-- [Labeled database column in an Azure SQL database](#labeled-database-column-in-an-azure-sql-database)
-
-#### Labeled file in Azure Blob Storage
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage.png" alt-text="View a sensitivity label on a file in your Azure Blob Storage":::
-
-#### Labeled file in Azure files
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-azure.png" alt-text="View a sensitivity label on a file in your Azure file storage":::
-
-#### Labeled database column in an Azure SQL database
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-sql.png" alt-text="View a sensitivity label on an SQL table":::
-
+:::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="View a sensitivity label on a file in your Azure Blob Storage" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 
 ## View Insight reports for the classifications and sensitivity labels
 
