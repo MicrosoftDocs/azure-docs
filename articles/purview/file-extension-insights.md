@@ -42,17 +42,17 @@ When scanning your assets, Azure Purview is able to detect the file types found 
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
 
 1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/insights/view-insights-small.png" alt-text="View your insights in the Azure portal" lightbox="media/insights/view-insights.png":::
     
 1. Within **Insights**, select the **File extensions** tab.
 
     The report displays a summary of how many unique file extensions are found, as well as a graph of top 10 extensions found.
 
-    :::image type="content" source="media/file-extension-insights/file-extension-overview.png" alt-text="File extension report - overview":::
+    :::image type="content" source="media/file-extension-insights/file-extension-overview-small.png" alt-text="File extension report - overview" lightbox="media/file-extension-insights/file-extension-overview.png":::
 
     Do any of the following to find out more:
 
@@ -66,7 +66,7 @@ Once you've viewed the high-level information about the file types found in your
 
 For example:
 
-:::image type="content" source="media/file-extension-insights/file-extension-drilldown.png" alt-text="File extension report - drilldown":::
+:::image type="content" source="media/file-extension-insights/file-extension-drilldown-small.png" alt-text="File extension report - drilldown" lightbox="media/file-extension-insights/file-extension-drilldown.png":::
 
 The grid shows details for each file extension found, including:
 
@@ -94,7 +94,7 @@ Above the filters:
 
    The search results display all of the assets found with the selected file extension. For example:
 
-    :::image type="content" source="media/file-extension-insights/file-extension-search-results.png" alt-text="File extension search results":::
+    :::image type="content" source="media/file-extension-insights/file-extension-search-results-small.png" alt-text="File extension search results" lightbox="media/file-extension-insights/file-extension-search-results.png":::
  
    For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).
 ## Next steps
