@@ -140,7 +140,7 @@ az deployment group create \
     --name CreateWorkspace \
     --resource-group my-resource-group \
     --template-file CreateWorkspace.json \
-    --parameters workspaceName='my-workspace-01' location='eastus'
+    --parameters workspaceName="my-workspace-01" location="eastus"
 
 ```
 
@@ -249,14 +249,14 @@ Deploy the template using any standard method for [deploying an ARM template](..
 # [CLI](#tab/CLI)
 
 ```azurecli
-az deployment sub create --name CreateDiagnosticSetting --location eastus --template-file CreateDiagnosticSetting.json --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
+az deployment sub create --name CreateDiagnosticSetting --location eastus --template-file CreateDiagnosticSetting.json --parameters settingName="Send Activity log to workspace" workspaceId="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```powershell
-New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName "Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 
