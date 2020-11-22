@@ -4,12 +4,13 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/12/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.service: azure
+ms.topic: how-to
 ---
 
-# About Azure Defender for IoT
+# About Defender for IoT
 
 As enterprises implement digital transformation for greater efficiency and productivity, boards and management teams are increasingly concerned about the financial and liability risk resulting from the deployment of massive numbers of unmanaged IoT and Operational Technology (OT) devices. 
 
@@ -17,27 +18,27 @@ Adversaries targeting this expanded attack surface can cause substantial corpora
 
 Legacy IoT/OT devices do not support agents and are often unpatched, misconfigured, and invisible to IT teams – making them soft targets for adversaries looking to pivot deeper into corporate networks.  
 
-Traditional network security monitoring tools developed for corporate IT networks are unable to address these environments because they lack a deep understanding of the specialized protocols, devices, and machine-to-machine (M2M) behaviors found in IoT/OT environments.
+Traditional network security monitoring tools developed for corporate IT networks are unable to address these environments because they lack a deep understanding of the specialized protocols, devices, and machine-to-machine (M2M) behaviors found in IoT and OT environments.
    
-Azure Defender for IoT is a holistic solution that continuously discovers, monitors, and manages IoT/OT threats, risks and vulnerabilities. It helps accelerate incident response; provides insight into operational challenges and simplifies hybrid workload protection by delivering unified IoT/OT visibility and control. 
+Defender for IoT is a holistic solution that continuously discovers, monitors, and manages IoT and OT threats, risks and vulnerabilities. It helps accelerate incident response; provides insight into operational challenges and simplifies hybrid workload protection by delivering unified IoT and OT visibility and control. 
 
-Purpose-built for IoT/OT networks, Azure Defender for IoT delivers deep visibility into IoT/OT risk within minutes of being connected to the network, with zero impact on the network and network devices due to its passive, non-invasive, Network Traffic Analysis (NTA) approach. Leveraging patented, IoT/OT-aware behavioral analytics to detect advanced IoT/OT threats (such as fileless malware) based on anomalous or unauthorized activity. This holistic solution addresses key use cases:
+Purpose built for IoT and OT networks, Azure Defender for IoT delivers deep visibility into IoT and OT risk within minutes of being connected to the network, with zero impact on the network and network devices due to its passive, non-invasive, Network Traffic Analysis (NTA) approach. Leveraging patented, IoT and OT aware behavioral analytics to detect advanced IoT and OT threats (such as fileless malware) based on anomalous or unauthorized activity. This holistic solution addresses key use cases:
 
-  - IoT/OT Asset Discovery & Continuous Threat Monitoring
+  - IoT and OT device discovery and continuous threat monitoring
 
-  - IoT Risk & Vulnerability Management
+  - IoT risk and vulnerability management
 
-  - Threat Hunting & Incident Response
+  - Threat hunting and incident response
 
-  - Operational Efficiency 
+  - Operational efficiency 
 
-  - Unified IT/OT Security 
+  - Unified IT and OT security 
 
 ## Components
 
-  - **Defender for IoT sensor:** Defender for IoT sensors collect ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero impact on OT/IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory and an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [***Defender for IoT Sensor User Guide***](https://aka.ms/AzureDefenderforIoTUserGuide).
+  - **Defender for IoT sensor:** Defender for IoT sensors collect ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory and an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [***Defender for IoT Sensor User Guide***](https://aka.ms/AzureDefenderforIoTUserGuide).
 
-  - **Defender for IoT on-premises management console:** The on-premises management console lets you carry out asset management, risk, and vulnerability management, as well as threat monitoring and incident response across your enterprise. It provides a unified view of all network assets, key IoT/OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
+  - **Defender for IoT on-premises management console:** The on-premises management console lets you carry out device management, risk, and vulnerability management, as well as threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT/OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
 
 ## About this guide
 
@@ -63,7 +64,7 @@ This section covers information about Defender for IoT sensor appliances and the
 
 ### Physical appliances
 
-The Defender for IoT appliance sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic using passive (agentless) monitoring. This process has zero impact on OT networks and assets because it is not placed in the data path and does not actively scan OT assets.
+The Defender for IoT appliance sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic using passive (agentless) monitoring. This process has zero impact on OT networks and devices because it is not placed in the data path and does not actively scan OT devices.
 
 The following rack mount appliances are available:
 
@@ -92,27 +93,24 @@ The following virtual appliances are available:
 
 ### On-premises management console hardware specifications
 
- |  | |
- ------------------------------ |--|
- **Description**                | In a multi-tier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks including SIEMs, ticketing systems, next-generation firewalls, secure remote access platforms, and the Defender for IoT ICS Malware Sandbox. |
- **Deployment type**                | Enterprise |
- **Appliance Type**                 | Dell R340, VM |
+ | Item | Description |
+ |----|--|
+ **Description** | In a multi-tier architecture, the on-premises management console delivers visibility and control across geographically distributed sites. It integrates with SOC security stacks including SIEMs, ticketing systems, next generation firewalls, secure remote access platforms, and the Defender for IoT ICS malware sandbox. |
+ **Deployment type** | Enterprise |
+ **Appliance Type**  | Dell R340, VM |
  **Number of Managed Sensors** | Unlimited |
 
 ## Preparing for the installation
 
-
 ### Accessing the ISO installation image
 
-The installation image is accessible from the **Azure Defender for IoT** portal.
+The installation image is accessible from the Defender for IoT portal.
 
 To access the file:
 
-1. Log in to your Azure account.
+1. Log in to your Defender for IoT account.
 
 2. Go to the **Network sensor** or **On-premises management console** page and select a version to download.
-
-   ![Network sensor](./media/tutorial-install-components/image1.jpg)
 
 ### Installing from DVD
 
@@ -124,19 +122,18 @@ Before the installation, ensure you have:
 
 To install:
 
-1.  Burn the image to a DVD/prepare a Disk on Key.
+1.  Burn the image to a DVD or prepare a disk on a key.
 
-
-2.  Connect the DVD/Disk on Key and configure the appliance to boot from DVD/Disk on Key.
+2.  Connect the DVD or disk on a key and configure the appliance to boot from DVD or disk on a key.
 
 > [!NOTE]
-> Burn the ISO image to the DVD as “Image”. Insert a portable DVD drive into your computer and right click on the ISO Image and choose “Burn to disk”.
+> Burn the ISO image to the DVD as image. Connect a portable DVD drive into your computer and right click on the ISO Image and choose “Burn to disk”.
 
-### Install from disk-on-key
+### Install from disk on a key
 
 Before the installation, ensure you have:
 
-  - A Disk on Key with the USB version 3.0 and later, min size 4GB
+  - A disk on key with the USB version 3.0 and later. The minimum size is 4GB.
 
   - ISO installer image file
 
@@ -146,28 +143,25 @@ Before you begin:
 
 2.  Download ISO image.
 
-3.  A USB Disk on Key that you want to use, size 4GB.
+3.  A USB disk on a k ey that you want to use. The minimum size is 4GB.
 
-The Disk on Key will be erased in this process.
+The disk on a key will be erased in this process.
 
-To prepare a Disk on Key:
+To prepare a disk on a key:
 
 1. Run Rufus and select SENSOR ISO.
 
-   ![SENSOR ISO](media/tutorial-install-components/image2.png)
-
-2. Connect the Disk on Key to the to the front panel.
+2. Connect the disk on a key to the to the front panel.
 
 3. Set the BIOS of the server to boot from the USB.
 
-
-## DELL POWEREDGE R340XL installation
+## Dell PowerEdgeR340XL installation
 
 This section provides the Dell PowerEdge R340XL installation procedure.
 
 Before installing the software on the Dell appliance, you need to adjust the appliance BIOS configuration.
 
-This section contains covers:
+This article contains covers:
 
   - [Dell PowerEdge R340 Front Panel](#dell-poweredge-r340-front-panel) and [Dell PowerEdge R340 Back Panel](#dell-poweredge-r340-back-panel) contains front and back panels description, and information required for installation, such as drivers and ports.
 
@@ -175,9 +169,9 @@ This section contains covers:
 
   - [Software Installation (Dell R340)](#software-installation-dell-r340) describes the procedure required to install the Defender for IoT sensor software.
 
-### DELL POWEREDGE R340XL requirements 
+### Dell PowerEdge R340XL requirements 
 
-This section describes the requirements for installing the DELL POWEREDGE R340XL appliance.
+This section describes the requirements for installing the Dell PowerEdge R340XL appliance.
 
 - Enterprise license for iDrac
 
@@ -193,26 +187,29 @@ This section describes the requirements for installing the DELL POWEREDGE R340XL
 
 ![This image shows the front view of the 4 x 3.5-inch drive configuration.](media/tutorial-install-components/image3.jpg)
 
-|                                |                     |
-|--------------------------------|---------------------|
-| 1\.	Left control panel         | 4\. Information tag |
-| 2\.	Optical drive \(optional\) | 5\. Drives          |
-| 3\.	Right control panel        |                     |
-
+ 1. Left control panel 
+ 2. Optical drive (optional) 
+ 3. Right control panel 
+ 4. Information tag 
+ 5. Drives  
 
 ### Dell PowerEdge R340 back panel
 
 ![This image shows the rear view of the system.](media/tutorial-install-components/image4.jpg)
 
-|                                           |                                                |
-|-------------------------------------------|------------------------------------------------|
-| 1\.	Serial port                           | 7\. Power supply unit 2                        |
-| 2\.	NIC port \(Gb 1\)                     | 8\. System identification button               |
-| 3\.	NIC port \(Gb 1\)                     | 9\. System status indicator cable port \(CMA\) |
-| 4\.	Half\-height PCIe expansion card slot | 10\. USB 3\.0 port \(2\)                       |
-| 5\.	Full\-height PCIe expansion card slot | 11\. iDRAC9 dedicated network port             |
-| 6\.	Power supply unit 1                   | 12\. VGA port                                  |
 
+1. Serial port 
+2. NIC port (Gb 1) 
+3. NIC port (Gb 1) 
+4. Half-height PCIe 
+5. Full-height PCIe expansion card slot expansion card slot 
+6. Power supply unit 1 
+7. Power supply unit 2 
+8. System identification 
+9. System status indicator cable port (CMA)button 
+10. USB 3.0 port (2) 
+11. iDRAC9 dedicated network port 
+12. VGA port |  |       
 
 ### Dell BIOS configuration
 
@@ -222,13 +219,13 @@ The BIOS configuration is performed using a pre-defined configuration. The file 
 
 You need to import the configuration file to the Dell appliance.
 
-Before using the configuration file, you need to establish the communication between the Dell appliance and the management computer.
+Before using the configuration file, you will need to establish the communication between the Dell appliance and the management computer.
 
-Dell appliance is managed by an integrated Dell Remote Access Controller (iDRAC) with Lifecycle Controller, which is embedded in every Dell PowerEdge server. It provides functionality that helps you deploy, update, monitor and maintain Dell PowerEdge appliances.
+The Dell appliance is managed by an integrated Dell Remote Access Controller (iDRAC) with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor and maintain your Dell PowerEdge appliances.
 
-To establish the communication between the Dell appliance and the management computer, you need to define iDRAC IP address and management computer IP on the same subnet.
+To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and management computer IP address on the same subnet.
 
-When the connection is established, you can configure the BIOS.
+When the connection is established, the BIOS is configurable.
 
 To configure Dell BIOS:
 
@@ -244,11 +241,7 @@ To configure Dell BIOS:
 
 3. Select **iDRAC Settings**.
 
-   ![iDRAC Settings](media/tutorial-install-components/image5.png)
-
 4. Select **Network**.
-
-   ![Network](media/tutorial-install-components/image6.png)
 
    > [!NOTE]
    > During the installation you must configure the default iDRAC IP address and password mentioned in the following steps. After the installation, you change these definitions.
@@ -263,9 +256,9 @@ To configure Dell BIOS:
 
 #### Import the BIOS configuration file
 
-This section describes how to configure the BIOS using the Configuration file.
+This article describes how to configure the BIOS using the configuration file.
 
-1. Plug in a PC with Static preconfigured IP address **10.100.100.200** to **iDRAC** port.
+1. Plug in a PC with a Static preconfigured IP address **10.100.100.200** to **iDRAC** port.
 
    ![preconfigured IP address](media/tutorial-install-components/image8.png)
 
@@ -286,22 +279,20 @@ This section describes how to configure the BIOS using the Configuration file.
      The import server profile operation is initiated.
 
      > [!NOTE]
-     > Before importing the file make sure:</p>
-     > <ul>
-     > <li><p>You are the only user that is currently connected to iDRAC.</p></li>
-     > <li><p>The system is not in the BIOS menu.</p></li>
-     > </ul>
+     > Before importing the file make sure:
+     > - You are the only user that is currently connected to iDRAC.
+     > - The system is not in the BIOS menu.
 
 5. Go to **Configuration** > **Server Configuration Profile**. And set the following parameters:
 
    ![Configuration](media/tutorial-install-components/image9.png)
 
-   | Parameter         | Configuration                                             |
-   | ----------------- | --------------------------------------------------------- |
-   | Location Type     | Select **Local**                                          |
-   | File Path         | Select **Choose File** and add the configuration XML file |
-   | Import Components | Select **BIOS, NIC, RAID**                                |
-   | Maximum wait time | Select **20 minutes**                                     |
+   | Parameter | Configuration |
+   |--|--|
+   | Location Type | Select **Local** |
+   | File Path | Select **Choose File** and add the configuration XML file |
+   | Import Components | Select **BIOS, NIC, RAID** |
+   | Maximum wait time | Select **20 minutes** |
 
 6. Select **Import**.
 
@@ -311,7 +302,7 @@ This section describes how to configure the BIOS using the Configuration file.
 
 #### Manually configuring BIOS 
 
-This section describes how to manually configure the appliance BIOS. You will need to manually configure if:
+This article describes how to manually configure the appliance BIOS. You will need to manually configure if:
 
   - You did not purchase your appliance from Arrow
 
@@ -321,67 +312,42 @@ After you access the BIOS, go to **Device Settings**.
 
 To manually configure:
 
-1. Access the Appliance BIOS directly using a keyboard and screen.
+1. Access the Appliance BIOS 
+   - directly using a keyboard and screen.
 
    or
 
-2. Access the appliance BIOS using iDRAC.
+    - using iDRAC.
 
-   1. If the Appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Login with Dell default administrator privileges: Username: root, Password: calvin.
+   1. If the appliance is not a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Login with the Dell default administrator privileges: Username: root, Password: calvin.
 
-   2. If the Appliance is a Defender for IoT appliance, log in with the following credentials: Username: cyberx, Password: xhxvhttju,@4338
+   2. If the appliance is a Defender for IoT appliance, log in with the following credentials: Username: cyberx, Password: xhxvhttju,@4338
 
 3. Once you access the BIOS, go to **Device Settings**.
 
-   ![Device Settings](media/tutorial-install-components/image11.png)
-
 4. Choose the RAID controlled configuration by selecting **Integrated RAID controller 1: Dell PERC\<PERC H330 Adapter\> Configuration Utility**.
-
-   ![Configuration Utility](media/tutorial-install-components/image12.png)
 
 5. Select **Configuration Management**.
 
-   ![Configuration Management](media/tutorial-install-components/image13.png)
-
 6. Select **Create Virtual Disk**.
-
-   ![Create Virtual Disk](media/tutorial-install-components/image14.png)
 
 7. In the **Select RAID Level** field, select **RAID5**. In the **Virtual Disk Name** field, enter **ROOT** and select **Physical Disks**.
 
-   ![Select RAID Level](media/tutorial-install-components/image15.png)
-
 8. Select **Check All** and then select **Apply Changes**
-
-   ![Check All](media/tutorial-install-components/image16.png)
 
 9. Select **Ok**.
 
-   ![OK](media/tutorial-install-components/image17.png)
-
 10. Scroll down the screen and select **Create Virtual Disk**.
-
-    ![Scroll down the screen](media/tutorial-install-components/image18.png)
 
 11. Select the **Confirm** checkbox and select **Yes**.
 
-    ![Confirm](media/tutorial-install-components/image19.png)
-
 12. Select **OK**.
-
-    ![Select OK](media/tutorial-install-components/image20.png)
 
 13. Return to the main screen and select **System BIOS**.
 
-    ![System BIOS](media/tutorial-install-components/image22.png)
-
 14. Select **Boot Settings**.
 
-    ![Boot Settings](media/tutorial-install-components/image23.png)
-
 15. For the **Boot Mode** option, select **BIOS**.
-
-    ![BIOS](media/tutorial-install-components/image24.png)
 
 16. Select **Back** and then select **Finish** to exit the BIOS settings.
 
@@ -393,13 +359,11 @@ To install:
 
 1. Verify that the version media is mounted to the appliance in one of the following ways:
 
-   1. By connecting the external CD or Disk-on-Key with the release.
+   1. By connecting the external CD or disk on a key with the release.
 
-   2. By mounting an ISO image using the iDRAC. This can be done as follows: After logging in to iDRAC, select the Virtual Console, and then select **Virtual Media**.
+   2. By mounting an ISO image using the iDRAC. This can be done as follows: After logging in to iDRAC, select the virtual console, and then select **Virtual Media**.
 
-   ![Virtual Media](media/tutorial-install-components/image25.png)
-
-2. In the **Map CD**/DVD section, select **Choose File**.
+2. In the **Map CD/DVD** section, select **Choose File**.
 
    ![Choose File](media/tutorial-install-components/image26.png)
 
@@ -413,7 +377,7 @@ To install:
 
 5. The media is mounted. Select **Close**.
 
-6. Boot the appliance. When using iDRAC, rebooting the servers can be done by clicking on the **Consul Control** Button, on the **Keyboard Macros** click on the **Apply** Button which will initiate Ctrl-Alt-Del sequence.
+6. Boot the appliance. When using iDRAC, rebooting the servers can be done by clicking on the **Consul Control** button, on the **Keyboard Macros** click on the **Apply** button which will initiate the Ctrl-Alt-Del sequence.
 
 7. Select **English**.
 
