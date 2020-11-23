@@ -180,7 +180,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     cargo build --release -Z unstable-options --out-dir .
     ```
 
-    ![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-rust.png)
+    ![VS Code - Build Rust custom handler](./media/functions-create-first-function-vs-code/functions-vscode-rust.png)
 
 ---
 
