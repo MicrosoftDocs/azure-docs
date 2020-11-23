@@ -93,13 +93,13 @@ When an endpoint can't deliver an event within a certain time period or after tr
 
 In order to create an endpoint with dead-lettering enabled, you must have:
 - Storage account
-    - Follow [this article](/azure/storage/common/storage-account-create?tabs=azure-portal) to create a storage account and save the name of the account to use it later.
+    - Follow [this article](/azure/storage/common/storage-account-create?tabs=azure-portal) to create a storage account and save the storage account name to use it later.
 - Container
-    - Create a container using [this article](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and save the name of the container to use it in the deadLetterSecret.
+    - Create a container using [this article](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and save the container name to use it in the deadLetterSecret.
 - SAS token
-    - In the storage account page, Choose *Shared access signature* link in the left navigation bar to select the right permissions to generate SAS token.
-    - For _Allowed services_ and _Allowed resource_ types, select the checkboxes as you wish and for the _Allowed permissions_, choose _Write_.
-    - Then, select _Generate SAS and connection string_ button to generate a SAS token. Copy the _SAS token_ using _copy to clipboard_ and save it.
+    - In the storage account page, choose *Shared access signature* link in the left navigation bar to select the right permissions to generate SAS token.
+    - For _Allowed services_ and _Allowed resource types_, select the checkboxes as you wish, and for _Allowed permissions_, choose _Write_.
+    - Then, select _Generate SAS and connection string_ button to generate the SAS token. Copy the _SAS token_ using _copy to clipboard_ and save it.
 
 You can now create a deadLetterSecret using all the above values replacing the placeholders in the format `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` to configure the endpoint.
 
@@ -107,10 +107,10 @@ You can now create a deadLetterSecret using all the above values replacing the p
 
 Dead-letter endpoints are created using [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate). 
 
-  - Choose a name for your endpoint.
+  - Choose a name for your endpoint in the _endpointName_ field.
   - Enter your _resourceGroupName_, _resourceName_ and select your subscription from the dropdown.
   - Use the deadLetterSecret created in the above section as a property in the json body below.
-  - Add the below Json body to the request and Run to see the response code '201'.
+  - Add the below Json body to the request and _Run_ to see the response code '201'.
   - Verify that the deadLetterEndpoint is successfully created in the body of the response.
   
 ```json
