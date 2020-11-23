@@ -46,4 +46,4 @@ To build more resilience in your systems, review the following articles:
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
-* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
+* [Build resilience in your CIAM systems](resilience-b2c.md)
