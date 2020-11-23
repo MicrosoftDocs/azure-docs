@@ -72,7 +72,7 @@
   items:
   - name: General
     items:
-    - name: Azure Migrate support matrix
+    - name: Azure Migrate support
       href: migrate-support-matrix.md
     - name: Security baseline for Azure Migrate
       href: security-baseline.md
@@ -92,9 +92,9 @@
       href: concepts-dependency-visualization.md
   - name: Assess
     items:
-    - name: Assessments (migrate to Azure VMs)
+    - name: Assessments overview (migrate to Azure VMs)
       href: concepts-assessment-calculation.md
-    - name: Assessments (migrate to AVS)
+    - name: Assessments overview (migrate to AVS)
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Assessment best practices 
       href: best-practices-assessment.md
