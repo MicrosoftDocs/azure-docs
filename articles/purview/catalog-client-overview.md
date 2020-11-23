@@ -49,10 +49,7 @@ The steps to conduct an asset search are:
 
 1. [Open the asset search dialog](#open-the-asset-search-dialog) by selecting **Search catalog**.
 1. [Enter search terms](#enter-search-terms) to find assets with characteristics that match the terms.
-1. [Set quick filters](#set-quick-filters) to narrow the search.
 1. [Start the search](#start-the-search) and go to the search results.
-
-It doesn't matter whether you set quick filters before or after you enter search terms.
 
 If there are no search terms and no filters, the search results include all assets.
 
@@ -62,7 +59,7 @@ Open the asset search dialog by selecting **Search catalog**.
 
 :::image type="content" source="./media/catalog-client-overview/search-catalog.png" alt-text="Below 'Search catalog' there's a left pane with search filters, and a right pane with recent searches." border="true":::
 
-The search dialog shows quick filters, search history, and a list of recently accessed assets.
+The search dialog shows search history, and a list of recently accessed assets.
 
 :::image type="content" source="./media/catalog-client-overview/asset-search-dialog.png" alt-text="The search list is in the right pane, below 'Search catalog'." border="true":::
 
@@ -91,13 +88,13 @@ Azure Purview supports the following types of search criteria.
 
 ## Search example
 
-Let's consider a hypothetical example to see how the search terms and quick filters interact to determine the search results. In particular, we'll monitor the count of asset type **Azure Blob Storage**.
+Let's consider a hypothetical example to see how the search terms and filters interact to determine the search results. In particular, we'll monitor the count of asset type **Azure Blob Storage**.
 
-- We do the first search with no search terms entered and no values selected in the quick filters. The search finds all assets in the catalog. The search results list and the **Asset type** quick filter reveal:
+- We do the first search with **"\*"** as a search term. The search finds all assets in the catalog. The search results list and the **Asset type** filter reveal:
 
     - The search results list has 164,230 assets, which are all the assets in the catalog.
     - The **Asset type** drop-down list has 43 entries. These are all the asset types in the catalog. Since every asset is of one and only one type, the sum of counts of the 43 asset types is 164,230.
-    - The **Azure Blob Storage** asset type is the first entry in the drop-down list of the **Asset type** quick filter. The values are ordered by count, largest first, so **Azure Blob Storage** is the most common asset type. Its count is 118,174.
+    - The values are ordered by count, largest first, so **Azure Blob Storage** is the most common asset type. Its count is 118,174.
 
 - We now enter **parquet** into **Search catalog** and do another search. The search results include only assets with characteristics that match **parquet**. This reduces all the counts, as follows:
 
@@ -105,7 +102,7 @@ Let's consider a hypothetical example to see how the search terms and quick filt
     - The **Asset type** drop-down list has 15 entries. Every one of the 493 assets is of one of these 15 types, and the sum of the counts of the 15 types is 493.
     - There are 456 assets of type **Azure Blob Storage**. The other 37 (493 minus 456) assets are of one of the other 14 types.
 
-- We now look at the drop-down list of a different quick filter, **Classification**:
+- We now look at the drop-down list of a different filter, **Classification**:
 
     - There are 12 classifications for the 493 assets in the search results list. The counts for the 493 assets don't sum to 493, since any number of classifications can be assigned to an asset.
     - The **Person's Name** classification is assigned to 36 assets, more than any other classification.
@@ -116,9 +113,9 @@ We can conclude that there's no asset whose type is **Azure Blob Storage** that 
 
 ## Start the search
 
-When you search, the search terms you enter in **Search catalog** are matched against the asset characteristics. These characteristics include name, type, classification, and contacts. The assets with matching characteristics appear in the search results list unless excluded by a quick filter.
+When you search, the search terms you enter in **Search catalog** are matched against the asset characteristics. These characteristics include name, type, classification, and contacts. The assets with matching characteristics appear in the search results list.
 
-After you've entered the search terms and set the quick filters, start the search in one of these ways:
+After you've entered the search terms, start the search in one of these ways:
 
 - To search based on the terms you entered, select the search icon (:::image type="icon" source="./media/catalog-client-overview/search-icon.png":::), press **Enter**, or select **View search results**.
 - To search using terms from a previous search, select them from **Your recent searches**.
@@ -230,20 +227,20 @@ Selecting a tile produces another array of tiles, which is a breakdown of the se
 
 ## Quick access
 
-### Browse by asset type
+### Browse assets
 
-To browse to assets by type, select **Browse by asset type** on **Home**.
+To browse assets by type, select **Browse assets** on **Home**.
 
-:::image type="content" source="./media/catalog-client-overview/get-to-browse-by-asset-type.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/get-to-browse-by-asset-type.png" alt-text="Screenshot to Browse assets" border="true":::
 
-The **Browse asset types** page appears, which shows icons of the asset types and, for each type, the count of assets of the type.
+The **Browse asset types** page appears, which shows icons of the asset types and, for each type, the count of assets for the type.
 
-:::image type="content" source="./media/catalog-client-overview/browse-by-asset-type.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/browse-by-asset-type.png" alt-text="Screenshot showing asset type count" border="true":::
 
 To see a search results list with assets of a particular type, select the asset type icon.
 
 > [!Note]
-> The search results list generated in this way is the same as is generated from **Search** if there are no key terms and the asset type is selected in the **Asset type** quick filter.
+> The search results list generated in this way is the same as is generated from **Search**.
 
 :::image type="content" source="./media/catalog-client-overview/search-results-browse-by-asset-type.png" alt-text="Screenshot showing the search results when an asset type icon is selected.":::
 
