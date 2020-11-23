@@ -35,7 +35,7 @@ Your software vendor will give you an MSIX package. You can also convert non-MSI
 
 Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later.
 
-## Is MSIX app attach GA?
+## Is MSIX app attach currently generally available?
 
 MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later. Both operating systems are currently generally available. 
 
