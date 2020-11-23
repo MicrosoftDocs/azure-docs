@@ -45,7 +45,7 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
-## [Serverless SQL pool (preview)](#tab/serverless)
+## [Serverless SQL pool](#tab/serverless)
 
 To manage the users having access to serverless SQL pool, you can use the instructions below.
 
