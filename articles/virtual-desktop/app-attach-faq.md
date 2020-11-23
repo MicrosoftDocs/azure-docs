@@ -65,7 +65,7 @@ Yes. You can restage applications you've already restaged, and this shouldn't ca
 
 ## Does MSIX app attach support self-signed certificates?
 
-Yes, MSIX app attach supports self-signed certificates. You'll need to make sure the certificates are installed under the  Trusted People category.
+Using MSIX app attach over HTTP or HTTPs is currently not supported.
 
 
 ## Next steps
