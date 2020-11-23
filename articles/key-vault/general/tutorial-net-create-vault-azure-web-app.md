@@ -31,7 +31,7 @@ To complete this quickstart:
 * [Install Git](https://www.git-scm.com/downloads).
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/)
 * [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can create key vault using [Azure portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
-* Key Vault [secret](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets). You can create secret using [Azure Portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell), or [Azure CLI](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli)
+* Key Vault [secret](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets). You can create secret using [Azure portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell), or [Azure CLI](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli)
 
 ## Create a .NET Core app and deploy it to Azure
 In this step, you set up the local .NET Core project.
@@ -248,7 +248,7 @@ To give your web app permission to do **get** and **list** operations on your ke
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
-You can also assign access policies using [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) or [PowerShell](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-powershell).
+You can also assign access policies using [Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) or [PowerShell](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-powershell).
 
 ### Modify the app to access your key vault
 
