@@ -186,7 +186,7 @@
     items:
     - name: Delete an Azure Migrate project
       href: how-to-delete-project.md
-    - name: Work with previous version
+    - name: Work with previous version of Azure Migrate
       href: migrate-v1.md
 - name: Troubleshoot
   items:
