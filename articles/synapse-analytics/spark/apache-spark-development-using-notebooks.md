@@ -26,7 +26,7 @@ With an Azure Synapse Studio notebook, you can:
 This article describes how to use notebooks in Azure Synapse Studio.
 
 ## Preview of the new notebook experience
-Synapse team brought the new notebooks component into Synapse Studio to provide consistent notebook experience for Microsoft customers and maximize discoverability, productivity, sharing and collaboration. The new notebook experience is ready for preview. Click the **Preview Features** button in notebook toolbar to turn it on. The table below captures feature comparison between existing notebook (so called "classical notebook") with the new preview one.  
+Synapse team brought the new notebooks component into Synapse Studio to provide consistent notebook experience for Microsoft customers and maximize discoverability, productivity, sharing, and collaboration. The new notebook experience is ready for preview. Check the **Preview Features** button in notebook toolbar to turn it on. The table below captures feature comparison between existing notebook (so called "classical notebook") with the new preview one.  
 
 |Feature|Classical Notebook|Preview Notebook|
 |--|--|--|
@@ -74,12 +74,12 @@ There are multiple ways to add a new cell to your notebook.
 # [Preview Notebook](#tab/preview)
 
 1. Expand the upper left **+ Cell** button, and select **code cell** or **Markdown cell**.
-    ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-aznb-add-cell-1.png)
-2. Click the plus sign at the beginning of a cell and select **Code cell** or **Markdown cell**.
+    ![add-aznb-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-aznb-add-cell-1.png)
+2. Select the plus sign at the beginning of a cell and select **Code cell** or **Markdown cell**.
 
-    ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-aznb-add-cell-2.png)
+    ![add-aznb-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-aznb-add-cell-2.png)
 
-3. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
+3. Use [aznb Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
 
 ---
 
@@ -156,8 +156,6 @@ You can use the format buttons in the text cells toolbar to do common markdown a
 
   ![Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
-# [Preview Notebook](#tab/preview)
-coming soon
 
 ---
 
@@ -198,7 +196,7 @@ To delete a cell, select the delete button at the right hand of the cell.
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+D** to delete the current cell. 
 
-   ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-aznb-delete-cell.png)
+   ![aznb-delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-aznb-delete-cell.png)
 
 ---
 
@@ -210,9 +208,9 @@ Select the arrow button at the bottom of the current cell to collapse it. To exp
    ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 # [Preview Notebook](#tab/preview)
-Select the **More commands** ellipses (...) on the cell toolbar and **input** to collapse current cell's input. To expand it, click the **input hidden** link  while the cell is collapsed.
+Select the **More commands** ellipses (...) on the cell toolbar and **input** to collapse current cell's input. To expand it, Select the **input hidden** while the cell is collapsed.
 
-   ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-input.gif)
+   ![aznb-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-input.gif)
 
 ---
 
@@ -224,9 +222,9 @@ Select the **collapse output** button at the upper left of the current cell outp
    ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
 # [Preview Notebook](#tab/preview)
-Select the **More commands** ellipses (...) on the cell toolbar and **output** to collapse current cell's output. To expand it, click the same button while the cell's output is hidden.
+Select the **More commands** ellipses (...) on the cell toolbar and **output** to collapse current cell's output. To expand it, select the same button while the cell's output is hidden.
 
-   ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-output.gif)
+   ![aznb-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-output.gif)
 
 
 ---
@@ -277,7 +275,7 @@ Select the **Cancel All** button to cancel the running cells or cells waiting in
 # [Preview Notebook](#tab/preview)
 ### Reference notebook
 
-You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only support to pass a notebook path as parameter. 
+You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
 
 ---
 
@@ -303,7 +301,7 @@ You can specify the timeout duration, the number, and the size of executors to g
 [![session-management](./media/apache-spark-development-using-notebooks/synapse-aznb-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-aznb-spark-session-management.png#lightbox)
 
 #### %%configure
-You can also specify spark session settings via a magic command **%%configure**. The spark session need to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, please refer to https://github.com/cloudera/livy#request-body for full list of valid parameters 
+You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters 
 
 ```
 %%configure -f
@@ -496,7 +494,7 @@ To parameterize your notebook, select the ellipses (...) to access the additiona
 
 To parameterize your notebook, select the ellipses (...) to access the **more commands** at the cell toolbar. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
-![toggle-parameter](./media/apache-spark-development-using-notebooks/aznb-toggle-parameter-cell.png)
+![aznb-toggle-parameter](./media/apache-spark-development-using-notebooks/aznb-toggle-parameter-cell.png)
 
 ---
 
@@ -583,7 +581,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 |Go one word left|Ctrl + Left|
 |Go one word right|Ctrl + Right|
 |Select all|Ctrl + A|
-|Indent| Ctrl + ]|
+|Indent| Ctrl +]|
 |Dedent|Ctrl + [|
 |Switch to command mode| Esc |
 
