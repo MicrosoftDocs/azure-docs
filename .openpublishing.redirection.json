@@ -22891,6 +22891,16 @@
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
       "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/migrate/how-to-add-tool-first-time.md",
+      "redirect_url": "create-manage-projects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/contoso-migration-overview.md",
+      "redirect_url": "/azure/cloud-adoption-framework/migrate/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/tutorial-assess-import.md",
