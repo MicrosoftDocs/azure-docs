@@ -47,6 +47,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 1. Replace `<endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<Blob folder name>` with the path to the folder in blob storage where your forms are located. If your forms are at the root of your container, leave this string empty.
+1. Optionally replace `<your model name>` with the friendly name you'd like to give to your model.
 
     # [v2.0](#tab/v2-0)
     ```python
@@ -75,6 +76,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
             "prefix": prefix,
             "includeSubFolders": includeSubFolders
         },
+        "modelName":"<your model name>",
         "useLabelFile": useLabelFile
     }
     
@@ -98,7 +100,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False
