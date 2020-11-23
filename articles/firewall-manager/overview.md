@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 11/23/2020
 ms.author: victorh
 ---
 
@@ -85,7 +85,7 @@ Azure Firewall Manager has the following known issues:
 |DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
 |Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
 |Configuring SNAT private IP address ranges|[Private IP range settings](../firewall/snat-private-range.md) are ignored if Azure Firewall policy is configured. The default Azure Firewall behavior is used, where it doesn’t SNAT Network rules when the destination IP address is in a private IP address range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigating|
-|Some firewall settings are not migrated from when you import rules to a policy|Availability Zones and SNAT private addresses are not migrated when you import firewall rules into an Azure Firewall Policy.|Investigating| 
+|Some firewall settings are not migrated when the firewall is migrated to use Firewall Policy|Availability Zones and SNAT private addresses are not migrated when you migrate to Azure Firewall Policy.|Investigating| 
 
 ## Next steps
 
