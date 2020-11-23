@@ -198,12 +198,12 @@ The function host needs to be configured to run your custom handler binary when 
 
     ```
     "customHandler": {
-        "description": {
+      "description": {
         "defaultExecutablePath": "handler",
         "workingDirectory": "",
         "arguments": []
-        },
-        "enableForwardingHttpRequest": true
+      },
+      "enableForwardingHttpRequest": true
     }
     ```
 
