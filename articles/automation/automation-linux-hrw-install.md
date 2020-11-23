@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/18/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ---
 
@@ -37,17 +37,17 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 The Hybrid Runbook Worker feature supports the following distributions:
 
-* Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)
-* Oracle Linux 5, 6, and 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6, and 7 (x86/x64)
-* Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)
-* SUSE Linux Enterprise Server 12 (x86/x64)
+* Amazon Linux 2012.09 to 2015.09 (x64)
+* CentOS Linux 5, 6, and 7 (x64)
+* Oracle Linux 5, 6, and 7 (x64)
+* Red Hat Enterprise Linux Server 5, 6, and 7 (x64)
+* Debian GNU/Linux 6, 7, and 8 (x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 (x64)
+* SUSE Linux Enterprise Server 12 (x64)
 
 ### Minimum requirements
 
-The minimum requirements for a Linux Hybrid Runbook Worker are:
+The minimum requirements for a Linux system and user Hybrid Runbook Worker are:
 
 * Two cores
 * 4 GB of RAM
@@ -65,7 +65,7 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 
 ### Adding a machine to a Hybrid Runbook Worker group
 
-You can add the worker machine to a Hybrid Runbook Worker group in your Automation account. Note that you must support Automation runbooks as long as you're using the same account for both the Azure Automation feature and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
+You can add the worker machine to a Hybrid Runbook Worker group in one of your Automation accounts. For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
 >[!NOTE]
 >Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 4 under the section [Install a Linux Hybrid Runbook Worker](#install-a-linux-hybrid-runbook-worker) to add it to a group.

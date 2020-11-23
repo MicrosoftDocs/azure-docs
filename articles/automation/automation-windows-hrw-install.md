@@ -3,7 +3,7 @@ title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
 description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/19/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
@@ -30,7 +30,7 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 ### Supported Windows operating system
 
-The following versions of the Windows operating system are officially supported for a Windows Hybrid Runbook Worker:
+The Hybrid Runbook Worker feature supports the following operating systems:
 
 * Windows Server 2019
 * Windows Server 2016, version 1709 and 1803
@@ -42,7 +42,7 @@ The following versions of the Windows operating system are officially supported 
 
 ### Minimum requirements
 
-The minimum requirements for a Windows Hybrid Runbook Worker are:
+The minimum requirements for a Windows system and user Hybrid Runbook Worker are:
 
 * Windows PowerShell 5.1 or later ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))
 * .NET Framework 4.6.2 or later
@@ -56,7 +56,7 @@ For networking requirements for the Hybrid Runbook Worker, see [Configuring your
 
 ### Adding a machine to a Hybrid Runbook Worker group
 
-You can add the worker machine to a Hybrid Runbook Worker group in your Automation account. Note that you must support Automation runbooks as long as you're using the same account for both the Azure Automation feature and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
+You can add the worker machine to a Hybrid Runbook Worker group in one of your Automation accounts. For machines hosting the system Hybrid Runbook worker managed by Update Management, they can be added to a Hybrid Runbook Worker group. But you must use the same Automation account for both Update Management and the Hybrid Runbook Worker group membership.
 
 >[!NOTE]
 >Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group. Follow step 6 under the section [Manual deployment](#manual-deployment) to add it to a group.
