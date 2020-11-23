@@ -52,7 +52,7 @@ If diagnostic logging is already enabled, there may be an issue with the destina
 
 ## Fix diagnostic logging for logic apps
 
-If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, review the appropriate destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destination), [Azure Event Hubs](#log-analytics-and-event-hubs-destination), or [a storage account](#storage-account-destinations).
+If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, review the appropriate destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destinations), [Azure Event Hubs](#log-analytics-and-event-hubs-destinations), or [a storage account](#storage-accounts-destinations).
 
 ### Log Analytics and Event Hubs destinations
 
