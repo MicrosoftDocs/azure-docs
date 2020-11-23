@@ -121,7 +121,7 @@ As before, replace `<FUNCTION_APP>` with the name of your function app and `<RES
 
 The function app restarts after the change is made to the application setting.
 
-## Manual version updates (Linux)
+## Manual version updates on Linux
 
 To pin a linux function app to a specific host version, you need to directly specifying the image url in 'LinuxFxVersion' field in application settings. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
 
