@@ -47,7 +47,7 @@ MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 E
 
 For two version of the same MSIX applications to run the MSIX package family taht is defined in the appxmanifest.xml must be different.
 
-## When using MSIX app attach should I disable auto-updates?
+## Should I disable auto-update when using MSIX app attach?
 
 Yes. MSIX app attach doesn't support auto-update for MSIX applications.
 
