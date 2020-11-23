@@ -69,7 +69,7 @@ Select **View detailed metrics** to open a preconfigured workbook that provides 
 
 ## <a name="connectivity"></a>Connectivity
 
-The **Connectivity** tab provides an easy way to visualize all tests configured via Connection Monitor and [Connection Monitor (Preview)](../../network-watcher/connection-monitor-preview.md) for the selected set of subscriptions.
+The **Connectivity** tab provides an easy way to visualize all tests configured via [Connection Monitor](../../network-watcher/connection-monitor-overview.md) and Connection Monitor (classic) for the selected set of subscriptions.
 
 ![Screenshot that shows the Connectivity tab in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
