@@ -50,7 +50,7 @@ Refer to [this section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-
 
 ### What should be done while upgrading within the same version?
 
-Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) to the troubleshooting guide.
+Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) in the troubleshooting guide.
 
 ### Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
 
