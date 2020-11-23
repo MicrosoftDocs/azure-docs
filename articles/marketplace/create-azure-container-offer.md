@@ -186,7 +186,7 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
-[!INCLUDE [logo tips](/includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](./includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
@@ -201,9 +201,9 @@ Provide a PNG file for the **Large** size logo. Partner Center will use this to 
 
 These logos are used in different places in the listing:
 
-[!INCLUDE [logos-azure-marketplace-only](/includes/logos-azure-marketplace-only.md)]
+[!INCLUDE [logos-azure-marketplace-only](./includes/logos-azure-marketplace-only.md)]
 
-[!INCLUDE [Logo tips](/includes/graphics-suggestions.md)]
+[!INCLUDE [Logo tips](./includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 
@@ -287,7 +287,7 @@ This tab lets you choose which clouds the plan is available in. Your answers on 
 
 All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
 
-Select the [Azure Government](/azure/azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](../../azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the [Azure Government](/azure/azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](/azure/azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > After your plan is published and available in a specific region, you can't remove that region.
