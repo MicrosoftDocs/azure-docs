@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-This Azure Synapse Analytics terminology guide you through the basic concepts of the service and important commands. This article is helpful for both new learners and those who want highlights of the essential Azure Synapse terminology.
+This document guides you through the basic concepts of Azure Synapse Analytics.
 
 ## Basics
 
@@ -23,16 +23,18 @@ A **Synapse workspace** is a securable collaboration boundary for doing cloud-ba
 
 A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are organized into SQL and Spark **pools**. 
 
+## Linked services
+
 A workspace can contain any number of **Linked service**, essentially connection strings that define the connection information needed for the workspace to connect to external resources.
 
-## Synapse SQL terminology
+## Synapse SQL
 
 **Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
 
 * **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
 * **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
 
-## Apache Spark for Synapse terminology
+## Apache Spark for Synapse
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
 
@@ -43,7 +45,7 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 * **Notebook** -  Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL.
 * **Spark job definition** - Interface to submit a Spark job by with assembly jar containing the code and its dependencies.
 
-## Pipelines terminology
+## Pipelines
 
 * **Data Integration** - Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.
 * **Data Flow** - Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion.
