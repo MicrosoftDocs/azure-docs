@@ -26,7 +26,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Cool access tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Events|Generally available|Generally available|[Reacting to Blob storage events](storage-blob-event-overview.md)|
 |Metrics (Classic)|Generally available|Generally available|[Azure Storage analytics metrics (Classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Metrics in Azure Monitor|Generally available|Preview|[Azure Storage metrics in Azure Monitor](./monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|Metrics in Azure Monitor|Generally available|Preview|[Azure Storage metrics in Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob storage PowerShell commands|Generally available|Generally available|[Quickstart: Upload, download, and list blobs with PowerShell](storage-quickstart-blobs-powershell.md)|
 |Blob storage Azure CLI commands|Generally available|Generally available|[Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)|
 |Blob storage APIs|Generally available|Generally available|[Quickstart: Azure Blob storage client library v12 for .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Manage blobs with Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Manage blobs with Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|

@@ -81,7 +81,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Extract, transform, and load data with Azure Databricks
-            url: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%252fazure%252fstorage%252fblobs%252ftoc.json
+            url: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Extract, transform, load data with Apache Hive on Azure HDInsight
             url: data-lake-storage-tutorial-extract-transform-load-hive.md
           - text: Insert data into Databricks tables by using Event Grid

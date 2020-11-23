@@ -64,7 +64,7 @@ The ability to apply ACL changes recursively from parent directory to child item
 
 ## AzCopy
 
-Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
+Use only the latest version of AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
 <a id="storage-explorer"></a>
 

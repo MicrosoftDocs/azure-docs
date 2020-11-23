@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Make sure that your user account has the [Storage Blob Data Contributor role](../common/storage-auth-aad-rbac-portal.md) assigned to it.
 
-* Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)
+* Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 * Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
