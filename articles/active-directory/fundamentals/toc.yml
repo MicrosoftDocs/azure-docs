@@ -78,7 +78,39 @@
       - name: LDAP synchronization
         href: sync-ldap.md                
       - name: SCIM synchronization
-        href: sync-scim.md                      
+        href: sync-scim.md
+    - name: Build for resilience
+      items:
+      - name: Overview
+        href: build-iam-resilience.md
+      - name: Admin guidance
+        items:
+        - name: Admin introduction to resilience
+          href: build-resilience-in-infrastructure.md
+        - name: Build resilience with credential management
+          href: build-resilience-in-credentials.md
+        - name: Build resilience with device states
+          href: build-resilience-with-device-states.md     
+        - name: Build resilience with Continuous Access Evaluation
+          href: build-resilience-with-cae.md
+        - name: Build resilience in external user authentication
+          href: build-resilience-b2b-authentication.md
+        - name: Build resilience in your hybrid authentication
+          href: build-resilience-in-hybrid.md
+        - name: Build resilience in application access with Application Proxy
+          href: build-resilience-on-prem-access.md
+      - B2C guidance
+        items: 
+        - name: B2C introduction to resilience
+          href: resilience-b2c.md
+        - name: Build resilience in end-user experience
+          href: resilient-end-user-experience.md
+        - name: Build resilience in interfaces with external processes
+          href: resilient-external-processes.md
+        - name: B2C developer best practices
+          href: resilience-through-developer-best-practices.md
+        - name: Build resilience through monitoring and analytics
+          href: resilience-with-monitoring-alerting.md
     - name: Certificate authorities used in Azure
       href: certificate-authorities.md
   - name: Deployment guide
