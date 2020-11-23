@@ -95,8 +95,10 @@
       href: public-ip-security-baseline.md
   - name: Security
     items:
-    - name: Security baseline
+    - name: Virtual network security baseline
       href: security-baseline.md
+    - name: Virtual network NAT security baseline
+      href: nat-security-baseline.md
     - name: Network security groups
       items:
       - name: Overview
