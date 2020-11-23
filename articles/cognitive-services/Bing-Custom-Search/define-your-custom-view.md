@@ -15,6 +15,11 @@ ms.author: aahi
 
 # Configure your Bing Custom Search experience
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slices of the web that interest you. To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai).
 
 The portal lets you create a search instance that specifies the slices of the web: domains, subpages, and webpages, that you want Bing to search, and those that you don’t want it to search. The portal can also suggest content that you may want to include.
@@ -70,16 +75,16 @@ After adding web slices to the **Active** list, the Bing Custom Search portal wi
 
 ## Search for images and videos
 
-You can search for images and videos similarly to web content by using the [Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) or the [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). You can display these results with the [hosted UI](hosted-ui.md), or the APIs. 
+You can search for images and videos similarly to web content by using the [Bing Custom Image Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) or the [Bing Custom Video Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). You can display these results with the [hosted UI](hosted-ui.md), or the APIs. 
 
-These APIs are similar to the non-custom [Bing Image Search](../Bing-Image-Search/overview.md) and [Bing Video Search](../Bing-Video-Search/search-the-web.md) APIs, but search the entire web, and do not require the `customConfig` query parameter. See these documentation sets for more information on working with images and videos. 
+These APIs are similar to the non-custom [Bing Image Search](../Bing-Image-Search/overview.md) and [Bing Video Search](../bing-video-search/overview.md) APIs, but search the entire web, and do not require the `customConfig` query parameter. See these documentation sets for more information on working with images and videos. 
 
 ## Test your search instance with the Preview pane
 
 You can test your search instance by using the preview pane on the portal's right side to submit search queries and view the results. 
 
 1. Below the search box, select **My Instance**. You can compare the results from your search experience to Bing, by selecting **Bing**. 
-2. Select a safe search filter and which market to search (see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
+2. Select a safe search filter and which market to search (see [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Enter a query and press enter or click the search icon to view the results from the current configuration. You can change your search type you perform by clicking **Web**, **Image**, or **Video** to get corresponding results. 
 
 <a name="adjustrank"></a>
@@ -156,4 +161,4 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 - [Call your custom search](./search-your-custom-view.md)
 - [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](../bing-web-search/hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+- [Page webpages](../bing-web-search/paging-search-results.md)

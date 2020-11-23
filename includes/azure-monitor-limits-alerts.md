@@ -5,7 +5,7 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: "include"
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: "include file"
 ---
@@ -18,7 +18,3 @@ ms.custom: "include file"
 | Log alerts | 512 active alert rules per subscription. 200 active alert rules per resource. | Call support |
 | Action groups |2,000 action groups per subscription. | Call support |
 | Alert rules and Action rules description length| Log search alerts 4096 characters<br/>All other 2048 characters | Same as default |
-| Autoscale settings |100 per region per subscription. | Same as default |
-| Autoscale profiles |20 profiles per autoscale setting. | Same as default |
-
-

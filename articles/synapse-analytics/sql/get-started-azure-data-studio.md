@@ -37,11 +37,11 @@ The connection requires the following parameters:
 * **Database:** Database name
 
 > [!NOTE]
-> If you would like to use **SQL on-demand (preview)** the URL should look like:
+> If you would like to use **serverless SQL pool (preview)** the URL should look like:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> If you would like to use **SQL pool** the URL should look like:
+> If you would like to use **dedicated SQL pool** the URL should look like:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
@@ -73,7 +73,7 @@ Once connected, you can query Synapse SQL using supported [Transact-SQL (T-SQL)]
 
 ![New Query](./media/get-started-azure-data-studio/5-new-query.png)
 
-For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md) using SQL on-demand:
+For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md) using serverless SQL pool:
 
 ```sql
 SELECT COUNT(*)

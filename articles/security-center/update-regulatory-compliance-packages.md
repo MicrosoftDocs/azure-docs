@@ -63,6 +63,7 @@ The following steps explain how to add a package to monitor your compliance with
 
     - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
     - **UKO and UK NHS**
     - **Canada PBMM**

@@ -17,7 +17,7 @@ ms.custom: how-to, designer
 
 In this article, you learn how to transform and save datasets in Azure Machine Learning designer so that you can prepare your own data for machine learning.
 
-You will use the sample [Adult Census Income Binary Classification](sample-designer-datasets.md) dataset to prepare two datasets: one dataset that includes adult census information from only the United States and another dataset that includes census information from non-US adults.
+You will use the sample [Adult Census Income Binary Classification](./samples-designer.md) dataset to prepare two datasets: one dataset that includes adult census information from only the United States and another dataset that includes census information from non-US adults.
 
 In this article, you learn how to:
 

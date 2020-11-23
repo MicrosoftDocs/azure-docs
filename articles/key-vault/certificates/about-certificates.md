@@ -40,7 +40,7 @@ When a Key Vault certificate is created, it can be retrieved from the addressabl
 
 The addressable key becomes more relevant with non-exportable KV certificates. The addressable KV key's operations are mapped from *keyusage* field of the KV certificate policy used to create the KV Certificate.  
 
- - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
+ - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
    Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
 
@@ -79,11 +79,11 @@ A certificate policy contains information on how to create and manage lifecycle 
 
 When a Key Vault certificate is created from scratch, a policy needs to be supplied. The policy specifies how to create this Key Vault certificate version, or the next Key Vault certificate version. Once a policy has been established, it isn't required with successive create operations for future  versions. There's only one instance of a policy for all the versions of a Key Vault certificate.  
 
-At a high level, a certificate policy contains the following information (their definitions can be found [here](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+At a high level, a certificate policy contains the following information (their definitions can be found [here](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   X509 certificate properties: Contains subject name, subject alternate names, and other properties used to create an x509 certificate request.  
 -   Key Properties: contains key type, key length, exportable, and ReuseKeyOnRenewal fields. These fields instruct key vault on how to generate a key. 
-     - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Secret properties: contains secret properties such as content type of addressable secret to generate the secret value, for retrieving certificate as a secret.  
 -   Lifetime Actions: contains lifetime actions for the KV Certificate. Each lifetime action contains:  
 
@@ -130,7 +130,7 @@ Before a certificate issuer can be created in a Key Vault, following prerequisit
 
     -   Provides the configuration to be used to create an issuer object of the provider in the key vault  
 
-For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](https://aka.ms/kvcertsblog)  
+For more information on creating Issuer objects from the Certificates portal, see the [Key Vault Certificates blog](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 Key Vault allows for creation of multiple issuer objects with different issuer provider configuration. Once an issuer object is created, its name can be referenced in one or multiple certificate policies. Referencing the issuer object instructs Key Vault to use configuration as specified in the issuer object when requesting the x509 certificate from CA provider during the certificate creation and renewal.  
 

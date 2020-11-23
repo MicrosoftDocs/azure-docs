@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # Azure Virtual Machines planning and implementation for SAP NetWeaver
 
@@ -1853,7 +1853,7 @@ Azure managed disks are automatically placed in the Fault Domain of the virtual 
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts could look like this:
 
-![Utilizing Azure infrastructure HA to achieve SAP application higher availability][planning-guide-figure-2900]
+![Diagram that shows an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts.][planning-guide-figure-2900]
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and Managed Disks could look like this:
 
@@ -1913,7 +1913,7 @@ Unmanaged disks only: The concepts as explained below may need to be compromised
 
 ##### ![Windows logo.][Logo_Windows] HA on Windows
 
-![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3200]
+![Diagram that shows the SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS.][planning-guide-figure-3200]
 
 The following Azure constructs are used for the SAP NetWeaver system, to minimize impact by infrastructure issues and host patching:
 

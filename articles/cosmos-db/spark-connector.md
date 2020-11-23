@@ -3,6 +3,7 @@ title: Connect Apache Spark to Azure Cosmos DB
 description: Learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
@@ -10,6 +11,7 @@ ms.author: ramkris
 ---
 
 # Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 You can run [Spark](https://spark.apache.org/) jobs with data stored in Azure Cosmos DB using the Cosmos DB Spark connector. Cosmos can be used for batch  and stream processing, and as a serving layer for low latency access.
 

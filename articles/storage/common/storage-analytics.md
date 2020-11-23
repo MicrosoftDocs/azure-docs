@@ -32,7 +32,7 @@ The following actions performed by Storage Analytics are billable:
 * Requests to create blobs for logging.
 * Requests to create table entities for metrics.
 
-If you have configured a data retention policy, you are not charged for delete transactions when Storage Analytics deletes old logging and metrics data. However, delete transactions from a client are billable. For more information about retention policies, see [Setting a Storage Analytics Data Retention Policy](https://msdn.microsoft.com/library/azure/hh343263.aspx).
+If you have configured a data retention policy, you are not charged for delete transactions when Storage Analytics deletes old logging and metrics data. However, delete transactions from a client are billable. For more information about retention policies, see [Setting a Storage Analytics Data Retention Policy](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy).
 
 ### Understanding billable requests
 

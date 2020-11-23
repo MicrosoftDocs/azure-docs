@@ -1,22 +1,22 @@
 ---
 title: Set up Azure Backup Server for Azure VMware Solution
-description: Set up your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
+description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/23/2020
 ---
 
 # Set up Azure Backup Server for Azure VMware Solution
 
-Azure Backup Server is a robust enterprise backup and recovery system that contributes to your business continuity and disaster recovery (BCDR) strategy. During the Azure VMware Solution preview, you can configure only virtual machine (VM)-level backup by using Azure Backup Server. 
+Azure Backup Server contributes to your business continuity and disaster recovery (BCDR) strategy. With Azure VMware Solution, you can only configure a virtual machine (VM)-level backup using Azure Backup Server. 
 
 Azure Backup Server can store backup data to:
 
 - **Disk**: For short-term storage, Azure Backup Server backs up data to disk pools.
 - **Azure**: For both short-term and long-term storage off-premises, Azure Backup Server data stored in disk pools can be backed up to the Microsoft Azure cloud by using Azure Backup.
 
-When outages occur and source data is unavailable, you can use Azure Backup Server to restore data to the source or an alternate location easily. That way, if the original data is unavailable because of planned or unexpected issues, you can easily restore data to an alternate location.
+Use Azure Backup Server to restore data to the source or an alternate location. That way, if the original data is unavailable because of planned or unexpected issues, you can restore data to an alternate location.
 
-In this article, we help you prepare your Azure VMware Solution environment to back up VMs by using Azure Backup Server. We walk you through steps to: 
+This article helps you prepare your Azure VMware Solution environment to back up VMs by using Azure Backup Server. We walk you through the steps to: 
 
 > [!div class="checklist"]
 > * Determine the recommended VM disk type and size to use.
@@ -26,10 +26,10 @@ In this article, we help you prepare your Azure VMware Solution environment to b
 
 ## Supported VMware features
 
-- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the virtual machine. Instead, just provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware server with Azure Backup Server.
+- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the VM. Instead, just provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
 - **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a vCenter or ESXi server. Azure Backup Server also detects VMs managed by vCenter so that you can protect large deployments.
-- **Folder-level autoprotection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders, and you can use it to protect VMs at the folder level, which includes all subfolders. When protecting folders, Azure Backup Server not only protects the VMs in that folder but also protects VMs added later. Azure Backup Server detects new VMs daily and protects them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
+- **Folder-level auto protection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. When protecting folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
 - **Azure Backup Server continues to protect vMotioned VMs within the cluster:** As VMs are vMotioned for load balancing within the cluster, Azure Backup Server automatically detects and continues VM protection.
 - **Recover necessary files faster:** Azure Backup Server can recover files or folders from a Windows VM without recovering the entire VM.
 
@@ -61,11 +61,11 @@ Consider the recommendations in this section when you install Azure Backup Serve
 
 Ensure that you [configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md).
 
-### Determine the size of the virtual machine
+### Determine the size of the VM
 
-You must create a Windows virtual machine in the virtual network that you created in the previous step. When you choose a server for running Azure Backup Server, start with a gallery image of Windows Server 2019 Datacenter. The tutorial [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md) gets you started with the recommended VM in Azure, even if you've never used Azure.
+Follow the instructions in the [Create your first Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial.  You'll create the VM in the virtual network, which you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
 
-The following table summarizes the maximum number of protected workloads for each Azure Backup Server virtual machine size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the Azure Backup Server virtual machine.
+The table summarizes the maximum number of protected workloads for each Azure Backup Server VM size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the Azure Backup Server VM.
 
 | Maximum protected workloads | Average workload size | Average workload churn (daily) | Minimum storage IOPS | Recommended disk type/size      | Recommended VM size |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
@@ -85,12 +85,12 @@ The following table summarizes the maximum number of protected workloads for eac
 
 ### Disks and storage
 
-Azure Backup Server requires disks for installation, which includes system files, installation files, prerequisite software, database files, and dedicated disks for the storage pool.
+Azure Backup Server requires disks for installation. 
 
 | Requirement                      | Recommended size  |
 |----------------------------------|-------------------------|
 | Azure Backup Server installation                | Installation location: 3 GB<br />Database files drive: 900 MB<br />System drive: 1 GB for SQL Server installation<br /><br />You'll also need space for Azure Backup Server to copy the file catalog to a temporary installation location when you archive.      |
-| Disk for storage pool<br />(Uses basic volumes, can't be on a dynamic disk) | Two to three times the size of the protected data.<br />For detailed storage calculation, see [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301).   |
+| Disk for storage pool<br />(Uses basic volumes, can't be on a dynamic disk) | Two to three times the protected data size.<br />For detailed storage calculation, see [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
 To learn how to attach a new managed data disk to an existing Azure VM, see [Attach a managed data disk to a Windows VM by using the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md).
 
@@ -99,12 +99,12 @@ To learn how to attach a new managed data disk to an existing Azure VM, see [Att
 
 ### Store backup data on local disk and in Azure
 
-Storing backup data in Azure reduces backup infrastructure on the Azure Backup Server VM. For operational recovery (backup), Azure Backup Server stores backup data on Azure disks attached to the VM. After the disks and storage space are attached to the VM, Azure Backup Server manages the storage for you. The amount of backup data storage depends on the number and size of disks attached to each Azure VM. Each size of the Azure VM has a maximum number of disks that can be attached. For example, A2 is four disks, A3 is eight disks, and A4 is 16 disks. Again, the size and number of disks determine the total backup storage pool capacity.
+Storing backup data in Azure reduces backup infrastructure on the Azure Backup Server VM. For operational recovery (backup), Azure Backup Server stores backup data on Azure disks attached to the VM. After the disks and storage space are attached to the VM, Azure Backup Server manages the storage for you. The amount of storage depends on the number and size of disks attached to each Azure VM. Each size of the Azure VM has a maximum number of disks that can be attached. For example, A2 is four disks, A3 is eight disks, and A4 is 16 disks. Again, the size and number of disks determine the total backup storage pool capacity.
 
 > [!IMPORTANT]
 > You should *not* retain operational recovery data on Azure Backup Server-attached disks for more than five days. If data is more than five days old, store it in a Recovery Services vault.
 
-To store backup data in Azure, create or use a Recovery Services vault. When you prepare to back up the Azure Backup Server workload, you [configure the Recovery Services vault](#create-a-recovery-services-vault). Once configured, each time an online backup job runs, a recovery point gets created in the vault. Each Recovery Services vault holds up to 9,999 recovery points. Depending on the number of recovery points created, and how long they're retained, you can retain backup data for many years. For example, you could create monthly recovery points and retain them for five years.
+To store backup data in Azure, create or use a Recovery Services vault. When you prepare to back up the Azure Backup Server workload, you [configure the Recovery Services vault](#create-a-recovery-services-vault). Once configured, each time an online backup job runs, a recovery point gets created in the vault. Each Recovery Services vault holds up to 9,999 recovery points. Depending on the number of recovery points created and how long kept, you can keep backup data for many years. For example, you could create monthly recovery points and keep them for five years.
 
 > [!IMPORTANT]
 > Whether you send backup data to Azure or keep it locally, you must register Azure Backup Server with a Recovery Services vault.
@@ -114,7 +114,7 @@ To store backup data in Azure, create or use a Recovery Services vault. When you
 If you want to scale your deployment, you have the following options:
 
 - **Scale up**: Increase the size of the Azure Backup Server VM from A series to DS3 series, and increase the local storage.
-- **Offload data**: Send older data to Azure and retain only the newest data on the storage attached to the Azure Backup Server machine.
+- **Offload data**: Send older data to Azure and keep only the newest data on the storage attached to the Azure Backup Server machine.
 - **Scale out**: Add more Azure Backup Server machines to protect the workloads.
 
 ### .NET Framework
@@ -123,9 +123,9 @@ The VM must have .NET Framework 3.5 SP1 or higher installed.
 
 ### Join a domain
 
-The Azure Backup Server VM must be joined to a domain, and a domain user with administrator privileges on the VM must install Azure Backup Server.
+The Azure Backup Server VM must be joined to a domain. A domain user with administrator privileges on the VM must install Azure Backup Server.
 
-Though not supported at the time of preview, Azure Backup Server deployed in an Azure VM can back up workloads on the VMs in Azure VMware Solution. The workloads should be in the same domain to enable the backup operation.
+Azure Backup Server deployed in an Azure VM can back up workloads on the VMs in Azure VMware Solution. The workloads should be in the same domain to enable the backup operation.
 
 ## Create a Recovery Services vault
 
@@ -162,13 +162,13 @@ A Recovery Services vault is a storage entity that stores the recovery points cr
 
    ![Create the Recovery Services vault.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
-   It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area in the upper-right corner of the portal. After your vault is created, it's visible in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
+   It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area in the upper-right corner of the portal. After creating your vault, it's visible in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
 
    ![Refresh the list of backup vaults.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## Set storage replication
 
-The storage replication option lets you choose between geo-redundant storage (the default) and locally redundant storage. Geo-redundant storage copies the data in your storage account to a secondary region, which makes your data durable. Locally redundant storage is a cheaper option that isn't as durable. To learn more about geo-redundant and locally redundant storage options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
+The storage replication option lets you choose between geo-redundant storage (the default) and locally redundant storage. Geo-redundant storage copies the data in your storage account to a secondary region, making your data durable. Locally redundant storage is a cheaper option that isn't as durable. To learn more about geo-redundant and locally redundant storage options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
 > [!IMPORTANT]
 > Changing the setting of **Storage replication type Locally-redundant/Geo-redundant** for a Recovery Services vault must be done before you configure backups in the vault. After you configure backups, the option to modify it is disabled, and you can't change the storage replication type.
@@ -187,9 +187,9 @@ Follow the steps in this section to download, extract, and install the software 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. If you already have a Recovery Services vault open, continue to the next step. If you don't have a Recovery Services vault open but you're in the Azure portal, on the main menu, select **Browse**.
+1. If you already have a Recovery Services vault open, continue to the next step. If you don't have a Recovery Services vault open, and you're in the Azure portal, on the main menu, select **Browse**.
 
-   1. In the list of resources, enter **Recovery Services**.
+   1. In the list of resources enter **Recovery Services**.
 
    1. As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, select it.
 
@@ -209,7 +209,7 @@ Follow the steps in this section to download, extract, and install the software 
 
    ![Select Backup to open the Getting Started wizard.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-1. In the window that opens, do the following:
+1. In the window that opens:
 
    1. From the **Where is your workload running?** menu, select **On-Premises**.
 
@@ -221,11 +221,11 @@ Follow the steps in this section to download, extract, and install the software 
 
       :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Prepare Infrastructure":::
 
-1. In the **Prepare infrastructure** window that opens, do the following:
+1. In the **Prepare infrastructure** window that opens:
 
    1. Select the **Download** link to install Azure Backup Server.
 
-   1. Download the vault credentials by selecting the **Already downloaded or using the latest Azure Backup Server installation** check box, and then select **Download**. You use the vault credentials during the registration of Azure Backup Server to the Recovery Services vault. The links take you to the Download Center, where you download the software package.
+   1. 1. Select **Already downloaded or using the latest Azure Backup Server installation** and then **Download** to download the vault credentials. You'll use these credentials when you register the Azure Backup Server to the Recovery Services vault. The links take you to the Download Center, where you download the software package.
 
    :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Prepare Infrastructure - Azure Backup Server":::
 
@@ -238,14 +238,14 @@ Follow the steps in this section to download, extract, and install the software 
 
 ### Extract the software package
 
-If you downloaded the software package to a different server, copy the files to the virtual machine that you created to deploy Azure Backup Server.
+If you downloaded the software package to a different server, copy the files to the VM you created to deploy Azure Backup Server.
 
 > [!WARNING]
 > At least 4 GB of free space is required to extract the setup files.
 
 1. After you've downloaded all the files, double-click **MicrosoftAzureBackupInstaller.exe** to open the **Microsoft Azure Backup** setup wizard, and then select **Next**.
 
-1. Select the location to extract the files to, and select **Next**.
+1. Select the location to extract the files to and select **Next**.
 
 1. Select **Extract** to begin the extraction process.
 
@@ -264,28 +264,28 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. On the **Welcome** screen, select **Next** to continue to the **Prerequisite Checks** page.
 
-1. Select **Check Again** to determine if the hardware and software prerequisites for Azure Backup Server are met. If met successfully, select **Next**.
+1. Select **Check Again** to determine if the hardware and software meet the prerequisites for Azure Backup Server. If met successfully, select **Next**.
 
-   ![ Select Check Again to determine if the hardware and software prerequisites for Azure Backup Server are met. If met successfully, select Next.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Select Check Again to determine if the hardware and software meet the prerequisites for Azure Backup Server. If met successfully, select Next.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries that are needed. When you start a new Azure Backup Server installation, select the **Install new Instance of SQL Server with this Setup** option. Then select **Check and Install**.
 
    ![The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries that are needed.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
-   > If you want to use your own SQL Server instance, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016, and 2017. All SQL Server versions should be Standard or Enterprise 64-bit. Azure Backup Server doesn't work with a remote SQL Server instance. The instance used by Azure Backup Server must be local. If you use an existing SQL Server instance for Azure Backup Server, the setup only supports the use of *named instances* of SQL Server.
+   > If you want to use your own SQL Server instance, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016, and 2017. All SQL Server versions should be Standard or Enterprise 64-bit. The instance used by Azure Backup Server must be local only; it can't be remote. If you use an existing SQL Server instance for Azure Backup Server, the setup only supports the use of *named instances* of SQL Server.
 
-   If a failure occurs with a recommendation to restart the machine, do so and select **Check Again**. If there are any SQL Server configuration issues, reconfigure SQL Server according to the SQL Server guidelines. Then retry to install or upgrade Azure Backup Server by using the existing instance of SQL Server.
+   If a failure occurs with a recommendation to restart the machine, do so, and select **Check Again**. For any SQL Server configuration issues, reconfigure SQL Server according to the SQL Server guidelines. Then retry to install or upgrade Azure Backup Server using the existing instance of SQL Server.
 
    **Manual configuration**
 
-   When you use your own instance of SQL Server, make sure you add builtin\Administrators to the sysadmin role to the master database.
+   When you use your own SQL Server instance, make sure you add builtin\Administrators to the sysadmin role to the master database's sysadmin role.
 
-   **SSRS configuration with SQL Server 2017**
+   **Configure reporting services with SQL Server 2017**
 
-   When you use your own instance of SQL Server 2017, you must configure SQL Server 2017 Reporting Services (SSRS) manually. After SSRS configuration, ensure that the **IsInitialized** property of SSRS is set to **True**. When this property is set to **True**, Azure Backup Server assumes that SSRS is already configured and skips the SSRS configuration.
+   If you use your instance of SQL Server 2017, you must configure SQL Server 2017 Reporting Services (SSRS) manually. After configuring SSRS, make sure to set the **IsInitialized** property of SSRS to **True**. When set to **True**, Azure Backup Server assumes that SSRS is already configured and skips the SSRS configuration.
 
-   To check the SSRS configuration status, run the following command:
+   To check the SSRS configuration status, run:
 
    ```powershell
    $configset =Get-WmiObject –namespace 
@@ -305,14 +305,14 @@ If you downloaded the software package to a different server, copy the files to 
    [Learn more](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) about SSRS configuration.
 
    > [!NOTE]
-   > [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) governs the licensing for SQL Server used as the database for Azure Backup Server. According to OST, SQL Server bundled with Azure Backup Server can be used only as the database for Azure Backup Server.
+   > [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) governs the licensing for SQL Server used as the database for Azure Backup Server. According to OST, only use SQL Server bundled with Azure Backup Server as the database for Azure Backup Server.
 
 1. After the installation is successful, select **Next**.
 
-1. Provide a location for the installation of Microsoft Azure Backup Server files, and select **Next**.
+1. Provide a location for installing Microsoft Azure Backup Server files, and select **Next**.
 
    > [!NOTE]
-   > The scratch location is required for backup to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured after the installation is finished. For more information about storage pools, see [Configure storage pools and disk storage](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
+   > The scratch location is required for backup to Azure. Ensure the scratch location is at least 5% of the data planned for backing up to the cloud. For disk protection, separate disks need configuring after the installation finishes. For more information about storage pools, see [Configure storage pools and disk storage](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Provide a location for the installation of Microsoft Azure Backup Server files, and select Next.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -329,19 +329,22 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. Review the **Summary of Settings**, and select **Install**.
 
-   The installation happens in phases. The first phase installs the Microsoft Azure Recovery Services Agent, and the second phase checks for internet connectivity. If internet connectivity is available, you can continue with the installation. If not, you must provide proxy details to connect to the internet. The final phase checks the prerequisite software. If it's not installed, any missing software gets installed along with the Microsoft Azure Recovery Services Agent.
+   The installation happens in phases. 
+   - The first phase installs the Microsoft Azure Recovery Services Agent.
+   - The second phase checks for internet connectivity. If available, you can continue with the installation. If not available, you must provide proxy details to connect to the internet. 
+   - The final phase checks the prerequisite software. If not installed, any missing software gets installed along with the Microsoft Azure Recovery Services Agent.
 
 1. Select **Browse** to locate your vault credentials to register the machine to the Recovery Services vault, and then select **Next**.
 
-1. Choose a pass phrase to encrypt or decrypt the data sent between Azure and your premises.
+1. Select a passphrase to encrypt or decrypt the data sent between Azure and your premises.
 
    > [!TIP]
-   > You can automatically generate a passphrase or provide your own minimum 16-character passphrase.
+   > You can automatically generate a passphrase or provide your minimum 16-character passphrase.
 
-1. Enter the location to save the pass phrase, and then select **Next** to register the server.
+1. Enter the location to save the passphrase, and then select **Next** to register the server.
 
    > [!IMPORTANT]
-   > Save the pass phrase to a safe location other than the local server. We strongly recommend using Azure Key Vault to store the pass phrase.
+   > Save the passphrase to a safe location other than the local server. We strongly recommend using the Azure Key Vault to store the passphrase.
 
    After the Microsoft Azure Recovery Services Agent setup finishes, the installation step moves on to the installation and configuration of SQL Server and the Azure Backup Server components.
 
@@ -351,7 +354,7 @@ If you downloaded the software package to a different server, copy the files to 
 
 ### Install Update Rollup 1
 
-Installation of Update Rollup 1 for Azure Backup Server v3 is mandatory before you can protect the workloads. To view the list of bug fixes and the installation instructions for Azure Backup Server v3 Update Rollup 1, see the Knowledge Base article [4534062](https://support.microsoft.com/en-us/help/4534062/).
+Installing the Update Rollup 1 for Azure Backup Server v3 is mandatory before you can protect the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/en-us/help/4534062/).
 
 ## Add storage to Azure Backup Server
 
@@ -364,7 +367,7 @@ Azure Backup Server v3 supports Modern Backup Storage that offers:
 
 ### Volumes in Azure Backup Server
 
-Add the data disks with the required storage capacity to the Azure Backup Server virtual machine if not already added.
+Add the data disks with the Azure Backup Server VM's required storage capacity if not already added.
 
 Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azure Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires.
 
@@ -376,13 +379,12 @@ Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azur
 
 1. After you add the available volumes, give them a friendly name to help you manage them. 
 
-1. Select **OK** to format these volumes to ReFS so that Azure Backup Server can use the benefits of Modern Backup Storage.
+1. Select **OK** to format these volumes to ReFS so that Azure Backup Server can use Modern Backup Storage benefits.
 
-![Add available volumes](../backup/media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
 ## Next steps
 
-Continue to the next tutorial to learn how to configure backup of VMware VMs running on Azure VMware Solution by using Azure Backup Server.
+Continue to the next tutorial to learn how to configure a backup of VMware VMs running on Azure VMware Solution using Azure Backup Server.
 
 > [!div class="nextstepaction"]
 > [Configure backup of Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md)

@@ -226,7 +226,7 @@ Azure managed disks are automatically placed in the fault domain of the virtual 
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and storage accounts might look like this:
 
-![Utilize Azure infrastructure high availability to achieve SAP application “higher availability"][planning-guide-figure-2900]
+![Diagram that shows the architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and storage accounts.][planning-guide-figure-2900]
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and managed disks might look like this:
 

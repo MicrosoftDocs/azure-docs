@@ -12,6 +12,8 @@
     items:
     - name: Build a SCIM endpoint and configure provisioning
       href: use-scim-to-provision-users-and-groups.md
+    - name: Customize attribute mappings
+      href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps
   - name: Concepts
@@ -30,8 +32,6 @@
     items:
     - name: Configure provisioning for a gallery app
       href: configure-automatic-user-provisioning-portal.md
-    - name: Customize attribute mappings
-      href: customize-application-attributes.md
     - name: Include or exclude users and groups from scope
       items:
       - name: Scoping users or groups to be provisioned 

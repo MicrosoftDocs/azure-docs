@@ -16,6 +16,11 @@ ms.custom: devx-track-js
 
 # Configure your hosted UI experience
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Bing Custom Search provides a hosted UI that you can easily integrate into your webpages and web applications as a JavaScript code snippet. Using the Bing Custom Search portal, you can configure the layout, color, and search options of the UI.
 
 
@@ -45,7 +50,7 @@ To configure a hosted UI for your web applications, follow these steps. As you m
 
 6. Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, see the preview pane on the right. Available configuration options are:  
 
-7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](../cognitive-services-apis-create-account.md).  
 
 8. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -73,7 +78,7 @@ To consume the hosted UI, either:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Add the following query parameters to the URL as needed. For information about these parameters, see [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) reference.
+  > Add the following query parameters to the URL as needed. For information about these parameters, see [Custom Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) reference.
   >
   > - q
   > - mkt
@@ -144,4 +149,4 @@ The following configurations apply only if you consume the Hosted UI through the
 ## Next steps
 
 - [Use decoration markers to highlight text](../bing-web-search/hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+- [Page webpages](../bing-web-search/paging-search-results.md)

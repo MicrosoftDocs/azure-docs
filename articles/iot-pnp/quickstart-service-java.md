@@ -1,6 +1,6 @@
 ---
-title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (Java) | Microsoft Docs
-description: Use Java to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
+title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (Java) | Microsoft Docs
+description: Quickstart - Use Java to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/17/2020

@@ -158,16 +158,16 @@ Preserve this connection string to be used at a later step.
 
 Azure offers an extensive suite of IoT products to connect and manage your IoT devices. You can build your own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. For this tutorial, we'll leverage Azure IoT Central, which has industry-focused solution templates to help you get started.
 
-Deploy the [Continuous patient monitoring application template](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
+Deploy the [Continuous patient monitoring application template](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
 
 > [!NOTE]
-> Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
+> Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](../iot-central/core/howto-set-up-template.md) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
 
 ## Connect your IoT data with the Azure IoT Connector for FHIR (preview)
 > [!WARNING]
 > The Device mapping template provided in this guide is designed to work with Data Export (legacy) within IoT Central.
 
-Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a continuous data export within IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). On the continuous data export page:
+Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a continuous data export within IoT Central](../iot-central/core/howto-export-data-legacy.md). On the continuous data export page:
 - Pick *Azure Event Hubs* as the export destination.
 - Select *Use a connection string* value for **Event Hubs namespace** field.
 - Provide Azure IoT Connector for FHIR's connection string obtained in a previous step for the **Connection String** field.

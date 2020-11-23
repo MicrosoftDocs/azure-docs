@@ -81,7 +81,7 @@ catch (StorageException ex)
 }
 ```
 
-Azure Storage also includes support for conditional headers such as **If-Modified-Since**, **If-Unmodified-Since**, **If-None-Match**, and combinations of those headers. For more information, see [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx).
+Azure Storage also includes support for conditional headers such as **If-Modified-Since**, **If-Unmodified-Since**, **If-None-Match**, and combinations of those headers. For more information, see [Specifying Conditional Headers for Blob Service Operations](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 The following table summarizes the container operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.
 
@@ -124,7 +124,7 @@ The following table summarizes the blob operations that accept conditional heade
 
 ### Pessimistic concurrency for blobs
 
-To lock a blob for exclusive use, acquire a [lease](https://msdn.microsoft.com/library/azure/ee691972.aspx) on it. When you acquire a lease, you specify a time period for the lease. The time period ranges from 15 to 60 seconds or infinite, which amounts to an exclusive lock. Renew a finite lease to extend it. Release a lease when you're finished with it. Blob Storage automatically releases finite leases when they expire.
+To lock a blob for exclusive use, acquire a [lease](/rest/api/storageservices/Lease-Blob) on it. When you acquire a lease, you specify a time period for the lease. The time period ranges from 15 to 60 seconds or infinite, which amounts to an exclusive lock. Renew a finite lease to extend it. Release a lease when you're finished with it. Blob Storage automatically releases finite leases when they expire.
 
 Leases enable different synchronization strategies to be supported. Strategies include *exclusive write/shared read*, *exclusive write/exclusive read*, and *shared write/exclusive read*. Where a lease exists, the Azure Storage enforces exclusive writes (put, set and delete operations) however ensuring exclusivity for read operations requires the developer to ensure that all client applications use a lease ID and that only one client at a time has a valid lease ID. Read operations that don't include a lease ID result in shared reads.
 
@@ -157,7 +157,7 @@ catch (StorageException ex)
 }
 ```
 
-If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. If the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease IDs, see the [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST documentation.
+If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. If the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease IDs, see the [Lease Blob](/rest/api/storageservices/Lease-Blob) REST documentation.
 
 The following blob operations can use leases to manage pessimistic concurrency:
 
@@ -194,9 +194,9 @@ The following container operations can use leases to manage pessimistic concurre
 
 For more information, see:
 
-* [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Specifying Conditional Headers for Blob Service Operations](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations)
+* [Lease Container](/rest/api/storageservices/Lease-Container)
+* [Lease Blob](/rest/api/storageservices/Lease-Blob)
 
 ## Managing concurrency in Table storage
 
@@ -255,7 +255,7 @@ In general, developers using tables should rely on optimistic concurrency. If yo
 
 For more information, see:
 
-* [Operations on Entities](https://msdn.microsoft.com/library/azure/dd179375.aspx)
+* [Operations on Entities](/rest/api/storageservices/Operations-on-Entities)
 
 ## Managing Concurrency in the Queue Service
 
@@ -265,8 +265,8 @@ The queue service doesn't have support for either optimistic or pessimistic conc
 
 For more information, see:
 
-* [Queue Service REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)
+* [Queue Service REST API](/rest/api/storageservices/Queue-Service-REST-API)
+* [Get Messages](/rest/api/storageservices/Get-Messages)
 
 ## Managing concurrency in Azure Files
 
@@ -276,7 +276,7 @@ When an SMB client opens a file for delete, it marks the file as pending delete 
 
 For more information, see:
 
-* [Managing File Locks](https://msdn.microsoft.com/library/azure/dn194265.aspx)
+* [Managing File Locks](/rest/api/storageservices/Managing-File-Locks)
 
 ## Next steps
 
@@ -288,5 +288,5 @@ For more information on Azure Storage, see:
 
 * [Microsoft Azure Storage Home Page](https://azure.microsoft.com/services/storage/)
 * [Introduction to Azure Storage](storage-introduction.md)
-* Storage Getting Started for [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md),  [Queues](../storage-dotnet-how-to-use-queues.md), and [Files](../storage-dotnet-how-to-use-files.md)
+* Storage Getting Started for [Blob](../blobs/storage-quickstart-blobs-dotnet.md), [Table](../../cosmos-db/tutorial-develop-table-dotnet.md),  [Queues](../queues/storage-dotnet-how-to-use-queues.md), and [Files](../files/storage-dotnet-how-to-use-files.md)
 * Storage Architecture – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)

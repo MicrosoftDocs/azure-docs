@@ -233,7 +233,7 @@ There are a few different ways to verify your VPN connection.
 
 ## <a name="connectVM"></a>To connect to a virtual machine
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 
 ## <a name="modify"></a>To modify IP address prefixes for a local network gateway

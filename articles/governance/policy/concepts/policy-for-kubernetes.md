@@ -43,7 +43,7 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
    > [!NOTE]
    > For common issues with installation, see
-   > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-installation-errors).
+   > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Understand the Azure Policy language for Kubernetes](#policy-language)
 
@@ -208,7 +208,7 @@ kubectl get pods -n gatekeeper-system
 
 Lastly, verify that the latest add-on is installed by running this Azure CLI command, replacing
 `<rg>` with your resource group name and `<cluster-name>` with the name of your AKS cluster:
-`az aks show -g <rg> -n <cluster-name>`. The result should look similar to the following output and
+`az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. The result should look similar to the following output and
 **config.version** should be `v2`:
 
 ```output

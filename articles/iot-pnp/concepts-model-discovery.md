@@ -116,7 +116,7 @@ Solutions can use the [model repository](concepts-model-repository.md) to retrie
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from the model repository. For more information, see [Get Models](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Device model Repository](concepts-model-repository.md).
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 

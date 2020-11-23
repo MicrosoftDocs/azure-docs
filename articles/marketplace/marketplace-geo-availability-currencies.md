@@ -199,4 +199,4 @@ For details on how to enter prices for specific offer types, refer to these arti
 - [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
 - [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md)
 - [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
-- [Create a SaaS offer](partner-center-portal/create-new-saas-offer.md)
+- [Create a SaaS offer](./create-new-saas-offer.md)

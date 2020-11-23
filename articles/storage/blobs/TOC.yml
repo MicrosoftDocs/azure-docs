@@ -179,7 +179,7 @@
         href: storage-blob-rehydration.md
       - name: Performance tiers
         href: storage-blob-performance-tiers.md
-      - name: Manage the Azure Blob storage lifecycle
+      - name: Automate access tiers lifecycle
         href: storage-lifecycle-management-concepts.md
     - name: Disaster recovery and failover
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -367,8 +367,8 @@
             href: storage-blob-user-delegation-sas-create-cli.md
           - name: .NET
             href: storage-blob-user-delegation-sas-create-dotnet.md
-        - name: Create a service SAS (.NET)
-          href: storage-blob-service-sas-create-dotnet.md
+        - name: Create a service SAS
+          href: sas-service-create.md
         - name: Create an account SAS (.NET)
           href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Define a stored access policy
@@ -479,6 +479,8 @@
         items:
         - name: Get started
           href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize with Azure AD
+          href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use with Blobs
           href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use with Amazon S3 buckets
@@ -679,6 +681,8 @@
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
       href: data-lake-storage-query-acceleration.md
+    - name: Premium tier for Data Lake Storage
+      href: premium-tier-for-data-lake-storage.md
     - name: Architecture
       items:
       - name: Azure Blob File System driver for Hadoop

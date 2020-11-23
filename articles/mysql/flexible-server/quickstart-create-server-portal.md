@@ -23,7 +23,7 @@ Open your web browser, and then go to the [Azure portal](https://portal.azure.co
 
 ## Create an Azure Database for MySQL Flexible Server
 
-You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
 Follow these steps to create a flexible server:
 

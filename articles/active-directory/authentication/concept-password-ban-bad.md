@@ -199,7 +199,7 @@ Let's look a slightly different example to show how additional complexity in a p
 > [!IMPORTANT]
 > The banned password algorithm, along with the global banned password list, can and do change at any time in Azure based on ongoing security analysis and research.
 >
-> For the on-premises DC agent service in hybrid scenarios, updated algorithms only take effect after the DC agent software is re-installed.
+> For the on-premises DC agent service in hybrid scenarios, updated algorithms only take effect after the DC agent software is upgraded.
 
 ## What do users see
 

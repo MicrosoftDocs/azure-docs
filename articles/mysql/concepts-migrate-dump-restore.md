@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/27/2020
+ms.date: 10/30/2020
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
@@ -15,6 +15,8 @@ ms.date: 2/27/2020
 This article explains two common ways to back up and restore databases in your Azure Database for MySQL
 - Dump and restore from the command-line (using mysqldump)
 - Dump and restore using PHPMyAdmin
+
+You can also refer to [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) for detailed information and use cases about migrating databases to Azure Database for MySQL. This guide provides guidance that will lead the successful planning and execution of a MySQL migration to Azure.
 
 ## Before you begin
 To step through this how-to guide, you need to have:
@@ -163,5 +165,5 @@ For known issues, tips and tricks, we recommend you to look at our [techcommunit
 
 ## Next steps
 - [Connect applications to Azure Database for MySQL](./howto-connection-string.md).
-- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - If you are looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

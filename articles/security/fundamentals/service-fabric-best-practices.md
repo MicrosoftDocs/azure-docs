@@ -174,6 +174,6 @@ Azure Service Fabric supports two access control types for clients that are conn
 
 ## Next steps
 
-- [Service Fabric security checklist](service-fabric-checklist.md)
+- [Service Fabric security checklist](../../service-fabric/service-fabric-best-practices-security.md)
 - Set up your Service Fabric [development environment](../../service-fabric/service-fabric-get-started.md).
 - Learn about [Service Fabric support options](../../service-fabric/service-fabric-support.md).

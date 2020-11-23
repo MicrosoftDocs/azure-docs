@@ -118,7 +118,7 @@ Create a connection using the following values:
 
 ## <a name="connectVM"></a>How to connect to a virtual machine
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 ## <a name="reset"></a>How to reset a VPN gateway
 

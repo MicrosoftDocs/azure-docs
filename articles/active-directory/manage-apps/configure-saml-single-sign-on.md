@@ -86,6 +86,9 @@ Some common things to check to verify a certificate include:
 
 Sometimes you might need to download the certificate. Be careful where you save it though! To download the certificate, select one of the options for Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
+> [!NOTE]
+> The application should be capable of handling Byte Order Marker present in the XML rendered when using https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id}. Byte order mark is represented as a nonprintable ASCII character »¿ and in Hex it is represented as EF BB BF when reviewing the XML data.
+
 To make certificate changes, select the Edit button. There are several things you can do on the **SAML Signing Certificate** page:
    - Create a new certificate: select **New Certificate**, select the **Expiration Date**, and then select **Save**. To activate the certificate, select the context menu (**...**) and select **Make certificate active**.
    - Upload a certificate with private key and pfx credentials: select **Import Certificate** and browse to the certificate. Enter the **PFX Password**, and then select **Add**.  

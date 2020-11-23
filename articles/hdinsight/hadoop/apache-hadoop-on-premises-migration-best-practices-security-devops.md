@@ -79,7 +79,7 @@ End to end enterprise security can be achieved using the following controls:
 For more information, see the following articles:
 
 - [Azure Virtual Networks overview](../../virtual-network/virtual-networks-overview.md)
-- [Azure Network Security Groups overview](../../virtual-network/security-overview.md)
+- [Azure Network Security Groups overview](../../virtual-network/network-security-groups-overview.md)
 - [Azure Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md)
 - [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
 - [Azure Storage Service Encryption at rest](../../storage/common/storage-service-encryption.md)
@@ -117,4 +117,4 @@ For more information, see the article: [OS patching for HDInsight](../hdinsight-
 
 ## Next steps
 
-Read more about [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Read more about [HDInsight 4.0](./apache-hadoop-introduction.md).

@@ -37,11 +37,13 @@
       href: onboard-service-principal.md
     - name: Connect machines to Azure Arc with PowerShell DSC
       href: onboard-dsc.md
+    - name: Connect machines from Windows Admin Center
+      href: onboard-windows-admin-center.md
     - name: Connect machines to Azure Arc with PowerShell
       href: onboard-powershell.md
   - name: Manage
     items:
-    - name: Azure VM extensions
+    - name: VM extensions
       items:
         - name: Overview
           href: manage-vm-extensions.md
@@ -84,3 +86,7 @@
     - name: Azure Policy built-ins 
       displayName: samples, policies, definitions
       href: policy-reference.md
+- name: Resources
+  items:
+    - name: Azure Arc jumpstart
+      href: https://github.com/microsoft/azure_arc

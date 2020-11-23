@@ -41,7 +41,7 @@ The frontend IP configuration of your cross-region load balancer is static and a
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram of cross-region load balancer." border="true":::
 
 > [!NOTE]
-> The backend port of load your balancing rule on cross-region load balancer should match the frontend port of the load balancing rule/inbound nat rule on regional standard load balancer. 
+> The backend port of your load balancing rule on cross-region load balancer should match the frontend port of the load balancing rule/inbound nat rule on regional standard load balancer. 
 
 ### Regional redundancy
 

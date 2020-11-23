@@ -17,7 +17,7 @@ ms.custom: contperfq1
 
 This article explains deep learning vs. machine learning and how they fit into the broader category of artificial intelligence. Learn about deep learning solutions you can build on Azure Machine Learning, such as fraud detection, voice and facial recognition, sentiment analysis, and time series forecasting.
 
-For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
+For guidance on choosing algorithms for your solutions, see the [Machine Learning Algorithm Cheat Sheet](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 
 ## Deep learning, machine learning, and AI
 
@@ -69,7 +69,7 @@ Deep learning has been applied in many object detection use cases. Object detect
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
 
-Learn how to use an image classification model from an open-source framework in Azure Machine Learning: [Classify images by using a Pytorch model](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Learn how to use an image classification model from an open-source framework in Azure Machine Learning: [Classify images by using a Pytorch model](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### Image caption generation
 
@@ -89,7 +89,7 @@ Text analytics based on deep learning methods involves analyzing large quantitie
 
 Companies use deep learning to perform text analysis to detect insider trading and compliance with government regulations. Another common example is insurance fraud: text analytics has often been used to analyze large amounts of documents to recognize the chances of an insurance claim being fraud. 
 
-Learn how to use a TensorFlow model in Azure Machine Learning: [Classify handwritten digits by using a TensorFlow model](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Learn how to use a TensorFlow model in Azure Machine Learning: [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
 
 ## Artificial neural networks
 
@@ -113,8 +113,8 @@ Convolutional neural networks have been used in areas such as video recognition,
 
 ## Next steps
 
-The following articles show you more options for using open-source deep learning models in [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+The following articles show you more options for using open-source deep learning models in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Classify handwritten digits by using a TensorFlow estimator and Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Classify handwritten digits by using a Chainer model](./how-to-set-up-training-targets.md)

@@ -26,7 +26,7 @@ The **Directory Readers** role is necessary to:
 
 - Create Azure AD logins for SQL Managed Instance
 - Impersonate Azure AD users in Azure SQL
-- Migrate SQL Server users that use Windows authentication to SQL Managed Instance with Azure AD authentication (using the [ALTER USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) command)
+- Migrate SQL Server users that use Windows authentication to SQL Managed Instance with Azure AD authentication (using the [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) command)
 - Change the Azure AD admin for SQL Managed Instance
 - Allow [service principals (Applications)](authentication-aad-service-principal.md) to create Azure AD users in Azure SQL
 

@@ -57,5 +57,5 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 
 ## Next steps
 
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* For more information on pricing, see the [Azure Database for MySQL Pricing page](https://azure.microsoft.com/pricing/details/mysql/)  
+* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)
+* For more information on pricing, see the [Azure Database for MySQL Pricing page](https://azure.microsoft.com/pricing/details/mysql/)

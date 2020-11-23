@@ -4,8 +4,8 @@ description: This article describes eligibility criteria and requirements for pu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
 ---
 
@@ -44,7 +44,7 @@ The following table shows the publishing options for offer types in Microsoft Ap
 
 ## Choose a listing option
 
-The listing options that are available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the listing options that correspond with the publishing option:
+The listing options that are available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](./gtm-your-marketplace-benefits.md). Note the listing options that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|

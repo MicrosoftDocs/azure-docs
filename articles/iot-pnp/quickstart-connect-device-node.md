@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play sample Node.js device code to Azure IoT Hub | Microsoft Docs
-description: Use Node.js to build and run IoT Plug and Play sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Quickstart - Connect IoT Plug and Play sample Node.js device code to Azure IoT Hub | Microsoft Docs
+description: Quickstart - Use Node.js to build and run IoT Plug and Play sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/10/2020

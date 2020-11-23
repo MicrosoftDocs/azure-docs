@@ -34,7 +34,7 @@ For Windows performance counters, you can choose a specific instance for each pe
 
 ![Configure Windows Performance counters](media/data-sources-performance-counters/configure-windows.png)
 
-Follow this procedure to add a new Windows performance counter to collect.
+Follow this procedure to add a new Windows performance counter to collect. Please note that V2 Windows Performance Counters are not supported.
 
 1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*.  
 

@@ -95,11 +95,11 @@ Configuring a log analytics workspace consists of two main steps:
 
 7. Search for **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. In **Monitoring** section, click **Diagnostic setting**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Screenshot shows Diagnostic settings selected from Monitoring.](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. On the **Diagnostic settings** page, click **Add diagnostic setting**.
 
@@ -127,7 +127,7 @@ This procedure shows how to run queries using the **Kusto Query Language (KQL)**
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -209,7 +209,7 @@ This procedure shows how to send alerts when the breakglass account is used.
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -300,7 +300,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 
@@ -331,7 +331,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 10. Click **Run Query**.
 
-    ![Run query](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![Screenshot shows the Run Query button.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
 11. In the toolbar, under **Visualization**, click **Pie chart**.
 
@@ -352,7 +352,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot shows Azure Active Directory in Azure search.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 
@@ -360,11 +360,11 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 4. In the **conditional access** section, click **Conditional Access Insights and Reporting**.
 
-    ![Conditional access template](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![Screenshot shows the Conditional Access Insights and Reporting option.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
 5. In the toolbar, click **Edit**.
 
-    ![Conditional access template](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![Screenshot shows the Edit button.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
 6. In the toolbar, click the three dots, then **Add**, and then **Add query**.
 
@@ -374,7 +374,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 8. Click **Run Query**.
 
-    ![Run query](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![Screenshot shows the Run Query button to run this query.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
 9. Click **Time Range**, and then select **Set in query**.
 

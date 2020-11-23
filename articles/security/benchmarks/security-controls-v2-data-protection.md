@@ -28,7 +28,7 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 - [Tag sensitive information using Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [How to implement Azure SQL Data Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [How to implement Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Responsibility**: Shared
 
@@ -82,7 +82,7 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 - [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Enable Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Enable Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsibility**: Shared
 
@@ -136,7 +136,7 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 
 - [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [How to configure customer managed encryption keys](../../storage/common/storage-encryption-keys-portal.md)
+- [How to configure customer managed encryption keys](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Encryption model and key management table](../fundamentals/encryption-models.md)
 
@@ -153,4 +153,3 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Data Security](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

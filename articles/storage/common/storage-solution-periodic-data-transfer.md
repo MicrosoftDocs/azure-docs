@@ -53,7 +53,7 @@ The following table summarizes the differences in key capabilities.
 | Form factor                                   | Virtual device             | Physical device          | Service in Azure portal, agent on-premises                                                            |
 | Hardware                                      | Your hypervisor            | Supplied by Microsoft    | NA                                                            |
 | Initial setup effort                          | Low (<30 mins.)            | Moderate (~couple hours) | Large (~days)                                                 |
-| Data Format                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Supports 70+ data connectors for data stores and formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Data Format                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Supports 70+ data connectors for data stores and formats](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
 | Data pre-processing                           | No                         | Yes, via Edge compute    | Yes                                                           |
 | Local cache<br>(to store on-premises data)    | Yes                        | Yes                      | No                                                            |
 | Transfer from other clouds                    | No                         | No                       | Yes                                                           |
@@ -61,9 +61,9 @@ The following table summarizes the differences in key capabilities.
 
 ## Next steps
 
-- [Transfer data with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
 - [More information on data transfer with Storage REST APIs](/dotnet/api/overview/azure/storage).
 - Understand how to:
-    - [Transfer data with Data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transform data with Data Box Edge before sending to Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Learn how to transfer data with Azure Data Factory](/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Transfer data with Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Learn how to transfer data with Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

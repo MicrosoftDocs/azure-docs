@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > - Configure a managed instance as a replication publisher and distributor.
-> - Configure a managed instance as a replication distributor.
+> - Configure a managed instance as a replication subscriber.
 
 ![Replicate between two managed instances](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
@@ -62,7 +62,7 @@ You will also need to [configure an Azure VM to connect](connect-vm-instance-con
 
 ## 3 - Create an Azure storage account
 
-[Create an Azure storage account](/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account. 
+[Create an Azure storage account](../../storage/common/storage-account-create.md#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account. 
 
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
@@ -324,4 +324,4 @@ You can clean up your Azure resources by [deleting the SQL Managed Instance reso
 ## Next steps
 
 You can also learn more information about [transactional replication with Azure SQL Managed Instance](replication-transactional-overview.md) or learn to 
-configure replication between a [SQL Managed Instance publisher/distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md). 
+configure replication between a [SQL Managed Instance publisher/distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md).

@@ -42,7 +42,7 @@ Indexing content in Data Lake Storage Gen2 is identical to indexing content in A
 
 ## Access control
 
-Azure Data Lake Storage Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). When indexing content from Data Lake Storage Gen2, Azure Cognitive Search will not extract the RBAC and ACL information from the content. As a result, this information will not be included in your Azure Cognitive Search index.
+Azure Data Lake Storage Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). When indexing content from Data Lake Storage Gen2, Azure Cognitive Search will not extract the Azure RBAC and ACL information from the content. As a result, this information will not be included in your Azure Cognitive Search index.
 
 If maintaining access control on each document in the index is important, it is up to the application developer to implement [security trimming](./search-security-trimming-for-azure-search.md).
 

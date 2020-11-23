@@ -54,7 +54,7 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
 5. **Number of decision trees**: Type the maximum number of decision trees that can be created in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time might increase.
 
-    This value also controls the number of trees displayed in the results, when visualizing the trained model. To see or print a single tree, you can set the value to 1; however, this means that only one tree can be produced (the tree with the initial set of parameters), and no further iterations are performed.
+    If you set the value to 1; however, this means that only one tree can be produced (the tree with the initial set of parameters), and no further iterations are performed.
 
 6. **Maximum depth of the decision trees**: Type a number to limit the maximum depth of any decision tree. Increasing the depth of the tree might increase precision, at the risk of some overfitting and increased training time.
 

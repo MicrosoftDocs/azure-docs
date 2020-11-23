@@ -404,7 +404,7 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 ## Next steps
 
-- [Write blob storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
+- [Write queue storage messages (Output binding)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

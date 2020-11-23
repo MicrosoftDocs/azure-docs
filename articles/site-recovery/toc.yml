@@ -48,22 +48,6 @@
       href: tutorial-dr-drill-azure.md
     - name: Fail over to Azure
       href: vmware-azure-tutorial-failover-failback.md
-  - name: Azure VMware Solution disaster recovery to Azure
-    items:
-    - name: Prepare Azure
-      href: avs-tutorial-prepare-azure.md
-    - name: Prepare Azure VMware Solution
-      href: avs-tutorial-prepare-avs.md
-    - name: Set up replication
-      href: avs-tutorial-replication.md
-    - name: Run a disaster recovery drill
-      href: avs-tutorial-dr-drill-azure.md
-    - name: Fail over to Azure
-      href: avs-tutorial-failover.md
-    - name: Reprotect VMs
-      href: avs-tutorial-reprotect.md
-    - name: Fail back from Azure
-      href: avs-tutorial-failback.md
   - name: Hyper-V VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -176,6 +160,10 @@
       href: hyper-v-vmm-secondary-support-matrix.md
     - name: Architecture for Hyper-V VM to a secondary site
       href: hyper-v-vmm-architecture.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery
@@ -276,7 +264,7 @@
         href: vmware-azure-enable-replication.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
-      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs
+      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMWare VMs
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
     - name: Run failover and failback
       items:

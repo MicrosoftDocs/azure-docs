@@ -248,4 +248,4 @@ N/A
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
-- [What is Azure Key Vault](/azure/key-vault/key-vault-overview)?
+- [What is Azure Key Vault](../../key-vault/general/overview.md)?

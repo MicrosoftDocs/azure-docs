@@ -106,6 +106,16 @@ To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
 
 Now, you have connected to Azure Database for MySQL by using MySQL Workbench, and you have queried data using the SQL language.
 
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./concepts-migrate-import-export.md)

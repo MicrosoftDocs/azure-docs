@@ -10,7 +10,7 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, data4ml
 
 ---
 # Collect data from models in production
@@ -63,11 +63,11 @@ The path to the output data in the blob follows this syntax:
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 ## Enable data collection
 
-You can enable [data collection](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) regardless of the model you deploy through Azure Machine Learning or other tools.
+You can enable [data collection](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) regardless of the model you deploy through Azure Machine Learning or other tools.
 
 To enable data collection, you need to:
 
@@ -149,7 +149,7 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 1. Download and open [Power BI Desktop](https://www.powerbi.com).
 
-1. Select **Get Data** and select [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+1. Select **Get Data** and select [**Azure Blob Storage**](/power-bi/desktop-data-sources).
 
     [![Power BI blob setup](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -183,7 +183,7 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 ### <a id="databricks"></a> Analyze model data using Azure Databricks
 
-1. Create an [Azure Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Create an [Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Go to your Databricks workspace.
 

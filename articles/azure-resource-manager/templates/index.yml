@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/30/2020
+  ms.date: 11/06/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -68,14 +68,8 @@ landingContent:
             url: deployment-manager-tutorial.md
       - linkListType: learn
         links:
-          - text: Consistent infrastructure
-            url: /learn/modules/create-azure-resource-manager-template-vs-code/
-          - text: Multiple environments
-            url: /learn/modules/modify-azure-resource-manager-template-reuse/
-          - text: Validate deployments
-            url: /learn/modules/arm-template-test/
-          - text: Deploy templates
-            url: /learn/modules/deploy-templates-command-line-github-actions/
+          - text: Deploy with ARM templates
+            url: /learn/paths/deploy-manage-resource-manager-templates/
   # Card
   - title: Develop templates
     linkLists:
@@ -113,6 +107,8 @@ landingContent:
             url: deploy-rest.md
           - text: Deploy to Azure button
             url: deploy-to-azure-button.md
+          - text: Cloud Shell
+            url: deploy-cloud-shell.md
           - text: What-if deployment
             url: template-deploy-what-if.md
 
@@ -121,14 +117,19 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Resource group
+            url: deploy-to-resource-group.md
           - text: Subscription
             url: deploy-to-subscription.md
           - text: Management group
             url: deploy-to-management-group.md
           - text: Tenant
             url: deploy-to-tenant.md
-          - text: Cross scope deployments
-            url: cross-scope-deployment.md
+          - text: Scoping extension resource
+            url: scope-extension-resources.md
+          - text: Template functions across scopes
+            url: scope-functions.md
+          
 
   # Card
   - title: Explore reference content

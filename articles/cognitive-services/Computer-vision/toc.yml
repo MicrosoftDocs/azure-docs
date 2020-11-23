@@ -161,6 +161,8 @@
       href: spatial-analysis-zone-line-placement.md
     - name: Camera placement
       href: spatial-analysis-camera-placement.md
+  - name: Cognitive Services containers documentation
+    href: ../containers/index.yml
 
 - name: How-to guides
   items:

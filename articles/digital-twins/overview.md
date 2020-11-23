@@ -91,19 +91,14 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Diagram showing input sources, output services, and two-way communication with both client apps and external compute resources." border="false" lightbox="media/overview/solution-context.png":::
 
-## Service limits in public preview
+## Service limits
 
-> [!IMPORTANT]
-> Azure Digital Twins is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [*Supplemental Terms of Use for Microsoft Azure Previews*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-For a list of Azure Digital Twins limits during public preview, see [*Reference: Public preview service limits*](reference-service-limits.md).
+For a list of Azure Digital Twins limits, see [*Reference: Service limits*](reference-service-limits.md).
 
 ## Next steps
 
-If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
-* [*Overview: Differences from previous release*](overview-differences.md)
+If you have worked with the first preview release of Azure Digital Twins (October 2018), learn what has changed:
+* [*Overview: Differences from first release*](overview-differences.md)
 
 Or, go ahead and dive into working with Azure Digital Twins with the first tutorial:
 

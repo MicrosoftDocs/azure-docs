@@ -10,6 +10,7 @@ ms.date: 07/29/2020
 ---
 
 # Create resource lock for a Azure Cosmos DB Table API table using Azure CLI
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

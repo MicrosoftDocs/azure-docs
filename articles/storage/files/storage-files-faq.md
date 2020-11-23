@@ -252,7 +252,25 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-multiple-forest"></a>
 **Does on-premises AD DS authentication for Azure file shares support integration with an AD DS environment using multiple forests?**    
 
-    Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. The way Azure Files register in AD DS almost the same as a regular file server, where it creates an identity (computer or service logon account) in AD DS for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication due to the different domain suffix.
+    Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. The way Azure Files register in AD DS almost the same as a regular file server, where it creates an identity (computer or service logon account) in AD DS for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your suffix routing policy is required to enable multiple forest authentication due to the different domain suffix. We provide an example below to configure suffix routing policy.
+    
+    Example: When users in forest A domain want to reach an file share with the storage account registered against a domain in forest B, this will not automatically work because the service principal of the storage account does not have a suffix matching the suffix of any domain in forest A. We can address this issue by manually configuring a suffix routing rule from forest A to forest B for a custom suffix of "file.core.windows.net".
+    First, you must add a new custom suffix on forest B. Make sure you have the appropriate administrative permissions to change the configuration, then follow these steps:   
+    1. Logon to a machine domain joined to forest B
+    2.	Open up "Active Directory Domains and Trusts" console
+    3.	Right click on "Active Directory Domains and Trusts"
+    4.	Click on "Properties"
+    5.	Click on "Add"
+    6.	Add "file.core.windows.net" as the UPN Suffixes
+    7.	Click on "Apply", then "OK" to close the wizard
+    
+    Next, add the suffix routing rule on forest A, so that it redirects to forest B.
+    1.	Logon to a machine domain joined to forest A
+    2.	Open up "Active Directory Domains and Trusts" console
+    3.	Right-click on the domain that you want to access the file share, then click on the "Trusts" tab and select forest B domain from outgoing trusts. If you haven't configure trust between the two forests, you need to setup the trust first
+    4.	Click on "Properties…" then "Name Suffix Routing"
+    5.	Check if the "*.file.core.windows.net" surffix shows up. If not, click on 'Refresh'
+    6.	Select "*.file.core.windows.net", then click on "Enable" and "Apply"
 
 * <a id=""></a>
 **What regions are available for Azure Files AD DS authentication?**

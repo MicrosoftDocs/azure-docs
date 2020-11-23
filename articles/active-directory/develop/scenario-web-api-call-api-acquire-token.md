@@ -89,5 +89,5 @@ A Python web API requires the use of middleware to validate the bearer token rec
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md)
+Move on to the next article in this scenario,
+[Call an API](scenario-web-api-call-api-call-api.md).

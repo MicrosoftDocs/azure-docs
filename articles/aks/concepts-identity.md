@@ -139,7 +139,7 @@ AKS provides the following four built-in roles. They are similar to the [Kuberne
 | Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. |
 
-**See how to leverage Azure RBAC for Kubernetes authorization [here](manage-azure-rbac.md).**
+**To learn how to enable Azure RBAC for Kubernetes authorization, [read here](manage-azure-rbac.md).**
 
 ## Next steps
 

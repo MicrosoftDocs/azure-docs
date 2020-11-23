@@ -25,7 +25,7 @@ Alternatively, you can create Web activities in ADF pipelines to start/stop your
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
-If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
+If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](./tutorial-deploy-ssis-packages-azure.md). 
 
 ## Create and schedule ADF pipelines that start and or stop Azure-SSIS IR
 This section shows you how to use Web activities in ADF pipelines to start/stop your Azure-SSIS IR on schedule or start & stop it on demand. We will guide you to create three pipelines: 
@@ -92,7 +92,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
   
     2. For **Method**, select **POST**. 
     3. For **Body**, enter `{"message":"Start my IR"}`. 
-    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Managed identity for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article for more info.
+    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Managed identity for Data Factory](./data-factory-service-identity.md) article for more info.
     5. For **Resource**, enter `https://management.azure.com/`.
     
        ![ADF Web Activity Schedule SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)

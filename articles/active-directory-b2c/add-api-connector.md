@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 
 ms.author: mimart
 author: msmimart
@@ -14,6 +14,9 @@ ms.custom: "it-pro"
 ---
 
 # Add an API connector to a sign-up user flow (preview)
+
+> [!IMPORTANT]
+> API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
@@ -44,7 +47,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -76,7 +79,7 @@ Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all 
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
 
 > [!TIP] 
-> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
+> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. 
 
 ## Enable the API connector in a user flow
 
@@ -105,7 +108,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -163,7 +166,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -284,7 +287,8 @@ Content-type: application/json
 | status      | Integer | Yes      | Must be value `400` for a ValidationError response.                        |
 | userMessage | String  | Yes      | Message to display to the user.                                            |
 
-*Note:* HTTP status code has to be "400" in addition to the "status" value in the body of the response.
+> [!NOTE]
+> HTTP status code has to be "400" in addition to the "status" value in the body of the response.
 
 **End-user experience with a validation-error response**
 
@@ -314,4 +318,4 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ## Next steps
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Get started with our [Azure Function quickstart samples](code-samples.md#api-connectors).
+- Get started with our [samples](code-samples.md#api-connectors).

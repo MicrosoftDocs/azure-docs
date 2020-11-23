@@ -44,7 +44,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
   - list ingress resources from all accessible namespaces
   - filter to ingress resources annotated with `kubernetes.io/ingress.class: azure/application-gateway`
   - compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - apply the config to the associated Application Gateway via [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+  - apply the config to the associated Application Gateway via [ARM](../azure-resource-manager/management/overview.md)
 
 ## Conflicting Configurations
 Multiple namespaced [ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource)
@@ -129,7 +129,7 @@ By default AGIC will configure Application Gateway based on annotated Ingress wi
 any namespace. Should you want to limit this behavior you have the following
 options:
   - limit the namespaces, by explicitly defining namespaces AGIC should observe via the `watchNamespace` YAML key in [helm-config.yaml](#sample-helm-config-file)
-  - use [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to limit AGIC to specific namespaces
+  - use [Role/RoleBinding](../aks/azure-ad-rbac.md) to limit AGIC to specific namespaces
 
 ## Sample Helm config file
 
@@ -185,4 +185,3 @@ options:
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
-

@@ -10,6 +10,7 @@ ms.date: 7/29/2020
 ---
 
 # Create an Azure Cosmos Table API account and table with autoscale using Azure CLI
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

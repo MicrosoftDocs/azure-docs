@@ -50,7 +50,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 * As a _batch inference_ endpoint that's used to periodically process batches of data. Batch inferences use [Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md).
 
-* To an _IoT device_ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* To an _IoT device_ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 
@@ -85,7 +85,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 ### Supported VM series and sizes
 
-When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](../virtual-machines/sizes.md).
 
 There are a few exceptions and limitations to choosing a VM size:
 
@@ -129,7 +129,7 @@ The current isolated VM offerings include:
 
 *RDMA capable
 
-To learn more about isolation, see [Isolation in the Azure public cloud](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+To learn more about isolation, see [Isolation in the Azure public cloud](../security/fundamentals/isolation-choices.md).
 
 ## Unmanaged compute
 

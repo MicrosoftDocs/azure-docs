@@ -4,7 +4,7 @@ description: Learn how to configure Azure function app settings.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ---
 
 # Manage your function app 

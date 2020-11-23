@@ -9,10 +9,10 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
+ms.author: mathapli
 ---
 
-# Preview: Azure Hybrid Benefit – how it applies for Linux Virtual Machines
+# Public Preview: Azure Hybrid Benefit – how it applies for Linux Virtual Machines
 
 ## Overview
 
@@ -41,30 +41,26 @@ Reserved Instances, Dedicated Hosts, and SQL hybrid benefits are not eligible fo
 
 ## How to get started
 
-Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using the Azure portal or the Azure CLI.
+Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using Azure CLI.
 
-### Preview
+### Public Preview
 
-In this phase, you may gain access to the benefit by filling out the form [here](https://aka.ms/ahb-linux-form). Once you fill out the form, your Azure subscription(s) will be enabled for the benefit and you will receive a confirmation from Microsoft within three business days.
+Azure Hybrid Benefit (for Linux) is in public preview phase now. You can use the below steps to enable the benefit for Red Hat and SUSE distributions. 
 
 ### Red Hat customers
 
-1.    Fill out the preview request form above
 1.    Register with the [Red Hat Cloud Access program](https://aka.ms/rhel-cloud-access)
 1.    Enable your Azure subscription(s) for Cloud Access, and enable the subscriptions containing the VMs you want to use the benefit with
-1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
+1.    Apply the benefit to your existing VMs either via Azure CLI
 1.    Register your VMs receiving the benefit with a separate source of updates
+
 
 ### SUSE customers
 
-1.    Fill out the preview request form above
 1.    Register with the SUSE Public Cloud program
-1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
+1.    Apply the benefit to your existing VMs either via Azure CLI
 1.    Register your VMs receiving the benefit with a separate source of updates
 
-### Enable and disable the benefit in the Azure portal
-
-You may enable the benefit on existing VMs by visiting the **Configuration** blade and following the steps there. You may enable the benefit on new VMs during the VM create experience.
 
 ### Enable and disable the benefit in the Azure CLI
 
@@ -105,12 +101,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## Check AHB status of a VM
-You may view the AHB status of a VM in three ways: checking in the Portal, using Azure CLI, or using the Azure Instance Metadata Service (Azure IMDS).
+You may view the AHB status of a VM in two ways:  using Azure CLI, or using the Azure Instance Metadata Service (Azure IMDS).
 
-
-### Portal
-
-View the Configuration blade and check licensing status to see if AHB is enabled for your VM.
 
 ### Azure CLI
 
@@ -143,13 +135,12 @@ A: No you cannot. Attempting to enter a license type that incorrectly matches th
 
 A: It may take some time for your Red Hat Cloud Access subscription registration to propagate from Red Hat to Azure. If you are still seeing the error after one business day, contact Microsoft support.
 
-## Common errors
-This section contains a list of common errors and steps for mitigation.
+## Common issues
+This section contains a list of common issues that could be encountered and steps for mitigation.
 
 | Error | Mitigation |
 | ----- | ---------- |
-| "The subscription is not registered for the Linux preview of Azure Hybrid Benefit. For step-by-step instructions, refer to https://aka.ms/ahb-linux" | Fill out the form at https://aka.ms/ahb-linux-form to register for the Linux preview of the Azure Hybrid Benefit.
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | In order to use the benefit with RHEL VMs, you must first register your Azure subscription(s) with Red Hat Cloud Access. Visit this link to learn more about how to register your Azure subscriptions for Red Hat Cloud Access
 
 ## Next steps
-* Get started with the with the preview by filling out the form [here](https://aka.ms/ahb-linux-form).
+* Learn on how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit using [Azure CLI here.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

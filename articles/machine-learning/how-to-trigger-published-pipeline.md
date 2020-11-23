@@ -90,6 +90,9 @@ Once your Logic App has been provisioned, use these steps to configure a trigger
 
 1. Select **Save** and your schedule is now ready.
 
+> [!IMPORTANT]
+> If you are using role-based access control (RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#common-scenarios).
+
 ## Next steps
 
 For more information, see:

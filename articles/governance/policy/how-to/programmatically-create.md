@@ -111,7 +111,7 @@ HTTP requests.
 
    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Subscription - `/subscriptions/{subId}/`
+   - Subscription - `/subscriptions/{subId}`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 For more information about managing resource policies using the Resource Manager PowerShell

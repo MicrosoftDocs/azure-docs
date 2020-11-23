@@ -23,7 +23,7 @@ Traditional analytics architecture often uses separate databases to create appli
 Instead, Synapse SQL runs the entire analytics workload within one database. Cross database joins aren't permitted. Synapse SQL expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
-> SQL pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. SQL on-demand (preview) supports cross database queries.
+> Dedicated SQL pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. Serverless SQL pool (preview) supports cross database queries.
 
 ## User-defined schema recommendations
 

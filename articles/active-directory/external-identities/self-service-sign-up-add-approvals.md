@@ -36,7 +36,7 @@ You need to register your approval system as an application in your Azure AD ten
 
 5. Select **Register**. You can leave other fields at their defaults.
 
-   ![Register an application page](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![Screenshot that highlights the Register button.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
 6. Under **Manage** in the left menu, select **API permissions**, and then select **Add a permission**.
 7. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.

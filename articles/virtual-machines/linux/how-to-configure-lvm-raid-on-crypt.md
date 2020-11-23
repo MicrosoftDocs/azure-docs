@@ -365,7 +365,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Information for mounted file systems](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Screenshot shows a console window with file systems mounted as data0 and data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 On this variation of **lsblk**, we're listing the devices showing the dependencies in reverse order. This option helps to identify the devices grouped by the logical volume instead of the original /dev/sd[disk] device names.
 
@@ -434,7 +434,7 @@ Verify that the new file system is mounted:
 lsblk -fs
 df -h
 ```
-![Information for mounted file systems](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Screenshot shows a console window with a file system mounted as raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 It's important to make sure that the **nofail** option is added to the mount point options of the RAID volumes created on top of a device encrypted through Azure Disk Encryption. It prevents the OS from getting stuck during the boot process (or in maintenance mode).
 

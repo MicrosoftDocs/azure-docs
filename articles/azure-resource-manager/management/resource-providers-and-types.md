@@ -2,7 +2,7 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 09/01/2020 
+ms.date: 11/09/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -27,7 +27,7 @@ For a list that maps resource providers to Azure services, see [Resource provide
 
 ## Register resource provider
 
-Before using a resource provider, you must register the resource provider for your Azure subscription. This step configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers.
+Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. Other resource providers are registered automatically when you take certain actions. For example, when you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider.
 
 This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
 
@@ -78,8 +78,6 @@ To see information for a particular resource provider:
 
 ## Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
 ```azurepowershell-interactive
@@ -96,6 +94,12 @@ Microsoft.ClassicNetwork         Registered
 Microsoft.ClassicStorage         Registered
 Microsoft.CognitiveServices      Registered
 ...
+```
+
+To see all registered resource providers for your subscription, use:
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
 To register a resource provider, use:
@@ -185,7 +189,7 @@ West US
 
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -201,9 +205,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
+To see all registered resource providers for your subscription, use:
+
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
 To register a resource provider, use:
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -211,7 +221,7 @@ Which returns a message that registration is on-going.
 
 To see information for a particular resource provider, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -230,7 +240,7 @@ Which returns results similar to:
 
 To see the resource types for a resource provider, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -249,7 +259,7 @@ The API version corresponds to a version of REST API operations that are release
 
 To get the available API versions for a resource type, use:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -269,7 +279,7 @@ Resource Manager is supported in all regions, but the resources you deploy might
 
 To get the supported locations for a resource type, use.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

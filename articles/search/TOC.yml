@@ -32,9 +32,9 @@
     href: search-get-started-dotnet.md
   - name: Java
     href: search-get-started-java.md
-  - name : Node.js
-    href: search-get-started-nodejs.md
-  - name: Postman
+  - name : JavaScript
+    href: search-get-started-javascript.md
+  - name: REST
     href: search-get-started-postman.md
   - name: PowerShell
     href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Relevance scoring
+    href: index-similarity-and-scoring.md
   - name: Indexers
     href: search-indexer-overview.md
   - name: AI enrichment
@@ -294,8 +296,6 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance scoring
-      href: index-similarity-and-scoring.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
@@ -320,9 +320,11 @@
       href: search-api-preview.md
     - name: Develop in .NET
       items:
-      - name: Use Microsoft.Azure.Search (v10)
+      - name: Use Azure.Search.Documents
         href: search-howto-dotnet-sdk.md
-      - name: Get started (v10)
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
         href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:

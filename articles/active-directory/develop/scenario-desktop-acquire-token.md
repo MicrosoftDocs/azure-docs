@@ -951,7 +951,7 @@ The following sample code presents the most current case, with explanations of t
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -966,7 +966,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)
@@ -1387,5 +1387,5 @@ namespace CommonCacheMsalV3
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Call a web API from the desktop app](scenario-desktop-call-api.md)
+Move on to the next article in this scenario,
+[Call a web API from the desktop app](scenario-desktop-call-api.md).

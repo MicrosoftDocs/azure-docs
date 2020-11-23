@@ -17,7 +17,7 @@ This topic describes how to enable and disable data retention policies for a dat
 
 ## Enable data retention for a database
 
-The following example shows how to enable data retention by using [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+The following example shows how to enable data retention by using [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -33,9 +33,9 @@ FROM sys.databases;
 
 ## Enable data retention for a table
 
-Data Retention must be enabled for each table for which you want data to be automatically purged. When Data Retention is enabled on the database and the table, a background system task will periodically scan the table to identify and delete any obsolete (aged) rows. Data Retention can be enabled on a table either during table creation using [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) or by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+Data Retention must be enabled for each table for which you want data to be automatically purged. When Data Retention is enabled on the database and the table, a background system task will periodically scan the table to identify and delete any obsolete (aged) rows. Data Retention can be enabled on a table either during table creation using [Create Table](/sql/t-sql/statements/create-table-transact-sql) or by using [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).
 
-The following example shows how to enable data retention for a table by using [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+The following example shows how to enable data retention for a table by using [Create Table](/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -58,7 +58,7 @@ The `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD 
     - DateTimeOffset
 - RETENTION_PERIOD - An integer value followed by a unit descriptor. The allowed units are DAY, DAYS, WEEK, WEEKS, MONTH, MONTHS, YEAR and YEARS.
 
-The following example shows how to enable data retention for table by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+The following example shows how to enable data retention for table by using [Alter Table](/sql/t-sql/statements/alter-table-transact-sql).  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -96,7 +96,7 @@ The data retention setting on the database and the table, are used in conjunctio
 
 ## Disable data retention on a table 
 
-Data Retention can be disabled on a table by using [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). The following command can be used to disable data retention on a table.
+Data Retention can be disabled on a table by using [Alter Table](/sql/t-sql/statements/alter-table-transact-sql). The following command can be used to disable data retention on a table.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -105,7 +105,7 @@ Set (DATA_DELETION = OFF)
 
 ## Disable data retention on a database
 
-Data Retention can be disabled on a table by using [Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). The following command can be used to disable data retention on a database.
+Data Retention can be disabled on a table by using [Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options). The following command can be used to disable data retention on a database.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

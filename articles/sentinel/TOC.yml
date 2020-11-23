@@ -96,6 +96,8 @@
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
+      - name: Beyond Security beSECURE
+        href: connect-besecure.md
       - name: Citrix Analytics (Security)
         href: connect-citrix-analytics.md
       - name: F5 BIG-IP
@@ -148,6 +150,10 @@
             href: connect-checkpoint.md
           - name: Cisco ASA
             href: connect-cisco.md
+          - name: Citrix WAF
+            href: connect-citrix-waf.md
+          - name: CyberArk Enterprise Password Vault
+            href: connect-cyberark.md
           - name: ExtraHop Reveal(x)
             href: connect-extrahop.md
           - name: F5 ASM
@@ -171,7 +177,9 @@
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
-      href: connect-azure-stack.md  
+      href: connect-azure-stack.md
+    - name: Monitor data connector health
+      href: monitor-data-connector-health.md
   - name: Enable User and Entity Behavior Analytics
     href: enable-entity-behavior-analytics.md
   - name: Manage multiple tenants (MSSP)
@@ -193,6 +201,8 @@
       href: bookmarks.md
     - name: Use livestream to hunt
       href: livestream.md
+    - name: Manage hunting queries with REST-API
+      href: hunting-with-rest-api.md
   - name: Remove Azure Sentinel
     href: offboard.md
 - name: Reference (New!)

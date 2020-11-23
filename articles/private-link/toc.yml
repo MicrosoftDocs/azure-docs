@@ -37,6 +37,10 @@
     items:
     - name: Connect to a SQL server - Portal
       href: tutorial-private-endpoint-sql-portal.md
+    - name: Connect to a SQL server - PowerShell
+      href: tutorial-private-endpoint-sql-powershell.md
+    - name: Connect to a SQL server - Azure CLI
+      href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
   - name: Private Endpoint

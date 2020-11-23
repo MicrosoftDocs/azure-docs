@@ -240,14 +240,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Check to make sure you have a Private DNS Zone resource. 
     1. You must have a Private DNS Zone resource with the exact name: privatelink.vaultcore.azure.net. 
-    2. To learn how to set this up please see the following link. [Private DNS Zones](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. To learn how to set this up please see the following link. [Private DNS Zones](../../dns/private-dns-privatednszone.md)
     
 * Check to make sure the Private DNS Zone is not linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
     1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the key vault. 
     2. Navigate to the Private DNS Zone resource in the Azure portal and click the virtual network links option. 
     4. The virtual network that will perform calls to the key vault must be listed. 
     5. If it's not there, add it. 
-    6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Check to make sure the Private DNS Zone is not missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 

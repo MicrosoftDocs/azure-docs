@@ -39,12 +39,12 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
-* Named **myResourceGroupLB**.
+* Named **CreateIntLBQS-rg**.
 * In the **eastus** location.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 
 New-AzResourceGroup -Name $rg -Location $loc
@@ -65,7 +65,7 @@ Before you deploy VMs and test your load balancer, create the supporting virtual
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 * Named **myVNet**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * Subnet named **myBackendSubnet**.
 * Virtual network **10.0.0.0/16**.
 * Subnet **10.0.0.0/24**.
@@ -74,7 +74,7 @@ Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.netwo
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
@@ -102,14 +102,14 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public ip address for the bastion host:
 
 * Named **myPublicIPBastion**
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In the **eastus** location.
 * Allocation method **static**.
 * **Standard** sku.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $ipn = 'myPublicIPBastion'
 $all = 'static'
@@ -124,13 +124,13 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -Allocati
 Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create a bastion host:
 
 * Named **myBastion**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In virtual network **myVNet**.
 * Associated with public ip address **myPublicIPBastion**.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $nmn = 'myBastion'
 
 ## Command to create bastion host. $vnet and $publicip are from the previous steps ##
@@ -179,13 +179,13 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
 * Named **myNSG**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In location **eastus**.
 * With security rules created in previous steps stored in a variable.
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nmn = 'myNSG'
 
@@ -213,7 +213,7 @@ Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/modu
 ```azurepowershell-interactive
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $ip = '10.0.0.4'
 
 ## Command to create frontend configuration. The variable $vnet is from the previous commands. ##
@@ -276,17 +276,20 @@ Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/modu
 * Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
 * Using health probe **myHealthProbe**.
 * Protocol **TCP**.
+* Idle timeout of **15 minutes**.
+* Enable TCP reset.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 >[!NOTE]
 >The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
@@ -298,12 +301,12 @@ Create an internal load Balancer with [New-AzLoadBalancer](/powershell/module/az
 
 * Named **myLoadBalancer**
 * In **eastus**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sku = 'Standard'
 
@@ -320,7 +323,7 @@ Create three network interfaces with [New-AzNetworkInterface](/powershell/module
 #### VM 1
 
 * Named **myNicVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In location **eastus**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
@@ -329,7 +332,7 @@ Create three network interfaces with [New-AzNetworkInterface](/powershell/module
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -356,7 +359,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 #### VM 2
 
 * Named **myNicVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In location **eastus**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
@@ -365,7 +368,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -409,7 +412,7 @@ Create the virtual machines with:
 #### VM1
 
 * Named **myVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * Attached to network interface **myNicVM1**.
 * Attached to load balancer **myLoadBalancer**.
 * In **Zone 1**.
@@ -417,7 +420,7 @@ Create the virtual machines with:
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -440,7 +443,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 #### VM2
 
 * Named **myVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * Attached to network interface **myNicVM2**.
 * Attached to load balancer **myLoadBalancer**.
 * In **Zone 2**.
@@ -448,7 +451,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -481,7 +484,7 @@ Before you deploy VMs and test your load balancer, create the supporting virtual
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 * Named **myVNet**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * Subnet named **myBackendSubnet**.
 * Virtual network **10.0.0.0/16**.
 * Subnet **10.0.0.0/24**.
@@ -490,7 +493,7 @@ Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.netwo
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
@@ -518,14 +521,14 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public ip address for the bastion host:
 
 * Named **myPublicIPBastion**
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In the **eastus** location.
 * Allocation method **static**.
 * **Standard** sku.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $ipn = 'myPublicIPBastion'
 $all = 'static'
@@ -540,13 +543,13 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -Allocati
 Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create a bastion host:
 
 * Named **myBastion**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In virtual network **myVNet**.
 * Associated with public ip address **myPublicIPBastion**.
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $nmn = 'myBastion'
 
 ## Command to create bastion host. $vnet and $publicip are from the previous steps ##
@@ -596,13 +599,13 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
 * Named **myNSG**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In location **eastus**.
 * With security rules created in previous steps stored in a variable.
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nmn = 'myNSG'
 
@@ -630,7 +633,7 @@ Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/modu
 ```azurepowershell-interactive
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $ip = '10.0.0.4'
 
 ## Command to create frontend configuration. The variable $vnet is from the previous commands. ##
@@ -693,17 +696,19 @@ Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/modu
 * Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
 * Using health probe **myHealthProbe**.
 * Protocol **TCP**.
+* Idle timeout of **15 minutes**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -IdleTimeoutInMinutes $idl
 ```
 
 ### Create load balancer resource
@@ -712,12 +717,12 @@ Create a public load Balancer with [New-AzLoadBalancer](/powershell/module/az.ne
 
 * Named **myLoadBalancer**
 * In **eastus**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sku = 'Basic'
 
@@ -734,7 +739,7 @@ Create three network interfaces with [New-AzNetworkInterface](/powershell/module
 #### VM 1
 
 * Named **myNicVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In location **eastus**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
@@ -743,7 +748,7 @@ Create three network interfaces with [New-AzNetworkInterface](/powershell/module
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -770,7 +775,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 #### VM 2
 
 * Named **myNicVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In location **eastus**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
@@ -779,7 +784,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -808,12 +813,12 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 Use [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) to create an availability set for the virtual machines:
 
 * Named **myAvSet**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In the **eastus** location.
 
 ```azurepowershell-interactive
 ## Variables used for the command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $avs = 'myAvSet'
 $loc = 'eastus'
 
@@ -840,7 +845,7 @@ Create the virtual machines with:
 #### VM1
 
 * Named **myVM1**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * Attached to network interface **myNicVM1**.
 * Attached to load balancer **myLoadBalancer**.
 * In the **eastus** location.
@@ -848,7 +853,7 @@ Create the virtual machines with:
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -871,7 +876,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 #### VM2
 
 * Named **myVM2**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * Attached to network interface **myNicVM2**.
 * Attached to load balancer **myLoadBalancer**.
 * In the **eastus** location.
@@ -879,7 +884,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -912,7 +917,7 @@ The extension runs PowerShell Add-WindowsFeature Web-Server to install the IIS w
 
 ```azurepowershell-interactive
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM1'
 $loc = 'eastus'
@@ -927,7 +932,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ```azurepowershell-interactive
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM2'
 $loc = 'eastus'
@@ -947,7 +952,7 @@ Create a network interface with [New-AzNetworkInterface](/powershell/module/az.n
 #### myTestVM
 
 * Named **myNicTestVM**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * In location **eastus**.
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
@@ -955,7 +960,7 @@ Create a network interface with [New-AzNetworkInterface](/powershell/module/az.n
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicTestVM'
 $vnt = 'myVNet'
@@ -994,13 +999,13 @@ Create the virtual machine with:
 #### myTestVM
 
 * Named **myTestVM**.
-* In resource group **myResourceGroupLB**.
+* In resource group **CreateIntLBQS-rg**.
 * Attached to network interface **myNicTestVM**.
 * In the **eastus** location.
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myTestVM'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -1027,7 +1032,7 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 
 2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **myResourceGroupLB** resource group.
+3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
 
 4. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -1047,7 +1052,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 
 ```azurepowershell-interactive
 ## Variable for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 
 Remove-AzResourceGroup -Name $rg
 ```

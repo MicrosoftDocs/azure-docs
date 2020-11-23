@@ -2,14 +2,14 @@
 title: Enable Azure Automation Update Management from an Azure VM
 description: This article tells how to enable Update Management from an Azure VM.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ---
 
 # Enable Update Management from an Azure VM
 
-This article describes how you can use an Azure VM to enable the [Update Management](overview.md) feature on other machines. To enable Azure VMs at scale, you must enable an existing VM using Update Management.
+This article describes how you can enable the [Update Management](overview.md) feature on one or more Azure virtual machines (VM). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 
 > [!NOTE]
 > When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).

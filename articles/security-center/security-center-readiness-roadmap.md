@@ -74,7 +74,7 @@ Videos
 
 Articles    
 * [Using Azure Security Center for an incident response](./tutorial-security-incident.md)
-* [Automate response with Workflow Automation](workflow-automation.md)
+* [Use automation to respond to Security Center triggers](workflow-automation.md)
 
 ## Advanced cloud defense
 

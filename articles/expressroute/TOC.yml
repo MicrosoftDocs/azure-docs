@@ -13,6 +13,7 @@
   - name: Create an ExpressRoute circuit - CLI
     href: howto-circuit-cli.md
   - name: Create an ExpressRoute circuit - ARM template
+    displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Tutorials
@@ -112,7 +113,7 @@
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
     - name: Using VPN as a backup
-      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md    
+      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: How-to guides
   items:
   - name: Configuring ExpressRoute Direct

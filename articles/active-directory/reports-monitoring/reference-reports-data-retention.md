@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -47,12 +47,6 @@ If you already have activities data with your free license, then you can see it 
 
 ---
 
-### Can I see last month's data after getting an Azure AD premium license?
-
-If you recently switched to a premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
-
----
-
 ### When does Azure AD start collecting security signal data?  
 
 For security signals, the collection process starts when you opt-in to use the **Identity Protection Center**. 
@@ -77,5 +71,11 @@ You can retain the audit and sign-in activity data for longer than the default r
 | :--            | :--           | :--                 | :--                 |
 | Users at risk  | 7 days        | 30 days             | 90 days             |
 | Risky sign-ins | 7 days        | 30 days             | 90 days             |
+
+---
+
+### Can I see last month's data after getting an Azure AD premium license?
+
+**No**, you can't. Azure stores up to seven days of activity data for a free version. This means, when you switch from a free to a to a premium version, you can only see up to 7 days of data.
 
 ---

@@ -36,6 +36,13 @@ For tooling improvements, make sure you have the correct version installed speci
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## Oct 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**T-SQL Inline Table-Valued Functions (preview)**|With this release, you can now create inline table-valued functions with Transact-SQL and query their results as you would a table. This feature is currently in Preview and will be supported in tooling at GA. For more information, see [CREATE FUNCTION (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**MERGE command (preview)**|You can now run insert, update, or delete operations on a target table from the results of a join with a source table. For example, you can synchronize two tables by inserting, updating, or deleting rows in one table based on differences found in the other table.  Check [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) for details.|
+
 ## Aug 2020
 
 | Service improvements | Details |

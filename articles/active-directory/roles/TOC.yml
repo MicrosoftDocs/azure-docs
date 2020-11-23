@@ -11,14 +11,14 @@
 - name: Tutorials
   items:
   - name: Create a dynamic group    
-    href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   expanded: true
   items:
   - name: Delegate Azure AD admin roles
     href: concept-delegation.md
   - name: Compare default user permissions    
-    href: /azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
   - name: Compare Azure and Azure AD roles    
     href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
   - name: Understand administrative units in Azure AD
@@ -29,15 +29,15 @@
   - name: Users and roles
     items:
     - name: Assign users to admin roles
-      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Revoke a user's access
-      href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Assign role to guest user    
-      href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
+      href: ../b2b/add-guest-to-role.md?context=azure/active-directory/roles/context/ugr-context
     - name: Restrict guest user access
-      href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Dynamic groups and guests   
-      href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
+      href: ../b2b/use-dynamic-groups.md?context=azure/active-directory/roles/context/ugr-context
   - name: Roles and permissions
     expanded: true
     items: 
@@ -57,7 +57,7 @@
     - name: View custom role assignments
       href: custom-view-assignments.md
     - name: Assign custom roles in Azure portal
-      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Assign custom roles in PowerShell
       href: custom-assign-powershell.md
     - name: Assign custom roles for enterprise apps
@@ -111,7 +111,7 @@
   - name: Troubleshoot
     items:
     - name: Get support for Azure AD    
-      href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference
   items:
   - name: Least-privileged roles by task   
@@ -125,4 +125,4 @@
   - name:  Azure AD PowerShell for Graph
     href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
   - name: Azure AD service limits
-    href: /azure/active-directory/fundamentals/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ../enterprise-users/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context

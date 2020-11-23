@@ -105,6 +105,8 @@
       href: about-vpn-profile-download.md
     - name: Global and hub-based profile
       href: global-hub-profile.md
+    - name: Configure Azure VPN Client for Windows 10
+      href: openvpn-azure-ad-client.md
     - name: Configure OpenVPN clients
       href: howto-openvpn-clients.md?
     - name: Configure Always On VPN user tunnel
@@ -115,8 +117,6 @@
       href: openvpn-azure-ad-mfa.md   
     - name: Configure Azure AD authentication
       href: virtual-wan-point-to-site-azure-ad.md
-    - name: Configure Azure VPN Client for Windows 10
-      href: openvpn-azure-ad-client.md
     - name: Configure Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing

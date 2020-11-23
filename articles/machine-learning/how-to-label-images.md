@@ -13,7 +13,7 @@ ms.date: 07/27/2020
 
 # Tag images in a labeling project 
 
-After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator [creates a labeling project](./how-to-create-labeling-projects.md#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
@@ -124,6 +124,28 @@ To delete *all* bounding boxes in the current image, select the **Delete all reg
 
 After you create the bounding boxes for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
+## Tag images and specify polygons for image segmentation 
+
+If your project is of type "Instance Segmentation (Polygon)," you'll specify one or more polygons in the image and apply a tag to each polygon. Images can have multiple bounding polygons, each with a single tag. Use **View detailed instructions** to determine if multiple bounding polygons are used in your project.
+
+1. Select a tag for the polygon that you plan to create.
+1. Select the **Draw polygon region** tool ![Draw polygon region tool](./media/how-to-label-images/polygon-tool.png) or select "P."
+3. Click for each point in the polygon.  When you have completed the shape, double click to finish.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Create polygons for Cat and Dog":::
+
+To delete a polygon, click the X-shaped target that appears next to the polygon after creation.
+
+If you want to change the tag for a polygon, select the **Move region** tool, click on the polygon, and select the correct tag.
+
+You can edit existing polygons. The **Lock/unlock regions** tool ![Lock/unlock regions tool](./media/how-to-label-images/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new polygon.
+
+Use the **Add or remove polygon points** tool ![Regions manipulation tool](./media/how-to-label-images/add-remove-points-tool.png) or "U" to adjust an existing polygon. Click on the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
+
+To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete regions tool](./media/how-to-label-images/delete-regions-tool.png).
+
+After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
+
 ## Finish up
 
 When you submit a page of tagged data, Azure assigns new unlabeled data to you from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
@@ -132,5 +154,4 @@ When you're done labeling, select your name in the upper-right corner of the lab
 
 ## Next steps
 
-* Learn to [train image classification models in Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)

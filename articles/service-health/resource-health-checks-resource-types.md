@@ -114,6 +114,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the IoT hub up and running?</li></ul>|
 
+## Microsoft.DigitalTwins/DigitalTwinsInstances
+|Executed Checks|
+|---|
+|<ul><li>Is the Azure Digital Twins instance up and running?</li></ul>|
+
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|
 |---|

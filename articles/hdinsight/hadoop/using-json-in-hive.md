@@ -155,5 +155,5 @@ The type of JSON operator in Hive that you choose depends on your scenario. With
 
 For related articles, see:
 
-* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
+* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](./hdinsight-use-hive.md)
 * [Analyze flight delay data by using Interactive Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

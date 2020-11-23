@@ -178,7 +178,7 @@ Create a new virtual machine with one of the supported operation systems for Ora
 
 The Oracle database needs disks for /oracle, /home/oraod1, and /home/oracle
 
-![Oracle database on Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagram that shows an Oracle database on Linux and the disks it needs.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### Manual deployment for Microsoft SQL Server
 

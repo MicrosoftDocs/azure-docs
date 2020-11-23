@@ -73,7 +73,7 @@ Possible architecture with multi-target replication would look like:
 
 If the organization has requirements for high availability readiness in the second(DR) Azure region, then the architecture would look like:
 
-![Diagram of three VMs over two regions milti-target](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagram that shows an organization that has requirements for high availability readiness in the second (DR) Azure region.](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 Using logreplay as operation mode, this configuration provides an RPO=0, with low RTO, within the primary region. The configuration also provides decent RPO if a move to the second region is involved. The RTO times in the second region are dependent on whether data is preloaded. Many customers use the VM in the secondary region to run a test system. In that use case, the data can't be preloaded.

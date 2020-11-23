@@ -16,9 +16,9 @@ ms.author: alkohli
 
 3. In the **Add schedule** blade, modify the snapshot type, backup frequency, retention, and start date and time. Click **Add**.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
+    ![manage schedules 2](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
 4. You are notified when the backup policy creation is complete. The backup policy list is also updated.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
+    ![manage schedules 3](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 
