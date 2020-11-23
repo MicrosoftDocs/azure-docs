@@ -1,85 +1,59 @@
 ---
-title: Continuous integration and delivery in Azure Data Factory 
-description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
-services: data-factory
-documentationcenter: ''
-ms.service: data-factory
-ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.reviewer: maghan
-manager: jroth
-ms.topic: conceptual
-ms.date: 09/23/2020
+title: Continuous integration and delivery for Azure Synapse workspace  
+description: Learn how to use continuous integration and delivery to move artifacts in workspace from one environment (development, test, production) to another.
+services: synapse-analytics 
+author: liud
+ms.service: synapse-analytics 
+ms.subservice: cicd
+ms.topic: conceptual 
+ms.date: 11/20/2020
+ms.author: liud 
+ms.reviewer: pimorano
 ---
 
-# Continuous integration and delivery in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+# Continuous integration and delivery for Azure Synapse Workspace
+
 
 ## Overview
 
-Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
+Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. Continuous Delivery (CD) is the process to build, test, configure and deploy from multiple testing or staging environments to a production environment.
 
-In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
+In Azure Synapse workspace, continuous integration and delivery (CI/CD) means moving all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to create or update workspace resources(pools and workspace);  migrate artifacts ( SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
 
--    Automated deployment using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
--    Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
+## Automate continuous integration by using Azure releases
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## CI/CD lifecycle
-
-Below is a sample overview of the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
-
-1.  A development data factory is created and configured with Azure Repos Git. All developers should have permission to author Data Factory resources like pipelines and datasets.
-
-1.  A developer [creates a feature branch](source-control.md#creating-feature-branches) to make a change. They debug their pipeline runs with their most recent changes. For more information on how to debug a pipeline run, see [Iterative development and debugging with Azure Data Factory](iterative-development-debugging.md).
-
-1.  After a developer is satisfied with their changes, they create a pull request from their feature branch to the master or collaboration branch to get their changes reviewed by peers.
-
-1.  After a pull request is approved and changes are merged in the master branch, the changes get published to the development factory.
-
-1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
-
-1.  After the changes have been verified in the test factory, deploy to the production factory by using the next task of the pipelines release.
-
-> [!NOTE]
-> Only the development factory is associated with a git repository. The test and production factories shouldn't have a git repository associated with them and should only be updated via an Azure DevOps pipeline or via a Resource Management template.
-
-The below image highlights the different steps of this lifecycle.
-
-![Diagram of continuous integration with Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
-
-## Automate continuous integration by using Azure Pipelines releases
-
-The following is a guide for setting up an Azure Pipelines release that automates the deployment of a data factory to multiple environments.
+The following is a guide for setting up an Azure release pipeline that automates the deployment of a synapse workspace to multiple environments.
 
 ### Requirements
 
--   An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that uses the [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+- The workspace used for development has been configured with a Git repository, see [Source control in Synapse](source-control.md).
 
--   A data factory configured with Azure Repos Git integration.
+- An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that uses the [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   An [Azure key vault](https://azure.microsoft.com/services/key-vault/) that contains the secrets for each environment.
 
-### Set up an Azure Pipelines release
+### Set up an Azure Release Pipelines release
 
-1.  In [Azure DevOps](https://dev.azure.com/), open the project that's configured with your data factory.
+1.  In [Azure DevOps](https://dev.azure.com/), open the project created for the release.
 
 1.  On the left side of the page, select **Pipelines**, and then select **Releases**.
 
-    ![Select Pipelines, Releases](media/continuous-integration-deployment/continuous-integration-image6.png)
+    ![Select Pipelines, Releases](media/Create-release.png)
 
 1.  Select **New pipeline**, or, if you have existing pipelines, select **New** and then **New release pipeline**.
 
 1.  Select the **Empty job** template.
 
-    ![Select Empty job](media/continuous-integration-deployment/continuous-integration-image13.png)
+    ![Select Empty job](media/create-release-select-empty.png)
 
 1.  In the **Stage name** box, enter the name of your environment.
 
-1.  Select **Add artifact**, and then select the git repository configured with your development data factory. Select the [publish branch](source-control.md#configure-publishing-settings) of the repository for the **Default branch**. By default, this publish branch is `adf_publish`. For the **Default version**, select **Latest from default branch**.
+1.  Select **Add artifact**, and then select the git repository configured with your development synapse workspace and the git repository you used for managing ARM template of pools and workspace.  If you use GitHub as the source, you can create a service connection for your GitHud account and pull repositories. 
+
+    ![GitHub authentication](media/release-creation-authorize-github.png)
+
+1.  your Select the [publish branch](source-control.md#configure-publishing-settings) of the repository for the **Default branch**. By default, this publish branch is `workspace_publish`. For the **Default version**, select **Latest from default branch**.
 
     ![Add an artifact](media/continuous-integration-deployment/continuous-integration-image7.png)
 
