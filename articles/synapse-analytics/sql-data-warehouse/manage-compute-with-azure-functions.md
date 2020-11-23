@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Manage compute with Azure Functions'
-description: How to use Azure Functions to manage the compute of your SQL pool in Azure Synapse Analytics.
+description: How to use Azure Functions to manage the compute of your dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -13,19 +13,19 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Use Azure Functions to manage compute resources in Azure Synapse Analytics SQL pool
+# Use Azure Functions to manage compute resources for your dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
-This tutorial uses Azure Functions to manage compute resources for a SQL pool in Azure Synapse Analytics.
+This tutorial uses Azure Functions to manage compute resources for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 
-In order to use Azure Function App with SQL pool, you must create a [Service Principal Account](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) with contributor access under the same subscription as your SQL pool instance.
+In order to use Azure Function App with a dedicated SQL pool (formerly SQL DW), you must create a [Service Principal Account](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) with contributor access under the same subscription as your dedicated SQL pool (formerly SQL DW) instance.
 
 ## Deploy timer-based scaling with an Azure Resource Manager template
 
 To deploy the template, you need the following information:
 
-- Name of the resource group your SQL pool instance is in
-- Name of the server your SQL pool instance is in
-- Name of your SQL pool instance
+- Name of the resource group your dedicated SQL pool (formerly SQL DW) instance is in
+- Name of the server your dedicated SQL pool (formerly SQL DW) instance is in
+- Name of your dedicated SQL pool (formerly SQL DW) instance
 - Tenant ID (Directory ID) of your Azure Active Directory
 - Subscription ID
 - Service Principal Application ID
@@ -109,17 +109,17 @@ Currently, there are only two scaling functions included within the template. Wi
 5. Set your operation variable to the desired behavior as follows:
 
    ```JavaScript
-   // Resume the SQL pool instance
+   // Resume the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the SQL pool instance
+   // Pause the dedicated SQL pool (formerly SQL DW) instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600c
+   // Scale the dedicated SQL pool (formerly SQL DW)l instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600c"
@@ -164,4 +164,4 @@ Scale up at 8am to DW1000c , scale down once to DW600c at 4pm on the weekdays. P
 
 Learn more about [timer trigger](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions.
 
-Checkout the SQL pool [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
+Checkout the dedicated SQL pool (formerly SQL DW) [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
