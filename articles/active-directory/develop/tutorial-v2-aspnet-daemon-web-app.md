@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 
 # Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform
 
-In this tutorial, you download a daemon code sample that uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
+In this tutorial, you download and run an ASP.NET daemon web app that demonstrates using the OAuth 2.0 client credentials grant to get an access token to call the Microsoft Graph API.
 
 In this tutorial:
 
