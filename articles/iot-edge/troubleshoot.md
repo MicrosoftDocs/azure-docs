@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -41,6 +41,8 @@ The troubleshooting tool runs many checks that are sorted into these three categ
 * *Connection checks* verify that the IoT Edge runtime can access ports on the host device and that all the IoT Edge components can connect to the IoT Hub. This set of checks returns errors if the IoT Edge device is behind a proxy.
 * *Production readiness checks* look for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
+The IoT Edge check tool uses a container to run its diagnostics. The container image, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, is available through the [Microsoft Container Registry](https://github.com/microsoft/containerregistry). If you need to run a check on a device without direct access to the internet, your devices will need access to the container image.
+
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## Gather debug information with 'support-bundle' command
@@ -61,6 +63,8 @@ On Windows:
 iotedge support-bundle --since 6h
 ```
 
+You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
+
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
@@ -69,6 +73,23 @@ iotedge support-bundle --since 6h
 If you're running an older version of IoT Edge, then upgrading may resolve your issue. The `iotedge check` tool checks that the IoT Edge security daemon is the latest version, but does not check the versions of the IoT Edge hub and agent modules. To check the version of the runtime modules on your device, use the commands `iotedge logs edgeAgent` and `iotedge logs edgeHub`. The version number is declared in the logs when the module starts up.
 
 For instructions on how to update your device, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
+
+## Verify the installation of IoT Edge on your devices
+
+You can verify the installation of IoT Edge on your devices by [monitoring the edgeAgent module twin](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins).
+
+To get the latest edgeAgent module twin, run the following command from [Azure Cloud Shell](https://shell.azure.com/):
+
+   ```azurecli-interactive
+   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   ```
+
+This command will output all the edgeAgent [reported properties](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub). Here are some helpful ones monitor the status of the device:
+
+* runtime status
+* runtime start time
+* runtime last exit time
+* runtime restart count
 
 ## Check the status of the IoT Edge security manager and its logs
 
@@ -187,6 +208,8 @@ Once the IoT Edge security daemon is running, look at the logs of the containers
 ```cmd
 iotedge logs <container name>
 ```
+
+You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) call to a module on your device to upload the logs of that module to Azure Blob Storage.
 
 ## View the messages going through the IoT Edge hub
 

@@ -35,7 +35,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 ![Analyzed invoice example](./media/analyze-invoice.png)
 
 
-### Input Requirements 
+### Input requirements 
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
@@ -63,9 +63,9 @@ The response to the Get Analyze Invoice Result operation will be the structured 
 See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice-output.json).
 
 The JSON output has 3 parts: 
-1. `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
-2. `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
-2. `"documentResults"` node contains the invoice specific values that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total and lots more.
+* `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
+* `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
+* `"documentResults"` node contains the invoice specific values that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total and lots more.
 
 ## Example output
 

@@ -25,15 +25,15 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
   > [Learn more about the prebuilt invoice model](concept-invoices.md)
 
-  ![Invoice example](./media/invoice-example.jpg)
+  :::image type="content" source="./media/invoice-example.jpg" alt-text="invoice example" lightbox="./media/invoice-example.jpg":::
 
 - **Enhanced table extraction** - Form Recognizer now provides enhanced table extraction, which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model. Form Recognizer can extract data from tables, including complex tables with merged columns, rows, no borders and more. 
  
-  ![Tables example](./media/tables-example.jpg)
+  :::image type="content" source="./media/tables-example.jpg" alt-text="tables example" lightbox="./media/tables-example.jpg":::
+
  
   > [Learn more about Layout extraction](concept-layout.md)
 
-- **SDK client libraries version 2.1 release** - The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
 - **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 - **Text line style indication (handwritten/print) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 - **Quality improvements** - Extraction improvements including single digit extraction improvements.

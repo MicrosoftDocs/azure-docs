@@ -88,7 +88,7 @@ The following table shows you the ACL entries required to enable a security prin
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
 > [!IMPORANT] 
-> This table assumes that you are using **only** ACLs without any Azure RBAC role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -266,7 +266,7 @@ If HNS is turned OFF, the Azure Azure RBAC authorization rules still apply.
 
 To learn how the system evaluates Azure RBAC and ACLs together to make authorization decisions for storage account resources, see [How permissions are evaluated](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### What are the limits for Azure RBAC role assignments and ACL entries?
+### What are the limits for Azure role assignments and ACL entries?
 
 The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories). Use security groups for ACL assignments. By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. 
 
