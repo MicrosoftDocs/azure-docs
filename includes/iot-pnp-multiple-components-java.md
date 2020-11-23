@@ -1,19 +1,10 @@
 ---
-title: Tutorial - Connect IoT Plug and Play sample Java component device code to Azure IoT Hub | Microsoft Docs
-description: Tutorial - Build and run IoT Plug and Play sample Java device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 07/14/2020
-ms.topic: tutorial
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Tutorial: Connect a sample IoT Plug and Play multiple component device application to IoT Hub (Java)
-
-[!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
 This tutorial shows you how to build a multiple component sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure CLI to view the telemetry it sends. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution builder can use the Azure CLI to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
@@ -21,7 +12,7 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 
@@ -30,7 +21,7 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ## Download the code
 
-If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](quickstart-connect-device-java.md), you've already cloned the repository.
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](../articles/iot-pnp/quickstart-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Java SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
@@ -50,7 +41,7 @@ mvn install -T 2C -DskipTests
 
 ## Run the device sample
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To run the sample application, navigate to the *\device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample* folder and run the following command:
 
@@ -64,11 +55,11 @@ The device is now ready to receive commands and property updates, and has starte
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+[!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-pnp/concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 The device code uses the standard `DeviceClient` class to connect to your IoT hub. The device sends the model ID of the DTDL model it implements in the connection request. A device that sends a model ID is an IoT Plug and Play device:
 
@@ -136,15 +127,8 @@ The `PnpHelper` class contains other sample methods that you can use with a mult
 
 Use the Azure IoT explorer tool to view the telemetry and properties from the two thermostat components:
 
-:::image type="content" source="media/tutorial-multiple-components-java/multiple-component.png" alt-text="Multiple component device in Azure IoT explorer":::
+:::image type="content" source="media/iot-pnp-multiple-components-java/multiple-component.png" alt-text="Multiple component device in Azure IoT explorer":::
 
 You can also use the Azure IoT explorer tool to call commands in either of the two thermostat components, or in the default component.
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
-## Next steps
-
-In this tutorial, you've learned how to connect an IoT Plug and Play device with components to an IoT hub. To learn more about IoT Plug and Play device models, see:
-
-> [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device-csharp.md)
+[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

@@ -1,26 +1,16 @@
 ---
-title: Quickstart - Connect IoT Plug and Play sample Node.js device code to Azure IoT Hub | Microsoft Docs
-description: Quickstart - Use Node.js to build and run IoT Plug and Play sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 07/10/2020
-ms.topic: quickstart
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-ms.custom: mvc, devx-track-js
-
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Quickstart: Connect a sample IoT Plug and Play device application to IoT Hub (Node.js)
-
-[!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in Node.js and is included in the Azure IoT device SDK for Node.js. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -58,7 +48,7 @@ You use the device SDK to build the included sample code. The application you bu
 
 ## Run the sample device
 
-This sample implements a simple IoT Plug and Play thermostat device. The model this sample implements doesn't use IoT Plug and Play [components](concepts-components.md). The [DTDL model file for the thermostat device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) defines the telemetry, properties, and commands the device implements.
+This sample implements a simple IoT Plug and Play thermostat device. The model this sample implements doesn't use IoT Plug and Play [components](../articles/iot-pnp/concepts-components.md). The [DTDL model file for the thermostat device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) defines the telemetry, properties, and commands the device implements.
 
 Open the _simple_thermostat.js_ file. In this file, you can see how to:
 
@@ -76,7 +66,7 @@ In the main function, you can see how it all comes together:
 1. Get the devices twin and update the reported properties.
 1. Enable the desired property update handler.
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
 
@@ -88,7 +78,7 @@ node simple_thermostat.js
 
 You see the following output, indicating the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
-![Device confirmation messages](media/quickstart-connect-device-node/device-confirmation-node.png)
+![Device confirmation messages](media/iot-pnp-connect-device-node/device-confirmation-node.png)
 
 Keep the sample running as you complete the next steps.
 
@@ -96,11 +86,4 @@ Keep the sample running as you complete the next steps.
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
-
-## Next steps
-
-In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
-
-> [!div class="nextstepaction"]
-> [Interact with an IoT Plug and Play device that's connected to your solution](quickstart-service-node.md)
+[!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]

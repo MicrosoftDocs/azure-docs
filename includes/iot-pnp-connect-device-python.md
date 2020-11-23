@@ -1,26 +1,16 @@
 ---
-title: Quickstart - Connect IoT Plug and Play sample Python device code to Azure IoT Hub | Microsoft Docs
-description: Quickstart - Use Python to build and run IoT Plug and Play sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 7/14/2020
-ms.topic: quickstart
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-ms.custom: mvc, devx-track-azurecli
-
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Quickstart: Connect a sample IoT Plug and Play device application to IoT Hub (Python)
-
-[!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written for Python and is included in the Azure IoT Hub Device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
 
@@ -68,7 +58,7 @@ Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
     1. Disables all the listeners and tasks, and exist the loop when you press **Q** or **q**.
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md).
 
@@ -93,11 +83,4 @@ Keep the sample running as you complete the next steps.
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
-
-## Next steps
-
-In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
-
-> [!div class="nextstepaction"]
-> [Interact with an IoT Plug and Play device that's connected to your solution](quickstart-service-python.md)
+[!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]

@@ -1,26 +1,16 @@
 ---
-title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (Java) | Microsoft Docs
-description: Quickstart - Use Java to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 9/17/2020
-ms.topic: quickstart
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-ms.custom: mvc
-
-# As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Quickstart: Interact with an IoT Plug and Play device that's connected to your solution (Java)
-
-[!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
 IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Java to connect to and control an IoT Plug and Play device that's connected to your solution.
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
@@ -29,7 +19,7 @@ To complete this quickstart on Windows, install the following software on your l
 
 ### Clone the SDK repository with the sample code
 
-If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](quickstart-connect-device-java.md), you've already cloned the repository.
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](../articles/iot-pnp/quickstart-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
@@ -39,7 +29,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 
 ## Build and run the sample device
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md).
 
@@ -65,7 +55,7 @@ The device is now ready to receive commands and property updates, and has starte
 
 ## Run the sample solution
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-pnp/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
@@ -73,7 +63,7 @@ In [Set up your environment for the IoT Plug and Play quickstarts and tutorials]
 In this quickstart, you use a sample IoT solution written in Java to interact with the sample device you just set up.
 
 > [!NOTE]
-> This sample uses the **com.microsoft.azure.sdk.iot.service** namespace from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](concepts-developer-guide-service.md).
+> This sample uses the **com.microsoft.azure.sdk.iot.service** namespace from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](../articles/iot-pnp/concepts-developer-guide-service.md).
 
 1. Open another terminal window to use as your **service** terminal.
 
@@ -133,10 +123,3 @@ System.out.println("Method result status is: " + result.getStatus());
 ```
 
 The device output shows how the device responds to this command.
-
-## Next steps
-
-In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about IoT Plug and Play device models, see:
-
-> [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device-csharp.md)

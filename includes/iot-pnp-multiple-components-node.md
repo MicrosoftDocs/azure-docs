@@ -1,26 +1,16 @@
 ---
-title: Tutorial - Connect IoT Plug and Play sample Node.js component device code to Azure IoT Hub | Microsoft Docs
-description: Tutorial - Build and run IoT Plug and Play sample Node.js device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: olivakar
-ms.author: olkar
-ms.date: 07/10/2020
-ms.topic: tutorial
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-ms.custom: devx-track-js
-
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Tutorial: Connect a sample IoT Plug and Play multiple component device application to IoT Hub (Node.js)
-
-[!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 To complete this tutorial, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -32,7 +22,7 @@ node --version
 
 ## Download the code
 
-If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Node)](quickstart-connect-device-node.md), you've already cloned the repository.
+If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Node)](../articles/iot-pnp/quickstart-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
@@ -58,7 +48,7 @@ Navigate to the *azure-iot-sdk-node\device\samples\pnp* folder.
 
 The *azure-iot-sdk-node\device\samples\pnp* folder contains the sample code for the IoT Plug and Play temperature controller device.
 
-The code in the *pnpTemperatureController.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+The code in the *pnpTemperatureController.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-pnp/concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 Open the *pnpTemperatureController.js* file in a code editor of your choice. The sample code shows how to:
 
@@ -104,7 +94,7 @@ Open the *pnpTemperatureController.js* file in a code editor of your choice. The
 
   - Disables all the listeners and tasks, and exits the loop when you press **Q** or **q**.
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
 
@@ -116,7 +106,7 @@ node pnpTemperatureController.js
 
 You see the following output, indicating the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
-![Device confirmation messages](media/tutorial-multiple-components-node/multiple-component.png)
+![Device confirmation messages](media/iot-pnp-multiple-components-node/multiple-component.png)
 
 Keep the sample running as you complete the next steps.
 
@@ -124,13 +114,6 @@ Keep the sample running as you complete the next steps.
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+[!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
-## Next steps
-
-In this tutorial, you've learned how to connect an IoT Plug and Play device with components to an IoT hub. To learn more about IoT Plug and Play device models, see:
-
-> [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device-csharp.md)
+[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

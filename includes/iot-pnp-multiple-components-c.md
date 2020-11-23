@@ -1,25 +1,16 @@
 ---
-title: Tutorial - Connect IoT Plug and Play sample C device code to Azure IoT Hub | Microsoft Docs
-description: Tutorial - Build and run IoT Plug and Play sample C device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 07/22/2020
-ms.topic: tutorial
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
-services: iot-pnp
-
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+ms.topic: include
+ms.date: 11/20/2020
 ---
-
-# Tutorial: Connect an IoT Plug and Play multiple component device applications running on Linux or Windows to IoT Hub (C)
-
-[!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
-[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+[!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
 You can complete this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
@@ -55,7 +46,7 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ## Download the code
 
-If you completed the [Quickstart: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)](quickstart-connect-device-c.md) you've already downloaded the code.
+If you completed the [Quickstart: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)](../articles/iot-pnp/quickstart-connect-device.md) you've already downloaded the code.
 
 In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
 
@@ -78,7 +69,7 @@ You can build and run the code using Visual Studio or `cmake` at the command lin
 1. Open the root folder of the cloned repository. After a couple of seconds, the **CMake** support in Visual Studio creates all you need to run and debug the project.
 1. When Visual Studio is ready, in **Solution Explorer**, navigate to the sample *iothub_client/samples/pnp/pnp_temperature_controller/*.
 1. Right-click on the *pnp_temperature_controller.c* file and select **Add Debug Configuration**. Select **Default**.
-1. Visual Studio opens the *launch.vs.json* file. Edit this file as shown in the following snippet to set the required environment variables. You made a note of the scope ID and enrollment primary key when you completed [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md):
+1. Visual Studio opens the *launch.vs.json* file. Edit this file as shown in the following snippet to set the required environment variables. You made a note of the scope ID and enrollment primary key when you completed [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-pnp/set-up-environment.md):
 
     ```json
     {
@@ -126,7 +117,7 @@ To build the sample:
     cmake --build .
     ```
 
-[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+[!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/pnp/readme.md).
 
@@ -152,11 +143,11 @@ The device is now ready to receive commands and property updates, and has starte
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+[!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](../articles/iot-pnp/concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 ### IoT Plug and Play helper functions
 
@@ -287,11 +278,4 @@ iothubResult = IoTHubDeviceClient_LL_SendEventAsync(deviceClientLL, messageHandl
 
 The `main` function finally destroys the different components and closes the connection to the hub.
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
-## Next steps
-
-In this tutorial, you've learned how to connect an IoT Plug and Play device with components to an IoT hub. To learn more about IoT Plug and Play device models, see:
-
-> [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device-csharp.md)
+[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]
