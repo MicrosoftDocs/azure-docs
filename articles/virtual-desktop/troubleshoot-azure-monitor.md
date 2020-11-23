@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Monitor Windows Virtual Desktop - Azure
+title: Troubleshoot Monitor Windows Virtual Desktop preview - Azure
 description: How to troubleshoot issues with Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
@@ -7,9 +7,12 @@ ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ---
-# Troubleshoot Azure Monitor for Windows Virtual Desktop
+# Troubleshoot Azure Monitor for Windows Virtual Desktop (preview)
 
-This article presents known issues and solutions for common problems in Azure Monitor for Windows Virtual Desktop.
+>[!IMPORTANT]
+>Azure Monitor for Windows Virtual Desktop is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article presents known issues and solutions for common problems in Azure Monitor for Windows Virtual Desktop (preview).
 
 ## The configuration workbook isn't working properly
 
@@ -29,7 +32,7 @@ If you don't have read access to the correct subscriptions, they won't show up i
 
 ## My data isn't displaying properly
 
-If your data isn't displaying properly, something may have happened during the Azure Monitor configuration process. First, make sure you've filled out all fields in the configuration workbook as described in Set up Azure Monitor for Windows Virtual Desktop. You can change settings for both new and existing environments at any time. If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
+If your data isn't displaying properly, something may have happened during the Azure Monitor configuration process. First, make sure you've filled out all fields in the configuration workbook as described in [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md). You can change settings for both new and existing environments at any time. If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
 
 If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. 
 
@@ -45,7 +48,7 @@ Customized templates won't update when the product group updates the original te
 
 ## I can't interpret the data
 
-Learn more about data terms at the Azure Monitor for Window Virtual Desktop glossary.
+Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glossary](azure-monitor-glossary.md).
 
 ## The data I need isn't available
 
@@ -70,4 +73,4 @@ These are the issues we're currently aware of and working to fix:
 
 ## Next steps
 
-If you're unsure how to interpret the data, check out the references. If you want to learn more about common terms, check out our glossary.
+If you're unsure how to interpret the data or want to learn more about common terms, check out the [Azure Monitor for Windows Virtual Desktop glossary](azure-monitor-glossary.md). If you want to learn how to set up and use Azure Monitor for Windows Virtual Desktop, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).

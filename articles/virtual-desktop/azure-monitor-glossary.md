@@ -1,5 +1,5 @@
 ---
-title: Monitor Windows Virtual Desktop glossary - Azure
+title: Monitor Windows Virtual Desktop preview glossary - Azure
 description: A glossary of terms and concepts related to Azure Monitor for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -10,9 +10,12 @@ ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ---
-# Azure Monitor for Windows Virtual Desktop glossary
+# Azure Monitor for Windows Virtual Desktop (preview) glossary
 
-This article lists and briefly describes key terms and concepts related to Azure Monitor for Windows Virtual Desktop.
+>[!IMPORTANT]
+>Azure Monitor for Windows Virtual Desktop is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article lists and briefly describes key terms and concepts related to Azure Monitor for Windows Virtual Desktop (preview).
 
 ## Alerts
 
@@ -187,7 +190,7 @@ To learn more about Windows events, see [Windows event records properties](../az
 
 To get started with Azure Monitor for Windows Virtual Desktop, check out these articles:
 
-- How to use Azure Monitor for Windows Virtual Desktop
+- [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md)
 - [Azure Monitor for Windows Virtual Desktop troubleshooting](troubleshoot-azure-monitor.md)
 
 You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Use Azure Advisor with Windows Virtual Desktop](azure-advisor.md).
