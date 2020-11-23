@@ -33,7 +33,7 @@ The following is a guide for setting up an Azure release pipeline that automates
 
 -   An [Azure key vault](https://azure.microsoft.com/services/key-vault/) that contains the secrets for each environment.
 
-### Set up an Azure Release Pipelines release
+### Set up an Azure Release Pipelines Artifacts
 
 1.  In [Azure DevOps](https://dev.azure.com/), open the project created for the release.
 
@@ -49,40 +49,44 @@ The following is a guide for setting up an Azure release pipeline that automates
 
 1.  In the **Stage name** box, enter the name of your environment.
 
-1.  Select **Add artifact**, and then select the git repository configured with your development synapse workspace and the git repository you used for managing ARM template of pools and workspace.  If you use GitHub as the source, you can create a service connection for your GitHud account and pull repositories. 
+1.  Select **Add artifact**, and then select the git repository configured with your development synapse workspace and the git repository you used for managing ARM template of pools and workspace.  If you use GitHub as the source, you can create a service connection for your GitHud account and pull repositories. For more information about [service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
 
-    ![GitHub authentication](media/release-creation-authorize-github.png)
+    ![Add publish branch](media/release-creation-github.png)
 
-1.  your Select the [publish branch](source-control.md#configure-publishing-settings) of the repository for the **Default branch**. By default, this publish branch is `workspace_publish`. For the **Default version**, select **Latest from default branch**.
+1.  Select the branch of ARM template for resources update. For the **Default version**, select **Latest from default branch**.
 
-    ![Add an artifact](media/continuous-integration-deployment/continuous-integration-image7.png)
+    ![Add ARM template](media/release-creation-arm-branch.png)
 
-1.  Add an Azure Resource Manager Deployment task:
+1.  Select the [publish branch](source-control.md#configure-publishing-settings) of the repository for the **Default branch**. By default, this publish branch is `workspace_publish`. For the **Default version**, select **Latest from default branch**.
+
+    ![Add an artifact](media/release-creation-publish-branch.png)
+
+### Set up an Stage Task for resource create and update 
+
+1.  Add an Azure Resource Manager Deployment task to create or update resources:
 
     a.  In the stage view, select **View stage tasks**.
 
-    ![Stage view](media/continuous-integration-deployment/continuous-integration-image14.png)
+    ![Stage view](media/release-creation-stage-view.png)
 
     b.  Create a new task. Search for **ARM Template Deployment**, and then select **Add**.
 
-    c.  In the Deployment task, select the subscription, resource group, and location for the target data factory. Provide credentials if necessary.
+    c.  In the Deployment task, select the subscription, resource group, and location for the target workspace. Provide credentials if necessary.
 
     d.  In the **Action** list, select **Create or update resource group**.
 
-    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the <FactoryName> folder of the adf_publish branch.
+    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template of your target workspace
 
-    f.  Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the <FactoryName> folder of the adf_publish branch.
+    f.  Select **…** next to the **Template parameters** box to choose the parameters file.
 
-    g.  Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target data factory. For credentials that come from Azure Key Vault, enter the secret's name between double quotation marks. For example, if the secret's name is cred1, enter **"$(cred1)"** for this value.
+    g.  Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace. 
 
     h. Select **Incremental** for the **Deployment mode**.
 
     > [!WARNING]
     > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../azure-resource-manager/templates/deployment-modes.md)
 
-    ![Data Factory Prod Deployment](media/continuous-integration-deployment/continuous-integration-image9.png)
-
-1.  Save the release pipeline.
+### Set up an Stage Task for workspace migration 
 
 1. To trigger a release, select **Create release**. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
