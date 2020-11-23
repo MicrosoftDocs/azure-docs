@@ -130,6 +130,8 @@
       href: how-to-request-transit-data.md
     - name: Request real-time public transit data
       href: how-to-request-real-time-data.md
+    - name: Request elevation data
+      href: how-to-request-elevation-data.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
