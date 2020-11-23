@@ -15,7 +15,7 @@ This article will describe:
 * Configuration of Synapse workspaces to enable encryption with a customer managed key.
 * Managing keys used to encrypt data in workspaces.
 ## Encryption of data at rest
-A complete Encryption-at-Rest solution ensures the data is never persisted in un-encrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](../azure/key-vault/general/overview), which allows you to take ownership of key management and rotation.
+A complete Encryption-at-Rest solution ensures the data is never persisted in un-encrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](/azure/key-vault/general/overview), which allows you to take ownership of key management and rotation.
 
 The first layer of encryption for Azure services is enabled with platform-managed keys. By default, Azure Disks, and data in Azure Storage accounts are automatically encrypted at rest. Learn more about how encryption is used in Microsoft Azure in the [Azure Encryption Overview](/articles/security/fundamentals/encryption-overview).
 ## Azure Synapse encryption
@@ -61,5 +61,5 @@ SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in wo
 ## Next Steps
 Configure double encryption for your workspace through the portal.
 
-[Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../synapse-analytics/policy-reference)
+[Use built-in Azure Policies to implement encryption protection for Synapse workspaces](/synapse-analytics/policy-reference)
 
