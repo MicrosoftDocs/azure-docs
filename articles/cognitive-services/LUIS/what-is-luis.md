@@ -111,7 +111,7 @@ Tools to quickly and easily use LUIS with a bot:
 
 ## Integrate with a bot
 
-Use the [Azure Bot service](/azure/bot-service/?view=azure-bot-service-4.0 "Azure Bot service") with the [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") to build and deploy a chat bot. Design and develop with the graphical interface tool, [Composer](/composer/ "Composer"), or [working bot samples](https://github.com/microsoft/BotBuilder-Samples "working bot samples") designed for top bot scenarios.
+Use the [Azure Bot service](/azure/bot-service/ "Azure Bot service") with the [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") to build and deploy a chat bot. Design and develop with the graphical interface tool, [Composer](/composer/ "Composer"), or [working bot samples](https://github.com/microsoft/BotBuilder-Samples "working bot samples") designed for top bot scenarios.
 
 ## Integrate with other Cognitive Services
 
@@ -128,7 +128,7 @@ Learn about LUIS with hands-on quickstarts using the [portal](get-started-portal
 
 ## Deploy on premises using Docker containers
 
-[Use LUIS containers](luis-container-howto.md) to deploy API features on-premises. These Docker containers enable you to bring Cognitive Services closer to your data for compliance, security or other operational reasons.
+[Use LUIS containers](luis-container-howto.md) to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons.
 
 ## Next steps
 

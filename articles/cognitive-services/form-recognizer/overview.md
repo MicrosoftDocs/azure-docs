@@ -101,11 +101,6 @@ The Business Cards model enables you to extract information such as the person's
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
 
-## Deploy on premises using Docker containers
-
-[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
-
-
 ## Get started
 
 Use the [Sample Form Recognizer tool](https://fott.azurewebsites.net/) or follow a quickstart to get started extracting data from your forms. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
@@ -153,6 +148,10 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## Deploy on premises using Docker containers
+
+[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
 
 ## Data privacy and security
 
