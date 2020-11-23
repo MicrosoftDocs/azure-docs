@@ -328,6 +328,7 @@ Azure Security Center provides unified security management and advanced threat p
 
 ## Next steps
 
+* [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [Secure inferencing environment with Azure Virtual Network](how-to-secure-inferencing-vnet.md)
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)

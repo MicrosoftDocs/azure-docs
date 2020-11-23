@@ -28,6 +28,9 @@ To complete this how-to guide, you need:
 
 Follow these steps to perform major version upgrade for your Azure Database of MySQL 5.6 server
 
+> [!IMPORTANT]
+> We recommend to perform upgrade first on restored copy of the server rather than upgrading production directly. See [how to perform point-in-time restore](howto-restore-server-portal.md#point-in-time-restore).
+
 1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL 5.6 server.
 
 2. From the **Overview** page, click the **Upgrade** button in the toolbar.

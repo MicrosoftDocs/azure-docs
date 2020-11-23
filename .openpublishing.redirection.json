@@ -11,6 +11,16 @@
       "redirect_document_id": false
     },
 	{
+      "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-network-performance-monitor.md",
+      "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-connection-monitor.md",
+      "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic",
+      "redirect_document_id": false
+    },
+	{
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
@@ -1390,11 +1400,6 @@
       "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/saas-apps/rstudio-server-pro-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/rstudio-connect-tutorial",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/automation/change-tracking.md",
@@ -13495,6 +13500,46 @@
     {
       "source_path": "articles/virtual-machines/windows/how-to-enable-write-accelerator.md",
       "redirect_url": "/azure/virtual-machines/how-to-enable-write-accelerator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-cli.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-errors.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-overview.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/migration-classic-resource-manager-plan.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-ps.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-errors.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-overview.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-plan.md",
+      "redirect_url": "/azure/virtual-machines/migration-classic-resource-manager-plan",
       "redirect_document_id": false
     },
     {
@@ -33743,6 +33788,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/postgresql/howto-hyperscale-scaling.md",
+      "redirect_url": "/azure/postgresql/howto-hyperscale-scale-grow",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-adpetime-tutorial.md",
       "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
       "redirect_document_id": false
@@ -48346,6 +48396,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/overview-faq.md",
+      "redirect_url": "/azure/synapse-analytics/overview-what-is",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/overview-cheat-sheet.md",
+      "redirect_url": "/azure/synapse-analytics/overview-terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql/access-control.md",
+      "redirect_url": "/azure/synapse-analytics/security/access-control",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/user/index.yml",
       "redirect_url": "/azure-stack/user",
       "redirect_document_id": false
@@ -49718,6 +49783,101 @@
     {
       "source_path": "articles/iot-pnp/concepts-limits-quotas.md",
       "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-c.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-csharp.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-java.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-node.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-python.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-c.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-csharp.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-java.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-python.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-c.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-csharp.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-java.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-node.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-python.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-csharp.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-java.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-python.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
       "redirect_document_id": false
     },
     {
@@ -59351,6 +59511,11 @@
     {
       "source_path": "articles/azure-monitor/app/powershell-alerts.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/how-to-create-transform",
       "redirect_document_id": false
     }
   ]

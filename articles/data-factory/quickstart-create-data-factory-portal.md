@@ -151,6 +151,7 @@ In this procedure, you create and validate a pipeline with a copy activity that 
 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** toolbox, expand **Move & Transform**. Drag the **Copy Data** activity from the **Activities** toolbox to the pipeline designer surface. You can also search for activities in the **Activities** toolbox. Specify **CopyFromBlobToBlob** for **Name**.
+
    ![Creating a copy data activity](./media/quickstart-create-data-factory-portal/copy-activity.png)
 
 1. Switch to the **Source** tab in the copy activity settings, and select **InputDataset** for **Source Dataset**.
@@ -158,6 +159,7 @@ In this procedure, you create and validate a pipeline with a copy activity that 
 1. Switch to the **Sink** tab in the copy activity settings, and select **OutputDataset** for **Sink Dataset**.
 
 1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the **>>** (right arrow) button. 
+
    ![Validate a pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
 ## Debug the pipeline
@@ -175,6 +177,7 @@ In this step, you debug the pipeline before deploying it to Data Factory.
 In this procedure, you deploy entities (linked services, datasets, pipelines) to Azure Data Factory. Then, you manually trigger a pipeline run. 
 
 1. Before you trigger a pipeline, you must publish entities to Data Factory. To publish, select **Publish all** on the top. 
+
     ![Publish all](./media/quickstart-create-data-factory-portal/publish-all.png)
 
 1. To trigger the pipeline manually, select **Add Trigger** on the pipeline toolbar, and then select **Trigger Now**. On the **Pipeline run** page, select **Finish**.
