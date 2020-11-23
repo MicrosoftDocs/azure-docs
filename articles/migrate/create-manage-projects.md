@@ -49,10 +49,10 @@ Wait a few minutes for the Azure Migrate project to deploy.
 
 In the portal, you can select the geography in which you want to create the project. If you want to create the project within a specific Azure region, using the following API command to create the  project.
 
-    ```
-    PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}" 
+```rest
+PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
+``````
 
-    ```
 
 ## Create additional projects
 

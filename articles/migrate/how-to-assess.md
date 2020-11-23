@@ -64,12 +64,12 @@ If you created an Azure Migrate project using the **Explore more** > **WebApps**
 
 1. If the Web App Assessment tool isn't in the project, in **Web Apps** > **Assessment tools**, select **Click here**.
     
-    ![Add web app assessment tools](./media/how-to-migrate/no-web-app-assessment-tool.png)
+    ![Add web app assessment tools](./media/how-to-assess/no-web-app-assessment-tool.png)
 
 
 2. In **Azure Migrate** > **Add tools**, select the Web app assessment tool. Then select **Add tool**.
 
-    ![Select the database migration tool from list](./media/how-to-migrate/select-web-app-assessment-tool.png)
+    ![Select the database migration tool from list](./media/how-to-assess/select-web-app-assessment-tool.png)
 
  
 
