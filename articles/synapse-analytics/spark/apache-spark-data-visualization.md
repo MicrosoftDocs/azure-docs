@@ -13,7 +13,7 @@ ms.date: 09/13/2020
 # Visualize data
 Azure Synapse is an integrated analytics service that accelerates time to insight, across data warehouses and big data analytics systems. Data visualization is a key component in being able to gain insight into your data. It helps make big and small data easier for humans to understand. It also makes it easier to detect patterns, trends, and outliers in groups of data. 
 
-When using Apache Spark in Azure Synapse Analytics, there are various built-in options to help you visualize your data, including Synapse notebook chart options, access to popular open source libraries, and integration with Synapse SQL and PowerBI.
+When using Apache Spark in Azure Synapse Analytics, there are various built-in options to help you visualize your data, including Synapse notebook chart options, access to popular open-source libraries, and integration with Synapse SQL and Power BI.
 
 ## Notebook chart options
 When using an Azure Synapse notebook, you can turn your tabular results view into a customized chart using chart options. Here, you can visualize your data without having to write any code. 
@@ -25,7 +25,7 @@ To access the chart options:
 1. The output of ```%%sql``` magic commands appear in the rendered table view by default. You can also call ```display(df)``` on Spark DataFrames or Resilient Distributed Datasets (RDD) function to produce the rendered table view. 
    
 2. Once you have a rendered table view, switch to the Chart View.
-   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
+   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. You can now customize your visualization by specifying the following values:
    | Configuration | Description |
@@ -44,14 +44,14 @@ To access the chart options:
 
 ### display(df) statistic details
 You can use <code>display(df, summary = true)</code> to check the statistics summary of a given Apache Spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its minimum value, maximum value, mean value and standard deviation.
-    ![builtin-charts-summary](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
+    ![built-in-charts-summary](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
    
 ### displayHTML(df) option
 Azure Synapse Analytics notebooks support HTML graphics using the ```displayHTML``` function.
 
 The following image is an example of creating visualizations using [D3.js](https://d3js.org/).
 
-   ![d3-js-example](../media/apache-spark-data-viz/d3_boxplot.png#lightbox)
+   ![d3-js-example](../media/apache-spark-data-viz/d3-boxplot.png#lightbox)
 
 Run the following code to create the visualization above.
 
@@ -140,7 +140,7 @@ svg
 ```
 
 ## Popular Libraries
-When it comes to data visualization, Python offers multiple graphing libraries that come packed with many different features. By default, every Apache Spark Pool in Azure Synapse Analytics contains a set of curated and popular open source libraries. You can also add or manage additional libraries & versions by using the Azure Synapse Analytics library management capabilities. 
+When it comes to data visualization, Python offers multiple graphing libraries that come packed with many different features. By default, every Apache Spark Pool in Azure Synapse Analytics contains a set of curated and popular open-source libraries. You can also add or manage additional libraries & versions by using the Azure Synapse Analytics library management capabilities. 
 
 ### Bokeh
 You can render HTML or interactive libraries, like **bokeh**, using the ```displayHTML(df)```. 
@@ -184,7 +184,7 @@ displayHTML(html)
 You can render standard plotting libraries, like Matplotlib, using the built-in rendering functions for each library.
 
 The following image is an example of creating a bar chart using **Matplotlib**.
-   ![matplotlib-example](../media/apache-spark-data-viz/matplotlib_example.png#lightbox)
+   ![matplotlib-example](../media/apache-spark-data-viz/matplotlib-example.png#lightbox)
 
 Run the following sample code to draw the image above.
 
@@ -218,10 +218,10 @@ Beyond these libraries, the Azure Synapse Analytics Runtime also includes the fo
 
 You can visit the Azure Synapse Analytics Runtime [documentation](./spark/../apache-spark-version-support.md) for the most up to date information about the available libraries and versions.
 
-## Connect to PowerBI using Apache Spark & SQL On-Demand
+## Connect to Power BI using Apache Spark & SQL On-Demand
 Azure Synapse Analytics integrates deeply with Power BI allowing data engineers to build analytics solutions.
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview) and SQL on-demand engine (preview). Using the [shared metadata model](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to PowerBI to easily query your synced Spark tables.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview) and SQL on-demand engine (preview). Using the [shared metadata model](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to Power BI to easily query your synced Spark tables.
 
 
 ## Next steps

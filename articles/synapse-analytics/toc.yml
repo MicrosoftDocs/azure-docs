@@ -1012,6 +1012,10 @@
     items:
     - name: Create a new Azure Machine Learning linked service
       href: machine-learning/quickstart-integrate-azure-machine-learning.md
+  - name: Concepts
+    items:
+    - name: Train models
+      href: ./spark/apache-spark-machine-learning-training.md
   - name: Tutorials
     items:
     - name: Visualize data with Apache Spark

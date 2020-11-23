@@ -110,7 +110,7 @@ taxi_df.show(10)
    As you can see, this will create a new dataframe with additional columns for the day of the month, pickup hour, weekday, and total trip time. 
 
 
-![Picture of taxi dataframe.](./media/apache-spark-machine-learning-aml-notebook/aml-dataset.png)
+![Picture of taxi dataframe.](./media/apache-spark-machine-learning-aml-notebook/aml-dataset.png#lightbox)
 
 ## Generate test and validation datasets
 
@@ -256,7 +256,7 @@ print(rmse)
 Root Mean Square Error:
 2.309997102577151
 ```
-   The root-mean-square error is a good measure of how accurately the model predicts the response. From the results , you see that the model is fairly good at predicting taxi fares from the data set's features, typically within +- $2.00
+The root-mean-square error is a good measure of how accurately the model predicts the response. From the results , you see that the model is fairly good at predicting taxi fares from the data set's features, typically within +- $2.00
 
 3. Run the following code to calculate mean absolute percent error (MAPE). This metric expresses accuracy as a percentage of the error. It does this by calculating an absolute difference between each predicted and actual value and then summing all the differences. Then, it expresses that sum as a percent of the total of the actual values.
 
@@ -288,7 +288,7 @@ Model MAPE:
 Model Accuracy:
 0.9634492896151263
 ```
-   From the two prediction accuracy metrics, you see that the model is fairly good at predicting taxi fares from the data set's features. 
+From the two prediction accuracy metrics, you see that the model is fairly good at predicting taxi fares from the data set's features. 
 
 4. After fitting a linear regression model, we will now need to determine how well the model fits the data. To do this, we will plot the actual fare values against the predicted output. In addition, we will also calculate the R-squared measure to understand how close the data is to the fitted regression line.
 
