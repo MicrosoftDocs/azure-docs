@@ -88,7 +88,7 @@
       href: migrate-appliance-architecture.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
-  - Assess
+  - name: Assess
     items:
     - name: Assessment overview (migrate to Azure VMs)
       href: concepts-assessment-calculation.md
@@ -96,7 +96,7 @@
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Best practices for assessments
       href: best-practices-assessment.md
-  - Migrate
+  - name: Migrate
     items:
     - name: Build a migration plan
       href: concepts-migration-planning.md
