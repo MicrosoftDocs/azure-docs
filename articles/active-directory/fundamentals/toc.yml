@@ -99,15 +99,15 @@
           href: resilience-in-hybrid.md
         - name: Build resilience in application access with Application Proxy
           href: resilience-on-prem-access.md
-      - name: B2C guidance
+      - name: Azure AD B2C guidance
         items:
-        - name: B2C introduction to resilience
+        - name: Azure AD B2C introduction to resilience
           href: resilience-b2c.md
         - name: Build resilience in end-user experience
           href: resilient-end-user-experience.md
         - name: Build resilience in interfaces with external processes
           href: resilient-external-processes.md
-        - name: B2C developer best practices
+        - name: Azure AD B2C developer best practices
           href: resilience-b2c-developer-best-practices.md
         - name: Build resilience through monitoring and analytics
           href: resilience-with-monitoring-alerting.md
