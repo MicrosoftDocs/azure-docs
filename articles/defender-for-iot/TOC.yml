@@ -177,10 +177,24 @@
         href: how-to-gain-insight-into-devices-discovered-by-a-specific-sensor.md
     - name: Work with maps
       href: how-to-work-with-maps.md
-    - name: Work with alerts
+    - name: Work with alerts detected by a sensor
       items:
-      - name: Work with alerts sensor
+      - name: Work with alert sensor
         href: how-to-work-with-alerts-sensor.md
+      - name: Views alerts
+        href: how-to-view-alerts.md
+      - name: View information provided in alerts
+        href: how-to-view-information-provided-in-alerts.md
+      - name: Investigate alert events
+        href: how-to-investigate-alert-events.md
+      - name: Manage the alert event
+        href: how-to-manage-the-alert-event.md
+      - name: Accelerate alert incident response
+        href: how-to-accelerate-alert-incident-response.md
+      - name: Forward alert information to partners
+        href: how-to-forward-alert-information-to-partners.md
+      - name: Customized alert rules
+        href: how-to-customized-alert-rules.md
       - name: Work with alerts on-premises management console
         href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information

@@ -229,11 +229,11 @@ When the connection is established, the BIOS is configurable.
 
 To configure Dell BIOS:
 
-1. [Configure iDRAC IP](#configure-idrac-ip)
+1. [Configure iDRAC IP address](#configure-idrac-ip)
 
 2. [Import the BIOS Configuration File](#import-the-bios-configuration-file)
 
-#### Configure iDRAC IP
+#### Configure iDRAC IP address
 
 1. Power up the sensor.
 
@@ -246,9 +246,9 @@ To configure Dell BIOS:
    > [!NOTE]
    > During the installation you must configure the default iDRAC IP address and password mentioned in the following steps. After the installation, you change these definitions.
 
-5. Change the Static IPv4 Address to 10.100.100.250.
+5. Change the static IPv4 address to 10.100.100.250.
 
-6. Change the Static Subnet Mask to 255.255.255.0.
+6. Change the static subnet mask to 255.255.255.0.
 
    ![Static Subnet Mask](media/tutorial-install-components/image7.png)
 
@@ -258,7 +258,7 @@ To configure Dell BIOS:
 
 This article describes how to configure the BIOS using the configuration file.
 
-1. Plug in a PC with a Static preconfigured IP address **10.100.100.200** to **iDRAC** port.
+1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to **iDRAC** port.
 
    ![preconfigured IP address](media/tutorial-install-components/image8.png)
 
@@ -306,13 +306,13 @@ This article describes how to manually configure the appliance BIOS. You will ne
 
   - You did not purchase your appliance from Arrow
 
-  - You have an appliance, but do not have access to the XML Configuration file
+  - You have an appliance, but do not have access to the XML configuration file
 
 After you access the BIOS, go to **Device Settings**.
 
 To manually configure:
 
-1. Access the Appliance BIOS 
+1. Access the appliance BIOS 
    - directly using a keyboard and screen.
 
    or
@@ -323,33 +323,33 @@ To manually configure:
 
    2. If the appliance is a Defender for IoT appliance, log in with the following credentials: Username: cyberx, Password: xhxvhttju,@4338
 
-3. Once you access the BIOS, go to **Device Settings**.
+2. Once you access the BIOS, go to **Device Settings**.
 
-4. Choose the RAID controlled configuration by selecting **Integrated RAID controller 1: Dell PERC\<PERC H330 Adapter\> Configuration Utility**.
+3. Choose the RAID controlled configuration by selecting **Integrated RAID controller 1: Dell PERC\<PERC H330 Adapter\> Configuration Utility**.
 
-5. Select **Configuration Management**.
+4. Select **Configuration Management**.
 
-6. Select **Create Virtual Disk**.
+5. Select **Create Virtual Disk**.
 
-7. In the **Select RAID Level** field, select **RAID5**. In the **Virtual Disk Name** field, enter **ROOT** and select **Physical Disks**.
+6. In the **Select RAID Level** field, select **RAID5**. In the **Virtual Disk Name** field, enter **ROOT** and select **Physical Disks**.
 
-8. Select **Check All** and then select **Apply Changes**
+7. Select **Check All** and then select **Apply Changes**
 
-9. Select **Ok**.
+8. Select **Ok**.
 
-10. Scroll down the screen and select **Create Virtual Disk**.
+9. Scroll down the screen and select **Create Virtual Disk**.
 
-11. Select the **Confirm** checkbox and select **Yes**.
+10. Select the **Confirm** checkbox and select **Yes**.
 
-12. Select **OK**.
+11. Select **OK**.
 
-13. Return to the main screen and select **System BIOS**.
+12. Return to the main screen and select **System BIOS**.
 
-14. Select **Boot Settings**.
+13. Select **Boot Settings**.
 
-15. For the **Boot Mode** option, select **BIOS**.
+14. For the **Boot Mode** option, select **BIOS**.
 
-16. Select **Back** and then select **Finish** to exit the BIOS settings.
+15. Select **Back** and then select **Finish** to exit the BIOS settings.
 
 ### Software installation (Dell R340)
 
@@ -381,8 +381,6 @@ To install:
 
 7. Select **English**.
 
-   ![English](media/tutorial-install-components/image29.jpg)
-
 8. Select `SENSOR-RELEASE-\<version\> Enterprise…`
 
    ![version](media/tutorial-install-components/image30.png)
@@ -391,22 +389,21 @@ To install:
 
    ![appliance profile](media/tutorial-install-components/image31.png)
 
-     | Parameter | Configuration |
+   | Parameter | Configuration |
    |--|--|
    | **Hardware profile** | enterprise |
    | **Management interface** | eno1 |
-   | **Network parameters \(usually provided by the customer\)** | **management network IP address:** |
-   |  | **subnet mask:** |
-   |  | **appliance hostname:** |
-   |  | **DNS:** |
-   |  | **default gateway IP address:** |
-   |  | **input interfaces:** The list of input interfaces is generated for you by the system\.  To mirror the input interfaces, copy all the items presented in the list with a comma separator\. NOTE: There is no need to configure the bridge interface, this option is used for special use cases only\. |
+   | **Network parameters (usually provided by the customer)** | - |
+   |**management network IP address:** | - |
+   | **subnet mask:** | - |
+   | **appliance hostname:** | - |
+   | **DNS:** | - |
+   | **default gateway IP address:** | - |
+   | **input interfaces:** |  The list of input interfaces is generated for you by the system\.  To mirror the input interfaces, copy all the items presented in the list with a comma separator\. NOTE: There is no need to configure the bridge interface, this option is used for special use cases only\. |
 
-10. After approximately 10 minutes, the two sets of credentials appear. One for a *CyberX* user and one for a *Support* user.  
-      
-    ![two sets of credentials](media/tutorial-install-components/image32.png)
+10. After approximately 10 minutes, the two sets of credentials appear. One for a *Defender for IoT* user and one for a *Support* user.  
 
-11. *Save the Appliance ID and passwords. You need credentials to access the platform for the first time.*
+11. Save the Appliance ID and passwords. You will need these credentials to access the platform the first time you use it.
 
 12. Select **Enter** to continue.
 
@@ -414,14 +411,14 @@ To install:
 
 This section describes the HPE ProLiant DL20 installation process, which includes the following steps:
 
-  - Enable Remote Access and update the default admin password.
+  - Enable R\remote access and update the default administrator password.
   - Configure BIOS and RAID settings.
   - Install the software.
 
 ### About the installation
 
-  - Enterprise and SMB appliances can be installed. The install process is identical for both appliance types, except for the Array Configuration.
-  - A default Administrative user is provided. It is recommended to change the password during the network configuration.
+  - Enterprise and SMB appliances can be installed. The install process is identical for both appliance types, except for the array configuration.
+  - A default administrative user is provided. It is recommended to change the password during the network configuration.
   - During the network configuration, you will configure the iLO port on network port 1.
   - The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
 
@@ -451,7 +448,7 @@ This section describes how to set up network options and update the default pass
     
     2.  Disable DHCP.
     
-    3.  Enter the enter IP Address, Subnet Mask and Gateway IP Address.
+    3.  Enter the IP address, subnet mask and gateway IP address.
 
 3. select **F10: Save**.
 
@@ -459,11 +456,7 @@ This section describes how to set up network options and update the default pass
 
 5. Select **User Management**, **Edit/Remove User**. The administrator is the only default user defined. You need to change the default password.
 
-    ![Screenshot of System Configuration window - Edit/Remove User settings](media/tutorial-install-components/image37.png)
-
 6. Change the default password and select **F10: Save**.
-
-    ![Save dialog box](media/tutorial-install-components/image38.png)
 
 ### Configure the HPE BIOS
 
@@ -473,11 +466,7 @@ This section describes how to configure the HPE BIOS for the Enterprise and SMB 
 
 1. Select **System Utilities >** **System Configuration > BIOS/Platform Configuration (RBSU)**.
 
-    ![Screenshot of BIOS/Platform Configuration RBSU window](media/tutorial-install-components/image39.png)
-
 2. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
-
-    ![Boot options](media/tutorial-install-components/image40.png)
 
 3. Change the **Boot Mode** to **Legacy BIOS Mode** and select **F10: Save**.
 
@@ -487,19 +476,11 @@ This section describes how to configure the HPE BIOS for the Enterprise and SMB 
 
 1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10 > Array Configuration > Create Array**.
 
-    ![Create Array window](media/tutorial-install-components/image41.png)
-
 2. In the **Create Array** form, select all the options. 3 options are available for the *Enterprise* appliance.
-
-    ![Create Array options](media/tutorial-install-components/image42.png)
 
 #### For the SMB appliance
 
 1. Select **Embedded RAID 1: HPE Smart Array P208i-a SR Gen 10 > Array Configuration > Create Array**.
-
-    ![Create Array for the SMB appliance](media/tutorial-install-components/image43.png)
-
-    ![Create Array options for the SMB appliance](media/tutorial-install-components/image44.png)
 
 2. Select **Proceed to Next Form**.
 
