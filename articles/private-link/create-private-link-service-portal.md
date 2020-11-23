@@ -163,7 +163,7 @@ In this section, you will create a Private Link service behind a standard load b
 
 1. Select **Next: Access security**.
 
-1. Under **Create a private link service - Access security**, select **Visibility**, and then choose **Role-Based access control only**.
+1. Under **Create a private link service - Access security**, select **Visibility**, and then choose **Role-based access control only**.
   
 1. Either select **Next: Tags** > **Review + create** or choose the **Review + create** tab at the top of the page.
 
