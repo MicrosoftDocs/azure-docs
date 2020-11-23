@@ -41,7 +41,7 @@ MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi
 
 ## Can I use MSIX app attach outside of Windows Virtual Desktop?
 
-MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session release 2004 or later. Currently, there are no plans to provide management UI for MSIX app attach outside of WVD.
+MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 and later. We currently don't provide management software for MSIX app attach outside of Windows Virtual Desktop.
 
 ## Can I run two versions of the same application on the same machine and even for the same user?
 
