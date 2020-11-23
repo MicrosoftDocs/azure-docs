@@ -35,13 +35,8 @@ Set up a new Azure Migrate project in an Azure subscription.
 
 5. In **Create project**, select the Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project.
-    - The geography is only used to stored the metadata gathered from on-premises machines. You can select any target region for migration. 
+    - The geography is only used to store the metadata gathered from on-premises machines. You can select any target region for migration. 
     - Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-7. If you need to create the project within a specific region in the selected geography, use the following API command. If you don't need a specific region, skip this step:
-
-    ```
-    PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}" 
-    ```
 
 8. Select **Create**.
 
@@ -49,6 +44,15 @@ Set up a new Azure Migrate project in an Azure subscription.
 
 
 Wait a few minutes for the Azure Migrate project to deploy.
+
+## Create a project in a specific region
+
+In the portal, you can select the geography in which you want to create the project. If you want to create the project within a specific Azure region, using the following API command to create the  project.
+
+    ```
+    PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}" 
+
+    ```
 
 ## Create additional projects
 
