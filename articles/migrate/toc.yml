@@ -40,7 +40,7 @@
         href: tutorial-assess-vmware-azure-vmware-solution.md
     - name: Assess Hyper-V VMs for migration to Azure
       href: tutorial-assess-hyper-v.md
-    - name: Assess physical servers 
+    - name: Assess physical servers for migration to Azure
       href: tutorial-assess-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
@@ -52,13 +52,13 @@
     items:
     - name: Migrate VMware VMs
       items:
-      - name: About migration options for VMware VMs
+      - name: Migration options for VMware VMs
         href: server-migrate-overview.md
-      - name: Migrate VMware VMs with agentless migration - Azure portal
+      - name: Migrate with agentless migration (portal)
         href: tutorial-migrate-vmware.md
-      - name: Migrate VMware VMs with agent-based migration
+      - name: Migrate with agent-based migration
         href: tutorial-migrate-vmware-agent.md
-      - name: Migrate VMware VMs with agentless migration - PowerShell
+      - name: Migrate with agentless migration (PowerShell)
         href: tutorial-migrate-vmware-powershell.md 
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
@@ -82,7 +82,7 @@
       href: migrate-support-matrix-vmware.md
     - name: Hyper-V discovery support
       href: migrate-support-matrix-hyper-v.md 
-    - name: Physical server assessment support
+    - name: Physical server discovery support
       href: migrate-support-matrix-physical.md
     - name: Azure Migrate appliance requirements
       href: migrate-appliance.md
