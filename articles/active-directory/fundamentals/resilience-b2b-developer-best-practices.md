@@ -3,7 +3,7 @@ title: Resilience through developer best practices using Azure AD B2C | Microsof
 description: Resilience through developer best practices in Customer Identity and Access Management using Azure AD B2C
 services: active-directory 
 ms.service: active-directory
-ms.subservice: architecture 
+ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
 author: gargi-sinha
@@ -25,7 +25,7 @@ In this article, we share some learnings that are based on our experience from w
 
 The [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) and the [Microsoft identity web authentication library for ASP.NET](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries) simplify acquiring, managing, caching, and refreshing the tokens an application requires. These libraries are optimized specifically to support Microsoft Identity including features that improve application resiliency.
 
-Developers should adopt latest releases of MSAL. See [how to increase resilience of authentication and authorization](aka.ms/azureadresilience/developer) in your applications. Where possible, avoid implementing your own authentication stack and use well-established libraries.
+Developers should adopt latest releases of MSAL. See [how to increase resilience of authentication and authorization]() in your applications. Where possible, avoid implementing your own authentication stack and use well-established libraries.
 
 ## Optimize directory reads and writes
 
@@ -95,7 +95,7 @@ Upon subsequent authentication requests, Azure AD B2C reads and validates the co
 
 ## Safe deployment practices
 
-The most common disrupters of service are the code and configuration changes. Adoption of Continuous Integration and Continuous Delivery (CICD) processes and tools help with rapid deployment at a large scale and reduces human errors during testing and deployment into production. Adopt CICD for error reduction, efficiency, and consistency. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/cicd-data-overview?view=azure-devops%20and%20https://docs.microsoft.com/azure/devops-project/azure-devops-project-github) is an example of CICD.
+The most common disrupters of service are the code and configuration changes. Adoption of Continuous Integration and Continuous Delivery (CICD) processes and tools help with rapid deployment at a large scale and reduces human errors during testing and deployment into production. Adopt CICD for error reduction, efficiency, and consistency. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/cicd-data-overview) is an example of CICD.
 
 ## Web application firewall
 
@@ -133,5 +133,5 @@ We recommend your test plan to include [comprehensive API tests](https://docs.mi
   - [Resilient end-user experience](resilient-end-user-experience.md)
   - [Resilient interfaces with external processes](resilient-external-processes.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
-- [Build resilience in your authentication infrastructure](aka.ms/azureadresilience/admin)
-- [Increase resilience of authentication and authorization in your applications](aka.ms/azureadresilience/developer)
+- [Build resilience in your authentication infrastructure](build-resilience-in-infrastructure.md)
+- [Increase resilience of authentication and authorization in your applications]()

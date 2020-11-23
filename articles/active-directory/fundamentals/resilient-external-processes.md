@@ -3,7 +3,7 @@ title: Resilient interfaces with external processes using Azure AD B2C | Microso
 description: Methods to build resilient interfaces with external processes
 services: active-directory 
 ms.service: active-directory
-ms.subservice: architecture 
+ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
 author: gargi-sinha

@@ -62,7 +62,7 @@ Resilience resources for administrators and architects
 
 * [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
 
 Resilience resources for developers
 

@@ -3,7 +3,7 @@ title: Resilient end-user experience using Azure AD B2C | Microsoft Docs
 description: Methods to build resilience in end-user experience using Azure AD B2C
 services: active-directory 
 ms.service: active-directory
-ms.subservice: architecture 
+ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
 author: gargi-sinha

@@ -3,7 +3,7 @@ title: Resilience through monitoring and analytics using Azure AD B2C | Microsof
 description: Resilience through monitoring and analytics using Azure AD B2C
 services: active-directory 
 ms.service: active-directory
-ms.subservice: architecture 
+ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
 author: gargi-sinha

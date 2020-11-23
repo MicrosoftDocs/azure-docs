@@ -99,7 +99,7 @@
           href: resilience-in-hybrid.md
         - name: Build resilience in application access with Application Proxy
           href: resilience-on-prem-access.md
-      - B2C guidance
+      - name: B2C guidance
         items:
         - name: B2C introduction to resilience
           href: resilience-b2c.md
