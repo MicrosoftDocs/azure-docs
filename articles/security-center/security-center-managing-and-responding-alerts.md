@@ -50,7 +50,10 @@ For an overview of how Security Center generates alerts, see [How Azure Security
 
 1. From the **Security alerts** list, select an alert. A side pane opens and shows a description of the alert and all the affected resources. 
 
-    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="":::
+    :::image type="content" source="./media/security-center-managing-and-responding-alerts/alerts-details-pane.png" alt-text="Mini details view of a security alert":::
+
+    > [!TIP]
+    > With this side pane open, you can quickly review the alerts list with the up and down arrows on your keyboard.
 
 1. For further information, select **View full details**.
 
