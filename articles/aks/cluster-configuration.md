@@ -246,6 +246,8 @@ When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM 
 
 Using the AKS default VM size Standard_DS2_v2 with the default OS disk size of 100GB as an example, this VM size supports ephemeral OS but only has 86GB of cache size. This configuration would default to managed disks if the user does not specify explicitly. If a user explicitly requested ephemeral OS, they would receive a validation error.
 
+If a user requests the same Standard_DS2_v2 with a 60GB OS disk, this configuration would default to ephemeral OS: the requested size of 60GB is smaller than the maximum cache size of 86GB.
+
 Using Standard_D8s_v3 with 100GB OS disk, this VM size supports ephemeral OS and has 200GB of cache space. If a user does not specify the OS disk type, the nodepool would receive ephemeral OS by default. 
 
 Ephemeral OS requires at least version 2.15.0 of the Azure CLI.
