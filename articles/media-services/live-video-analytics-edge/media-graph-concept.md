@@ -82,6 +82,8 @@ The motion detection processor node enables you to detect motion in live video. 
 #### Frame rate filter processor  
 
 The frame rate filter processor node enables you to sample frames from the incoming video stream at a specified rate. This enables you to reduce the number of frames sent to down-stream components (such as HTTP extension processor node) for further processing.
+>[!WARNING]
+> This processor is **deprecated** in the latest release of Live Video Analytics on IoT Edge module. Frame Rate management is now supported within the graph extension processors itself.
 
 #### HTTP extension processor
 
