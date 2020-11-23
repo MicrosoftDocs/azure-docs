@@ -879,7 +879,15 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40063).
 
-**Guidance**: - [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+**Guidance**: Automate and secure the deployment and configuration of Azure Firewall Manager resources in your environments, using mechanisms such as: Azure Resource Manager templates, Azure RBAC controls, and Azure Policy. Define secure configurations for you Azure Firewall Manager resources at deployment time, audit and enforce those configurations by defining custom Azure Policy definitions using aliases in the 'Azure.Network' namespace.
+
+- [Azure Firewall Policy template reference](https://docs.microsoft.com/azure/templates/microsoft.network/firewallpolicies)
+
+- [Azure Firewall Policy CLI](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/policy?view=azure-cli-latest&amp;preserve-view=true)
+
+- [Illustration of guardrails implementation in enterprise-scale landing zone](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
+
+- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center monitoring**: Yes
 
@@ -890,7 +898,15 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40064).
 
-**Guidance**: Create and manage policies to enforce compliance:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+**Guidance**: Azure Firewall Manager supports Azure Resource Manager based templates and enforcement of configuration settings via Azure Policy. Define custom Azure Policy definitions to audit and enforce Azure Firewall Manager resource configurations using aliases in the 'Azure.Network' namespace.
+
+- [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+
+- [Azure Firewall Policy template reference](https://docs.microsoft.com/azure/templates/microsoft.network/firewallpolicies)
+
+- [Illustration of guardrails implementation in enterprise-scale landing zone](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
+
+- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1087,11 +1103,7 @@ For resource configuration backups, use Azure Resource Manager to export firewal
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Firewall Policies are stored natively in paired regions thus providing automatic redundancy. Additionally, customer can use Azure Resource Manager to export the Firewall Policy and related resources in a JavaScript Object Notation (JSON) template. You can also export Firewall Policy configuration using Export template feature of Firewall Policy from Azure portal.
-
-Deploy Secure Virtual Hub using Template
-
-Microsoft Firewall Policy template reference
+**Guidance**: Not applicable; Azure Firewall Manager does not leverage any service-level keys for authentication or data at rest encryption.
 
 **Azure Security Center monitoring**: Not applicable
 
