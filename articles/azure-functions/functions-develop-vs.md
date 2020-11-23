@@ -224,11 +224,9 @@ You can also manage application settings in one of these other ways:
 
 ## Monitoring functions
 
-The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done.
+The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. To learn how to connect Application Insights to your function app, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
 

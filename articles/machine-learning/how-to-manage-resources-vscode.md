@@ -1,7 +1,7 @@
 ---
 title: Create and manage resources VS Code Extension (preview)
 titleSuffix: Azure Machine Learning
-description: Create and manage resources with the VS Code extension
+description: Learn how to create and manage Azure Machine Learning resources using the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension (preview)
@@ -252,7 +252,7 @@ For more information, see [compute instances](concept-compute-instance.md).
     1. Provide a name for your compute instance.
     1. Select a VM size from the list.
     1. Choose whether you want to enable SSH access.
-        1. If you enable SSH access, you'll have to also provide the public SSH key or the file containing the key. For more information, see the [guide on creating and using SSH keys on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+        1. If you enable SSH access, you'll have to also provide the public SSH key or the file containing the key. For more information, see the [guide on creating and using SSH keys on Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 ### Stop or restart compute instance
 
@@ -288,7 +288,7 @@ For more information, see [compute targets](concept-compute-target.md#train).
 1. Right-click the **Compute clusters** node and select **Create Compute**.
 1. In the prompt:
     1. Choose a compute type
-    1. Choose a VM size. Learn more about [VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+    1. Choose a VM size. Learn more about [VM sizes](../virtual-machines/sizes.md).
     1. Provide a name for your compute.
 
 ### View compute configuration

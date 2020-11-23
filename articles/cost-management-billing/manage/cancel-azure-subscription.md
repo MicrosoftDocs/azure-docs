@@ -7,13 +7,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/09/2020
 ms.author: banders
 ---
 
 # Cancel your Azure subscription
 
-You can cancel your Azure subscription in the Azure portal if you no longer need the subscription.
+You can cancel your Azure subscription in the Azure portal if you no longer need it.
 
 Although not required, Microsoft *recommends* that you take the following actions before you cancel your subscription:
 
@@ -23,7 +23,7 @@ Although not required, Microsoft *recommends* that you take the following action
 * Delete all resources and all resource groups.
 * If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
-If you cancel a paid Azure Support plan, you are billed for the rest of the subscription term. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
+If you cancel a paid Azure Support plan, you're billed for the rest of the subscription term. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
 
 ## Cancel subscription in the Azure portal
 
@@ -49,7 +49,7 @@ After you cancel, billing is stopped immediately. However, it can take up to 10 
 
 After you cancel, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
-After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## Delete free trial subscription
 
@@ -64,11 +64,23 @@ If you have a free trial subscription, you don't have to wait 30 days for the su
 
 If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [reactivate it in the Accounts Center](subscription-disabled.md).
 
-If your subscription is not a subscription with Pay-As-You-Go rates, contact support within 90 days of cancellation to reactivate your subscription.
+If your subscription isn't a subscription with Pay-As-You-Go rates, contact support within 90 days of cancellation to reactivate your subscription.
 
-## Need help? Contact us.
+## Why don't I see the Cancel Subscription option on the Azure portal? 
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+You may not have the permissions required to cancel a subscription. See [Who can cancel a subscription?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) for a description of who can cancel various types of subscriptions.
+
+## How do I delete my Azure Account?
+
+*I need to remove my account including all my personal  information. I already canceled my active(Free Trial) subscriptions. I don't have any active subscriptions, and would like to totally delete my account*.
+
+* If you have an Azure Active Directory account via your organization, the Azure AD administrator could delete the account. After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
+
+* If you don't have an Azure AD account via your organization, you can cancel then delete your Azure subscriptions and then remove your credit card from the account. While the action doesn't delete the account, it renders it inoperable. You can go a step further and also delete the associated Microsoft account if it's not being used for any other purpose.
+
+## How do I cancel a Visual Studio Professional account?
+
+See the [Renewal and Cancellation](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation) article. If you have any Visual Studio Azure subscriptions, they need to be canceled and deleted as well.
 
 ## Next steps
 

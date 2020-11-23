@@ -8,9 +8,8 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -272,7 +271,7 @@ The guidelines are applicable only if you're using Azure DB for MySQL. For other
 
 ### Create an Azure database for MySQL
 
-Sign in to Azure portal and follow the steps mentioned in this [Quick start Guide of Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Few points to note while provisioning Azure Database for MySQL -
+Sign in to Azure portal and follow the steps mentioned in this [Quick start Guide of Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Few points to note while provisioning Azure Database for MySQL -
 
 1. Select the same region for Azure Database for MySQL where your SAP BI Platform application servers are running.
 

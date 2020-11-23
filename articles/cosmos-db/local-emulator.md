@@ -10,6 +10,7 @@ ms.custom: devx-track-csharp, contperfq1
 ---
 
 # Install and use the Azure Cosmos emulator for local development and testing
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos emulator, you can switch to using an Azure Cosmos account in the cloud. This article describes how to install and use the emulator on Windows, Linux, macOS, and Windows docker environments.
 
@@ -238,7 +239,7 @@ Use the following steps to use the emulator on Linux or macOS environments:
 1. From the Windows VM, launch the Azure Cosmos emulator from the command line using the following options. For details on the parameters supported by the command line, see the [emulator command-line tool reference](emulator-command-line-parameters.md):
 
    ```bash
-   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM +4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    ```
 
 1. Finally, you need to resolve the certificate trust process between the application running on the Linux or Mac environment and the emulator. You can use one of the following two options to resolve the certificate:
@@ -364,7 +365,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### Table API
 
-Once you have the Azure Cosmos emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
+Once you have the Azure Cosmos emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](./tutorial-develop-table-dotnet.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;

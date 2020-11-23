@@ -40,7 +40,7 @@ if response.status_code == 200:
 
 You can access databases in SQL Database or SQL Managed Instance with the assistance of the pyodbc or pymssql libraries.
 
-[Use Python to query an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) gives you instructions on creating a database in SQL Database containing AdventureWorks data, and shows how to query that data. The same code is shown in the sample notebook for this article.
+[Use Python to query an Azure SQL database](../azure-sql/database/connect-query-python.md) gives you instructions on creating a database in SQL Database containing AdventureWorks data, and shows how to query that data. The same code is shown in the sample notebook for this article.
 
 ## Azure Storage
 
@@ -55,11 +55,11 @@ The sample notebook demonstrates working with both tables and blobs, including h
 
 Azure Cosmos DB provides a fully indexed NoSQL store for JSON documents). The following articles provide a number of different ways to work with Cosmos DB from Python:
 
-- [Build a SQL API app with Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Build a Flask app with the Azure Cosmos DB's API for MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Create a graph database using Python and the Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Build a Cassandra app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Build a Table API app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Build a SQL API app with Python](../cosmos-db/create-sql-api-python.md)
+- [Build a Flask app with the Azure Cosmos DB's API for MongoDB](../cosmos-db/create-mongodb-flask.md)
+- [Create a graph database using Python and the Gremlin API](../cosmos-db/create-graph-python.md)
+- [Build a Cassandra app with Python and Azure Cosmos DB](../cosmos-db/create-cassandra-python.md)
+- [Build a Table API app with Python and Azure Cosmos DB](../cosmos-db/table-storage-how-to-use-python.md)
 
 When working with Cosmos DB, you can use the [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) library.
 
@@ -67,9 +67,9 @@ When working with Cosmos DB, you can use the [azure-cosmosdb-table](https://pypi
 
 Azure provides a number of other database types that you can use. The articles below provide guidance for accessing those databases from Python:
 
-- [Azure Database for PostgreSQL: Use Python to connect and query data](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Quickstart: Use Azure Redis Cache with Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database for MySQL: Use Python to connect and query data](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database for PostgreSQL: Use Python to connect and query data](../postgresql/connect-python.md)
+- [Quickstart: Use Azure Redis Cache with Python](../azure-cache-for-redis/cache-python-get-started.md)
+- [Azure Database for MySQL: Use Python to connect and query data](../mysql/connect-python.md)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Copy Wizard for Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 

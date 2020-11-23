@@ -3,7 +3,7 @@ title: Azure Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Azure Defender for SQL.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
@@ -13,15 +13,15 @@ manager: rkarlin
 
 # Introduction to Azure Defender for SQL
 
-Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/advanced-data-security.md) to secure your databases and their data wherever they're located. 
+Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. 
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview|
+|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
-|Protected SQL versions:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics (formerly SQL DW)<br>SQL Server (all supported versions)|
+|Protected SQL versions:|Azure SQL Database <br>Azure SQL Managed Instance<br>Dedicated SQL pool in Azure Synapse (formerly SQL DW)<br>SQL Server (all supported versions)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
 
@@ -32,7 +32,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 - **Azure Defender for Azure SQL database servers** protects:
   - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
   - [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+  - [Dedicated SQL pool in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
 
 - **Azure Defender for SQL servers on machines (Preview)** extends the protections for your Azure-native SQL Servers to fully support hybrid environments and protect SQL servers (all supported version) hosted in Azure, other cloud environments, and even on-premises machines
 
@@ -65,5 +65,5 @@ In this article, you learned about Azure Defender for SQL.
 For related material, see the following articles: 
 
 - [How to enable Azure Defender for SQL servers on machines](defender-for-sql-usage.md)
-- [How to enable Azure Defender for SQL database servers](../azure-sql/database/advanced-data-security.md)
+- [How to enable Azure Defender for SQL database servers](../azure-sql/database/azure-defender-for-sql.md)
 - [The list of Azure Defender alerts for SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

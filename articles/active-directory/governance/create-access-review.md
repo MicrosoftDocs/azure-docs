@@ -31,6 +31,8 @@ This article describes how to create one or more access reviews for group member
 
 - Azure AD Premium P2
 - Global administrator or User administrator
+- (Preview) Resource owners of Microsoft 365 Groups can create reviews on the Microsoft 365 groups they own
+- (Preview) Resource owners of Azure AD Security Groups can create reviews on the Azure AD Security groups they own
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
@@ -159,6 +161,7 @@ If you have assigned guests as reviewers and they have not accepted the invite, 
 |Auto-Reviewed | Decisions have been recorded by the system for all users who were not reviewed. Review is ready to proceed to **Applying** if Auto-Apply is enabled. |
 |Applying | There will be no change in access for users who were approved. |
 |Applied | Denied users, if any, have been removed from the resource or directory. |
+|Failed | Review could not progress. This error could be related to the deletion of the tenant, a change in licenses, or other internal tenant changes. |
 
 ## Create reviews via APIs
 

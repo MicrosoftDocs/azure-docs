@@ -68,15 +68,19 @@
       - name: Remote desktop gateway authentication
         href: auth-remote-desktop-gateway.md
       - name: SAML authentication
-        href: auth-saml.md   
+        href: auth-saml.md  
+      - name: SSH authentication
+        href: auth-ssh.md
       - name: Windows authentication - KCD
         href: auth-kcd.md
       - name: Directory synchronization
         href: sync-directory.md
       - name: LDAP synchronization
-        href: sync-ldap.md                          
+        href: sync-ldap.md                
       - name: SCIM synchronization
         href: sync-scim.md                      
+    - name: Certificate authorities used in Azure
+      href: certificate-authorities.md
   - name: Deployment guide
     items:
     - name: Deployment 30, 90, and beyond
@@ -116,6 +120,8 @@
       href: customize-branding.md
     - name: Configure 'Stay signed in?'
       href: keep-me-signed-in.md
+    - name: How to find tenant ID
+      href: active-directory-how-to-find-tenant.md
     - name: Associate an Azure subscription
       href: active-directory-how-subscriptions-associated-directory.md
     - name: Add your privacy info
@@ -157,5 +163,3 @@
     href: active-directory-troubleshooting-support-howto.md
   - name: Azure Active Directory FAQ
     href: active-directory-faq.md
-  
-  

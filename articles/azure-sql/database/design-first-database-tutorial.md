@@ -15,7 +15,7 @@ ms.custom: sqldbrb=1
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 
-Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) to:
+Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
 >
@@ -29,7 +29,7 @@ Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsof
 *If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 > [!TIP]
-> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), including the creation of a simple database.
+> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/), including the creation of a simple database.
 > [!NOTE]
 > For the purpose of this tutorial, we are using Azure SQL Database. You could also use a pooled database in an elastic pool or a SQL Managed Instance. For connectivity to a SQL Managed Instance, see these SQL Managed Instance quickstarts: [Quickstart: Configure Azure VM to connect to an Azure SQL Managed Instance](../managed-instance/connect-vm-instance-configure.md) and [Quickstart: Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](../managed-instance/point-to-site-p2s-configure.md).
 
@@ -37,7 +37,7 @@ Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsof
 
 To complete this tutorial, make sure you've installed:
 
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (latest version)
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (latest version)
 - [BCP and SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433) (latest version)
 
 ## Sign in to the Azure portal
@@ -154,7 +154,7 @@ Create a database schema with four tables that model a student management system
 - Student
 - Credit
 
-The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables. For example, the *Student* table references the *PersonId* column of the *Person* table. Study the diagram to understand how the tables in this tutorial are related to one another. For an in-depth look at how to create effective database tables, see [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx). For information about choosing data types, see [Data types](/sql/t-sql/data-types/data-types-transact-sql).
+The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables. For example, the *Student* table references the *PersonId* column of the *Person* table. Study the diagram to understand how the tables in this tutorial are related to one another. For an in-depth look at how to create effective database tables, see [Create effective database tables](/previous-versions/tn-archive/cc505842(v=technet.10)). For information about choosing data types, see [Data types](/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
 > You can also use the [table designer in SQL Server Management Studio](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) to create and design your tables.
@@ -238,7 +238,7 @@ You have now loaded sample data into the tables you created earlier.
 
 ## Query data
 
-Execute the following queries to retrieve information from the database tables. See [Write SQL queries](https://technet.microsoft.com/library/bb264565.aspx) to learn more about writing SQL queries. The first query joins all four tables to find the students taught by 'Dominick Pope' who have a grade higher than 75%. The second query joins all four tables and finds the courses in which 'Noe Coleman' has ever enrolled.
+Execute the following queries to retrieve information from the database tables. See [Write SQL queries](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)) to learn more about writing SQL queries. The first query joins all four tables to find the students taught by 'Dominick Pope' who have a grade higher than 75%. The second query joins all four tables and finds the courses in which 'Noe Coleman' has ever enrolled.
 
 1. In a SQL Server Management Studio query window, execute the following query:
 

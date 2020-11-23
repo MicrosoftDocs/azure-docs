@@ -53,7 +53,7 @@ When you use a copy activity to copy data between on-premises and cloud, the act
 Here is the high-level data flow for and summary of steps for copy with data gateway:
 ![Data flow using gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1. Data developer creates a gateway for an Azure Data Factory using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.datafactory/).
+1. Data developer creates a gateway for an Azure Data Factory using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](/powershell/module/az.datafactory/).
 2. Data developer creates a linked service for an on-premises data store by specifying the gateway. As part of setting up the linked service, data developer uses the Setting Credentials application to specify authentication types and credentials. The Setting Credentials application dialog communicates with the data store to test connection and the gateway to save credentials.
 3. Gateway encrypts the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
 4. Data Factory service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be kicked off, Data Factory queues the request along with credential information. Gateway kicks off the job after polling the queue.
@@ -73,7 +73,7 @@ Here is the high-level data flow for and summary of steps for copy with data gat
 ## Installation
 ### Prerequisites
 * The supported **Operating System** versions are Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Installation of the data management gateway on a domain controller is currently not supported.
-* .NET Framework 4.5.1 or above is required. If you are installing gateway on a Windows 7 machine, install .NET Framework 4.5 or later. See [.NET Framework System Requirements](https://msdn.microsoft.com/library/8z6watww.aspx) for details.
+* .NET Framework 4.5.1 or above is required. If you are installing gateway on a Windows 7 machine, install .NET Framework 4.5 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 * The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8-GB RAM, and 80-GB disk.
 * If the host machine hibernates, the gateway does not respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. If the machine is configured to hibernate, the gateway installation prompts a message.
 * You must be an administrator on the machine to install and configure the data management gateway successfully. You can add additional users to the **data management gateway Users** local Windows group. The members of this group are able to use the **Data Management Gateway Configuration Manager** tool to configure the gateway.
@@ -151,7 +151,7 @@ At Windows firewall level, these outbound ports are normally enabled. If not, yo
 
 > [!NOTE]
 > 1. Based on your source/ sinks, you may have to allow additional domains and outbound ports in your corporate/Windows firewall.
-> 2. For some Cloud Databases (For example: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
+> 2. For some Cloud Databases (For example: [Azure SQL Database](../../azure-sql/database/firewall-configure.md), [Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
 >
 >
 
@@ -164,7 +164,7 @@ For example, to copy from **an on-premises data store to an Azure SQL Database s
 * Configure the firewall settings of logical SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Database / SQL Managed Instance / SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
+> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](./data-factory-copy-activity-performance.md#staged-copy) to SQL Database / SQL Managed Instance / SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
 >
 >
 
@@ -223,7 +223,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
     </system.net>
     ```
 
-    Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on syntax.
+    Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) on syntax.
 
     ```
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
@@ -252,7 +252,7 @@ If you are using a third-party firewall, you can manually open the port 8050. If
 msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 ```
 
-If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
+If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
 
 ## Update
 By default, data management gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version.
@@ -473,7 +473,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
 
 When you use the **Setting Credentials** application, the portal encrypts the credentials with the certificate specified in the **Certificate** tab of the **Gateway Configuration Manager** on the gateway machine.
 
-If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON. You use the JSON with the [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet or in the Data Factory Editor.
+If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON. You use the JSON with the [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet or in the Data Factory Editor.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",

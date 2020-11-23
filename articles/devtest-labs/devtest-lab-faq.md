@@ -63,7 +63,7 @@ DevTest Labs is a free service. Creating labs and configuring policies, template
 ## Security
 
 ### What are the different security levels in DevTest Labs?
-Security access is determined by Role-Based Access Control (RBAC). To learn how access works, it helps to learn the differences between a permission, a role, and a scope, as defined by RBAC.
+Security access is determined by Azure role-based access control (Azure RBAC). To learn how access works, it helps to learn the differences between a permission, a role, and a scope, as defined by Azure RBAC.
 
 - **Permission**: A permission is a defined access to a specific action. For example, a permission can be read access to all VMs.
 - **Role**: A role is a set of permissions that can be grouped and assigned to a user. For example, a user with a subscription owner role has access to all resources within a subscription.
@@ -78,7 +78,7 @@ You also can create custom roles in DevTest Labs. To learn how to create custom 
 
 Because scopes are hierarchical, when a user has permissions at a certain scope, the user is automatically granted those permissions at every lower-level scope in the scope. For instance, if a user is assigned the role of subscription owner, the user has access to all resources in a subscription. These resources include VMs, virtual networks, and labs. A subscription owner automatically inherits the role of lab owner. However, the opposite is not true. A lab owner has access to a lab, which is a lower scope than the subscription level. So, a lab owner can't see VMs, virtual networks, or any other resources that are outside the lab.
 
-### How do I define role-based access control for my DevTest Labs environments to ensure that IT can govern while developers/test can do their work?
+### How do I define Azure role-based access control for my DevTest Labs environments to ensure that IT can govern while developers/test can do their work?
 There is a broad pattern, however the detail depends on your organization.
 
 Central IT should own only what is necessary and enable the project and application teams to have the needed level of control. Typically, it means that central IT owns the subscription and handles core IT functions such as networking configurations. The set of **owners** for a subscription should be small. These owners can nominate additional owners when there's a need, or apply subscription-level policies, for example “No Public IP”.
@@ -87,7 +87,7 @@ There may be a subset of users that require access across a subscription, such a
 
 The DevTest Labs resource should be owned by owners who are close to the project/application team. It's because they understand their requirements for machines, and required software. In most organizations, the owner of this DevTest Labs resource is commonly the project/development lead. This owner can manage users and policies within the lab environment and can manage all VMs in the DevTest Labs environment.
 
-The project/application team members should be added to the **DevTest Labs Users** role. These users can create virtual machines (in-line with the lab and subscription-level policies). They can also manage their own virtual machines. They can't manage virtual machines that belong to other users.
+The project/application team members should be added to the **DevTest Labs User** role. These users can create virtual machines (in-line with the lab and subscription-level policies). They can also manage their own virtual machines. They can't manage virtual machines that belong to other users.
 
 For more information, see [Azure enterprise scaffold – prescriptive subscription governance documentation](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 

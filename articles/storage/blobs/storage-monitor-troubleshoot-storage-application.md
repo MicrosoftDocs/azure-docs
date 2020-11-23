@@ -38,7 +38,7 @@ Under **Diagnostics settings (classic)** set **Status** to **On**. Ensure all of
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Screenshot that highlights the section that contains the configuration settings for turning on logging and metrics.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## Enable alerts
 
@@ -92,7 +92,7 @@ In the **File Selector** dialog, select **+ Add Azure Connection**. Enter in you
 
 Once you are connected, expand the containers in the storage tree view to view the log blobs. Select the latest log and click **OK**.
 
-![Microsoft Message Analyzer - Add Azure Storage Connection Dialog](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Screenshot that shows the Microsoft Message Analyzer and highlights the selected log file.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 On the **New Session** dialog, click **Start** to view your log.
 

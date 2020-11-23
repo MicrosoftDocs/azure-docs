@@ -108,7 +108,7 @@ Add a custom endpoint for the Service Bus queue to your IoT hub and create a mes
 
 1. Under **Messaging**, select **Message routing**. On the **Message routing** pane, select the **Custom endpoints** tab and then select **+ Add**. From the drop-down list, select **Service bus queue**.
 
-   ![Add an endpoint to your IoT hub in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Screenshot that highlights the Service bus queue option.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. On the **Add a service bus endpoint** pane, enter the following information:
 
@@ -179,7 +179,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
 1. Create a service bus connection.
    1. Enter a connection name and select your Service Bus namespace from the list. The next screen opens.
 
-      ![Create a service bus connection for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Screenshot that highlights the When one or more messages arrive in a queue (auto-complete) option.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Select the service bus policy (RootManageSharedAccessKey). Then select  **Create**.
 

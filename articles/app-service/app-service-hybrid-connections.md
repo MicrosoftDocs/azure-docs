@@ -7,7 +7,7 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit
+ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
 ---
 
 # Azure App Service Hybrid Connections

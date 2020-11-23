@@ -120,7 +120,7 @@ There are also several more validations that you should perform. The validations
 
 - Ensuring that the user/organization has signed up for the application.
 - Ensuring that the user has proper authorization/privileges.
-- Ensuring that a certain strength of authentication has occurred, such as Azure Multi-Factor Authentication.
+- Ensuring that a certain strength of authentication has occurred, such as Azure AD Multi-Factor Authentication.
 
 After you validate the ID token, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
 

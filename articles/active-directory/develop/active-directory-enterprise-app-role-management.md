@@ -58,14 +58,14 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
       ![The "modify permissions" button](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
+    >[!NOTE]
+	>Cloud App Administrator and App Administrator role will not work in this scenario as we need the Global Admin permissions for Directory Read and Write.
+
     c. Select the following permissions from the list (if you don't have these already) and select **Modify Permissions**.
 
 	  ![List of permissions and "Modify Permissions" button](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-	> [!Note]
-	> Cloud App Administrator and App Administrator role will not work in this scenario as we need the Global Admin permissions for Directory Read and Write.
-
-    d. Accept the consent. You're logged in to the system again.
+	d. Accept the consent. You're logged in to the system again.
 
     e. Change the version to **beta**, and fetch the list of service principals from your tenant by using the following query:
 
@@ -75,9 +75,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 	  ![Graph Explorer dialog box, with the query for fetching service principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      > [!Note]
-      > We are already in the process of upgrading the APIs so customers might see some disruption in the service.
-
+      
     f. From the list of fetched service principals, get the one that you need to modify. You can also use Ctrl+F to search the application from all the listed service principals. Search for the object ID that you copied from the **Properties** page, and use the following query to get to the service principal:
 
 	  `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
@@ -88,8 +86,8 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 	  ![Details of the appRoles property](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-	  > [!Note]
-	  > If you're using the custom app (not the Azure Marketplace app), you see two default roles: user and msiam_access. For the Marketplace app, msiam_access is the only default role. You don't need to make any changes in the default roles.
+	  
+	  If you're using the custom app (not the Azure Marketplace app), you see two default roles: user and msiam_access. For the Marketplace app, msiam_access is the only default role. You don't need to make any changes in the default roles.
 
     h. Generate new roles for your application.
 
@@ -124,8 +122,8 @@ If your application expects custom roles to be passed in a SAML response, you ne
 	  }
 	  ```
 
-	  > [!Note]
-      > You can only add new roles after msiam_access for the patch operation. Also, you can add as many roles as your organization needs. Azure AD will send the value of these roles as the claim value in the SAML response. To generate the GUID values for the ID of new roles use the web tools like [this](https://www.guidgenerator.com/)
+	  
+      You can only add new roles after msiam_access for the patch operation. Also, you can add as many roles as your organization needs. Azure AD will send the value of these roles as the claim value in the SAML response. To generate the GUID values for the ID of new roles use the web tools like [this](https://www.guidgenerator.com/)
 
 	i. Go back to Graph Explorer and change the method from **GET** to **PATCH**. Patch the service principal object to have the desired roles by updating the **appRoles** property like the one shown in the preceding example. Select **Run Query** to execute the patch operation. A success message confirms the creation of the role.
 
@@ -139,8 +137,8 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
     !["Edit Assignment" pane and "Select Role" pane](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-    > [!Note]
-    > You need to refresh your session in the Azure portal to see new roles.
+    
+    You need to refresh your session in the Azure portal to see new roles.
 
 8. Update the **Attributes** table to define a customized mapping of the role claim.
 
@@ -150,8 +148,8 @@ If your application expects custom roles to be passed in a SAML response, you ne
     | -------------- | ----------------|
     | Role name  | user.assignedroles |
 
-	>[!NOTE]
-	>If the role claim value is null, then Azure AD will not send this value in the token and this is default as per design.
+	
+	If the role claim value is null, then Azure AD will not send this value in the token and this is default as per design.
 
     a. click **Edit** icon to open **User Attributes & Claims** dialog.
 
@@ -249,15 +247,15 @@ To delete an  existing role, perform the following steps:
 
     d. Select **Run Query**.
 
-    > [!NOTE]
-    > Make sure that you have the msiam_access role, and the ID is matching in the generated role.
+    
+    Make sure that you have the msiam_access role, and the ID is matching in the generated role.
 
 7. After the role is disabled, delete that role block from the **appRoles** section. Keep the method as **PATCH**, and select **Run Query**.
 
 8. After you run the query, the role is deleted.
 
-    > [!NOTE]
-    > The role needs to be disabled before it can be removed.
+    
+    The role needs to be disabled before it can be removed.
 
 ## Next steps
 

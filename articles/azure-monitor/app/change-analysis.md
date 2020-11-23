@@ -180,11 +180,14 @@ If it's the first time you view Change history after its integration with Applic
     ```
 
 - **Failed to register Microsoft.ChangeAnalysis resource provider**. This message means something failed immediately as the UI sent request to register the resource provider, and it's not related to permission issue. Likely it might be a temporary internet connectivity issue. Try refreshing the page and checking your internet connection. If the error persists, contact changeanalysishelp@microsoft.com
+- **Failed to query Microsoft.ChangeAnalysis resource provider** with message *Azure lighthouse subscription is not supported, the changes are only available in the subscription's home tenant*. There is a limitation right now for Change Analysis resource provider to be registered through Azure Lighthouse subscription for users not in home tenant. We expect this limitation to be addressed in the near future. If this is a blocking issue for you, there is a workaround that involves creating a service principal and explicitly assigning the role to allow the access.  Contact changeanalysishelp@microsoft.com to learn more about it.
 
 - **This is taking longer than expected**. This message means the registration is taking longer than 2 minutes. This is unusual but does not necessarily mean something went wrong. You can go to **Subscriptions | Resource provider** to check for **Microsoft.ChangeAnalysis** resource provider registration status. You can try to use the UI to unregister, re-register or refresh to see if it helps. If issue persists, contact changeanalysishelp@microsoft.com for support.
     ![Troubleshoot RP registration taking too long](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![Screenshot of the Diagnose and Solve Problems tool for a Virtual Machine with Troubleshooting tools selected.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![Screenshot of the tile for the Analyze recent changes troubleshooting tool for a Virtual Machine.](./media/change-analysis/analyze-recent-changes.png)
 
 ## Next steps
 

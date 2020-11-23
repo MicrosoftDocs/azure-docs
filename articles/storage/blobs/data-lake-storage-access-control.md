@@ -88,7 +88,7 @@ The following table shows you the ACL entries required to enable a security prin
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
 > [!IMPORANT] 
-> This table assumes that you are using **only** ACLs without any Azure RBAC role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -266,7 +266,7 @@ If HNS is turned OFF, the Azure Azure RBAC authorization rules still apply.
 
 To learn how the system evaluates Azure RBAC and ACLs together to make authorization decisions for storage account resources, see [How permissions are evaluated](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### What are the limits for Azure RBAC role assignments and ACL entries?
+### What are the limits for Azure role assignments and ACL entries?
 
 The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories). Use security groups for ACL assignments. By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. 
 
@@ -322,6 +322,11 @@ OID will be displayed.
 
 When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
+### Can I set the ACL of a container?
+
+No. A container does not have an ACL. However, you can set the ACL of the container’s root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory  is named `myContainer/`. 
+
+The Azure Storage REST API does contain an operation named [Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container [may be accessed publicly](anonymous-read-access-configure.md). 
 
 ### Where can I learn more about POSIX access control model?
 

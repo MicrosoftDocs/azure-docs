@@ -11,14 +11,12 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 ## Supported configurations
 
-The following configurations are officially supported with Azure Monitor for containers.
+The following configurations are officially supported with Azure Monitor for containers. If you have a different version of Kubernetes and operating system versions, please send a mail to askcoin@microsoft.com.
 
 - Environments:
 
     - Kubernetes on-premises
-    
-    - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
-    
+    - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or other cloud environments.
 
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
@@ -199,7 +197,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
     }
     ```
 
-7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Region** value after running the Azure CLI command [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Region** value after running the Azure CLI command [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Save this file as containerSolutionParams.json to a local folder.
 
@@ -272,14 +270,14 @@ In this section you install the containerized agent for Azure Monitor for contai
 3. Add the Azure charts repository to your local list by running the following command:
 
     ```
-    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+    helm repo add microsoft https://microsoft.github.io/charts/repo
     ````
 
 4. Install the chart by running the following command:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
@@ -350,7 +348,7 @@ If you specify the protocol as **http**, the HTTP requests are created using SSL
 
 ## Troubleshooting
 
-If you encounter an error while attempting to enable monitoring for your hybrid Kubernetes cluster, copy the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) and save it to a folder on your computer. This script is provided to help detect and fix the issues encountered. The issues it is designed to detect and attempt correction of are the following:
+If you encounter an error while attempting to enable monitoring for your hybrid Kubernetes cluster, copy the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) and save it to a folder on your computer. This script is provided to help detect and fix the issues encountered. The issues it is designed to detect and attempt correction of are the following:
 
 - The specified Log Analytics workspace is valid
 - The Log Analytics workspace is configured with the Azure Monitor for Containers solution. If not, configure the workspace.

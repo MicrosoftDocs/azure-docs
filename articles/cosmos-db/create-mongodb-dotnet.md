@@ -13,6 +13,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Build a .NET web app using Azure Cosmos DB's API for MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -23,7 +24,7 @@ ms.custom: devx-track-csharp
 > * [Golang](create-mongodb-go.md)
 >  
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB. 
+Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can quickly create and query document, key/value and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB. 
 
 This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md). You'll then build and deploy a tasks list web app built using the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
@@ -164,4 +165,4 @@ You've now updated your app with all the info it needs to communicate with Cosmo
 In this quickstart, you've learned how to create a Cosmos account, create a collection and run a console app. You can now import additional data to your Cosmos database. 
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

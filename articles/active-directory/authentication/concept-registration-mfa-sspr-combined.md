@@ -1,12 +1,12 @@
 ---
-title: Combined registration for SSPR and Azure Multi-Factor Authentication - Azure Active Directory
-description: Learn about the combined registration experience for Azure Active Directory to let users register for both Azure Multi-Factor Authentication and self-service password reset
+title: Combined registration for SSPR and Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Learn about the combined registration experience for Azure Active Directory to let users register for both Azure AD Multi-Factor Authentication and self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Combined security information registration for Azure Active Directory overview
 
-Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Multi-Factor Authentication and SSPR.
+Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Multi-Factor Authentication and SSPR.
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration.
@@ -31,7 +31,7 @@ This article outlines what combined security registration is. To get started wit
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](../user-help/security-info-setup-signin.md) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD combined security information registration is not currently available to national clouds like Azure US Government, Azure Germany, or Azure China 21Vianet.
+Azure AD combined security information registration is not currently available to national clouds like Azure Germany or Azure China 21Vianet. It is available for Azure US Government.
 
 > [!IMPORTANT]
 > Users that are enabled for both the original preview and the enhanced combined registration experience see the new behavior. Users that are enabled for both experiences see only the new My Profile experience. The new *My Profile* aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
@@ -55,7 +55,7 @@ Combined registration supports the following authentication methods and actions:
 | Hardware token | No | No | Yes |
 | Phone | Yes | Yes | Yes |
 | Alternate phone | Yes | Yes | Yes |
-| Office phone | No | No | No |
+| Office phone | Yes | Yes | Yes |
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
 | App passwords | Yes | No | Yes |
@@ -139,8 +139,8 @@ A user who has previously set up at least one method that can be used for Multi-
 
 ## Next steps
 
-To get started, see the tutorials to [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+To get started, see the tutorials to [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 Learn how to [enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md) or [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-You can also review the [available methods for Azure Multi-Factor Authentication and SSPR](concept-authentication-methods.md).
+You can also review the [available methods for Azure AD Multi-Factor Authentication and SSPR](concept-authentication-methods.md).

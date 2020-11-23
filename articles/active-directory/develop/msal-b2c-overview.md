@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev devx-track-js
 # Customer intent: As an application developer, I want to learn how MSAL.js can be used with Azure AD B2C for
 # authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
 ---
@@ -54,16 +54,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### Step 3: Configure authentication
 
-1. Open the `config.js` file in the sample.
+1. Open the *config.json* file in the sample.
 
-2. Configure the sample with the application credentials that you obtained earlier while registering your application. Change the following lines of code by replacing the values with the names of your clientID, host, tenantId and policy name.
+2. Configure the sample with the application credentials that you obtained earlier while registering your application. Change the following lines of code by replacing the values with your tenant name, client ID, and policy name.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 For more information, check out this [Node.js B2C web API sample](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 

@@ -56,6 +56,8 @@ The incremental snapshots are stored in the VM's storage account, which is used 
 
 ### Using Azure portal
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 In the Azure portal, you can see a field added in the **VM Backup Policy** pane under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** pane for all the VMs associated with the specific backup policy.
 
 ![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)
@@ -110,3 +112,8 @@ If the recovery point has a snapshot and it's the latest recovery point availabl
 ### I don’t need Instant Restore functionality. Can it be disabled?
 
 Instant restore feature is enabled for everyone and can't be disabled. You can reduce the snapshot retention to a minimum of one day.
+
+### Is it safe to restart the VM during the transfer process (which can take many hours)? Will restarting the VM interrupt or slow down the transfer?
+
+Yes its safe, and there is absolutely no impact in data transfer speed.
+

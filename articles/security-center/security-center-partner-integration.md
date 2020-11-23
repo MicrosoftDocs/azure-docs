@@ -80,7 +80,7 @@ Select **VIEW** for additional information and options such as:
 
 ### Discovered solutions
 
-Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), and partner solutions.
+Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and partner solutions.
 
 > [!NOTE]
 > Enable **Azure Defender** at the subscription level for the discovered solutions feature. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
@@ -100,5 +100,5 @@ The **Add data sources** section includes other available data sources that can 
 
 In this article, you learned how to integrate partner solutions in Security Center. For related information, see the following articles:
 
-* [Export security alerts and recommendations](continuous-export.md). Learn how to setup an integration with Azure Sentinel, or any other SIEM.
+* [Continuously export Security Center data](continuous-export.md). Learn how to setup an integration with Azure Sentinel, or any other SIEM.
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.

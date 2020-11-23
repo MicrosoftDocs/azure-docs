@@ -1,6 +1,6 @@
 ---
-title: Connect a generic IoT Plug and Play generic module | Microsoft Docs
-description: Use sample C# IoT Plug and Play device code in a generic module.
+title: Tutorial - Connect a generic Azure IoT Plug and Play module | Microsoft Docs
+description: Tutorial - Use sample C# IoT Plug and Play device code in a generic module.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
@@ -15,7 +15,7 @@ services: iot-pnp
 
 This tutorial shows you how to connect a generic IoT Plug and Play [module](../iot-hub/iot-hub-devguide-module-twins.md).
 
-A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device-csharp.md). Modules use model IDs and DTDL models in the same way.
+A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device.md). Modules use model IDs and DTDL models in the same way.
 
 To demonstrate how to implement an IoT Plug and Play module, this tutorial shows you how to convert the thermostat C# device sample into a generic module.
 
@@ -235,4 +235,4 @@ You can use the Azure IoT Explorer tool to see:
 In this tutorial, you've learned how to connect an IoT Plug and Play device with modules to an IoT hub. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](./concepts-developer-guide-device-csharp.md)
+> [IoT Plug and Play modeling developer guide](./concepts-developer-guide-device.md)

@@ -23,7 +23,7 @@ system in either direction.
 
 ## Requirements
 
-You will need a minimum of 10,000 unique aligned parallel sentences to train a system. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. As a best practice, continuously add more parallel content and retrain to improve the quality of your translation system. Please refer to [Sentence Alignment](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+You will need a minimum of 10,000 unique aligned parallel sentences to train a system. This limitation is a safety net to ensure your parallel sentences contain enough unique vocabulary to successfully train a translation model. As a best practice, continuously add more parallel content and retrain to improve the quality of your translation system. Please refer to [Sentence Alignment](./sentence-alignment.md).
 
 Microsoft requires that documents uploaded to the Custom Translator do not
 violate a third party’s copyright or intellectual properties. For more

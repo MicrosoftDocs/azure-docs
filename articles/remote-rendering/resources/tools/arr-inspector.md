@@ -24,7 +24,7 @@ If the app that calls `ConnectToArrInspectorAsync` is already running on a PC:
 
 If the app is running on a HoloLens:
 
-1. Access the HoloLens using the [Windows Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
+1. Access the HoloLens using the [Windows Device Portal](/windows/mixed-reality/using-the-windows-device-portal).
 1. Go to *System > File Explorer*.
 1. Navigate to *User Folders\\LocalAppData\\[your_app]\\AC\\Temp*.
 1. Save *StartArrInspector.html* to your PC.

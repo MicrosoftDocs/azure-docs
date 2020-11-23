@@ -31,7 +31,7 @@ Security Center offers more container security features if you enable Azure Defe
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview|
+|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|Free|
 |Required roles and permissions:|**Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations|
 |Supported clusters:|Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported|

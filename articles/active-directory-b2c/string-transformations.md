@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -882,7 +882,7 @@ For example, normalize a phone number, by removing the `-` characters
     - **inputClaim**: "+164-411-452-054"
 - Input parameters:
     - **oldValue**: "-"
-    - **length**:  ""
+    - **newValue**:  ""
 - Output claims:
     - **outputClaim**: "+164411452054"
 

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage
@@ -45,7 +45,7 @@ To view the permissions you have in the subscription, go to the Azure portal. In
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
 
-1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connect to your SQL Server instance by using your credentials.
 
@@ -105,7 +105,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
 
 1. Open the **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -173,7 +173,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     d. Under **Authentication type**, select the appropriate authentication type that Data Factory should use to connect to your SQL Server database.
 
-    e. Under **User name** and **Password**, enter the user name and password. If you need to use a backslash (\\) in your user account or server name, precede it with the escape character (\\). For example, use *mydomain\\\\myuser*.
+    e. Under **User name** and **Password**, enter the user name and password. Use *mydomain\\myuser* as user name if needed.
 
     f. Select **Test connection**. This step is to confirm that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
 

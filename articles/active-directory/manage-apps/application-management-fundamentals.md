@@ -26,7 +26,7 @@ This article contains recommendations and best practices for managing applicatio
 ## Cloud app and single sign-on recommendations
 | Recommendation | Comments |
 | --- | --- |
-| Check the Azure AD application gallery for apps  | Azure AD has a gallery that contains thousands of pre-integrated applications that are enabled with Enterprise single sign-on (SSO). For app-specific setup guidance, see the [List of SaaS app tutorials](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Check the Azure AD application gallery for apps  | Azure AD has a gallery that contains thousands of pre-integrated applications that are enabled with Enterprise single sign-on (SSO). For app-specific setup guidance, see the [List of SaaS app tutorials](../saas-apps/tutorial-list.md).  | 
 | Use federated SAML-based SSO  | When an application supports it, use Federated, SAML-based SSO with Azure AD instead of password-based SSO and ADFS.  | 
 | Use SHA-256 for certificate signing  | Azure AD uses the SHA-256 algorithm by default to sign the SAML response. Use SHA-256 unless the application requires SHA-1 (see [Certificate signing options](certificate-signing-options.md) and [Application sign-in problem](application-sign-in-problem-application-error.md).)  | 
 | Require user assignment  | By default, users can access to your enterprise applications without being assigned to them. However, if the application exposes roles, or if you want the application to appear on a user’s My Apps, require user assignment. (See [Developer guidance for integrating applications](developer-guidance-for-integrating-applications.md).)  | 
@@ -37,7 +37,7 @@ This article contains recommendations and best practices for managing applicatio
 ## Provisioning recommendations
 | Recommendation | Comments |
 | --- | --- |
-| Use tutorials to set up provisioning with cloud apps | Check the [List of SaaS app tutorials](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for step-by-step guidance on configuring provisioning for the gallery app you want to add. |
+| Use tutorials to set up provisioning with cloud apps | Check the [List of SaaS app tutorials](../saas-apps/tutorial-list.md) for step-by-step guidance on configuring provisioning for the gallery app you want to add. |
 | Use provisioning logs (preview) to monitor status | The [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) give details about all actions performed by the provisioning service, including status for individual users. |
 | Assign a distribution group to the provisioning notification email | To increase the visibility of critical alerts sent by the provisioning service, assign a distribution group to the Notification Emails setting. |
 

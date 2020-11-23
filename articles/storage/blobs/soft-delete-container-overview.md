@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Soft delete for containers (preview)

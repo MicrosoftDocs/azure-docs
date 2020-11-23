@@ -87,7 +87,7 @@ Use the [steps above](#portal-create) to create the compute instance.  Then fill
 |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Enable/disable SSH access     |   SSH access is disabled by default.  SSH access cannot be. changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.  |
+|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.  |
 
 ### <a name="amlcompute"></a> Compute clusters
 
@@ -102,7 +102,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
-|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
+|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
 
 #### <a name="managed-identity"></a> Set up managed identity
 
@@ -130,7 +130,7 @@ Create or attach an Azure Kubernetes Service (AKS) cluster for large scale infer
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Cluster purpose  | Select **Production** or **Dev-test** |
 |Number of nodes | The number of nodes multiplied by the virtual machine’s number of cores (vCPUs) must be greater than or equal to 12. |
-| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](how-to-enable-virtual-network.md#aksvnet). |
+| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](./how-to-secure-inferencing-vnet.md). |
 | Enable SSL configuration | Use this to configure SSL certificate on the compute |
 
 ### Attached compute
@@ -151,8 +151,8 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     > [!NOTE]
     > Microsoft recommends that you use SSH keys, which are more secure than passwords. Passwords are vulnerable to brute force attacks. SSH keys rely on cryptographic signatures. For information on how to create SSH keys for use with Azure Virtual Machines, see the following documents:
     >
-    > * [Create and use SSH keys on Linux or macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Create and use SSH keys on Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
+    > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
 
 1. Select __Attach__. 
 
@@ -170,4 +170,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to train a model.
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* [Use Azure Machine Learning with Azure Virtual Networks](how-to-enable-virtual-network.md)
+* [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)

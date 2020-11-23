@@ -61,8 +61,10 @@
       href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
     - name: SQL Database
       items:
-      - name: Availability zones with SQL Database
-        href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
+      - name: Availability zones with SQL Database general purpose tier
+        href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+      - name: Availability zones with SQL Database premium & business critical tiers
+        href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
     - name: Storage
       items:
       - name: Zone-redundant storage

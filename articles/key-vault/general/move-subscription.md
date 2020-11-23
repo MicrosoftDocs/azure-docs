@@ -77,7 +77,7 @@ If you moved your key vault to a subscription in a new tenant, you need to manua
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
 $vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your key vault's Resource ID 
-$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
+$vault = Get-AzResource -ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
 $vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your key vault resides in
 $vault.Properties.AccessPolicies = @()                                     # Access policies can be updated with real
                                                                            # applications/users/rights so that it does not need to be                             # done after this whole activity. Here we are not setting 
@@ -97,9 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Now that your vault is associated with the correct tenant ID and old access policy entries are removed, set new access policy entries with the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet or the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
 
-If you are using a managed identity for Azure resources, you will need to update it to the new Azure Active Directory tenant as well. For more information on managed identities, [Managed identity overview](/azure/active-directory/managed-identities-azure-resources/overview).
+If you are using a managed identity for Azure resources, you will need to update it to the new Azure Active Directory tenant as well. For more information on managed identities, [Managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
 If you are using managed identity, you'll also have to update the identity because the old identity will no longer be in the correct Azure Active Directory tenant. See the following documents to help resolve this issue. 
 
-* [Updating MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
-* [Transfer Subscription to New Directory](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
+* [Updating MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
+* [Transfer Subscription to New Directory](../../role-based-access-control/transfer-subscription.md)

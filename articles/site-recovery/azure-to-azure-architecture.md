@@ -163,11 +163,11 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automatio
 
 #### Control access with NSG rules
 
-If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [NSG rules](../virtual-network/security-overview.md), note the following requirements:
+If you control VM connectivity by filtering network traffic to and from Azure networks/subnets using [NSG rules](../virtual-network/network-security-groups-overview.md), note the following requirements:
 
 - NSG rules for the source Azure region should allow outbound access for replication traffic.
 - We recommend you create rules in a test environment before you put them into production.
-- Use [service tags](../virtual-network/security-overview.md#service-tags) instead of allowing individual IP addresses.
+- Use [service tags](../virtual-network/network-security-groups-overview.md#service-tags) instead of allowing individual IP addresses.
     - Service tags represent a group of IP address prefixes gathered together to minimize complexity when creating security rules.
     - Microsoft automatically updates service tags over time. 
  

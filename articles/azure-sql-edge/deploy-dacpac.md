@@ -15,7 +15,7 @@ ms.date: 09/03/2020
 
 Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
-Azure SQL Edge provides native mechanism that enable you to deploy a [SQL Database DACPAC and BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during, or after deploying SQL Edge.
+Azure SQL Edge provides native mechanism that enable you to deploy a [SQL Database DACPAC and BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications) package during, or after deploying SQL Edge.
 
 SQL Database dacpac and bacpac packages can be deployed to SQL Edge using the `MSSQL_PACKAGE` environment variable. The environment variable can be configured with any of the following.  
 - A local folder location within the SQL container containing the dacpac and bacpac files. This folder can be mapped to a host volume using either mount points or data volume containers. 
@@ -30,7 +30,7 @@ To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `
 
 1. Create/Extract a DAC package or Export a Bacpac File using the mechanism mentioned below. 
     - Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
-    - Exporting a deployed DAC package or a database. See [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) for information on how to generate a bacpac file for an existing SQL Server database.
+    - Exporting a deployed DAC package or a database. See [Export a Data-tier Application](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) for information on how to generate a bacpac file for an existing SQL Server database.
 
 2. Zip the `*.dacpac` or the `*.bacpac` file and upload it to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 

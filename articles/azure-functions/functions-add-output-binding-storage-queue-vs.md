@@ -102,7 +102,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. To
 Next, you should enable Application Insights monitoring for your function app:
 
 > [!div class="nextstepaction"]
-> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Enable Application Insights integration](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [previous quickstart article]: functions-create-your-first-function-visual-studio.md
