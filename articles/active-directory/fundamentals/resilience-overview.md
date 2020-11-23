@@ -42,7 +42,7 @@ Whatever the source, recognizing and planning for the contingencies is important
 
 To build more resilience in your systems, review the following articles:
 
-* [Build resilience in your IAM infrastructure](build-resilience-in-infrastructure.md)
+* [Build resilience in your IAM infrastructure](resilience-in-infrastructure.md)
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 

@@ -105,15 +105,15 @@ If you are implementing a federated authentication strategy or want to make it m
 ## Next steps
 Resilience resources for administrators and architects
  
-* [Build resilience with credential management](build-resilience-in-credentials.md)
+* [Build resilience with credential management](resilience-in-credentials.md)
 
-* [Build resilience with device states](build-resilience-with-device-states.md)
+* [Build resilience with device states](resilience-with-device-states.md)
 
-* [Build resilience by using Continuous Access Evaluation (CAE)](build-resilience-with-cae.md)
+* [Build resilience by using Continuous Access Evaluation (CAE)](resilience-with-cae.md)
 
-* [Build resilience in external user authentication](build-resilience-b2b-authentication.md)
+* [Build resilience in external user authentication](resilience-b2b-authentication.md)
 
-* [Build resilience in application access with Application Proxy](build-resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
 
 Resilience resources for developers
 

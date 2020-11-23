@@ -54,15 +54,15 @@ It’s possible to use [API connectors](https://docs.microsoft.com/azure/active-
 ## Next steps
 Resilience resources for administrators and architects
  
-* [Build resilience with credential management](build-resilience-in-credentials.md)
+* [Build resilience with credential management](resilience-in-credentials.md)
 
-* [Build resilience with device states](build-resilience-with-device-states.md)
+* [Build resilience with device states](resilience-with-device-states.md)
 
-* [Build resilience by using Continuous Access Evaluation (CAE)](build-resilience-with-cae.md)
+* [Build resilience by using Continuous Access Evaluation (CAE)](resilience-with-cae.md)
 
-* [Build resilience in your hybrid authentication](build-resilience-in-hybrid.md)
+* [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](build-resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
 
 Resilience resources for developers
 

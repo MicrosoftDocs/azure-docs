@@ -129,7 +129,7 @@ We recommend your test plan to include [comprehensive API tests](https://docs.mi
 
 ## Next steps
 
-- [Resilience resources for Azure AD B2C developers](aad-b2c-resilience.md)
+- [Resilience resources for Azure AD B2C developers](resilience-b2c.md)
   - [Resilient end-user experience](resilient-end-user-experience.md)
   - [Resilient interfaces with external processes](resilient-external-processes.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)

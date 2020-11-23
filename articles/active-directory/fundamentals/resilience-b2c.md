@@ -38,7 +38,7 @@ In the subsequent sections, we’ll guide you to build resilience in the followi
 
 - [Interfaces with external processes](resilient-external-processes.md): Build resilience in your applications and interfaces by recovering from errors.  
 
-- [Developer best practices](resilience-through-developer-best-practices.md): Avoid fragility because of common custom policy issues and improve error handling in the areas like interactions with claims verifiers, third-party applications, and REST APIs.
+- [Developer best practices](resilience-b2b-developer-best-practices.md): Avoid fragility because of common custom policy issues and improve error handling in the areas like interactions with claims verifiers, third-party applications, and REST APIs.
 
 - [Monitoring and analytics](resilience-with-monitoring-alerting.md): Assess the health of your service by monitoring key indicators and detect failures and performance disruptions through alerting.
 
@@ -47,7 +47,7 @@ In the subsequent sections, we’ll guide you to build resilience in the followi
 - Resilience resources for Azure AD B2C developers
   - [Resilient end-user experience](resilient-end-user-experience.md)
   - [Resilient interfaces with external processes](resilient-external-processes.md)
-  - [Resilience through developer best practices](resilience-through-developer-best-practices.md)
+  - [Resilience through developer best practices](resilience-b2b-developer-best-practices.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
 - [Build resilience in your authentication infrastructure](aka.ms/azureadresilience/admin)
 - [Increase resilience of authentication and authorization in your applications](aka.ms/azureadresilience/developer)

@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Build resilience with credential management
 
-When a credential is presented to Azure AD in a token request, there are multiple dependencies that must be available for validation. The first authentication factor relies on Azure AD authentication, and in some cases on on-premises infrastructure. For more information on hybrid authentication architectures, see [Build resilience in your hybrid infrastructure](build-resilience-in-hybrid.md). 
+When a credential is presented to Azure AD in a token request, there are multiple dependencies that must be available for validation. The first authentication factor relies on Azure AD authentication, and in some cases on on-premises infrastructure. For more information on hybrid authentication architectures, see [Build resilience in your hybrid infrastructure](resilience-in-hybrid.md). 
 
 If you implement a second factor, the dependencies for the second factor are added to the dependencies for the first. For example, if your first factor is via PTA, and your second factor is SMS, your dependencies are:
 
@@ -64,15 +64,15 @@ In addition to individual user resiliency described above, enterprises should pl
 ## Next steps
 Resilience resources for administrators and architects
  
-* [Build resilience with device states](build-resilience-with-device-states.md)
+* [Build resilience with device states](resilience-with-device-states.md)
 
-* [Build resilience by using Continuous Access Evaluation (CAE)](build-resilience-with-cae.md)
+* [Build resilience by using Continuous Access Evaluation (CAE)](resilience-with-cae.md)
 
-* [Build resilience in external user authentication](build-resilience-b2b-authentication.md)
+* [Build resilience in external user authentication](resilience-b2b-authentication.md)
 
-* [Build resilience in your hybrid authentication](build-resilience-in-hybrid.md)
+* [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](build-resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
 
 Resilience resources for developers
 
