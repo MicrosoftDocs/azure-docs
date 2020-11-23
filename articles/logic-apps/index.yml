@@ -35,7 +35,7 @@ landingContent:
             url: logic-apps-enterprise-integration-overview.md
           - text: Resource health for logic apps
             url: healthy-unhealthy-resource.md
-            - linkListType: learn
+      - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
             url: /learn/modules/intro-to-logic-apps/
