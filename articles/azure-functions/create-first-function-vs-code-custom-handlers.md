@@ -27,11 +27,11 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
 
-# [Go](#go)
+# [Go](#tab/go)
 
 + [Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.
 
-# [Rust](#rust)
+# [Rust](#tab/rust)
 
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
 
@@ -68,7 +68,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions cu
 
 The *function.json* file in the *HttpExample* folder declares an HTTP trigger function. You complete the function by adding a handler and compiling it into an executable.
 
-# [Go](#go)
+# [Go](#tab/go)
 
 1. Press <kbd>Ctrl + N</kbd> (<kbd>Cmd + N</kbd> on macOS) to create a new file. Save it as *handler.go* in the function app root (same folder as *host.json*).
 
@@ -115,7 +115,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
     ![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-go.png)
 
-# [Rust](#rust)
+# [Rust](#tab/rust)
 
 1. Press <kbd>Ctrl + Shift + `</kbd> or select *New Terminal* from the *Terminal* menu to open a new integrated terminal in VS Code.
 
@@ -241,7 +241,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 This quickstart will deploy your application to an Azure Functions Linux Consumption app. Unless you are developing locally on Linux/x64 architecture, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
-# [Go](#go)
+# [Go](#tab/go)
 
 1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
 
@@ -261,7 +261,7 @@ This quickstart will deploy your application to an Azure Functions Linux Consump
 
 1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the linux binary.
 
-# [Rust](#rust)
+# [Rust](#tab/rust)
 
 Needs content.
 
