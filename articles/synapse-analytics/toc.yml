@@ -99,7 +99,8 @@
       - name: Security baseline
         href: security-baseline.md
       - name: Encryption
-        href: ./security/security-workspaces-encryption.md
+        href: ./security/
+        workspaces-encryption.md
       - name: Network Security
         items: 
         - name: Synapse workspace IP firewall rules
