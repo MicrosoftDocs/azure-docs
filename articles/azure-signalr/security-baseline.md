@@ -168,14 +168,10 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 - Your organization's resources, such as applications on Azure or your corporate network resources.
 
-These are the built-in roles in Azure SignalR Service:
+Azure SignalR Service only supports Azure AD authentication in management plane but not data plane. Here is the list of built-in roles in Azure SignalR Service:
 
 - [- SignalR Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-contributor)
 - [- SignalR AccessKey Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-accesskey-reader)
-- [- SignalR App Server (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-app-server-preview)
-- [- SignalR Serverless Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-serverless-contributor-preview)
-- [- SignalR Service Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-owner-preview)
-- [- SignalR Service Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-reader-preview)
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
@@ -402,14 +398,6 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 - [- SignalR AccessKey Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-accesskey-reader)
 
-- [- SignalR App Server (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-app-server-preview)
-
-- [- SignalR Serverless Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-serverless-contributor-preview)
-
-- [- SignalR Service Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-owner-preview)
-
-- [- SignalR Service Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-reader-preview)
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -478,14 +466,6 @@ Here is the list of built-in roles in Azure SignalR Service:
 - [SignalR Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-contributor)
 
 - [SignalR AccessKey Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-accesskey-reader)
-
-- [SignalR App Server (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-app-server-preview)
-
-- [SignalR Serverless Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-serverless-contributor-preview)
-
-- [SignalR Service Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-owner-preview)
-
-- [SignalR Service Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#signalr-service-reader-preview)
 
 **Azure Security Center monitoring**: Not applicable
 
