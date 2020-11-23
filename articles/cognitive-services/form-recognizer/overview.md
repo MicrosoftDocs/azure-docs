@@ -53,7 +53,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 Form Recognizer can extract text, selection marks, and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR) and an enhanced deep learning  model from documents. See the [Layout](./concept-layout.md) conceptual guide for more info.
 
-![sample tables](./media/tables-example.jpg)
+:::image type="content" source="./media/tables-example.jpg" alt-text="tables example" lightbox="./media/tables-example.jpg":::
 
 ## Custom models
 
@@ -86,19 +86,19 @@ Form Recognizer also includes Prebuilt models for automated data processing of u
 ### Prebuilt Invoice model
 The Prebuilt Invoice model extracts data from invoices in a variety of formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal and more. In addition, the prebuilt invoice model is trained to recognize and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
 
-![sample invoice](./media/overview-invoices.jpg)
+:::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
 ### Prebuilt Receipt model
 
 The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. See the [Receipts](./concept-receipts.md) conceptual guide for more info.
 
-![sample receipt](./media/overview-receipt.jpg)
+:::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
 ### Prebuilt Business Cards model
 
 The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. See the [Business cards](./concept-business-cards.md) conceptual guide for more info.
 
-![sample business card](./media/overview-business-card.jpg)
+:::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
 
 ## Get started
