@@ -43,7 +43,7 @@ A _security principal_ is a user, group, service principal, or managed identity.
 
 ### Roles
  
-A _role definition_ or *'role'* is a collection of permissions.  A role lists a set of actions that can be performed on specific resource types or artifact types.  For example, to update a SQL script, the _Microsoft.Synapse/workspaces/sqlScripts/write_ action/permission is required.  Actions may be generic, and apply to different kinds of resources or artifacts, or specific, and apply only to certain resource types or artifact types. The .../sqlScripts/write action is an example of a permission that applies only to a specific type of artifact.
+A _role definition_ or *'role'* is a collection of permissions.  A role lists a set of actions that can be performed on specific resource types or artifact types.  For example, to update a SQL script, the _Microsoft.Synapse/workspaces/sqlScripts/write_ action/permission is required.  Actions may be generic or type-specific.  Generic actions apply to different kinds of resources or artifacts.  Type-specific actions apply only to certain resource types or artifact types. The .../sqlScripts/write action is an example of a permission that applies only to sqlScripts, in this case.
 
 A role assignment grants the principal the permissions defined by the role at the specified scope.
 
@@ -59,9 +59,9 @@ Current supported scopes within a workspace are: Apache Spark pool, Integration 
 
 Access to code artifacts is granted with workspace scope.  Granting access to collections of artifacts within a workspace will be supported in a later release.
 
-## Assigning roles 
+## Assigning roles and computing permissions
 
-Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigned to a single principal.  When the system checks whether a security  principal has permission to take some action on a specific object, it considers all role assignments assigned to the principal and to groups that directly or indirectly include that principal.  It also checks assignments scoped to that object or at a higher level.  
+Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigned to a single principal and at different scopes. When computing the permissions a security principal, the system considers all roles assigned to the principal and to groups that directly or indirectly include the principal.  It also considers the scope of each assignment in determining the permissions that apply.  
 
 ## Enforcing assigned permissions
 
