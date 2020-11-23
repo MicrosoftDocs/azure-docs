@@ -41,7 +41,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-- The Offer alias can't be changed after you select **Create**.
+- This name can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 
@@ -103,7 +103,7 @@ Enter the version number of your offer. Customers will see this version listed o
 
 ### Terms and conditions
 
-Provide your own legal terms and conditions in the **Terms and conditions** field. You can also provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
+Provide your own legal terms and conditions here. You can also provide the address where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
 Select **Save draft** before continuing.
 
@@ -111,7 +111,7 @@ Select **Save draft** before continuing.
 
 This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
 
-Here you will define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.
+Define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.
 
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, terms of use, and so on) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
@@ -151,7 +151,7 @@ Provide a short description of your offer, up to 100 characters. This descriptio
 
 ### Search keywords
 
-You can optionally enter up to three search keywords to help customers find your offer in the marketplace. For best results, try to use these keywords in your description as well.
+You can optionally enter up to three search keywords to help customers find your offer in the marketplace. For best results, also use these keywords in your description.
 
 ### Products your app works with
 
@@ -205,7 +205,7 @@ Add screenshots that show how your offer works. At least one screenshot is requi
 
 #### Videos
 
-You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
+You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its address, and a thumbnail image of the video (1280 x 720 pixels).
 
 #### Additional marketplace listing resources
 
@@ -215,20 +215,18 @@ Select **Save draft** before continuing.
 
 ## Availability
 
-This page gives you options for where and how to make your offer available.
+This page lets you define where and how to make your offer available.
 
 ### Markets
 
-To specify the markets where your offer will be available, select **Edit markets**, which will display the **Market selection** popup window.
+Specify the markets in which your offer should be available. To do so, select **Edit markets** to display the **Market selection** popup window.
 
 Select at least one market. Choose **Select all** to make your offer available in every possible market, or select only the specific markets you want. When you're finished, select **Save**.
 
 Your selections here apply only to new acquisitions; if someone already has your app in a certain market, and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
 
 > [!IMPORTANT]
-> It is your responsibility to meet any local legal requirements, even if those requirements aren't listed here or in Partner Center.
-
-Keep in mind that even if you select all markets, local laws, restrictions, or other factors may prevent certain offers from being listed in some countries and regions.
+> It is your responsibility to meet any local legal requirements, even if those requirements aren't listed here or in Partner Center. Even if you select all markets, local laws, restrictions, or other factors may prevent certain offers from being listed in some countries and regions.
 
 ### Preview audience
 
@@ -289,7 +287,7 @@ Select **Save draft** before continuing.
 
 ### Submit offer to preview
 
-Once you have completed all the required sections of the offer, select **Review and publish** at the upper-right corner of the portal. You will be redirected to the **Review and publish** page.
+After completing all required sections of the offer, select **Review and publish** at the upper-right corner of the portal.
 
 If it's your first time publishing this offer, you can:
 

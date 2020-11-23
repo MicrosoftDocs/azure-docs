@@ -41,7 +41,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-- The Offer alias can't be changed after you select **Create**.
+- This name can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 
@@ -101,7 +101,7 @@ Enter the version number of your offer. Customers will see this version listed o
 
 ### Terms and conditions
 
-Provide your own legal terms and conditions in the **Terms and conditions** field. You can also provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
+Provide your own legal terms and conditions here. You can also provide the address where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
 Select **Save draft** before continuing.
 
@@ -110,7 +110,7 @@ Select **Save draft** before continuing.
 This is where you define details for your offer such as name, description, and images.
 
 > [!NOTE]
-> You can provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the Offer listing content.
+> Provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
@@ -147,7 +147,7 @@ Provide a short description of your offer, up to 100 characters. This descriptio
 
 ### Search keywords
 
-You can optionally enter up to three search keywords to help customers find your offer in the marketplace. For best results, try to use these keywords in your description as well.
+You can optionally enter up to three search keywords to help customers find your offer in the marketplace. For best results, also use these keywords in your description.
 
 ### Products your app works with
 
@@ -205,20 +205,18 @@ Select **Save draft** before continuing.
 
 ## Availability
 
-This page gives you options for where and how to make your offer available.
+This page lets you define where and how to make your offer available.
 
 ### Markets
 
-To specify the markets where your offer will be available, select **Edit markets**, which will display the **Market selection** popup window.
+Specify the markets in which your offer should be available. To do so, select **Edit markets** to display the **Market selection** popup window.
 
 Select at least one market. Choose **Select all** to make your offer available in every possible market, or select only the specific markets you want. When you're finished, select **Save**.
 
 Your selections here apply only to new acquisitions; if someone already has your app in a certain market, and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
 
 > [!IMPORTANT]
-> It is your responsibility to meet any local legal requirements, even if those requirements aren't listed here or in Partner Center.
-
-Keep in mind that even if you select all markets, local laws, restrictions, or other factors may prevent certain offers from being listed in some countries and regions.
+> It is your responsibility to meet any local legal requirements, even if those requirements aren't listed here or in Partner Center. Even if you select all markets, local laws, restrictions, or other factors may prevent certain offers from being listed in some countries and regions.
 
 ### Preview audience
 
@@ -282,7 +280,7 @@ If your offer requires the Premium edition of Microsoft Dynamics 365 Business Ce
 
 ### Key usage scenario
 
-You must upload a PDF file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+Upload a PDF file that lists your offer's key usage scenarios. All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
 ### Test accounts
 
@@ -298,14 +296,14 @@ Select **Save draft** before continuing.
 
 ### Submit offer to preview
 
-Once you have completed all the required sections of the offer, select **Review and publish** in the upper-right corner of the portal. You will be redirected to the **Review and publish** page.
+After completing all required sections of the offer, select **Review and publish** in the upper-right corner of the portal.
 
 If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - *Not started* - The section has not been touched and needs to be completed.
-    - *Incomplete* - The section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
-    - *Complete* - The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - *Not started* - Section has not been touched and needs to be completed.
+    - *Incomplete* - Section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
+    - *Complete* - Section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will email you when a preview version of the offer is available to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
 

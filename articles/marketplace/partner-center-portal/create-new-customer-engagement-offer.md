@@ -11,7 +11,7 @@ ms.date: 06/17/2020
 
 # Create a Dynamics 365 for Customer Engagement & PowerApps offer
 
-This topic explains how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (PowerApps, Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
+This article describes how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (PowerApps, Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
 Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
@@ -38,13 +38,11 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-- This can't be changed after you select **Create**.
+- This name can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 
 ## Offer setup
-
-Follow these steps to set up your offer.
 
 ### How do you want potential customers to interact with this listing offer?
 
@@ -85,7 +83,7 @@ Select **Save draft** before continuing.
 
 This page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer.
 
-### Category
+### Categories
 
 Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
 
@@ -94,7 +92,7 @@ Select categories and subcategories to place your offer in the appropriate marke
 
 See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
-### Industry
+### Industries
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
@@ -128,13 +126,13 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 #### Call-out descriptions
 
 1. Logo
-2. Products
-3. Categories
-4. Support address (link)
-5. Terms of use address (link)
-6. Offer name
-7. Description
-8. Screenshots/videos
+1. Products
+1. Categories
+1. Support address (link)
+1. Terms of use address (link)
+1. Offer name
+1. Description
+1. Screenshots/videos
 
 ### Name
 
@@ -160,23 +158,21 @@ You can optionally enter up to three search keywords to help customers find your
 
 If you want to let customers know that your app works with specific products, enter up to three product names here.
 
-### Support URLs
+### Help/Privacy URLs
 
-This section lets you provide links to help customers understand more about your offer.
+#### Help link for your app
 
-#### Help link
-
-Enter the address where customers can learn more about your offer.
+Enter the address (URL) where customers can learn more about your offer. Your Help URL cannot be the same as your Support URL.
 
 #### Privacy policy URL
 
-Enter the address to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
+Enter the address (URL) to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-### Contacts
+### Contact information
 
-Provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This info is not shown to customers, but will be available to Microsoft and may be provided to CSP partners.
+Provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This information is not shown to customers, but will be available to Microsoft and may be provided to CSP partners.
 
-In the **Support contact** section, you must also provide the **Support URL** where CSP partners can find support for your offer.
+In the **Support contact** section, provide the **Support URL** where CSP partners can find support for your offer. Your Support URL cannot be the same as your Help URL.
 
 ### Supporting documents
 
@@ -206,11 +202,11 @@ These logos are used in different places in the listing:
 
 #### Screenshots
 
-Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
+Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels and in PNG format..
 
 #### Videos
 
-You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
+You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its address, and a thumbnail image of the video (1280 x 720 pixels).
 
 #### Additional marketplace listing resources
 
@@ -224,9 +220,9 @@ This page lets you define where and how to make your offer available.
 
 ### Markets
 
-Specify the markets in which your offer should be available. To do so, select **Edit markets**, which will display the **Market selection** popup window.
+Specify the markets in which your offer should be available. To do so, select **Edit markets** to display the **Market selection** popup window.
 
-By default, no markets are selected, but you must select at least one market in order to publish your offer. Choose  **Select all** to make your offer available in every possible market, or select the specific markets that you want to add.
+Select at least one market. Choose **Select all** to make your offer available in every possible market, or select only the specific markets you want. When you're finished, select **Save**.
 
 Your selections here apply only to new acquisitions; if someone already has your app in a certain market and you later remove that market, the people who already have the offer in that market can continue to use it but no new customers in that market will be able to get your offer.
 
@@ -245,17 +241,13 @@ Select **Save draft** before continuing.
 
 This page defines the technical details used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it.
 
-### Base license model
+### Offer info
 
-The base license model determines how customers are assigned your application in the CRM Admin Center. Select **Resource** for instance-based licensing or **User** if licenses are assigned one per tenant.
+**Base license model** determines how customers are assigned your application in the CRM Admin Center. Select **Resource** for instance-based licensing or **User** if licenses are assigned one per tenant.
 
-### Requires S2S outbound and CRM Secure Store Access
+The **Requires S2S outbound and CRM Secure Store Access** check box enables configuration of CRM Secure Store or Server-to-Server (S2S) outbound access. This feature requires specialized consideration from the Dynamics 365 Team during the certification phase. Microsoft will contact you to complete additional steps to support this feature.
 
-Check this box to enable configuration of CRM Secure Store or Server-to-Server (S2S) outbound access. This feature requires specialized consideration from the Dynamics 365 Team during the certification phase. Microsoft will contact you to complete additional steps to support this feature.
-
-### Application configuration URL
-
-Provide the URL for the configuration web page that enables the customer to configure your app.
+For **Application Configuration URL**, provide the URL for the configuration web page that enables the customer to configure your app.
 
 ### CRM package
 
@@ -272,7 +264,7 @@ For detailed information on how to build your package and update its structure, 
 
 In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](../../germany/index.yml), [US Government Cloud](../../azure-government/documentation-government-welcome.md), and TIP.
 
-By default, the **Application configuration URL** you entered above will be used for each region. If you prefer, you can enter a separate Application Configuration URL for one or more specific regions. 
+By default, the **Application configuration URL** you entered above will be used for each region. If you prefer, you can enter a separate Application Configuration URL for one or more specific regions.
 
 Select **Save draft** before continuing.
 
@@ -298,17 +290,17 @@ Select **Save draft** before continuing.
 
 ### Submit offer to preview
 
-After you have completed all the required sections of the offer, select **Review and publish** at the upper-right corner of the portal.
+After completing all required sections of the offer, select **Review and publish** at the upper-right corner of the portal.
 
 If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - **Not started** - The section has not been touched and should be completed.
-    - **Incomplete** - The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
-    - **Complete** - The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - **Not started** - Section has not been touched and needs to be completed.
+    - **Incomplete** - Section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
+    - **Complete** - Section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish to the public.
+- Submit the offer for publishing by selecting **Submit**. We will email you when a preview version of the offer is available to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
 
-## Next step
+## Next steps
 
 - [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
