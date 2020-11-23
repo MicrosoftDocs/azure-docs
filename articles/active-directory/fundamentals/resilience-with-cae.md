@@ -62,10 +62,10 @@ Resilience resources for administrators and architects
 
 * [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
 
 Resilience resources for developers
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
-* [Build IAM resilience in your Azure AD B2C systems](https://aka.ms/azureadresilience/b2c)
+* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)

@@ -133,5 +133,5 @@ We recommend your test plan to include [comprehensive API tests](https://docs.mi
   - [Resilient end-user experience](resilient-end-user-experience.md)
   - [Resilient interfaces with external processes](resilient-external-processes.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
-- [Build resilience in your authentication infrastructure](build-resilience-in-infrastructure.md)
+- [Build resilience in your authentication infrastructure](resilience-in-infrastructure.md)
 - [Increase resilience of authentication and authorization in your applications]()

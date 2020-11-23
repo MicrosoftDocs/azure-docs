@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-## Building resilient identity and access management with Azure Active Directory
+# Building resilient identity and access management with Azure Active Directory
 
 Identity and access management (IAM) is a framework of processes, policies, and technologies that facilitate the management of identities and what they access. It includes the many components supporting the authentication and authorization of user and other accounts in your system. 
 
@@ -46,7 +46,4 @@ To build more resilience in your systems, review the following articles:
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
-* [Build IAM resilience in your Azure AD B2C systems](https://aka.ms/azureadresilience/b2c)
-
-
- 
+* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)

@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 # Build resilience with device states
 
-By enabling [device states](../devices/overview) with Azure AD, administrators can author [Conditional Access policies](../conditional-access/overview) that control access to applications based on device state. The added benefit of devices is that it satisfies strong authentication requirements for access to resources thus reducing additional MFA authentication requests and improving resiliency. 
+By enabling [device states](../devices/overview) with Azure AD, administrators can author [Conditional Access policies](../conditional-access/overview.md) that control access to applications based on device state. The added benefit of devices is that it satisfies strong authentication requirements for access to resources thus reducing additional MFA authentication requests and improving resiliency. 
 
 The following flow chart presents the different ways to onboard devices in Azure AD that enable device states. You can use more than one in your organization.
 
 ![flow chart for choosing device states](./media/resilience-with-device-states/admin-resilience-devices.png)
 
-When you use [device states](../devices/overview), users will in most cases experience single sign-on to resources through a [Primary Refresh Token](../devices/concept-primary-refresh-token) (PRT). The PRT contains claims about the user and the device and can be used to get authentication tokens to access applications from the device. The PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device, providing users a resilient experience. A PRT can also get a multi-factor authentication claim in several ways. For more information, see [When does a PRT get an MFA claim](../devices/concept-primary-refresh-token). 
+When you use [device states](../devices/overview.md), users will in most cases experience single sign-on to resources through a [Primary Refresh Token](../devices/concept-primary-refresh-token.md) (PRT). The PRT contains claims about the user and the device and can be used to get authentication tokens to access applications from the device. The PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device, providing users a resilient experience. A PRT can also get a multi-factor authentication claim in several ways. For more information, see [When does a PRT get an MFA claim](../devices/concept-primary-refresh-token.md).
 
 ## How do device states help?
 
@@ -31,17 +31,17 @@ When a PRT is used to request access to an application, its device, session, and
 
 ## How do I implement device states?
 
-* Enable [hybrid Azure AD Joined](../devices/hybrid-azuread-join-plan) and [Azure AD Join](../devices/azureadjoin-plan) for company owned Windows devices, and require they be joined if possible. If not possible, require they be registered.
+* Enable [hybrid Azure AD Joined](../devices/hybrid-azuread-join-plan.md) and [Azure AD Join](../devices/azureadjoin-plan.md) for company owned Windows devices, and require they be joined if possible. If not possible, require they be registered.
 
 oIf there are older versions of Windows in your organization, upgrade those devices to use Windows 10.
 
-* Standardize user browser access to use either [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) or Google Chrome with [supported](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) that enabled seamless SSO to web applications using the PRT.
+* Standardize user browser access to use either [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) or Google Chrome with [supported](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) that enabled seamless SSO to web applications using the PRT.
 
-* For personal or company owned iOS and Android devices deploy the [Microsoft Authenticator App](../user-help/user-help-auth-app-overview). In addition to the Multi-factor authentication and password-less sign in capabilities, the Microsoft Authenticator app will enable single sign across native application through [brokered authentication](../develop/brokered-auth) with fewer authentication prompts for end users. 
+* For personal or company owned iOS and Android devices deploy the [Microsoft Authenticator App](../user-help/user-help-auth-app-overview.md). In addition to the Multi-factor authentication and password-less sign in capabilities, the Microsoft Authenticator app will enable single sign across native application through [brokered authentication](../develop/brokered-auth.md) with fewer authentication prompts for end users.
 
-* For personal or company owned iOS and Android devices use [mobile application management](https://docs.microsoft.com/mem/intune/apps/app-management) to securely access company resources with fewer authentication requests. 
+* For personal or company owned iOS and Android devices use [mobile application management](https://docs.microsoft.com/mem/intune/apps/app-management.md) to securely access company resources with fewer authentication requests. 
 
-* [Use the Microsoft Enterprise SSO plug-in for Apple devices (preview)](../develop/apple-sso-plugin). This registers the device and provides SSO across browser and native Azure AD applications. 
+* [Use the Microsoft Enterprise SSO plug-in for Apple devices (preview)](../develop/apple-sso-plugin.md). This registers the device and provides SSO across browser and native Azure AD applications. 
 
 ## Next steps
 Resilience resources for administrators and architects
@@ -55,13 +55,13 @@ Resilience resources for administrators and architects
 
 * [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
 
 
 Resilience resources for developers
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
-* [Build IAM resilience in your Azure AD B2C systems](https://aka.ms/azureadresilience/b2c)
+* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
 
  

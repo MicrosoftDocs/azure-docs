@@ -25,7 +25,7 @@ The sign-up and sign-in end-user experience is made up of the following elements
 
 - The identity providers (IDPs) for your application – such as local account username/password, Outlook, Facebook, and Google
 
-![Image shows end-user experience components](media/resilient-end-user-experience/end-user-experience-architecture.png)
+![Image shows end-user experience components](media/resilient-end-user-experiences/end-user-experience-architecture.png)
 
 ## Choose between user flow and custom policy  
 
@@ -67,7 +67,7 @@ When using **user flows**, there are two methods to build resilience:
 
 - **Change user flow configuration**:  Upon detecting a disruption in the phone-based OTP delivery, change the OTP delivery method from phone-based to email-based and redeploy the user flow, leaving the applications unchanged.
 
-![screenshot shows sign-in sign-up](media/resilient-end-user-experience/create-sign-in.png)
+![screenshot shows sign-in sign-up](media/resilient-end-user-experiences/create-sign-in.png)
 
 - **Change applications**: For each identity task such as sign-up and sign-in, define two sets of user flows. Configure first set to use phone-based OTP and the second to email-based OTP. Upon detecting a disruption in the phone-based OTP delivery, change and redeploy the applications to switch from the first set of user flows to the second, leaving the user flows unchanged.  
 
@@ -97,5 +97,5 @@ Periodically test your CDN’s availability and the performance of content distr
   - [Resilient interfaces with external processes](resilient-external-processes.md)
   - [Resilience through developer best practices](resilience-b2c-developer-best-practices.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
-- [Build resilience in your authentication infrastructure](aka.ms/azureadresilience/admin)
-- [Increase resilience of authentication and authorization in your applications](aka.ms/azureadresilience/developer)
+- [Build resilience in your authentication infrastructure](resilience-in-infrastructure.md)
+- [Increase resilience of authentication and authorization in your applications]()

@@ -28,22 +28,20 @@ Hybrid authentication allows users to access cloud-based resources with their id
 
 Microsoft offers three mechanisms for hybrid authentication. The options are listed in order of resilience. We recommend that you implement password hash synchronization if possible.
 
-* [Password hash synchronization](../hybrid/whatis-phs) (PHS) uses Azure AD Connect to sync the identity and a hash of the hash of the password to Azure AD, enabling users to sign-in to cloud-based resources with their password mastered on-premises. PHS has on-premises dependencies only for synchronization, not for authentication.
+* [Password hash synchronization](../hybrid/whatis-phs.md) (PHS) uses Azure AD Connect to sync the identity and a hash of the hash of the password to Azure AD, enabling users to sign-in to cloud-based resources with their password mastered on-premises. PHS has on-premises dependencies only for synchronization, not for authentication.
 
-* [Pass-through Authentication]()../hybrid/how-to-connect-pta) (PTA) redirects users to Azure AD for sign-in. Then, the username and password are validated against Active Directory on premises, through an agent that is deployed in the corporate network. PTA has an on-premises footprint of its Azure AD PTA agents that reside on servers on-premises.
+* [Pass-through Authentication](../hybrid/how-to-connect-pta.md) (PTA) redirects users to Azure AD for sign-in. Then, the username and password are validated against Active Directory on premises, through an agent that is deployed in the corporate network. PTA has an on-premises footprint of its Azure AD PTA agents that reside on servers on-premises.
 
-* [Federation](../hybrid/whatis-fed) customers deploy a federation service such as AD FS, and then Azure AD validates the SAML assertion produced by the federation service. Federation has the highest dependency on on-premises infrastructure, and therefore more failure points. 
+* [Federation](../hybrid/whatis-fed.md) customers deploy a federation service such as AD FS, and then Azure AD validates the SAML assertion produced by the federation service. Federation has the highest dependency on on-premises infrastructure, and therefore more failure points. 
 
    
-‎You may be using one or more of these methods in your organization. For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn). This article contains a decision tree that can help you decide on your methodology.
+‎You may be using one or more of these methods in your organization. For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md). This article contains a decision tree that can help you decide on your methodology.
 
 ## Password hash synchronization
 
-The simplest and most resilient hybrid authentication option for Azure AD is [Password Hash Synchronization](../hybrid/whatis-phs) which does not have any on-premises identity infrastructure dependency when processing authentication requests. Once identities with password hashes are synchronized to Azure AD, users can authenticate to cloud resources with no dependency on the on-premises identity components. 
+The simplest and most resilient hybrid authentication option for Azure AD is [Password Hash Synchronization](../hybrid/whatis-phs.md) which does not have any on-premises identity infrastructure dependency when processing authentication requests. Once identities with password hashes are synchronized to Azure AD, users can authenticate to cloud resources with no dependency on the on-premises identity components. 
 
 ![Architecture diagram of PHS](./media/resilience-in-hybrid/admin-resilience-phs.png)
-
- 
 
 If you choose this authentication option, you will not experience disruption when on-premises identity components become unavailable. On-premises disruption can occur for many reasons, including hardware failure, power outages, natural disasters, and malware attacks. 
 
@@ -51,9 +49,9 @@ If you choose this authentication option, you will not experience disruption whe
 
 To implement PHS, see the following resources:
 
-* [Implement password hash synchronization with Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization)
+* [Implement password hash synchronization with Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md)
 
-* [Enable password hash synchronization](../hybrid/how-to-connect-password-hash-synchronization)
+* [Enable password hash synchronization](../hybrid/how-to-connect-password-hash-synchronization.md)
 
 If your requirements are such that you cannot use PHS, use Pass-through Authentication.
 
@@ -67,13 +65,13 @@ Pass-through Authentication has a dependency on authentication agents that resid
 
 To implement Pass-through Authentication, see the following resources.
 
-* [How Pass-through Authentication works](../hybrid/how-to-connect-pta-how-it-works)
+* [How Pass-through Authentication works](../hybrid/how-to-connect-pta-how-it-works.md)
 
-* [Pass-through Authentication security deep dive](../hybrid/how-to-connect-pta-security-deep-dive)
+* [Pass-through Authentication security deep dive](../hybrid/how-to-connect-pta-security-deep-dive.md)
 
-* [Install Azure AD Pass-through Authentication](../hybrid/how-to-connect-pta-quick-start) 
+* [Install Azure AD Pass-through Authentication](../hybrid/how-to-connect-pta-quick-start.md)
 
-* If you are using PTA, define a [highly available topology](../hybrid/how-to-connect-pta-quick-start). 
+* If you are using PTA, define a [highly available topology](../hybrid/how-to-connect-pta-quick-start.md).
 
  ## Federation
 
@@ -90,17 +88,17 @@ The following diagram shows a topology of an enterprise Active Directory Federat
 
 If you are implementing a federated authentication strategy or want to make it more resilient, see the following resources.
 
-* [What is federated authentication](../hybrid/whatis-fed)
+* [What is federated authentication](../hybrid/whatis-fed.md)
 
-* [How federation works](../hybrid/how-to-connect-fed-whatis)
+* [How federation works](../hybrid/how-to-connect-fed-whatis.md)
 
-* [Azure AD federation compatibility list](../hybrid/how-to-connect-fed-compatibility)
+* [Azure AD federation compatibility list](../hybrid/how-to-connect-fed-compatibility.md)
 
-* Follow the [AD FS capacity planning documentation](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) 
+* Follow the [AD FS capacity planning documentation](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
 
 * [Deploying AD FS in Azure IaaS](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 
-* [Enable PHS](../hybrid/tutorial-phs-backup) along with your federation
+* [Enable PHS](../hybrid/tutorial-phs-backup.md) along with your federation
 
 ## Next steps
 Resilience resources for administrators and architects
@@ -113,10 +111,10 @@ Resilience resources for administrators and architects
 
 * [Build resilience in external user authentication](resilience-b2c-authentication.md)
 
-* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
 
 Resilience resources for developers
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
-* [Build IAM resilience in your Azure AD B2C systems](https://aka.ms/azureadresilience/b2c)
+* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)

@@ -45,21 +45,21 @@ For second factors, the Microsoft Authenticator app or other authenticator apps 
 
 ## How do multiple credentials help resilience?
 
-Provisioning multiple credential types gives users options that accommodate their preferences and environmental constraints. As a result, interactive authentication where users are prompted for Multi-factor authentication will be more resilient to specific dependencies being unavailable at the time of the request. You can [optimize reauthentication prompts for Multi-factor authentication](./authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime). 
+Provisioning multiple credential types gives users options that accommodate their preferences and environmental constraints. As a result, interactive authentication where users are prompted for Multi-factor authentication will be more resilient to specific dependencies being unavailable at the time of the request. You can [optimize reauthentication prompts for Multi-factor authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 In addition to individual user resiliency described above, enterprises should plan contingencies for large-scale disruptions such as operational errors that introduce a misconfiguration, a natural disaster, or an enterprise-wide resource outage to an on-premises federation service (especially when used for Multi-factor authentication). 
 
 ## How do I implement resilient credentials?
 
-* Deploy [Passwordless credentials](../authentication/howto-authentication-passwordless-deployment) such as Windows Hello for Business, Phone Authentication, and FIDO2 security keys to reduce dependencies.
+* Deploy [Passwordless credentials](../authentication/howto-authentication-passwordless-deployment.md) such as Windows Hello for Business, Phone Authentication, and FIDO2 security keys to reduce dependencies.
 
-* Deploy the [Microsoft Authenticator App](../user-help/user-help-auth-app-overview) as a second factor.
+* Deploy the [Microsoft Authenticator App](../user-help/user-help-auth-app-overview.md) as a second factor.
 
-* Turn on [password hash synchronization](../hybrid/whatis-phs) for hybrid accounts that are synchronized from Windows Server Active Directory. This option can be enabled alongside federation services such as AD FS and provides a fall back in case the federation service fails.
+* Turn on [password hash synchronization](../hybrid/whatis-phs.md) for hybrid accounts that are synchronized from Windows Server Active Directory. This option can be enabled alongside federation services such as AD FS and provides a fall back in case the federation service fails.
 
 * [Analyze usage of Multi-factor authentication methods](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to improve users’ experience.
 
-* [Implement a resilient access control strategy](../authentication/concept-resilient-controls)
+* [Implement a resilient access control strategy](../authentication/concept-resilient-controls.md)
 
 ## Next steps
 Resilience resources for administrators and architects
@@ -72,10 +72,10 @@ Resilience resources for administrators and architects
 
 * [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
 
 Resilience resources for developers
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
-* [Build IAM resilience in your Azure AD B2C systems](https://aka.ms/azureadresilience/b2c)
+* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)

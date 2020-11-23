@@ -27,7 +27,7 @@ The document set is designed for
 
 * Identity Operations teams
 
-Please also see the documentation for [application developers](https://aka.ms/azureadresilience/developer) and for [Azure AD B2C systems](https://aka.ms/azureadresilience/b2c).
+Please also see the documentation for [application developers](https://aka.ms/azureadresilience/developer) and for [Azure AD B2C systems](resilience-b2c.md).
 
 ## What is resilience?
 
@@ -39,7 +39,7 @@ Every call to the authentication system is subject to disruption if any componen
 
 In a token-based authentication system like Azure AD, a user’s application (client) must acquire a security token from the identity system before it can access an application or other resource. During the validity period, a client can present the same token multiple times to access the application.
 
-When the token presented to the application expires, the application rejects the token, and the client must acquire a new token from Azure AD. Acquiring a new token potentially requires user interaction such as credential prompts. Reducing the frequency of authentication calls with longer-lived tokens reduces this risk. However, you must balance token life with the risk created by fewer policy evaluations. For more information on managing token lifetimes, see this article on [optimizing reauthentication prompts](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+When the token presented to the application expires, the application rejects the token, and the client must acquire a new token from Azure AD. Acquiring a new token potentially requires user interaction such as credential prompts. Reducing the frequency of authentication calls with longer-lived tokens reduces this risk. However, you must balance token life with the risk created by fewer policy evaluations. For more information on managing token lifetimes, see this article on [optimizing reauthentication prompts](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
 
 ## Ways to increase resilience
 The following diagram shows six concrete ways you can increase resilience. Each method is explained in detail in the articles linked in the Next steps portion of this article.
@@ -59,10 +59,10 @@ Resilience resources for administrators and architects
 
 * [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](resilience-on-prem-access)
+* [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
 
 Resilience resources for developers
 
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
-* [Build IAM resilience in your Azure AD B2C systems](https://aka.ms/azureadresilience/b2c)
+* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
