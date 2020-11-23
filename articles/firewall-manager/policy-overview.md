@@ -11,15 +11,15 @@ ms.author: victorh
 
 # Azure Firewall Manager policy overview
 
-Firewall Policy is an Azure resource that contains NAT, network, and application rule collections as well as Threat Intelligence settings. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
+Firewall Policy is an Azure resource that contains NAT, network, and application rule collections, and Threat Intelligence settings. It's a global resource that can be used across multiple Azure Firewall instances in Secured Virtual Hubs and Hub Virtual Networks. Policies work across regions and subscriptions.
 
 ![Azure Firewall Manager policy](media/policy-overview/policy-overview.png)
 
-Firewall Policy is a highly available and automatically replicated resource. In the event of a rare regional disaster, Firewall Policy operations failover to Azure Paired Regions. Post recovery operations failover to the Azure Primary Region for both synchronous and asynchronous operations. 
+Firewall Policy is a highly available and automatically replicated resource. If a rare regional disaster happens, Firewall Policy operations failover to Azure Paired Regions. Post recovery operations failover to the Azure Primary Region for both synchronous and asynchronous operations. 
 
 Paired regions provide several benefits, including:
 - physical isolation separated by at least 300 miles
-- faster recovery in the event of a disaster
+- faster recovery from a disaster
 - meeting data residency requirements mandated by the geography
 
 For more information about paired regions, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
