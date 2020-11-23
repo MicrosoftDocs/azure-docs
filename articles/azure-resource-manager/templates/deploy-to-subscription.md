@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ---
 
 # Subscription deployments with ARM templates
@@ -126,20 +126,28 @@ For more detailed information about deployment commands and options for deployin
 When deploying to a subscription, you can deploy resources to:
 
 * the target subscription from the operation
-* resource groups within the subscription
+* any subscription in the tenant
+* resource groups within the subscription or other subscriptions
+* the tenant for the subscription
 * [extension resources](scope-extension-resources.md) can be applied to resources
 
-You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
+The user deploying the template must have access to the specified scope.
 
 This section shows how to specify different scopes. You can combine these different scopes in a single template.
 
-### Scope to subscription
+### Scope to target subscription
 
 To deploy resources to the target subscription, add those resources to the resources section of the template.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
+
+### Scope to other subscription
+
+To deploy resources to a subscription that is different than the subscription from the operation, set the `subscriptionId` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### Scope to resource group
 
@@ -148,6 +156,18 @@ To deploy resources to a resource group within the subscription, add a nested de
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
 
 For an example of deploying to a resource group, see [Create resource group and resources](#create-resource-group-and-resources).
+
+### Scope to tenant
+
+You can create resources at the tenant by setting the `scope` set to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+
+You can use a nested deployment with `scope` and `location` set.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Or, you can set the scope to `/` for some resource types, like management groups.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
 
 ## Deployment location and name
 
