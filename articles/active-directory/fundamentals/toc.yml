@@ -81,11 +81,11 @@
         href: sync-scim.md
     - name: Build for resilience
       items:
-      - name: Infrastructure overview
+      - name: Overview
         href: resilience-overview.md
       - name: Infrastructure guidance
         items:
-        - name: Admin introduction to resilience
+        - name: Infrastructure overview
           href: resilience-in-infrastructure.md
         - name: Credential management
           href: resilience-in-credentials.md
