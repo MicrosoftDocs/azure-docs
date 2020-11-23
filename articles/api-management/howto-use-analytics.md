@@ -1,28 +1,51 @@
 ---
 title: Use API analytics in Azure API Management | Microsoft Docs
-description: Use analytics in Azure API Management to help you understand the traffic your APIs are getting, what drives that traffic, and the performance of your APIs.
+description: Use analytics in Azure API Management to help you understand and categorize the usage of your APIs and API performance.
 author: dlepow
 
 ms.service: api-management
-ms.custom: mvc
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 11/23/2020
 ms.author: apimpm
 ---
-# Use analytics for ...
+# Get API analytics in Azure API Management
 
+Azure API Management provides built-in analytics for your APIs, so you can review API usage in your API Management instance across several dimensions, including:
 
+* Time
+* Geography
+* APIs
+* API operations
+* Products
+* Subscriptions
+* Users
+* Requests
 
+:::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="Timeline analytics in portal":::
 
-## Portal
+Use analytics for high level monitoring and troubleshooting of your APIs. For additional monitoring features, including near real-time metrics and resouce logs for diagnostics and auditing, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md).
 
-## API
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
+## Analytics - portal
 
-https://{api-service-name}.management.azure-api.net/subscriptions/{subscription}/resourceGroups/{resource-group}/providers/Microsoft.ApiManagement/service/{api-service-name}/reports/byUser?$filter=timestamp ge datetime'2019-12-01T00:00:00' and timestamp le datetime'2019-12-04T00:00:00'&api-version=2017-03-01
+Use the Azure portal to review analytics data at a glance for your API Management instance.
 
-Reports API:
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance. 
+1. In the left-hand menu, under **Monitoring**, select **Analytics**.
+    :::image type="content" source="media/howto-use-analytics/monitoring-menu-analytics.png" alt-text="Select analytics for API Management instance in portal":::  
+1. Select a time range for data, or enter a custom time range. 
+1. Select a report category for analytics data, such as **Timeline**, **Geography**, and so on.
+1. Optionally, filter the report by one or more additonal categories.
 
-https://docs.microsoft.com/en-us/rest/api/apimanagement/2019-12-01/reports
+## Analytics - REST API
+
+Use [Reports](/rest/api/apimanagement/2019-12-01/reports) operations in the API Management REST API to retrieve and filter analytics data for your API Management instance.
+
+Available operations return report records by API, geography, API operations, product, request, subscription, time, or user.
 
 ## Next steps
+
+* For an introduction to Azure Monitor features in API Management, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md)
+* For detailed HTTP logging and monitoring, see [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md).
+* Learn about integrating [Azure API Management with Azure Application Insights](api-management-howto-app-insights.md).
