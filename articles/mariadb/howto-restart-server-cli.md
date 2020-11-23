@@ -1,8 +1,8 @@
 ---
 title: Restart server - Azure CLI - Azure Database for MariaDB
 description: This article describes how you can restart an Azure Database for MariaDB server using the Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020 

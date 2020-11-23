@@ -87,7 +87,7 @@ To enable TLS 1.2:
 Start by enabling communication to Azure data centers to prepare your environment for Azure AD Application Proxy. If there's a firewall in the path, make sure it's open. An open firewall allows the connector to make HTTPS (TCP) requests to the Application Proxy.
 
 > [!IMPORTANT]
-> If you are installing the connector for Azure Government cloud follow the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) and [installation steps](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
+> If you are installing the connector for Azure Government cloud follow the [pre-requisites](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
 
 ### Open ports
 
@@ -197,7 +197,7 @@ Now that you've prepared your environment and installed a connector, you're read
     | **Backend Application Timeout** | Set this value to **Long** only if your application is slow to authenticate and connect. At default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. |
     | **Use HTTP-Only Cookie** | Set this value to **Yes** to have Application Proxy cookies include the HTTPOnly flag in the HTTP response header. If using Remote Desktop Services, set this value to **No**.|
     | **Use Secure Cookie**| Set this value to **Yes** to transmit cookies over a secure channel such as an encrypted HTTPS request.
-    | **Use Persistent Cookie**| Keep this value set to **No**. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
+    | **Use Persistent Cookie**| Keep this value set to **No**. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see [Cookie settings for accessing on-premises applications in Azure Active Directory](./application-proxy-configure-cookie-settings.md).
     | **Translate URLs in Headers** | Keep this value as **Yes** unless your application required the original host header in the authentication request. |
     | **Translate URLs in Application Body** | Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see [Link translation with Application Proxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Set this value to **Yes** if you plan to monitor this application with Microsoft Cloud App Security (MCAS). For more information, see [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 

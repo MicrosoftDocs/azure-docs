@@ -1,8 +1,8 @@
 ---
 title: CLI script - Download slow query logs - Azure Database for MySQL
 description: This sample Azure CLI script shows how to enable and download the server logs of an Azure Database for MySQL server.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

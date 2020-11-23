@@ -1,8 +1,8 @@
 ---
 title: CLI script - Create server - Azure Database for MySQL
 description: This sample CLI script creates an Azure Database for MySQL server and configures a server-level firewall rule.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli

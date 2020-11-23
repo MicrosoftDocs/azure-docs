@@ -244,6 +244,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     ```
     
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.7 or 3.6, change `-RuntimeVersion` to `3.7` or `3.6`, respectively.
+
     ---
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you.  The `<APP_NAME>` is also the default DNS domain for the function app. 
@@ -268,3 +269,5 @@ In a separate terminal window or in the browser, call the remote function again.
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)

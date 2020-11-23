@@ -72,7 +72,7 @@ A transient error, also known as a transient fault, is an error that will resolv
 
 ## Next steps
 
-- For any questions or suggestions you might have about working with Azure Database for MariaDB, send an email to the Azure Database for MariaDB Team at *AskAzureDBforMySQL@service.microsoft.com*.
+- For any questions or suggestions you might have about working with Azure Database for MariaDB, send an email to the Azure Database for MariaDB Team at AskAzureDBforMariaDB@service.microsoft.com
 - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.
 - [Troubleshoot connection issues to Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Handle transient errors and connect efficiently to Azure Database for MariaDB](concepts-connectivity.md)

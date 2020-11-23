@@ -74,7 +74,7 @@ Before a Log Analytics workspace can be used with Azure Monitor for VMs, it must
 > When you add the *VMInsights* solution to the workspace, all existing virtual machines connected to the workspace will start to send data to InsightsMetrics. Data for the other data types won't be collected until you add the Dependency Agent to those existing virtual machines connected to the workspace.
 
 ### Azure portal
-There are three options for configuring an existing workspace from the Azure portal.
+There are three options for configuring an existing workspace using the Azure portal. Each are described below.
 
 To configure a single workspace, select the **Other onboarding options** and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
 

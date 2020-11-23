@@ -21,13 +21,13 @@ ms.author: terrylan
 # Azure security management and monitoring overview
 This article provides an overview of the security features and services that Azure provides to aid in the management and monitoring of Azure cloud services and virtual machines.
 
-## Role-Based Access Control
+## Azure role-based access control
 
-Role-Based Access Control (RBAC) provides detailed access management for Azure resources. By using RBAC, you can grant people only the amount of access that they need to perform their jobs. RBAC can also help you ensure that when people leave the organization, they lose access to resources in the cloud.
+Azure role-based access control (Azure RBAC) provides detailed access management for Azure resources. By using Azure RBAC, you can grant people only the amount of access that they need to perform their jobs. Azure RBAC can also help you ensure that when people leave the organization, they lose access to resources in the cloud.
 
 Learn more:
 
-* [Active Directory team blog on RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Active Directory team blog on Azure RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
@@ -50,15 +50,15 @@ Learn more:
 
 ## Multi-Factor Authentication
 
-Azure Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions.
+Azure AD Multi-Factor Authentication is a method of authentication that requires the use of more than one verification method. It adds a critical second layer of security to user sign-ins and transactions.
 
 Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options (phone call, text message, or mobile app notification or verification code) and third-party OATH tokens.
 
 Learn more:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [How Azure Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## ExpressRoute
 

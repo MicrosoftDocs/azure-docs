@@ -95,8 +95,8 @@ To reset a user’s password, follow these steps:
 
 ### Enable self-service password reset
 To enable self-service password reset, follow these deployment steps:
--   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
--   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Enable users to reset their Azure Active Directory passwords](../authentication/tutorial-enable-sspr.md)
+-   [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
 ### Check a user’s multi-factor authentication status
 To check a user’s multi-factor authentication status, follow these steps:
