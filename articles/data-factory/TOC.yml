@@ -752,7 +752,7 @@
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
-    - name: Security and Access Control
+    - name: Security and access control
       href: security-and-access-control-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md

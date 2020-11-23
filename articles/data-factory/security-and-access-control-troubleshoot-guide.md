@@ -26,24 +26,24 @@ Self-hosted integration runtime throws error “The Authentication key is invali
 
 #### Cause
 
-The problem is most likely the DNS resolution issue, as disabling public connectivity and establishing a private endpoint does no help for reconnecting.
+The problem is most likely caused by DNS resolution issue, as disabling public connectivity and establishing a private endpoint does no help for reconnecting.
 
 #### Resolution
 
-1. Did a PsPing to ADF’s FQDN to found that the buffer is going to a public endpoint of ADF, even after having it disabled.
+1. Did a PsPing to ADF’s FQDN and found that the buffer was going to a public endpoint of ADF, even after having it disabled.
 
 1. Change the host file in VM to map private IP to FQDN and run a PsPing again. Buffer will be able to go to the correct private IP of ADF then.
 
 1. Re-register the self-hosted integration runtime and we will find it up and running.
  
 
-### Unable to register IR authentication key on self-hosted VMs due to private link
+### Unable to register IR authentication key on Self-hosted VMs due to private link
 
 #### Symptoms
 
-Unable to register IR authentication key on self-hosted VM due to private link enabled.
+Unable to register IR authentication key on Self-hosted VM due to private link enabled.
 
-The error information show as below:
+The error information shows as below:
 
 `
 Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 seconds, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn’t access the public network thereby not able to reach out to the cloud to make the successful connection.
@@ -57,18 +57,19 @@ The issue could be caused by the VM where the SHIR is trying to be installed. Pu
 
  **Solution 1:** You can follow below steps to resolve the issue:
 
-- Navigate to the below link.
+1. Navigate to the below link: 
     
     https://docs.microsoft.com/rest/api/datafactory/Factories/Update
 
-- Click on **Try It** option and fill all required details. Paste below property in the **Body** as well:
-```
-{ "tags": { "publicNetworkAccess":"Enabled" } }
-``` 
+1. Click on **Try It** option and fill all required details. Paste below property in the **Body** as well:
 
-- Click **Run** at the end of the page to run the function. Make sure that you would get Response Code 200. The property we pasted will be shown in JSON definition as well.
+    ```
+    { "tags": { "publicNetworkAccess":"Enabled" } }
+    ``` 
 
-- Then you can try to add IR authentication key again in the integration runtime.
+1. Click **Run** at the end of the page to run the function. Make sure that you would get Response Code 200. The property we pasted will be shown in JSON definition as well.
+
+1. Then you can try to add IR authentication key again in the integration runtime.
 
 
 **Solution 2:** You can refer to below article for solution:
@@ -83,10 +84,10 @@ Try to enable the public network access with user interface.
 
 For more help with troubleshooting, try the following resources:
 
+*  [Private Link for Data Factory](data-factory-private-link.md)
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [Mapping data flows performance guide](concepts-data-flow-performance.md)
