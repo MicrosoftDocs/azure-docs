@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 08/27/2020
+ms.date: 11/02/2020
 ---
 
 # Manage your commercial marketplace account in Partner Center
@@ -35,13 +35,13 @@ If you have not already done so, you (or your organization's administrator) shou
 
 ### Open developer settings
 
-**Account settings** is located at the upper right corner of your [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center. Select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**.
+In your [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center, select **Settings** (gear icon) in the top-right corner, then **Developer settings**.
 
 ![Account settings menu in Partner Center](./media/dashboard-developer-settings.png)
 
-Inside **Account settings**, you will be able to view your:
+In **Account settings** you can view your:
 - **Account details**: Account type and Account status
-- **Publisher IDs**: Seller ID, User ID, Publisher ID, Azure AD tenants, etc.
+- **Publisher IDs**: Seller ID, User ID, Publisher ID, Azure AD tenants, and so on
 - **Contact info**: Publisher display name, seller contact name, email, phone, and address
 - **Tracking GUIDs**: Any tracking GUIDs associate with your account
 

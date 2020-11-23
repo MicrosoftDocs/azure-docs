@@ -15,23 +15,9 @@ ms.author: robinsh
 
 This article shows you how to create an IoT hub using Azure CLI.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-To complete this how-to, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Sign in and set your Azure account
-
-If you are running Azure CLI locally instead of using Cloud Shell, you need to sign in to your Azure account.
-
-At the command prompt, run the [login command](/cli/azure/get-started-with-azure-cli):
-
-   ```azurecli
-   az login
-   ```
-
-Follow the instructions to authenticate using the code and sign in to your Azure account through a web browser.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Create an IoT Hub
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/16/2020
 ms.author: victorh
 ---
 
@@ -66,7 +66,9 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Configure the application gateway**
 
-   After you complete the two preceding steps, you can set up or modify an existing application gateway to use the user-assigned managed identity. You can also configure the HTTP listener’s TLS/SSL certificate to point to the complete URI of the Key Vault certificate or secret ID.
+   After you complete the two preceding steps, you can set up or modify an existing application gateway to use the user-assigned managed identity. For more information see, [Set-AzApplicationGatewayIdentity](/powershell/module/az.network/set-azapplicationgatewayidentity).
+
+   You can also configure the HTTP listener’s TLS/SSL certificate to point to the complete URI of the Key Vault certificate or secret ID.
 
    ![Key vault certificates](media/key-vault-certs/ag-kv.png)
 

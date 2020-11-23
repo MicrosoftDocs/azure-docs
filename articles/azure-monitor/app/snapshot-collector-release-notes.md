@@ -65,7 +65,7 @@ Snapshot Collector reads and parses the ConnectionString from the APPLICATIONINS
 - _Experimental feature_: Snappoint collection plans: Add "snapshotOnFirstOccurence". More information available [here](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ## [1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
-- Fixed bug that was causing SnapshotUploader.exe to hang and not upload snapshots for .NET Core apps.
+- Fixed bug that was causing SnapshotUploader.exe to stop responding and not upload snapshots for .NET Core apps.
 
 ## [1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
 - _Experimental feature_: Snappoint collection plans. More information available [here](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).

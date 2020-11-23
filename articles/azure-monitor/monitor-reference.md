@@ -122,7 +122,6 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Managed Applications  | No | No | No |  |
 |Maps  | No | No | No |  |
 |Media Services | Yes | Yes | No |  |
-|Microsoft Flow | No | No | No |  |
 |Microsoft Managed Desktop | No | No | No |  |
 |Microsoft PowerApps | No | No | No |  |
 |Microsoft Social Engagement | No | No | No |  |
@@ -133,6 +132,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Notification Hubs | Yes | No | No |  |
 |Open Datasets | No | No | No |  |
 |Policy | No | No | No |  |
+|Power Automate | No | No | No |  |
 |Power BI Embedded | Yes | Yes | No |  |
 |Private Link | No | No | No |  |
 |Project Spool Communication Platform | No | No | No |  |

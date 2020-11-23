@@ -1,6 +1,6 @@
 ---
 title: Kerberos constrained delegation with Azure Active Directory
-description: Architectural guidance on achieving this authentication pattern
+description: Architectural guidance on achieving Kerberos constrained delegation with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba

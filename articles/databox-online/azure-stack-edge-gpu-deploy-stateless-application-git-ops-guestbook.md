@@ -75,7 +75,7 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. Go to **Configurations** and select **+ Add configuration**.
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Screenshot shows the Azure Arc enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. In the **Add configuration**, enter the appropriate values for the fields and select **Apply**.
 
@@ -96,11 +96,11 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. The configuration deployment starts and the **Operator state** shows as **Pending**. 
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in a pending state as it refreshes.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. The deployment takes a couple minutes. When the deployment completes, the **Operator state** shows as **Installed**.
 
-    ![Go to Configurations](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in an installed state.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## Verify deployment

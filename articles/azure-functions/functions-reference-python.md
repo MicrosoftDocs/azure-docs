@@ -722,6 +722,8 @@ For more information, see the following resources:
 * [Queue storage bindings](functions-bindings-storage-queue.md)
 * [Timer trigger](functions-bindings-timer.md)
 
+[Having issues? Let us know.](https://aka.ms/python-functions-ref-survey)
+
 
 [HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
 [HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true

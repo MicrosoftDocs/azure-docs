@@ -103,10 +103,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Cofense Recipient Sync in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cofense Recipient Sync for update operations.  Select the **Save** button to commit any changes.
 
-   |Attribute|Type|
-   |---|---|
+   |Attribute|Type|Supported for filtering|
+   |---|---|---|
+   |externalId|String|&check;|
    |userName|String|
-   |externalId|String|
    |active|Boolean|
    |displayName|String|
    |name.formatted|String|

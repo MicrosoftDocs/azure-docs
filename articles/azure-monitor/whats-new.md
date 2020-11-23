@@ -5,11 +5,66 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 07/08/2020
+ms.date: 11/11/2020
 ---
 # What's new in Azure Monitor documentation?
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## October 2020
+
+### General
+- [Azure Monitor API retirement](platform/operationalinsights-api-retirement.md) - New article.
+
+### Agents
+- [What is monitored by Azure Monitor](monitor-reference.md) - Added section on agents.
+
+### Alerts
+- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Added section on service tag.
+- [Resource Manager template samples for metric alerts](samples/resource-manager-alerts-metric.md) - Added content match parameter and test locations.
+- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added best practice for rule configuration.
+
+### Application Insights
+- [Angular plugin for Application Insights JavaScript SDK](app/javascript-angular-plugin.md) - New article.
+- [Azure Application Insights for ASP.NET Core applications](app/asp-net-core.md) - Added FAQ about ILogger logs.
+- [Configure monitoring for ASP.NET with Azure Application Insights](app/asp-net.md) - Article rewritten.
+- [Log-based and pre-aggregated metrics in Azure Application Insights](app/pre-aggregated-metrics-log-metrics.md) - Added tables with pre-aggregated metrics.
+- [Monitor availability and responsiveness of any web site](app/monitor-web-app-availability.md) - Added section on location population tags.
+- [Monitor Java applications anywhere - Azure Monitor Application Insights](app/java-standalone-config.md) - Added configuration example.
+- [Monitor Java applications anywhere - Azure Monitor Application Insights](app/java-standalone-telemetry-processors.md) - New article.
+- [Use Application Change Analysis in Azure Monitor to find web-app issues](app/change-analysis.md) - Added sections on virtual machines and Activity log.
+  
+### Autoscale
+- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on moving Autoscale to different region.
+
+### Containers
+- [Configure PV monitoring with Azure Monitor for containers](insights/container-insights-persistent-volumes.md) - New article.
+- [How to manage the Azure Monitor for containers agent](insights/container-insights-manage-agent.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+- [Metric alerts from Azure Monitor for containers](insights/container-insights-metric-alerts.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+
+### Insights and solutions
+- [IT Service Management Connector - Secure Export in Azure Monitor](platform/it-service-management-connector-secure-webhook-connections.md) - Added section on ServiceNow.
+
+### Logs
+- [Archive data from Log Analytics workspace to Azure storage using Logic App](platform/logs-export-logic-app.md) - New article.
+- [Log Analytics workspace data export in Azure Monitor (preview)](platform/logs-data-export.md) - Added sample body for REST request for event hub.
+- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added information on relation between Azure Monitor Logs and Azure Security Center billing. Added query for node counts if using the Per Node pricing tier. 
+- [Monitor health of Log Analytics workspace in Azure Monitor](platform/monitor-workspace.md) - New article.
+- [Query data in Azure Monitor using Azure Data Explorer (preview)](platform/azure-data-explorer-monitor-proxy.md) - New article.
+- [Query exported data from Azure Monitor using Azure Data Explorer (preview)](platform/azure-data-explorer-query-storage.md) - New article.
+
+### Networks
+- [Azure Monitor for Networks Preview](insights/network-insights-overview.md) - Added troubleshooting section. Added section on connectivity.
+
+### Platform logs
+- [Azure Activity Log event schema](platform/activity-log-schema.md) - Added description of severity levels.
+
+### Virtual machines
+- [Change analysis in Azure Monitor for VMs](insights/vminsights-change-analysis.md) - New article.
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Added supported regions.
+- [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics.md) -  Added support for Azure Arc enabled Kubernetes cluster.
+
+
 
 ## September 2020
 
