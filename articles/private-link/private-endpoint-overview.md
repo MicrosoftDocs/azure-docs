@@ -41,9 +41,9 @@ Here are some key details about private endpoints:
  
 - Multiple private endpoints can be created using the same private link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a given private link resource to avoid duplicate entries or conflicts in DNS resolution. 
  
-- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- The subscription from the private link resource must also be registered with Micosoft.Network resource provider. For details, see [Azure Resource Providers](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+- The subscription from the private link resource must also be registered with Micosoft.Network resource provider. For details, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
 
  
 ## Private link resource 
@@ -132,7 +132,7 @@ The following table includes a list of known limitations when using private endp
 - [Create a Private Endpoint for SQL Database using the portal](create-private-endpoint-portal.md)
 - [Create a Private Endpoint for SQL Database using PowerShell](create-private-endpoint-powershell.md)
 - [Create a Private Endpoint for SQL Database using CLI](create-private-endpoint-cli.md)
-- [Create a Private Endpoint for Storage account using the portal](create-private-endpoint-storage-portal.md)
+- [Create a Private Endpoint for Storage account using the portal](./tutorial-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using the portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
 - [Create your own Private Link for Azure Database for PostgreSQL - Single server using the portal](../postgresql/howto-configure-privatelink-portal.md)
