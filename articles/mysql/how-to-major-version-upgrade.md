@@ -46,24 +46,24 @@ Follow these steps to perform major version upgrade for your Azure Database of M
 
 **1. When will this upgrade feature be GA as we have MySQL v5.6 in our production environment that we need to upgrade?**
 
-The GA of this feature is planned before MySQL v5.6 retirement. However, the feature is production ready and fully supported by Azure so you should run it with confidence on your environment. As a recommended best practice, we strongly suggest you to run and test it first on a restored copy of the server so you can estimate the downtime during upgrade, and perform application compatibility test before you run it on production. Refer [how to perform point-in-time restore](howto-restore-server-portal.md#point-in-time-restore) for more details on restoring a point in time copy of your server. 
+The GA of this feature is planned before MySQL v5.6 retirement. However, the feature is production ready and fully supported by Azure so you should run it with confidence on your environment. As a recommended best practice, we strongly suggest you to run and test it first on a restored copy of the server so you can estimate the downtime during upgrade, and perform application compatibility test before you run it on production. For more information, see [how to perform point-in-time restore](howto-restore-server-portal.md#point-in-time-restore) to create a point in time copy of your server. 
 
 **2. Will this cause downtime of the server and if so, how long?**
 
-Yes, the server will be unavailable during the upgrade process so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned) and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server.The upgrades of Basic SKU servers are expected to take longer time as it is on standard storage platform. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server.  
+Yes, the server will be unavailable during the upgrade process so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned), and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server.The upgrades of Basic SKU servers are expected to take longer time as it is on standard storage platform. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server.  
 
 **3. It is noted that it is not supported on replica server yet. What does that mean concrete?**
 
-Currently, major version upgrade is not supported for replica server which means you should not run it for servers involved in replication (either source or replica server). The support for upgrade of replica servers is planned to be added in our upcoming release very soon. Once the support is added, if your server is involved in replication, you should upgrade your replica server first using upgrade feature using the steps mentioned above and it should be followed by the upgrade of your source server.
+Currently, major version upgrade is not supported for replica server, which means you should not run it for servers involved in replication (either source or replica server). We plan to add support for upgrade of replica servers in our upcoming release soon. Once the support is added, if your server is involved in replication, you should upgrade your replica server first using upgrade feature using the steps mentioned above and it should be followed by the upgrade of your source server.
 
 If you would like to test the upgrade of the servers involved in replication before we add the replica support for upgrade feature, we would recommend following steps:
 1. During your planned maintenance, [stop replication and delete replica server](howto-read-replicas-portal.md) after capturing its name and all the configuration information (Firewall settings, server parameter configuration if it is different from source server).
 2. Perform upgrade of the source server.
 3. Provision a new read replica server with the same name and configuration settings captured in step 1. The new replica server will be on v5.7 automatically after the source server is upgraded to v5.7.
 
-**4. What will happen if we do not choose to upgrade our MySQL v5.6 server before Febuary 5, 2021?**
+**4. What will happen if we do not choose to upgrade our MySQL v5.6 server before February 5, 2021?**
 
-You can still continue running your MySQL v5.6 server as before. Azure **will never** force upgrade your server. However, the restrictions documented in [Azure Database for MySQL versioning policy](concepts-version-policy.md) will apply.
+You can still continue running your MySQL v5.6 server as before. Azure **will never** perform force upgrade on your server. However, the restrictions documented in [Azure Database for MySQL versioning policy](concepts-version-policy.md) will apply.
 
 ## Next steps
 
