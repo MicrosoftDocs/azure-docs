@@ -1,5 +1,5 @@
 ---
-title:  StylesObject Schema reference guide for dynamic Maps
+title:  StylesObject Schema reference guide for dynamic Azure Maps
 description: Reference guide to the dynamic Azure Maps StylesObject schema and syntax.
 author: anastasia-ms
 ms.author: v-stharr
