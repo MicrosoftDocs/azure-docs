@@ -6,7 +6,7 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: contperfq2
 ---
 
 # Introduction to Azure Functions

@@ -43,7 +43,7 @@ The ASEv3 is only offered in select regions. More regions will be added as the p
 
 ## Creating an ASE in the portal
 
-1. To create an ASEv3, search the marketplace for **App Service Environment v3**.  
+1. To create an ASEv3, search the marketplace for **App Service Environment (preview)**.  
 2. Basics:  Select the Subscription, select or create the Resource Group, and enter the name of your ASE.  The ASE name will be also used for the domain suffix of your ASE.  If your ASE name is *contoso* then the domain suffix will be *contoso.appserviceenvironment.net*.  This name will be automatically set in your Azure DNS private zone used by the Vnet the ASE is deployed into. 
 
     ![App Service Environment create basics tab](./media/creation/creation-basics.png)
