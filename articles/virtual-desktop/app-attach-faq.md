@@ -51,7 +51,7 @@ For two version of the same MSIX applications to run the MSIX package family tah
 
 Yes. MSIX app attach doesn't support auto-update for MSIX applications.
 
-## How permissions work with MSIX app attach?
+## How do permissions work with MSIX app attach?
 
 All VMs that are part of a host pool that uses MSIX app attach must have read permissions on the file share where MSIX images are stored. If Azure Files is being used both RBAC and NTFS permissions must be granted.
 
