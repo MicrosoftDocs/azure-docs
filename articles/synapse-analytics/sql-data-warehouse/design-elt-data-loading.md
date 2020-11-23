@@ -1,6 +1,6 @@
 ---
 title: Instead of ETL, design ELT 
-description: Implement flexible data loading strategies for Synapse dedicated SQL pools within Azure Synapse Analytics
+description: Implement flexible data loading strategies for dedicated SQL pools within Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Data loading strategies for Synapse dedicated SQL pool
+# Data loading strategies for dedicated SQL pool in Azure Synapse Analytics
 
 Traditional SMP dedicated SQL pools use an Extract, Transform, and Load (ETL) process for loading data. Synapse SQL, within Azure Synapse Analytics, uses distributed query processing architecture that takes advantage of the scalability and flexibility of compute and storage resources.
 

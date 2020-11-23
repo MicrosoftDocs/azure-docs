@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial load data from Azure Data Lake Storage'
-description: Use the COPY statement to load data from Azure Data Lake Storage for Synapse dedicated SQL pools.
+description: Use the COPY statement to load data from Azure Data Lake Storage for dedicated SQL pools.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Load data from Azure Data Lake Storage for Synapse dedicated SQL pools
+# Load data from Azure Data Lake Storage into dedicated SQL pools in Azure Synapse Analytics
 
-This guide outlines how to use the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to load data from Azure Data Lake Storage. For quick examples on using the COPY statement across all authentication methods, visit the following documentation: [Securely load data using Synapse dedicated SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+This guide outlines how to use the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to load data from Azure Data Lake Storage. For quick examples on using the COPY statement across all authentication methods, visit the following documentation: [Securely load data using dedicated SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
 
 > [!NOTE]  
 > To provide feedback or report issues on the COPY statement, send an email to the following distribution list: sqldwcopypreview@service.microsoft.com.
@@ -60,7 +60,7 @@ WITH
 
 ## Create the COPY statement
 
-Connect to your SQL dedicated pool and run the COPY statement. For a complete list of examples, visit the following documentation: [Securely load data using Synapse dedicated SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
+Connect to your SQL dedicated pool and run the COPY statement. For a complete list of examples, visit the following documentation: [Securely load data using dedicated SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples).
 
 ```sql
 -- B: Create and execute the COPY statement
