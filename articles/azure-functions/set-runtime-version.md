@@ -35,7 +35,9 @@ The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each majo
 
 A change to the runtime version causes a function app to restart.
 
-## View and update the current runtime version (Windows)
+## View and update the current runtime version
+
+_This section doesn't apply when running your function app [on Linux](#manual_version_updates_on_linux)._
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
