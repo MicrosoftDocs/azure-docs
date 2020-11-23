@@ -1,5 +1,5 @@
 ---
-title: Create sensor console users
+title: Create and manage sensor console users
 description: 
 author: shhazam-ms
 manager: rkarlin
@@ -7,6 +7,7 @@ ms.author: shhazam
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: azure
+ms.topic: how-to
 ---
 
 # Manage users

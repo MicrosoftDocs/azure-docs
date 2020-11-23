@@ -185,7 +185,7 @@ This article describes the requirements for installing the Dell PowerEdge R340XL
 
 ### Dell PowerEdge R340 front panel
 
-![This image shows the front view of the 4 x 3.5-inch drive configuration.](media/tutorial-install-components/image3.jpg)
+![This image shows the front view of the 4 x 3.5-inch drive configuration.](media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg)
 
  1. Left control panel 
  2. Optical drive (optional) 
@@ -195,7 +195,7 @@ This article describes the requirements for installing the Dell PowerEdge R340XL
 
 ### Dell PowerEdge R340 back panel
 
-![This image shows the rear view of the system.](media/tutorial-install-components/image4.jpg)
+![This image shows the rear view of the system.](media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg)
 
 
 1. Serial port 
@@ -250,7 +250,7 @@ To configure Dell BIOS:
 
 6. Change the static subnet mask to 255.255.255.0.
 
-   ![Static Subnet Mask](media/tutorial-install-components/image7.png)
+   ![Static Subnet Mask](media/tutorial-install-components/idrac-network-settings-screen.png)
 
 7. Select **Back** and **Finish**.
 
