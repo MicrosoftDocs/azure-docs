@@ -43,15 +43,13 @@ items:
   items:
   - name: Catalog client overview
     href: catalog-client-overview.md
-  - name: Catalog lineage user guide
-    href: catalog-lineage-user-guide.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding Resource sets
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
-  - name: Data lineage
+  - name: Lineage
     href: data-lineage.md
   - name: Supported data sources
     href: sources-and-scans.md
@@ -144,6 +142,10 @@ items:
       href: how-to-search-catalog.md  
   - name: Lineage 
     items:
+    - name: Lineage user guide
+      href: catalog-lineage-user-guide.md
+    - name: Azure Data Factory
+      href: catalog-lineage-user-guide.md
     - name: Azure Data Share
       href: how-to-link-azure-data-share.md
   - name: Security

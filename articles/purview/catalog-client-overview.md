@@ -37,11 +37,11 @@ The following list summarizes the features of **Home**. Each number in the list 
 
 1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-by-asset-type).
 1. The **My items** tab is a list of data assets owned by the logged-on user.
-1. **Glossary terms** is a searchable dictionary of the organization's key business terms. For more information, see [Glossary terms](#glossary-terms).
+1. **Glossary terms** are a searchable dictionary of the organization's key business terms. For more information, see [Glossary terms](#glossary-terms).
 1. **FAQ/Documentation** is a list of frequently asked questions (FAQs), and documents.
-1. **Managed data sources by asset count** is an array of tiles, each of which is a count of assets whose asset type is one of a system-defined set of related types. For more information, see [Managed data sources by asset count](#managed-data-sources-by-asset-count).
-1. **Top classifications** is a bar graph of asset counts by classification for the most-used classifications. For more information about classifications, see [Classifications](#classifications).
-1. **Pinned assets** is a list of buttons, each of which links to the details page for an asset. The user controls which assets appear in this list. For more information, see [Pin and unpin data assets](#pin-and-unpin-data-assets).
+1. **Managed data sources by asset count are an array of tiles, each of which is a count of assets whose asset type is one of a system-defined set of related types. For more information, see [Managed data sources by asset count](#managed-data-sources-by-asset-count).
+1. **Top classifications are a bar graph of asset counts by classification for the most-used classifications. For more information about classifications, see [Classifications](#classifications).
+1. **Pinned assets are a list of buttons, each of which links to the details page for an asset. The user controls which assets appear in this list. For more information, see [Pin and unpin data assets](#pin-and-unpin-data-assets).
 
 ## Search the catalog for assets
 
@@ -151,7 +151,7 @@ Let's consider a hypothetical example to see how the search terms and quick filt
 
 - We do the first search with no search terms entered and no values selected in the quick filters. The search finds all assets in the catalog. The search results list and the **Asset type** quick filter reveal:
 
-    - The search results list has 164,230 assets, which is all the assets in the catalog.
+    - The search results list has 164,230 assets, which are all the assets in the catalog.
     - The **Asset type** drop-down list has 43 entries. These are all the asset types in the catalog. Since every asset is of one and only one type, the sum of counts of the 43 asset types is 164,230.
     - The **Azure Blob Storage** asset type is the first entry in the drop-down list of the **Asset type** quick filter. The values are ordered by count, largest first, so **Azure Blob Storage** is the most common asset type. Its count is 118,174.
 
@@ -274,7 +274,7 @@ To pin an asset:
 
 ## Managed data sources by asset count
 
-The **Managed data sources by asset count** section of **Home** is an array of tiles, each one representing a set of related asset types.
+The **Managed data sources by asset count** section of Home are an array of tiles, each one representing a set of related asset types.
 
 :::image type="content" source="./media/catalog-client-overview/managed-data-sources-by-asset-count.png" alt-text="Screenshot showing the Managed data sources by asset count section of the Home page.":::
 
@@ -341,11 +341,11 @@ The numbers in the asset detail screenshot correspond to the numbers in the foll
     - **Overview** shows metadata.
     - **Schema** shows schema information for some asset types (structured files and tables).
     - **Lineage** shows lineage information.
-    - **Contacts** shows the contacts (owners and experts).
+    - **Contacts** show the contacts (owners and experts).
     - **Related** shows related assets.
 1. **Description** is a description written by the user, or applied by the API.
 1. **Classifications** show the classifications assigned to the asset.
-1. **Properties** shows technical metadata for the asset as reported by the scanner. One property that's always shown is **qualifiedName**, which is the URI for the asset in the data source.
+1. **Properties** show technical metadata for the asset as reported by the scanner. One property that's always shown is **qualifiedName**, which is the URI for the asset in the data source.
 1. **Last updated** shows the date and time of the most recent update, and the user that did the update.
 1. **Hierarchy** shows the asset in the context of its ancestor hierarchy. Select an ancestor asset hyperlink for more information.
 1. **Glossary terms** show glossary terms that are pertinent to the asset. Each term is a hyperlink to additional information.
@@ -640,7 +640,7 @@ On the **Glossary terms** page, delete one or more terms in these ways:
 
 Azure Purview has both control plane and data plane permissions. Control plane permissions control the ability to create and delete Azure Purview accounts. Data Plane permissions control who is allowed to access the information in the account, call APIs, configure scanning, etc. 
 
-### Azure control plane managed permissions
+### Azure control plane-managed permissions
 
 To create a catalog in the first place, one must have resource creation permissions in the resource group that the catalog is to be created in. This is managed via the Access control (IAM) section of the resource group the catalog is to be created in. One needs to be in the contributor or owner roles to create a new catalog instance.
 
@@ -648,9 +648,9 @@ Once a catalog has been created, it can be deleted by anyone who is in the owner
 
 For general information on how to add someone to a contributor or owner role on a resource group, see [Role Based Access Control Assignment Portal](../role-based-access-control/role-assignments-portal.md).
 
-### Azure data plane managed permissions
+### Azure data plane-managed permissions
 
-With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. Please see [Catalog Permissions](./catalog-permissions.md) for more information.
+With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. See [Catalog Permissions](./catalog-permissions.md) for more information.
 
 ## Classifications
 
@@ -707,73 +707,7 @@ To delete a custom classification:
    > [!WARNING]
    > You can't delete a custom classification if it's being used to describe assets. Remove it from the assets first, and then delete it.
 
-## Connect to Azure Data Factory
 
-This section explains how to connect Azure Data Factory (ADF) to import data lineage into the catalog. The lineage is generated by ADF Copy and Data Flow activities. ADF must authenticate itself to the catalog by using an identity that the catalog recognizes.
-
-### View connections
-
-More than one ADF at a time can connect to a catalog and push lineage information.
-
-To show the list of ADFs connected to your catalog:
-
-- Select **Management Center** on the left navigation pane
-
-- From the left pane, select **Data factory connection**.
-
-    The data factory connection list appears.
-
-    :::image type="content" source="./media/catalog-client-overview/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list.":::
-
-    The **Status** values are:
-
-    - **Connected**: The data factory is connected to the data catalog.
-    - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
-    - **Cannot access**: The user doesn't have access to the data factory, so the connection status is unknown.
-
-### New data factory connection
-
-To create a data factory connection:
-
-- From the **Data factory connection** page, select **New**.
-
-- Select one or more data factories from the list, which you can filter by subscription name.
-
-   :::image type="content" source="./media/catalog-client-overview/data-factories.png" alt-text="Screenshot showing how to select data factories to connect to.":::
-
-    Some options might be disabled if:
-
-    - The data factory is already connected to the current catalog.
-    - The data factory doesn't have managed identity.
-
-    By default, you can't view more than 49 data factories.
-
-- If you want to show all the data factories, append this feature flag after the catalog URL: `?feature.dataFactoryLimit=unlimited`.
-
-    For example:
-    `https://adc.azure.com/catalog/<mycatalog>/management/dataFactoryConnection/connectionsList?feature.dataFactoryLimit=unlimited`
-
-- Select **OK**.
-
-- If any of the selected data factories are already connected to other catalogs, you're asked to confirm to disconnect from them.
-
-    :::image type="content" source="./media/catalog-client-overview/continue-connection-confirm.png" alt-text="Screenshot showing the confirmation screen when a data factory is already connected.":::
-
-- Make one of the following choices:
-    - Select **Cancel** to stay connected to the other catalog.
-    - Select **Continue** to disconnect from the other catalog and connect to the current catalog.
-
-    If you select **Continue**, the system notifies you after the connections have been established.
-
-### Remove data factory connections
-
-To remove a data factory connection:
-
-- Select the check box next to one or more data factory connections.
-
-    :::image type="content" source="./media/catalog-client-overview/data-factory-connection.png" alt-text="Screenshot showing how to select data factories to delete.":::
-
-- Select **Remove** to remove the selected data factory connections, and then select **Remove** to confirm.
 
 ## Next steps
 
