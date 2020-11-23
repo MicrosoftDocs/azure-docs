@@ -55,7 +55,7 @@ Yes. MSIX app attach doesn't support auto-update for MSIX applications.
 
 All VMs that are part of a host pool that uses MSIX app attach must have read permissions on the file share where MSIX images are stored. If Azure Files is being used both RBAC and NTFS permissions must be granted.
 
-## Can I use MSIX app attach of HTTP/HTTPs?
+## Can I use MSIX app attach for HTTP or HTTPs?
 
 All VMs that are part of a host pool that uses MSIX app attach must have read permissions on the file share where MSIX images are stored. If Azure Files is being used both RBAC and NTFS permissions must be granted.
 
