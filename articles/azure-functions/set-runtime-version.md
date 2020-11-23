@@ -123,7 +123,7 @@ The function app restarts after the change is made to the application setting.
 
 ## Manual version updates on Linux
 
-To pin a linux function app to a specific host version, you need to directly specifying the image url in 'LinuxFxVersion' field in application settings. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
+To pin a Linux function app to a specific host version, you specify the image URL in the 'LinuxFxVersion' field in application settings. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
 
 For **linux app service/elastic premium apps** -
 Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice`.
