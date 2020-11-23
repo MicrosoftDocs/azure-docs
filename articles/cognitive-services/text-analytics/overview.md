@@ -42,12 +42,12 @@ Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/te
 
 ## Deploy on premises using Docker containers
 
-[Use Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to deploy specific API features on-premises. These docker containers enable you to bring Cognitive Services closer to your data for compliance, security or other operational reasons. Text Analytics offers the following containers:
+[Use Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to deploy API features on-premises. These docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Text Analytics offers the following containers:
 
 * sentiment analysis
-* key phrase extraction
-* language detection
-* Text Analytics for health
+* key phrase extraction (preview)
+* language detection (preview)
+* Text Analytics for health (preview)
 
 ## Typical workflow
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: trbye
 ---
 
@@ -119,6 +119,17 @@ Other products offer speech models tuned for specific purposes like healthcare o
 | Speech-to-Text | [Custom Speech](https://aka.ms/customspeech) | Customize speech recognition models to your needs and available data. Overcome speech recognition barriers such as speaking style, vocabulary and background noise. |
 | Text-to-Speech | [Custom Voice](https://aka.ms/customvoice) | Build a recognizable, one-of-a-kind voice for your Text-to-Speech apps with your speaking data available. You can further fine-tune the voice outputs by adjusting a set of voice parameters. |
 
+## Deploy on premises using Docker containers
+
+[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. The Speech service offers the following containers:
+
+* Standard Speech-to-text
+* Custom Speech-to-text
+* Standard Text-to-speech
+* Neural Text-to-speech
+* Custom Text-to-speech (preview)
+* Speech Language Detection (preview)
+
 ## Reference docs
 
 - [Speech SDK](speech-sdk-reference.md)
@@ -126,6 +137,7 @@ Other products offer speech models tuned for specific purposes like healthcare o
 - [REST API: Speech-to-text](rest-speech-to-text.md)
 - [REST API: Text-to-speech](rest-text-to-speech.md)
 - [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
+
 
 ## Next steps
 

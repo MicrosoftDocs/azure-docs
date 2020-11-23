@@ -5,7 +5,7 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
 ---
 
@@ -125,6 +125,10 @@ LUIS provides functionality from Text Analytics as part of your existing LUIS re
 
 Learn about LUIS with hands-on quickstarts using the [portal](get-started-portal-build-app.md "portal") and the [SDK client libraries](azure-sdk-quickstart.md "SDK client libraries").
 
+
+## Deploy on premises using Docker containers
+
+[Use LUIS containers](luis-container-howto.md) to deploy API features on-premises. These Docker containers enable you to bring Cognitive Services closer to your data for compliance, security or other operational reasons.
 
 ## Next steps
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
@@ -61,6 +61,10 @@ The Prebuilt Receipt model is used for reading English sales receipts from Austr
 The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. See the [Business cards](./concept-business-cards.md) conceptual guide for more info.
 
 ![sample business card](./media/business-card-english.jpg)
+
+## Deploy on premises using Docker containers
+
+[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons.
 
 ## Layout API
 
