@@ -13,4 +13,4 @@ ms.author: glenga
 > - [PowerShell](../articles/azure-functions/create-first-function-vs-code-powershell.md)
 > - [Python](../articles/azure-functions/create-first-function-vs-code-python.md)
 > - [TypeScript](../articles/azure-functions/create-first-function-vs-code-typescript.md)
-> - [Go (custom handler)](../articles/azure-functions/create-first-function-vs-code-custom-handlers.md)
+> - [Go / Rust (custom handler)](../articles/azure-functions/create-first-function-vs-code-custom-handlers.md)

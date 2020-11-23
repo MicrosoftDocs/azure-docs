@@ -1,15 +1,15 @@
 ---
-title: Create a Go function using Visual Studio Code - Azure Functions
+title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
 ms.topic: quickstart
 ms.date: 11/22/2020
 ---
 
-# Quickstart: Create a Go function in Azure using Visual Studio Code
+# Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
 
 [!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
-In this article, you use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function in Go that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
+In this article, you use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function in Go or Rust that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -21,13 +21,21 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.  
-
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
+
+# [Go](#go)
+
++ [Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.
+
+# [Rust](#rust)
+
++ Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
+
+---
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -58,11 +66,13 @@ In this section, you use Visual Studio Code to create a local Azure Functions cu
 
 ## Create and build your function
 
-The *function.json* file in the *HttpExample* folder declares an HTTP trigger function. You complete the function by adding a handler in Go and compiling it into an executable.
+The *function.json* file in the *HttpExample* folder declares an HTTP trigger function. You complete the function by adding a handler and compiling it into an executable.
+
+# [Go](#go)
 
 1. Press <kbd>Ctrl + N</kbd> (<kbd>Cmd + N</kbd> on macOS) to create a new file. Save it as *handler.go* in the function app root (same folder as *host.json*).
 
-1. In *handler.go*, add the following code.
+1. In *handler.go*, add the following code and save the file. This is your Go custom handler.
 
     ```go
     package main
@@ -103,7 +113,76 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     go build handler.go
     ```
 
-![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-go.png)
+    ![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-go.png)
+
+# [Rust](#rust)
+
+1. Press <kbd>Ctrl + Shift + `</kbd> or select *New Terminal* from the *Terminal* menu to open a new integrated terminal in VS Code.
+
+1. In the function app root (same folder as *host.json*), initialize a Rust project named `handler`.
+
+    ```bash
+    cargo init --name handler
+    ```
+
+1. In *Cargo.toml*, add the following dependencies necessary to complete this quickstart.
+
+    ```toml
+    [dependencies]
+    actix-web = "3"
+    serde = "1"
+    serde_derive = "1"
+    ```
+
+1. In *src/main.rs*, add the following code and save the file. This is your Rust custom handler.
+
+    ```rust
+    #[macro_use] extern crate serde_derive;
+    use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
+    use std::env;
+
+    #[derive(Deserialize)]
+    pub struct HelloParams {
+        name: Option<String>,
+    }
+
+    #[get("/api/HttpExample")]
+    async fn hello(params: web::Query<HelloParams>) -> impl Responder {
+        let greeting = match &params.name {
+            None => String::from("This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response."),
+            Some(x) => format_args!("Hello, {}. This HTTP triggered function executed successfully.", x).to_string(),
+        };
+        HttpResponse::Ok().body(greeting)
+    }
+
+    #[actix_web::main]
+    async fn main() -> std::io::Result<()> {
+        let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
+        let port = match env::var(port_key) {
+            Ok(val) => val,
+            Err(_) => String::from("8080"),
+        };
+
+        HttpServer::new(|| {
+            App::new()
+                .service(hello)
+        })
+        .bind(format_args!("127.0.0.1:{}", port).to_string())?
+        .run()
+        .await
+    }
+    ```
+
+1. In the integrated terminal, set the project to use the nightly channel of Cargo and compile your custom handler. An executable file named `handler` (`handler.exe` on Windows) is output in the function app root folder.
+
+    ```bash
+    rustup override set nightly
+    cargo build --release -Z unstable-options --out-dir .
+    ```
+
+    ![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-go.png)
+
+---
 
 ## Configure your function app
 
@@ -162,6 +241,8 @@ After you've verified that the function runs correctly on your local computer, i
 
 This quickstart will deploy your application to an Azure Functions Linux Consumption app. Unless you are developing locally on Linux/x64 architecture, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
+# [Go](#go)
+
 1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
 
     **macOS or Linux**
@@ -179,6 +260,12 @@ This quickstart will deploy your application to an Azure Functions Linux Consump
     ```
 
 1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the linux binary.
+
+# [Rust](#rust)
+
+Needs content.
+
+---
 
 ## Publish the project to Azure
 
