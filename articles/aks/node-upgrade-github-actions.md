@@ -38,7 +38,7 @@ This process is better than updating Linux-based kernels manually because Linux 
 
 ## Create a timed GitHub Action
 
-To create an automated scheduled update, you'll need a repository to host your actions. You can use any repository, for this article we'll be using your [profile repository](profile-repository). If you don't have one, create a new repository with the same name as your GitHub username. The best practice is to put these actions inside the same repository as the application living in the cluster.
+To create an automated scheduled update, you'll need a repository to host your actions. You can use any repository, for this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username. The best practice is to put these actions inside the same repository as the application living in the cluster.
 
 1. Click on the **Actions** tab at the top of the page.
 1. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, click on the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, click on the **Set up a workflow yourself** link below the description text.
@@ -53,7 +53,7 @@ To create an automated scheduled update, you'll need a repository to host your a
         - cron: '0 3 */15 * *'
     ```
 
-    GH Actions use the same [POSIX cron syntax](cron-syntax) as any Linux-based system. In this schedule, we're telling the workflow to twice a month, at every 15 days at 3am.
+    GH Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to twice a month, at every 15 days at 3am.
 
 1. Next, create a new job called `upgrade-node`, this job will run on an Ubuntu agent and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
 
@@ -80,7 +80,7 @@ The first step is to download and sign in to the Azure CLI.
 1. On the right-hand side of the screen, find the marketplace search bar and type **"Azure CLI"**.
 1. There should be two main results published **by Azure**. One called **Azure CLI Action** and another one called **Azure Login**.
 
-      :::image type="content" source="media/node-upgrade-github-actions/search-results.png" alt-text="Search results showing two lines, the first action is called \"Azure CLI Action\" and the second \"Azure Login\"":::
+      :::image type="content" source="media/node-upgrade-github-actions/search-results.png" alt-text="Search results showing two lines, the first action is called 'Azure CLI Action' and the second 'Azure Login'":::
 
 1. Click on **Azure Login**. Then, on the new screen that shows up, click the **copy icon** in the top right of the code sample.
 
@@ -300,7 +300,6 @@ You can run the workflow manually, in addition to the scheduled run, by adding a
     ```
 
 <!-- LINKS - external -->
-[kured]: https://github.com/weaveworks/kured
 [github]: https://github.com
 [profile-repository]: https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/about-your-profile
 [cron-syntax]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
@@ -309,5 +308,3 @@ You can run the workflow manually, in addition to the scheduled run, by adding a
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[aks-upgrade]: upgrade-cluster.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
