@@ -160,12 +160,12 @@
      href: how-to-modify-assessment.md
    - name: Scale assessment
      items:
-    - name: Assess large numbers of VMware VMs
-      href: scale-vmware-assessment.md
-    - name: Assess large numbers of Hyper-V VMs
-      href: scale-hyper-v-assessment.md
-    - name: Assess large numbers of physical servers
-      href: scale-physical-assessment.md
+     - name: Assess large numbers of VMware VMs
+       href: scale-vmware-assessment.md
+     - name: Assess large numbers of Hyper-V VMs
+       href: scale-hyper-v-assessment.md
+     - name: Assess large numbers of physical servers
+       href: scale-physical-assessment.md
  - name: Migrate
    items:
    - name: Add migration tools
@@ -174,22 +174,22 @@
      href: prepare-for-migration.md
    - name: Migrate VMware VMs
      items:
-   - name: Migrate VMware VMs to encrypted Azure VMs
-     href: how-to-migrate-vmware-vms-with-cmk-disks.md
-   - name: Prepare Windows 2003 servers for migration
-     href: prepare-windows-server-2003-migration.md
-   - name: Scale migration
-     items:
-     - name: Automate migration of large number of VMs
-       href: how-to-migrate-at-scale.md
-     - name: How to automate VMware migration
-       href: how-to-automate-migration.md
+     - name: Migrate VMware VMs to encrypted Azure VMs
+       href: how-to-migrate-vmware-vms-with-cmk-disks.md
+     - name: Prepare Windows 2003 servers for migration
+       href: prepare-windows-server-2003-migration.md
+    - name: Scale migration
+      items:
+      - name: Automate migration of large number of VMs
+        href: how-to-migrate-at-scale.md
+      - name: How to automate VMware migration
+        href: how-to-automate-migration.md
  - name: Manage
    items:
-  - name: Delete an Azure Migrate project
-    href: how-to-delete-project.md
-  - name: Work with previous version
-    href: migrate-v1.md
+   - name: Delete an Azure Migrate project
+     href: how-to-delete-project.md
+   - name: Work with previous version
+     href: migrate-v1.md
 - name: Troubleshoot
   items:
   - name: General
