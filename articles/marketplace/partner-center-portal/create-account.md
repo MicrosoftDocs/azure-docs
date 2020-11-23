@@ -137,7 +137,7 @@ The publishing agreement and company profile information transition to your new 
 
 ## Add new publishers to the commercial marketplace program
 
-An organization can have multiple publishers associated with a commercial marketplace account. An existing user can add more publishers after signing in to Partner Center by selecting **Settings** > **Account settings** > **Publisher** > **Add publisher**.
+An organization can have multiple publishers associated with a commercial marketplace account. An existing user can add more publishers after signing in to Partner Center by selecting **Settings** > **Account settings** > **Organization Profile** > **Identifiers** > **Add publisher**.
 
 >[!NOTE]
 >Before you add a new publisher, review your list of existing publishers by signing in to Partner Center and selecting **Account Settings** > **Publishers**.
