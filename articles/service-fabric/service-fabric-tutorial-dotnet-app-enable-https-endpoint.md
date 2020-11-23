@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel
 
@@ -233,7 +233,7 @@ In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the 
 
 To run PowerShell from the **SetupEntryPoint** point, you can run PowerShell.exe in a batch file that points to a PowerShell file. First, add the batch file the service project.  In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "Setup.bat".  Edit the *Setup.bat* file and add the following command:
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
@@ -349,7 +349,7 @@ In Solution Explorer, select the **Voting** application and set the **Applicatio
 
 Save all files and hit F5 to run the application locally.  After the application deploys, a web browser opens to https:\//localhost:443. If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
-![Voting application][image2]
+![Screenshot of the Service Fabric Voting Sample app running in a browser window with the URL https://localhost/.][image2]
 
 ## Install certificate on cluster nodes
 
@@ -366,7 +366,7 @@ Next, install the certificate on the remote cluster using [these provided Powers
 > [!Warning]
 > A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.
 
-## Open port 443 in the Azure load balancer
+## Open port 443 in the Azure load balancer and virtual network
 
 Open port 443 in the load balancer if it isn't already.
 
@@ -391,13 +391,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+Do the same for the associated virtual network.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## Deploy the application to Azure
 
 Save all files, switch from Debug to Release, and hit F6 to rebuild.  In Solution Explorer, right-click on **Voting** and select **Publish**. Select the connection endpoint of the cluster created in [Deploy an application to a cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), or select another cluster.  Click **Publish** to publish the application to the remote cluster.
 
 When the application deploys, open a web browser and navigate to `https://mycluster.region.cloudapp.azure.com:443` (update the URL with the connection endpoint for your cluster). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
-![Voting application][image3]
+![Screenshot of the Service Fabric Voting Sample app running in a browser window with the URL https://mycluster.region.cloudapp.azure.com:443.][image3]
 
 ## Next steps
 

@@ -135,7 +135,7 @@ The template defines following parameters:
 
     You will see that only new rows were copied to the destination.
 
-15. (Optional:) If you select Azure Synapse Analytics (formerly SQL DW) as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by SQL Data Warehouse Polybase. The template will generate a container path for you. After the pipeline run, check whether the container has been created in Blob storage.
+15. (Optional:) If you select Azure Synapse Analytics (formerly SQL DW) as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by Azure Synapse Analytics (formerly SQL Data Warehouse) Polybase. The template will generate a container path for you. After the pipeline run, check whether the container has been created in Blob storage.
     
     ![Configure Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
 	

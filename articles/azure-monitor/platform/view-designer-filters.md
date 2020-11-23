@@ -15,12 +15,12 @@ A **filter** in an [Azure Monitor view](view-designer.md) allows users to filter
 ## Using a filter
 Click the date time range at the top of a view to open the drop down where you can change the date time range for the view.
 
-![Filter example](media/view-designer-filters/filters-example-time.png)
+![Screenshot of the Time range dropdown menu for a view in Azure Monitor, showing the radio button for Last 7 days selected.](media/view-designer-filters/filters-example-time.png)
 
 Click the **+** to add a filter using custom filters that are defined for the view. Either select a value for the filter from the dropdown or type in a value. Continue to add filters by clicking the **+**. 
 
 
-![Filter example](media/view-designer-filters/filters-example-custom.png)
+![Screenshot of the dialog for adding a custom filter in Azure Monitor. The Computers property is being selected in the Select property dropdown menu.](media/view-designer-filters/filters-example-custom.png)
 
 If you remove all of the values for a filter, then that filter will no longer be applied.
 

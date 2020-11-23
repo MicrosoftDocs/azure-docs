@@ -3,7 +3,7 @@ title: Windows Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -41,13 +41,19 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 - Open the link you see in the statusMessage field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
+### Error: Can't see user assignments in app groups.
+
+Cause: This error usually happens after you've moved the subscription from 1 Azure Active Directory (AD) tenant to another. If your old assignments are still tied to the old Azure AD tenant, the Azure portal will lose track of them.
+
+Fix: You'll need to reassign users to app groups.
+
 ## Azure Resource Manager template errors
 
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
-1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
-3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) to address the issue.
+1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../azure-resource-manager/management/view-activity-logs.md).
+3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
 ### Error: Your deployment failed….\<hostname>/joindomain

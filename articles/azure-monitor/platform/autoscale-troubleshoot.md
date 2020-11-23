@@ -43,7 +43,7 @@ We have a simple autoscale setting for a virtual machine scale set that:
 
 Let’s review the metrics from the autoscale service.
  
-![Virtual machine scale set percentage CPU example](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Screenshot shows a virtual machine scale set percentage CPU example.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Virtual machine scale set percentage CPU example](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -68,7 +68,7 @@ If the value of **Outbound Flow per instance** is greater than 10, then autoscal
 
 In this case, the autoscale engine’s observed metric value is calculated as the actual metric value divided by the number of instances. If the observed metric value is less than the threshold, no scale-out action is initiated. 
  
-![Virtual machine scale set autoscale metrics charts example](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Screenshot shows the Average Outbound Flows page with an example of a virtual machine scale set autoscale metrics charts.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Virtual machine scale set autoscale metrics charts example](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 

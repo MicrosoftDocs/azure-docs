@@ -26,7 +26,7 @@ ms.author: glenga
 |Property  |Default | Description |
 |---------|---------|---------|
 |maxBatchSize|10|The maximum event count received per receive loop.|
-|prefetchCount|300|The default pre-fetch count used by the underlying `EventProcessorHost`.|
+|prefetchCount|300|The default pre-fetch count used by the underlying `EventProcessorHost`. The minimum allowed value is 10.|
 |batchCheckpointFrequency|1|The number of event batches to process before creating an EventHub cursor checkpoint.|
 
 > [!NOTE]
@@ -52,4 +52,3 @@ ms.author: glenga
 
 > [!NOTE]
 > For a reference of host.json in Azure Functions 1.x, see [host.json reference for Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
-

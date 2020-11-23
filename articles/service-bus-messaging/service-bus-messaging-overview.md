@@ -2,7 +2,7 @@
 title: Azure Service Bus messaging overview | Microsoft Docs
 description: This article provides a high level overview of Azure Service Bus, a fully managed enterprise integration message broker. 
 ms.topic: overview
-ms.date: 06/23/2020
+ms.date: 11/20/2020
 ---
 
 # What is Azure Service Bus?
@@ -84,30 +84,52 @@ Autodelete on idle enables you to specify an idle interval after which a queue i
 
 An error could cause the client to have a doubt about the outcome of a send operation. Duplicate detection enables the sender to resend the same message. Another option is for the queue or topic to discard any duplicate copies. For more information, see [Duplicate detection](duplicate-detection.md).
 
-### Security protocols
-<a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
-
-Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Azure role-based access control (Azure RBAC)](authenticate-application.md) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
-
 ### Geo-disaster recovery
 
-When Azure regions or datacenters experience downtime, Geo-disaster recovery enables data processing to continue operating in a different region or datacenter. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).
+When Azure regions or datacenters experience downtime, the geo-distributed disaster recovery feature enables data processing to continue operating in a different region or datacenter. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).
 
 ### Security
 
-Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
+Service Bus supports standard [AMQP 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols and their respective security facilities, including transport level security (TLS). Clients can be authorized for access using the Service Bus native [Shared Access Signature](service-bus-sas.md) model or with [Azure Active Directory](service-bus-authentication-and-authorization.md) role-based security, either using regular service accounts or Azure managed identities. 
+
+For protection against unwanted traffic, Service Bus provides a range of [network security features](network-security.md), including an IP filtering firewall and integration with Azure and on-premises virtual networks.
 
 ## Client libraries
 
-Service Bus supports client libraries for [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master), and [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+Fully supported Service Bus client libraries are available via the Azure SDK.
+
+- [Azure Service Bus for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
+- [Azure Service Bus libraries for Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
+- [Azure Service Bus Modules for JavaScript and TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
+- [Azure Service Bus libraries for Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+
+[Azure Service Bus' primary protocol is AMQP 1.0](service-bus-amqp-overview.md)
+and it can be used from any AMQP 1.0 compliant protocol client. Several open
+source AMQP clients have samples that explicitly demonstrate Service Bus
+interoperability. Please review the [AMQP 1.0 protocol
+guide](service-bus-amqp-protocol-guide.md) to understand how to use Service Bus'
+features with AMQP 1.0 clients directly.
+
+| Language | Library |
+| --- | --- |
+| Java | [Apache Qpid Proton-J](https://qpid.apache.org/proton/index.html) |
+| C/C++ |[Azure uAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache Qpid Proton-C](https://qpid.apache.org/proton/index.html) |
+| Python |[Azure uAMQP for Python](https://github.com/azure/azure-uamqp-python/), [Apache Qpid Proton Python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
+| PHP | [Azure uAMQP for PHP](https://github.com/vsouz4/azure-uamqp-php/) |
+| Ruby | [Apache Qpid Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
+| Go | [Azure Go AMQP](https://github.com/Azure/go-amqp), [Apache Qpid Proton Go](https://github.com/apache/qpid-proton/tree/master/go/examples)
+| C#/F#/VB | [AMQP .NET Lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
+| JavaScript/Node | [Rhea](https://github.com/grs/rhea) |
 
 ## Integration
 
-Service Bus fully integrates with the following Azure services:
+Service Bus fully integrates with many Microsoft and Azure services, for instance:
 
 * [Event Grid](https://azure.microsoft.com/services/event-grid/)
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
+* [Power Platform](https://powerplatform.microsoft.com/)
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 

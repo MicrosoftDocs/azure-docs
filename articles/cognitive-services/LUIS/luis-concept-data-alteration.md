@@ -1,8 +1,11 @@
 ---
 title: Data alteration - LUIS
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
+ms.custom: devx-track-csharp
 ---
 
 # Alter utterance data before or during prediction
@@ -90,7 +93,7 @@ Remove 60 minutes:
 
 #### V2 prediction C# code determines correct value of parameter
 
-The following C# code uses the [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct offset value based on system time:
+The following C# code uses the [TimeZoneInfo](/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct offset value based on system time:
 
 ```csharp
 // Get CST zone id

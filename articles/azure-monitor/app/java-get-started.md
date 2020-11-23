@@ -11,7 +11,11 @@ ms.date: 05/24/2019
 
 # Quickstart: Get started with Application Insights in a Java web project
 
-In this quickstart, you use Application Insights to automatically instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+
+In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -192,22 +196,10 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
     (This component enables performance counters.)
 
-## Azure App Service config (Spring Boot)
+## Azure App Service, AKS, VMs config
 
-Spring Boot apps running on Windows require additional configuration to run on Azure App Services. Modify **web.config** and add the following configuration:
+The best and easiest approach to monitor your applications running on any of Azure resource providers is to use Application Insights auto-instrumentation via [Java 3.0 agent](./java-in-process-agent.md).
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## Exceptions and request failures
 Unhandled exceptions and request failures are automatically collected by the Application Insights web filter.
@@ -320,4 +312,3 @@ Application Insights can test your website at regular intervals to check that it
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
-

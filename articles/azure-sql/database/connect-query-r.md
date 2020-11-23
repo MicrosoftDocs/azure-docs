@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 author: garyericson
 ms.author: garye
-ms.reviewer: davidph, carlrab
+ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
@@ -28,7 +28,7 @@ In this quickstart, you use R with Azure SQL Database Machine Learning Services 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An [Azure SQL Database](single-database-create-quickstart.md)
-- [Machine Learning Services](machine-learning-services-overview.md) with R enabled.
+- [Machine Learning Services](../managed-instance/machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ Get the connection information you need to connect to the database in Azure SQL 
 
    If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query a database in Azure SQL Database](connect-query-ssms.md).
 
-1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
+1. Pass the complete R script to the [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
    The script is passed through the `@script` argument. Everything inside the `@script` argument must be valid R code.
    
@@ -71,12 +71,12 @@ Get the connection information you need to connect to the database in Azure SQL 
 
 ## Run the code
 
-1. Execute the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
+1. Execute the [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
 1. Verify that the top 20 Category/Product rows are returned in the **Messages** window.
 
 ## Next steps
 
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
-- [Azure SQL Database Machine Learning Services (with R)](machine-learning-services-overview.md)
-- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](r-script-create-quickstart.md)
+- [Azure SQL Database Machine Learning Services (with R)](../managed-instance/machine-learning-services-overview.md)
+- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)

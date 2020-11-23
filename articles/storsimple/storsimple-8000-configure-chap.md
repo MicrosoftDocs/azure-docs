@@ -54,7 +54,7 @@ In unidirectional authentication, the target authenticates the initiator. This a
    
    3. Confirm the password.
 
-       ![CHAP Initiator](./media/storsimple-8000-configure-chap/configure-chap6.png)
+       ![CHAP Initiator 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
 3. Click **Save**. A confirmation message is displayed. Click **OK** to save the changes.
 
 #### To configure one-way authentication on the Windows host server
@@ -108,7 +108,7 @@ In bidirectional authentication, the target authenticates the initiator and then
    2. Provide a **password** for your device.
    3. Confirm the password.
 
-       ![CHAP Initiator](./media/storsimple-8000-configure-chap/configure-chap11.png)
+       ![CHAP Initiator 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
 4. Click **Save**. A confirmation message is displayed. Click **OK** to save the changes.
 
 #### To configure bidirectional authentication on the Windows host server

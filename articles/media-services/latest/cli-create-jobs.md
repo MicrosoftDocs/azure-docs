@@ -3,22 +3,24 @@ title: Azure CLI Script Example - Create and submit a job | Microsoft Docs
 description: The Azure CLI script in this topic shows how to submit a Job to a simple encoding Transform using HTTPs URL.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: 
 
 ms.assetid:
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako 
+ms.date: 08/31/2020
+ms.author: inhenkel 
 ms.custom: devx-track-azurecli
 ---
 
 # CLI example: Create and submit a job
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. One of the options is to specify an HTTPS URL as a job input (as shown in this article). 
 

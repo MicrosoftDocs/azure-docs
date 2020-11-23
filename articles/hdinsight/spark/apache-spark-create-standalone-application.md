@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc,seoapr2020
-ms.date: 04/17/2020
+ms.custom: contperfq1
+ms.date: 08/21/2020
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a Scala Maven application for Spark in HDInsight using IntelliJ.
 ---
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 * A Java IDE. This article uses [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
+* Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
 
 ## Install Scala plugin for IntelliJ IDEA
 
@@ -95,7 +95,7 @@ Do the following steps to install the Scala plugin:
 
 5. From the list of archetypes, select **`org.scala-tools.archetypes:scala-archetype-simple`**. This archetype creates the right directory structure and downloads the required default dependencies to write Scala program.
 
-    ![`IntelliJ IDEA create Maven project`](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
+    ![Screenshot shows the selected archetype in the New Project window.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. Select **Next**.
 
@@ -104,7 +104,7 @@ Do the following steps to install the Scala plugin:
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
-    ![`IntelliJ IDEA create Maven project`](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
+    ![Screenshot shows the Artifact Coordinates option in the New Project window.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. Select **Next**.
 

@@ -23,7 +23,7 @@ See [Create diagnostic settings to send platform logs and metrics to different d
 - Use log queries to perform complex analysis and gain deep insights on log data.
 - Use log alerts with complex alerting logic.
 
-[Create a diagnostic setting](diagnostic-settings.md) to send resource logs to a Log Analytics workspace. This data is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
+[Create a diagnostic setting](diagnostic-settings.md) to send resource logs to a Log Analytics workspace. This data is stored in tables as described in [Structure of Azure Monitor Logs](./data-platform-logs.md). The tables used by resource logs depend on what type of collection the resource is using:
 
 - Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
 - Resource-specific - Data is written to individual table for each category of the resource.

@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 04/28/2020
 ---
 # Use PowerShell to configure SQL Database auditing and Advanced Threat Protection

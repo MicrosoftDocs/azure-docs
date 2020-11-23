@@ -12,7 +12,7 @@ ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-septe
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
-When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](overview.md).
+When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](../cosmos-db/index.yml) running on [Azure App Service on Linux](overview.md).
 
 ![Spring Boot application storing data in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -29,14 +29,14 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/overview), installed on your own computer. 
+* [Azure CLI](/cli/azure/overview), installed on your own computer. 
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## Clone the sample TODO app and prepare the repo
 
-This tutorial uses a sample TODO list app with a web UI that calls a Spring REST API backed by [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). To learn more about writing Java apps using Spring and Cosmos DB, see the [Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
+This tutorial uses a sample TODO list app with a web UI that calls a Spring REST API backed by [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). To learn more about writing Java apps using Spring and Cosmos DB, see the [Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
 
 Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
@@ -183,7 +183,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.9.1</version>
+        <version>1.11.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -236,7 +236,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
 
 ## Deploy to App Service on Linux
 
-Use the `azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Service on Linux.
+Use the `mvn azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Service on Linux.
 
 ```bash
 
@@ -248,7 +248,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.9.1:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.11.0:deploy (default-cli) @ spring-todo-app ---
 [INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
 [INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
@@ -273,7 +273,7 @@ bash-3.2$ mvn azure-webapp:deploy
 The output contains the URL to your deployed application (in this example, `https://spring-todo-app.azurewebsites.net` ). You can copy this URL into your web browser or run the following command in your Terminal window to load your app.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 You should see the app running with the remote URL in the address bar:
@@ -310,7 +310,7 @@ az group delete --name <your-azure-group-name>
 [Azure for Java Developers](/java/azure/)
 [Spring Boot](https://spring.io/projects/spring-boot), 
 [Spring Data for Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), 
-[Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
+[Azure Cosmos DB](../cosmos-db/introduction.md)
 and
 [App Service Linux](overview.md).
 

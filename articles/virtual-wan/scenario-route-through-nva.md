@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -17,7 +17,7 @@ ms.custom: fasttrack-edit
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance) for branch to VNet and VNet to branch. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Some of the routing capabilities may still be rolling out. If the rollout has not yet happened in your region, please use the steps in these versions of the articles in the meantime:
+> If you already have a set up with routes that are prior to the new capabilities [How to configure virtual hub routing](how-to-virtual-hub-routing.md) becoming available, please use the steps in these versions of the articles:
 >* [Azure portal article](virtual-wan-route-table-nva-portal.md)
 >* [PowerShell article](virtual-wan-route-table-nva.md)
 >
@@ -37,16 +37,16 @@ The following connectivity matrix, summarizes the flows supported in this scenar
 
 | From             | To:|   *NVA Spokes*|*NVA VNets*|*Non-NVA VNets*|*Branches*|
 |---|---|---|---|---|---|
-| **NVA Spokes**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
-| **NVA VNets**    | &#8594; |   Static |      X   |        X     |      X    |
-| **Non-NVA VNets**| &#8594; |   Static |      X   |        X     |      X    |
-| **Branches**     | &#8594; |   Static |      X   |        X     |      X    |
+| **NVA Spokes**   | &#8594; | Over NVA VNet | Peering | Over NVA VNet | Over NVA VNet |
+| **NVA VNets**    | &#8594; | Peering | Direct | Direct | Direct |
+| **Non-NVA VNets**| &#8594; | Over NVA VNet | Direct | Direct | Direct |
+| **Branches**     | &#8594; | Over NVA VNet | Direct | Direct | Direct |
 
-Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow. Consider the following:
+Each of the cells in the connectivity matrix describes how a VNet or branch (the "From" side of the flow, the row headers in the table) communicates with a destination VNet or branch (the "To" side of the flow, the column headers in italics in the table). "Direct" means that connectivity is provided natively by Virtual WAN, "Peering" means that connectivity is provided by a User-Defined Route int he VNet, "Over NVA VNet" means that the connectivity traverses the NVA deployed in the NVA VNet. Consider the following:
 
 * NVA Spokes are not managed by Virtual WAN. As a result, the mechanisms with which they will communicate to other VNets or branches are maintained by the user. Connectivity to the NVA VNet is provided by a VNet peering, and a Default route to 0.0.0.0/0 pointing to the NVA as next hop should cover connectivity to the Internet, to other spokes, and to branches
 * NVA VNets will know about their own NVA spokes, but not about NVA spokes connected to other NVA VNets. For example, in Table 1, VNet 2 knows about VNet 5 and VNet 6, but not about other spokes such as VNet 7 and VNet 8. A static route is required to inject other spokes' prefixes into NVA VNets
-* Similarly, branches and non-NVA VNets will not know about any NVA spoke, since NVA spokes are not connected to VWAN hubs. As a result, static routes will be needed here as well.
+* Similarly, branches and non-NVA VNets will not know about any NVA spoke, since NVA spokes are not connected to Virtual WAN hubs. As a result, static routes will be needed here as well.
 
 Taking into account that the NVA spokes are not managed by Virtual WAN, all other rows show the same connectivity pattern. As a result, a single route table (the Default one) will do:
 
@@ -108,6 +108,8 @@ To set up routing via NVA, here are the steps to consider:
    * From VNet 7 and VNet 8 to VNet 4 NVA IP 
    
    You do not need to connect VNets 5,6,7,8 to the virtual hubs directly. Ensure that NSGs in VNets 5,6,7,8 allow traffic for branch (VPN/ER/P2S) or VNets connected to their remote VNets. For example, VNets 5,6 must ensure NSGs allow traffic for on-premise address prefixes and VNets 7,8 that are connected to the remote Hub 2.
+
+Virtual WAN  does not support a scenario where VNets 5,6 connect to virtual hub and communicate via VNet 2 NVA IP; therefore the need to connect VNets 5,6 to VNet2 and similarly VNet 7,8 to VNet 4.
 
 2. Add an aggregated static route entry for VNets 2,5,6 to Hub 1’s Default route table.
 

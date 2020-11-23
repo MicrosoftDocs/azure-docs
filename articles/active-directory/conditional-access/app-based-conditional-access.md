@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from potentially unsecure applications. With Conditional Access, organizations can restrict access to approved (modern authentication capable) client apps.
 
-This article presents two scenarios to configure Conditional Access policies for resources like Office 365, Exchange Online, and SharePoint Online.
+This article presents two scenarios to configure Conditional Access policies for resources like Microsoft 365, Exchange Online, and SharePoint Online.
 
-- [Scenario 1: Office 365 apps require an approved client app](#scenario-1-office-365-apps-require-an-approved-client-app)
+- [Scenario 1: Microsoft 365 apps require an approved client app](#scenario-1-microsoft-365-apps-require-an-approved-client-app)
 - [Scenario 2: Exchange Online and SharePoint Online require an approved client app](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 In Conditional Access, this functionality is known as requiring an approved client app. For a list of approved client apps, see [approved client app requirement](concept-conditional-access-grant.md#require-approved-client-app).
@@ -29,9 +29,9 @@ In Conditional Access, this functionality is known as requiring an approved clie
 > [!NOTE]
 > In order to require approved client apps for iOS and Android devices, these devices must first register in Azure AD.
 
-## Scenario 1: Office 365 apps require an approved client app
+## Scenario 1: Microsoft 365 apps require an approved client app
 
-In this scenario, Contoso has decided that users using mobile devices can access all Office 365 services as long as they use approved client apps, like Outlook mobile, OneDrive, and Microsoft Teams. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
+In this scenario, Contoso has decided that users using mobile devices can access all Microsoft 365 services as long as they use approved client apps, like Outlook mobile, OneDrive, and Microsoft Teams. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
 
 Organizations must complete the following three steps in order to require the use of an approved client app on mobile devices.
 
@@ -44,7 +44,7 @@ Organizations must complete the following three steps in order to require the us
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users** or the specific **Users and groups** you wish to apply this policy to. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Office 365 (preview)**.
+1. Under **Cloud apps or actions** > **Include**, select **Office 365**.
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.

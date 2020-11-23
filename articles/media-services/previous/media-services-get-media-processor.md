@@ -3,7 +3,7 @@ title: How to Create a media processor using the Azure Media Services SDK for .N
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -13,26 +13,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
+
 # How to: Get a Media Processor instance
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
-> 
-> 
 
 ## Overview
+
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
 
-## Azure media processors 
+## Azure media processors
 
 The following topic provides lists of media processors:
 
-* [Encoding media processors](scenarios-and-availability.md#encoding-media-processors)
-* [Analytics media processors](scenarios-and-availability.md#analytics-media-processors)
+* [Encoding media processors](scenarios-and-availability.md)
+* [Analytics media processors](scenarios-and-availability.md)
 
 ## Get Media Processor
 
@@ -51,13 +54,14 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 }
 ```
 
-
 ## Media Services learning paths
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Next Steps
-Now that you know how to get a media processor instance, go to the [How to Encode an Asset](media-services-dotnet-encode-with-media-encoder-standard.md) topic which will show you how to use the Media Encoder Standard to encode an asset.
 
+Now that you know how to get a media processor instance, go to the [How to Encode an Asset](media-services-dotnet-encode-with-media-encoder-standard.md) topic which will show you how to use the Media Encoder Standard to encode an asset.

@@ -71,23 +71,25 @@ Perform the following steps to upgrade the agent on a Kubernetes cluster running
 >
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
+
+See **Using service principal** in [Enable monitoring of Azure Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) for details on using a service principal with this command.
 
 ### Upgrade agent on Azure Arc enabled Kubernetes
 
-Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster without a proxy endpoint.
+Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster.
 
 ```console
-$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
 ```
 
-Perform the following command to upgrade the agent when a proxy endpoint is specified. For more information about the proxy endpoint, see [Configure proxy endpoint](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
+See **Using service principal** in [Enable monitoring of Azure Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) for details on using a service principal with this command.
 
-```console
-$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
-```
 
 ## How to disable environment variable collection on a container
 

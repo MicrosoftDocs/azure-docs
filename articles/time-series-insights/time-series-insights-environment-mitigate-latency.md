@@ -10,11 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Monitor and mitigate throttling to reduce latency in Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 When the amount of incoming data exceeds your environment's configuration, you may experience latency or throttling in Azure Time Series Insights.
 
@@ -69,17 +72,17 @@ Alerts can help you to diagnose and mitigate latency issues occurring in your en
 
 ## Throttling and ingress management
 
-* If you're being throttled, a value for the *Ingress Received Message Time Lag* will be registered informing you about how many seconds behind your Azure Time Series Insights environment are from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  
+- If you're being throttled, a value for the *Ingress Received Message Time Lag* will be registered informing you about how many seconds behind your Azure Time Series Insights environment are from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  
 
   *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
 
   For example, if your S1 environment is demonstrating lag of 5,000,000 messages, you might increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster. The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
 
-* Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency. 
+- Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency.
 
   For example, if you have three S1 units provisioned (or 2100 events per minute ingress capacity), you can set an **Ingress Stored Events** alert for >= 1900 events for 2 hours. If you are constantly exceeding this threshold, and therefore, triggering your alert, you are likely under-provisioned.  
 
-* If you suspect you are being throttled, you can compare your **Ingress Received Messages** with your event source’s egressed messages.  If ingress into your Event Hub is greater than your **Ingress Received Messages**, your Azure Time Series Insights are likely being throttled.
+- If you suspect you are being throttled, you can compare your **Ingress Received Messages** with your event source’s egressed messages.  If ingress into your Event Hub is greater than your **Ingress Received Messages**, your Azure Time Series Insights are likely being throttled.
 
 ## Improving performance
 

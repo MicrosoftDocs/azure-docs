@@ -17,7 +17,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Managing Media Services entities with REST  
+# Managing Media Services entities with REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)

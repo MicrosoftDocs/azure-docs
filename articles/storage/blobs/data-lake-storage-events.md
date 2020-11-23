@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Implement the data lake capture pattern to update a Databricks Delta table
@@ -31,7 +32,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
 * Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
-  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+   See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -120,7 +121,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 2. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Python** as the language, and then select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Create notebook in Databricks")
+    ![Screenshot that shows the Create Notebook dialog box and where to select Python as the language.](./media/data-lake-storage-events/new-databricks-notebook.png "Create notebook in Databricks")
 
     Select **Create**.
 
@@ -262,7 +263,7 @@ Create an Azure Function that runs the Job.
 
 5. In the **Overview** page of the Function App, click **Configuration**.
 
-   ![Configure the function app](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
+   ![Screenshot that highlights the Configuration option under Configured features.](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
 
 6. In the **Application Settings** page, choose the **New application setting** button to add each setting.
 
@@ -339,7 +340,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
 1. In the function code page, click the **Add Event Grid subscription** button.
 
-   ![New event subscription](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
+   ![Screenshot that highlights the Add Event Grid subscription button.](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
 
 2. In the **Create Event Subscription** page, name the subscription, and then use the fields in the page to select your storage account.
 

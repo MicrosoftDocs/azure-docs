@@ -3,14 +3,14 @@ title: Migrate to an Azure resource authoring key
 titleSuffix: Azure Cognitive Services
 description: This article describes how to migrate Language Understanding (LUIS) authoring authentication from an email account to an Azure resource.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.author: diberry
+
 ---
 
 # Migrate to an Azure resource authoring key
@@ -37,7 +37,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 * Owners are prompted to send emails to collaborators to inform them of the migration.
 * Applications will not migrate with you if you're a collaborator on the application.
 * There is no way for an owner to know that collaborators have migrated.
-* Migration does not automatically collect collaborators and move or add them to the Azure authoring resource. The app owner is the one who needs to complete this step after migration. This step requires [permissions to the Azure authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate).
+* Migration does not automatically collect collaborators and move or add them to the Azure authoring resource. The app owner is the one who needs to complete this step after migration. This step requires [permissions to the Azure authoring resource](./luis-how-to-collaborate.md).
 * After collaborators are assigned to the Azure resource, they need to migrate to access applications. Otherwise, they'll have no access to author the applications.
 * A migrated user can't be added as a collaborator of the application.
 * If you own prediction keys that are assigned to applications owned by another user, this will block migration for both the owner and collaborators. See the recommendations later in this article.
@@ -171,7 +171,7 @@ If you plan to edit your apps programmatically, you'll need the authoring key va
 
 Learn [how to add contributors](luis-how-to-collaborate.md) on your authoring resource. Contributors will have access to all applications under that resource.
 
-You can add contributors to the authoring resource from the Azure portal, on the **Access Control (IAM)** page for that resource. For more information, see [Add contributor access](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
+You can add contributors to the authoring resource from the Azure portal, on the **Access Control (IAM)** page for that resource. For more information, see [Add contributors to your app](luis-how-to-collaborate.md).
 
 > [!Note]
 > If the owner of the LUIS app migrated and added the collaborator as a contributor on the Azure resource, the collaborator will still have no access to the app unless they also migrate.
@@ -227,7 +227,7 @@ When you try to migrate but can't find your Azure subscription in the drop-down 
 ![Toolbar where you can switch tenants](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 If you have an existing authoring resource but can't find it when you select the **Use Existing Authoring Resource** option:
-* Your resource was probably created in a location that's different from the portal where you're signed in. Check the [LUIS authoring regions and portals](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions).
+* Your resource was probably created in a location that's different from the portal where you're signed in. Check the [LUIS authoring regions and portals](./luis-reference-regions.md#luis-authoring-regions).
 * Create a new resource from the LUIS portal instead.
 
 If you select the **Create New Authoring Resource** option and migration fails with the error message "Failed retrieving user's Azure information, retry again later":

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/29/2017
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -23,7 +23,7 @@ Sometimes the settings for your local network gateway Address Prefix or Gateway 
 
 ## <a name="before"></a>Before you begin
 
-Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -38,4 +38,3 @@ Install the latest version of the CLI commands (2.0 or later). For information a
 ## Next steps
 
 You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).
-

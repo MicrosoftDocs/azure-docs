@@ -8,6 +8,7 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Blob storage client library v11 for .NET
@@ -28,7 +29,7 @@ Use the Azure Blob Storage client library for .NET to:
 
 Additional resources:
 
-* [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -200,7 +201,7 @@ These example code snippets show you how to perform the following with the Azure
 
 ### Authenticate the client
 
-The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet) method. If `TryParse` is successful, it initializes the `storageAccount` variable and returns `true`.
+The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) method. If `TryParse` is successful, it initializes the `storageAccount` variable and returns `true`.
 
 Add this code inside the `ProcessAsync` method:
 

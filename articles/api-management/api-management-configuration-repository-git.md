@@ -42,7 +42,7 @@ This article describes how to enable and use Git to manage your service configur
 
 ## Access Git configuration in your service
 
-To view and configure your Git configuration settings, you can click the **Security** menu and navigate to the **Configuration repository** tab.
+To view and configure your Git configuration settings, you can click the **Deployment and infrastructure** menu and navigate to the **Repository** tab.
 
 ![Enable GIT][api-management-enable-git]
 
@@ -57,7 +57,7 @@ For information on enabling or disabling Git access using the REST API, see [Ena
 
 The first step before cloning the repository is to save the current state of the service configuration to the repository. Click **Save to repository**.
 
-Make any desired changes on the confirmation screen and click **Ok** to save.
+Make any desired changes on the confirmation screen and click **Save** to save.
 
 After a few moments the configuration is saved, and the configuration status of the repository is displayed, including the date and time of the last configuration change and the last synchronization between the service configuration and the repository.
 
@@ -77,7 +77,7 @@ To generate a password, first ensure that the **Expiry** is set to the desired e
 
 The following examples use the Git Bash tool from [Git for Windows](https://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
 
-Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the Azure portal.
+Open your Git tool in the desired folder and run the following command to clone the Git repository to your local machine, using the command provided by the Azure portal.
 
 ```
 git clone https://{name}.scm.azure-api.net/
@@ -107,7 +107,7 @@ Once the repository is cloned, you can view and work with it in your local file 
 
 ## To update your local repository with the most current service instance configuration
 
-If you make changes to your API Management service instance in the Azure portal or using the REST API, you must save these changes to the repository before you can update your local repository with the latest changes. To do this, click **Save configuration to repository** on the **Configuration repository** tab in the Azure portal, and then issue the following command in your local repository.
+If you make changes to your API Management service instance in the Azure portal or using the REST API, you must save these changes to the repository before you can update your local repository with the latest changes. To do this, click **Save to repository** on the **Repository** tab in the Azure portal, and then issue the following command in your local repository.
 
 ```
 git pull
@@ -141,7 +141,7 @@ For information on performing this operation using the REST API, see [Deploy Git
 
 ## File and folder structure reference of local Git repository
 
-The files and folders in the local git repository contain the configuration information about the service instance.
+The files and folders in the local Git repository contain the configuration information about the service instance.
 
 | Item | Description |
 | --- | --- |
@@ -193,7 +193,7 @@ The root `api-management` folder contains a `configuration.json` file that conta
 }
 ```
 
-The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, and `UserRegistrationTermsConsentRequired`) map to the following settings on the **Identities** tab in the **Security** section.
+The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, and `UserRegistrationTermsConsentRequired`) map to the following settings on the **Identities** tab in the **Developer portal** section.
 
 | Identity setting | Maps to |
 | --- | --- |
@@ -203,7 +203,7 @@ The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRe
 | UserRegistrationTermsConsentRequired |**Require consent** checkbox |
 | RequireUserSigninEnabled |**Redirect anonymous users to sign-in page** checkbox |
 
-The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
+The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Developer portal** section.
 
 | Delegation setting | Maps to |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
-author: cynthn
-ms.author: cynthn
+author: 
+ms.author: danielsollondon
 ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
@@ -55,12 +55,8 @@ RHEL ISOs support is no longer supported.
 
 ## How it works
 
-
-![Conceptual drawing of Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)
-
 The Azure Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. The Azure Image Builder process has three main parts: source, customize and distribute, these are represented in a template. The diagram below shows the components, with some of their properties. 
  
-
 
 **Image Builder process** 
 
@@ -96,7 +92,7 @@ Image Builder creates a VM using a D1v2 VM size, and the storage, and networking
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
 ## Hyper-V generation
-Image Builder currently on supports Hyper-V generation 1 images and VMs.
+Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
  
 ## Next steps 
  

@@ -11,6 +11,7 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Create a stored access policy with .NET

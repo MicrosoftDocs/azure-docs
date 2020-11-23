@@ -5,7 +5,8 @@ author: spelluru
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/12/2020
-ms.author: spelluru
+ms.author: spelluru 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use Azure PowerShell to create a Service Bus namespace and a queue

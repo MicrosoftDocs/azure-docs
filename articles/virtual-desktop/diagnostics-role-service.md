@@ -3,7 +3,7 @@ title: Windows Virtual Desktop diagnose issues - Azure
 description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -18,10 +18,10 @@ Connections that don't reach Windows Virtual Desktop won't show up in diagnostic
 
 ## Common error scenarios
 
-Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
+The WVDErrors table tracks errors across all activity types. The column called "ServiceError" provides an additional flag marked either "True" or "False." This flag will tell you whether the error is related to the service.
 
-* Internal Issue: specifies scenarios that can't be mitigated by the customer and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the correlation ID and approximate time frame of when the issue occurred.
-* External Issue: relate to scenarios that can be mitigated by the customer. These are external to Windows Virtual Desktop.
+* If the value is "True," the service team may have already investigated this issue. If this impacts user experience and appears a high number of times, we recommend you submit a support ticket for Windows Virtual Desktop.
+* If the value is "False," this is may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
 
 The following table lists common errors your admins might run into.
 
@@ -40,7 +40,7 @@ The following table lists common errors your admins might run into.
 |Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the app group is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
-### External connection error codes
+### Connection error codes
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|

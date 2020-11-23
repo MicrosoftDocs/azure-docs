@@ -10,6 +10,7 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Overview of Azure page blobs
@@ -19,6 +20,10 @@ Azure Storage offers three types of blob storage: Block Blobs, Append Blobs and 
 Page blobs are a collection of 512-byte pages, which provide the ability to read/write arbitrary ranges of bytes. Hence, page blobs are ideal for storing index-based and sparse data structures like OS and data disks for Virtual Machines and Databases. For example, Azure SQL DB uses page blobs as the underlying persistent storage for its databases. Moreover, page blobs are also often used for files with Range-Based updates.  
 
 Key features of Azure page blobs are its REST interface, the durability of the underlying storage, and the seamless migration capabilities to Azure. These features are discussed in more detail in the next section. In addition, Azure page blobs are currently supported on two types of storage: Premium Storage and Standard Storage. Premium Storage is designed specifically for workloads requiring consistent high performance and low latency making premium page blobs ideal for high performance storage scenarios. Standard storage accounts are more cost effective for running latency-insensitive workloads.
+
+## Restrictions
+
+Page blobs can only use the **Hot** access tier, they cannot use either the **Cool** or **Archive** tiers. For more information on access tiers, see [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md).
 
 ## Sample use cases
 
@@ -85,7 +90,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 # [.NET v12](#tab/dotnet)
 
-To resize a page blob after creation, use the [Resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) method. The requested size should be a multiple of 512 bytes.
+To resize a page blob after creation, use the [Resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize) method. The requested size should be a multiple of 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 

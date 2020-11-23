@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 09/24/2020
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -57,7 +57,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
         A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
 
-        You cannot use `default` as the volume name.
+        You cannot use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -66,6 +66,11 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Throughput (MiB/S)**   
+        If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
+
+        If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
@@ -82,7 +87,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
+    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
         For information about creating a snapshot policy, see [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
@@ -120,4 +125,4 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Deploy server-rendered Next.js websites on Azure Static Web Apps"
+title: "Tutorial: Deploy static-rendered Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js dynamic sites with Azure Static Web Apps."
 services: static-web-apps
 author: christiannwamba
@@ -7,11 +7,11 @@ ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 
-# Deploy server-rendered Next.js websites on Azure Static Web Apps Preview
+# Deploy static-rendered Next.js websites on Azure Static Web Apps Preview
 
 In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Next.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Next.js
 
@@ -53,7 +53,7 @@ To begin, create a new repository under your GitHub account from a template repo
     npm run dev
     ```
 
-Navigate to <http://localhost:3000> to open the app, where you should see the following website open in your preferred browser:
+Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Start Next.js app":::
 
@@ -69,7 +69,7 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
@@ -203,7 +203,7 @@ The reason for this error is because Next.js only generated the home page based 
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {

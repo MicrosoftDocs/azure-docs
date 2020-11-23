@@ -1,12 +1,12 @@
 ---
 title: Setting Up the Azure Import/Export Tool v1 | Microsoft Docs
 description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service. This article refers to version 1 of the Import/Export Tool.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/15/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
 ---
 
@@ -244,8 +244,8 @@ Examples:
 
 ## Next steps
 
-* [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Previewing Drive usage for an export job](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Reviewing job status with copy log files](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an import job](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Preparing hard drives for an import job](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [Previewing Drive usage for an export job](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [Reviewing job status with copy log files](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Repairing an import job](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Repairing an export job](./storage-import-export-tool-repairing-an-export-job-v1.md)

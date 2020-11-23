@@ -29,9 +29,9 @@ You can enable backup on your SQL Server VM from the **Backup** pane in the VM. 
     ![SQL Server backup view](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
 
     >[!NOTE]
-    >Don't see the banner? The banner is only displayed for those SQL Server VMs that are created using Azure Marketplace images. It is additionally displayed for the VMs that are protected with Azure VM Backup. For other images, you can configure backup as explained [here](backup-sql-server-database-azure-vms.md).
+    >Don't see the banner? The banner is only displayed for those SQL Server VMs that are created using Azure Marketplace images. It's additionally displayed for the VMs that are protected with Azure VM Backup. For other images, you can configure backup as explained [here](backup-sql-server-database-azure-vms.md).
 
-2. Enter the Recovery Services Vault name. A vault is a logical entity to store and manage all your backups. If you create a new vault:
+2. Enter the Recovery Services vault name. A vault is a logical entity to store and manage all your backups. If you create a new vault:
 
     - It will be created in the same subscription and region as the SQL Server VM that you're protecting.
     - It will be created with the geo-redundant storage (GRS) setting for all the backups. If you wish to change the redundancy type, you should do so before protecting the VM. For more information, see [this article](backup-create-rs-vault.md#set-storage-redundancy).
@@ -54,14 +54,14 @@ You can enable backup on your SQL Server VM from the **Backup** pane in the VM. 
 
 7. For non-marketplace images, the registration may be successful, but **configure backup** may not be triggered until the Azure Backup extension is given permission on the SQL Server. In such cases, the **Backup Readiness** column reads **Not Ready**. You need to [assign the appropriate permissions](backup-azure-sql-database.md#set-vm-permissions) manually for non-marketplace images so configure backup can get triggered.
 
-    ![Backup readiness is not ready](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
+    ![Backup readiness isn't ready](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. For further operations or monitoring that you need to do on the backed-up SQL Server VM, go to the corresponding Recovery Service vault. Go to **Backup Items** to see all the databases backed up in this vault, and trigger operations such as on-demand backup and restore. Similarly, go to **Backup Jobs** to [monitor](manage-monitor-sql-database-backup.md) jobs corresponding to operations such as configure protection, backup, and restore.
+8. For further operations or monitoring that you need to do on the backed-up SQL Server VM, go to the corresponding Recovery Services vault. Go to **Backup Items** to see all the databases backed up in this vault, and trigger operations such as on-demand backup and restore. Similarly, go to **Backup Jobs** to [monitor](manage-monitor-sql-database-backup.md) jobs corresponding to operations such as configure protection, backup, and restore.
 
     ![See backed-up databases in Backup Items](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 
 >[!NOTE]
->The backup is not automatically configured on any of the new SQL Server instances that may be added later to the protected VM. To configure backup on the newly added instances, you need to go the vault that the VM is registered to and follow the steps listed [here](backup-sql-server-database-azure-vms.md).
+>The backup isn't automatically configured on any of the new SQL Server instances that may be added later to the protected VM. To configure backup on the newly added instances, you need to go the vault that the VM is registered to and follow the steps listed [here](backup-sql-server-database-azure-vms.md).
 
 ## Next steps
 

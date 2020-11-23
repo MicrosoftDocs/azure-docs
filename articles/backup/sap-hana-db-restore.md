@@ -1,6 +1,6 @@
 ---
 title: Restore SAP HANA databases on Azure VMs
-description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines.
+description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
 ms.date: 11/7/2019
 ---
@@ -23,29 +23,29 @@ Azure Backup can restore SAP HANA databases that are running on Azure VMs as fol
 
 Before restoring a database, note the following:
 
-* You can restore the database only to an SAP HANA instance that is in the same region
+* You can restore the database only to an SAP HANA instance that's in the same region.
 
-* The target instance must be registered with the same vault as the source
+* The target instance must be registered with the same vault as the source.
 
 * Azure Backup can't identify two different SAP HANA instances on the same VM. So restoring data from one instance to another on the same VM isn't possible.
 
 * To ensure that the target SAP HANA instance is ready for restore, check its **Backup readiness** status:
 
-  1. Open the vault in which the target SAP HANA instance is registered
+  1. Open the vault in which the target SAP HANA instance is registered.
 
-  1. On the vault dashboard, under **Getting started**, choose **Backup**
+  1. On the vault dashboard, under **Getting started**, choose **Backup**.
 
       ![Backup in vault dashboard](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. In **Backup**, under **What do you want to backup?** choose **SAP HANA in Azure VM**
+  1. In **Backup**, under **What do you want to backup?** choose **SAP HANA in Azure VM**.
 
       ![Choose SAP HANA in Azure VM](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. Under **Discover DBs in VMs**, click on **View details**
+  1. Under **Discover DBs in VMs**, select **View details**.
 
       ![View details](media/sap-hana-db-restore/view-details.png)
 
-  1. Review the **Backup Readiness** of the target VM
+  1. Review the **Backup Readiness** of the target VM.
 
       ![Protected servers](media/sap-hana-db-restore/protected-servers.png)
 
@@ -133,7 +133,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
 
     * Database backup files
     * Catalog files
-    * JSON metadata files (for each backup file that is involved)
+    * JSON metadata files (for each backup file that's involved)
 
     Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
 
@@ -168,7 +168,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
         ```
 
-        In the above command:
+        In the command above:
 
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups
@@ -244,6 +244,51 @@ If you've selected **Full & Differential** as the restore type, do the following
 
     > [!NOTE]
     > In Multiple Database Container (MDC) restores after the system DB is restored to a target instance, one needs to run the pre-registration script again. Only then the subsequent tenant DB restores will succeed. To learn more refer to [Troubleshooting – MDC Restore](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
+
+## Cross Region Restore
+
+As one of the restore options, Cross Region Restore (CRR) allows you to restore SAP HANA databases hosted on Azure VMs in a secondary region, which is an Azure paired region.
+
+To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
+
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### View backup items in secondary region
+
+If CRR is enabled, you can view the backup items in the secondary region.
+
+1. From the portal, go to **Recovery Services vault** > **Backup items**.
+1. Select **Secondary Region** to view the items in the secondary region.
+
+>[!NOTE]
+>Only Backup Management Types supporting the CRR feature will be shown in the list. Currently, only support for restoring secondary region data to a secondary region is allowed.
+
+![Backup items in secondary region](./media/sap-hana-db-restore/backup-items-secondary-region.png)
+
+![Databases in secondary region](./media/sap-hana-db-restore/databases-secondary-region.png)
+
+### Restore in secondary region
+
+The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
+
+![Where and how to restore](./media/sap-hana-db-restore/restore-secondary-region.png)
+
+>[!NOTE]
+>The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
+
+![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>* After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
+>* The Azure roles needed to restore in the secondary region are the same as those in the primary region.
+
+### Monitoring secondary region restore jobs
+
+1. From the portal, go to **Recovery Services vault** > **Backup Jobs**
+1. Select **Secondary Region** to view the items in the secondary region.
+
+    ![Backup jobs filtered](./media/sap-hana-db-restore/backup-jobs-secondary-region.png)
 
 ## Next steps
 

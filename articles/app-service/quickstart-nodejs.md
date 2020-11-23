@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
 
 ---
 # Create a Node.js web app in Azure
@@ -17,6 +18,7 @@ Get started with Azure App Service by creating a Node.js/Express app locally usi
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- <a href="https://git-scm.com/" target="_blank">Install Git</a>
 - [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
@@ -64,7 +66,7 @@ In this section, you deploy your Node.js app to Azure using VS Code and the Azur
 
 1. In the **AZURE APP SERVICE** explorer of VS Code, select the blue up arrow icon to deploy your app to Azure. (You can also invoke the same command from the **Command Palette** (**Ctrl**+**Shift**+**P**) by typing 'deploy to web app' and choosing **Azure App Service: Deploy to Web App**).
 
-    ![Deploy to Web App](media/quickstart-nodejs/deploy.png)
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot of the Azure App service in VS Code showing the blue arrow icon selected.":::
         
 1. Choose the *nodejs-docs-hello-world* folder.
 
@@ -136,7 +138,7 @@ You can view log output (calls to `console.log`) from the app directly in the VS
 
 1. When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream. 
 
-    ![Enable Logging and Restart](media/quickstart-nodejs/enable-restart.png)
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot of the Visual Studio Code prompt to enable logging and restart the application with the Yes button selected.":::
 
 1. After a few seconds, the output window shows a message indicating that you're connected to the log-streaming service. You can generate more output activity by refreshing the page in the browser.
 
@@ -259,7 +261,7 @@ code .
 
 In the **AZURE APP SERVICE** explorer, select the blue up arrow icon to deploy your app to Azure.
 
-![Deploy to Web App](./media/quickstart-nodejs/deploy.png)
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Screenshot of the Azure App Service menu in Visual Studio Code with the blue deploy arrow selected.":::
 
 > [!TIP]
 > You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
@@ -276,11 +278,11 @@ In the **AZURE APP SERVICE** explorer, select the blue up arrow icon to deploy y
 
 1. Select **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
 
-    ![Configured deployment](./media/quickstart-nodejs/server-build.png)
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Screenshot of the prompt to update your configuration on the target server with the yes button selected.":::
 
 1. When the deployment starts, you're prompted to update your workspace so that later deployments will automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
 
-    ![Configured deployment](./media/quickstart-nodejs/save-configuration.png)
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Screenshot of the prompt to update your workspace with the yes button selected.":::
 
 > [!TIP]
 > Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
@@ -310,7 +312,7 @@ The VS Code output window opens with a connection to the log stream.
 
 ![View Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 
-![Enable Logging and Restart](./media/quickstart-nodejs/enable-restart.png)
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot of the VS Code prompt to enable file logging and restart the web app, with the yes button selected.":::
 
 After a few seconds, you'll see a message indicating that you're connected to the log-streaming service. Refresh the page a few times to see more activity.
 

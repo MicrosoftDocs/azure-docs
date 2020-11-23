@@ -38,7 +38,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
    | Task | What you learn |
    | --- | --- |
-   | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can whitelist Azure Marketplace images, making available for selection only the images you want for the developers.|
+   | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can allow Azure Marketplace images, making available for selection only the images you want for the developers.|
    | [Create a custom image](devtest-lab-create-template.md) |Create a custom image by pre-installing the software you need so that developers can quickly create a VM using the custom image.|
    | [Learn about image factory](./devtest-lab-faq.md#blog-post) |Watch a video that describes how to set up and use an image factory.|
 

@@ -103,7 +103,7 @@ The copy activity ran the cleanup script to delete the corresponding data for th
 
 ### Mechanism 2: using sliceIdentifierColumnName
 > [!IMPORTANT]
-> Currently, sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse. 
+> Currently, sliceIdentifierColumnName is not supported for Azure Synapse Analytics (formerly SQL Data Warehouse). 
 
 The second mechanism to achieve repeatability is by having a dedicated column (sliceIdentifierColumnName) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
 
@@ -150,5 +150,5 @@ Similar to mechanism 1, Copy Activity automatically cleans up the data for the g
 Review the following connector articles that for complete JSON examples: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
-- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

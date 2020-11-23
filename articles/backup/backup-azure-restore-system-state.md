@@ -40,7 +40,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
     ![Volume and Date](./media/backup-azure-restore-system-state/select-date.png)
 
-6. Once you have chosen the recovery point to restore, select **Next**.
+6. Once you've chosen the recovery point to restore, select **Next**.
 
     Azure Backup mounts the local recovery point, and uses it as a recovery volume.
 
@@ -50,7 +50,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
 8. Verify the details of recovery on the **Confirmation** pane and select **Recover**.
 
-   ![click Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Select Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copy the *WindowsImageBackup* directory in the Recovery destination to a non-critical volume of the server. Usually, the Windows OS volume is the critical volume.
 
@@ -67,7 +67,7 @@ The terminology used in these steps includes:
 * *Sample vault* – The Recovery Services vault to which the *Source machine* and *Target machine* are registered.
 
 > [!NOTE]
-> Backups taken from one machine cannot be restored to a machine running an earlier version of the operating system. For example, backups taken from a Windows Server 2016 machine can't be restored to Windows Server 2012 R2. However, the inverse is possible. You can use backups from Windows Server 2012 R2 to restore Windows Server 2016.
+> Backups taken from one machine can't be restored to a machine running an earlier version of the operating system. For example, backups taken from a Windows Server 2016 machine can't be restored to Windows Server 2012 R2. However, the inverse is possible. You can use backups from Windows Server 2012 R2 to restore Windows Server 2016.
 >
 
 1. Open the **Microsoft Azure Backup** snap-in on the *Target machine*.
@@ -88,7 +88,7 @@ The terminology used in these steps includes:
 
     ![Search items](./media/backup-azure-restore-system-state/select-date.png)
 
-9. Once you have chosen the recovery point to restore, select **Next**.
+9. Once you've chosen the recovery point to restore, select **Next**.
 
 10. On the **Select System State Recovery Mode** pane, specify the destination where you want System State files to be recovered, then select **Next**.
 
@@ -98,7 +98,7 @@ The terminology used in these steps includes:
 
 11. Verify the details of recovery on the Confirmation pane, and select **Recover**.
 
-    ![click the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Select the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copy the *WindowsImageBackup* directory to a non-critical volume of the server (for example D:\). Usually the Windows OS volume is the critical volume.
 
@@ -106,7 +106,7 @@ The terminology used in these steps includes:
 
 ## Apply restored System State on a Windows Server
 
-Once you have recovered System State as files using Azure Recovery Services Agent, use the Windows Server Backup utility to apply the recovered System State to Windows Server. The Windows Server Backup utility is already available on the server. The following steps explain how to apply the recovered System State.
+Once you've recovered System State as files using Azure Recovery Services Agent, use the Windows Server Backup utility to apply the recovered System State to Windows Server. The Windows Server Backup utility is already available on the server. The following steps explain how to apply the recovered System State.
 
 1. Open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
 
@@ -148,7 +148,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
     ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 
     >[!NOTE]
-    >Do not select the **Automatically reboot the server** option if you are performing the restore in DSRM mode.
+    >Don't select the **Automatically reboot the server** option if you're performing the restore in DSRM mode.
 
 1. After you've successfully completed a restore,  you need to restart the server in normal mode. Open a command prompt and type the following: `bcdedit /deletevalue safeboot`
 1. Reboot the server.
@@ -175,7 +175,7 @@ This article will only be discussing the first scenario, which calls for a nonau
     * Follow the instructions above to [apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
 
         >[!NOTE]
-        >If you are restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
+        >If you're restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
 
     * Use the [wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) utility to perform the restore from the command line.
 

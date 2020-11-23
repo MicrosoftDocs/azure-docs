@@ -11,13 +11,10 @@ ms.date: 05/13/2019
 # Azure Active Directory integration for Azure Red Hat OpenShift
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11 will be retired June 2022.
->
-> As of October 2020 you will no longer be able to create new 3.11 clusters.
-> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
->
-> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster).
-> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
 
 If you haven't already created an Azure Active Directory (Azure AD) tenant, follow the directions in [Create an Azure AD tenant for Azure Red Hat OpenShift](howto-create-tenant.md) before continuing with these instructions.
 
@@ -91,9 +88,9 @@ Generate a client secret for authenticating your app to Azure Active Directory.
 
 ![Screenshot of the certificates and secrets pane](./media/howto-create-tenant/create-key.png)
 
-For more information about Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+For more information about Azure Application Objects, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-For details on creating a new Azure AD application, see [Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+For details on creating a new Azure AD application, see [Register an app with the Azure Active Directory v1.0 endpoint](../active-directory/develop/quickstart-register-app.md).
 
 ## Add API permissions
 
@@ -115,12 +112,12 @@ For details on creating a new Azure AD application, see [Register an app with th
 > [!IMPORTANT]
 > Synchronization of the cluster administrators group will work only after consent has been granted. You will see a green circle with a checkmark and a message "Granted for *Subscription Name*" in the *Admin consent required* column.
 
-For details on managing administrators and other roles, see [Add or change Azure subscription administrators](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+For details on managing administrators and other roles, see [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## Resources
 
-* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Applications and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](../active-directory/develop/quickstart-register-app.md)
 
 ## Next steps
 

@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom:
 ---
@@ -20,7 +21,7 @@ A _scope_ is a node in the Azure resource hierarchy where Azure AD users access 
 - Billing data, such as payments and invoices
 - Cloud services, such as cost and policy governance
 
-Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from roles used for resource management, which use [Azure RBAC](../../role-based-access-control/overview.md). To clearly distinguish the intent of the separate scopes, including the access control differences, they're referred to as _billing scopes_ and _RBAC scopes_, respectively.
+Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from roles used for resource management, which use [Azure RBAC](../../role-based-access-control/overview.md). To clearly distinguish the intent of the separate scopes, including the access control differences, they're referred to as _billing scopes_ and _Azure RBAC scopes_, respectively.
 
 To learn more about scopes, watch the [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
@@ -28,7 +29,7 @@ To learn more about scopes, watch the [Cost Management setting up hierarchies](h
 
 ## How Cost Management uses scopes
 
-Cost Management works at all scopes above resources to allow organizations to manage costs at the level at which they have access, whether that's the entire billing account or a single resource group. Although billing scopes differ based on your Microsoft agreement (subscription type), the RBAC scopes don't.
+Cost Management works at all scopes above resources to allow organizations to manage costs at the level at which they have access, whether that's the entire billing account or a single resource group. Although billing scopes differ based on your Microsoft agreement (subscription type), the Azure RBAC scopes don't.
 
 ## Azure RBAC scopes
 
@@ -92,7 +93,7 @@ EA billing scopes support the following roles:
 - **Enterprise read-only user** – Can view billing account settings, cost data, and cost configuration. For example, budgets and exports. In function, the EA billing scope is the same as the [Cost Management Reader Azure role](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Department admin** – Can manage department settings, such as cost center, and can access, view all costs, and manage cost configuration. For example, budgets and exports.  The **DA view charges** billing account setting must be enabled for department admins and read-only users to see costs. If **DA view charges** option is disabled, department users can't see costs at any level, even if they're an account or subscription owner.
 - **Department read-only user** – Can view department settings, cost data, and cost configuration. For example, budgets and exports. If **DA view charges** option is disabled, department users can't see costs at any level, even if they are an account or subscription owner.
-- **Account owner** – Can manage enrollment account settings (such as cost center), view all costs, and manage cost configuration (such as budgets and exports) for the enrollment account. The **AO view charges** billing account setting must be enabled for account owners and RBAC users to see costs.
+- **Account owner** – Can manage enrollment account settings (such as cost center), view all costs, and manage cost configuration (such as budgets and exports) for the enrollment account. The **AO view charges** billing account setting must be enabled for account owners and Azure RBAC users to see costs.
 
 EA billing account users don't have direct access to invoices. Invoices are available from an external volume licensing system.
 
@@ -175,7 +176,7 @@ The following scopes are supported for CSPs with customers on a Microsoft Custom
 
 Only the users with *Global admin* and *Admin agent* roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-Azure Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who aren't yet on a Microsoft Customer Agreement, see [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Azure Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who aren't yet on a Microsoft Customer Agreement, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Management groups in CSP scopes aren't supported by Cost Management. If you have a CSP subscription and you set the scope to a management group in cost analysis, you'll see an error similar to:
 

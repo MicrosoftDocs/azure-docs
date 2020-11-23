@@ -40,7 +40,6 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure Cognitive Search|Preview|Yes|Yes|[Index and search Azure Data Lake Storage Gen2 documents (preview)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
 |Azure Content Delivery Network|Not yet supported|Not applicable|Not applicable|[Index and search Azure Data Lake Storage Gen2 documents (preview)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
 
-
 ## See also
 
 - [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)

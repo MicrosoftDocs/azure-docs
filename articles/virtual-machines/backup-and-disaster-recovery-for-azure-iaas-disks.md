@@ -43,7 +43,7 @@ Because of this architecture, Azure has consistently delivered enterprise-grade 
 
 Localized hardware faults on the compute host or in the Storage platform can sometimes result in of the temporary unavailability of the VM that is covered by the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) for VM availability. Azure also provides an industry-leading SLA for single VM instances that use Azure premium SSDs.
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use [availability sets](~/articles/virtual-machines/windows/manage-availability.md). Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components.
+To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use [availability sets](./manage-availability.md). Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components.
 
 Because of these separate fault domains, localized hardware failures typically do not affect multiple VMs in the set at the same time. Having separate fault domains provides high availability for your application. It's considered a good practice to use availability sets when high availability is required. The next section covers the disaster recovery aspect.
 
@@ -72,7 +72,7 @@ Consider a production database server, like SQL Server or Oracle, that can suppo
 - The data must be protected and recoverable.
 - The server must be available for use.
 
-The disaster recovery plan might require maintaining a replica of the database in a different region as a backup. Depending on the requirements for server availability and data recovery, the solution might range from an active-active or active-passive replica site to periodic offline backups of the data. Relational databases, such as SQL Server and Oracle, provide various options for replication. For SQL Server, use [SQL Server AlwaysOn Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx) for high availability.
+The disaster recovery plan might require maintaining a replica of the database in a different region as a backup. Depending on the requirements for server availability and data recovery, the solution might range from an active-active or active-passive replica site to periodic offline backups of the data. Relational databases, such as SQL Server and Oracle, provide various options for replication. For SQL Server, use [SQL Server AlwaysOn Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) for high availability.
 
 NoSQL databases, like MongoDB, also support [replicas](https://docs.mongodb.com/manual/replication/) for redundancy. The replicas for high availability are used.
 
@@ -92,24 +92,24 @@ IaaS application data issues are another possibility. Consider an application th
 
 ## Disaster recovery solution: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) is used for backups and DR, and it works with [managed disks](~/articles/virtual-machines/managed-disks-overview.md) as well as unmanaged disks. You can create a backup job with time-based backups, easy VM restoration, and backup retention policies.
+[Azure Backup](https://azure.microsoft.com/services/backup/) is used for backups and DR, and it works with [managed disks](managed-disks-overview.md) as well as unmanaged disks. You can create a backup job with time-based backups, easy VM restoration, and backup retention policies.
 
-If you use [premium SSDs](~/articles/virtual-machines/disks-types.md), [managed disks](~/articles/virtual-machines/managed-disks-overview.md), or other disk types with the [locally redundant storage](~/articles/storage/common/storage-redundancy-lrs.md) option, it's especially important to make periodic DR backups. Azure Backup stores the data in your recovery services vault for long-term retention. Choose the [geo-redundant storage](~/articles/storage/common/storage-redundancy-grs.md) option for the backup recovery services vault. That option ensures that backups are replicated to a different Azure region for safeguarding from regional disasters.
+If you use [premium SSDs](disks-types.md), [managed disks](managed-disks-overview.md), or other disk types with the [locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) option, it's especially important to make periodic DR backups. Azure Backup stores the data in your recovery services vault for long-term retention. Choose the [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) option for the backup recovery services vault. That option ensures that backups are replicated to a different Azure region for safeguarding from regional disasters.
 
 For unmanaged disks, you can use the locally redundant storage type for IaaS disks, but ensure that Azure Backup is enabled with the geo-redundant storage option for the recovery services vault.
 
 > [!NOTE]
-> If you use the [geo-redundant storage](~/articles/storage/common/storage-redundancy-grs.md) or [read-access geo-redundant storage](~/articles/storage/common/storage-redundancy.md) option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
+> If you use the [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) or [read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)  option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
 
  The following table is a summary of the solutions available for DR.
 
 | Scenario | Automatic replication | DR solution |
 | --- | --- | --- |
-| Premium SSD disks | Local ([locally redundant storage](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Managed disks | Local ([locally redundant storage](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Unmanaged locally redundant storage disks | Local ([locally redundant storage](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Unmanaged geo-redundant storage disks | Cross region ([geo-redundant storage](~/articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
-| Unmanaged read-access geo-redundant storage disks | Cross region ([read-access geo-redundant storage](~/articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
+| Premium SSD disks | Local ([locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Managed disks | Local ([locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Unmanaged locally redundant storage disks | Local ([locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Unmanaged geo-redundant storage disks | Cross region ([geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
+| Unmanaged read-access geo-redundant storage disks | Cross region ([read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
 
 High availability is best met by using managed disks in an availability set along with Azure Backup. If you use unmanaged disks, you can still use Azure Backup for DR. If you are unable to use Azure Backup, then taking [consistent snapshots](#alternative-solution-consistent-snapshots), as described in a later section, is an alternative solution for backup and DR.
 
@@ -122,19 +122,19 @@ Your choices for high availability, backup, and DR at application or infrastruct
 
 ### Using Azure Backup 
 
-[Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) can back up your VMs running Windows or Linux to the Azure recovery services vault. Backing up and restoring business-critical data is complicated by the fact that business-critical data must be backed up while the applications that produce the data are running. 
+[Azure Backup](../backup/backup-azure-vms-introduction.md) can back up your VMs running Windows or Linux to the Azure recovery services vault. Backing up and restoring business-critical data is complicated by the fact that business-critical data must be backed up while the applications that produce the data are running. 
 
-To address this issue, Azure Backup provides application-consistent backups for Microsoft workloads. It uses the volume shadow service to ensure that data is written correctly to storage. For Linux VMs, the default backup consistency mode is file-consistent backups, because Linux does not have functionality equivalent to the volume shadow service as in the case of Windows. For Linux machines, see [Application-consistent backup of Azure Linux VMs](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+To address this issue, Azure Backup provides application-consistent backups for Microsoft workloads. It uses the volume shadow service to ensure that data is written correctly to storage. For Linux VMs, the default backup consistency mode is file-consistent backups, because Linux does not have functionality equivalent to the volume shadow service as in the case of Windows. For Linux machines, see [Application-consistent backup of Azure Linux VMs](../backup/backup-azure-linux-app-consistent.md).
 
 ![Azure Backup flow][1]
 
 When Azure Backup initiates a backup job at the scheduled time, it triggers the backup extension installed in the VM to take a point-in-time snapshot. A snapshot is taken in coordination with the volume shadow service to get a consistent snapshot of the disks in the virtual machine without having to shut it down. The backup extension in the VM flushes all writes before taking a consistent snapshot of all of the disks. After taking the snapshot, the data is transferred by Azure Backup to the backup vault. To make the backup process more efficient, the service identifies and transfers only the blocks of data that have changed after the last backup.
 
-To restore, you can view the available backups through Azure Backup and then initiate a restore. You can create and restore Azure backups through the [Azure portal](https://portal.azure.com/), by [using PowerShell](~/articles/backup/backup-azure-vms-automation.md), or by using the [Azure CLI](/cli/azure/).
+To restore, you can view the available backups through Azure Backup and then initiate a restore. You can create and restore Azure backups through the [Azure portal](https://portal.azure.com/), by [using PowerShell](../backup/backup-azure-vms-automation.md), or by using the [Azure CLI](/cli/azure/).
 
 ### Steps to enable a backup
 
-Use the following steps to enable backups of your VMs by using the [Azure portal](https://portal.azure.com/). There is some variation depending on your exact scenario. Refer to the [Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) documentation for full details. Azure Backup also [supports VMs with managed disks](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
+Use the following steps to enable backups of your VMs by using the [Azure portal](https://portal.azure.com/). There is some variation depending on your exact scenario. Refer to the [Azure Backup](../backup/backup-azure-vms-introduction.md) documentation for full details. Azure Backup also [supports VMs with managed disks](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
 
 1.	Create a recovery services vault for a VM:
 
@@ -146,11 +146,11 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 
 1.	Configure the backup policy and select the VM from the same UI.
 
-1.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](~/articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+1.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
 
-For automating Azure Backup by using scripts, refer to [PowerShell cmdlets for VM backup](~/articles/backup/backup-azure-vms-automation.md).
+For automating Azure Backup by using scripts, refer to [PowerShell cmdlets for VM backup](../backup/backup-azure-vms-automation.md).
 
 ### Steps for recovery
 
@@ -160,17 +160,17 @@ If you need to repair or rebuild a VM, you can restore the VM from any of the ba
 
 -	You can restore the disks, and then use the template for the VM to customize and rebuild the restored VM.
 
-For more information, see the instructions to [use the Azure portal to restore virtual machines](~/articles/backup/backup-azure-arm-restore-vms.md). This document also explains the specific steps for restoring backed-up VMs to a paired datacenter by using your geo-redundant backup vault if there is a disaster at the primary datacenter. In that case, Azure Backup uses the Compute service from the secondary region to create the restored virtual machine.
+For more information, see the instructions to [use the Azure portal to restore virtual machines](../backup/backup-azure-arm-restore-vms.md). This document also explains the specific steps for restoring backed-up VMs to a paired datacenter by using your geo-redundant backup vault if there is a disaster at the primary datacenter. In that case, Azure Backup uses the Compute service from the secondary region to create the restored virtual machine.
 
-You can also use PowerShell for [creating a new VM from restored disks](~/articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+You can also use PowerShell for [creating a new VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## Alternative solution: Consistent snapshots
 
 If you are unable to use Azure Backup, you can implement your own backup mechanism by using snapshots. Creating consistent snapshots for all the disks used by a VM and then replicating those snapshots to another region is complicated. For this reason, Azure considers using the Backup service as a better option than building a custom solution.
 
-If you use read-access geo-redundant storage/geo-redundant storage for disks, snapshots are automatically replicated to a secondary datacenter. If you use locally redundant storage for disks, you need to replicate the data yourself. For more information, see [Back up Azure-unmanaged VM disks with incremental snapshots](~/articles/virtual-machines/windows/incremental-snapshots.md).
+If you use read-access geo-redundant storage/geo-redundant storage for disks, snapshots are automatically replicated to a secondary datacenter. If you use locally redundant storage for disks, you need to replicate the data yourself. For more information, see [Back up Azure-unmanaged VM disks with incremental snapshots](windows/incremental-snapshots.md).
 
-A snapshot is a representation of an object at a specific point in time. A snapshot incurs billing for the incremental size of the data it holds. For more information, see [Create a blob snapshot](~/articles/storage/blobs/storage-blob-snapshots.md).
+A snapshot is a representation of an object at a specific point in time. A snapshot incurs billing for the incremental size of the data it holds. For more information, see [Create a blob snapshot](../storage/blobs/snapshots-overview.md).
 
 ### Create snapshots while the VM is running
 
@@ -182,9 +182,9 @@ To avoid this situation, the backup process must implement the following steps:
 
 1.	Flush all the pending writes.
 
-1.	[Create a blob snapshot](~/articles/storage/blobs/storage-blob-snapshots.md) for all the disks.
+1.	[Create a blob snapshot](../storage/blobs/snapshots-manage-dotnet.md) for all the disks.
 
-Some Windows applications, like SQL Server, provide a coordinated backup mechanism via a volume shadow service to create application-consistent backups. On Linux, you can use a tool like *fsfreeze* for coordinating the disks. This tool provides file-consistent backups, but not application-consistent snapshots. This process is complex, so you should consider using [Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) or a third-party backup solution that already implements this procedure.
+Some Windows applications, like SQL Server, provide a coordinated backup mechanism via a volume shadow service to create application-consistent backups. On Linux, you can use a tool like *fsfreeze* for coordinating the disks. This tool provides file-consistent backups, but not application-consistent snapshots. This process is complex, so you should consider using [Azure Backup](../backup/backup-azure-vms-introduction.md) or a third-party backup solution that already implements this procedure.
 
 The previous process results in a collection of coordinated snapshots for all of the VM disks, representing a specific point-in-time view of the VM. This is a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. See [Copy the backups to another region](#copy-the-snapshots-to-another-region) for steps to copy the snapshots to another region for DR.
 
@@ -196,7 +196,7 @@ Another option to create consistent backups is to shut down the VM and take blob
 
 1. Create a snapshot of each virtual hard drive blob, which only takes a few seconds.
 
-    To create a snapshot, you can use [PowerShell](~/articles/storage/common/storage-powershell-guide-full.md), the [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/), or one of the Azure Storage client libraries, such as [the Storage client library for .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    To create a snapshot, you can use [PowerShell](/powershell/module/az.storage), the [Azure Storage REST API](/rest/api/storageservices/Snapshot-Blob), [Azure CLI](/cli/azure/), or one of the Azure Storage client libraries, such as [the Storage client library for .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 1. Start the VM, which ends the downtime. Typically, the entire process finishes within a few minutes.
 
@@ -213,13 +213,13 @@ If you use geo-redundant storage or read-access geo-redundant storage for your d
 
 If you use locally redundant storage, you must copy the snapshots to a different storage account immediately after creating the snapshot. The copy target might be a locally redundant storage account in a different region, resulting in the copy being in a remote region. You can also copy the snapshot to a read-access geo-redundant storage account in the same region. In this case, the snapshot is lazily replicated to the remote secondary region. Your backup is protected from disasters at the primary site after the copying and replication is complete.
 
-To copy your incremental snapshots for DR efficiently, review the instructions in [Back up Azure unmanaged VM disks with incremental snapshots](~/articles/virtual-machines/windows/incremental-snapshots.md).
+To copy your incremental snapshots for DR efficiently, review the instructions in [Back up Azure unmanaged VM disks with incremental snapshots](windows/incremental-snapshots.md).
 
 ![Back up Azure unmanaged VM disks with incremental snapshots][2]
 
 ### Recovery from snapshots
 
-To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot. This process reverts the disk to the snapshot. This process is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account, in the case of a read-access geo-redundant storage account, you must copy it to a primary account. You can copy a snapshot by [using PowerShell](~/articles/storage/common/storage-powershell-guide-full.md) or by using the AzCopy utility. For more information, see [Transfer data with the AzCopy command-line utility](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot. This process reverts the disk to the snapshot. This process is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account, in the case of a read-access geo-redundant storage account, you must copy it to a primary account. You can copy a snapshot by [using PowerShell](/powershell/module/az.storage) or by using the AzCopy utility. For more information, see [Transfer data with the AzCopy command-line utility](../storage/common/storage-use-azcopy-v10.md).
 
 For VMs with multiple disks, you must copy all the snapshots that are part of the same coordinated restore point. After you copy the snapshots to writable VHD blobs, you can use the blobs to recreate your VM by using the template for the VM.
 
@@ -227,7 +227,7 @@ For VMs with multiple disks, you must copy all the snapshots that are part of th
 
 ### SQL Server
 
-SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. If the storage account is geo-redundant storage or read-access geo-redundant storage, you can access those backups in the storage account’s secondary datacenter in the event of a disaster, with the same restrictions as previously discussed. For more information, see [Back up and restore for SQL Server in Azure virtual machines](~/articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](~/articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
+SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. If the storage account is geo-redundant storage or read-access geo-redundant storage, you can access those backups in the storage account’s secondary datacenter in the event of a disaster, with the same restrictions as previously discussed. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
 
 ## Other considerations
 
@@ -252,12 +252,11 @@ The main difference between geo-redundant storage and read-access geo-redundant 
 
 If it turns out to be a significant outage, the Azure team might trigger a geo-failover and change the primary DNS entries to point to secondary storage. At this point, if you have either geo-redundant storage or read-access geo-redundant storage enabled, you can access the data in the region that used to be the secondary. In other words, if your storage account is geo-redundant storage and there is a problem, you can access the secondary storage only if there is a geo-failover.
 
-For more information, see [What to do if an Azure Storage outage occurs](~/articles/storage/common/storage-disaster-recovery-guidance.md).
+For more information, see [What to do if an Azure Storage outage occurs](../storage/common/storage-disaster-recovery-guidance.md).
 
 ## Next steps
 
-See [Back up Azure unmanaged Virtual Machine disks with incremental snapshots](./linux/incremental-snapshots.md).
+See [Back up Azure unmanaged Virtual Machine disks with incremental snapshots](linux/incremental-snapshots.md).
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

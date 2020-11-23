@@ -17,6 +17,7 @@ ms.date: 07/07/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
+ms.custom: devx-track-csharp
 ---
 
 # Registration management

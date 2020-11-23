@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -30,6 +30,8 @@ Use either claim values or constants to generate a JSON string. The path string 
 | InputParameter | Any string following dot notation | string | The JsonPath of the JSON where the constant string value will be inserted into. |
 | OutputClaim | outputClaim | string | The generated JSON string. |
 
+### Example 1
+
 The following example generates a JSON string based on the claim value of "email" and "otp" as well as constant strings.
 
 ```xml
@@ -48,8 +50,6 @@ The following example generates a JSON string based on the claim value of "email
   </OutputClaims>
 </ClaimsTransformation>
 ```
-
-### Example
 
 The following claims transformation outputs a JSON string claim that will be the body of the request sent to SendGrid (a third-party email provider). The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
 
@@ -83,6 +83,56 @@ The following claims transformation outputs a JSON string claim that will be the
   "from": {
     "email": "service@contoso.com"
   }
+}
+```
+
+### Example 2
+
+The following example generates a JSON string based on the claim values as well as constant strings.
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+The following claims transformation outputs a JSON string claim that will be the body of the request sent to a REST API. The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. The values come from the InputClaims' values and the InputParameters' "Value" properties.
+
+- Input claims :
+  - **email**,  transformation claim type  **customerEntity.email**: "john.s@contoso.com"
+  - **objectId**, transformation claim type **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
+  - **objectId**, transformation claim type **customerEntity.firstName** "John"
+  - **objectId**, transformation claim type **customerEntity.lastName** "Smith"
+- Input parameter:
+  - **customerEntity.role.name**: "Administrator"
+  - **customerEntity.role.id** 1
+- Output claim:
+  - **requestBody**: JSON value
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
 }
 ```
 

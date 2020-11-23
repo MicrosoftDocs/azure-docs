@@ -3,9 +3,10 @@ title: Frequently asked questions for Cloudyn in Azure
 description: Learn how to use the Cloudyn portal to resolve common indirect enterprise setup problems and answer other frequently asked questions.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
@@ -31,7 +32,7 @@ Here's how to fix the problems:
 
 1. Your reseller needs to enable _markup_ for your account. For instructions, see the [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. You generate the Azure Enterprise Agreement key for use with Cloudyn. For instructions, see [Adding Your Azure EA](quick-register-ea.md#register-with-cloudyn) or [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig).
+2. You generate the Azure Enterprise Agreement key for use with Cloudyn.
 
 Only an Azure service administrator can enable Cloudyn. Co-administrator permissions are insufficient.
 

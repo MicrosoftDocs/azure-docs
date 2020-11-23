@@ -50,7 +50,7 @@ You may configure IP Access Control List in your back-end to allow for only Fron
 
 ## Which Azure WAF options should I choose?
 
-There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
 
 ## Do you support same WAF features in all integrated platforms?
@@ -59,7 +59,7 @@ Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with 
 
 ## Is DDoS protection integrated with Front Door? 
 
-Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack.
+Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. For more information, see [DDoS protection on Front Door](../../frontdoor/front-door-ddos.md).
 
 ## Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
 

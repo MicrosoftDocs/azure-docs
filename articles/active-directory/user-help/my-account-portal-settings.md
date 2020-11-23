@@ -43,7 +43,7 @@ After you change your display language, it's recommended to sign out and sign in
 
 After changing your My Account portal settings, you can:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- View or manage your [security info](./security-info-setup-signin.md).
 
 - View or manage your connected [devices](my-account-portal-devices-page.md).
 

@@ -3,6 +3,7 @@ title: Azure Application Insights for Console Applications | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 ms.topic: conceptual
 ms.date: 05/21/2020
+ms.custom: devx-track-csharp
 
 ms.reviewer: lmolkova
 ---

@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Azure Media Services error codes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 When using Microsoft Azure Media Services, you may receive HTTP error codes from the service depending on issues such as authentication tokens expiring to actions that are not supported in Media Services. The following is a list of **HTTP error codes** that may be returned by Media Services and the possible causes for them.  
 
 ## 400 Bad Request

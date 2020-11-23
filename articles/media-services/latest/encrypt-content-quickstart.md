@@ -2,10 +2,12 @@
 title: Encrypt content with the Azure portal
 description: This quickstart shows you how to configure encryption for your content using Azure Media Services in the Azure portal. 
 ms.topic: quickstart
-ms.date: 06/08/2020
+ms.date: 08/31/2020
  
 ---
 # Quickstart: Use portal to encrypt content
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Use Azure Media Services to help secure your media from the time it leaves your computer all the way through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
  

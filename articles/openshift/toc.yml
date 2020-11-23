@@ -16,7 +16,7 @@
       href: tutorial-delete-cluster.md
 - name: How-to guides
   items:
-    - name: Security and authentication
+    - name: Networking
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
@@ -44,6 +44,10 @@
               href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Disable Azure Monitor for containers in ARO 4 (preview)
               href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+    - name: Open Liberty/WebSphere Liberty on Azure Red Hat OpenShift 4 cluster
+      items:
+        - name: Deploy an Open Liberty/WebSphere Liberty app on an Azure Red Hat OpenShift 4 cluster
+          href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
@@ -67,7 +71,7 @@
                   href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Run privileged containers in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md
@@ -97,7 +101,7 @@
       href: troubleshoot.md
     - name: Supported resources for Azure Red Hat OpenShift
       href: support-policies-v4.md
-    - name: Azure Red Hat OpenShift support lifecycle 
+    - name: Support lifecycle for Azure Red Hat OpenShift 4 
       href: support-lifecycle.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/

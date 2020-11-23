@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
 manager: philmea
+ms.custom: devx-track-csharp
 ---
 
 # Symmetric key attestation
 
 This article describes the identity attestation process when using symmetric keys with the Device Provisioning Service. 
 
-Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](concepts-tpm-attestation.md) or an [X.509 certificate](concepts-security.md#x509-certificates) is more secure, and should be used for more stringent security requirements.
+Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](concepts-tpm-attestation.md) or an [X.509 certificate](concepts-x509-attestation.md) is more secure, and should be used for more stringent security requirements.
 
 Symmetric key enrollments also provide a great way for legacy devices, with limited security functionality, to bootstrap to the cloud via Azure IoT. For more information on symmetric key attestation with legacy devices, see [How to use symmetric keys with legacy devices](how-to-legacy-device-symm-key.md).
 
@@ -103,12 +104,12 @@ Consider the following diagram that shows a table of device keys generated in a 
 
 The identity of each device is represented by the registration ID and derived device key that is installed at the factory. The device key is never copied to another location and the group key is never stored on a device.
 
-If the device keys are not installed in the factory, a [hardware security module HSM](concepts-security.md#hardware-security-module) should be used to securely store the device identity.
+If the device keys are not installed in the factory, a [hardware security module HSM](concepts-service.md#hardware-security-module) should be used to securely store the device identity.
 
 ## Next steps
 
 Now that you have an understanding of Symmetric Key attestation, check out the following articles to learn more:
 
 * [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
-* [Learn about the concepts in auto-provisioning](./concepts-auto-provisioning.md)
+* [Learn about the concepts of provisioning](about-iot-dps.md#provisioning-process)
 * [Get started using auto-provisioning](./quick-setup-auto-provision.md) 

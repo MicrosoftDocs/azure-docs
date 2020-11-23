@@ -9,7 +9,8 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Upload, download, and list blobs with PowerShell

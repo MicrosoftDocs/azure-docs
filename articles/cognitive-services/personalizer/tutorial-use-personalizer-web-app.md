@@ -1,8 +1,11 @@
 ---
 title: Use web app - Personalizer
 description: Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
+ms.custom: devx-track-csharp
 ---
 # Tutorial: Add Personalizer to a .NET web app
 
@@ -207,7 +210,7 @@ Install the following software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - the sample back-end server uses .NET core
 * [Node.js](https://nodejs.org/) - the client/front end depends on this application
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/) - use either the developer environment of Visual Studio 2019 or the .NET Core CLI to build and run the app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](/dotnet/core/tools/) - use either the developer environment of Visual Studio 2019 or the .NET Core CLI to build and run the app
 
 ### Set up the sample
 1. Clone the Azure Personalizer Samples repo.
@@ -226,7 +229,7 @@ Install the following software:
 
 1. In the Azure portal, find the `Endpoint` and either `Key1` or `Key2` (either will work) in the **Keys and Endpoints** tab. These are your `PersonalizerServiceEndpoint` and your `PersonalizerApiKey`.
 1. Fill in the `PersonalizerServiceEndpoint` in **appsettings.json**.
-1. Configure the `PersonalizerApiKey` as an [app secrets](https://docs.microsoft.com/aspnet/core/security/app-secrets) in one of the following ways:
+1. Configure the `PersonalizerApiKey` as an [app secrets](/aspnet/core/security/app-secrets) in one of the following ways:
 
     * If you are using the .NET Core CLI, you can use the `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` command.
     * If you are using Visual Studio, you can right-click the project and select the **Manage User Secrets** menu option to configure the Personalizer keys. By doing this, Visual Studio will open a `secrets.json` file where you can add the keys as follows:
@@ -247,7 +250,7 @@ Build and run HttpRequestFeaturesExample with one of the following methods:
 Through a web browser, you can send a Rank request and a Reward request and see their responses, as well as the http request features extracted from your environment.
 
 > [!div class="mx-imgBorder"]
-> ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Screenshot shows an example of the Http Request Feature in a web browser.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## Demonstrate the Personalizer loop
 
@@ -260,7 +263,7 @@ Through a web browser, you can send a Rank request and a Reward request and see 
 1. Set the reward value, then select the **Send Reward Request** button. If you don't change the reward value, the client application always sends the value of `1` to Personalizer.
 
     > [!div class="mx-imgBorder"]
-    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Screenshot shows the Reward Request section.](./media/tutorial-web-app/reward-score-api-call.png)
 
     For your own future application, generation of the reward score may happen after collecting information from the user's behavior on the client, along with business logic on the server.
 

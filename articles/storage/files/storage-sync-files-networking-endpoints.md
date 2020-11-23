@@ -1,12 +1,13 @@
 ---
 title: Configuring Azure File Sync network endpoints | Microsoft Docs
-description: An overview of networking options for Azure File Sync.
+description: Learn how to configure Azure File Sync network endpoints.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configuring Azure File Sync network endpoints
@@ -27,8 +28,8 @@ This article assumes that:
 - You have already created a Storage Sync Service and registered your Windows file server with it. To learn how to deploy Azure File Sync, see [Deploying Azure File Sync](storage-sync-files-deployment-guide.md).
 
 Additionally:
-- If you intend to use Azure PowerShell, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create the private endpoints
 When you creating a private endpoint for an Azure resource, the following resources are deployed:

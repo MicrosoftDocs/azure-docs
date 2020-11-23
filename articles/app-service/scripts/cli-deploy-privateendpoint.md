@@ -18,9 +18,9 @@ This sample script creates an app in App Service with its related resources, and
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
+ - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -135,5 +135,5 @@ az network private-endpoint dns-zone-group create \
 
 ## Next steps
 
-- For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+- For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 - Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

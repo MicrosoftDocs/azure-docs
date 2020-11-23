@@ -69,11 +69,11 @@ To configure Azure Monitor for VMs Map integration, do the following:
 
 6. Optional: Select the All Management Servers Resource Pool to communicate with Log Analytics, and then click **Add Workspace**.
 
-    ![The Operations Manager Configuration Resource Pool](media/service-map-scom/scom-config-pool.png)
+    ![Screenshot of the Server Pool screen in Add Microsoft Operations Management Suite Workspace with All Management Servers Resource Pool selected.](media/service-map-scom/scom-config-pool.png)
 
     It might take a minute to configure and register the Log Analytics workspace. After it is configured, Operations Manager initiates the first Map sync.
 
-    ![The Operations Manager Configuration Resource Pool](media/service-map-scom/scom-config-success.png)
+    ![Screenshot of the Completion screen in Add Microsoft Operations Management Suite Workspace confirming that the Workspace has been added.](media/service-map-scom/scom-config-success.png)
 
 ## Monitor integration
 
@@ -94,11 +94,11 @@ The Service Map folder has four nodes:
 
 * **Machine Group Dependency Views**: Lists all machine groups that are synced from the Map feature. You can click any group to view its distributed application diagram.
 
-    ![The Operations Manager distributed application diagram](media/service-map-scom/scom-group-dad.png)
+    ![Screenshot from Service Map showing a diagram with images for each machine group and lines indicating the dependencies between them.](media/service-map-scom/scom-group-dad.png)
 
 * **Server Dependency Views**: Lists all servers that are synced from the Map feature. You can click any server to view its distributed application diagram.
 
-    ![The Operations Manager distributed application diagram](media/service-map-scom/scom-dad.png)
+    ![Screenshot from Service Map showing a diagram with images for each server and lines indicating the dependencies between them.](media/service-map-scom/scom-dad.png)
 
 ## Edit or delete the workspace
 

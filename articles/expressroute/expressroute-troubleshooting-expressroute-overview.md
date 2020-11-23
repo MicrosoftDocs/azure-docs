@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Verify Connectivity - Troubleshooting Guide'
 description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit.
 services: expressroute
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
-ms.author: rambala
+ms.author: duau
 ms.custom: seodec18
 
 ---
@@ -329,13 +329,8 @@ For more information or help, check out the following links:
 
 <!--Link References-->
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
-[DR-Pvt]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
-
+[CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
+[ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+[HA]: ./designing-for-high-availability-with-expressroute.md
+[DR-Pvt]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

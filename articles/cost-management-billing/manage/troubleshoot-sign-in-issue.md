@@ -6,8 +6,9 @@ author: v-miegge
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 08/20/2020
 ms.author: v-miegge
 ---
 
@@ -16,7 +17,7 @@ ms.author: v-miegge
 This guide helps to resolve the issues in which you can't sign in to the Azure portal or Azure account center.
 
 > [!NOTE]
-> If you are having issues signing up for a new Azure account, see [Troubleshoot Azure subscription sign-up issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
+> If you are having issues signing up for a new Azure account, see [Troubleshoot Azure subscription sign-up issues](./troubleshoot-azure-sign-up.md).
 
 ## Page hangs in the loading status
 
@@ -60,7 +61,7 @@ This problem occurs if you selected at the wrong directory, or if your account d
 To fix this issue:
 
 - Verify that the correct Azure directory is selected by selecting your account at the top-right corner.
-- If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator).
+- If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](./add-change-subscription-administrator.md).
 
 **Scenario 2:** You receive the error signing into the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
 
@@ -74,11 +75,11 @@ Check whether the account that you used is the Account Administrator. To verify 
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Declined card](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Subscription sign-up issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [No subscriptions found](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Enterprise cost view disabled](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Azure Billing documentation](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Declined card](./troubleshoot-declined-card.md)
+- [Subscription sign-up issues](./troubleshoot-azure-sign-up.md)
+- [No subscriptions found](./no-subscriptions-found.md)
+- [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Azure Billing documentation](../index.yml)
 
 ## Contact us for help
 

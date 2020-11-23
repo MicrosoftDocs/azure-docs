@@ -29,7 +29,7 @@ Configuration Management in Azure Automation allows access to two features:
 
 ### Change Tracking and Inventory
 
-Change Tracking and Inventory combines change tracking and inventory functions to allow you to track virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. For details of this feature, see [Change Tracking and Inventory](change-tracking.md).
+Change Tracking and Inventory combines change tracking and inventory functions to allow you to track virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. For details of this feature, see [Change Tracking and Inventory](change-tracking/overview.md).
 
 ### Azure Automation State Configuration
 
@@ -58,7 +58,7 @@ Azure Automation consists of a set of shared resources that make it easier to au
 
 ### Role-based access control
 
-Azure Automation supports role-based access control (RBAC) to regulate access to the Automation account and its resources. To learn more about configuring RBAC on your Automation account, runbooks, and jobs, see [Role-based access control for Azure Automation](automation-role-based-access-control.md).
+Azure Automation supports Azure role-based access control (Azure RBAC) to regulate access to the Automation account and its resources. To learn more about configuring Azure RBAC on your Automation account, runbooks, and jobs, see [Role-based access control for Azure Automation](automation-role-based-access-control.md).
 
 ### Source control integration
 
@@ -80,7 +80,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 * **Find changes** - Identify changes that can cause misconfiguration and improve operational compliance.
 * **Monitor** - Isolate machine changes that are causing issues and remediate or escalate them to management systems.
 * **Protect** - Quarantine machines if security alerts are raised. Set in-guest requirements.
-* **Govern** - Set up RBAC for teams. Recover unused resources.
+* **Govern** - Set up Azure RBAC for teams. Recover unused resources.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

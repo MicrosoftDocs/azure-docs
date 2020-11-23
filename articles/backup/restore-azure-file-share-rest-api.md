@@ -59,7 +59,7 @@ The GET URI has all the required parameters. There's no need for an additional r
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
 ```
 
-### Example response
+### Example response for fetch recovery points
 
 Once the GET URI is submitted, a 200 response is returned:
 
@@ -163,7 +163,7 @@ For the complete list of definitions of the request body and other details, refe
 
 ### Restore to original location
 
-#### Request body example
+#### Request body example for restore to original location
 
 The following request body defines properties required to trigger an Azure file share restore:
 
@@ -187,7 +187,7 @@ Specify the following parameters for alternate location recovery:
 * **name**: The file share within the target storage account to which the backed-up content is restored.
 * **targetFolderPath**: The folder under the file share to which data is restored.
 
-#### Request body example
+#### Request body example for restore to alternate location
 
 The following request body restores the *azurefiles* file share in the *afsaccount* storage account to the *azurefiles1* file share in the *afaccount1* storage account.
 
@@ -361,7 +361,7 @@ The values {containerName} and {protectedItemName} are as set [here](#fetch-cont
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### Create request body
+### Create request body for item-level recovery using REST API
 
 To trigger a restore for an Azure file share, the following are the components of the request body:
 
@@ -371,7 +371,7 @@ Properties | AzureFileShareRestoreRequest | RestoreRequestResource properties
 
 For the complete list of definitions of the request body and other details, refer to the [trigger Restore REST API document](/rest/api/backup/restores/trigger#request-body).
 
-### Restore to original location
+### Restore to original location for item-level recovery using REST API
 
 The following request body is to restore the *Restoretest.txt* file in the *azurefiles* file share in the *afsaccount* storage account.
 
@@ -397,7 +397,7 @@ Create Request Body
 }
 ```
 
-### Restore to alternate location
+### Restore to alternate location for item-level recovery using REST API
 
 The following request body is to restore the *Restoretest.txt* file in the *azurefiles* file share in the *afsaccount* storage account to the *restoredata* folder of the *azurefiles1* file share in the *afaccount1* storage account.
 

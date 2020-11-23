@@ -28,7 +28,7 @@ The following smart group states are supported.
 | Acknowledged | An administrator has reviewed the smart group and started working on it. |
 | Closed | The issue has been resolved. After a smart group has been closed, you can reopen it by changing it to another state. |
 
-[Learn how to change the state of your smart group.](https://aka.ms/managing-alert-smart-group-states)
+[Learn how to change the state of your smart group.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 
 > [!NOTE]
 >  Changing the state of a smart group does not change the state of the individual member alerts.
@@ -53,7 +53,5 @@ The name of a smart group is the name of its first alert. You can't create or re
 
 ## Next steps
 
-- [Manage smart groups](https://aka.ms/managing-smart-groups)
-- [Change your alert and smart group state](https://aka.ms/managing-alert-smart-group-states)
-
-
+- [Manage smart groups](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Change your alert and smart group state](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)

@@ -46,7 +46,7 @@ When you need to search on fragments or patterns or special characters, you can 
 + Build and test the index
 
 > [!TIP]
-> Evaluating analyzers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index), [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
+> Evaluating analyzers is an iterative process that requires frequent index rebuilds. You can make this step easier by using Postman, the REST APIs for [Create Index](/rest/api/searchservice/create-index), [Delete Index](/rest/api/searchservice/delete-index),[Load Documents](/rest/api/searchservice/addupdate-or-delete-documents), and [Search Documents](/rest/api/searchservice/search-documents). For Load Documents, the request body should contain a small representative data set that you want to test (for example, a field with phone numbers or product codes). With these APIs in the same Postman collection, you can cycle through these steps quickly.
 
 ## Duplicate fields for different scenarios
 
@@ -80,7 +80,7 @@ When choosing an analyzer that produces whole-term tokens, the following analyze
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
 | [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the predefined [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
-If you are using a web API test tool like Postman, you can add the [Test Analyzer REST call](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to inspect tokenized output.
+If you are using a web API test tool like Postman, you can add the [Test Analyzer REST call](/rest/api/searchservice/test-analyzer) to inspect tokenized output.
 
 You must have a populated index to work with. Given an existing index and a field containing dashes or partial terms, you can try various analyzers over specific terms to see what tokens are emitted.  
 
@@ -155,7 +155,7 @@ Whether you are evaluating analyzers or moving forward with a specific configura
 
 Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. 
 
-For other scenarios and to learn more about other built-in analyzers, see [Predefined analyzers list](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+For other scenarios and to learn more about other built-in analyzers, see [Predefined analyzers list](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -217,15 +217,15 @@ Once you have defined an index with analyzers and field definitions that support
 
 The previous sections explained the logic. This section steps through each API you should call when testing your solution. As previously noted, if you use an interactive web test tool such as Postman, you can step through these tasks quickly.
 
-+ [Delete Index](https://docs.microsoft.com/rest/api/searchservice/delete-index) removes an existing index of the same name so that you can recreate it.
++ [Delete Index](/rest/api/searchservice/delete-index) removes an existing index of the same name so that you can recreate it.
 
-+ [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) creates the index structure on your search service, including analyzer definitions and fields with an analyzer specification.
++ [Create Index](/rest/api/searchservice/create-index) creates the index structure on your search service, including analyzer definitions and fields with an analyzer specification.
 
-+ [Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) imports documents having the same structure as your index, as well as searchable content. After this step, your index is ready to query or test.
++ [Load Documents](/rest/api/searchservice/addupdate-or-delete-documents) imports documents having the same structure as your index, as well as searchable content. After this step, your index is ready to query or test.
 
-+ [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) was introduced in [Choose an analyzer](#choose-an-analyzer). Test some of the strings in your index using a variety of analyzers to understand how terms are tokenized.
++ [Test Analyzer](/rest/api/searchservice/test-analyzer) was introduced in [Choose an analyzer](#choose-an-analyzer). Test some of the strings in your index using a variety of analyzers to understand how terms are tokenized.
 
-+ [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) explains how to construct a query request, using either [simple syntax](query-simple-syntax.md) or [full Lucene syntax](query-lucene-syntax.md) for wildcard and regular expressions.
++ [Search Documents](/rest/api/searchservice/search-documents) explains how to construct a query request, using either [simple syntax](query-simple-syntax.md) or [full Lucene syntax](query-lucene-syntax.md) for wildcard and regular expressions.
 
   For partial term queries, such as querying "3-6214" to find a match on "+1 (425) 703-6214", you can use the simple syntax: `search=3-6214&queryType=simple`.
 
@@ -282,5 +282,5 @@ This article explains how analyzers both contribute to query problems and solve 
 
 + [Language analyzers](search-language-support.md)
 + [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md)
-+ [Analyze Text API (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [Analyze Text API (REST)](/rest/api/searchservice/test-analyzer)
 + [How full text search works (query architecture)](search-lucene-query-architecture.md)

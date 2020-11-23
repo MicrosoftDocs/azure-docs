@@ -11,7 +11,7 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/10/2020
+ms.date: 09/06/2020
 ---
 
 # Execute SSIS packages in Azure from SSDT
@@ -24,7 +24,7 @@ With this feature, you can attach a newly created/existing Azure-SSIS IR to SSIS
 
 ## Prerequisites
 
-To use this feature, please download and install the latest SSDT with SSIS Projects extension for Visual Studio (VS) from [here](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects). Alternatively, you can also download and install the latest SSDT as a standalone installer from [here](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer).
+To use this feature, please download and install the latest SSDT with SSIS Projects extension for Visual Studio (VS) from [here](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects). Alternatively, you can also download and install the latest SSDT as a standalone installer from [here](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer).
 
 ## Azure-enable SSIS projects
 
@@ -48,11 +48,11 @@ For existing SSIS projects, you can Azure-enable them by following these steps:
 
    ![Azure-enable existing SSIS project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-for-existing-project.png)
 
-2. On the **Select Visual Studio Configuration** page, select your existing VS configuration to apply package execution settings in Azure. You can also create a new one if you haven't done so already, see [Creating a new VS configuration](https://docs.microsoft.com/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019). We recommend that you have at least two different VS configurations for package executions in the local and cloud environments, so you can Azure-enable your project against the cloud configuration. In this way, if you've parameterized your project or packages, you can assign different values to your project or package parameters at run-time based on the different execution environments (either on your local machine or in Azure). For example, see [Switching package execution environments](#switchenvironment).
+2. On the **Select Visual Studio Configuration** page, select your existing VS configuration to apply package execution settings in Azure. You can also create a new one if you haven't done so already, see [Creating a new VS configuration](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019). We recommend that you have at least two different VS configurations for package executions in the local and cloud environments, so you can Azure-enable your project against the cloud configuration. In this way, if you've parameterized your project or packages, you can assign different values to your project or package parameters at run-time based on the different execution environments (either on your local machine or in Azure). For example, see [Switching package execution environments](#switchenvironment).
 
    ![Select Visual Studio configuration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. Azure-enabling your existing SSIS projects requires you to set their target server version to be the latest one supported by Azure-SSIS IR. Currently, Azure-SSIS IR has a default compatibility level of 140, which is equal to **SQL Server 2017**. Please ensure that your packages don't contain additional components that are unsupported on SQL Server 2017. Please also ensure that all compatible additional components have also been installed on your Azure-SSIS IR via custom setups, see [Customizing your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Select the **Next** button to continue.
+3. Azure-enabling your existing SSIS projects requires you to set their target server version to be the latest one supported by Azure-SSIS IR. Azure-SSIS IR is currently based on **SQL Server 2017**. Please ensure that your packages don't contain additional components that are unsupported on SQL Server 2017. Please also ensure that all compatible additional components have also been installed on your Azure-SSIS IR via custom setups, see [Customizing your Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md). Select the **Next** button to continue.
 
    ![Switch target server version](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 
@@ -175,7 +175,7 @@ If you parameterize your project/packages in Project Deployment Model, you can c
 
    ![Parameterize source connection](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-update-task-with-parameters.png)
 
-3. By default, you have an existing VS configuration for package executions in the local environment named **Development**. Create a new VS configuration for package executions in the cloud environment named **Azure**, see [Creating a new VS configuration](https://docs.microsoft.com/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019), if you haven't done so already.
+3. By default, you have an existing VS configuration for package executions in the local environment named **Development**. Create a new VS configuration for package executions in the cloud environment named **Azure**, see [Creating a new VS configuration](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019), if you haven't done so already.
 
 4. When viewing the parameters of your package, select the **Add Parameters to Configurations** button to open the **Manage Parameter Values** window for your package. Next, assign different values of target file path to the **FilePath** package parameter under the **Development** and **Azure** configurations.
 
@@ -201,4 +201,4 @@ After starting your package execution, we'll format and display its logs in the 
 
 ## Next steps
 
-Once you're satisfied with running your packages in Azure from SSDT, you can deploy and run them as Execute SSIS Package activities in ADF pipelines, see [Running SSIS packages as Execute SSIS Package activities in ADF pipelines](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Once you're satisfied with running your packages in Azure from SSDT, you can deploy and run them as Execute SSIS Package activities in ADF pipelines, see [Running SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md).

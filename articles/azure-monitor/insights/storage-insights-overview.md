@@ -27,7 +27,7 @@ Combined it delivers:
 
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
-This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/monitor-storage.md).
+This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
@@ -50,11 +50,11 @@ To view the utilization and availability of your storage accounts across all of 
 
 ### Overview workbook
 
-On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
+On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 5 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
-* **Storage Accounts** - by default, 10 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
+* **Storage Accounts** - by default, 5 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
@@ -63,7 +63,7 @@ The counter tile under the drop-down lists rolls-up the total number of storage 
 Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage metrics that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage workbooks](#detailed-storage-workbooks) section below. 
 
 >[!NOTE]
->For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/monitor-storage-reference.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+>For details on which errors can be shown in the report, see [Response Type schema](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
 The default **Availability** threshold is:
 
@@ -90,7 +90,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 2. From the list, choose a storage account. In the Monitoring section, choose Insights.
 
-    ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Screenshot that shows the Overview workbook page for the storage account.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 On the **Overview** workbook for the storage account, it shows several storage performance metrics that help you quickly assess:
 
@@ -271,4 +271,3 @@ Each workbook is saved in the storage account that you saved it in. Try to find 
 * Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
 
 * For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
-

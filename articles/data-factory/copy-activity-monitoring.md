@@ -25,7 +25,7 @@ Once you've created and published a pipeline in Azure Data Factory, you can asso
 
 To monitor the Copy activity run, go to your data factory **Author & Monitor** UI. On the **Monitor** tab, you see a list of pipeline runs, click the **pipeline name** link to access the list of activity runs in the pipeline run.
 
-![Monitor copy activity run](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 At this level, you can see links to copy activity input, output, and errors (if the Copy activity run fails), as well as statistics like duration/status. Clicking the **Details** button (eyeglasses) next to the copy activity name will give you deep details on your copy activity execution. 
 
@@ -62,7 +62,7 @@ Copy activity execution details and performance characteristics are also returne
 | throughput | Rate of data transfer. | Floating point number, in KBps |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int32 value (no unit) |
 | sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the Copy activity run.| Int32 value (no unit) |
-| sqlDwPolyBase | Whether PolyBase is used when data is copied into SQL Data Warehouse. | Boolean |
+| sqlDwPolyBase | Whether PolyBase is used when data is copied into Azure Synapse Analytics (formerly SQL Data Warehouse). | Boolean |
 | redshiftUnload | Whether UNLOAD is used when data is copied from Redshift. | Boolean |
 | hdfsDistcp | Whether DistCp is used when data is copied from HDFS. | Boolean |
 | effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |

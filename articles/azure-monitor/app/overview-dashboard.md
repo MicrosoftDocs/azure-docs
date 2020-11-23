@@ -32,7 +32,7 @@ Application dashboard leverages the existing dashboard technology within Azure t
 
 To access the default dashboard select _Application Dashboard_ in the upper left corner.
 
-![Dashboard view](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Screenshot shows the Application Dashboard button highlighted.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 If this is your first time accessing the dashboard, it will launch a default view:
 

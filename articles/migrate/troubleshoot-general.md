@@ -23,7 +23,7 @@ Review [answers to common issues](troubleshoot-appliance-discovery.md) with appl
 
 ## Machines aren't discovered
 
-Review common discovery issues.
+Review [common discovery issues](common-questions-discovery-assessment.md).
 
 ## App-discovery isn't working
 

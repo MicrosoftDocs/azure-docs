@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
@@ -43,7 +43,7 @@ On the Virtual network gateway **Configuration** page, enable active-active mode
 
 On the Virtual network gateway **Configuration** page, you can configure the **BGP ASN**. Change the BGP ASN. The BGP ASN cannot be 65515. 66515 will be used by Azure Virtual WAN.
 
-![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
+![Screenshot shows a virtual network gateway Configuration page with Configure BGP ASN selected.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
 ### <a name="pip"></a>Public IP addresses
 
@@ -79,7 +79,7 @@ In this section, you download the VPN configuration file for each of the sites t
 
 1. At the top of the Virtual WAN **VPN sites** page, select the **Site**, then select **Download Site-to-site VPN configuration**. Azure creates a configuration file with the settings.
 
-   ![download configuration file](./media/connect-virtual-network-gateway-vwan/download.png "download")
+   ![Screenshot that shows the "VPN sites" page with the "Download Site-to-Site VPN configuration" action selected.](./media/connect-virtual-network-gateway-vwan/download.png "download")
 2. Download and open the configuration file.
 3. Repeat these steps for the second site. Once you have both configuration files open, you can proceed to the next section.
 
@@ -94,7 +94,7 @@ In this section, you create two Azure VPN Gateway local network gateways. The co
    * **Subscription, Resource Group, and Location** are same as for the Virtual WAN hub.
 2. Review and create the local network gateway. Your local network gateway should look similar to this example.
 
-   ![download configuration file](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![Screenshot that shows the "Configuration" page with an IP address highlighted and "Configure BGP settings" selected.](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Repeat these steps to create another local network gateway, but this time, use the 'Instance1' values instead of 'Instance0' values from the configuration file.
 
    ![download configuration file](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")

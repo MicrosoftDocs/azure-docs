@@ -101,7 +101,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 ## See also  
 
-+ [REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)   
-+ [Add scoring profiles to your index](index-add-scoring-profiles.md)    
-+ [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-+ [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [REST API Reference](/rest/api/searchservice/)
++ [Add scoring profiles to your index](index-add-scoring-profiles.md)
++ [Create Index API](/rest/api/searchservice/create-index)
++ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

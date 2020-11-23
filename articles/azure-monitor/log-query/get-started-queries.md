@@ -168,7 +168,7 @@ The preceding example generates this output:
 You can also use **project** to rename columns and define new ones. The following example uses project to do the following:
 
 * Select only the *Computer* and *TimeGenerated* original columns.
-* Rename the *Activity* column to *EventDetails*.
+* Displays the *Activity* column as *EventDetails*.
 * Create a new column named *EventCode*. The **substring()** function is used to get only the first four characters from the Activity field.
 
 
@@ -241,7 +241,7 @@ To make the output clearer, you select to display it as a time-chart, showing th
 
 ## Next steps
 
-- Learn more about using string data in a log query with [Work with strings in Azure Monitor log queries](string-operations.md).
-- Learn more about aggregating data in a log query with [Advanced aggregations in Azure Monitor log queries](advanced-aggregations.md).
-- Learn how to join data from multiple tables with [Joins in Azure Monitor log queries](joins.md).
+- Learn more about using string data in a log query with [Work with strings in Azure Monitor log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Learn more about aggregating data in a log query with [Advanced aggregations in Azure Monitor log queries](/azure/data-explorer/write-queries#advanced-aggregations).
+- Learn how to join data from multiple tables with [Joins in Azure Monitor log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Get documentation on the entire Kusto query language in the [KQL language reference](/azure/kusto/query/).

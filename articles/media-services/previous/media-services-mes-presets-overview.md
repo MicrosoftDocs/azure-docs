@@ -20,6 +20,8 @@ ms.author: juliako
 
 # Sample Presets for Media Encoder Standard (MES)
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 **Media Encoder Standard** defines a set of pre-defined system encoding presets you can use when creating encoding jobs. It is recommended to use the "Adaptive Streaming" preset if you want to encode a video for streaming with Media Services. When you specify this preset, Media Encoder Standard will [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
 
 ### Creating Custom Presets from Samples

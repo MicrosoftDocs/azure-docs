@@ -4,7 +4,7 @@ description: In this quickstart, you use an Azure Resource Manager template to q
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-javascript
+ms.custom: subject-armqs, devx-track-js
 ms.date: 04/30/2020
 ---
 

@@ -8,9 +8,11 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the Table API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 

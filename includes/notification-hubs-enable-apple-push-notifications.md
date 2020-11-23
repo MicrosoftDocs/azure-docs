@@ -89,7 +89,7 @@ The newer approach has a number of benefits (compared to using certificates) as 
     The **Create a new Certificate** screen is displayed.
 
     > [!NOTE]
-    > This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you use the same certificate type when sending notifications.
+    > This tutorial uses a development certificate, which your app uses to generate a unique device token. The same process is used when registering a production certificate. Just make sure that you use the same certificate type when sending notifications.
 
 3. Select **Choose File**, browse to the location where you saved the CSR file from the first task, and then double-click the certificate name to load it. Then select **Continue**.
 
@@ -205,7 +205,7 @@ In this section, you create a notification hub and configure authentication with
 Under **Notification Services**, select **Apple (APNS)** then follow the appropriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](#creating-a-certificate-for-notification-hubs) section.  
 
 > [!NOTE]
-> Use the **Production** for **Application Mode** only if you want to send push notifications to users who purchased your app from the store.
+> If you build your app with App Store or Ad-Hoc distribution profile, use the **Production** for **Application Mode**. This will allow your device to send push notifications to users who purchased your app from the store.
 
 ### OPTION 1: Using a .p12 push certificate
 

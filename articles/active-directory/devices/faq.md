@@ -60,7 +60,7 @@ For more information, see [Require managed devices for cloud app access with Con
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](../hybrid/reference-connect-device-disappearance.md).
 
 
 See below on how these actions can be rectified.
@@ -197,7 +197,7 @@ Evaluate the Conditional Access policy rules. Make sure the device meets the cri
 
 ---
 
-### Q: Why don't some of my users get Azure Multi-Factor Authentication prompts on Azure AD joined devices?
+### Q: Why don't some of my users get Azure AD Multi-Factor Authentication prompts on Azure AD joined devices?
 
 **A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 
@@ -314,7 +314,7 @@ Enable the following registry to block your users from adding additional work ac
 **A:** Take the following steps:
 
 1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
-1.    [Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+1.    [Define a Conditional Access policy for macOS devices](../conditional-access/overview.md) 
 
 **Remarks:**
 
