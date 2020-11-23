@@ -73,7 +73,7 @@ To query your Apache Spark table using your serverless SQL pool:
    
    2. Under **Workspaces**, find the Apache Spark table that you just created and select **New SQL script** and then **Select TOP 100 rows**. 
       
-      :::image type="content" source="../spark/media/apache-spark-power-bi/query-spark-table-with-sql.png" alt-text="Alt text here." border="true":::
+      :::image type="content" source="../spark/media/apache-spark-power-bi/query-spark-table-with-sql.png" alt-text="SQL Query." border="true":::
 
    3. You can continue to refine your query or even visualize your results using the SQL charting options.
 
@@ -86,7 +86,7 @@ Next, we will connect our serverless SQL pool to our Power BI workspace. Once yo
 To connect our severless SQL pool to our Power BI workspace:
 
 1.  Navigate to the **Power BI datasets** tab and select the option to **+ New Dataset**. From the prompt, download the .pbids file from the SQL Analytics database you would like to use as a data source. 
-   :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-datasets.png" alt-text="Alt text here." border="true":::
+   :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-datasets.png" alt-text="Power BI datasets." border="true":::
 
 2.  Open the file with Power BI Desktop to create a dataset. Once you open the file, connect to the SQL server database using the **Microsoft account** and **Import** option. 
    
@@ -98,13 +98,13 @@ To connect our severless SQL pool to our Power BI workspace:
    
    2. Drag the **weekdayString**, average **tripDistance**, and average **tripTimeSecs** columns to the **Explain by** axis. 
    
-   :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-desktop.png" alt-text="Alt text here." border="true":::
+   :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-desktop.png" alt-text="Power BI Desktop." border="true":::
 
 2. On the Power BI desktop Home tab, select **Publish** and **Save** changes. Enter a file name and save this report to the the *NycTaxiTutorial Workspace*.
    
 3. In addition, you can also create Power BI visualizations from within your Azure Synapse Analytics workspace. To do this, navigate to the **Develop** tab in your Azure Synapse workspace and open the Power BI tab. From here, you can select your report and continue building additional visualizations. 
    
-   :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-synapse.png" alt-text="Alt text here." border="true":::
+   :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-synapse.png" alt-text="Azure Synapse Analytics Workspace." border="true":::
 
 For more details on how to create a dataset through serverless SQL and connect to Power BI, you can visit this tutorial on [connecting to Power BI desktop](../../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md)
 

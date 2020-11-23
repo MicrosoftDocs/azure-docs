@@ -25,7 +25,7 @@ To access the chart options:
 1. The output of ```%%sql``` magic commands appear in the rendered table view by default. You can also call ```display(df)``` on Spark DataFrames or Resilient Distributed Datasets (RDD) function to produce the rendered table view. 
    
 2. Once you have a rendered table view, switch to the Chart View.
-   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
+   ![builtin-charts](../media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. You can now customize your visualization by specifying the following values:
    | Configuration | Description |
@@ -44,7 +44,7 @@ To access the chart options:
 
 ### display(df) statistic details
 You can use <code>display(df, summary = true)</code> to check the statistics summary of a given Apache Spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its minimum value, maximum value, mean value and standard deviation.
-    ![built-in-charts-summary](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
+    ![built-in-charts-summary](../media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
    
 ### displayHTML(df) option
 Azure Synapse Analytics notebooks support HTML graphics using the ```displayHTML``` function.
@@ -184,7 +184,7 @@ displayHTML(html)
 You can render standard plotting libraries, like Matplotlib, using the built-in rendering functions for each library.
 
 The following image is an example of creating a bar chart using **Matplotlib**.
-   ![matplotlib-example](../media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+   ![Matplotlib](../media/apache-spark-data-viz/matplotlib-example.png#lightbox)
 
 Run the following sample code to draw the image above.
 
