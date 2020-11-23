@@ -9,19 +9,30 @@ ms.date: 11/11/2020
 
 Azure Backup is constantly improving and releasing new features that enhance the protection of your data in Azure. These new features expand your data protection to new workload types, enhance security, and improve the availability of your backup data. They also add new management, monitoring, and automation capabilities.
 
-Here are some of the latest features released in Azure Backup.
+You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
-## November 2020
+## Updates summary
 
-### Incremental backups for SAP HANA databases on Azure VMs
+- November 2020
+  - [Incremental backups for SAP HANA databases on Azure VMs](#incremental-backups-for-sap-hana-databases)
+- September 2020
+  - [Backup Center](#backup-center)
+  - [Backup Azure Database for PostgreSQL](#backup-azure-database-for-postgresql)
+  - [Selective disk backup and restore](#selective-disk-backup-and-restore)
+  - [Cross Region Restore for SQL Server and SAP HANA databases on Azure VMs](#cross-region-restore-for-sql-server-and-sap-hana-databases)
+  - [Support for backup of VMs with up to 32 disks](#support-for-backup-of-vms-with-up-to-32-disks)
+  - [Simplified backup configuration experience for SQL in Azure VMs](#simplified-backup-configuration-for-sql-in-azure-vms)
+  - [Backup SAP HANA in RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
+  - [Zone redundant storage (ZRS) for backup data](#zone-redundant-storage-zrs-for-backup-data)
+  - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Incremental backups for SAP HANA databases
 
 Azure Backup now supports incremental backups for SAP HANA databases hosted on Azure VMs. This allows for faster and more cost-efficient backups of your SAP HANA data.
 
 For more information, see [various options available during creation of a backup policy](sap-hana-faq-backup-azure-vm.md#policy) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
-## September 2020
-
-### Backup Center
+## Backup Center
 
 Azure Backup has enabled a new native management capability to manage your entire backup estate from a central console. Backup Center provides you with the capability to monitor, operate, govern, and optimize data protection at scale in a unified manner consistent with Azure’s native management experiences.
 
@@ -29,19 +40,19 @@ With Backup Center, you get an aggregated view of your inventory across subscrip
 
 For more information, see [Overview of Backup Center](backup-center-overview.md).
 
-### Backup Azure Database for PostgreSQL
+## Backup Azure Database for PostgreSQL
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure PostgreSQL (now in preview). Now you can meet your data protection and compliance needs with a customer-controlled backup policy that enables retention of backups for up to 10 years. With this, you have granular control to manage the backup and restore operations at the individual database level. Likewise, you can restore across PostgreSQL versions or to blob storage with ease.
 
 For more information, see [Azure Database for PostgreSQL backup](backup-azure-database-postgresql.md).
 
-### Selective disk backup and restore
+## Selective disk backup and restore
 
 Azure Backup supports backing up all the disks (operating system and data) in a VM together using the virtual machine backup solution. Now, using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains only the disks that are included in the backup operation.
 
 For more information, see [Selective disk backup and restore for Azure virtual machines](selective-disk-backup-restore.md).
 
-### Cross Region Restore for SQL Server and SAP HANA databases on Azure VMs
+## Cross Region Restore for SQL Server and SAP HANA databases
 
 With the introduction of cross-region restore, you can now initiate restores in a secondary region at will to mitigate real downtime issues in a primary region for your environment. This makes the secondary region restores completely customer controlled. Azure Backup uses the backed-up data replicated to the secondary region for such restores.
 
@@ -49,31 +60,31 @@ Now, in addition to support for cross-region restore for Azure virtual machines,
 
 For more information, see [Cross Region Restore for SQL databases](restore-sql-database-azure-vm.md#cross-region-restore) and [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore).
 
-### Support for backup of VM with up to 32 disks
+## Support for backup of VMs with up to 32 disks
 
 Until now, Azure Backup has supported 16 managed disks per VM. Now, Azure Backup supports backup of up to 32 managed disks per VM.
 
 For more information, see the [VM storage support matrix](backup-support-matrix-iaas.md#vm-storage-support).
 
-### Simplified backup configuration experience for SQL in Azure VMs
+## Simplified backup configuration for SQL in Azure VMs
 
 Configuring backups for your SQL Server in Azure VMs is now even easier with inline backup configuration integrated into the VM pane of the Azure portal. In just a few steps, you can enable backup of your SQL Server to protect all the existing databases as well as the ones that get added in the future.
 
 For more information, see [Back up a SQL Server from the VM pane](backup-sql-server-vm-from-vm-pane.md).
 
-### Backup SAP HANA in RHEL Azure Virtual Machines
+## Backup SAP HANA in RHEL Azure virtual machines
 
 Azure Backup is the native backup solution for Azure and is BackInt certified by SAP. Azure Backup has now added support for Red Hat Enterprise Linux (RHEL), one of the most widely used Linux operating systems running SAP HANA.
 
 For more information, see the [SAP HANA database backup scenario support matrix](sap-hana-backup-support-matrix.md#scenario-support).
 
-### Zone redundant storage (ZRS) for backup data
+## Zone redundant storage (ZRS) for backup data
 
 Azure Storage provides a great balance of high performance, high availability, and high data resiliency with its varied redundancy options. Azure Backup allows you to extend these benefits to backup data as well, with options to store your backups in locally redundant storage (LRS) and geo-redundant storage (GRS). Now, there are additional durability options with the added support for zone redundant storage (ZRS).
 
 For more information, see [Set storage redundancy for the Recovery Services vault](backup-create-rs-vault.md#set-storage-redundancy).
 
-### Soft delete for SQL Server and SAP HANA workloads in Azure VMs
+## Soft delete for SQL Server and SAP HANA workloads
 
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup provides security features to help protect backup data even after deletion.
 
