@@ -31,11 +31,11 @@ The following list summarizes the features of **Home**. Each number in the list 
     - Glossary terms
 1. Three [Quick access](#quick-access) buttons take you to other pages.
 
-    - [Browse by asset type](#browse-by-asset-type).
+    - [Browse by asset type](#browse-assets).
     - [Asset insights](#asset-insights).
     - [Manage your data](#manage-your-data).
 
-1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-by-asset-type).
+1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-assets).
 1. The **My items** tab is a list of data assets owned by the logged-on user.
 1. **Glossary terms** are a searchable dictionary of the organization's key business terms. For more information, see [Glossary terms](#glossary-terms).
 1. **FAQ/Documentation** is a list of frequently asked questions (FAQs), and documents.
