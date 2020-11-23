@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
@@ -14,7 +14,7 @@ ms.date: 11/17/2020
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
 
-Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB
+Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB, SQL Server
 
 In this how-to guide, you'll learn how to:
 
@@ -23,16 +23,13 @@ In this how-to guide, you'll learn how to:
 > - View sensitivity labeling insights on your data
 > - Drill down for more sensitivity labeling details on your data
 
-> [!NOTE]
-> If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
-
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- Extended Microsoft 365 sensitivity labels to assets in Azure Purview, and created or selected the labels you want to apply to your content
+- [Extended Microsoft 365 sensitivity labels to assets in Azure Purview](create-sensitivity-label.md), and created or selected the labels you want to apply to your content.
 
 - Set up and completed a scan on the test data in each data source
 
@@ -52,22 +49,22 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
 
 1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/insights/view-insights-small.png" alt-text="View your insights in the Azure portal" lightbox="media/insights/view-insights.png":::
 
 1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Purview **Sensitivity labeling insights** report.
 
-   :::image type="content" source="media/insights/sensitivity-labeling-insights.png" alt-text="Sensitivity labeling insights":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights" lightbox="media/insights/sensitivity-labeling-insights.png":::
 
    The main **Sensitivity labeling insights** page displays the following areas:
 
    |Area  |Description  |
    |---------|---------|
    |**Overview of sources with sensitivity labels**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique sensitivity labels found in your data <br>- The number of labeled sources found <br>- The number of labeled files found <br>- The number of labeled tables found         |
-   |**Total sources with labeled data**     |Shows the number of sources found, such as Azure Blob Storage or Azure Files, with sensitivity labels over the last 30 days.          |
+   |**Total sources with labeled data**     | Shows the trend, over the past 30 days, of the number of sources found with sensitivity labels.       |
    |**Top labels applied across resources**     |Shows the top labels applied across all of your Purview data resources. |
    |**Top labels applied on files**     |Shows the top sensitivity labels applied to files in your data.          |
    |**Top classifications for tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
@@ -84,13 +81,13 @@ In any of the following **Sensitivity labeling insights** graphs, select the **V
 
 For example:
 
-:::image type="content" source="media/insights/sensitivity-label-drilldown.png" alt-text="Sensitivity label drilldown":::
+:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Sensitivity label drilldown" lightbox="media/insights/sensitivity-label-drilldown.png":::
 
 Use the filters above the grid to filter the data shown, including the sensitivity label name, subscription name, or source type. If you're not sure of the exact sensitivity label name, you can enter part or all of the name in the **Filter by keyword** box.
 
 For example:
 
-:::image type="content" source="media/insights/sensitivity-labels-filter.png" alt-text="Filtered sensitivity insights report":::
+:::image type="content" source="media/insights/sensitivity-labels-filter-small.png" alt-text="Filtered sensitivity insights report" lightbox="media/insights/sensitivity-labels-filter.png":::
 
 Above the filters: 
 
@@ -100,7 +97,7 @@ Above the filters:
 
    The search results display all of the labeled assets found with the selected sensitivity label. For example:
 
-   :::image type="content" source="media/insights/sensitivity-label-search-results.png" alt-text="Sensitivity label search results":::
+   :::image type="content" source="media/insights/sensitivity-label-search-results-small.png" alt-text="Sensitivity label search results" lightbox="media/insights/sensitivity-label-search-results.png":::
  
    For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).
 ## Sensitivity label integration with Microsoft 365 compliance

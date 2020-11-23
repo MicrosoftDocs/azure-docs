@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
 ---
 
@@ -14,16 +14,13 @@ ms.date: 11/17/2020
 
 This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data.
 
-Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB
+Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB, SQL Server
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
 > * Launch your Purview account from Azure. 
 > - View file extension insights on your data
 > - Drill down for more file extension details on your data
-
-> [!NOTE]
-> If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
 
 ## Prerequisites 
 
@@ -45,17 +42,17 @@ When scanning your assets, Azure Purview is able to detect the file types found 
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
 
 1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/insights/view-insights-small.png" alt-text="View your insights in the Azure portal" lightbox="media/insights/view-insights.png":::
     
 1. Within **Insights**, select the **File extensions** tab.
 
     The report displays a summary of how many unique file extensions are found, as well as a graph of top 10 extensions found.
 
-    :::image type="content" source="media/file-extension-insights/file-extension-overview.png" alt-text="File extension report - overview":::
+    :::image type="content" source="media/file-extension-insights/file-extension-overview-small.png" alt-text="File extension report - overview" lightbox="media/file-extension-insights/file-extension-overview.png":::
 
     Do any of the following to find out more:
 
@@ -69,7 +66,7 @@ Once you've viewed the high-level information about the file types found in your
 
 For example:
 
-:::image type="content" source="media/file-extension-insights/file-extension-drilldown.png" alt-text="File extension report - drilldown":::
+:::image type="content" source="media/file-extension-insights/file-extension-drilldown-small.png" alt-text="File extension report - drilldown" lightbox="media/file-extension-insights/file-extension-drilldown.png":::
 
 The grid shows details for each file extension found, including:
 
@@ -97,7 +94,7 @@ Above the filters:
 
    The search results display all of the assets found with the selected file extension. For example:
 
-    :::image type="content" source="media/file-extension-insights/file-extension-search-results.png" alt-text="File extension search results":::
+    :::image type="content" source="media/file-extension-insights/file-extension-search-results-small.png" alt-text="File extension search results" lightbox="media/file-extension-insights/file-extension-search-results.png":::
  
    For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).
 ## Next steps

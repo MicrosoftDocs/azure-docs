@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 ---
 
 # Automatically label your content in Azure Purview
@@ -92,7 +92,7 @@ In Microsoft 365, navigate to the **Information Protection** page. In the **Exte
 
 For example:
 
-:::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png" alt-text="Select **Turn on** to extend sensitivity labels to Purview":::
+:::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="Select **Turn on** to extend sensitivity labels to Purview" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
 Once you extend labeling to assets in Azure Purview, you can select the labels that you want to make available in Purview. For more information, see [Creating new sensitivity labels or modifying existing labels](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### Creating new sensitivity labels or modifying existing labels
@@ -101,11 +101,11 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**. 
 
-    :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and Compliance Center":::
+    :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
 1. Name the label. Then, under **Define the scope for this label**, select **Files and emails** and **Azure Purview assets**.
     
-    :::image type="content" source="media/create-sensitivity-label/create-label-scope.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center":::
+    :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 
 1. Follow the rest of the prompts in the wizard for your label settings. 
 
@@ -124,7 +124,7 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
     Then select **Edit label** to open the **Edit sensitivity label** wizard again, with all of the settings you'd defined when you created the label.
 
-    :::image type="content" source="media/create-sensitivity-label/edit-sensitivity-label-full.png" alt-text="Edit an existing sensitivity label":::
+    :::image type="content" source="media/create-sensitivity-label/edit-sensitivity-label-full-small.png" alt-text="Edit an existing sensitivity label" lightbox="media/create-sensitivity-label/edit-sensitivity-label-full.png":::
 
 1. When you're done creating all of your labels, make sure to view your label order, and reorder them as needed. 
 
@@ -150,7 +150,7 @@ On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office
 
 For example:
 
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files.png" alt-text="Define autolabeling rules for files in the Microsoft 365 Security and Compliance Center":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Define autolabeling rules for files in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
 
 When the sensitivity label is applied, the user will see a notification in their Office app. For example:
 
@@ -170,7 +170,7 @@ Under the **Azure Purview assets (preview)** option:
 
 For example:
         
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
 ## Scan your content to apply labels automatically
 
@@ -195,26 +195,11 @@ Once you've defined autolabeling rules for your labels in Microsoft 365 and scan
 
 In the Azure Purview Catalog, use the **Label** filtering options to show files with specific labels only. For example: 
 
-:::image type="content" source="media/create-sensitivity-label/filter-search-results.png" alt-text="Search for assets by label":::
+:::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Search for assets by label" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-For sample images of labeled assets in Purview, see:
+For example:
 
-- [Labeled file in Azure Blob Storage](#labeled-file-in-azure-blob-storage)
-- [Labeled file in Azure files](#labeled-file-in-azure-files)
-- [Labeled database column in an Azure SQL database](#labeled-database-column-in-an-azure-sql-database)
-
-#### Labeled file in Azure Blob Storage
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage.png" alt-text="View a sensitivity label on a file in your Azure Blob Storage":::
-
-#### Labeled file in Azure files
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-azure.png" alt-text="View a sensitivity label on a file in your Azure file storage":::
-
-#### Labeled database column in an Azure SQL database
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-sql.png" alt-text="View a sensitivity label on an SQL table":::
-
+:::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="View a sensitivity label on a file in your Azure Blob Storage" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 
 ## View Insight reports for the classifications and sensitivity labels
 
