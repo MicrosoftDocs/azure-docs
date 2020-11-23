@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 In this article, we share some learnings that are based on our experience from working with large customers. You may consider these recommendations in the design and implementation of your services.
 
-![Image shows developer experience components](media/resilience-b2b-developer-best-practices/developer-best-practices-architecture.png)
+![Image shows developer experience components](media/resilience-b2c-developer-best-practices/developer-best-practices-architecture.png)
 
 ## Use the Microsoft Authentication Library and stay up to date
 

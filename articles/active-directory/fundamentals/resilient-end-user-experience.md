@@ -95,7 +95,7 @@ Periodically test your CDN’s availability and the performance of content distr
 - [Resilience resources for Azure AD B2C developers](resilience-b2c.md)
   
   - [Resilient interfaces with external processes](resilient-external-processes.md)
-  - [Resilience through developer best practices](resilience-b2b-developer-best-practices.md)
+  - [Resilience through developer best practices](resilience-b2c-developer-best-practices.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
 - [Build resilience in your authentication infrastructure](aka.ms/azureadresilience/admin)
 - [Increase resilience of authentication and authorization in your applications](aka.ms/azureadresilience/developer)

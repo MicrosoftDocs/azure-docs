@@ -94,7 +94,7 @@
         - name: Build resilience with Continuous Access Evaluation
           href: resilience-with-cae.md
         - name: Build resilience in external user authentication
-          href: resilience-b2b-authentication.md
+          href: resilience-b2c-authentication.md
         - name: Build resilience in your hybrid authentication
           href: resilience-in-hybrid.md
         - name: Build resilience in application access with Application Proxy
@@ -108,7 +108,7 @@
         - name: Build resilience in interfaces with external processes
           href: resilient-external-processes.md
         - name: B2C developer best practices
-          href: resilience-b2b-developer-best-practices.md
+          href: resilience-b2c-developer-best-practices.md
         - name: Build resilience through monitoring and analytics
           href: resilience-with-monitoring-alerting.md
     - name: Certificate authorities used in Azure

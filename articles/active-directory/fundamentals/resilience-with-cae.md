@@ -58,7 +58,7 @@ Resilience resources for administrators and architects
 
 * [Build resilience with device states](resilience-with-device-states.md)
 
-* [Build resilience in external user authentication](resilience-b2b-authentication.md)
+* [Build resilience in external user authentication](resilience-b2c-authentication.md)
 
 * [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 

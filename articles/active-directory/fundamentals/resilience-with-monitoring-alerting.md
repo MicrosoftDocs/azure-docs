@@ -60,6 +60,6 @@ For example, track the following metrics, since a sudden drop in either will lea
 - [Resilience resources for Azure AD B2C developers](resilience-b2c.md)
   - [Resilient end-user experience](resilient-end-user-experience.md)
   - [Resilient interfaces with external processes](resilient-external-processes.md)
-  - [Resilience through developer best practices](resilience-b2b-developer-best-practices.md)
+  - [Resilience through developer best practices](resilience-b2c-developer-best-practices.md)
 - [Build resilience in your authentication infrastructure](aka.ms/azureadresilience/admin)
 - [Increase resilience of authentication and authorization in your applications](aka.ms/azureadresilience/developer)
