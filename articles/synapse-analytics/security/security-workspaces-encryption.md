@@ -15,9 +15,9 @@ This article will describe:
 * Configuration of Synapse workspaces to enable encryption with a customer managed key.
 * Managing keys used to encrypt data in workspaces.
 ## Encryption of data at rest
-A complete Encryption-at-Rest solution ensures the data is never persisted in un-encrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](/azure/key-vault/general/overview), which allows you to take ownership of key management and rotation.
+A complete Encryption-at-Rest solution ensures the data is never persisted in un-encrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](../../key-vault/general/overview.md), which allows you to take ownership of key management and rotation.
 
-The first layer of encryption for Azure services is enabled with platform-managed keys. By default, Azure Disks, and data in Azure Storage accounts are automatically encrypted at rest. Learn more about how encryption is used in Microsoft Azure in the [Azure Encryption Overview](/articles/security/fundamentals/encryption-overview).
+The first layer of encryption for Azure services is enabled with platform-managed keys. By default, Azure Disks, and data in Azure Storage accounts are automatically encrypted at rest. Learn more about how encryption is used in Microsoft Azure in the [Azure Encryption Overview](../../security/fundamentals/encryption-overview.md).
 ## Azure Synapse encryption
 This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse Analytics workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA keys with 2048 and 3072 byte-sized keys.
 
@@ -38,7 +38,7 @@ At present, the configuration setting for double encryption cannot be changed af
 
 :::image type="content" source="/media/synapse-workspaces-encryption/workspace-configuration-with-cmk.png" alt-text="This diagram shows the option that must be selected to enable a workspace for double encryption with a customer-managed key.":::
 ### Key access and workspace activation
-The Synapse Analytics encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or Azure Key Vault RBAC access ([preview](/azure/key-vault/general/rbac-guide)). When granting permissions via an Azure Key Vault access policy, choose the “Application-only” option during policy creation.
+The Synapse Analytics encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or Azure Key Vault RBAC access ([preview](../../key-vault/general/rbac-guide.md)). When granting permissions via an Azure Key Vault access policy, choose the “Application-only” option during policy creation.
 
  The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Note that encryption can be enabled or disabled for dedicated SQL Pools- each pool is not enabled for encryption by default.
 #### Permissions
@@ -61,5 +61,5 @@ SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in wo
 ## Next Steps
 Configure double encryption for your workspace through the portal.
 
-[Use built-in Azure Policies to implement encryption protection for Synapse workspaces](/synapse-analytics/policy-reference)
+[Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
 
