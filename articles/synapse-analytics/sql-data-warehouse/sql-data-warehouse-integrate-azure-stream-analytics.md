@@ -21,7 +21,7 @@ In this article, you will learn how to use your dedicated SQL pool as an output 
 
 ## Prerequisites
 
-* Azure Stream Analytics Job - To create an Azure Stream Analytics job, follow the steps in the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial to :  
+* Azure Stream Analytics Job - To create an Azure Stream Analytics job, follow the steps in the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial to:  
 
     1. Create an Event Hub input
     2. Configure and start event generator application
