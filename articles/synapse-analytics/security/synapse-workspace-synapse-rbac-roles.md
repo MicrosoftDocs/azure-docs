@@ -35,7 +35,7 @@ The following table describes the permissions of each built-in role and the scop
 |Synapse Reader|Access to metadata for Spark pools, Integration runtimes. Does not give access to data. </br>_Can list and read Spark pools, Integration Runtimes._|Workspace, Spark pool</br>Linked service </br>Credential|
 |_DEPRECATED ROLES_|_The following roles are deprecated and cannot be assigned_|
 |Apache Spark Administrator*</br>|Full Synapse access to Apache Spark Pools, Apache Spark job definitions, and notebooks, excluding granting access. </br></br>_Can do all actions on Spark artifacts</br>Can do all actions on Spark activities_|Workspace</br>Spark pool|
-|SQL Administrator*|Full Synapse access to SQL On-demand and SQL scripts, excluding granting access. </br>_Can do all actions on SQL script artifacts</br>Can do all activities on SQL activities<br/>Can connect to SQL pool and SQL serverless endpoints with {datareader, datawriter, connect, and grant} at the workspace (server) level if role is assigned at the workspace scope._|Workspace|
+|SQL Administrator*|Full Synapse access to SQL On-demand and SQL scripts, excluding granting access. </br>_Can do all actions on SQL script artifacts</br>Can do all activities on SQL activities<br/>Can connect to SQL pool and SQL serverless endpoints with SQL datareader, datawriter, connect, and grant at the workspace (server) level if the role is assigned at the workspace scope._|Workspace|
   
 
 ## Synapse RBAC roles and the actions they permit
