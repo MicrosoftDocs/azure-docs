@@ -17,7 +17,7 @@ ms.custom: has-adal-ref
 
 ## Process of adding an OpenID application from the gallery
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 
     ![The Azure Active Directory button](common/select-azuread.png))
 
@@ -34,16 +34,18 @@ ms.custom: has-adal-ref
     ![Openid in the results list](common/search-new-app.png)
 
     > [!NOTE]
-    > For OpenID Connect and OAuth apps, the **Add** button is disabled by default. Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.
+    > For OpenID Connect and OAuth apps, the **Sign up** button is disabled by default. Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.
 
     ![Add button](./media/openidoauth-tutorial/addbutton.png)
 
-5. When you select the sign-up link, you're redirected to the Azure Active Directory (Azure AD) page for sign-in credentials.
+5. When you select the sign-up button, you're redirected to the Azure Active Directory (Azure AD) page for sign-in credentials.
 
 6. After successful authentication, you accept the consent from the consent page. After that, the application home page appears.
 
     > [!NOTE]
     > You can add only one instance of the application. If you have already added one and tried to provide the consent again, it will not be added again in the tenant. So logically, you can use only one app instance in the tenant.
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## Authentication flow using OpenID Connect
 
@@ -145,3 +147,7 @@ A tenant administrator can disable the ability for regular users to consent to a
 The *prompt=admin_consent* parameter can also be used by applications that request permissions that don't require admin consent. An example is an application that requires an experience where the tenant admin "signs up" one time, and no other users are prompted for consent from that point on.
 
 Imagine that an application requires admin consent, and an admin signs in without the *prompt=admin_consent* parameter being sent. When the admin successfully consents to the application, it applies only for their user account. Regular users will still be unable to sign in or consent to the application. This feature is useful if you want to give the tenant administrator the ability to explore your application before allowing other users' access.
+
+## Next steps
+
+[Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
