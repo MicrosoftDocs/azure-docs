@@ -36,7 +36,7 @@ Workspaces can be configured to enable double encryption with a customer-managed
 >[!IMPORTANT]
 At present, the configuration setting for double encryption cannot be changed after the workspace is created.
 
-:::image type="content" source="/media/synapse-workspace-encryption.md/workspace-configuration-with-cmk.png" alt-text="This diagram shows the option that must be selected to enable a workspace for double encryption with a customer-managed key.":::
+:::image type="content" source="/media/synapse-workspaces-encryption/workspace-configuration-with-cmk.png" alt-text="This diagram shows the option that must be selected to enable a workspace for double encryption with a customer-managed key.":::
 ### Key access and workspace activation
 The Synapse Analytics encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or Azure Key Vault RBAC access ([preview](../key-vault/general/rbac-guide.md)). When granting permissions via an Azure Key Vault access policy, choose the “Application-only” option during policy creation.
 
@@ -48,10 +48,10 @@ To encrypt or decrypt data at rest, the workspace managed identity must have the
 * Get (to read the public part of a key)
 #### Workspace activation
 After your workspace (with double encryption enabled) is created, it will remain in a "Pending" state until activation succeeds. The workspace must be activated before you can fully use all functionality. For example, you can only create a new dedicated SQL pool once activation succeeds. Grant the workspace managed identity access to the key vault and click on the activation link in the workspace Azure portal banner. Once the activation completes successfully, your workspace is ready to use with the assurance that all data in it is protected with your customer-managed key. As previously noted, the key vault must have purge protection enabled for activation to succeed.
-:::image type="content" source="/media/synapse-workspace-encryption.md/workspace-activation-with-cmk.png" alt-text="This diagram shows the banner with the activation link for the workspace.":::
+:::image type="content" source="/media/synapse-workspaces-encryption/workspace-activation-with-cmk.png" alt-text="This diagram shows the banner with the activation link for the workspace.":::
 ### Manage the workspace customer-managed key 
 You can change the customer-managed key used to encrypt data from the **Encryption** page in the Azure portal. Here too, you can choose a new key using a key identifier or select from Key Vaults that you have access to in the same region as the workspace. If you choose a key in a different key vault from the ones previously used, grant the workspace managed identity "Get", "Wrap", and "Unwrap" permissions on the new key vault. The workspace will validate its access to the new key vault and all data in the workspace will be re-encrypted with the new key.
-:::image type="content" source="/media/synapse-workspace-encryption.md/workspace-encryption-section.png" alt-text="This diagram shows the workspace Encryption section in the Azure portal.":::
+:::image type="content" source="/media/synapse-workspaces-encryption/workspace-encryption-section.png" alt-text="This diagram shows the workspace Encryption section in the Azure portal.":::
 
 Azure Key Vaults policies for automatic, periodic rotation of keys, or actions on the keys can result in the creation of new key versions. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. As an example, to update data encryption using the latest version of active key Key1, change the workspace customer-managed key to temporary key, Key2. Wait for encryption with Key2 to finish. Then switch the workspace customer-managed key back to Key1-data in the workspace will be re-encrypted with the latest version of Key1.
 >[!NOTE]
