@@ -249,7 +249,7 @@ By design, each v3 container has a dispatcher and a recognition worker. The disp
 > [!NOTE] 
 > Currently only Azure Storage and Azure Queue are supported. 
 
-The container receiving the request can split the task into single page sub-tasks, and add them to the universal queue. Any recognition worker from a less busy container can consume single page sub-tasks from the queue, perform recognition, and upload the result to the storage. The throughput can be improved to `n` times, depending on the number of containers that are deployed.
+The container receiving the request can split the task into single page sub-tasks, and add them to the universal queue. Any recognition worker from a less busy container can consume single page sub-tasks from the queue, perform recognition, and upload the result to the storage. The throughput can be improved up to `n` times, depending on the number of containers that are deployed.
 
 Copy and paste the following YAML into a file named `deployment.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values. Replace the `# {AZURE_STORAGE_CONNECTION_STRING}` comment with your Azure Storage Connection String. Configure `replicas` to the number you want, which is set to `3` in the following example.
 
