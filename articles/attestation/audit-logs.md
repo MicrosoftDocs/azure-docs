@@ -11,7 +11,7 @@ ms.author: mbaldwin
 
 ---
 
-# Audit Logs for Azure Attestation
+# Audit logs for Azure Attestation
 
 Audit logs are secure, immutable, timestamped records of discrete events that happened over time. These logs capture important events that may affect the functionality of your attestation instance.
 
@@ -19,7 +19,7 @@ Azure Attestation manages attestation instances and the policies associated with
 
 This article contains information on the events that are logged, the information collected, and the location of these logs.
 
-## About Audit Logs
+## About Audit logs
 
 Azure Attestation uses code to produce audit logs for events that affect the way attestation is performed. This typically boils down to how or when policy changes are made to your attestation instance as well as some admin actions.
 
@@ -37,7 +37,7 @@ Here are some of the audit logs we collect:
 |     Prepare to Update Policy               |     Prepare to update attestation policy for a given TEE type. |
 |     Rehydrate Tenants After Disaster       |     Re-seals all of the attestation tenants on this instance of the attestation service. This can only be performed by Attestation Service admins. |
 
-### Collected  Information
+### Collected  information
 For each of these events, Azure Attestation collects the following information:
 
 - Operation Name
@@ -55,7 +55,7 @@ For each of these events, Azure Attestation collects the following information:
     - Resource ID
     - Resource Region
 
-### Sample Audit Log
+### Sample Audit log
 
 Audit logs are provided in JSON format. Here is an example of what an audit log may look like.
 
@@ -65,6 +65,6 @@ Audit logs are provided in JSON format. Here is an example of what an audit log 
 
 ## Access Audit Logs
 
-These logs are stored in Azure and can't be accessed directly. If you need to access these logs, file a support ticket. For more information, see [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md). 
+These logs are stored in Azure and can't be accessed directly. If you need to access these logs, file a support ticket. For more information, see [Contact Microsoft Support](https://azure.microsoft.com/support/options/). 
 
 Once the support ticket is filed, Microsoft will download and provide you access to these logs.
