@@ -145,7 +145,7 @@ For examples of deploying to the subscription, see [Create resource groups](#cre
 
 ### Scope to other subscription
 
-To deploy resources to a subscription that is different than the subscription from the operation, set the `subscriptionId` property.
+To deploy resources to a subscription that is different than the subscription from the operation, add a nested deployment. Set the `subscriptionId` property to the ID of the subscription you want to deploy to. Set the `location` property for the nested deployment.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
