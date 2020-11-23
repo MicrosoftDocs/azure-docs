@@ -15,6 +15,8 @@ Firewall Policy is an Azure resource that contains NAT, network, and application
 
 ![Azure Firewall Manager policy](media/policy-overview/policy-overview.png)
 
+## Availability
+
 Firewall Policy is a highly available and automatically replicated resource. If a rare regional disaster happens, Firewall Policy operations failover to Azure Paired Regions. Post recovery operations failover to the Azure Primary Region for both synchronous and asynchronous operations. 
 
 Paired regions provide several benefits, including:
