@@ -188,7 +188,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to BeyondTrust Remote Support Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft Access Panel. When you click the BeyondTrust Remote Support tile in the Access Panel, this will redirect to BeyondTrust Remote Support Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the BeyondTrust Remote Support tile in the My Apps, this will redirect to BeyondTrust Remote Support Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
