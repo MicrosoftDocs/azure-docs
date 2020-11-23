@@ -128,16 +128,17 @@ In general, Azure Files features and interoperability with other services are th
 Once a file share is created as either a premium or a standard file share, you cannot automatically convert it to the other tier. If you would like to switch to the other tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. We recommend using `robocopy` for Windows or `rsync` for macOS and Linux to perform that copy.
 
 ### Understanding provisioning for premium file shares
-Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
+Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. All shares sizes are offered minimum baseline/throughput and allowed to burst. For each GiB provisioned, the share will be issued minimum IOPS/throughput and one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB
+with minimum IOPS/throughput. 
 
-On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
+All premium shares are offered free bursting on a best effort basis. All shares sizes can burst up to 4,000 IOPS or up to to three IOPS per provisioned GiB, whichever provides a greater burst IOPS to the share. All shares support bursting for a max duration of 60 minutes at a peak burst limit. New shares start with the full burst credit based on the provisioned capacity.
 
-Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB and so on.
+Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB, and so on.
 
 > [!TIP]
-> Baseline IOPS = 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
+> Baseline IOPS = 400 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
 >
-> Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
+> Burst Limit = MAX (4,000, 3 * Baseline IOPS). (Up to a max of 100,000 IOPS).
 >
 > egress rate = 60 MiB/s + 0.06 * provisioned GiB
 >
@@ -151,13 +152,13 @@ The following table illustrates a few examples of these formulae for the provisi
 
 |Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
-|100         | 100     | Up to 300     | 66   | 44   |
-|500         | 500     | Up to 1,500   | 90   | 60   |
-|1,024       | 1,024   | Up to 3,072   | 122   | 81   |
-|5,120       | 5,120   | Up to 15,360  | 368   | 245   |
-|10,240      | 10,240  | Up to 30,720  | 675 | 450   |
-|33,792      | 33,792  | Up to 100,000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Up to 100,000 | 3,132 | 2,088   |
+|100         | 500     | Up to 300     | 66   | 44   |
+|500         | 900     | Up to 1,500   | 90   | 60   |
+|1,024       | 1,424   | Up to 3,072   | 122   | 81   |
+|5,120       | 5,520   | Up to 15,360  | 368   | 245   |
+|10,240      | 10,640  | Up to 30,720  | 675   | 450   |
+|33,792      | 34,192  | Up to 100,000 | 2,088 | 1,392   |
+|51,200      | 51,600  | Up to 100,000 | 3,132 | 2,088   |
 |102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
 
 > [!NOTE]
