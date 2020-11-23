@@ -11,7 +11,7 @@ ms.author: drewbat
 
 # Pull settings to App Configuration with Azure Pipelines
 
-The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) task pulls key-values from your App Configuration store and sets them as task variables which can be consumed by subsequent tasks. This task complements a the [Azure App Configuration Push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) task that pushes key-values from a configuration file into your App Configuration store. For more information, see [Push settings to App Configuration with Azure Pipelines](push-kv-devops-pipeline.md).
+The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) task pulls key-values from your App Configuration store and sets them as task variables, which can be consumed by subsequent tasks. This task complements the [Azure App Configuration Push](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) task that pushes key-values from a configuration file into your App Configuration store. For more information, see [Push settings to App Configuration with Azure Pipelines](push-kv-devops-pipeline.md).
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ This section will cover how to use the Azure App Configuration Push task in an A
 
 ## Use in releases
 
-This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipelines.
+This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipeline.
 
 1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. Documentation for release pipelines can be found [here](/azure/devops/pipelines/release?view=azure-devops).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
@@ -76,15 +76,15 @@ The following parameters are used by the App Configuration Push task:
 - **Azure subscription**: A drop-down containing your available Azure service connections. To update and refresh your list of available Azure service connections, press the **Refresh Azure subscription** button to the right of the textbox.
 - **App Configuration Name**: A drop-down that loads your available configuration stores under the selected subscription. To update and refresh your list of available configuration stores, press the **Refresh App Configuration Name** button to the right of the textbox.
 - **Key Filter**: The filter can be used to select what key-values are requested from Azure App Configuration. A value of * will select all key-values. For more information on, see [Query key values](concept-key-value.md#query-key-values).
-- **Label**: Specifies which label should be used when selecting key-values from the App Configuration store. If no label is provided then key-values with the null label will be retrieved. The following characters are not allowed: , *.
+- **Label**: Specifies which label should be used when selecting key-values from the App Configuration store. If no label is provided, then key-values with the null label will be retrieved. The following characters are not allowed: , *.
 - **Trim Key Prefix**: Specifies one or more prefixes that should be trimmed from App Configuration keys before setting them as variables. Multiple prefixes can be separated by a new-line character.
 
 ## Use key-values in subsequent tasks
 
 The key-values that are fetched from Azure App Configuration are set as environment variables. The key of the environment variable is the key of the key-value that is retrieved from Azure App Configuration.
 
-For example, if a subsequent task runs a powershell script, it could consume a key-value with the key 'myBuildSetting' like this:
-```yml
+For example, if a subsequent task runs a PowerShell script, it could consume a key-value with the key 'myBuildSetting' like this:
+```bash
 echo "$env:myBuildSetting"
 ```
 And the value will be printed to the console.
@@ -97,4 +97,4 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 
 **How do I compose my configuration from multiple keys and labels?**
 
-There are times when configuration may need to be composed from multiple labels, for example, default and dev. Multiple App Configuration tasks may be used in one pipeline to achieve this. The key-values fetched by a task in a later step will supersede any values from previous steps. In the aforementioned example, a task can be used to select key-values with the default label while a second task can select key-values with the dev label. The keys with the dev label will override the same keys with the default label.
+There are times when configuration may need to be composed from multiple labels, for example, default and dev. Multiple App Configuration tasks may be used in one pipeline to implement this scenario. The key-values fetched by a task in a later step will supersede any values from previous steps. In the aforementioned example, a task can be used to select key-values with the default label while a second task can select key-values with the dev label. The keys with the dev label will override the same keys with the default label.
