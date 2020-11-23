@@ -135,6 +135,35 @@
         - name: SPA calls web API that calls Microsoft Graph
           href: https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo
     - name: Web app
+      items:
+      - name: ASP.NET
+        items:
+        - name: Sign in users
+          href: https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect
+        - name: Sign in users and call Microsoft Graph
+          href: https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect
+      - name: ASP.NET Core
+        items:
+        - name: Sign in users
+          href: https://aka.ms/aspnetcore-webapp-sign-in
+        - name: Sign in users and call Microsoft Graph
+          href: https://aka.ms/aspnetcore-webapp-call-msgraph
+        - name: Share user's token cache with background process (advanced)
+          href: https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache
+        - name: Migrate apps from AD FS to Azure AD
+          href: https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad
+      - name: Java
+        items:
+        - name: Sign in Azure AD users (MSAL)
+          href: https://github.com/Azure-Samples/ms-identity-java-webapp/tree/master/msal-java-webapp-sample
+        - name: Sign in Azure AD users (Spring Security)
+          href: https://github.com/Azure-Samples/ms-identity-java-webapp/tree/master/spring-security-web-app
+        - name: Sign in Azure AD B2C users (MSAL)
+          href: https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-b2c-web-sample
+      - name: Python
+        items:
+      - name: Ruby
+        items:
     - name: Web API
     - name: Mobile and desktop
     - name: Daemon or back-end service
