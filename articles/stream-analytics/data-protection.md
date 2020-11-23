@@ -68,7 +68,7 @@ Use the following steps to configure your storage account for private data asset
 
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
 
-## Private data assets that are stored
+## Private data assets that are stored by Stream Analytics
 
 Any private data that is required to be persisted by Stream Analytics is stored in your storage account. Examples of private data assets include: 
 
