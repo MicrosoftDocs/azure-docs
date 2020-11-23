@@ -131,7 +131,7 @@ Each Azure AD account must be granted permission to the appropriate APIs in Kube
 >[!IMPORTANT]
 >If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the userPrincipalName. If the user is in a different Azure AD tenant, query for and use the objectId property.
 
-For additional help configuring your AKS cluster **ClusterRoleBinding**, see [Create RBAC binding](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
+For additional help configuring your AKS cluster **ClusterRoleBinding**, see [Create Kubernetes RBAC binding](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 
 ## Next steps
 

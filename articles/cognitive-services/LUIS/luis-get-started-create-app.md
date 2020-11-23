@@ -219,4 +219,4 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
-> [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
+> [Call a LUIS endpoint using code](./luis-get-started-get-intent-from-rest.md)

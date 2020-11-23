@@ -188,6 +188,6 @@ Updates can fail if a device's reported values don't conform to the [IoT plug an
 
 Now that you've learned about digital twins, here are some additional resources:
 
-- [Interact with a device from your solution](quickstart-service-node.md)
+- [Interact with a device from your solution](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)
