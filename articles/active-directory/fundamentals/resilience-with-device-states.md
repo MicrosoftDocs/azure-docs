@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Build resilience with device states
 
-By enabling [device states](../devices/overview) with Azure AD, administrators can author [Conditional Access policies](../conditional-access/overview.md) that control access to applications based on device state. The added benefit of devices is that it satisfies strong authentication requirements for access to resources thus reducing additional MFA authentication requests and improving resiliency. 
+By enabling [device states](../devices/overview.md) with Azure AD, administrators can author [Conditional Access policies](../conditional-access/overview.md) that control access to applications based on device state. The added benefit of devices is that it satisfies strong authentication requirements for access to resources thus reducing additional MFA authentication requests and improving resiliency. 
 
 The following flow chart presents the different ways to onboard devices in Azure AD that enable device states. You can use more than one in your organization.
 
@@ -63,5 +63,3 @@ Resilience resources for developers
 * [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
 
 * [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
-
- 
