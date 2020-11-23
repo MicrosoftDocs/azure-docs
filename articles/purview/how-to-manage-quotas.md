@@ -6,7 +6,7 @@ author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/12/2020
 ---
 
