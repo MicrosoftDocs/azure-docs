@@ -89,62 +89,6 @@ Azure Purview supports the following types of search criteria.
 - **hive NOT database**: Find documents that contain **hive**, but not **database**.
 - **hiv**: Find documents that contain a word that begins with **hiv**. For example, **hiv**, **hive**, **hivbar** (* is a wild card that matches any number of characters).
 
-### Set quick filters
-
-The search results list is based on the search terms you enter into **Search catalog**, and on the values you select for the quick filters.
-
-A quick filter limits the search results list to assets that have a selected value of a characteristic. The filter has a drop-down list and a text box. The drop-down list shows values of the characteristic that are in the *current* search results. Next to each value in the list is a count of the number of assets in the current search results that have that value. If you select a value from the list, the search results will be restricted to assets that have that value. You can only select one value.
-
-The current search results used in forming the drop-down list are determined by:
-
-- The search terms that are entered in **Search catalog**. 
-- The values that are selected in the quick filters.
-
-Here is an example of the "Asset type" quick filter.
-
-:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
-
-You can enter text in the text box to restrict the values in the drop-down list to values that match or partially match the text. For examples of using the text box, see [Search quick filter: filter by asset type](#search-quick-filter-filter-by-asset-type), and [Search quick filter: filter by classification](#search-quick-filter-filter-by-classification).
-
-#### Search quick filter: filter by asset type
-
-To filter by asset type, use the **Asset type** quick filter. The drop-down list shows the asset types found in the current search results, as determined by the search terms and the quick filters. For each type, the number of assets of that type is shown.
-
-:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
-
-Select an asset type to restrict the search results to assets of that type. You can only select one type.
-
-To show only asset types whose names match a string, enter the string in the text box. For example, to show only asset types with **sql** in their names, enter **sql**.
-
-:::image type="content" source="./media/catalog-client-overview/filter-asset-types.png" alt-text="The Quick Filters pane has sql for 'Asset type'. The list of assets that contain sql shows three entries." border="true":::
-
-Select an asset type to restrict the search results to assets of that type. You can select only one type.
-
-#### Search quick filter: filter by classification
-
-To filter by asset classification, use the **Classification** quick filter. The drop-down list shows the classifications that have been assigned to one or more assets in the current search results, as determined by the search terms and the quick filters. For each classification, the number of assets assigned that classification is shown.
-
-:::image type="content" source="./media/catalog-client-overview/classification-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
-
-Select a classification to restrict the search results to assets assigned that classification. You can only select one classification.
-
-To show only classifications whose names match a string, enter the string in the text box. For example, to show only classifications with **number** in their names, enter **number**.
-
-:::image type="content" source="./media/catalog-client-overview/filter-classifications.png" alt-text="In the Quick Filters pane, Classification is 'bank', and the classifications listed all contain that value." border="true":::
-
-Select a classification to restrict the search results to assets that have been assigned that classification. You can't select more than one classification.
-
-#### Search quick Filter: filter by contacts
-
-A *contact* is a person that's assigned to an asset as an owner or expert. When you view asset details, contacts are shown on the **Contacts** tab.
-
-There are two ways to search for assets that have a particular contact assigned to them.
-
-1. Enter all or part of the contact name in **Search catalog** and do a search. The search results will include assets that have contacts whose names match your search terms.
-1. Select the contact of interest in the **Contact** quick filter and do a search.
-
-:::image type="content" source="./media/catalog-client-overview/contact-quick-filter.png" alt-text="The value of Person in the Quick Filters pane is 'darren'. There are three suggestions in the Suggestions pane." border="true":::
-
 ## Search example
 
 Let's consider a hypothetical example to see how the search terms and quick filters interact to determine the search results. In particular, we'll monitor the count of asset type **Azure Blob Storage**.
@@ -307,21 +251,21 @@ To see a search results list with assets of a particular type, select the asset 
 
 To see counts and graphs of the data in your catalog, select **View Insights** on **Home**.
 
-:::image type="content" source="./media/catalog-client-overview/get-to-view-insights.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/get-to-view-insights.png" alt-text="Screenshot with Insights in Home page" border="true":::
 
 The **Asset insights** screen appears. The **Insights** navigation pane on the left lets (highlighted) give you the choice of four categories of insights.
 
-:::image type="content" source="./media/catalog-client-overview/asset-insights.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/asset-insights.png" alt-text="Screenshot with Insights in the left navigation" border="true":::
 
 ### Manage Your data
 
 To manage your data sources, select **Manage Your Data** on **Home**.
 
-:::image type="content" source="./media/catalog-client-overview/get-to-manage-your-data.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/get-to-manage-your-data.png" alt-text="Screenshot to register sources" border="true":::
 
 Use the left navigation pane to select any of the many options for managing your data:
 
-:::image type="content" source="./media/catalog-client-overview/manage-your-data.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/manage-your-data.png" alt-text="Screenshot listing the sources" border="true":::
 
 >[!Note]
 > Selecting **Manage your data** gets you to the same display as selecting **Management Center** from the left navigation pane of **Home**.

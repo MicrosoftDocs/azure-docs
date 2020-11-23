@@ -1,6 +1,6 @@
 ---
 title: How to link Azure Data Factory account with Purview
-description: This article provides an overview of the catalog lineage feature of Azure Purview.
+description: This article provides an overview  to link Data Factory with Azure Purview for lineage.
 author: chanuengg
 ms.author: csugunan
 ms.service: data-catalog
@@ -146,12 +146,12 @@ Azure Purview/ADF native integration supports only a subset of the data systems 
 ## Supported lineage patterns
 
 There are several patterns of lineage that Azure Purview supports. The generated lineage data is based on the type of source and sink used in the ADF activities. Although ADF supports over 80 source/sinks, Azure Purview supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
-To configure ADF to send lineage, see [Get started with lineage](#get-started-with-lineage).
+To configure ADF to send lineage, see [Get started with lineage](catalog-lineage-user-guide.md/#get-started-with-lineage).
 
 > [!Note]
 > * In the **Lineage** tab, hover on shapes to preview additional information  about the asset in the tooltip .
 > * Select the node or edge to see the asset type it belongs or to switch assets.
-> * Columns of a Dataset is displayed in the left side of lineage tab. For more information about column-level lineage, see [Column-level lineage](#column-level-lineage).
+> * Columns of a Dataset is displayed in the left side of lineage tab. For more information about column-level lineage, see [Column-level lineage](catalog-lineage-user-guide.md/#column-level-lineage).
 
 ### Data lineage for one input <\-\> one output
 
