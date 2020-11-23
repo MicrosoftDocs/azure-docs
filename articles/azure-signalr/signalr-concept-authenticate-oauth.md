@@ -537,7 +537,7 @@ To deploy your code, execute the following commands in a Git shell.
 4. Deploy your code to the web app in Azure.
 
     ```bash
-    git push Azure master
+    git push Azure main
     ```
 
     You will be prompted to authenticate in order to deploy the code to Azure. Enter the user name and password of the deployment user you created above.
