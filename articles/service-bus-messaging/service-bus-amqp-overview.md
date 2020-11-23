@@ -2,7 +2,7 @@
 title: Overview of AMQP 1.0 in Azure Service Bus
 description: Learn how Azure Service Bus supports Advanced Message Queuing Protocol (AMQP), an open standard protocol.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 11/20/2020
 ---
 
 # AMQP 1.0 support in Service Bus
@@ -53,15 +53,26 @@ The following figure illustrates an example deployment in which Java clients run
 
 **Figure 1: Example deployment scenario showing cross-platform messaging using Service Bus and AMQP 1.0**
 
-At this time the following client libraries are known to work with Service Bus:
+All supported Service Bus client libraries available via the Azure SDK use AMQP 1.0.
+
+- [Azure Service Bus for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-bus?view=azure-dotnet&preserve-view=true)
+- [Azure Service Bus libraries for Java](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-stable&preserve-view=true)
+- [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
+- [Azure Service Bus Modules for JavaScript and TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
+- [Azure Service Bus libraries for Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
+
+In addition, you can use Service Bus from any AMQP 1.0 compliant protocol stack:
 
 | Language | Library |
 | --- | --- |
-| Java |Apache Qpid Java Message Service (JMS) client<br/>IIT Software SwiftMQ Java client |
-| C |Apache Qpid Proton-C |
-| PHP |Apache Qpid Proton-PHP |
-| Python |Apache Qpid Proton-Python |
-| C# |AMQP .NET Lite |
+| Java | [Apache Qpid Proton-J](https://qpid.apache.org/proton/index.html) |
+| C/C++ |[Azure uAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache Qpid Proton-C](https://qpid.apache.org/proton/index.html) |
+| Python |[Azure uAMQP for Python](https://github.com/azure/azure-uamqp-python/), [Apache Qpid Proton Python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
+| PHP | [Azure uAMQP for PHP](https://github.com/vsouz4/azure-uamqp-php/) |
+| Ruby | [Apache Qpid Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
+| Go | [Azure Go AMQP](https://github.com/Azure/go-amqp), [Apache Qpid Proton Go](https://github.com/apache/qpid-proton/tree/master/go/examples)
+| C#/F#/VB | [AMQP .NET Lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
+| JavaScript/Node | [Rhea](https://github.com/grs/rhea) |
 
 **Figure 2: Table of AMQP 1.0 client libraries**
 
@@ -75,10 +86,8 @@ Ready to learn more? Visit the following links:
 * [Using Service Bus from .NET with AMQP]
 * [Using Service Bus from Java with AMQP]
 * [Installing Apache Qpid Proton-C on an Azure Linux VM]
-* [AMQP in Service Bus for Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Using Service Bus from .NET with AMQP]: service-bus-amqp-dotnet.md
 [Using Service Bus from Java with AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
 [Installing Apache Qpid Proton-C on an Azure Linux VM]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)
