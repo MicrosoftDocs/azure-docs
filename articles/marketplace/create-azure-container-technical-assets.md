@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/09/2020
+ms.date: 11/30/2020
 ---
 
 # Create an Azure container offer
@@ -15,7 +15,7 @@ This article gives technical resources and recommendations to help you create a 
 
 ## Before you begin
 
-For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](../../container-instances/index.yml).
+For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](/azure/container-instances/index.yml).
 
 ## Fundamental technical knowledge
 
@@ -38,7 +38,7 @@ Choose one or both of the following scripting environments to help manage your C
 
 We recommend adding these tools to your development environment:
 
-- [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -50,9 +50,9 @@ Review the available tools on the [Azure Developer Tools](https://azure.microsof
 
 For more information, see the following tutorials:
 
-- [Tutorial: Create a container image for deployment to Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
-- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](../../container-registry/container-registry-tutorial-quick-task.md).
+- [Tutorial: Create a container image for deployment to Azure Container Instances](/azure/container-instances/container-instances-tutorial-prepare-app.md)
+- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-quick-task.md).
 
 ## Next steps
 
-- [Create your container offer](create-azure-container-offer.md).
+- [Create your container offer](create-azure-container-offer.md)
