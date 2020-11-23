@@ -134,6 +134,9 @@ You can configure optional claims for your application through the UI or applica
 1. Select the optional claims to add.
 1. Select **Add**.
 
+> [!NOTE]
+> The UI option **Token configuration** blade is not available for apps registered in an Azure AD B2C tenant currently . For applications registered in a B2C tenant , the optional claims can be configured by modifying the application manifest . For more information see [Add claims and customize user input using custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+
 **Configuring optional claims through the application manifest:**
 
 [![Shows how to configure optional claims using the app manifest](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
@@ -171,6 +174,7 @@ You can configure optional claims for your application through the UI or applica
     ```
 
 2. When finished, select **Save**. Now the specified optional claims will be included in the tokens for your application.
+
 
 ### OptionalClaims type
 

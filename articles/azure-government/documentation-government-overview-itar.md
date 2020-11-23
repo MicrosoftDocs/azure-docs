@@ -55,7 +55,7 @@ Azure Government provides an additional layer of protection to customers through
 
 ## DoE 10 CFR Part 810
 
-The U.S. Department of Energy (DoE) export control regulation [10 CFR Part 810](http://www.gpo.gov/fdsys/pkg/FR-2015-02-23/pdf/2015-03479.pdf) implements section 57b.(2) of the [Atomic Energy Act of 1954](https://www.nrc.gov/docs/ML1327/ML13274A489.pdf) (AEA), as amended by section 302 of the [Nuclear Nonproliferation Act of 1978](http://www.nrc.gov/docs/ML1327/ML13274A492.pdf#page=19) (NNPA).  It is administered by the [National Nuclear Security Administration](https://nnsa.energy.gov/aboutus/ourprograms/nonproliferation-0/npac/policy/10cfr810) (NNSA).  The revised Part 810 (final rule) became effective on 25 March 2015, and, among other things, it controls the export of unclassified nuclear technology and assistance.  It enables peaceful nuclear trade by helping to assure that nuclear technologies exported from the United States will not be used for non-peaceful purposes.  Paragraph 810.7 (b) states that specific DoE authorization is required for providing or transferring sensitive nuclear technology to any foreign entity.
+The U.S. Department of Energy (DoE) export control regulation [10 CFR Part 810](http://www.gpo.gov/fdsys/pkg/FR-2015-02-23/pdf/2015-03479.pdf) implements section 57b.(2) of the [Atomic Energy Act of 1954](https://www.nrc.gov/docs/ML1327/ML13274A489.pdf) (AEA), as amended by section 302 of the [Nuclear Nonproliferation Act of 1978](http://www.nrc.gov/docs/ML1327/ML13274A492.pdf#page=19) (NNPA).  It is administered by the [National Nuclear Security Administration](https://www.energy.gov/nnsa/national-nuclear-security-administration) (NNSA).  The revised Part 810 (final rule) became effective on 25 March 2015, and, among other things, it controls the export of unclassified nuclear technology and assistance.  It enables peaceful nuclear trade by helping to assure that nuclear technologies exported from the United States will not be used for non-peaceful purposes.  Paragraph 810.7 (b) states that specific DoE authorization is required for providing or transferring sensitive nuclear technology to any foreign entity.
 
 **Azure Government can accommodate customers subject to DoE 10 CFR Part 810** export control requirements because it is designed to meet specific controls that restrict access to information and systems to U.S. persons among Azure operations personnel.  Customers deploying data to Azure Government are responsible for their own security classification process.  For data subject to DoE export controls, the classification system is augmented by the [Unclassified Controlled Nuclear Information](https://www.energy.gov/sites/prod/files/hss/Classification/docs/UCNI-Tri-fold.pdf) (UCNI) controls established by Section 148 of the AEA. 
 
@@ -128,6 +128,8 @@ No default access rights and Just-in-Time (JIT) access provisions reduce greatly
 - **Data encryption** with option for customer-managed encryption keys – encrypted data is accessible only by entities who are in possession of the key, as described in the previous section.
 - **Customer monitoring** of external access to their provisioned Azure resources, which includes security alerts as described in the next section.
 
+Moreover, all Azure and Azure Government employees in the United States are subject to Microsoft background checks. For more information, see [screening](./documentation-government-plan-security.md#screening).
+
 ### Access control requirements
 
 Microsoft takes strong measures to protect customer data from inappropriate access or use by unauthorized persons.  Microsoft engineers (including full-time employees and subprocessors/vendors) [do not have default access](https://www.microsoft.com/trust-center/privacy/data-access) to customer data in the cloud. Instead, they are granted access, under management oversight, only when necessary.  Using the [restricted access workflow](https://www.youtube.com/watch?v=lwjPGtGGe84&feature=youtu.be&t=25m), access to customer data is carefully controlled, logged, and revoked when it is no longer needed.  For example, access to customer data may be required to resolve customer-initiated troubleshooting requests.  The access control requirements are [established by the following policy](../security/fundamentals/protection-customer-data.md):
@@ -145,20 +147,6 @@ JIT access works in conjunction with multi-factor authentication that requires M
 [Customer Lockbox for Azure](../security/fundamentals/customer-lockbox-overview.md) is a service that provides customers with the capability to control how a Microsoft engineer accesses their data.  As part of the support workflow, a Microsoft engineer may require elevated access to customer data.  Customer Lockbox puts the customer in charge of that decision by enabling the customer to Approve/Deny such elevated requests.  Customer Lockbox is an extension of the JIT workflow and comes with full audit logging enabled.  It is important to note that Customer Lockbox capability is not required for support cases that do not involve access to customer data.  For the majority of support scenarios, access to customer data is not needed and the workflow should not require Customer Lockbox.  Microsoft engineers rely heavily on logs to maintain Azure services and provide customer support.
 
 Customer Lockbox is automatically available to all customers who have an Azure support plan with a minimum level of Developer.  With an eligible support plan, no action is required by a customer to enable Customer Lockbox for [supported services and scenarios in general availability](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability).  Additional Azure services are currently in [public preview for Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) and customers can enable Customer Lockbox for preview services by signing up via an online form.  A Microsoft engineer will initiate Customer Lockbox request if this action is needed to progress a customer-initiated support ticket.  Customer Lockbox is available to customers from all Azure public regions.
-
-### Microsoft employee background screening
-
-All Azure and Azure Government employees in the United States are subject to Microsoft background checks, as outlined in Table 2 below.  Personnel with the ability to access customer data for troubleshooting purposes in Azure Government are additionally subject to the verification of U.S. persons, as well as additional screening requirements where appropriate.
-
-**Table 2:**  Background screening for Azure and Azure Government personnel
-
-|Applicable screening and background check|Environment|Frequency|Description|
-|------|------|------|------|
-|Background check </br> Cloud screen|Azure </br>Azure Gov|Upon employment|- Education history (highest degree) </br>- Employment history (7-yr history)|
-|||Every 2 years|- Social Security Number search </br>- Criminal history check (7-yr history) </br>- Office of Foreign Assets Control (OFAC) list </br>- Bureau of Industry and Security (BIS) list </br>- Office of Defense Trade Controls (DDTC) debarred list|
-|U.S. persons|Azure Gov|Upon employment|- Verification of U.S. persons|
-|Criminal Justice Information Services (CJIS)|Azure Gov|Upon signed CJIS agreement with State|- Adds fingerprint background check against FBI database </br>- Criminal records check and credit check|
-|National Agency Check with Law and Credit (NACLC)|Azure Gov|Upon signed contract with sponsoring agency|- Detailed background and criminal history investigation (SF86 required)|
 
 ## Customer monitoring of Azure resources
 
