@@ -53,7 +53,7 @@ For example, track the following metrics, since a sudden drop in either will lea
 
 - **Reporting**: [By using log analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics), build reports that help you gain understanding about user insights, technical challenges, and growth opportunities.
   - **Health Dashboard**: Create [custom dashboards using Azure Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards) feature, which supports adding charts using Log Analytics queries. For example, identify pattern of successful and failed sign-ins, failure reasons and telemetry about devices used to make the requests.
-  - **Abandon Azure AD B2C journeys**: Using this workbook tracks the list of abandoned Azure AD B2C journeys where user started the sign-in or sign-up journey but never finished it. It provides you details about policy ID and breakdown of steps that are taken by the user before abandoning the journey.
+  - **Abandon Azure AD B2C journeys**: Using [the Azure AD B2C Reports & Alerts workbook](https://github.com/azure-ad-b2c/siem), track the list of abandoned Azure AD B2C journeys where user started the sign-in or sign-up journey but never finished it. It provides you details about policy ID and breakdown of steps that are taken by the user before abandoning the journey.
   
 ## Next steps
 
