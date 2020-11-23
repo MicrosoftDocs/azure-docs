@@ -3,7 +3,7 @@ title: "Quickstart: Create a C# ASP.NET Core app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET core app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 11/20/2020
+ms.date: 11/23/2020
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -334,11 +334,11 @@ Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to
 
 From the left menu, click **App Services**, and then click the name of your Azure app.
 
-:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Screenshot of the App Services page showing an example Azure app selected.":::
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list-up.png" alt-text="Screenshot of the App Services page showing an example Azure app selected.":::
 
 You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
-![App Service page in Azure portal](media/quickstart-dotnetcore/portal-app-overview.png)
+![App Service page in Azure portal](media/quickstart-dotnetcore/portal-app-overview-up.png)
 
 The left menu provides different pages for configuring your app. 
 
