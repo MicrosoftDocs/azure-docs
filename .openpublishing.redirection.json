@@ -22393,6 +22393,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/create-azure-container-technical-assets.md",
+      "redirect_url": "/azure/marketplace/create-azure-container-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-azure-container-offer.md",
+      "redirect_url": "/azure/marketplace/create-azure-container-offer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/marketplace-saas-applications-technical-publishing-guide.md",
       "redirect_url": "/azure/marketplace/plan-saas-offer",
       "redirect_document_id": false
