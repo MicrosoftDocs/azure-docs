@@ -6,13 +6,13 @@ author: antvgski
 manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: dedicated SQL pool (formerly SQL DW) 
+ms.subservice: sql-dw 
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ---
 
-## Using Synapse Studio to access and use an existing dedicated SQL pool (formerly SQL DW)
+# Using Synapse Studio to access and use an existing dedicated SQL pool (formerly SQL DW)
 
 Once you have created a connected workspace in Azure Portal, click Open Synapse Studio card in the overview blade. You will be redirected to Synapse Studio. You will be able to benefit from the Synapse Studio workspace experience including the following features:
 

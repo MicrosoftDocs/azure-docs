@@ -6,13 +6,13 @@ author: antvgski
 manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: dedicated SQL pool (formerly SQL DW) 
+ms.subservice: sql-dw
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ---
 
-## Synapse workspace for an existing dedicated SQL pool (formerly SQL DW)
+# Synapse workspace for an existing dedicated SQL pool (formerly SQL DW)
 All SQL data warehouse customers can now access and use an existing dedicated SQL pool (formerly SQL DW) instance via the Synapse Studio and Workspace, without impacting automation, connections or tooling. This article explains how an existing Azure Synapse Analytics customer can build on and expand their existing Analytics solution by taking advantage of the new feature rich capabilities now available via the Synapse workspace and Studio.   
 
 ## Experience 
@@ -28,7 +28,7 @@ When you're using a SQL DW in a workspace then the following applies
 - **Access controls**
 - **Network security**
 - **Studio** SQL pools in the **Data** hub **Object explorer** can be identified as Dedicated SQL pool (formerly SQL DW) instances via the **tool tip**. The tool tip will provide the standard Server  
---- Link to Piero's doc https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started that will describe how to manage the dw in the studio 
+
    
 > [!NOTE]
 > You should continue to use your normal Azure Resource Management APIs to manage your existing dedicated SQL pool (formerly SQL DW) instances. 

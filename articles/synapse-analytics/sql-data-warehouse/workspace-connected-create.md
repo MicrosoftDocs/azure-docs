@@ -1,12 +1,12 @@
 ---
-title: Connected Workspaces Create
+title: Connected Workspace Create
 description: This document describes how a customer can create a new Synapse Workspace and access their existing SQL DW standalone instance from the Workspace.   
 services: synapse-analytics
 author: antvgski
 manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: dedicated SQL pool (formerly SQL DW) 
+ms.subservice: sql-dw 
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick

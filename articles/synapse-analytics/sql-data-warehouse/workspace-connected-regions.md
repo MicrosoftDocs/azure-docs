@@ -6,7 +6,7 @@ author: antvgski
 manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: dedicated SQL pool (formerly SQL DW) 
+ms.subservice: sql-dw
 ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
