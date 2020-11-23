@@ -10,6 +10,8 @@ ms.date: 07/22/2020
 
 A function app runs on a specific version of the Azure Functions runtime. There are three major versions: [1.x, 2.x, and 3.x](functions-versions.md). By default, function apps are created in version 3.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
+The way that you manually target a specific version depends on whether you are running Windows or Linux.
+
 ## Automatic and manual version updates (Windows)
 
 Azure Functions lets you target a specific version of the runtime by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version. If you specify only the major version, the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions shouldn't introduce breaking changes. 
