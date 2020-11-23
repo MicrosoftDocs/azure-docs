@@ -54,9 +54,8 @@ Yes, the server will be unavailable during the upgrade process so we recommend y
 
 **3. It is noted that it is not supported on replica server yet. What does that mean concrete?**
 
-Currently, major version upgrade is not supported for replica server, which means you should not run it for servers involved in replication (either source or replica server). We plan to add support for upgrade of replica servers in our upcoming release soon. Once the support is added, if your server is involved in replication, you should upgrade your replica server first using upgrade feature using the steps mentioned above and it should be followed by the upgrade of your source server.
+Currently, major version upgrade is not supported for replica server, which means you should not run it for servers involved in replication (either source or replica server). If you would like to test the upgrade of the servers involved in replication before we add the replica support for upgrade feature, we would recommend following steps:
 
-If you would like to test the upgrade of the servers involved in replication before we add the replica support for upgrade feature, we would recommend following steps:
 1. During your planned maintenance, [stop replication and delete replica server](howto-read-replicas-portal.md) after capturing its name and all the configuration information (Firewall settings, server parameter configuration if it is different from source server).
 2. Perform upgrade of the source server.
 3. Provision a new read replica server with the same name and configuration settings captured in step 1. The new replica server will be on v5.7 automatically after the source server is upgraded to v5.7.
