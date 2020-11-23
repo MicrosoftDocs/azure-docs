@@ -78,8 +78,7 @@ If the pool node on which a task has run still exists, then the log files can be
 
 Since pools and pool nodes are frequently ephemeral, with nodes being continuously added and deleted, we recommend saving log files. [Task output files](./batch-task-output-files.md) are a convenient way to save log files to Azure Storage.
 
-> [!TIP]
-> The command lines executed by tasks on compute nodes do not run under a shell, so they can't natively take advantage of shell features such as environment variable expansion. To take advantage of such features, you must [invoke the shell in the command line](batch-compute-node-environment-variables.md#command-line-expansion-of-environment-variables).
+The command lines executed by tasks on compute nodes do not run under a shell, so they can't natively take advantage of shell features such as environment variable expansion. To take advantage of such features, you must [invoke the shell in the command line](batch-compute-node-environment-variables.md#command-line-expansion-of-environment-variables).
 
 ### Output file failures
 
