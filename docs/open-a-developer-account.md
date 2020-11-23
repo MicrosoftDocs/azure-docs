@@ -57,7 +57,7 @@ If your tenant already has an existing enrollment in Partner Center, you will se
 If you already have an enrollment in Partner Center, to create your account:
 
 - Sign in to Partner Center using your existing credentials.
-- Cick the gear icon, and then choose **Developer settings** > **Programs**.
+- Cick the gear icon, and then choose **Account settings** > **Programs**.
 - On the Your Programs page, in the Office Store tile, choose **Get Started**.
 - Complete the details on the publisher profile page.
 - Read the terms and conditions in the Microsoft Office Store Agreement, and then select **Accept and continue** to complete your enrollment.
@@ -73,14 +73,12 @@ Sign in to Partner Center with your Partner Center account to enroll into the Of
 
 After you sign in, use the following steps to finish setting up your account:
 
-- From Partner Center, select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work email address.
+- From Partner Center, select **Settings** > **Account Settings** > **Programs** > **Get Started**, and enter your work email address.
 - Complete the details on the publisher profile page.
 - Read the terms and conditions in the Microsoft Office Store Agreement, and then select **Accept and continue** to complete your enrollment.
 
 > [!IMPORTANT]
 > You must be authorized to act on your company's behalf in order to accept these terms.
-
-After you're enrolled, you're directed to the Office Store Overview page. Office Store is displayed in the left navigation bar. If you select **Settings** > **Developer Settings** > **Programs**, you'll see that Office Store is listed as registered.
 
 ## Next steps
 Now you're ready to [submit your solutions to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
