@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Tutorial: Use a managed identity to connect Key Vault to an Azure Web App with .NET
 
-Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
 This tutorial uses a managed identity to authenticate an Azure Web App with an Azure Key Vault. Although the steps use the [Azure Key Vault v4 client library for .NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) and the [Azure CLI](/cli/azure/get-started-with-azure-cli), the same basic principles apply when using the development language of your choice, Azure PowerShell, and/or the Azure portal.
 
@@ -28,36 +28,13 @@ To complete this quickstart:
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
+* [Install Git](https://www.git-scm.com/downloads).
+* [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/)
+* [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can create key vault using [Azure portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
+* Key Vault [secret](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets). You can create secret using [Azure Portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell), or [Azure CLI](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli)
 
-## Create a resource group
-
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to house both your key vault and your web app with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
-
-```azurecli-interactive
-az group create --name "myResourceGroup" -l "EastUS"
-```
-
-## Set up your key vault
-
-You will now create a key vault and place a secret in it, for use later in this tutorial.
-
-To create a key vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
-
-> [!Important]
-> Each key vault must have a unique name. Replace <your-keyvault-name> with the name of your key vault in the following examples.
-
-```azurecli-interactive
-az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
-```
-
-Make a note of the returned `vaultUri`, which will be in the format "https://&lt;your-keyvault-name&gt;.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
-
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
-
-## Create a .NET web app
-
-### Create a local app
+## Create a .NET Core app and deploy it to Azure
+In this step, you set up the local .NET Core project.
 
 In a terminal window on your machine, create a directory named `akvwebapp` and change the current directory to it.
 
@@ -82,7 +59,11 @@ Open a web browser, and navigate to the app at `http://localhost:5000`.
 
 You will see the **Hello World** message from the sample app displayed in the page.
 
-### Initialize the Git repository
+## Deploy app to Azure
+
+In this step, you deploy your .NET Core application to App Service using local Git. For more information on how to create and deploy applications, see [Create an ASP.NET Core web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+
+### Configure local git deployment
 
 In your terminal window, press **Ctrl+C** to exit the web server.  Initialize a Git repository for the .NET Core project.
 
@@ -91,8 +72,6 @@ git init
 git add .
 git commit -m "first commit"
 ```
-
-### Configure a deployment user
 
 FTP and local Git can deploy to an Azure web app by using a *deployment user*. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials. 
 
@@ -109,9 +88,17 @@ The JSON output shows the password as `null`. If you get a `'Conflict'. Details:
 
 Record your username and password to use to deploy your web apps.
 
+### Create a resource group
+
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to house both your key vault and your web app with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
+
+```azurecli-interactive
+az group create --name "myResourceGroup" -l "EastUS"
+```
+
 ### Create an app service plan
 
-Create an App Service plan with the Azure CLI [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) command. This following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
+Create an [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) with the Azure CLI [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) command. This following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -137,10 +124,11 @@ When the App Service plan has been created, the Azure CLI shows information simi
 } 
 </pre>
 
+For more information on App Service plan management, see [Manage an App Service plan in Azure](https://docs.microsoft.com/azure/app-service/app-service-plan-manage)
 
-### Create a remote web app
+### Create a web app
 
-Create an [Azure web app](../../app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
+Create an [Azure web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan. 
 
 > [!Important]
 > Similar to Key Vault, an Azure Web App must have a unique name. Replace \<your-webapp-name\> with the name of your web app the following examples.
@@ -229,8 +217,14 @@ http://<your-webapp-name>.azurewebsites.net
 ```
 
 You will see the "Hello World!" message you previously saw when visiting `http://localhost:5000`.
+ 
+## Configure web app to connect to Key Vault
 
-## Create and assign a managed identity
+In this section, you will configure web access to key vault and update application code to retrieve secret from key vault.
+
+### Create and assign a managed identity
+
+In this tutorial we will use applicaton [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate to key vault, which automatically manage application credentials.
 
 In the Azure CLI, to create the identity for this application, run the [az webapp-identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command:
 
@@ -254,10 +248,11 @@ To give your web app permission to do **get** and **list** operations on your ke
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
+You can also assign access policies using [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) or [PowerShell](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-powershell).
 
-## Modify the app to access your key vault
+### Modify the app to access your key vault
 
-### Install the packages
+#### Install the packages
 
 From the terminal window, install the Azure Key Vault client library for .NET packages:
 
@@ -266,7 +261,7 @@ dotnet add package Azure.Identity
 dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
-### Update the code
+#### Update the code
 
 Find and open the Startup.cs file in your akvwebapp project. 
 
@@ -278,7 +273,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add these lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.
+Add these lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is using token from application managed identity to authenticate. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). It is also using exponential backoff for retries in case of key vault is being throttled. For more information about key vault transaction limits, read [Azure Key Vault throttling guidance](https://docs.microsoft.com/azure/key-vault/general/overview-throttling)
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -293,7 +288,7 @@ SecretClientOptions options = new SecretClientOptions()
     };
 var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
 
-KeyVaultSecret secret = client.GetSecret("mySecret");
+KeyVaultSecret secret = client.GetSecret("<mySecret>");
 
 string secretValue = secret.Value;
 ```
@@ -306,7 +301,7 @@ await context.Response.WriteAsync(secretValue);
 
 Be certain to save your changes before proceeding to the next step.
 
-### Redeploy your web app
+#### Redeploy your web app
 
 Having updated your code, you can redeploy it to Azure with the following Git commands:
 
@@ -316,7 +311,7 @@ git commit -m "Updated web app to access my key vault"
 git push azure master
 ```
 
-## Visit your completed web app
+### Visit your completed web app
 
 ```bash
 http://<your-webapp-name>.azurewebsites.net
@@ -326,10 +321,10 @@ Where before you saw **Hello World**, you should now see the value of your secre
 
 ## Next steps
 
+- [Use Azure Key Vault with applications deployed to virtual machine in .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - Learn more about [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
 - Learn more about [managed identities for App Service](../../app-service/overview-managed-identity.md?tabs=dotnet)
-- See the [Azure Key Vault client library for .NET API reference](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)
-- See the [Azure Key Vault client library for .NET source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)
-- See the [v4 Azure Key Vault client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+- [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide)
+- [Secure access to a key vault](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault)
 
 
