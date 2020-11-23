@@ -70,8 +70,8 @@ Data is retrieved from a Log Analytics workspace using a log query which is a re
 ## Log Analytics
 Use Log Analytics, which is a tool in the Azure portal, to edit and run log queries and interactively analyze their results. You can then use the queries that you create to support other features in Azure Monitor such as log query alerts and workbooks. Access Log Analytics from the **Logs** option in the Azure Monitor menu or from most other services in the Azure portal.
 
-- See [Overview of Log Analytics in Azure Monitor](/log-query/log-analytics-overview.md) for a description of Log Analytics. 
-- See [Log Analytics tutorial](/log-query/log-analytics-tutorial.md) to walk through using Log Analytics features to create a simple log query and analyze its results.
+- See [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/log-query/log-analytics-overview) for a description of Log Analytics. 
+- See [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial) to walk through using Log Analytics features to create a simple log query and analyze its results.
 
 
 

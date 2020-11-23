@@ -1,5 +1,5 @@
 ---
-title: Create Connection Monitor - PowerShell
+title: Create Connection Monitor (Preview) - PowerShell
 titleSuffix: Azure Network Watcher
 description: Learn how to create Connection Monitor using PowerShell.
 services: network-watcher
@@ -14,9 +14,14 @@ ms.date: 07/30/2020
 ms.author: vinigam
 #Customer intent: I need to create a connection monitor using PowerShell to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor using PowerShell
+# Create a Connection Monitor (Preview) using PowerShell
 
 Learn how to create Connection Monitor to monitor communication between your resources using PowerShell.
+
+> [!IMPORTANT]
+> Connection Monitor is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Before you begin 
 
@@ -75,7 +80,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure resource manager's resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
@@ -84,7 +89,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 * Test Groups
 	* name - Name your test group.
 	* testConfigurations - Test Configurations based on which source endpoints connect to destination endpoints
-	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+	* sources - Choose from endpoints created above. Azure based source endpoints need to have Azure Network Watcher extension installed and nonAzure based source endpoints need to haveAzure Log Analytics agent installed. To install an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
 	* destinations -  Choose from endpoints created above. You can monitor connectivity to Azure VMs or any endpoint (a public IP, URL, or FQDN) by specifying them as destinations. In a single test group, you can add Azure VMs, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 	* disable - Use this field to disable monitoring for all sources and destinations that the test group specifies.
 
@@ -95,6 +100,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 		* preferHTTPS - Specify whether to use HTTPS over HTTP
 		* port - Specify the destination port of your choice.
 		* disableTraceRoute - This applies to test groups whose protocol is TCP or ICMP. It stop sources from discovering topology and hop-by-hop RTT.
+		* method - This applies to test configurations whose protocol is HTTP. Select the HTTP request method--either GET or POST
+		* path - Specify path parameters to append to URL
+		* validStatusCodes - Choose applicable status codes. If response code does not match this list, you will get a diagnostic message
+		* requestHeaders - Specify custom request header strings that will make be passed to the destination
 	* successThreshold - You can set thresholds on the following network parameters:
 		* checksFailedPercent - Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the percentage of HTTP requests that received no response.
 		* roundTripTimeMs - Set the RTT in milliseconds for how long sources can take to connect to the destination over the test configuration.
@@ -110,5 +119,5 @@ Connection monitors have the following scale limits:
 
 ## Next steps
 
-* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Learn [how to diagnose issues in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Learn [how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Learn [how to diagnose issues in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network)

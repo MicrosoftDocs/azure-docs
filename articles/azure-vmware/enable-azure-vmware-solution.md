@@ -1,12 +1,12 @@
 ---
 title: How to enable your Azure VMware Solution resource
-description: Learn how to submit a support request to enable your Azure VMware Solution resource. You can also request more nodes in your existing Azure VMware Solution private cloud.
+description: Learn how to submit a support request to enable your Azure VMware Solution resource. You can also request more hosts in your existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.date: 11/12/2020
 ---
 
 # How to enable Azure VMware Solution resource
-Learn how to submit a support request to enable your [Azure VMware Solution](introduction.md) resource. You can also request more nodes in your existing Azure VMware Solution private cloud.
+Learn how to submit a support request to enable your [Azure VMware Solution](introduction.md) resource. You can also request more hosts in your existing Azure VMware Solution private cloud.
 
 ## Eligibility criteria
 
@@ -17,7 +17,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 
 
 ## Enable Azure VMware Solution for EA customers
-Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
+Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll go through the same process.
 
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
@@ -33,20 +33,20 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
 
    - POC or Production 
    - Region Name
-   - Number of nodes
+   - Number of hosts
    - Any other details
 
    >[!NOTE]
-   >Azure VMware Solution recommends a minimum of three nodes to spin up your private cloud and for redundancy N+1 nodes. 
+   >Azure VMware Solution recommends a minimum of three hosts to spin up your private cloud and for redundancy N+1 hosts. 
 
 1. Select **Review + Create** to submit the request.
 
    It will take up to five business days for a support representative to confirm your request.
 
    >[!IMPORTANT] 
-   >If you already have an existing Azure VMware Solution, and you are requesting additional nodes, please note that we need five business days to allocate the nodes. 
+   >If you already have an existing Azure VMware Solution, and you are requesting additional hosts, please note that we need five business days to allocate the hosts. 
 
-1. Before you can provision your nodes, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
+1. Before you can provision your hosts, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -94,21 +94,21 @@ After configuring the Azure plan and the needed vSphere RBAC permissions are in 
 
    - POC or Production 
    - Region Name
-   - Number of nodes
+   - Number of hosts
    - Any other details
    - Is intended to host multiple customers?
 
    >[!NOTE]
-   >Azure VMware Solution recommends a minimum of three nodes to spin up your private cloud and for redundancy N+1 nodes. 
+   >Azure VMware Solution recommends a minimum of three hosts to spin up your private cloud and for redundancy N+1 hosts. 
 
 1. Select **Review + Create** to submit the request.
 
    It will take up to five business days for a support representative to confirm your request.
 
    >[!IMPORTANT] 
-   >If you already have an existing Azure VMware Solution, and you are requesting additional nodes, please note that we need five business days to allocate the nodes. 
+   >If you already have an existing Azure VMware Solution, and you are requesting additional hosts, please note that we need five business days to allocate the hosts. 
 
-1. Once added to the Azure plan, and with quota enabled, the customer or the partner administrator can deploy an Azure VMware Solution Private Cloud through the Azure portal. Before you can provision your nodes, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
+1. Once added to the Azure plan, and with quota enabled, the customer or the partner administrator can deploy an Azure VMware Solution Private Cloud through the Azure portal. Before you can provision your hosts, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
