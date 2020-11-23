@@ -75,7 +75,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### Bug fixes 
 
-* Remove the use of a deprecated azure extension in the set up script
+* Remove the use of a deprecated Azure extension in the set up script
 
 <hr width=100%>
 
