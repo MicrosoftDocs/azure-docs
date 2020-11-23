@@ -22,7 +22,7 @@ This article describes how to add migration tools in [Azure Migrate](./migrate-s
     - To migrate machines and workloads to Azure, select **Assess and migrate servers**.
     - To migrate on-premises databases, select **Assess and migrate databases**.
     - To migrate on-premises web apps, select **Explore more** > **Web Apps**.
-    - To migrate data to Azure using Databox, select **Explore more** > **Databox**.
+    - To migrate data to Azure using Data box, select **Explore more** > **Data box**.
 
     ![Options for selecting a migrate scenario](./media/how-to-migrate/migrate-scenario.png)
 
@@ -63,7 +63,7 @@ If you created an Azure Migrate project using the **Assess and migrate database*
 
 If you created an Azure Migrate project using the **Explore more** > **WebApps** option in the portal, the Web app migration tool is automatically added to the project. 
 
-1. If the Web app migration tool isn't in the project, in **WEbs** > **Assessment tools**, select **Click here**.
+1. If the Web app migration tool isn't in the project, in **Web apps** > **Assessment tools**, select **Click here**.
 
     ![Add web app migration tools](./media/how-to-migrate/no-web-app-migration-tool.png)
  
@@ -75,10 +75,10 @@ If you created an Azure Migrate project using the **Explore more** > **WebApps**
 
 ## Order an Azure Data Box
 
-To migrate large amounts of data to Azure,  you can order an Azure DAta Box for offline data transfer.
+To migrate large amounts of data to Azure,  you can order an Azure Data Box for offline data transfer.
 
 1. In **Overview**, select **Explore more**.
-2. In **Explore more**, select **Databox**.
+2. In **Explore more**, select **Data box**.
 3. In **Get started with Data Box**, select the subscription and resource group you want to use when ordering a Data Box.
 4. The **Transfer type** is an import to Azure. Specify the country in which the data resides, and the Azure region to which you want to transfer the data. 
 5. Click **Apply** to save the settings.
