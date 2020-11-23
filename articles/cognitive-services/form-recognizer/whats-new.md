@@ -27,6 +27,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
   ![Invoice example](./media/invoice-example.jpg)
 
+  :::image type="content" source="./media/invoice-example.jpg" alt-text="invoice example" lightbox="./media/invoice-example.jpg":::
+
 - **Enhanced table extraction** - Form Recognizer now provides enhanced table extraction, which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model. Form Recognizer can extract data from tables, including complex tables with merged columns, rows, no borders and more. 
  
   ![Tables example](./media/tables-example.jpg)
