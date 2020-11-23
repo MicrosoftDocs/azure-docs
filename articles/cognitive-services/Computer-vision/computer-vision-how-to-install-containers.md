@@ -22,7 +22,7 @@ Containers enable you to run the Computer Vision APIs in your own environment. C
 
 The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](concept-recognizing-text.md#read-api).
 
-## Read 3.2 container
+## Read 3.2-preview container
 
 > [!NOTE]
 > The Read 3.0-preview container has been deprecated. 
