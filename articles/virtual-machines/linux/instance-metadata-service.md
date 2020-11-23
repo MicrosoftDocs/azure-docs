@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service 
-description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances.
+description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances in Linux.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -15,30 +15,30 @@ ms.reviewer: azmetadatadev
 
 # Azure Instance Metadata Service (IMDS)
 
-The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
-This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
-Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All APIs support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
-the Attested and Network endpoints support Classic (non-ARM) VMs, and Attested does so only to a limited extent.
+The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
+This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see [metadata APIs](#metadata-apis).
+IMDS is available for running instances of virtual machines (VMs) and VM scale sets. All APIs support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
+the attested and network endpoints support VMs created by using the classic deployment model. The attested endpoint does so only to a limited extent.
 
-Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
-It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+IMDS is a REST Endpoint that's available at a well-known, non-routable IP address (`169.254.169.254`). You access it only from within the VM. Communication between the VM and IMDS never leaves the host.
+Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Security
 
-The Instance Metadata Service endpoint is accessible only from within the running virtual machine instance on a non-routable IP address. In addition, any request with a `X-Forwarded-For` header is rejected by the service.
-Requests must also contain a `Metadata: true` header to ensure that the actual request was directly intended and not a part of unintentional redirection.
+The IMDS endpoint is accessible only from within the running virtual machine instance on a non-routable IP address. In addition, any request with an `X-Forwarded-For` header is rejected by the service.
+Requests must also contain a `Metadata: true` header, to ensure that the actual request was directly intended and not a part of unintentional redirection.
 
 > [!IMPORTANT]
-> Instance Metadata Service is not a channel for sensitive data. The end point is open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
+> IMDS isn't a channel for sensitive data. The endpoint is open to all processes on the VM. Consider information exposed through this service as shared information to all applications running inside the VM.
 
 ## Usage
 
-### Accessing Azure Instance Metadata Service
+### Access Azure Instance Metadata Service
 
-To access Instance Metadata Service, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and follow the samples below.
-More examples of how to query IMDS can be found at [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
+To access IMDS, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and use the following samples.
+For more examples, see [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
 
-Below is the sample code to retrieve all metadata for an instance, to access specific data source, see [Metadata API](#metadata-apis) section. 
+Here's the sample code to retrieve all metadata for an instance. To access a specific data source, see the [Metadata API](#metadata-apis) section. 
 
 **Request**
 
@@ -174,10 +174,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 
 ### Data output
 
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, some APIs are able to return data in different formats if requested.
-The following table is a reference of other data formats APIs may support.
+By default, IMDS returns data in JSON format (`Content-Type: application/json`). However, some APIs can return data in different formats, if requested.
+The following table lists other data formats that APIs might support.
 
-API | Default Data Format | Other Formats
+API | Default data format | Other formats
 --------|---------------------|--------------
 /attested | json | none
 /identity | json | none
@@ -191,11 +191,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 ```
 
 > [!NOTE]
-> For leaf nodes in /metadata/instance the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified since the default format is json.
+> For leaf nodes in `/metadata/instance`, the `format=json` doesn't work. For these queries, `format=text` needs to be explicitly specified because the default format is json.
 
-### Versioning
+### Version
 
-The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
+IMDS is versioned, and specifying the API version in the HTTP request is mandatory.
 
 The supported API versions are: 
 - 2017-03-01
@@ -220,14 +220,14 @@ The supported API versions are:
 - 2020-10-01
 
 > [!NOTE]
-> Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
+> Version 2020-10-01 might not yet be available in every region.
 
-As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
+As newer versions are added, you can still access older versions for compatibility if your scripts have dependencies on specific data formats.
 
-When no version is specified, an error is returned with a list of the newest supported versions.
+When you don't specify a version, you get an error, with a list of the newest supported versions.
 
 > [!NOTE]
-> The response is a JSON string. The following example indicates the error condition when version is not specified, the response is pretty-printed for readability.
+> The response is a JSON string. The following example indicates the error condition when the version isn't specified. The response is pretty-printed for readability.
 
 **Request**
 
@@ -250,14 +250,14 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
 
 ## Metadata APIs
 
-Metadata Service contains multiple APIs representing different data sources.
+IMDS contains multiple APIs representing different data sources.
 
-API | Description | Version Introduced
+API | Description | Version introduced
 ----|-------------|-----------------------
-/attested | See [Attested Data](#attested-data) | 2018-10-01
+/attested | See [Attested data](#attested-data) | 2018-10-01
 /identity | See [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 /instance | See [Instance API](#instance-api) | 2017-04-02
-/scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
+/scheduledevents | See [Scheduled events](scheduled-events.md) | 2017-08-01
 
 ## Instance API
 
