@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
 #Customer intent: As a cluster administrator, I want to understand networking in a Azure Red Hat OpenShift cluster.
+# Diagram here: https://microsofteur-my.sharepoint.com/:p:/g/personal/asabbour_microsoft_com/Ee8GdDIG9f5Er43CXb3irEkBU0ZeSNLNymx38dhB46FfTg?e=rfmUdA
 ---
 
 # Networking in Azure Red Hat on OpenShift 4
@@ -94,7 +95,7 @@ The following network settings are available in Azure Red Hat OpenShift 4:
     * "Public" - API Server is accessible by external networks.
     * "Private" - API Server assigned a private IP from the masters subnet, only accessible using connected networks (peered virtual networks, other subnets in the cluster). A private DNS Zone will be created on the customer's behalf.
 * **Ingress Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
-    * "Public" routes will default to public Azure Standard Load Balancer (this can be changed).
+    * "Public" routes will default to a public Standard Load Balancer (this can be changed).
     * "Private" routes will default to internal load balancer (this can be changed).
 
 ## Network security groups

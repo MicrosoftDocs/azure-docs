@@ -402,4 +402,4 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 In this tutorial, you've learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Starting a new Android app](/azure/spatial-anchors/tutorials/tutorial-new-android-app)
+> [Starting a new Android app](../articles/spatial-anchors/tutorials/tutorial-new-android-app.md)
