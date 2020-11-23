@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Pause and resume compute in Synapse SQL pool with Azure PowerShell'
+title: 'Quickstart: Pause and resume compute in Dedicated SQL pool (formerly SQL DW) with Azure PowerShell'
 description: You can use Azure PowerShell to pause and resume the Synapse SQL pool (data warehouse). compute resources.
 services: synapse-analytics
 author: kevinvngo
@@ -7,14 +7,14 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw 
-ms.date: 03/20/2019
-ms.author: kevin
+ms.date: 11/22/2020
+ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
 ---
-# Quickstart: Pause and resume compute in Synapse SQL pool with Azure PowerShell
+# Quickstart: Pause and resume compute in Dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
-You can use Azure PowerShell to pause and resume the Synapse SQL pool (data warehouse) compute resources.
+You can use Azure PowerShell to pause and resume the Dedicated SQL pool (formerly SQL DW) compute resources.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Before you begin
@@ -50,8 +50,8 @@ Locate the database name, server name, and resource group for the SQL pool you p
 Follow these steps to find location information for your SQL pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Click **Azure Synapse Analytics (formerly SQL DW)** in the left page of the Azure portal.
-1. Select **mySampleDataWarehouse** from the **Azure Synapse Analytics (formerly SQL DW)** page. The SQL pool opens.
+1. Click **Dedicated SQL pool (formerly SQL DW)** in the left page of the Azure portal.
+1. Select **mySampleDataWarehouse** from the **Dedicated SQL pool (formerly SQL DW** page. The SQL pool opens.
 
     ![Server name and resource group](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
