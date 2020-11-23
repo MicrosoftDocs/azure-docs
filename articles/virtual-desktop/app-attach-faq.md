@@ -49,7 +49,7 @@ For two version of the same MSIX applications to run the MSIX package family tah
 
 ## When using MSIX app attach should I disable auto-updates?
 
-MSIX app attach does not support auto-update for the MSIX applications.
+Yes. MSIX app attach doesn't support auto-update for MSIX applications.
 
 ## How permissions work with MSIX app attach?
 
