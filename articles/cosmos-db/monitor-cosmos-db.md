@@ -169,7 +169,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
 
-For example, the following table lists few alert rules for your resources. You can find a detailed list of alert rules from the Azure portal.
+For example, the following table lists few alert rules for your resources. You can find a detailed list of alert rules from the Azure portal. To learn more, see [how to configure alerts](create-alerts.md) article.  
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
