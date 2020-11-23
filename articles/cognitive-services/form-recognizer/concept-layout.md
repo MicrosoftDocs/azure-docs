@@ -83,8 +83,6 @@ Layout extracts tables from documents (PDF, TIFF) and images (jpg, png, bmp). Do
 
 Layout also extracts selection marks from documents. Selection marks extracted include the bounding box, confidence, and state (selected/unselected). Selection mark information is extracted in the `"readResults"` section of the JSON output. 
 
-<<< add selection marks examples>>>
-
 ## Next steps
 
 - Try your own layout extraction using the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/)
