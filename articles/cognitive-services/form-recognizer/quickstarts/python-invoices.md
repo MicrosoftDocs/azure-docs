@@ -35,51 +35,51 @@ To complete this quickstart, you must have:
 
 ## Analyze an invoice
 
-To start analyzing an invoice, call the **[Analyze Invoice](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)** API using the Python script below. 
+To start analyzing an invoice, call the **[Analyze Invoice](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)** API using the Python script below. 
 Before you run the script, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 1. Replace `<path to your invoice>` with the local path where you have a sample invoice saved.
 
-```python
-    ########### Python Form Recognizer Async Invoice #############
-
-    import json
-    import time
-    from requests import get, post
+    ```python
+        ########### Python Form Recognizer Async Invoice #############
     
-    # Endpoint URL
-    endpoint = r"<Endpoint>"
-    apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze"
-    source = r"<path to your invoice>"
-    
-    headers = {
-        # Request headers
-        'Content-Type': '<file type>',
-        'Ocp-Apim-Subscription-Key': apim_key,
-    }
-    
-    params = {
-        "includeTextDetails": True
-        "locale": "en-US"
-    }
-    
-    with open(source, "rb") as f:
-        data_bytes = f.read()
-    
-    try:
-        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
-        if resp.status_code != 202:
-            print("POST analyze failed:\n%s" % resp.text)
+        import json
+        import time
+        from requests import get, post
+        
+        # Endpoint URL
+        endpoint = r"<Endpoint>"
+        apim_key = "<subscription key>"
+        post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze"
+        source = r"<path to your invoice>"
+        
+        headers = {
+            # Request headers
+            'Content-Type': '<file type>',
+            'Ocp-Apim-Subscription-Key': apim_key,
+        }
+        
+        params = {
+            "includeTextDetails": True
+            "locale": "en-US"
+        }
+        
+        with open(source, "rb") as f:
+            data_bytes = f.read()
+        
+        try:
+            resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+            if resp.status_code != 202:
+                print("POST analyze failed:\n%s" % resp.text)
+                quit()
+            print("POST analyze succeeded:\n%s" % resp.headers)
+            get_url = resp.headers["operation-location"]
+        except Exception as e:
+            print("POST analyze failed:\n%s" % str(e))
             quit()
-        print("POST analyze succeeded:\n%s" % resp.headers)
-        get_url = resp.headers["operation-location"]
-    except Exception as e:
-        print("POST analyze failed:\n%s" % str(e))
-        quit()
-```
+    ```
 
 1. Save the code in a file with a .py extension. For example, *form-recognizer-invoice.py*.
 1. Open a command prompt window.
@@ -89,7 +89,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 ## Get the invoice results
 
-After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeInvoiceResult)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the operation ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the operation ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python
 n_tries = 10
