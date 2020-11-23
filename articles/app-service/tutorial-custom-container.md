@@ -228,7 +228,7 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 - This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-After installing Docker and the Azure CLI, open a terminal window and verify that docker is installed:
+After installing Docker or running Azure Cloud Shell, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version

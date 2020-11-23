@@ -380,9 +380,11 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 ## Deploy the app to Azure
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+Prepare your environment for the Azure CLI:
 
-In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+In this section, you will use the Azure command-line interface (CLI) to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
 The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI:
 

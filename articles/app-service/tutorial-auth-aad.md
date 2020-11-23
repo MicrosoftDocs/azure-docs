@@ -52,9 +52,7 @@ To complete this tutorial:
 
 - <a href="https://git-scm.com/" target="_blank">Install Git</a>
 - <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment.
-
-   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create local .NET Core app
 
