@@ -44,9 +44,9 @@
               href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Disable Azure Monitor for containers in ARO 4 (preview)
               href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
-    - name: Open Liberty/WebSphere Liberty on Azure Red Hat OpenShift 4 cluster
+    - name: Develop and run applications
       items:
-        - name: Deploy an Open Liberty/WebSphere Liberty app on an Azure Red Hat OpenShift 4 cluster
+        - name: Deploy an Open Liberty/WebSphere Liberty app
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
