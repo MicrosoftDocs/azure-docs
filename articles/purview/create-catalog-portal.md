@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Purview account'
+title: 'Quickstart: Create an Azure Purview account in the Azure portal'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: hophan
 ms.author: hophan
@@ -10,7 +10,7 @@ ms.date: 10/23/2020
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 
-# Quickstart: Create an Azure Purview account
+# Quickstart: Create an Azure Purview account in the Azure portal
 
 In this quickstart, you create an Azure Purview account.
 
@@ -34,7 +34,7 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
       :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Screenshot showing how to select a subscription in the Azure portal.":::
 
-   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search for the **Microsoft.ProjectBabylon** resource provider. If it isn't registered, register it by selecting **Register**.
+   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search for the **Microsoft.Purview** resource provider. If it isn't registered, register it by selecting **Register**.
 
       :::image type="content" source="./media/create-catalog-portal/register-babylon-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
 
