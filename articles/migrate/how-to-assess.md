@@ -10,7 +10,7 @@ ms.date: 11/23/2020
 
 This article describes how to add assessment tools in [Azure Migrate](./migrate-services-overview.md). 
 
-- If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](create-manage-projects.md).-
+- If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](create-manage-projects.md).
 - If you've added an ISV tool, or Movere, for assessment, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
 
 ## Select an assessment scenario
