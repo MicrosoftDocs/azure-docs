@@ -132,21 +132,15 @@ After you create a SQL contained user, grant permissions to it by using the [GRA
 
 ### Azure Machine Learning designer default datastore
 
-The designer uses the storage account attached to your workspace to store output by default. However, you can specify it to store output to any datastore that you have access to. If your environment uses virtual networks, you can use these controls to ensure your data remains secure and accessible.
+You can specify the output location for any module in the designer. Use this to store intermediate datasets in separate locations for security, logging, or auditing purposes. To specify output:
 
-To set a new default storage for a pipeline:
+1. Select the module whose output you'd like to specify.
+1. In the module settings pane that appears to the right, select **Output settings**.
+1. Specify the datastore you want to use for each module output.
+ 
+Make sure that you have access to the intermediate storage accounts in your virtual network. Otherwise, the pipeline will fail.
 
-1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
-1. Select the **Select default datastore**.
-1. Specify a new datastore.
-
-You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.
-
-1. Select the module whose output you want to specify.
-1. Expand the **Output settings** section.
-1. Select **Override default output settings**.
-1. Select **Set output settings**.
-1. Specify a new datastore.
+You should also [enable MSI authentication to visualize output data](#enable-studio-data-visualization-access-to-datastores) for intermediate storage accounts.
 
 ## Next steps
 
