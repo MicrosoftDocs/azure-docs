@@ -45,7 +45,7 @@ MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 E
 
 ## Can I run two versions of the same application at the same time?
 
-For two version of the same MSIX applications to run the MSIX package family taht is defined in the appxmanifest.xml must be different.
+For two version of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
 
 ## Should I disable auto-update when using MSIX app attach?
 
