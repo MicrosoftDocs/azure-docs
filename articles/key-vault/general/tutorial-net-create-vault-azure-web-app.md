@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
-This tutorial uses a managed identity to authenticate an Azure Web App with an Azure Key Vault. Although the steps use the [Azure Key Vault v4 client library for .NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) and the [Azure CLI](/cli/azure/get-started-with-azure-cli), the same basic principles apply when using the development language of your choice, Azure PowerShell, and/or the Azure portal.
+This tutorial uses a managed identity to authenticate an Azure Web App with an Azure Key Vault. Although the steps use the [Azure Key Vault v4 client library for .NET](/dotnet/api/overview/azure/key-vault) and the [Azure CLI](/cli/azure/get-started-with-azure-cli), the same basic principles apply when using the development language of your choice, Azure PowerShell, and/or the Azure portal.
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ git commit -m "first commit"
 
 FTP and local Git can deploy to an Azure web app by using a *deployment user*. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials. 
 
-To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command. Choose a username and password that adheres to these guidelines: 
+To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set) command. Choose a username and password that adheres to these guidelines: 
 
 - The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 
@@ -90,7 +90,7 @@ Record your username and password to use to deploy your web apps.
 
 ### Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to house both your key vault and your web app with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to house both your key vault and your web app with the [az group create](/cli/azure/group?#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -98,7 +98,7 @@ az group create --name "myResourceGroup" -l "EastUS"
 
 ### Create an app service plan
 
-Create an [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) with the Azure CLI [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) command. This following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
+Create an [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) with the Azure CLI [az appservice plan create](/cli/azure/appservice/plan) command. This following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -170,13 +170,13 @@ You will see the default webpage for a newly created Azure Web App.
 
 ### Deploy your local app
 
-Back in the local terminal window, add an Azure remote to your local Git repository, replacing *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a remote web app](#create-a-remote-web-app) step.
+Back in the local terminal window, add an Azure remote to your local Git repository, replacing *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app) step.
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, use the credentials you created in [Configure a deployment user](#configure-a-deployment-user) step.
+Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, use the credentials you created in [Configure local git deployment](#configure-local-git-deployment) step.
 
 ```bash
 git push azure master
@@ -226,7 +226,7 @@ In this section, you will configure web access to key vault and update applicati
 
 In this tutorial we will use applicaton [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate to key vault, which automatically manage application credentials.
 
-In the Azure CLI, to create the identity for this application, run the [az webapp-identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command:
+In the Azure CLI, to create the identity for this application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) command:
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -242,7 +242,7 @@ The operation will return this JSON snippet:
 }
 ```
 
-To give your web app permission to do **get** and **list** operations on your key vault, pass the principalID to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
+To give your web app permission to do **get** and **list** operations on your key vault, pass the principalID to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) command:
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -273,7 +273,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add these lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is using token from application managed identity to authenticate. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). It is also using exponential backoff for retries in case of key vault is being throttled. For more information about key vault transaction limits, read [Azure Key Vault throttling guidance](https://docs.microsoft.com/azure/key-vault/general/overview-throttling)
+Add these lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) for authentication to key vault, which is using token from application managed identity to authenticate. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). It is also using exponential backoff for retries in case of key vault is being throttled. For more information about key vault transaction limits, read [Azure Key Vault throttling guidance](https://docs.microsoft.com/azure/key-vault/general/overview-throttling)
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
