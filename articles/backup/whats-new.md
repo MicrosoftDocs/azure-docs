@@ -19,9 +19,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup Center](#backup-center)
   - [Backup Azure Database for PostgreSQL](#backup-azure-database-for-postgresql)
   - [Selective disk backup and restore](#selective-disk-backup-and-restore)
-  - [Cross Region Restore for SQL Server and SAP HANA databases on Azure VMs](#cross-region-restore-for-sql-server-and-sap-hana-databases)
+  - [Cross Region Restore for SQL Server and SAP HANA databases on Azure VMs](#cross-region-restore-for-sql-server-and-sap-hana)
   - [Support for backup of VMs with up to 32 disks](#support-for-backup-of-vms-with-up-to-32-disks)
-  - [Simplified backup configuration experience for SQL in Azure VMs](#simplified-backup-configuration-for-sql-in-azure-vms)
+  - [Simplified backup configuration experience for SQL in Azure VMs](#simpler-backup-configuration-for-sql-in-azure-vms)
   - [Backup SAP HANA in RHEL Azure Virtual Machines](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Zone redundant storage (ZRS) for backup data](#zone-redundant-storage-zrs-for-backup-data)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
@@ -52,7 +52,7 @@ Azure Backup supports backing up all the disks (operating system and data) in a 
 
 For more information, see [Selective disk backup and restore for Azure virtual machines](selective-disk-backup-restore.md).
 
-## Cross Region Restore for SQL Server and SAP HANA databases
+## Cross Region Restore for SQL Server and SAP HANA
 
 With the introduction of cross-region restore, you can now initiate restores in a secondary region at will to mitigate real downtime issues in a primary region for your environment. This makes the secondary region restores completely customer controlled. Azure Backup uses the backed-up data replicated to the secondary region for such restores.
 
@@ -66,7 +66,7 @@ Until now, Azure Backup has supported 16 managed disks per VM. Now, Azure Backup
 
 For more information, see the [VM storage support matrix](backup-support-matrix-iaas.md#vm-storage-support).
 
-## Simplified backup configuration for SQL in Azure VMs
+## Simpler backup configuration for SQL in Azure VMs
 
 Configuring backups for your SQL Server in Azure VMs is now even easier with inline backup configuration integrated into the VM pane of the Azure portal. In just a few steps, you can enable backup of your SQL Server to protect all the existing databases as well as the ones that get added in the future.
 
