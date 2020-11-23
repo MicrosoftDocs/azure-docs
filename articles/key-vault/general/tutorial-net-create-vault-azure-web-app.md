@@ -224,7 +224,7 @@ In this section, you will configure web access to key vault and update applicati
 
 ### Create and assign a managed identity
 
-In this tutorial we will use applicaton [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate to key vault, which automatically manage application credentials.
+In this tutorial we will use application [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate to key vault, which automatically manage application credentials.
 
 In the Azure CLI, to create the identity for this application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) command:
 
