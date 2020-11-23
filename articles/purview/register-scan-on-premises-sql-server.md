@@ -5,7 +5,7 @@ author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/18/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
