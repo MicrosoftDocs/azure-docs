@@ -17,6 +17,9 @@ ms.author: memildin
 ---
 # Manage and respond to security alerts in Azure Security Center
 
+> [!TIP]
+> The information on this page refers to the new (preview) alerts experience available from the banner at the top of the security alerts page.
+
 This topic shows you how to view and process Security Center's alerts and protect your resources.
 
 Advanced detections that trigger security alerts are only available with Azure Defender. A free trial is available. To upgrade, see [Enable Azure Defender](security-center-pricing.md#enable-azure-defender).
@@ -26,7 +29,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 To learn about the different types of alerts, see [Security alerts - a reference guide](alerts-reference.md).
 
-For an overview of how Security Center generates alerts, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md).
+For an overview of how Security Center generates alerts, see [how Azure Security Center detects and responds to threats](security-center-alerts-overview.md).
 
 
 ## Manage your security alerts
