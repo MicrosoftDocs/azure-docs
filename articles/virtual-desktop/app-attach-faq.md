@@ -43,7 +43,7 @@ MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi
 
 MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 and later. We currently don't provide management software for MSIX app attach outside of Windows Virtual Desktop.
 
-## Can I run two versions of the same application on the same machine and even for the same user?
+## Can I run two versions of the same application at the same time?
 
 For two version of the same MSIX applications to run the MSIX package family taht is defined in the appxmanifest.xml must be different.
 
