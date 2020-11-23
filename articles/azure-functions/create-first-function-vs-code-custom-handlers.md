@@ -29,11 +29,11 @@ Before you get started, make sure you have the following requirements in place:
 
 # [Go](#tab/go)
 
-+ [Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.
+[Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.
 
 # [Rust](#tab/rust)
 
-+ Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
+Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
 
 ---
 
