@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-seventeen
+zone_pivot_groups: programming-languages-set-twenty-five
 keywords: speaker recognition, voice biometry
 ---
 
@@ -35,6 +35,6 @@ keywords: speaker recognition, voice biometry
 
 ## Next steps
 
-* See the Speaker Recognition [reference documentation](https://docs.microsoft.com/rest/api/speakerrecognition/) for detail on classes and functions.
+* See the Speaker Recognition [reference documentation](/rest/api/speakerrecognition/) for detail on classes and functions.
 
 * See [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) and [C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) samples on GitHub.

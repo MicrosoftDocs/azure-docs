@@ -33,7 +33,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
-- [Azure SQL Database and Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
+- [Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)

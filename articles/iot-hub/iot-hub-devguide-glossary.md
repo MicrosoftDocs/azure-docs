@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, devx-track-azurecli]
 ---
 
 # Glossary of IoT Hub terms
@@ -211,7 +211,7 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 
 ## IoT Hub metrics
 
-[IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
+[IoT Hub metrics](monitor-iot-hub-reference.md#metrics) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ## IoT Hub query language
 

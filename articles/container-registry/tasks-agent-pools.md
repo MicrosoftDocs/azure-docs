@@ -3,7 +3,7 @@ title: Use dedicated pool to run task - Tasks
 description: Set up a dedicated compute pool (agent pool) in your registry to run an Azure Container Registry task.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Run an ACR task on a dedicated agent pool

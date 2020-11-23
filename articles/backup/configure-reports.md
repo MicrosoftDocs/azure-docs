@@ -25,6 +25,8 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 - Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
 - Data for log backup jobs currently isn't displayed in the reports.
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 ## Get started
 
 Follow these steps to start using the reports.

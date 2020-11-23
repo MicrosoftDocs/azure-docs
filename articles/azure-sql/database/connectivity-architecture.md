@@ -25,7 +25,7 @@ This article explains architecture of various components that direct network tra
 
 The following diagram provides a high-level overview of the connectivity architecture.
 
-![architecture overview](./media/connectivity-architecture/connectivity-overview.png)
+![Diagram that shows a high-level overview of the connectivity architecture.](./media/connectivity-architecture/connectivity-overview.png)
 
 The following steps describe how a connection is established to Azure SQL Database:
 
@@ -45,7 +45,7 @@ Servers in SQL Database and Azure Synapse support the following three options fo
 
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is`Redirect` for all client connections originating inside of Azure (for example, from an Azure Virtual Machine) and `Proxy`for all client connections originating outside (for example, connections from your local workstation).
 
-We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput. However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../../virtual-network/security-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
+We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput. However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../../virtual-network/network-security-groups-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
 
 ## Connectivity from within Azure
 
@@ -57,10 +57,10 @@ If you are connecting from within Azure your connections have a connection polic
 
 If you are connecting from outside Azure, your connections have a connection policy of `Proxy` by default. A policy of `Proxy` means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
-![architecture overview](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagram that shows how the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 ## Gateway IP addresses
 
@@ -118,6 +118,6 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 
 ## Next steps
 
-- For information on how to change the Azure SQL Database connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- For information on how to change the Azure SQL Database connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
 - For general application development overview information, see [SQL Database Application Development Overview](develop-overview.md).

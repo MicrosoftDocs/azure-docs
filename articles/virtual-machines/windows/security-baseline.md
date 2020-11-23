@@ -748,7 +748,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [An introduction to Azure Automation](../../automation/automation-intro.md)
 
-* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md)
+* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking/overview.md)
 
 * [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md)
 
@@ -969,7 +969,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [How to integrate with Azure-Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [How to create a Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../../key-vault/general/quick-create-portal.md)
 
 * [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
 

@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 03/24/2020
  ms.author: cynthn
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
  #PMcontact: akjosh
 ---
 

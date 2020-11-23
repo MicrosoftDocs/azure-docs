@@ -17,7 +17,8 @@ To back up a SQL Server database to Azure and to recover it from Azure:
 1. Recover the database from Azure.
 
 >[!NOTE]
->DPM 2019 UR2 supports SQL Server Failover Cluster Instances (FCI) using Cluster Shared Volumes (CSV).
+>DPM 2019 UR2 supports SQL Server Failover Cluster Instances (FCI) using Cluster Shared Volumes (CSV).<br><br>
+>Protection of [SQL Server failover cluster instance with Storage Spaces Direct on Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)  and [SQL Server failover cluster instance with Azure shared disks](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) is supported with this feature. The DPM server must be deployed in the Azure Virtual Machine to protect SQL FCI instance deployed on Azure VMs. 
 
 ## Prerequisites and limitations
 

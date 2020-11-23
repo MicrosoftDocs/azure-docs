@@ -10,7 +10,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 

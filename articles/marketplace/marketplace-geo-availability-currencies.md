@@ -191,7 +191,7 @@ For details on how to enter prices for specific offer types, refer to these arti
 
 - [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md)
 - [Create an Azure container offer](partner-center-portal/create-azure-container-offer.md)
-- [Create an Azure virtual machine offer](partner-center-portal/azure-vm-create-offer.md)
+- [Create an Azure virtual machine offer](azure-vm-create.md)
 - [Create a consulting service offer](partner-center-portal/create-consulting-service-offer.md)
 - [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
@@ -199,4 +199,4 @@ For details on how to enter prices for specific offer types, refer to these arti
 - [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
 - [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md)
 - [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
-- [Create a SaaS offer](partner-center-portal/create-new-saas-offer.md)
+- [Create a SaaS offer](./create-new-saas-offer.md)

@@ -3,7 +3,7 @@ title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell"
+ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -90,7 +90,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want to your functions to run on Java 11, which is in preview. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](functions-reference-java.md#java-versions).
+The `-DjavaVersion` parameter tells the Functions runtime which version of Java to use. Use `-DjavaVersion=11` if you want your functions to run on Java 11. When you don't specify `-DjavaVersion`, Maven defaults to Java 8. For more information, see [Java versions](functions-reference-java.md#java-versions).
+
+> [!IMPORTANT]
+> The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
 
 Maven asks you for values needed to finish generating the project on deployment.   
 Provide the following values when prompted:

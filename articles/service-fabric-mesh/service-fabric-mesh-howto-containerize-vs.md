@@ -48,6 +48,12 @@ The **Add Container Orchestrator Support** dialog appears.
 
 Choose **Service Fabric Mesh** from the drop-down, and then click **OK**.
 
+
+>[!NOTE]
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+>
+> To avoid being rate limited, make sure the default `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` in your Dockerfile is replaced with `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
+
 The tool then verifies that Docker is installed, adds a Dockerfile to your project, and pulls down a docker image for your project.  
 A Service Fabric Mesh application project is added to your solution. It contains your Mesh publish profiles and configuration files. The name of the project is the same as your project name, with 'Application' concatenated to the end, for example, **eShopLegacyWebFormsApplication**. 
 

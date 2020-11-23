@@ -6,11 +6,11 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: memildin
 
 ---
-# Continuously export security alerts and recommendations
+# Continuously export Security Center data
 
 Azure Security Center generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You may also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
@@ -23,7 +23,7 @@ Azure Security Center generates detailed security alerts and recommendations. Yo
 This article describes how to configure continuous export to Log Analytics workspaces or Azure Event Hubs.
 
 > [!NOTE]
-> If you need to integrate Security Center with a SIEM, review [Stream alerts to a SIEM](export-to-siem.md) for your options.
+> If you need to integrate Security Center with a SIEM, see [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 > [!TIP]
 > Security Center also offers the option to perform a one-time, manual export to CSV. Learn more in [Manual one-time export of alerts and recommendations](#manual-one-time-export-of-alerts-and-recommendations).
@@ -36,7 +36,7 @@ This article describes how to configure continuous export to Log Analytics works
 |Release state:|Generally available (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li></ul>|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub), Other Gov|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub)|
 |||
 
 
@@ -76,7 +76,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 ### Configure continuous export using the REST API
 
-Continuous export can be configured and managed via the Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
+Continuous export can be configured and managed via the Azure Security Center [automations API](/rest/api/securitycenter/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
 
 - Azure Event Hub
 - Log Analytics workspace
@@ -93,7 +93,7 @@ The API provides additional functionality not available from the Azure portal, f
     > [!TIP]
     > If you've set up multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
 
-Learn more about the automations API in the [REST API documentation](https://docs.microsoft.com/rest/api/securitycenter/automations).
+Learn more about the automations API in the [REST API documentation](/rest/api/securitycenter/automations).
 
 
 
@@ -159,7 +159,7 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ##  View exported alerts and recommendations in Azure Monitor
 
-In some cases, you may choose to view the exported Security Alerts and/or recommendations in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+In some cases, you may choose to view the exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
 
 Azure Monitor provides a unified alerting experience for a variety of Azure alerts including Diagnostic Log, Metric alerts, and custom alerts based on Log Analytics workspace queries.
 
@@ -169,13 +169,13 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
     ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
 
-1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)):
+1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
     * For **Resource**, select the Log Analytics workspace to which you exported security alerts and recommendations.
 
     * For **Condition**, select **Custom log search**. In the page that appears, configure the query, lookback period, and frequency period. In the search query, you can type *SecurityAlert* or *SecurityRecommendation* to query the data types that Security Center continuously exports to as you enable the Continuous export to Log Analytics feature. 
     
-    * Optionally, configure the [Action Group](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
+    * Optionally, configure the [Action Group](../azure-monitor/platform/action-groups.md) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
     ![Azure Monitor alert rule](./media/continuous-export/azure-monitor-alert-rule.png)
 
 You'll now see new Azure Security Center alerts or recommendations (depending on your configured continuous export rules and the condition you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
@@ -201,6 +201,29 @@ Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/p
 Learn more about [Azure Event Hub pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
+### Does the export include data about the current state of all resources?
+
+No. Continuous export is built for streaming of **events**:
+
+- **Alerts** received before you enabled export won't be exported.
+- **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
+
+
+### Why are recommendations sent at different intervals?
+
+Different recommendations have different compliance evaluation intervals, which can vary from a few minutes to every few days. Consequently, recommendations will differ in the amount of time it takes for them to appear in your exports.
+
+### Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?
+
+When preparing your environment for BCDR scenarios, where the target resource is experiencing an outage or other disaster, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
+
+Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
+
+
+### Is continuous export available with Azure Security Center free?
+
+Yes! Note that many Security Center alerts are only provided when you've enabled Azure Defender. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Security Center's pages in the Azure portal.
+
 
 
 ## Next steps
@@ -210,7 +233,7 @@ In this article, you learned how to configure continuous exports of your recomme
 For related material, see the following documentation: 
 
 - Learn more about [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
-- [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/)
-- [Azure Sentinel documentation](https://docs.microsoft.com/azure/sentinel/)
-- [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/)
+- [Azure Event Hubs documentation](../event-hubs/index.yml)
+- [Azure Sentinel documentation](../sentinel/index.yml)
+- [Azure Monitor documentation](../azure-monitor/index.yml)
 - [Export data types schemas](https://aka.ms/ASCAutomationSchemas)

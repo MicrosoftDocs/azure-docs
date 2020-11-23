@@ -12,7 +12,7 @@ ms.date: 02/11/2019
 ---
 # Tutorial 1: Predict credit risk - Azure Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -308,6 +308,6 @@ You are now ready to train and evaluate models for this data.
 > [Tutorial 2 - Train and evaluate models](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
-[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
-[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data

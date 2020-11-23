@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 10/21/2020
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -19,7 +19,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 
 > [!NOTE]
 > Always use the [what-if operation](template-deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
-
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -42,6 +41,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -171,6 +171,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.Singularity](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.SQL](#microsoftsql)
@@ -359,6 +360,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | privateClouds | Yes |
+> | privateClouds / addons | No |
 > | privateClouds / authorizations | No |
 > | privateClouds / clusters | No |
 > | privateClouds / globalReachConnections | No |
@@ -421,12 +423,21 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | clusters | Yes |
 
+## Microsoft.BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | bareMetalInstances | Yes |
+
 ## Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | batchAccounts | Yes |
+> | batchAccounts / certificates | No |
+> | batchAccounts / pools | No |
 
 ## Microsoft.Billing
 
@@ -968,7 +979,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | workspaces | Yes |
 > | workspaces / dbWorkspaces | No |
-> | workspaces / storageEncryption | No |
 > | workspaces / virtualNetworkPeerings | No |
 
 ## Microsoft.DataCatalog
@@ -1124,6 +1134,7 @@ Jump to a resource provider namespace:
 > | applicationgroups / desktops | No |
 > | applicationgroups / startmenuitems | No |
 > | hostpools | Yes |
+> | hostpools / msixpackages | No |
 > | hostpools / sessionhosts | No |
 > | hostpools / sessionhosts / usersessions | No |
 > | hostpools / usersessions | No |
@@ -1376,12 +1387,14 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | devices | Yes |
+> | networkFunctions | Yes |
+> | networkFunctionVendors | No |
 > | registeredSubscriptions | No |
 > | vendors | No |
-> | vendors / vendorskus | No |
-> | vendors / vendorskus / previewSubscriptions | No |
-> | virtualnetworkfunctions | Yes |
-> | virtualnetworkfunctionvendors | No |
+> | vendors / vendorSkus | No |
+> | vendors / vendorSkus / previewSubscriptions | No |
+> | virtualNetworkFunctions | Yes |
+> | virtualNetworkFunctionVendors | No |
 
 ## Microsoft.Hydra
 
@@ -1502,9 +1515,20 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | workspaces | Yes |
+> | workspaces / batchEndpoints | Yes |
+> | workspaces / batchEndpoints / deployments | Yes |
+> | workspaces / codes | No |
+> | workspaces / codes / versions | No |
 > | workspaces / computes | No |
+> | workspaces / datastores | No |
 > | workspaces / eventGridFilters | No |
+> | workspaces / jobs | No |
+> | workspaces / labelingJobs | No |
 > | workspaces / linkedServices | No |
+> | workspaces / models | No |
+> | workspaces / models / versions | No |
+> | workspaces / onlineEndpoints | Yes |
+> | workspaces / onlineEndpoints / deployments | Yes |
 
 ## Microsoft.Maintenance
 
@@ -2152,6 +2176,17 @@ Jump to a resource provider namespace:
 > | SignalR | Yes |
 > | SignalR / eventGridFilters | No |
 
+## Microsoft.Singularity
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | accounts | Yes |
+> | accounts / accountQuotaPolicies | No |
+> | accounts / groupPolicies | No |
+> | accounts / jobs | No |
+> | accounts / storageContainers | No |
+
 ## Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2284,6 +2319,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | clusters | Yes |
+> | clusters / privateEndpoints | No |
 > | streamingjobs | Yes |
 
 ## Microsoft.Subscription
@@ -2418,6 +2454,8 @@ Jump to a resource provider namespace:
 > | runtimes | No |
 > | serverFarms | Yes |
 > | serverFarms / eventGridFilters | No |
+> | serverFarms / firstPartyApps | No |
+> | serverFarms / firstPartyApps / keyVaultSettings | No |
 > | sites | Yes |
 > | sites/config  | No |
 > | sites / eventGridFilters | No |

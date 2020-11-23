@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -70,7 +70,7 @@ The `error` field has several possible values - review the protocol documentatio
 ## Lookup current error code information
 Error codes and messages are subject to change.  For the most current info, take a look at the [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
 
-Search on the numeric part of the returned error code.  For example, if you received the error code "AADSTS16000" then do a search in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) for "16000".  You can also link directly to a specific error by adding the error code number to the URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+For example, if you received the error code "AADSTS50058" then do a search in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) for "50058".  You can also link directly to a specific error by adding the error code number to the URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058).
 
 ## AADSTS error codes
 
@@ -247,7 +247,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS90051 | InvalidNationalCloudId - The national cloud identifier contains an invalid cloud identifier. |
 | AADSTS90055 | TenantThrottlingError - There are too many incoming requests. This exception is thrown for blocked tenants. |
 | AADSTS90056 | BadResourceRequest - To redeem the code for an access token, the app should send a POST request to the `/token` endpoint. Also, prior to this, you should provide an authorization code and send it in the POST request to the `/token` endpoint. Refer to this article for an overview of OAuth 2.0 authorization code flow: [../azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md). Direct the user to the `/authorize` endpoint, which will return an authorization_code. By posting a request to the `/token` endpoint, the user gets the access token. Log in the Azure portal, and check **App registrations > Endpoints** to confirm that the two endpoints were configured correctly. |
-| AADSTS90072 | PassThroughUserMfaError - The external account that the user signs in with doesn't exist on the tenant that they signed into; so the user can't satisfy the MFA requirements for the tenant. The account must be added as an external user in the tenant first. Sign out and sign in with a different Azure AD user account. |
+| AADSTS90072 | PassThroughUserMfaError - The external account that the user signs in with doesn't exist on the tenant that they signed into; so the user can't satisfy the MFA requirements for the tenant. This error also might occur if the users are synced, but there is a mismatch in the ImmutableID (sourceAnchor) attribute between Active Directory and Azure AD. The account must be added as an external user in the tenant first. Sign out and sign in with a different Azure AD user account. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - An error occurred when the service tried to process a WS-Federation message. The message is not valid. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - The selected authentication policy for the request isn't currently supported. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed - Guest accounts aren't allowed for this site. |
@@ -316,6 +316,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
+| AADSTS7000114| Application 'appIdentifier' is not allowed to make application on-behalf-of calls.|
 | AADSTS7500529 | The value ‘SAMLId-Guid’ is not a valid SAML ID - Azure AD uses this attribute to populate the InResponseTo attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, id6c1c178c166d486687be4aaf5e482730 is a valid ID. |
 
 ## Next steps

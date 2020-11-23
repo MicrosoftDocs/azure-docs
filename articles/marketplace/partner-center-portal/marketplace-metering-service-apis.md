@@ -62,7 +62,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 >[!NOTE]
 >`resourceId` has different meaning for SaaS app and for Managed app emitting custom meter. 
 
-For Azure Application Managed Apps plans, the `resourceId` is the `resourceUsageId` found under the `billingDetails` of the Managed App metadata object. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -186,7 +186,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 >[!NOTE]
 >`resourceId` has different meaning for SaaS app and for Managed app emitting custom meter. 
 
-For Azure Application Managed Apps plans, the `resourceId` is the `resourceUsageId` found under the `billingDetails` of the Managed App metadata object. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -268,7 +268,7 @@ You can also use private plan for an existing live offer to limit the access to 
 
 ## Get support
 
-Follow the instruction in [Support for the commercial marketplace program in Partner Center](./support.md) to understand publisher support options and open a support ticket with Microsoft.
+Follow the instruction in [Support for the commercial marketplace program in Partner Center](../support.md) to understand publisher support options and open a support ticket with Microsoft.
 
 ## Next steps
 

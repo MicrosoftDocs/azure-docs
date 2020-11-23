@@ -42,7 +42,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
 
-For more information on Azure Storage Explorer, navigate [here](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more information on Azure Storage Explorer, navigate [here](../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## Connecting to the Storage API 
 
@@ -70,7 +70,7 @@ These endpoint differences must be taken into account when you connect to storag
     var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
     ```
 
-    -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount) – enabling us to explicitly pass in the endpoint suffix of "core.usgovcloudapi.net". This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
+    -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount) – enabling us to explicitly pass in the endpoint suffix of "core.usgovcloudapi.net". This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
 
 3. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific record from our table storage we could do it like this:
 
@@ -221,7 +221,7 @@ These endpoint differences must be taken into account when you connect to storag
 
 ## Get help and provide feedback
 
-* Read more about [Azure Storage](https://docs.microsoft.com/azure/storage/). 
+* Read more about [Azure Storage](../storage/index.yml). 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)

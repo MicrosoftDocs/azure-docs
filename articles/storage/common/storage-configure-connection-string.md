@@ -31,7 +31,7 @@ Your application needs to access the connection string at runtime to authorize r
 
 * You can store your connection string in an environment variable.
 * An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
-* An application running in an Azure cloud service can store the connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
+* An application running in an Azure cloud service can store the connection string in the [Azure service configuration schema (.cscfg) file](/previous-versions/azure/reference/ee758710(v=azure.100)). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
 
 Storing your connection string in a configuration file makes it easy to update the connection string to switch between the [Azurite storage emulator](../common/storage-use-azurite.md) and an Azure storage account in the cloud. You only need to edit the connection string to point to your target environment.
 

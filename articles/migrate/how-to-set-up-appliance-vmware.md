@@ -54,7 +54,7 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command, to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
-3. For the latest appliance version, the generated hash should match these [settings](./tutorial-assess-vmware.md#verify-security).
+3. For the latest appliance version, the generated hash should match these [settings](./tutorial-discover-vmware.md#verify-security).
 
 
 
@@ -114,7 +114,7 @@ Set up the appliance for the first time.
    
    Sign-in with a PIN isn't supported.
 3. After you successfully logged in, go back to the web app. 
-4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-vmware.md#prepare-azure) on the Azure resources created during key generation, the appliance registration will be initiated.
+4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 
@@ -123,7 +123,7 @@ Set up the appliance for the first time.
 The appliance needs to connect to vCenter Server to discover the configuration and performance data of the VMs.
 
 1. In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for the vCenter Server account that the appliance will use to discover VMs on the vCenter Server instance.
-    - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - You should have set up an account with the required permissions in the [previous tutorial](./tutorial-discover-vmware.md#create-an-account-to-access-vcenter).
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
 1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server instance. You can leave the **Port** to default (443) or specify a custom port on which vCenter Server listens and click on **Save**.
 1. On clicking Save, appliance will try validating the connection to the vCenter Server with the credentials provided and show the **Validation status** in the table against the vCenter Server IP address/FQDN.
@@ -142,4 +142,4 @@ Discovery works as follows:
 
 ## Next steps
 
-Review the tutorials for [VMware assessment](tutorial-assess-vmware.md) and [agentless migration](tutorial-migrate-vmware.md).
+Review the tutorials for [VMware assessment](./tutorial-assess-vmware-azure-vm.md) and [agentless migration](tutorial-migrate-vmware.md).

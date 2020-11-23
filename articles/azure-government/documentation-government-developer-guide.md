@@ -32,7 +32,7 @@ It supplements the information that's available through the following sources:
 
 * [Azure Government](https://www.azure.com/gov "Azure Government") site 
 * [Microsoft Azure Trust Center](https://www.microsoft.com/trust-center/product-overview "Microsoft Azure Trust Center")
-* [Azure Documentation Center](https://docs.microsoft.com/azure/)
+* [Azure Documentation Center](../index.yml)
 * [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs")
 
 This content is intended for partners and developers who are deploying to Microsoft Azure Government.
@@ -60,9 +60,9 @@ Navigate through the links below to get started using Azure Government.
 The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 
 
 ## Compliance - Azure Blueprint
-The [Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/overview) program is designed to facilitate the secure and compliant use of Azure for government agencies and third-party providers building on behalf of government. 
+The [Azure Blueprint](../governance/blueprints/overview.md) program is designed to facilitate the secure and compliant use of Azure for government agencies and third-party providers building on behalf of government. 
 
-For more information on Azure Government Compliance, refer to the [compliance documentation](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
+For more information on Azure Government Compliance, refer to the [compliance documentation](./documentation-government-plan-compliance.md) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
 
 ## Endpoint mapping
 Service endpoints in Azure Government are different than in Azure.  For a mapping between Azure and Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).

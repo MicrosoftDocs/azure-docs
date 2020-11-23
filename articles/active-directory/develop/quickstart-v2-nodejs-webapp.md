@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 
 # Quickstart: Add sign in using OpenID Connect to a Node.js web app
 
-In this quickstart, you'll learn how to set up OpenID Connect authentication in a web application built using Node.js with Express. The sample is designed to run on any platform.
+In this quickstart, you download and run a code sample that demonstrates how to set up OpenID Connect authentication in a web application built using Node.js with Express. The sample is designed to run on any platform.
 
 ## Prerequisites
 

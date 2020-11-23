@@ -24,7 +24,7 @@ Microsoft Azure SQL Database and Azure SQL Managed Instance partially support th
 - Execution-related dynamic management views.
 - Transaction-related dynamic management views.
 
-For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 ## Permissions
 
@@ -88,7 +88,7 @@ GO
 
 ### The CPU issue occurred in the past
 
-If the issue occurred in the past and you want to do root cause analysis, use [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Users with database access can use T-SQL to query Query Store data. Query Store default configurations use a granularity of 1 hour. Use the following query to look at activity for high CPU consuming queries. This query returns the top 15 CPU consuming queries. Remember to change `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+If the issue occurred in the past and you want to do root cause analysis, use [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Users with database access can use T-SQL to query Query Store data. Query Store default configurations use a granularity of 1 hour. Use the following query to look at activity for high CPU consuming queries. This query returns the top 15 CPU consuming queries. Remember to change `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -125,7 +125,7 @@ When identifying IO performance issues, the top wait types associated with IO is
 
 ### If the IO issue is occurring right now
 
-Use the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to see the `wait_type` and `wait_time`.
+Use the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) or [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) to see the `wait_type` and `wait_time`.
 
 #### Identify data and log IO usage
 
@@ -246,7 +246,7 @@ GO
 
 ## Identify `tempdb` performance issues
 
-When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database ID, `x` is the file ID, and `y` is the page ID.  
+When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database ID, `x` is the file ID, and `y` is the page ID.  
 
 For tempdb contention, a common method is to reduce or re-write application code that relies on `tempdb`.  Common `tempdb` usage areas include:
 
@@ -515,17 +515,17 @@ WHERE c.session_id = @@SPID;
 
 ## Monitor resource use
 
-You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](query-performance-insight-use.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](query-performance-insight-use.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 You can also monitor usage using these views:
 
 - Azure SQL Database: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - Azure SQL Managed Instance: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- Both Azure SQL Database and Azure SQL Managed Instance: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Both Azure SQL Database and Azure SQL Managed Instance: [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 
 ### sys.dm_db_resource_stats
 
-You can use the [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view in every database. The **sys.dm_db_resource_stats** view shows recent resource use data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for 1 hour.
+You can use the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database. The **sys.dm_db_resource_stats** view shows recent resource use data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for 1 hour.
 
 Because this view provides a more granular look at resource use, use **sys.dm_db_resource_stats** first for any current-state analysis or troubleshooting. For example, this query shows the average and maximum resource use for the current database over the past hour:
 
@@ -542,7 +542,7 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+For other queries, see the examples in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
 ### sys.server_resource_stats
 
@@ -562,7 +562,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### sys.resource_stats
 
-The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database has additional information that can help you monitor the performance of your database at its specific service tier and compute size. The data is collected every 5 minutes and is maintained for approximately 14 days. This view is useful for a longer-term historical analysis of how your database uses resources.
+The [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view in the **master** database has additional information that can help you monitor the performance of your database at its specific service tier and compute size. The data is collected every 5 minutes and is maintained for approximately 14 days. This view is useful for a longer-term historical analysis of how your database uses resources.
 
 The following graph shows the CPU resource use for a Premium database with the P2 compute size for each hour in a week. This graph starts on a Monday, shows 5 work days, and then shows a weekend, when much less happens on the application.
 
@@ -737,11 +737,11 @@ ORDER BY 2 DESC;
 
 ### Monitoring blocked queries
 
-Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ### Monitoring query plans
 
-An inefficient query plan also may increase CPU consumption. The following example uses the [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) view to determine which query uses the most cumulative CPU.
+An inefficient query plan also may increase CPU consumption. The following example uses the [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) view to determine which query uses the most cumulative CPU.
 
 ```sql
 SELECT

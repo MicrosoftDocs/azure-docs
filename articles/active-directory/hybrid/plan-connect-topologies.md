@@ -136,7 +136,7 @@ It's possible to have more than one staging server when you want to have multipl
 
 ## Multiple Azure AD tenants
 We recommend having a single tenant in Azure AD for an organization.
-Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../users-groups-roles/directory-administrative-units.md). It covers common scenarios where you can use a single tenant.
+Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
 
 ![Topology for multiple forests and multiple tenants](./media/plan-connect-topologies/multiforestmultidirectory.png)
 

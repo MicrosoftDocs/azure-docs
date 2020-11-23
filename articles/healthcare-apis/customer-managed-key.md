@@ -16,10 +16,10 @@ When you create a new Azure API for FHIR account, your data is encrypted using M
 
 In Azure, this is typically accomplished using an encryption key in the customer's Azure Key Vault (AKV). Azure SQL, Azure Storage, and Cosmos DB are some examples that provide this capability today. Azure API for FHIR leverages this support from Cosmos DB. When you create an account, you will have the option to specify an AKV key URI. We will pass this key to Cosmos DB when the DB account is provisioned. When a FHIR request is made, Cosmos DB fetches your key and uses it to encrypt/decrypt the data. To get started, you can refer to the following links:
 
-- [Register the Azure Cosmos DB resource provider for your Azure subscription](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#register-resource-provider) 
-- [Configure your AKV instance](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#configure-your-azure-key-vault-instance)
--  [Add an access policy to your AKV instance](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-- [Generate a key in AKV](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#generate-a-key-in-azure-key-vault)
+- [Register the Azure Cosmos DB resource provider for your Azure subscription](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
+- [Configure your AKV instance](../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
+-  [Add an access policy to your AKV instance](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
+- [Generate a key in AKV](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
 After creating your Azure API for FHIR account on Azure portal, you can see a "Data Encryption" configuration option under the "Database Settings" on the "Additional Settings" tab. By default, the service-managed key option will be chosen. You can specify your AKV key here by selecting "Customer-managed key" option. You can enter the copied key URI here.
 

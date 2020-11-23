@@ -81,7 +81,7 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-Using the [`join` operator](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer), instead of union, may require a [hint](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) to run it on an Azure Data Explorer native cluster (and not on the proxy). 
+Using the [`join` operator](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor), instead of union, may require a [hint](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) to run it on an Azure Data Explorer native cluster (and not on the proxy). 
 
 ### Join data from an Azure Data Explorer cluster in one tenant with an Azure Monitor resource in another
 

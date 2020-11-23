@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js]
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
 

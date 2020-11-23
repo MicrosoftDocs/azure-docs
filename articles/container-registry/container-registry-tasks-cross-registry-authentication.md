@@ -34,16 +34,12 @@ If you don't already have the needed Azure container registries, see [Quickstart
 
 ## Prepare base registry
 
-First, create a working directory and then create a file named Dockerfile with the following content. This simple example builds a Node.js base image from a public image in Docker Hub.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+For demonstration purposes, as a one-time operation, run [az acr import][az-acr-import] to import a public Node.js image from Docker Hub to your base registry. In practice, another team or process in the organization might maintain images in the base registry.
 
-In the current directory, run the [az acr build][az-acr-build] command to build and push the base image to the base registry. In practice, another team or process in the organization might maintain the base registry.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## Define task steps in YAML file

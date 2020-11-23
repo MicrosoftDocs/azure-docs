@@ -199,7 +199,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Screenshot that shows the option for enabling new requests and assignments.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Click **Next**.
 

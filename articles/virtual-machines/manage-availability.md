@@ -30,7 +30,7 @@ There are three scenarios that can lead to virtual machine in Azure being impact
 
 To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
 
-* Use Availabiilty Zones to protect from datacenter failures
+* Use Availability Zones to protect from datacenter failures
 * Configure multiple virtual machines in an availability set for redundancy
 * Use managed disks for VMs in an availability set
 * Use scheduled events to proactively respond to VM impacting events

@@ -47,7 +47,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - **IoT Edge Module Name**: `azureblobstorageoniotedge`
    - **Image URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
-   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab1.png)
+   ![Screenshot shows the Module Settings tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab1.png)
 
    Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and  **Module Twin Settings** tabs as described in this procedure.
 
@@ -56,7 +56,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 3. Open the **Container Create Options** tab.
 
-   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab3.png)
+   ![Screenshot shows the Container Create Options tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab3.png)
 
    Copy and paste the following JSON into the box, to provide storage account information and a mount for the storage on your device.
   
@@ -98,7 +98,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 5. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
 
-   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab4.png)
+   ![Screenshot shows the Module Twin Settings tab of the Add I o T Edge Module page.](./media/how-to-deploy-blob/addmodule-tab4.png)
 
    Configure each property with an appropriate value, as indicated by the placeholders. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
@@ -280,7 +280,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Add `HTTPS_PROXY` for the **Name** and your proxy URL for the **Value**.
 
-      ![Set HTTPS_PROXY environment variable](./media/how-to-deploy-blob/https-proxy-config.png)
+      ![Screenshot shows the Update I o T Edge Module pane where you can enter the specified values.](./media/how-to-deploy-blob/https-proxy-config.png)
 
 1. Click **Update**, then **Review + Create**.
 
@@ -288,7 +288,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Verify the setting by selecting the module from the device details page, and on the lower part of the **IoT Edge Modules Details** page select the **Environment Variables** tab.
 
-      ![Set HTTPS_PROXY environment variable](./media/how-to-deploy-blob/verify-proxy-config.png)
+      ![Screenshot shows Environment Variables tab.](./media/how-to-deploy-blob/verify-proxy-config.png)
 
 ## Next steps
 

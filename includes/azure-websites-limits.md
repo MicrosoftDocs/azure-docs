@@ -26,6 +26,7 @@ ms.author: jroth
 | Hybrid connections | | | 5 per plan | 25 per plan | 200 per app | 200 per app |
 | [Virtual Network Integration](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Integrated load balancer | |X |X |X |X |X<sup>10</sup> |
+| [Access restrictions](../articles/app-service/networking-features.md#access-restrictions) | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Scheduled backups](../articles/app-service/manage-backup.md) | | | | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |

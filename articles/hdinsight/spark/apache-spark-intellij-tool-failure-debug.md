@@ -13,7 +13,7 @@ ms.date: 07/12/2019
 
 # Failure spark job debugging with Azure Toolkit for IntelliJ (preview)
 
-This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) to run **Spark Failure Debug** applications.
+This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij) to run **Spark Failure Debug** applications.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
   
 * IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* Azure Toolkit for IntelliJ. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
+* Azure Toolkit for IntelliJ. See [Installing the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation).
 
 * Connect to your HDInsight cluster. See [Connect to your HDInsight cluster](apache-spark-intellij-tool-plugin.md).
 
@@ -123,19 +123,19 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 * [Apache Spark with BI: Do interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to analyze building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Apache Spark in HDInsight](./apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
 
-* [Create a standalone application using Scala](../hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](./apache-spark-create-standalone-application.md)
 * [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 
 * [Use Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight cluster](apache-spark-intellij-tool-plugin.md)
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](./apache-spark-eclipse-tool-plugin.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in the Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)

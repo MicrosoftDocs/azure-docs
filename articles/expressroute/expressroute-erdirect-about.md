@@ -71,7 +71,7 @@ ExpressRoute Direct supports massive data ingestion scenarios into Azure storage
     * Must add the outer VLAN tag (STAG) based on the VLAN ID specified by Microsoft - *applicable only on QinQ*
     * Must support multiple BGP sessions (VLANs) per port and device
     * IPv4 and IPv6 connectivity. *For IPv6 no additional sub-interface will be created. IPv6 address will be added to existing sub-interface*. 
-    * Optional: [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) support, which is configured by default on all Private Peerings on ExpressRoute circuits
+    * Optional: [Bidirectional Forwarding Detection (BFD)](./expressroute-bfd.md) support, which is configured by default on all Private Peerings on ExpressRoute circuits
 
 ## VLAN Tagging
 

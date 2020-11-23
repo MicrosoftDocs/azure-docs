@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
 ---
 
@@ -67,18 +67,28 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your blank logic app in the Logic App Designer.
 
-1. In the search box, enter "azure service bus" as your filter. From the triggers list, select the trigger that you want.
+1. In the portal search box, enter `azure service bus`. From the triggers list that appears, select the trigger that you want.
 
    For example, to trigger your logic app when a new item gets sent to a Service Bus queue, select the **When a message is received in a queue (auto-complete)** trigger.
 
    ![Select Service Bus trigger](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   All Service Bus triggers are *long-polling* triggers. This description means that when the trigger fires, the trigger processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
+   Here are some considerations for when you use a Service Bus trigger:
 
-   Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
+   * All Service Bus triggers are *long-polling* triggers. This description means that when the trigger fires, the trigger processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
-    > [!NOTE]
-    > The auto-complete trigger automatically completes a message, but completion happens only at the next call to Service Bus. This behavior can affect your logic app's design. For example, avoid changing the concurrency on the auto-complete trigger because this change might result in duplicate messages if your logic app enters a throttled state. Changing the concurrency control creates these conditions: throttled triggers are skipped with the `WorkflowRunInProgress` code, the completion operation won't happen, and next trigger run occurs after the polling interval. You have to set the service bus lock duration to a value that's longer than the polling interval. However, despite this setting, the message still might not complete if your logic app remains in a throttled state at next polling interval.
+   * Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
+
+     > [!NOTE]
+     > The auto-complete trigger automatically completes a message, but completion happens only at the next call to Service Bus. 
+     > This behavior can affect your logic app's design. For example, avoid changing the concurrency on the auto-complete trigger 
+     > because this change might result in duplicate messages if your logic app enters a throttled state. Changing the concurrency 
+     > control creates these conditions: throttled triggers are skipped with the `WorkflowRunInProgress` code, the completion operation 
+     > won't happen, and next trigger run occurs after the polling interval. You have to set the service bus lock duration to a value 
+     > that's longer than the polling interval. However, despite this setting, the message still might not complete if your logic app 
+     > remains in a throttled state at next polling interval.
+
+   * If you [turn on the concurrency setting](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) for a Service Bus trigger, the default value for the `maximumWaitingRuns`​ property is 10​. Based on the Service Bus entity's lock duration setting and the run duration for your logic app instance, this default value might be too large and might cause a "lock lost" exception. To find the optimal value for your scenario, start testing with a value of 1​ or 2​ for the `maximumWaitingRuns`​ property. To change the maximum waiting runs value, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
@@ -112,13 +122,13 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
 1. Under the step where you want to add an action, select **New step**.
 
    Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter "azure service bus" as your filter. From the actions list, select the action that you want. 
+1. Under **Choose an action**, in the search box, enter `azure service bus`. From the actions list that appears, select the action that you want. 
 
    For this example, select the **Send message** action.
 

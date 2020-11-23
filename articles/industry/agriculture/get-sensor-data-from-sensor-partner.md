@@ -174,7 +174,7 @@ Follow these steps:
 1. On the home page, select **Sensors** from the menu to view the **Sensors** page.
 2. Select the device you want to delete, and select **Delete** in the confirmation window.
 
-    ![Delete button](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Screenshot that highlights the Sensors Delete page and the Delete button.](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 A confirmation message shows that the sensor is successfully deleted.
 

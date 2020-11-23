@@ -8,13 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 10/23/2020
 ms.author: pafarley
 ---
 
 # What's new in Custom Vision
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
+
+
+## October 2020 
+
+### Custom base model
+
+- Some applications have a large amount of joint training data but need to fine-tune their models separately; this results in better performance for images from different sources with minor differences. In this case, you can train the first model as usual with a large volume of training data. Then call **TrainProject** in the 3.4 public preview API with _CustomBaseModelInfo_ in the request body to use the first stage trained model as the base model for downstream projects. If the source project and the downstream target project have similar images characteristics, you can expect better performance. 
+
+### New domain information
+
+- The domain information returned from **GetDomains** in the Custom Vision 3.4 public preview API now includes supported exportable platforms, a brief description of model architecture, and the size of the model for compact domains.
+
+### Training divergence feedback
+
+- The Custom Vision Custom Vision 3.4 public preview API now returns **TrainingErrorDetails** from the **GetIteration** call. On failed iterations, this reveals whether the failure was caused by training divergence, which can be remedied with more and higher-quality training data.
 
 ## July 2020
 

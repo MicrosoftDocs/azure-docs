@@ -3,7 +3,7 @@ title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
 description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a Azure Synapse Analytics. It uses an Azure Function to retrieve a Capture file.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Tutorial: Stream big data into a data warehouse
@@ -160,7 +160,7 @@ Close the cloud shell by selecting the **Cloud Shell** button in the portal (or)
 ### Create a table in Azure Synapse Analytics
 Create a table in your data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script. To run the script, you can use Visual Studio or the Query Editor in the portal. The following steps show you how to use the Query Editor: 
 
-1. In the list of resources in the resource group, select your **Synapse SQL pool (data warehouse)**. 
+1. In the list of resources in the resource group, select your **dedicated SQL pool**. 
 2. In the Azure Synapse Analytics page, select **Query editor (preview)** in the left menu. 
 
     ![Azure Synapse Analytics page](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)

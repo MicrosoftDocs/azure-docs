@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Costpoint with Azure Active Dire
 * Enable your users to be automatically signed-in to Costpoint with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -169,12 +169,12 @@ After the user is created, the user's **Authentication Method** selection must b
 
 ### Test SSO
 
-When you select the Costpoint tile in the Access Panel, you should be automatically signed in to the Costpoint application because you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Costpoint tile in the Access Panel, you should be automatically signed in to the Costpoint application because you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of tutorials to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of tutorials to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

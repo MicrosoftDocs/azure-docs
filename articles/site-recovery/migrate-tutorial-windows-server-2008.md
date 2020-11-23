@@ -57,7 +57,7 @@ To migrate Hyper-V virtual machines running Windows Server 2008 or Windows Serve
 
 The rest of this tutorial shows you how you can migrate on-premises VMware virtual machines and Physical servers running Windows Server 2008 or 2008 R2.
 > [!TIP]
-> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
+> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](../migrate/tutorial-migrate-vmware.md)
 
 
 ### Limitations and known issues

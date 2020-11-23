@@ -2,7 +2,7 @@
 title: Choose VM sizes for pools
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
 
 ---
@@ -27,17 +27,19 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | Basic A | All sizes *except* Basic_A0 (A0) |
 | A | All sizes *except* Standard_A0 |
 | Av2 | All sizes |
-| B | None |
-| DC | None |
+| B | Not supported |
+| DC | Not supported |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
 | Dav4<sup>1</sup> | All sizes |
 | Dasv4<sup>1</sup> | All sizes |
 | Ddv4, Ddsv4 |  All sizes |
+| Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
 | Eav4<sup>1</sup> | All sizes |
 | Easv4<sup>1</sup> | All sizes |
 | Edv4, Edsv4 |  All sizes |
+| Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
 | G, Gs | All sizes |
@@ -52,12 +54,13 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | NC | All sizes |
 | NCv2<sup>1</sup> | All sizes |
 | NCv3<sup>1</sup> | All sizes |
+| NCasT4_v3 | None - not yet available |
 | ND<sup>1</sup> | All sizes |
 | NDv2<sup>1</sup> | None - not yet available |
 | NV | All sizes |
 | NVv3<sup>1</sup> | All sizes |
-| NVv4 | None - not yet available |
-| SAP HANA | None |
+| NVv4<sup>1</sup> | All sizes |
+| SAP HANA | Not supported |
 
 <sup>1</sup> These VM series can be allocated in Batch pools in Virtual Machine configuration, but you must create a new Batch account and request a specific [quota increase](batch-quota-limit.md#increase-a-quota). This limitation will be removed once vCPU quota per VM series is fully supported for Batch accounts.
 

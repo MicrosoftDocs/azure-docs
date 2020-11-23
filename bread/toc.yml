@@ -49,8 +49,8 @@
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
       - name: Users, groups, and roles
-        tocHref: /azure/active-directory/users-groups-roles/
-        topicHref: /azure/active-directory/users-groups-roles/
+        tocHref: /azure/active-directory/roles/groups-concept
+        topicHref: /azure/active-directory/roles/groups-concept
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
@@ -686,6 +686,9 @@
       - name: Firewall Manager
         tocHref: /azure/firewall-manager/
         topicHref: /azure/firewall-manager/
+      - name: DDoS Protection Standard
+        tocHref: /azure/ddos-protection/
+        topicHref: /azure/ddos-protection/
       - name: Front Door Service
         tocHref: /azure/frontdoor/
         topicHref: /azure/frontdoor/

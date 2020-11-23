@@ -97,7 +97,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -195,7 +195,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-oct-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

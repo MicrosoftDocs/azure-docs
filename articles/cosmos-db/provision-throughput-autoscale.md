@@ -6,15 +6,15 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
+ms.custom: "seo-nov-2020"
 ---
 
 # Create Azure Cosmos containers and databases with autoscale throughput
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB allows you to set either standard (manual) or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
+In Azure Cosmos DB, you can configure either standard (manual) or autoscale provisioned throughput on your databases and containers. Autoscale provisioned throughput in Azure Cosmos DB allows you to **scale the throughput (RU/s) of your database or container automatically and instantly**. The throughput is scaled based on the usage, without impacting the availability, latency, throughput, or performance of the workload.
 
-Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. 
-
-With autoscale, Azure Cosmos DB **automatically and instantly scales the throughput (RU/s)** of your database or container based on usage, without impacting the availability, latency, throughput, or performance of the workload. 
+Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. This article describes the benefits and use cases of autoscale provisioned throughput.
 
 ## Benefits of autoscale
 
@@ -80,6 +80,6 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 * Review the [autoscale FAQ](autoscale-faq.md).
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
-* Learn more about [partitioning](partition-data.md) in Azure Cosmos DB.
+* Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
 
 

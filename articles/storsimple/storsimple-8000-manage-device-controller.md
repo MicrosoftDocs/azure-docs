@@ -113,7 +113,7 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
    
     `Reset-HcsFactoryDefault`
    
-    To instead reset a single controller, use the  [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet with the `-scope` parameter.)
+    To instead reset a single controller, use the  [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet with the `-scope` parameter.)
    
     The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
    
@@ -157,4 +157,3 @@ In this section, we have summarized some of the frequently asked questions regar
 ## Next steps
 * If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * To learn more about using the  StorSimple Device Manager service, go to [Use the  StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-

@@ -10,6 +10,7 @@ ms.date: 09/09/2020
 ---
 
 # Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Synapse Link for Azure Cosmos DB creates a tight integration between Azure Cosmos DB and Azure Synapse Analytics. It enables customers to run near real-time analytics over their operational data with full performance isolation from their transactional workloads and without an ETL pipeline. This article answers commonly asked questions about Synapse Link for Azure Cosmos DB.
 
@@ -33,7 +34,7 @@ In the preview release, when Azure Synapse Link is enabled for a multi-region ac
 
 For the containers with analytical store turned on, automatic backup and restore of your data in the analytical store is not supported at this time. 
 
-When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically [take backups](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) of your data in the transactional store (only) of containers at scheduled backup interval, as always. It is important to note that when a container with analytical store turned on is restored to a new account, the container will be restored with only transactional store and no analytical store enabled. 
+When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically [take backups](./online-backup-and-restore.md) of your data in the transactional store (only) of containers at scheduled backup interval, as always. It is important to note that when a container with analytical store turned on is restored to a new account, the container will be restored with only transactional store and no analytical store enabled. 
 
 ### Can I disable the Azure Synapse Link feature for my Azure Cosmos DB account?
 

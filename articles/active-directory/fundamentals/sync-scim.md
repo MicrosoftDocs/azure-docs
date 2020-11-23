@@ -1,6 +1,6 @@
 ---
 title: SCIM synchronization with Azure Active Directory
-description: Architectural guidance on achieving this synchronization pattern
+description: Architectural guidance on achieving SCIM synchronization with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -47,5 +47,5 @@ You want to automatically provision user information from an HCM system to Azure
 
 * [Build a SCIM endpoint and configure user provisioning with Azure AD  ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
 
-* [SCIM 2.0 protocol compliance of the Azure AD Provisioning Service](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groupsapplication-provisioning-config-problem-scim-compatibility)
+* [SCIM 2.0 protocol compliance of the Azure AD Provisioning Service](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
 

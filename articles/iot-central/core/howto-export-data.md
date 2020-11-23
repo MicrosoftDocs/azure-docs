@@ -4,7 +4,7 @@ description: How to use the new data export to export your IoT data to Azure and
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
@@ -130,6 +130,7 @@ Now that you have a destination to export your data to, set up data export in yo
     |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
     | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property change message format](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
 
     To filter telemetry, you can:
@@ -140,6 +141,7 @@ Now that you have a destination to export your data to, set up data export in yo
 
     To filter property changes, use a **Capability filter**. Choose a property item in the dropdown. The exported stream only contains changes to the selected property that meets the filter condition.
 
+<a name="DataExportEnrichmnents"></a>
 1. Optionally, enrich exported messages with additional key-value pair metadata. The following enrichments are available for the telemetry and property changes data export types:
 
     - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
@@ -151,7 +153,9 @@ Now that you have a destination to export your data to, set up data export in yo
     - **Destination type**: choose the type of destination. If you haven't already set up your destination, see [Set up export destination](#set-up-export-destination).
     - For Azure Event Hubs, Azure Service Bus queue or topic, paste the connection string for your resource, and enter the case-sensitive event hub, queue, or topic name if necessary.
     - For Azure Blob Storage, paste the connection string for your resource and enter the case-sensitive container name if necessary.
-    - For Webhook, paste the callback URL for your webhook endpoint.
+    - For Webhook, paste the callback URL for your webhook endpoint. You can optionally configure webhook authorization (OAuth 2.0 and Authorization token) and add custom headers. 
+        - For OAuth 2.0, only the client credentials flow is supported. When the destination is saved, IoT Central will communicate with your OAuth provider to retrieve an authorization token. This token will be attached to the "Authorization" header for every message sent to this destination.
+        - For Authorization token, you can specify a token value that will be directly attached to the "Authorization" header for every message sent to this destination.
     - Select **Create**.
 
 1. Select **+ Destination** and choose a destination from the dropdown. You can add up to five destinations to a single export.

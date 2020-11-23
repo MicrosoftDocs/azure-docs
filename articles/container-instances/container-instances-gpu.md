@@ -128,7 +128,7 @@ Another way to deploy a container group with GPU resources is by using a [Resour
     },
     "variables": {
       "containername": "gpucontainer",
-      "containerimage": "microsoft/samples-tf-mnist-demo:gpu"
+      "containerimage": "mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu"
     },
     "resources": [
       {

@@ -56,7 +56,7 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 - [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../fundamentals/antimalware.md)
 
-- [Supported endpoint protection solutions](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Supported endpoint protection solutions](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
 **Responsibility**: Customer
 

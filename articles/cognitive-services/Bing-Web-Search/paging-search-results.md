@@ -15,6 +15,11 @@ ms.author: aahi
 
 # How to page through results from the Bing Search APIs
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 When you send a call to the Bing Web, Custom, Image, News or Video Search APIs, Bing returns a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's `totalEstimatedMatches` field. 
 
 For example: 
@@ -63,15 +68,15 @@ Host: api.cognitive.microsoft.com
 When using the Bing Image and Video APIs, you can use the `nextOffset` value to avoid duplicate search results. Get the value from the `Images` or `Videos` response objects, and use it in your requests with the `offset` parameter.  
 
 > [!NOTE]
-> The Bing Web Search API returns search results that can include webpages, images, videos, and news. When you page through search results from the Bing Web Search API, you are paging only [WebPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage), and not other answer types such as images or news. Search results in `WebPage` objects may include results that appear in other answer types as well.
+> The Bing Web Search API returns search results that can include webpages, images, videos, and news. When you page through search results from the Bing Web Search API, you are paging only [WebPages](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage), and not other answer types such as images or news. Search results in `WebPage` objects may include results that appear in other answer types as well.
 >
 > If you use the `responseFilter` query parameter without specifying any filter values, don't use the `count` and `offset` parameters. 
 
 ## Next steps
 
 * [What are the Bing Web Search APIs?](bing-api-comparison.md)
-* [Bing Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [Bing Custom Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [Bing News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [Bing Video Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [Bing Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Bing Web Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing Custom Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Bing News Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Bing Video Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Bing Image Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

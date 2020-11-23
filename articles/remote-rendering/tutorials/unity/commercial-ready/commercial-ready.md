@@ -30,8 +30,8 @@ This module introduces you to some additional capabilities you may need to consi
 
 For a broad overview of systems-wide architecture best practices, visit:
 
-* [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
-* [Get Started Guide for Azure Developers](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+* [Azure Architecture Center](/azure/architecture/)
+* [Get Started Guide for Azure Developers](../../../../guides/developer/azure-developer-guide.md)
 
 ## Analytics
 
@@ -49,7 +49,7 @@ To achieve this, Azure offers a service called resource tagging, which associate
 
 For more information on resource naming and tagging, a good place to start is:
 
-* [Resource Naming and Tagging Decision Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [Resource Naming and Tagging Decision Guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 ### Diagnostics
 
@@ -57,9 +57,9 @@ Powerful tools such as Event Tracing for Windows (ETW) and Event Trace Logging (
 
 For more information, visit:
 
-* [Create Client-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
-* [How to Collect Event Tracing for Windows (ETW) data](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
-* [Using the Windows Device Portal: Logging](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
+* [Create Client-side Performance Traces](../../../how-tos/performance-tracing.md)
+* [How to Collect Event Tracing for Windows (ETW) data](/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
+* [Using the Windows Device Portal: Logging](/windows/mixed-reality/using-the-windows-device-portal)
 
 ### Usage analysis
 
@@ -67,7 +67,7 @@ Azure Application Insights helps you understand how people use your Azure Remote
 
 For more information, visit:
 
-* [Usage Analysis with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
+* [Usage Analysis with Application Insights](../../../../azure-monitor/app/usage-overview.md)
 
 ## Fast startup time strategies
 
@@ -97,7 +97,7 @@ This strategy also helps with optimizing the choice between *Standard* and *Prem
 
 For more on Azure Remote Rendering sessions, check out:
 
-* [Remote Rendering Sessions](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
+* [Remote Rendering Sessions](../../../concepts/sessions.md)
 
 ## Standard vs. Premium server size routing strategies
 
@@ -159,9 +159,9 @@ Other examples include streamed video, simultaneous background uploads of other 
 For more information on network analytics, view:
 
 * [Azure Storage Blob Download Speed Test](https://www.azurespeed.com/Azure/Download)
-* [Azure Network Round Trip Latency Statistics](https://docs.microsoft.com/azure/networking/azure-network-latency)
-* [Server-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
-* [Client-side Performance Traces](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
+* [Azure Network Round Trip Latency Statistics](../../../../networking/azure-network-latency.md)
+* [Server-side Performance Traces](../../../overview/features/performance-queries.md)
+* [Client-side Performance Traces](../../../how-tos/performance-tracing.md)
 
 ## Collaboration considerations
 
@@ -187,8 +187,8 @@ However, for 3D assets that will be used repeatedly, such as in a training use c
 
 For more information:
 
-* [Shared Experiences in Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
-* [Azure Storage Redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Shared Experiences in Mixed Reality](/windows/mixed-reality/shared-experiences-in-mixed-reality)
+* [Azure Storage Redundancy](../../../../storage/common/storage-redundancy.md)
 
 ## Managing model access
 
@@ -225,7 +225,7 @@ This approach could be taken one step further by persisting an association betwe
 For more information:
 
 * [Microsoft Power Automate Template for OneDrive to Azure Storage Replication](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
-* [OneDrive File Storage API Overview](https://docs.microsoft.com/graph/onedrive-concept-overview)
+* [OneDrive File Storage API Overview](/graph/onedrive-concept-overview)
 
 ### Direct CAD access
 
@@ -250,7 +250,7 @@ Many enterprise clients mandate that your Azure Stack can be deployed under thei
 For more information:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Tutorial: Publish Azure managed applications in the Marketplace](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
+* [Tutorial: Publish Azure managed applications in the Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 
 ### Security
 
@@ -272,6 +272,6 @@ For authentication, it’s wise to move as much of the ARR authentication and se
 
 For more information:
 
-* [Azure AD Service Authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-service-authentication)
+* [Azure AD Service Authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Strengthen Your Security Posture with Azure](https://azure.microsoft.com/overview/security/)
 * [Cloud Security](https://azure.microsoft.com/product-categories/security/)
