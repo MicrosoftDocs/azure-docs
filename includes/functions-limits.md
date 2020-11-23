@@ -13,7 +13,7 @@ ms.author: glenga
 | Max request size (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Depends on cluster |
 | Max query string length<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Depends on cluster |
 | Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Depends on cluster |
-|[ACU](../articles/virtual-machines/windows/acu.md) per instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS pricing](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/acu.md) per instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS pricing](https://azure.microsoft.com/pricing/details/container-service/) |
 | Max memory (GB per instance) | 1.5 | 3.5-14 | 1.75-14 | 3.5 - 14 | Any node is supported |
 | Function apps per plan |100 |100 |unbounded<sup>4</sup> | unbounded | unbounded |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group | - | - |
