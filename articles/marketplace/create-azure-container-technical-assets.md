@@ -48,10 +48,11 @@ Review the available tools on the [Azure Developer Tools](https://azure.microsof
 
 ## Create the container image
 
-For more information, see the following tutorials:
+You can't deploy an image to Azure Container Instances from an on-premises registry.
 
-- [Tutorial: Create a container image for deployment to Azure Container Instances](/azure/container-instances/container-instances-tutorial-prepare-app.md)
-- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-quick-task.md).
+- If you already have a working container in your local registry, create an Azure Registry and upload your container image to the Azure Container Registry. To learn more, see [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-quick-task.md).
+
+- If don’t have a container image yet and need to containerize your existing application or create a new container based application,  clone the application source code from GitHub, create a container image from the application source, and test the image in a local Docker environment. To learn more, see [Tutorial: Create a container image for deployment to Azure Container Instances](/azure/container-instances/container-instances-tutorial-prepare-app.md).
 
 ## Next steps
 
