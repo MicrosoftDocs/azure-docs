@@ -303,7 +303,7 @@ When the VM has restarted, complete these steps:
      PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-1. Verify the size of the partition by using `lsblk`.  Look at the 
+1. Verify the size of the partition by using `lsblk`. 
 
    ```bash
    [root@dd-rhel7vm ~]# lsblk /dev/sda4
