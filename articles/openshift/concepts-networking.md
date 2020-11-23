@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
 #Customer intent: As a cluster administrator, I want to understand networking in a Azure Red Hat OpenShift cluster.
+# Diagram here: https://microsofteur-my.sharepoint.com/:p:/g/personal/asabbour_microsoft_com/Ee8GdDIG9f5Er43CXb3irEkBU0ZeSNLNymx38dhB46FfTg?e=rfmUdA
 ---
 
 # Networking in Azure Red Hat on OpenShift 4
