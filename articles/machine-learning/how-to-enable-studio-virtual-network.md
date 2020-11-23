@@ -37,7 +37,7 @@ See the other articles in this series:
 
 ## Prerequisites
 
-+ Read the [Network security overview](how-to-network-security-overview.md) to understand common virtual network scenarios and high-level virtual network architecture.
++ Read the [Network security overview](how-to-network-security-overview.md) to understand common virtual network scenarios and architecture.
 
 + A pre-existing virtual network and subnet to use.
 
@@ -63,12 +63,6 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### Grant workspace managed identity __Reader__ access to storage private link
-
-If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private link. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
-
-If your storage account uses a service endpoint, you can skip this step.
-
 ### Configure datastores to use workspace managed identity
 
 Whether you use a private endpoint or a service endpoint, Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure datastores to use managed identity to enable critical studio features:
@@ -82,6 +76,24 @@ Whether you use a private endpoint or a service endpoint, Azure Machine Learning
 1. In the datastore settings, select __Yes__ for  __Allow Azure Machine Learning service to access the storage using workspace-managed identity__.
 
 These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access lets the workspace retrieve firewall settings to ensure that data dosen't leave the virtual network. Changes may take up to 10 minutes to take effect.
+
+### Enable MSI authentication for default storage accounts
+
+In addition to your data stores, each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. Azure Machine Learning studio uses these storage accounts to store experiment and model artifacts which are critical to certain features.
+
+The following table describes why you must enable managed identity authentication for the default storage accounts.
+
+|Storage account  | Notes  |
+|---------|---------|
+|Workspace default blob storage| Stores designer model assets. Enable managed identity authentication to deploy models in the designer.|
+|Workspace default file store| Stores AutoML experiment assets. Enable managed identity authentication to submit AutoML experiments. |
+
+
+### Grant workspace managed identity __Reader__ access to storage private link
+
+If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private link. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
+
+If your storage account uses a service endpoint, you can skip this step.
 
 ## Access the studio from a resource inside the VNet
 
