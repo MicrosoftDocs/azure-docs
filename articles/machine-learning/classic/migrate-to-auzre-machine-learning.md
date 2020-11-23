@@ -75,13 +75,66 @@ Learn more about the Azure Machine Learning concepts in [this article](../concep
 ## Suggested migration path
 
 Compared to ML Studio(classic), Azure Machine Learning offers much richer capabilities for multiple skill level of customers.
-There are Python/R SDK and CLI offerings for customers who are more comfortable to write code. There is also Azure Machine Learning designer - the very similar visual interface as ML Studio(classic) to train and deploy in a low code fashion. 
+There are Python/R SDK and CLI offerings for customers who are more comfortable to write Python/R code. There is also Azure Machine Learning designer - the very similar drag-n-drop interface as ML Studio(classic) to train and deploy in a low code fashion.
 
 Below table summarize the suggested migration path based on customer profile and ML Studio(classic) usage pattern.
 
-|ML Studio(classic) use pattern|Low code/node code|Code first|
+|ML Studio(classic) use pattern|Azure Machine Learning designer(low code/no code)|Azure Machine Learning SDK (Code first)|
 |---| --- | --- |
-|Experiment only| - [Manually migrate the graph to Azure Machine Learning designer]() </br> - Graph migration tool ETA| Rebuild using notebooks. Notebook tutorial.|
-|Inference only| - Manually deploy in designer after run the experiment(link to doc) </br> - Batch inference migration tool ETA </br> - Real-time web service migration tool ETA| SDK deployment tutorial|
-|Retrain and update web service automatically| NA|MLOps tutorial|
-|Both experiment and web service|- experiment migration guide </br> - web service deploy guide|- training tutorial</br> - deployment tutorial|
+|Experiment| - [Migrate experiment to Azure Machine Learning designer]() </br> - Experiment migration tool (ETA TBD)| Rebuild your training experiment using notebooks and AML SDK. Start with [Notebooks tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-1st-experiment-sdk-setup).|
+|Inference: realtime web service| - [Deploy realtime web service with designer]() </br> - Real-time web service migration tool (ETA TBD)| Deploy model with AML SDK. Start with [deployment tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-deploy-models-with-aml)|
+|Inference: batch web service|-[publish pipeline endpoint in designer]() </br> - batch web service migration tool(ETA TBD)|Build AML pipeline SDK for batch inference. check [batch inference tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-pipeline-batch-scoring-classification)|
+|Training and deploy with automation| NA|Rebuild using MLOps. </br>[What is MLOps](https://docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment) </br>[MLOps example repro](https://github.com/microsoft/MLOps)|
+
+
+## Migrate Studio(classic) experiment to Azure Machine Learning designer
+
+This section will describe how to migrate ML Studio(classic) experiment to Azure Machine Learning designer step by step. For most of the AML assets, it’s possible to manage both through UI and SDK/CLI. This section will focus on how-to with UI in Azure Machine Learning Studio.
+
+If you have never used Azure Machine Learning designer before, it's recommended to go through [designer tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-designer-automobile-price-train-score) to get familiar with it first.  
+
+#### 1. Ingest Data
+
+There are two ways to ingest data in ML Studio(classic), upload data file as dataset or use the Import Data module. For static files, it's suggested to download the datasets from ML Studio(classic) then upload to AML Studio as dataset. For Import Data module, there are two possible options:
+
+|Option|Description|When to use|
+|---| --- | --- |
+|AML dataset|Ingest data from local and online data sources (Blob, ADLS Gen1, ADLs Gen2, File share, SQL DB). It will register the data as a dataset asset to the workspace. And advanced data features like data versioning and data monitoring are enabled.|Recommended to use generally|
+|Import Data Module in designer|Ingest data from online data sources (Blob, ADLS Gen1, ADLS Gen2, File share, SQL DB).  This will not create a dataset asset to the workspace. |When customer do not want to register a dataset to workspace.|
+
+[!Note]
+There are 4 cloud data sources (Hive Query, Azure Table, Azure Cosmos DB, On-premises SQL Database) that supported in ML Studio(classic) but not supported in AML. It's recommended to move your data to supported storages using Azure Data Factory.  
+
+To ingest data in designer there are two steps:
+1. Create datastore
+
+    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores) has step by step guidance on how to create datastore.
+2. (Option 1) Create dataset and drop it in designer. 
+
+    [This article](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datasets) has the step by step guidance on how to create datasets in AML Studio. Remember to choose **Tabular** for dataset type since ML Studio(classic) supported data are essentially tabular format.   
+    
+    After create the dataset, you can find the dataset in designer left palette, under **Datasets** category. Then drop the dataset in canvas to use it. 
+
+    ![registered-dataset](./media/migrate-to-AML/registered-dataset.png)
+
+1.  (Option 2) Use Import Data Module in designer 
+
+    After create datastore, you can use Import Data module in designer to ingest data from created datastore. This module will not create a dataset asset to your workspace. Follow the settings in right panel to set up this module. First, select datastore to import data from. Then select path or edit SQL query to identify the needed data from datastore. 
+    ![import-data](./media/migrate-to-AML/import-data.png)
+    
+   
+
+### 2. Build the pipeline draft
+
+#### What if the module is not in designer? 
+#### Notes for Execute Python Script migration
+#### Notes for Execute R Script
+
+### 3. Submit a pipeline run and check result
+
+
+
+## Migrate batch web service to pipeline endpoint using AML designer
+
+## Migrate realtime web service using AML designer
+
