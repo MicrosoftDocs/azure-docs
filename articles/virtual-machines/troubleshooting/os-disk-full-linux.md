@@ -7,7 +7,7 @@ manager: dcscontentpm
 ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: infrastructure-services
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 11/20/2020
 
 ---
