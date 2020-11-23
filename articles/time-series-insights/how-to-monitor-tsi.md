@@ -2,14 +2,14 @@
 title: 'Monitoring Time Series Insights | Microsoft Docs'
 description: Monitor Time Series Insights for availability, performance, and operation.
 author: deepakpalled
-ms.author: lyrana
+ms.author: lyranahughes
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.custom: seodec18
+ms.custom: lyrana
 ---
 
 # Monitoring Time Series Insights
