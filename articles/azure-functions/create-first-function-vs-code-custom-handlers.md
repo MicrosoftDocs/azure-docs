@@ -180,7 +180,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     cargo build --release -Z unstable-options --out-dir .
     ```
 
-    ![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-go.png)
+    ![VS Code - Build Go custom handler](./media/functions-create-first-function-vs-code/functions-vscode-rust.png)
 
 ---
 
@@ -264,6 +264,14 @@ This quickstart will deploy your application to an Azure Functions Linux Consump
 # [Rust](#tab/rust)
 
 Needs content.
+
+1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
+
+    **Needs content**
+
+1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the linux binary.
+
+1. To avoid publishing the contents of the *target* folder, add a line with the word `target` to the *.funcignore* file.
 
 ---
 
