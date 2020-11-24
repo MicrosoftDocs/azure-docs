@@ -11,7 +11,7 @@ ms.author: azfuncdf
 
 # Serialization
 
-Durable Functions persists state to a backend service (by default Azure Storage) in order to provide the reliability guarantees of stateful workflows.
+Durable Functions automatically persists function inputs, outputs, and custom status values to durable storage (by default Azure Storage) in order to provide the reliability guarantees of stateful workflows.
 
 To ensure your workflows persist data correctly, you will need to understand what data is serialized, how it is serialized, and how to customize serialization.
 
