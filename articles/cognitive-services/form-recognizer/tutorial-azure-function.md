@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Tutorial: Use an Azure Function to process stored documents
 
-You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as an Azure Table. You can then display the data using PowerBI (not covered here).
+You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as .csv file in Azure. You can then display the data using PowerBI (not covered here).
 
 ![azure service workflow diagram](./media/tutorial-azure-function/workflow-diagram.png)
 
@@ -49,20 +49,30 @@ Once that has deployed, create two empty blob storage containers, named **Test**
 
 Open Visual Studio Code. If you've installed the Azure Functions extension, you should see an Azure logo on the left navigation pane. Select it. Then create a new folder called **coa_new**.
 
-Select the Create Function button (lightning icon) to start a workflow for building a simple Azure function. You'll be prompted to configure a number of parameters:
+Select the Create Function button (lightning icon) to start a workflow for building a simple Azure function. 
+
+![VSCode create function button](./media/tutorial-azure-function/vs-code-create-function.png)
+
+
+You'll be prompted to configure a number of parameters:
 * In the **Select a language** prompt, select Python.
 * In the **Select a template** prompt, Select Azure Blob Storage trigger. Then give the default trigger a name.
 * In the **Select setting** prompt, opt to create new local app settings.
 * Select your Azure subscription with the storage account you created. Then you need to enter the name of the storage container (in this case, `test/{name}`)
-* Opt to open the project in current window. 
+* Opt to open the project in the current window. 
 
-When you've completed these steps, VSCode will add a new Azure Function project with a *\__init\__.py* Python script. This function will be triggered when a file is uploaded to the **Test** storage container, but it won't do anything.
+![VSCode create prompt example](./media/tutorial-azure-function/vs-code-prompt.png)
+
+When you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This function will be triggered when a file is uploaded to the **Test** storage container, but it won't do anything.
 
 ## Test the function
 
 Press F5 to run the basic function. VSCode will prompt you to select a storage account to interface with. Select the storage account you created and continue.
 
 Open Azure Storage Explorer and upload a sample PDF document to the **Test** container. Then check the VSCode terminal. The script should log that it was triggered by the PDF upload.
+
+![VSCode terminal test](./media/tutorial-azure-function/vs-code-terminal-test.png)
+
 
 Stop the script before continuing.
 
@@ -81,7 +91,7 @@ numpy
 pandas
 ```
 
-Then, open the *\__init\__.py* script. Add the following `import` statements:
+Then, open the *\_\_init\_\_.py* script. Add the following `import` statements:
 
 ```Python
 import logging
@@ -96,7 +106,7 @@ import numpy as np
 import pandas as pd
 ```
 
-You can leave the auto-generated `main` function as-is. You'll add your custom code within this function.
+You can leave the generated `main` function as-is. You'll add your custom code inside this function.
 
 ```python
 # This part is automatically generated
@@ -108,10 +118,7 @@ def main(myblob: func.InputStream):
 
 The following code block calls the Form Recognizer [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API on the uploaded document. You need to fill in your endpoint and key values. 
 
-> [!IMPORTANT]
-> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+
 
 ```Python
 # This is the call to the Form Recognizer endpoint
@@ -140,7 +147,12 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
     time.sleep(wait_sec)
 ```
 
-Then add code to query the service and get the returned data. 
+> [!IMPORTANT]
+> Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
+>
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+
+Next, add code to query the service and get the returned data. 
 
 ```Python
 # The layout API is async therefore the wait statement
@@ -160,7 +172,7 @@ Then add code to query the service and get the returned data.
     results=resp_json
 ```
 
-Next, add the following code to connect to the Azure Storage **Output** container
+Then add the following code to connect to the Azure Storage **Output** container
 
 ```Python
 # This is the connection to the blob storage, with the Azure Python SDK
@@ -223,6 +235,6 @@ You can connect this container to PowerBI to create rich visualizations of the d
 
 ## Next steps
 
-In this tutorial you learned how to use an Azure Function written in Python to automatically process uploaded PDF documents and output their contents in a more data-friendly format. Next, learn how to use PowerBI to display this data.
+In this tutorial you learned how to use an Azure Function written in Python to automatically process uploaded PDF documents and output their contents in a more data-friendly format. Next, learn how to use PowerBI to display the data.
 
-* [PowerBI](tbd)
+* [Display Azure Table contents in PowerBI](tbd)
