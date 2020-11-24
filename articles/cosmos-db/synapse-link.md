@@ -31,7 +31,7 @@ When compared to the traditional ETL-based solutions, Azure Synapse Link for Azu
 
 ### Reduced complexity with No ETL jobs to manage
 
-Azure Synapse Link allows you to directly access Azure Cosmos DB analytical store using  Azure Synapse Analytics without complex data movement. Any updates made to the operational data are visible in the analytical store in near real-time with no ETL or change feed jobs. You can run large scale analytics against analytical store, from Synapse Analytics, without additional data transformation.
+Azure Synapse Link allows you to directly access Azure Cosmos DB analytical store using  Azure Synapse Analytics without complex data movement. Any updates made to the operational data are visible in the analytical store in near real-time with no ETL or change feed jobs. You can run large scale analytics against analytical store, from Azure Synapse Analytics, without additional data transformation.
 
 ### Near real-time insights into your operational data
 

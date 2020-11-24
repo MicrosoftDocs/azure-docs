@@ -1,21 +1,21 @@
 ---
-title: Technical concepts for Azure container offers - Microsoft commercial marketplace
+title: Prepare your Azure container technical assets
 description: Technical resource and guidelines to help you configure a container offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/09/2020
+ms.date: 11/30/2020
 ---
 
-# Create an Azure container offer
+# Prepare your Azure container technical assets
 
 This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace.
 
 ## Before you begin
 
-For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](../../container-instances/index.yml).
+For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](/azure/container-instances/).
 
 ## Fundamental technical knowledge
 
@@ -38,7 +38,7 @@ Choose one or both of the following scripting environments to help manage your C
 
 We recommend adding these tools to your development environment:
 
-- [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
+- [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extension: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extension: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -48,11 +48,12 @@ Review the available tools on the [Azure Developer Tools](https://azure.microsof
 
 ## Create the container image
 
-For more information, see the following tutorials:
+You can't deploy an image to Azure Container Instances from an on-premises registry.
 
-- [Tutorial: Create a container image for deployment to Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
-- [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](../../container-registry/container-registry-tutorial-quick-task.md).
+- If you already have a working container in your local registry, create an Azure Registry and upload your container image to the Azure Container Registry. To learn more, see [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-quick-task.md).
+
+- If don’t have a container image yet and need to containerize your existing application or create a new container based application,  clone the application source code from GitHub, create a container image from the application source, and test the image in a local Docker environment. To learn more, see [Tutorial: Create a container image for deployment to Azure Container Instances](/azure/container-instances/container-instances-tutorial-prepare-app.md).
 
 ## Next steps
 
-- [Create your container offer](create-azure-container-offer.md).
+- [Create your container offer](create-azure-container-offer.md)
