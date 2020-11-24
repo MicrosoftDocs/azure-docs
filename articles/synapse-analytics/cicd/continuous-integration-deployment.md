@@ -15,13 +15,9 @@ ms.reviewer: pimorano
 
 ## Overview
 
-Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. Continuous Deployment (CD) is the process to build, test, configure and deploy from multiple testing or staging environments to a production environment.
+Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. Continuous Deployment (CD) is the process to build, test, configure, and deploy from multiple testing or staging environments to a production environment.
 
-In Azure Synapse workspace, continuous integration and delivery (CI/CD) means moving all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to create or update workspace resources(pools and workspace);  migrate artifacts ( SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
-
-## Automate continuous integration by using Azure releases
-
-For Azure Synapse workspace, continuous integration and delivery (CI/CD) moves all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: uses [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to create or update workspace resources(pools and workspace);  migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
+For Azure Synapse workspace, continuous integration and delivery (CI/CD) move all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: use [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to create or update workspace resources (pools and workspace); migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
 
 This article will outline using Azure release pipeline to automate the deployment of a Synapse workspace to multiple environments.
 
