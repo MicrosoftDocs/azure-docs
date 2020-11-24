@@ -84,9 +84,9 @@ When using **custom policies**, there are four methods to build resilience. Belo
 
 - **Use Security Questions**: If none of the above methods are applicable, implement Security Questions as a backup. Set up Security Questions for users during onboarding or profile edit and store the answers in a separate database other than the directory. This method doesn't meet the MFA requirement of “something you have” for example, phone, but offers a secondary “something that you know”.
 
-## Use a content delivery network for storage of custom user flow UI
+## Use a content delivery network 
 
-Content delivery networks (CDNs) are better performant and less expensive than blob stores. The web page content is delivered faster from a geographically distributed network of highly available servers.  
+Content delivery networks (CDNs) are better performant and less expensive than blob stores for storage of custom user flow UI. The web page content is delivered faster from a geographically distributed network of highly available servers.  
 
 Periodically test your CDN’s availability and the performance of content distribution through end-to-end scenario and load testing. If you're planning for an upcoming surge because of promotion or holiday traffic, revise your estimates for load testing.
   
