@@ -23,7 +23,7 @@ User feedback is one of the most important methods to discover defects within th
 
 You can provide feedback from the metric detail page on any series. Just select any point, and you will see below feedback dialog. It shows you the dimensions of the series you've chosen. You can reselect dimension values, or even remove some of them to get a batch of time series data. After choosing time series, you select the **Add** button to add the feedback, there are four kinds of feedback you could give. You can append multiple feedback items, select the **Save** button once you complete your annotations.
 
-:::image type="content" source="../media/feedback/click-on-any-point.png" alt-text="Graph with time-series data with a blue line and red dots at various points. Red box surrounding one point with the text `Click on any point`":::
+:::image type="content" source="../media/feedback/click-on-any-point.png" alt-text="Graph with time-series data with a blue line and red dots at various points. Red box surrounding one point with the text: Select any point":::
 
 :::image type="content" source="../media/feedback/select-or-remove.png" alt-text"Add feedback dialog box with two dimensions and the option to select or remove dimensions and add feedback.":::
 
@@ -32,7 +32,7 @@ You can provide feedback from the metric detail page on any series. Just select 
 As shown in the image below, the feedback dialog will fill the timestamp of your chosen point automatically, though you edit this value. You then select whether you want to identify this item as an `Anomaly`, `NotAnomaly`, or `AutoDetect`. You can also  if you just want to withdraw a previous feedback.
 
 
-:::image type="content" source="../media/feedback/anomaly-value.png" alt-text"Drop down menu with choices of `Anomaly`, `NotAnomaly`, and `AutoDetect`":::
+:::image type="content" source="../media/feedback/anomaly-value.png" alt-text"Drop down menu with choices of Anomaly, NotAnomaly, and AutoDetect":::
 
 Your feedback selection will be applied. The selection will apply your feedback to the future anomaly detection processing of the same series. The processed points will not be recalculated. That means if you marked an Anomaly as NotAnomaly, we will suppress similar anomalies in the future, and if you marked a `NotAnomaly` point as `Anomaly`, we will tend to detect similar points as `Anomaly` in the future. If `AutoDetect` is chosen, any previous feedback on the same point will be ignored in the future.
 
@@ -44,7 +44,7 @@ If you would like to give anomaly feedback for multiple continuous points at the
 
 To view if an individual point is affected by your anomaly feedback, when browsing a time series, select a single point. If its anomaly detection result has been changed by feedback, the tooltip will show **Affected by feedback: true**. If it shows **Affected by feedback: false**, this means anomaly feedback calculation was performed for this point, but the anomaly detection result should not be changed.
 
-:::image type="content" source="../media/feedback/affected-by-feedback.png" alt-text"Tooltip display with `Affected by feedback: true` highlighted in red":::
+:::image type="content" source="../media/feedback/affected-by-feedback.png" alt-text"Tooltip display with the words: Affected by feedback: true, highlighted in red":::
 
 There are some situations where we do not suggest giving feedback:
 
@@ -57,7 +57,7 @@ Sometimes the trend change of data will affect anomaly detection results. When d
 
 As the below figure shows, you could select `ChangePoint` for the feedback Type, and select `ChangePoint`, `NotChangePoint`, or `AutoDetect` from the pull-down list.
 
-:::image type="content" source="../media/feedback/changepoint.png" alt-text"Change point menu with dropdown containing options for `ChangePoint`, `NotChangePoint`, and `AutoDetect`":::
+:::image type="content" source="../media/feedback/changepoint.png" alt-text"Change point menu with dropdown containing options for ChangePoint, NotChangePoint, and AutoDetect":::
 
 > [!NOTE]
 > If your data keeps changing, you will only need to mark one point as a `ChangePoint`, so if you marked a `timerange`, we will fill the last point's timestamp and time automatically. In this case, your annotation will only affect anomaly detection results after 12 points.
@@ -66,7 +66,7 @@ As the below figure shows, you could select `ChangePoint` for the feedback Type,
 
 For seasonal data, when we do anomaly detection, one step is to estimate the period(seasonality) of the time series, and apply it to the anomaly detection phase. Sometimes, it's hard to identify a precise period, and the period may also change. An incorrectly defined period may have side effect on your anomaly detection results. You can find the current period from a tooltip, its name is `Min Period`.
 
-:::image type="content" source="../media/feedback/min-period.png" alt-text"Tooltip overlay with `Period: 7` highlighted in red.":::
+:::image type="content" source="../media/feedback/min-period.png" alt-text"Tooltip overlay with the words Period and the number seven highlighted in red.":::
 
 You can provide feedback for period to fix this kind of anomaly detection error. As the figure shows, you can set a period value. The unit `interval` means one granularity. Here zero intervals means the data is non-seasonal. You could also select `AutoDetect` if you want to cancel previous feedback and let the pipeline detect period automatically. 
  
