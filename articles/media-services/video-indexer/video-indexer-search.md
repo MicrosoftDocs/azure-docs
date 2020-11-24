@@ -52,6 +52,6 @@ You can create a clip based on your video of specific lines and moments by click
 
 :::image type="content" source="./media/video-indexer-search/embed-download-create-projects.png" alt-text="Embed, download, create projects of the video":::
 
-## See also
+## Next steps
 
 [Process content with Video Indexer REST API](video-indexer-use-apis.md)
