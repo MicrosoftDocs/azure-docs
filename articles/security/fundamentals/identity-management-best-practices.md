@@ -290,13 +290,13 @@ Require Azure AD Multi-Factor Authentication at sign-in for all individual users
 
 [Turn on password hash synchronization](../../active-directory/roles/security-planning.md#turn-on-password-hash-synchronization)  
 
-[Require Multi-Factor Authentication for users in all privileged roles as well as exposed users](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Require Multi-Factor Authentication for users in all privileged roles as well as exposed users](../../active-directory/roles/security-planning.md#require-multi-factor-authentication-for-users-in-privileged-roles-and-exposed-users)  
 
-[Obtain your Microsoft 365 Secure Score (if using Microsoft 365)](../../active-directory/roles/security-planning.md#obtain-your-office-365-secure-score-if-using-office-365)  
+[Obtain your Microsoft 365 Secure Score (if using Microsoft 365)](../../active-directory/roles/security-planning.md#obtain-your-microsoft-365-secure-score-if-using-microsoft-365)  
 
-[Review the Microsoft 365 security guidance (if using Microsoft 365)](../../active-directory/roles/security-planning.md#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Review the Microsoft 365 security guidance (if using Microsoft 365)](../../active-directory/roles/security-planning.md#review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365)  
 
-[Configure Microsoft 365 Activity Monitoring (if using Microsoft 365)](../../active-directory/roles/security-planning.md#configure-office-365-activity-monitoring-if-using-office-365)  
+[Configure Microsoft 365 Activity Monitoring (if using Microsoft 365)](../../active-directory/roles/security-planning.md#configure-microsoft-365-activity-monitoring-if-using-microsoft-365)  
 
 [Establish incident/emergency response plan owners](../../active-directory/roles/security-planning.md#establish-incidentemergency-response-plan-owners)  
 
