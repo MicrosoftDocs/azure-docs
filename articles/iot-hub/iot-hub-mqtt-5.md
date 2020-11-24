@@ -18,13 +18,14 @@ This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See
 
 ## Prerequisites
 
-- Enable [preview mode]() on a brand new IoT hub to try MQTT 5.
+- [Enable preview mode](iot-hub-preview-mode.md) on a brand new IoT hub to try MQTT 5.
 - Prior knowledge of [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html) is required.
 
 ## Level of support and limitations
 
 IoT Hub support for MQTT 5 is in preview and limited in following ways (communicated to client via `CONNACK` properties unless explicitly noted otherwise):
 
+- No official [Azure IoT Hub device SDK](iot-hub-devguide-sdks.md) support yet.
 - Subscription identifiers aren't supported.
 - Shared subscriptions aren't supported.
 - `RETAIN` isn't supported.

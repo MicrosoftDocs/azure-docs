@@ -4,7 +4,7 @@
  services: iot-hub
  author: jlian
  ms.service: iot-fundamentals
- ms.topic: conceptual
+ ms.topic: reference
  ms.date: 11/19/2020
  ms.author: jlian
 ---
