@@ -14,7 +14,7 @@ ms.author: negust
 ---
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse
 
-In this quickstart, you'll link an Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
+In this quickstart, you'll link an Azure Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
 
 For example, this linking to an Azure Machine Learning workspace enables these experiences:
 

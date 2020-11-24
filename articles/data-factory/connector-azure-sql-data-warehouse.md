@@ -36,7 +36,7 @@ This Azure Synapse Analytics connector is supported for the following activities
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
-- As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Synapse Analytics](#parallel-copy-from-synapse-analytics) section for details.
+- As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-synapse-analytics) section for details.
 - As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or [COPY statement](#use-copy-statement) or bulk insert. We recommend PolyBase or COPY statement for better copy performance. The connector also supports automatically creating destination table if not exists based on the source schema.
 
 > [!IMPORTANT]
@@ -252,7 +252,7 @@ For a full list of sections and properties available for defining activities, se
 ### Azure Synapse Analytics as the source
 
 >[!TIP]
->To load data from Azure Synapse Analytics efficiently by using data partitioning, learn more from [Parallel copy from Synapse Analytics](#parallel-copy-from-synapse-analytics).
+>To load data from Azure Synapse Analytics efficiently by using data partitioning, learn more from [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-synapse-analytics).
 
 To copy data from Azure Synapse Analytics, set the **type** property in the Copy Activity source to **SqlDWSource**. The following properties are supported in the Copy Activity **source** section:
 
@@ -400,7 +400,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 }
 ```
 
-## Parallel copy from Synapse Analytics
+## Parallel copy from Azure Synapse Analytics
 
 The Azure Synapse Analytics connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 

@@ -258,7 +258,7 @@ In this tutorial, you create source and sink datasets, which specify the locatio
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### Create a dataset for sink Synapse Analytics
+### Create a dataset for sink Azure Synapse Analytics
 
 1. Create a JSON file named **AzureSqlDWDataset.json** in the **C:\ADFv2TutorialBulkCopy** folder, with the following content: The "tableName" is set as a parameter, later the copy activity that references this dataset passes the actual value into the dataset.
 
