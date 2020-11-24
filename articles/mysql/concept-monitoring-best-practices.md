@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ---
 
 # Best Practices for Monitoring Azure Database for MySQL
@@ -47,5 +47,5 @@ Note that the level of performance metrics numbers which is acceptable is depend
 
 ## Next steps
 
-[Best practice for performance of Azure Database for MySQL](concept-performance-best-practices.md)
-[Best practice for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
+- [Best practice for performance of Azure Database for MySQL](concept-performance-best-practices.md)
+- [Best practice for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
