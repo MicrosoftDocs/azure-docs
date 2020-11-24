@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ---
 
@@ -239,13 +239,19 @@ deployment.apps/read   1/1     1            1           17s
 NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
+
 ## Deploy multiple v3 containers on the Kubernetes cluster
 
-Start from v3, the parallelism can be achieved in both task level and page level.
+Starting in v3 of the container, you can use the containers in parallel on both a task and page level.
 
-By design, each v3 container has a dispatcher and a recognition worker. The dispatcher is responsible for splitting a multi-page task into multiple single page sub-tasks. And the recognition worker is optimized for recognizing a single page document. To achieve the page level parallelism, simply deploy multiple v3 containers behind a load balancer, and let the containers share an universal Storage and an universal Queue. (NOTE that currently only Azure Storage and Azure Queue is supported!) In this case, the container receiving the request can split the task into single page sub-tasks, and enqueue to the universal Queue. Any recognition worker from a less busy container can consume single page sub-tasks from the Queue, do the recognition, then upload the result to Storage. The throughput could be boosted to `N` times on top (the ratio `N` depends on the number of containers that are deployed).
+By design, each v3 container has a dispatcher and a recognition worker. The dispatcher is responsible for splitting a multi-page task into multiple single page sub-tasks. The recognition worker is optimized for recognizing a single page document. To achieve page level parallelism, deploy multiple v3 containers behind a load balancer and let the containers share a universal storage and queue. 
 
-Copy and paste the following YAML into a file named `deployment.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values. Replace the `# {AZURE_STORAGE_CONNECTION_STRING}` comment with your Azure Storage Connection String. Configure `replicas` to the number you want, set to `3` for the following example.
+> [!NOTE] 
+> Currently only Azure Storage and Azure Queue are supported. 
+
+The container receiving the request can split the task into single page sub-tasks, and add them to the universal queue. Any recognition worker from a less busy container can consume single page sub-tasks from the queue, perform recognition, and upload the result to the storage. The throughput can be improved up to `n` times, depending on the number of containers that are deployed.
+
+Copy and paste the following YAML into a file named `deployment.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values. Replace the `# {AZURE_STORAGE_CONNECTION_STRING}` comment with your Azure Storage Connection String. Configure `replicas` to the number you want, which is set to `3` in the following example.
 
 ```yaml
 apiVersion: apps/v1
@@ -294,24 +300,26 @@ spec:
     app: read-app
 ```
 
+Run the following command. 
+
 ```console
 kubectl apply -f deployment.yaml
 ```
 
-Here is an example output you might expect to see from a successful deployment execution:
+Below is an example output you might see from a successful deployment execution:
 
 ```console
 deployment.apps/read created
 service/azure-cognitive-service-read created
 ```
 
-The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
+The Kubernetes deployment can take several minutes to complete. To confirm that both pods and services are properly deployed and available, then execute the following command:
 
 ```console
 kubectl get all
 ```
 
-You should expect to see something similar to the following output:
+You should see console output similar to the following:
 
 ```console
 kubectl get all
