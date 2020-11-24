@@ -88,9 +88,8 @@ SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://s
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/help/4573888/)  <br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
-
 >- For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) builds.  [Semi-Annual Channel](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) releases are currently unsupported at this time.
->- Please ensure that you do not use customized OS images. We only support the official kernels. Any custom kernels released will not be supported by us.
+>- Please ensure that for Linux versions, Azure Site Recovery does not support customized OS images. We only support the official kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
 ### Ubuntu kernel versions
 
