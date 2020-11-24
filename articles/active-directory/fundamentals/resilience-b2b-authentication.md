@@ -47,9 +47,9 @@ As an alternative to sending invitations or links, you can enable [Self-service 
 
 It’s possible to use [API connectors](https://docs.microsoft.com/azure/active-directory/external-identities/api-connectors-overview) to integrate your self-service sign-up user flow with external systems’ APIs. This API integration can be used for [custom approval workflows](https://docs.microsoft.com/azure/active-directory/external-identities/self-service-sign-up-add-approvals), [performing identity verification](https://docs.microsoft.com/azure/active-directory/external-identities/code-samples-self-service-sign-up), and other tasks such as overwriting user attributes. Using APIs requires that you manage the following dependencies.
 
-* API Connector Authentication: Setting up a connector requires an endpoint URL, a username, and a password. Set up a process by which these credentials are maintained, and work with the API owner to ensure you know any expiration schedule.
+* **API Connector Authentication**: Setting up a connector requires an endpoint URL, a username, and a password. Set up a process by which these credentials are maintained, and work with the API owner to ensure you know any expiration schedule.
 
-* API Connector Response: Design API Connectors in the sign-up flow to fail gracefully if the API isn't available. Examine and provide to your API developers these [example API responses](https://docs.microsoft.com/azure/active-directory/external-identities/self-service-sign-up-add-api-connector) and the [best practices for troubleshooting](https://docs.microsoft.com/azure/active-directory/external-identities/self-service-sign-up-add-api-connector). Work with the API development team to test all possible response scenarios, including continuation, validation-error, and blocking responses. 
+* **API Connector Response**: Design API Connectors in the sign-up flow to fail gracefully if the API isn't available. Examine and provide to your API developers these [example API responses](https://docs.microsoft.com/azure/active-directory/external-identities/self-service-sign-up-add-api-connector) and the [best practices for troubleshooting](https://docs.microsoft.com/azure/active-directory/external-identities/self-service-sign-up-add-api-connector). Work with the API development team to test all possible response scenarios, including continuation, validation-error, and blocking responses. 
 
 ## Next steps
 Resilience resources for administrators and architects
@@ -66,7 +66,7 @@ Resilience resources for administrators and architects
 
 Resilience resources for developers
 
-* [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
+* [Build IAM resilience in your applications](resilience-app-development-overview.md)
 
-* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
+* [Build resilience in your CIAM systems](resilience-b2c.md)
  
