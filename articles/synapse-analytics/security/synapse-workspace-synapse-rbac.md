@@ -11,8 +11,7 @@ ms.reviewer: jrasnick
 ---
 # What is Synapse role-based access control (RBAC)?
 
-Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content.  
-Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and the Azure resources it contains:
+Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and the Azure resources it contains:
 - SQL pools, 
 - Apache Spark pools, 
 - Integration runtimes. 
@@ -43,13 +42,17 @@ A _security principal_ is a user, group, service principal, or managed identity.
 
 ### Roles
  
-A _role definition_ or *'role'* is a collection of permissions.  A role lists a set of actions that can be performed on specific resource types or artifact types.  For example, to update a SQL script, the _Microsoft.Synapse/workspaces/sqlScripts/write_ action/permission is required.  Actions may be generic or type-specific.  Generic actions apply to different kinds of resources or artifacts.  Type-specific actions apply only to certain resource types or artifact types. The .../sqlScripts/write action is an example of a permission that applies only to sqlScripts, in this case.
+A _role_ is a collection of permissions or actions that can be performed on specific resource types or artifact types. Actions may be generic and apply to different kinds of resources or artifacts.  Type-specific actions apply only to certain resource types or artifact types.
 
-A role assignment grants the principal the permissions defined by the role at the specified scope.
+Synapse provides built-in roles that define collections of actions that match the needs of different personas:
+- Administrators can get full access to create and configure a workspace 
+- Developers can create, update and debug SQL scripts, notebooks, pipelines, and dataflows, but not be able to publish or execute this code on production compute resources/data
+- Operators can monitor and manage system status, application execution and review logs, without access to code or the outputs from execution.
+- Security staff can manage and configure endpoints without having access to code, compute resources or data.
 
-Synapse RBAC provides several built-in roles that define useful collections of actions that can be granted together. The built-in roles match the needs of typical developer, administrator, or security personas. Providing these roles makes it easy to grant different sets of permissions to different people.  Developers can create, update and test SQL scripts, Apache Spark jobs and notebooks and pipelines, but can be prevented from executing this code on production compute resources or accessing production data.  Likewise, operators and administrators can monitor and manage application execution and review logs, without having access to the code or the outputs from execution. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306).  
+[Learn more](./synapse-workspace-rbac-roles.md) about the built-in Synapse roles. 
 
-Future releases of Synapse Analytics will also allow custom roles to be defined.
+Future releases of Synapse Analytics will allow custom roles to be defined.
 
 ### Scopes
 
@@ -59,9 +62,11 @@ Current supported scopes within a workspace are: Apache Spark pool, Integration 
 
 Access to code artifacts is granted with workspace scope.  Granting access to collections of artifacts within a workspace will be supported in a later release.
 
-## Assigning roles and computing permissions
+## Role assignments roles and computing permissions
 
-Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigned to a single principal and at different scopes. When computing the permissions a security principal, the system considers all roles assigned to the principal and to groups that directly or indirectly include the principal.  It also considers the scope of each assignment in determining the permissions that apply.  
+A role assignment grants the principal the permissions defined by the role at the specified scope.
+
+Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigned to a single principal and at different scopes. When computing the permissions of a security principal, the system considers all roles assigned to the principal and to groups that directly or indirectly include the principal.  It also considers the scope of each assignment in determining the permissions that apply.  
 
 ## Enforcing assigned permissions
 
@@ -69,9 +74,9 @@ In Synapse Studio, if you don't have the required permissions, specific buttons 
 
 ## Who can assign Synapse RBAC roles?
 
-When a new workspace is created, the creator is automatically given the Synapse Administrator role at workspace scope.  
+Only a Synapse Administrator is able to assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope, while a Synapse Administrator at a lower-level scope can only grant access at that scope. 
 
-Only a Synapse Administrator as able to assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope, while a Synapse Administrator at a lower-level scope can only grant access at that scope.   
+When a new workspace is created, the creator is automatically given the Synapse Administrator role at workspace scope.   
 
 ## Where do I manage Synapse RBAC?
 
