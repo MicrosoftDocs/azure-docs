@@ -22,14 +22,14 @@ Azure Monitor for Networks is structured around these key components of monitori
 
 The Azure Monitor for Networks **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts, and dependency view.
 
-![Screenshot that shows the Overview page.](media/network-insights-overview/overview.png)
+[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png]((media/network-insights-overview/overview.png)#lightbox)
 
 ### Search and filtering
 You can customize the resource health and alerts view by using filters like **Subscription**, **Resource Group**, and **Type**.
 
 You can use the search box to search for resources and their associated resources. For example, a public IP is associated with an application gateway. A search for the public IP's DNS name will return both the public IP and the associated application gateway:
 
-![Screenshot that shows Azure Monitor for Networks search results.](media/network-insights-overview/search.png)
+[![Screenshot that shows Azure Monitor for Networks search results.](media/network-insights-overview/search.png)](media/network-insights-overview/search.png#lightbox)
 
 
 ### Resource health and metrics
@@ -53,7 +53,7 @@ Dependency view helps you visualize how a resource is configured. Dependency vie
 
 The dependency view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules, and backend pool. The connecting lines are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools, like virtual machine scale set and VM instances.
 
-![Screenshot that shows dependency view in Azure Monitor for Networks.](media/network-insights-overview/dependency-view.png)
+[![Screenshot that shows dependency view in Azure Monitor for Networks.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 
 The dependency graph provides easy navigation to configuration settings. Right-click a backend pool to access other information. For example, if the backend pool is a VM, you can directly access VM Insights and Azure Network Watcher connection troubleshooting to identify connectivity issues:
 
@@ -75,11 +75,11 @@ The **Connectivity** tab provides an easy way to visualize all tests configured 
 
 Tests are grouped by **Sources** and **Destinations** tiles and display the reachability status for each test. Reachable settings provide easy access to configurations for your reachability criteria, based on checks failed (%) and RTT (ms). After you set the values, the status for each test updates based on the selection criteria.
 
-![Screenshot that shows connectivity tests in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)
+[![Screenshot that shows connectivity tests in Azure Monitor for Networks.](media/azure-network-latency/azure-network-latency.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 You can select any source or destination tile to open a metric view:
 
-![Screenshot that shows connectivity metrics in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
+[![Screenshot that shows connectivity metrics in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png#lightbox)
 
 
 You can select any item in the grid view. Select the icon in the **Reachability** column to go to the Connection Monitor portal page and view the hop-by-hop topology and connectivity affecting issues identified. Select the value in the **Alert** column to go to alerts. Select the graphs in the **Checks Failed Percent** and **Round-Trip Time (ms)** columns to go to the metrics page for the selected connection monitor.
@@ -89,11 +89,11 @@ The **Alert** box on the right side of the page provides a view of all alerts 
 ## <a name="traffic"></a>Traffic
 The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
 
-![Screenshot that shows the Traffic tab in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+[![Screenshot that shows the Traffic tab in Azure Monitor for Networks.](media/azure-network-latency/azure-network-latency.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)#lightbox)
 
 If you select any region tile, a grid view appears. The grid provides NSG flow logs and Traffic Analytics in a view that's easy to read and configure:  
 
-![Screenshot that shows the traffic region view in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+[![Screenshot that shows the traffic region view in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png#lightbox)
 
 You can select any item in the grid view. Select the icon in the **Flowlog Configuration Status** column to edit the NSG flow log and Traffic Analytics configuration. Select the value in the **Alert** column to go to the traffic alerts configured for the selected NSG. Similarly, you can go to the Traffic Analytics view by selecting the **Traffic Analytics Workspace**.  
 
