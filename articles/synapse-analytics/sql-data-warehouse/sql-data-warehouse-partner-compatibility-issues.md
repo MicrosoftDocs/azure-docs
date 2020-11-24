@@ -23,7 +23,7 @@ Starting from Azure Synapse dedicated SQL pool version 10.0.11038.0, some Tablea
 
 ### Cause
 
-This is an issue in Azure Synapse SQL dedicated pool caused by the introduction of new system stored procedures that are called automatically by the ODBC and JDBC drivers. One of those system stored procedures can cause open transactions to be aborted if they fail execution. This issue can happen depending on the client application logic.
+This is an issue in Azure Synapse dedicated SQL pool caused by the introduction of new system stored procedures that are called automatically by the ODBC and JDBC drivers. One of those system stored procedures can cause open transactions to be aborted if they fail execution. This issue can happen depending on the client application logic.
 
 ### Solution
 Customers seeing this particular issue when using Tableau connected to Azure Synapse SQL dedicated pools should set FMTONLY to YES in the SQL connection. For Tableau Desktop and Tableau Server, you should use a Tableau Data source Customization (TDC) file to ensure Tableau passes this parameter to the driver.  
