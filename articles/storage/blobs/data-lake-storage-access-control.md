@@ -87,7 +87,7 @@ The following table shows you the ACL entries required to enable a security prin
 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
-> [!IMPORANT] 
+> [!IMPORTANT]
 > This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
