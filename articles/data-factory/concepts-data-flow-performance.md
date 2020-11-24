@@ -165,7 +165,7 @@ You can read from Azure SQL Database using a table or a SQL query. If you are ex
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), which greatly improves read performance. Enabling PolyBase requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using ```Polybase```, which greatly improves read performance. Enabling ```Polybase``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging")
 
@@ -204,7 +204,7 @@ These can both be done natively using Pre and Post-SQL scripts within an Azure S
 ![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
 
 > [!WARNING]
-> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### Scaling up your database
 
