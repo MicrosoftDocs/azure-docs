@@ -144,7 +144,7 @@ conceptualContent:
         - url: ../iot-pnp/quickstart-connect-device-node.md
           itemType: quickstart
           text: Connect a sample device to IoT Hub
-        - url: ../iot-pnp/concepts-developer-guide-device-csharp.md
+        - url: ../iot-pnp/concepts-developer-guide-device.md
           itemType: concept
           text: Developer guide
       # footerLink
