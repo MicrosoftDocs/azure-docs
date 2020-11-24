@@ -62,7 +62,7 @@ To verify the roles in PowerShell, run below:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Verify your RBAC role assignment settings
+b. Verify your Azure role assignment settings
 
 
   ```powershell
