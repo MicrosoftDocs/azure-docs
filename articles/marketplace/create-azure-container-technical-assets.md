@@ -1,5 +1,5 @@
 ---
-title: Technical concepts for Azure container offers - Microsoft commercial marketplace
+title: Prepare your Azure container technical assets
 description: Technical resource and guidelines to help you configure a container offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,13 +9,13 @@ ms.author: keferna
 ms.date: 11/30/2020
 ---
 
-# Create an Azure container offer
+# Prepare your Azure container technical assets
 
 This article gives technical resources and recommendations to help you create a container offer on Azure Marketplace.
 
 ## Before you begin
 
-For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](/azure/container-instances/index.yml).
+For Quickstarts, Tutorials, and Samples, see the [Azure Container Instances documentation](/azure/container-instances/).
 
 ## Fundamental technical knowledge
 
