@@ -1,5 +1,5 @@
 ---
-title: Activate and configure your sensor 
+title: Activate and set up your sensor
 description: 
 author: shhazam-ms
 manager: rkarlin

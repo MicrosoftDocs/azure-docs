@@ -85,30 +85,30 @@
       href: event-aggregation.md
     - name: Pricing and associated costs
       href: concept-pricing.md
-  - name: Understand the Security Module for Azure RTOS
-    href: concept-rtos-security-module.md
-  - name: Security Module for Azure RTOS alerts and recommendations 
-    href: concept-rtos-security-alerts-recommendations.md
-  - name: Security agent authentication
-    href: concept-security-agent-authentication-methods.md
-  - name: Security module
-    href: concept-security-module.md
-  - name: Security alerts
-    href: concept-security-alerts.md
-  - name: Customizable security alerts
-    href: concept-customizable-security-alerts.md
-  - name: Security
-    items:
-    - name: Security recommendations
-      href: concept-recommendations.md
-    - name: Security baseline
-      href: security-baseline.md
-  - name: Baseline
-    href: concept-baseline.md
-  - name: Event aggregation
-    href: event-aggregation.md
-  - name: Pricing and associated costs
-    href: concept-pricing.md
+    - name: Understand the Security Module for Azure RTOS
+      href: concept-rtos-security-module.md
+    - name: Security Module for Azure RTOS alerts and recommendations 
+      href: concept-rtos-security-alerts-recommendations.md
+    - name: Security agent authentication
+      href: concept-security-agent-authentication-methods.md
+    - name: Security module
+      href: concept-security-module.md
+    - name: Security alerts
+      href: concept-security-alerts.md
+    - name: Customizable security alerts
+      href: concept-customizable-security-alerts.md
+    - name: Security
+      items:
+      - name: Security recommendations
+        href: concept-recommendations.md
+      - name: Security baseline
+        href: security-baseline.md
+    - name: Baseline
+      href: concept-baseline.md
+    - name: Event aggregation
+      href: event-aggregation.md
+    - name: Pricing and associated costs
+      href: concept-pricing.md
 - name: How-to guides
   items:
   - name: Enterprises 
@@ -116,7 +116,7 @@
     - name: Prepare your network
       items:
         - name: Acquire hardware and software
-          href: how-to-acquire-hardware-and-software
+          href: how-to-acquire-hardware-and-software.md
         - name: Install software
           href: how-to-install-software.md
         - name: Set up your network
@@ -125,7 +125,7 @@
       items:
       - name: Onboard sensors
         href: how-to-onboard-sensors.md
-      - name: Activate and configure your sensor
+      - name: Activate and set up your sensor
         href: how-to-activate-and-set-up-your-sensor.md
       - name: Work with the sensor console dashboard
         href: how-to-work with-the-sensor-console-dashboard.md
@@ -139,10 +139,10 @@
         href: how-to-set-up-high-availability.md
     - name: Change the name of your console
       href: how-to-change-the-name-of-your-console.md
+    - name: Create and manage sensor console users
+      href: how-to-create-sensor-console-users.md  
     - name: Create and manage on-premises management console users
       items:
-      - name: Create sensor console users
-        href: how-to-create-sensor-console-users.md  
       - name: Create and manage users
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
@@ -177,12 +177,26 @@
         href: how-to-gain-insight-into-devices-discovered-by-a-specific-sensor.md
     - name: Work with maps
       href: how-to-work-with-maps.md
-    - name: Work with alerts
+    - name: Work with alerts detected by a sensor
       items:
-      - name: Work with alerts sensor
+      - name: Work with alert sensor
         href: how-to-work-with-alerts-sensor.md
-      - name: Work with alerts on-premises management console
-        href: how-to-work-with-alerts-on-premises-management-console.md
+      - name: Views alerts
+        href: how-to-view-alerts.md
+      - name: View information provided in alerts
+        href: how-to-view-information-provided-in-alerts.md
+      - name: Investigate alert events
+        href: how-to-investigate-alert-events.md
+      - name: Manage the alert event
+        href: how-to-manage-the-alert-event.md
+      - name: Accelerate alert incident response
+        href: how-to-accelerate-alert-incident-response.md
+      - name: Forward alert information to partners
+        href: how-to-forward-alert-information-to-partners.md
+      - name: Customized alert rules
+        href: how-to-customized-alert-rules.md
+    - name: Work with alerts on the on-premises management console
+      href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information
       items: 
       - name: Configure DNS servers for reverse lookup resolution
@@ -219,8 +233,6 @@
           href: integration-sentinel-syslog.md
         - name: Cyberark integration
           href: integration-cyberark.md
-    - name: Manage proprietary protocols (horizon)
-      href: how-to-manage-proprietary-protocols.md
     - name: Troubleshoot the sensor and on-premises management console
       href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
     - name: Define access tokens
@@ -230,7 +242,9 @@
     - name: Setup active directory
       href: how-to-setup-active-directory.md
     - name: Adjust system properties
-      href: how-to-adjust-system-properties.md  
+      href: how-to-adjust-system-properties.md
+    - name: Manage proprietary protocols (Horizon)
+      href: how-to-manage-proprietary-protocols.md  
   - name: Device builder
     items: 
     - name: Work with Security Module for Azure RTOS

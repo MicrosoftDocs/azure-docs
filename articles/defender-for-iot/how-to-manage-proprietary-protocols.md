@@ -1,5 +1,5 @@
 ---
-title: Manage proprietary protocols (horizon) 
+title: Manage proprietary protocols (Horizon) 
 description: 
 author: shhazam-ms
 manager: rkarlin
@@ -7,6 +7,7 @@ ms.author: shhazam
 ms.date: 11/11/2020
 ms.topic: article
 ms.service: azure
+ms.topic: how-to
 ---
 
 # Overview

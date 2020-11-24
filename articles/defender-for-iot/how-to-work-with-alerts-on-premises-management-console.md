@@ -1,5 +1,5 @@
 ---
-title: Work with alerts on-premises management console
+title: Work with alerts on the on-premises management console
 description: 
 author: shhazam-ms
 manager: rkarlin
@@ -7,6 +7,7 @@ ms.author: shhazam
 ms.date: 11/04/2020
 ms.topic: article
 ms.service: azure
+ms.topic: how-to
 ---
 
 # Overview - Working with Alerts
