@@ -303,7 +303,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Guidance**: HPC Cache uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
-Create standard operating procedures around the use of dedicated administrative accounts. To create a cache, HPC Cache requires the users to have sufficient privileges in the subscription to create NICs. If using Blob storage, the RBAC roles Storage Account Contributor and Storage Blob Data Contributor are required for HPC Cache to access the storage. 
+Create standard operating procedures around the use of dedicated administrative accounts. To create a cache, HPC Cache requires the users to have sufficient privileges in the subscription to create NICs. If using Blob storage, the Azure roles Storage Account Contributor and Storage Blob Data Contributor are required for HPC Cache to access the storage. 
 
 Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business-critical assets, such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business-critical assets.
 
