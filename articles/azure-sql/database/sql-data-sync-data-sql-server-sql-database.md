@@ -83,7 +83,7 @@ The new private link feature allows you to choose a service managed private endp
 ![Private link for Data Sync](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
 
 > [!NOTE]
-> Before you can start using private link for Data Sync, you must manually approve the service managed private endpoint during the sync configuration process, within the “Private endpoint connections” section in the Azure Portal or through PowerShell.
+> You must manually approve the service managed private endpoint during the sync configuration process, within the “Private endpoint connections” section in the Azure Portal or through PowerShell.
 
 ## Get started 
 
@@ -130,7 +130,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 - Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
-- In order to use private link with Data Sync, both the member and hub databases must be hosted in Azure (same or different regions), in the same cloud type (e.g. both in public cloud or both in government cloud). Additionally, you must manually approve the private link for Data Sync during the sync configuration, within the “Private endpoint connections” section in the Azure Portal or through PowerShell. Once you approve the service managed private endpoint, all communication between the sync service and the member/hub databases will happen over the private link. Existing sync groups can be updated to have this feature enabled.
+- In order to use private link with Data Sync, both the member and hub databases must be hosted in Azure (same or different regions), in the same cloud type (e.g. both in public cloud or both in government cloud). Additionally, to use private link, Microsoft.Network resource providers must be Registered for the subscriptions that host the hub and member servers. Lastly, you must manually approve the private link for Data Sync during the sync configuration, within the “Private endpoint connections” section in the Azure Portal or through PowerShell. Once you approve the service managed private endpoint, all communication between the sync service and the member/hub databases will happen over the private link. Existing sync groups can be updated to have this feature enabled.
 
 ### General limitations
 
