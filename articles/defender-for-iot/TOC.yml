@@ -116,7 +116,7 @@
     - name: Prepare your network
       items:
         - name: Acquire hardware and software
-          href: how-to-acquire-hardware-and-software
+          href: how-to-acquire-hardware-and-software.md
         - name: Install software
           href: how-to-install-software.md
         - name: Set up your network
