@@ -4,7 +4,7 @@ description: The Virtual WAN security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
