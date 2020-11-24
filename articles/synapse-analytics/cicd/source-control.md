@@ -4,7 +4,6 @@ description: Learn how to configure source control in Azure Synapse Studio
 services: synapse-analytics 
 author: liud
 ms.service: synapse-analytics 
-ms.subservice: cicd
 ms.topic: conceptual 
 ms.date: 11/20/2020
 ms.author: liud 
@@ -73,7 +72,7 @@ Your can also use repository link to quickly point to the git repository you wan
 
 ### Use a different Azure Active Directory tenant
 
-The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
+The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
 
 > [!IMPORTANT]
 > To connect to another Azure Active Directory, the user logged in must be a part of that active directory. 
@@ -168,7 +167,7 @@ After merging changes to the collaboration branch , click **Publish** to manuall
 
 A side pane will open where you confirm that the publish branch and pending changes are correct. Once you verify your changes, click **OK** to confirm the publish.
 
-![Confirm the correct publish branch](media/publish-changes.png)
+![Confirm the correct publish branch](media/media/publish-changes.png)
 
 > [!IMPORTANT]
 > The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.

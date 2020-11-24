@@ -4,7 +4,6 @@ description: Learn how to use continuous integration and delivery to deploy chan
 services: synapse-analytics 
 author: liud
 ms.service: synapse-analytics 
-ms.subservice: cicd
 ms.topic: conceptual 
 ms.date: 11/20/2020
 ms.author: liud 
@@ -17,7 +16,7 @@ ms.reviewer: pimorano
 
 Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. Continuous Deployment (CD) is the process to build, test, configure, and deploy from multiple testing or staging environments to a production environment.
 
-For Azure Synapse workspace, continuous integration and delivery (CI/CD) move all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: use [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to create or update workspace resources (pools and workspace); migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
+For Azure Synapse workspace, continuous integration and delivery (CI/CD) move all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: use [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) to create or update workspace resources (pools and workspace); migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
 
 This article will outline using Azure release pipeline to automate the deployment of a Synapse workspace to multiple environments.
 
@@ -80,10 +79,10 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
 
 1. (Optional) Add **Azure PowerShell** for the grant and update workspace role assignment. If you use release pipeline to create a Synapse workspace, the pipeline’s service principal is required to be added as default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
     
-    ![workspace and pools deploy](media/release-creation-grant-permission.png)
+    ![grant permission](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../azure-resource-manager/templates/deployment-modes.md)
+> In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
 
 ## Set up a stage task for artifacts deployment 
 
@@ -102,7 +101,7 @@ Use [Synapse workspaces Build & Release](https://marketplace.visualstudio.com/it
 
 ## Create release for deployment 
 
-After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers?view=azure-devops)
+After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Select Create release](media/release-creation-manual.png)
 
