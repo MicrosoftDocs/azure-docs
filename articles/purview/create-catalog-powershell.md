@@ -46,55 +46,55 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
 1. Sign in with your Azure credential
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Connect-AzAccount
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az login
-```
-
----
+    # [PowerShell](#tab/azure-powershell)
+    
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+    
+    # [Azure CLI](#tab/azure-cli)
+    
+    ```azurecli
+    az login
+    ```
+    
+    ---
 
 1. If you have multiple Azure subscriptions, select the subscription you want to use:
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Set-AzContext [SubscriptionID/SubscriptionName]
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az account set --subscription [SubscriptionID/SubscriptionName]
-```
-
----
+    # [PowerShell](#tab/azure-powershell)
+    
+    ```azurepowershell
+    Set-AzContext [SubscriptionID/SubscriptionName]
+    ```
+    
+    # [Azure CLI](#tab/azure-cli)
+    
+    ```azurecli
+    az account set --subscription [SubscriptionID/SubscriptionName]
+    ```
+    
+    ---
 
 1. Create a resource group for your Purview account. You can skip this step if you already have one:
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroup `
-  -Name myResourceGroup `
-  -Location "East US"
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az group create \
-  --name myResourceGroup \
-  --location "East US"
-```
-
----
+    # [PowerShell](#tab/azure-powershell)
+    
+    ```azurepowershell
+    New-AzResourceGroup `
+      -Name myResourceGroup `
+      -Location "East US"
+    ```
+    
+    # [Azure CLI](#tab/azure-cli)
+    
+    ```azurecli
+    az group create \
+      --name myResourceGroup \
+      --location "East US"
+    ```
+    
+    ---
 
 1. Create a Purview template file such as `purviewtemplate.json`. You can update `name`, `location`, and `capacity` (`4` or `16`):
 

@@ -71,9 +71,6 @@ items:
         href: bring-new-data-sources-under-management.md
       - name: Purview connectors overview
         href: purview-connector-overview.md
-      - name: Azure Files
-        href: register-scan-azure-files-storage-source.md
-        displayName: Register and scan Azure files
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
         displayName: Register and scan azure blob storage
@@ -89,8 +86,6 @@ items:
       - name: Azure Data Lake Storage Gen 2
         href: register-scan-adls-gen2.md
         displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
-      - name: Use PowerShell to register and scan Power BI
-        href: powershell-register-scan-power-bi.md
       - name: Azure Files
         href: register-scan-azure-files-storage-source.md
         displayName: Register and scan Azure files
@@ -103,12 +98,12 @@ items:
       - name: Azure SQL Database Managed Instance
         href: register-scan-azure-sql-database-managed-instance.md
         displayName: Register and scan Azure SQL DB Managed Instance
-      - name: Register and scan a Power BI tenant
+      - name: Register and scan a Power BI tenant - Portal
         href: register-scan-power-bi-tenant.md
+      - name: Register and scan a Power BI tenant - PowerShell
+        href: powershell-register-scan-power-bi.md
       - name: Use PowerShell cmdlets to scan on-premises data sources
         href: powershell-cmdlets-scan-on-premises-data-sources.md
-      - name: Use PowerShell to register and scan Power BI
-        href: powershell-register-scan-power-bi.md
       - name: Use PowerShell cmdlets to scan Azure data sources
         href: powershell-cmdlets-scan-azure-data-sources.md
       - name: Register and scan Azure Synapse Analytics
