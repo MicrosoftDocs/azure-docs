@@ -30,17 +30,17 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 
 |Feature|Classical Notebook|Preview Notebook|
 |--|--|--|
-|%run| &#9744;| &#9745;|
-|%history|&#9744;|&#9745;
-|%load|&#9744;|&#9745;|
-|%%html|&#9744;|&#9745;|
-|Drag and drop to move a cell|&#9744;|&#9745;|
-|Persistent Display() output|&#9745;| future promise |
-|Cancel all| &#9745;| future promise|
-|Run all cells above|&#9745;| future promise|
-|Run all cells below|&#9745;| future promise|
-|Format text cell with toolbar buttons|&#9745;|future promise|
-|Undo cell operation| &#9745;| future promise|
+|%run| Not supported | &#9745;|
+|%history| Not supported |&#9745;
+|%load| Not supported |&#9745;|
+|%%html| Not supported |&#9745;|
+|Drag and drop to move a cell| Not supported |&#9745;|
+|Persistent Display() output|&#9745;| Not available |
+|Cancel all| &#9745;| Not available|
+|Run all cells above|&#9745;| Not available |
+|Run all cells below|&#9745;| Not available |
+|Format text cell with toolbar buttons|&#9745;| Not available |
+|Undo cell operation| &#9745;| Not available |
 
 
 ## Create a notebook
