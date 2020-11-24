@@ -6,7 +6,7 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/16/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ---
@@ -36,8 +36,6 @@ Select **Apache Spark applications** to view the list of Apache Spark applicatio
 You can filter the list of Apache Spark applications to the ones you're interested in. The filters at the top of the screen allow you to specify a field on which you'd like to filter.
 
 For example, you can filter the view to see only the Apache Spark applications that contain the name "sales":
-
-![Filter button](./media/common/filter-button.png)
 
 ![Sample filter](./media/how-to-monitor-spark-applications/filter-example.png)
 

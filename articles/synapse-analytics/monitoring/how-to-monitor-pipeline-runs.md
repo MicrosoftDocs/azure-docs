@@ -6,7 +6,7 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/27/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ---
@@ -36,8 +36,6 @@ Select **Pipeline runs** to view the list of pipeline runs.
 You can filter the list of pipeline runs to the ones you're interested in. The filters at the top of the screen allow you to specify a field on which you'd like to filter.
 
 For example, you can filter the view to see only the pipeline runs for the pipeline named "holiday":
-
-![Filter button](./media/common/filter-button.png)
 
 ![Sample filter](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
