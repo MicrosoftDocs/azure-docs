@@ -16,9 +16,9 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Building resilient identity and access management with Azure Active Directory
+# Building resilience into identity and access management with Azure Active Directory
 
-Identity and access management (IAM) is a framework of processes, policies, and technologies that facilitate the management of identities and what they access. It includes the many components supporting the authentication and authorization of user and other accounts in your system. 
+Identity and access management (IAM) is a framework of processes, policies, and technologies that facilitate the management of identities and what they access. It includes the many components supporting the authentication and authorization of user and other accounts in your system.
 
 IAM resilience is the ability to endure disruption to system components and recover with minimal impact to your business, users, customers, and operations. Reducing dependencies, complexity, and single-points-of-failure, while ensuring comprehensive error handling will increase your resilience.
 
@@ -36,9 +36,7 @@ When planning the resilience of your IAM solution, consider the following elemen
 
 * Any other on-premises components in your system.
 
-Whatever the source, recognizing and planning for the contingencies is important. However, adding additional identity systems, and their resultant dependencies and complexity, may reduce your resilience rather than increase it. 
-
-## Next steps
+Whatever the source, recognizing and planning for the contingencies is important. However, adding additional identity systems, and their resultant dependencies and complexity, may reduce your resilience rather than increase it.
 
 To build more resilience in your systems, review the following articles:
 

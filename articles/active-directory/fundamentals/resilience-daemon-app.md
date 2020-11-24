@@ -27,7 +27,7 @@ Managed Identities use long lived access tokens and information from Microsoft I
 
 Managed Identities also use regional endpoints to improve performance and resilience against out-of-region failures. Using a regional endpoint helps to keep all traffic inside a geographical area. For example, if your Azure Resource is in WestUS2, all the traffic, including Microsoft Identity generated traffic, should stay in WestUS2. This eliminates possible points of failure by consolidating the dependencies of your service.
 
-## Use Microsoft authentication libraries
+## Use the Microsoft Authentication Library
 
 Developers of daemon apps who do not use Managed Identities can use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), which makes implementing authentication and authorization simple, and automatically uses best practices for resilience. MSAL will make the process of providing the required Client Credentials easier. For example, your application does not need to implement creating and signing JSON Web Token assertions when using certificate-based credentials.
 

@@ -60,7 +60,7 @@ Developers should have a process for updating to the latest MSAL release. Authen
 
 [Check the latest Microsoft.Identity.Web version and release notes](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## When using a library other than MSAL, use resilient patterns for token handling
+## If not using MSAL, use these resilient patterns for token handling
 
 In general, an application that uses modern authentication will call an endpoint to retrieve tokens that authenticate the user or authorize the application to call protected APIs. MSAL is meant to handle the details of authentication and implements several patterns to improve resilience of this process. Use the guidance in this section to implement best practices if you choose to use a library other than MSAL. If you use MSAL, you get all of these best-practices for free, as MSAL implements them automatically.
 
@@ -99,7 +99,7 @@ When an application receives an HTTP 5xx response code the app must not enter a 
 
 When a request times out applications should not retry immediately. Implement an exponential back-off retry with the first retry at least 5 seconds after the response.
 
-## Evaluate your options for retrieving authorization related information
+## Evaluate options for retrieving authorization related information
 
 Many applications and APIs need specific information about the user to make authorization decisions. There are a few ways for an application to get this information. Each method has its advantages and disadvantages. Developers should weigh these to determine which strategy is best for resilience in their app.
 
@@ -139,9 +139,9 @@ Broker authentication is automatically supported by MSAL. You can find more info
 - [Configure SSO on macOS and iOS](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-macos-ios#sso-through-authentication-broker-on-ios)
 - [How to enable cross-app SSO on Android using MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-android-single-sign-on)
 
-## Adopt Continuous Access Evaluation for long-lived tokens and added security
+## Adopt Continuous Access Evaluation
 
-[Continuous Access Evaluation (CAE)](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) is a recent development that can increase application security and resilience. CAE is an emerging industry standard being developed in the Shared Signals and Events Working Group of the OpenID Foundation. With CAE, an access token can be revoked based on [critical events](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation#critical-event-evaluation) and [policy evaluation](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview), rather than relying on a short token lifetime. For some resource APIs, because risk and policy are evaluated in real time, CAE can substantially increase token lifetime up to 28 hours. As resource APIs and applications adopt CAE, Microsoft Identity will be able to issue access tokens that are revokable and are valid for extended periods of time. These long-lived tokens will be proactively refreshed by MSAL.
+[Continuous Access Evaluation (CAE)](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) is a recent development that can increase application security and resilience with long-lived tokens. CAE is an emerging industry standard being developed in the Shared Signals and Events Working Group of the OpenID Foundation. With CAE, an access token can be revoked based on [critical events](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation#critical-event-evaluation) and [policy evaluation](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview), rather than relying on a short token lifetime. For some resource APIs, because risk and policy are evaluated in real time, CAE can substantially increase token lifetime up to 28 hours. As resource APIs and applications adopt CAE, Microsoft Identity will be able to issue access tokens that are revocable and are valid for extended periods of time. These long-lived tokens will be proactively refreshed by MSAL.
 
 While CAE is in early phases, it is possible to [develop client applications today that will benefit from CAE](../develop/app-resilience-continuous-access-evaluation.md) when the resources (APIs) the application uses adopt CAE. As more resources adopt CAE, your application will be able to acquire CAE enabled tokens for those resources as well. The Microsoft Graph API, and [Microsoft Graph SDKs](https://docs.microsoft.com/graph/sdks/sdks-overview), will preview CAE capability early 2021. If you would like to participate in the public preview of Microsoft Graph with CAE, you can let us know you are interested here: [https://aka.ms/GraphCAEPreview](https://aka.ms/GraphCAEPreview).
 

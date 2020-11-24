@@ -42,8 +42,6 @@ In the subsequent sections, we’ll guide you to build resilience in the followi
 
 - [Monitoring and analytics](resilience-with-monitoring-alerting.md): Assess the health of your service by monitoring key indicators and detect failures and performance disruptions through alerting.
 
-## Next steps
-
 - Resilience resources for Azure AD B2C developers
   - [Resilient end-user experience](resilient-end-user-experience.md)
   - [Resilient interfaces with external processes](resilient-external-processes.md)
