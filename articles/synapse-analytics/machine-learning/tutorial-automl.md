@@ -63,7 +63,7 @@ A configuration panel will appear and you will be asked to provide configuration
 
 - **Best model**: Specify the name of the best model from the AutoML run. The best model will be given this name and saved in the Azure ML model registry automatically after this run. An AutoML run will create many machine learning models. Based on the primary metric that you will select in a later step, those models can be compared and the best model can be selected.
 
-- **Target colum**: This is what the model is trained to predict. Choose the column that you want to predict.
+- **Target column**: This is what the model is trained to predict. Choose the column that you want to predict.
 
 - **Spark pool**: The Spark pool you want to use for the AutoML experiment run. The computations will be executed on the pool you specify.
 

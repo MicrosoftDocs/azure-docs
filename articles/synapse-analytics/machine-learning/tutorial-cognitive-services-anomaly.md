@@ -46,7 +46,7 @@ You will need a Spark table for this tutorial.
 1. Open the notebook file and choose to **Run All** cells.
 ![Create Spark table](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00b.png)
 
-1.A Spark table named **anomaly_detector_testing_data** should now appear in the default Spark database.
+1. A Spark table named **anomaly_detector_testing_data** should now appear in the default Spark database.
 
 ## Launch Cognitive Services wizard
 

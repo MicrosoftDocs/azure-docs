@@ -37,18 +37,18 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 [Azure Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492) include many different types of services. Below are some examples that are used in the Synapse tutorials.
 
 ### Create an Anomaly Detector resource
-Create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in Azure Portal.
+Create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in Azure portal.
 
 ![Create anomaly detector](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
 
 ### Create a Text Analytics resource
-Create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in Azure Portal.
+Create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in Azure portal.
 
 ![Create text Analytics](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00b.png)
 
 ## Create Key Vault and configure secrets and access
 
-1. Create a [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in Azure Portal.
+1. Create a [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in Azure portal.
 2. Go to **Key Vault -> Access policies**, and grant the [Azure Synapse workspace MSI](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-identity) permissions to read secrets from Azure Key Vault.
 
 >Make sure that the policy changes are saved. This step is easy to miss.
@@ -57,7 +57,7 @@ Create a [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.Cognitiv
 
 3. Go to your Cognitive Service resource, for example **Anomaly Detector -> Keys and Endpoint**, copy either of the two keys to the clipboard.
 
-4. Go to **Key Vault -> Secret** to create a new secret. Specify the name of the secret, and then paste the key from the previous step into the "Vaule" field. Finally, click **Create**.
+4. Go to **Key Vault -> Secret** to create a new secret. Specify the name of the secret, and then paste the key from the previous step into the "Value" field. Finally, click **Create**.
 
 ![Create secret](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
