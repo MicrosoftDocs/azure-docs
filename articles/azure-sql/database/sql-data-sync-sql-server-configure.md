@@ -89,6 +89,7 @@ In the **Member Database** section, optionally add a database in Azure SQL Datab
   | **Azure SQL Database** | Select the existing database in SQL Database. |
   | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
   | **Username** and **Password** | Enter the existing credentials for the server on which the member database is located. Don't enter *new* credentials in this section. |
+  | **Use private link** | Choose a service managed private endpoint to establish a secure connection between the sync service and the member database. |
 
   Select **OK** and wait for the new sync member to be created and deployed.
 
