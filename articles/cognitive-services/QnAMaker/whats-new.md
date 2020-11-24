@@ -51,7 +51,7 @@ Learn what's new with QnA Maker.
 
 ### November 2019
 
-* [US Government cloud support](../../azure-government/compare-azure-government-global-azure.md#qna-maker) for QnA Maker
+* [US Government cloud support](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) for QnA Maker
 * [Multi-turn](./how-to/multiturn-conversation.md) feature in GA
 * [Chit-chat support](./how-to/chit-chat-knowledge-base.md#language-support) available in tier-1 languages
 

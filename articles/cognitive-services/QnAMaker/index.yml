@@ -33,18 +33,12 @@ landingContent:
         links:
           - text: Development lifecycle
             url: concepts/development-lifecycle-knowledge-base.md
-          - text: Data sources
-            url: 
       - linkListType: video
         links:
           - text: Build a bot in minutes
             url: https://channel9.msdn.com/Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
   - title: Create and edit knowledge base
     linkLists:
-      - linkListType: concept
-        links:
-          - text: What is a knowledge base
-            url: 
       - linkListType: get-started
         links:
           - text: "Quickstart: Create a new knowledge base"
