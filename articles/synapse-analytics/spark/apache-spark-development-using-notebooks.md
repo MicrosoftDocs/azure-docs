@@ -31,17 +31,16 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Feature|Classical Notebook|Preview Notebook|
 |--|--|--|
 |%run| &#9744;| &#9745;|
-|%fs|&#9744;|&#9745;|
 |%history|&#9744;|&#9745;
 |%load|&#9744;|&#9745;|
 |%%html|&#9744;|&#9745;|
 |Drag and drop to move a cell|&#9744;|&#9745;|
-|Persistent Display() output|&#9745;| coming soon|
-|Cancel all| &#9745;| coming soon|
-|Run all cells above|&#9745;| coming soon|
-|Run all cells below|&#9745;| coming soon|
-|Format text cell with toolbar buttons|&#9745;|coming soon|
-|Undo cell operation| &#9745;| coming soon|
+|Persistent Display() output|&#9745;| future promise |
+|Cancel all| &#9745;| future promise|
+|Run all cells above|&#9745;| future promise|
+|Run all cells below|&#9745;| future promise|
+|Format text cell with toolbar buttons|&#9745;|future promise|
+|Undo cell operation| &#9745;| future promise|
 
 
 ## Create a notebook
@@ -74,10 +73,10 @@ There are multiple ways to add a new cell to your notebook.
 # [Preview Notebook](#tab/preview)
 
 1. Expand the upper left **+ Cell** button, and select **code cell** or **Markdown cell**.
-    ![add-aznb-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-aznb-add-cell-1.png)
+    ![add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
 2. Select the plus sign at the beginning of a cell and select **Code cell** or **Markdown cell**.
 
-    ![add-aznb-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-aznb-add-cell-2.png)
+    ![add-azure-notebook-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
 
 3. Use [aznb Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
 
@@ -160,7 +159,7 @@ You can use the format buttons in the text cells toolbar to do common markdown a
 
 # [Preview Notebook](#tab/preview)
 
-coming soon.
+Format button toolbar is not available for the preview notebook experience yet. This is in our to do list and going to be ready soon.
 
 ---
 
@@ -173,7 +172,7 @@ Select the **undo** button or press **Ctrl+Z** to revoke the most recent cell op
    ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 # [Preview Notebook](#tab/preview)
 
-coming soon.
+Undo cell operation is not available for the preview notebook experience yet. This is in our to do list and going to be ready soon.
 
 ---
 
@@ -190,7 +189,7 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
 # [Preview Notebook](#tab/preview)
 
 Click on the left-hand side of a cell and drag it to the desired position. 
-    ![Synapse move cells](./media/apache-spark-development-using-notebooks/synapse-aznb-drag-drop-cell.gif)
+    ![Synapse move cells](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
 
 ---
 
@@ -210,7 +209,7 @@ To delete a cell, select the delete button at the right hand of the cell.
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+D** to delete the current cell. 
 
-   ![aznb-delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-aznb-delete-cell.png)
+   ![azure-notebook-delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-delete-cell.png)
 
 ---
 
@@ -226,7 +225,7 @@ Select the arrow button at the bottom of the current cell to collapse it. To exp
 
 Select the **More commands** ellipses (...) on the cell toolbar and **input** to collapse current cell's input. To expand it, Select the **input hidden** while the cell is collapsed.
 
-   ![aznb-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-input.gif)
+   ![azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
 
 ---
 
@@ -242,7 +241,7 @@ Select the **collapse output** button at the upper left of the current cell outp
 
 Select the **More commands** ellipses (...) on the cell toolbar and **output** to collapse current cell's output. To expand it, select the same button while the cell's output is hidden.
 
-   ![aznb-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-output.gif)
+   ![azure-notebook-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
 
 
 ---
@@ -260,14 +259,6 @@ There are several ways to run the code in a cell.
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
   
 2. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+Enter** to run the current cell and select the cell below. Press **Alt+Enter** to run the current cell and insert a new cell below.
-
-# [Classical Notebook](#tab/classical)
-
-3. To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cell**.
-
-   ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
-
-# [Preview Notebook](#tab/preview)
 
 ---
 
@@ -292,7 +283,7 @@ Select the **Cancel All** button to cancel the running cells or cells waiting in
 
 # [Preview Notebook](#tab/preview)
 
-Coming soon.
+Cancel all running cells is not available for the preview notebook experience yet. This is in our to do list and going to be ready soon.
 
 ---
 
@@ -302,7 +293,7 @@ Coming soon.
 
 # [Classical Notebook](#tab/classical)
 
-Not support.
+Not supported.
 
 # [Preview Notebook](#tab/preview)
 
@@ -329,7 +320,7 @@ The number of tasks per each job or stage help you to identify the parallel leve
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
-[![session-management](./media/apache-spark-development-using-notebooks/synapse-aznb-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-aznb-spark-session-management.png#lightbox)
+[![session-management](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
 #### Spark session config magic command
 You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters 
@@ -487,7 +478,7 @@ You can use familiar Jupyter magic commands in Azure Synapse Studio notebooks. R
 # [Classical Notebook](#tab/classical)
 
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
 Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages),[%%configure](#spark-session-config-magic-command)
@@ -496,9 +487,8 @@ Available cell magics:
 
 # [Preview Notebook](#tab/preview)
 
-
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%fs](), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-config-magic-command)
@@ -525,7 +515,7 @@ To parameterize your notebook, select the ellipses (...) to access the additiona
 
 To parameterize your notebook, select the ellipses (...) to access the **more commands** at the cell toolbar. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
-![aznb-toggle-parameter](./media/apache-spark-development-using-notebooks/aznb-toggle-parameter-cell.png)
+![azure-notebook-toggle-parameter](./media/apache-spark-development-using-notebooks/azure-notebook-toggle-parameter-cell.png)
 
 ---
 

@@ -192,7 +192,6 @@ mssparkutils.fs.ls('Your directory path')
 ```scala
 mssparkutils.fs.ls("Your directory path")
 ```
-
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
@@ -281,7 +280,6 @@ mssparkutils.fs.cp('source file or directory', 'destination file or directory', 
 ```scala
 mssparkutils.fs.cp("source file or directory", "destination file or directory", true) // Set the third parameter as True to copy all files and directories recursively
 ```
-
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
