@@ -229,7 +229,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![ROC Curve for Logistic Regression tip model](../media/apache-spark-machine-learning-mllib-notebook/apache-spark-nyc-taxi-roc.png)
+![ROC Curve for Logistic Regression tip model](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## Shut down the Spark instance
 

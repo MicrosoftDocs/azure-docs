@@ -110,7 +110,7 @@ taxi_df.show(10)
    As you can see, this will create a new dataframe with additional columns for the day of the month, pickup hour, weekday, and total trip time. 
 
 
-![Picture of taxi dataframe.](./media/apache-spark-machine-learning-aml-notebook/aml-dataset.png#lightbox)
+![Picture of taxi dataframe.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
 
 ## Generate test and validation datasets
 
@@ -161,7 +161,7 @@ datastore.upload_files(files = ['training_pd.csv'],
                        show_progress = True)
 dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'train-dataset/tabular/training_pd.csv')])
 ```
-![Picture of uploaded dataset.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
+![Picture of uploaded dataset.](./media/azure-machine-learning-spark-notebook/upload-dataset.png)
 
 ## Submit an AutoML experiment
 
@@ -213,7 +213,7 @@ run_details = local_run.get_details()
 ```
 Once the experiment has completed, the output will return details about the completed iterations. For each iteration, you see the model type, the run duration, and the training accuracy. The field BEST tracks the best running training score based on your metric type.
 
-![Screenshot of model output.](./media/apache-spark-machine-learning-aml-notebook/aml-model-output.png)
+![Screenshot of model output.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
 > Once submitted, the AutoML experiment will run various iterations and model types. This run will typically take 1-1.5 hours. 
@@ -312,7 +312,7 @@ plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
 plt.show()
 
 ```
-![Screenshot of regression plot.](./media/apache-spark-machine-learning-aml-notebook/aml-fare-amount.png)
+![Screenshot of regression plot.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
    From the results, we can see that the R-squared measure accounts for 95% of our variance. This is also validated by the actual verses observed plot. The more variance that is accounted for by the regression model the closer the data points will fall to the fitted regression line.  
 
@@ -331,7 +331,7 @@ NYCGreenTaxiModel 1
 ## View results in Azure Machine Learning
 Last, you can also access the results of the iterations by navigating to the experiment in your Azure Machine Learning Workspace. Here, you will be able to dig into additional details on the status of your run, attempted models, and other model metrics. 
 
-![Screenshot of AML workspace.](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-aml-workspace.png)
+![Screenshot of AML workspace.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## Next steps
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

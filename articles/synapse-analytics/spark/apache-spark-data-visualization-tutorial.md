@@ -120,7 +120,7 @@ plt.suptitle('')
 plt.show()
 ```
 
-![Histogram](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
+![Histogram](./media/apache-spark-machine-learning-mllib-notebook/histogram.png)
 
 1. Next, we want to understand the relationship between the tips for a given trip and the day of the week. We will use Seaborn to create a box plot summarizing the trends for each day of the week. 
 
@@ -147,9 +147,9 @@ ax2.set_ylim(0,30)
 plt.suptitle('')
 plt.show()
 ```
-![Box Whisker Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
+![Box Whisker Plot](./media/apache-spark-machine-learning-mllib-notebook/box-whisker-plot.png)
 
-5. Last, we want to understand the relationship between the fare amount tip amount. Based on the results, we can see that there are several observations where people do not tip. However, we also see a positive relationship between the overall fare and tip amounts.
+1. Last, we want to understand the relationship between the fare amount tip amount. Based on the results, we can see that there are several observations where people do not tip. However, we also see a positive relationship between the overall fare and tip amounts.
    
 ```python
 # Look at the relationship between fare and tip amounts
@@ -162,7 +162,7 @@ plt.axis([-2, 80, -2, 20])
 plt.suptitle('')
 plt.show()
 ```
-![Scatter Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
+![Scatter Plot](./media/apache-spark-machine-learning-mllib-notebook/scatter.png)
 
 ## Shut down the Spark instance
 
