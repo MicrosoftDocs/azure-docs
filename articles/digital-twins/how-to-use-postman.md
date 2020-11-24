@@ -47,7 +47,7 @@ First, make sure you're logged into Azure with the appropriate credentials, by r
 az login
 ```
 
-Next, use the [az account get-access-token](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service.
+Next, use the [az account get-access-token](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service.
 
 ```azurecli-interactive
 az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -85,7 +85,7 @@ In the *CREATE A NEW COLLECTION* dialog, move to the *Authorization* tab. This i
 
 Set the *Type* to _**OAuth 2.0**_, and paste your access token into the *Access Token* box.
 
-:::image type="content" source="media/how-to-use-postman/postman-paste-access-token.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted.":::
+:::image type="content" source="media/how-to-use-postman/postman-paste-token.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted.":::
 
 After pasting in your bearer token, hit *Create* to finish creating your collection.
 
