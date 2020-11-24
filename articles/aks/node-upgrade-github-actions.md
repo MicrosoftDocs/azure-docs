@@ -14,7 +14,10 @@ ms.date: 11/28/2020
 
 Security updates are a key part of maintaining your AKS cluster secure and compliant with the latest fixes for the underlying OS. These updates include OS security fixes or kernel updates, some of these updates require a node reboot to complete the process.
 
-AKS itself doesn't automatically reboot these Linux nodes to complete the update, however, this isn't needed if you use the native Azure CLI command `az aks upgrade`. This command will automatically apply the latest security fixes on both Windows or Linux nodes, automatically draining and cordoning these nodes so your application doesn't suffer from downtime.
+AKS itself doesn't automatically reboot these Linux nodes to complete the update, however, this isn't needed if you use the native Azure CLI command `az aks upgrade` with `--node-image-only`. This command will automatically apply the latest security fixes on both Windows or Linux nodes, automatically draining and cordoning these nodes so your application doesn't suffer from downtime.
+
+> [!NOTE]
+> The main difference between `az aks upgrade` when used with the `--node-image-only` flag is that, when it's used, only the node images will be upgraded. If omitted, both the node images and the Kubernetes control plane version will be upgraded. You can check [the docs for managed upgrades on nodes][managed-node-upgrades-article] and [the docs for cluster upgrades][cluster-upgrades-article] for more in-depth information.
 
 This article shows you how you can automate the update process of AKS nodes. You'll create GitHub Actions and Azure CLI to create a cron-based update that runs automatically without human intervention.
 
@@ -308,3 +311,5 @@ You can run the workflow manually, in addition to the scheduled run, by adding a
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[managed-node-upgrades-article]: node-image-upgrade.md
+[cluster-upgrades-article]: upgrade-cluster.md
