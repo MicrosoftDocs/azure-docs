@@ -40,7 +40,7 @@ Before you begin this tutorial, you should:
    
 ## Add the Azure Migrate:Server Migration tool
 
-Add the Azure Migrate:Server Migration tool. If you don't yet have an Azure Migrate project [create that first](how-to-add-tool-first-time.md) to set up an Azure Migrate project. You add the Azure Migrate:Server Migration tool when you create the project.
+Add the Azure Migrate:Server Migration tool. If you don't yet have an Azure Migrate project [create that first](./create-manage-projects.md) to set up an Azure Migrate project. You add the Azure Migrate:Server Migration tool when you create the project.
 
 If you have a project set up, add the tool as follows:
 

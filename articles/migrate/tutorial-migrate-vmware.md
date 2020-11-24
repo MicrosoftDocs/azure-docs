@@ -37,7 +37,7 @@ Before you begin this tutorial, you should:
 
 ## Add the Azure Migrate Server Migration tool
 
-If you didn't set up an Azure Migrate project yet, [do that](how-to-add-tool-first-time.md) before you add the tool. If you have a project set up, add the tool as follows:
+If you didn't set up an Azure Migrate project yet, [do that](./create-manage-projects.md) before you add the tool. If you have a project set up, add the tool as follows:
 
 1. In the Azure Migrate project, click **Overview**. 
 2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.

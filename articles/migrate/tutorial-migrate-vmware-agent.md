@@ -134,7 +134,7 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 
 ## Add the Azure Migrate:Server Migration tool
 
-If you don't already have an Azure Migrate project, [set that up](how-to-add-tool-first-time.md) now, and add the Server Migration tool.
+If you don't already have an Azure Migrate project, [set that up](./create-manage-projects.md) now, and add the Server Migration tool.
 
 If you have a project, add the tool as follows:
 
