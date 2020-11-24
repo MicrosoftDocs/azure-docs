@@ -14,21 +14,21 @@ ms.author: negust
 
 # Tutorial: Sentiment analysis with Cognitive Services (Preview)
 
-In this tutorial, you will learn how to easily enrich your data in Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) capabilities to perform sentiment analysis. A user in Synapse can simply select a table containing a text column to enrich with sentiments. These sentiments can be positive, negative, mixed or neutral and a probability will also be returned.
+In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) capabilities to perform sentiment analysis. A user in Azure Synapse can simply select a table containing a text column to enrich with sentiments. These sentiments can be positive, negative, mixed or neutral and a probability will also be returned.
 
 This tutorial covers:
 
 > [!div class="checklist"]
 > - Steps for getting a Spark table dataset containing text column for sentiment analysis.
-> - Use a wizard experience in Synapse to enrich data using Text Analytics Cognitive Services.
+> - Use a wizard experience in Azure Synapse to enrich data using Text Analytics Cognitive Services.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- Spark pool in your Synapse Analytics workspace. For details, see [Create a Spark pool in Synapse](../quickstart-create-sql-pool-studio.md).
-- Before you can use this tutorial, you also need to complete the pre-configuration steps described in this tutorial. [Configure Cognitive Services in Synapse](tutorial-configure-cognitive-services-synapse.md).
+- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
+- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
+- Before you can use this tutorial, you also need to complete the pre-configuration steps described in this tutorial. [Configure Cognitive Services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Sign in to the Azure portal
 
@@ -40,7 +40,7 @@ You will need a Spark table for this tutorial.
 
 1. Download the following CSV file containing a data set for text analytics: [FabrikamComments.csv](https://github.com/Kaiqb/KaiqbRepo0731190208/blob/master/CognitiveServices/TextAnalytics/FabrikamComments.csv)
 
-1. Upload the file to your Synapse ADLSGen2 storage account.
+1. Upload the file to your Azure Synapse ADLSGen2 storage account.
 ![Upload data](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00a.png)
 
 1. Create a Spark table from the .csv file by right clicking on the file and selecting **New Notebook -> Create Spark table**.
@@ -100,5 +100,5 @@ You can now **Run All** cells to enrich your data with sentiments. The sentiment
 
 ## Next steps
 - [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
-- [Tutorial: Machine learning model scoring in Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md)
-- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md)
+- [Machine Learning capabilities in Azure Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)

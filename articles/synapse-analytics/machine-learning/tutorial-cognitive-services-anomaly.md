@@ -14,21 +14,21 @@ ms.author: negust
 
 # Tutorial: Anomaly detection with Cognitive Services (Preview)
 
-In this tutorial, you will learn how to easily enrich your data in Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2147493) to perform anomaly detection. A user in Synapse can simply select a table to enrich for detection of anomalies.
+In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2147493) to perform anomaly detection. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
 
 This tutorial covers:
 
 > [!div class="checklist"]
 > - Steps for getting a Spark table dataset containing time series data.
-> - Use a wizard experience in Synapse to enrich data using Anomaly Detector Cognitive Service.
+> - Use a wizard experience in Azure Synapse to enrich data using Anomaly Detector Cognitive Service.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- [Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
-- Spark pool in your Synapse Analytics workspace. For details, see [Create a Spark pool in Synapse](../quickstart-create-sql-pool-studio.md).
-- Before you can use this tutorial, you also need to complete the pre-configuration steps described in this tutorial. [Configure Cognitive Services in Synapse](tutorial-configure-cognitive-services-synapse.md).
+- [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem that you work with.
+- Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
+- Before you can use this tutorial, you also need to complete the pre-configuration steps described in this tutorial. [Configure Cognitive Services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Sign in to the Azure portal
 
@@ -40,7 +40,7 @@ You will need a Spark table for this tutorial.
 
 1. Download the following notebook file containing code to generate a Spark table: [prepare_anomaly_detector_data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149577)
 
-1. Upload the file to your Synapse workspace.
+1. Upload the file to your Azure Synapse workspace.
 ![Upload notebook](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00a.png)
 
 1. Open the notebook file and choose to **Run All** cells.
@@ -97,5 +97,5 @@ You can now **Run All** cells to perform anomaly detection. Learn more about [Co
 ## Next steps
 
 - [Tutorial: Sentiment analysis with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
-- [Tutorial: Machine learning model scoring in Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md)
+- [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md)
 - [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
