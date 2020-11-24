@@ -77,7 +77,7 @@ Azure Backup creates a separate resource group in the format `AzureBackupRG_<geo
 
 ### Does Azure Backup support standard SSD-managed disks?
 
-Yes, Azure Backup supports [standard SSD managed disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
+Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssd).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 
