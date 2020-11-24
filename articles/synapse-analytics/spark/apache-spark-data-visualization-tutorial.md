@@ -120,7 +120,7 @@ plt.suptitle('')
 plt.show()
 ```
 
-![Histogram](./media/apache-spark-machine-learning-mllib-notebook/histogram.png)
+![Histogram of Tips](./media/apache-spark-machine-learning-mllib-notebook/histogram.png)
 
 1. Next, we want to understand the relationship between the tips for a given trip and the day of the week. We will use Seaborn to create a box plot summarizing the trends for each day of the week. 
 
@@ -133,7 +133,7 @@ ax.set_ylabel('Tip Amount ($)')
 plt.show()
 
 ```
-![Daily Trends](../media/apache-spark-data-viz/data-analyst-tutorial-per-day.png)
+![Daily Trends](./media/apache-spark-data-viz/data-analyst-tutorial-per-day.png)
 
 4. Now, another hypothesis that we have may be that there is a positive relationship between the number of passengers and the total taxi tip amount. To verify this relationship, we will run the following code to generate a box plot illustrating the distribution of tips for each passenger count. 
    

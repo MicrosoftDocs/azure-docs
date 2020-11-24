@@ -184,7 +184,7 @@ displayHTML(html)
 You can render standard plotting libraries, like Matplotlib, using the built-in rendering functions for each library.
 
 The following image is an example of creating a bar chart using **Matplotlib**.
-   ![Matplotlib-example](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+   ![Line graph example.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
 
 Run the following sample code to draw the image above.
 
