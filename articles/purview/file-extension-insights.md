@@ -42,11 +42,7 @@ When scanning your assets, Azure Purview is able to detect the file types found 
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 
-   :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
-
-1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
-
-   :::image type="content" source="./media/insights/view-insights-small.png" alt-text="View your insights in the Azure portal" lightbox="media/insights/view-insights.png":::
+1. In Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
     
 1. Within **Insights**, select the **File extensions** tab.
 
