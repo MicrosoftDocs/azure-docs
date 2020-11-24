@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
@@ -74,8 +74,8 @@ To extract face attributes, use detection model 1 and add the `returnFaceAttribu
 ```php
 $parameters = array(
     // Request parameters
-	'detectionModel' => 'detection_01',
-	'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'detectionModel' => 'detection_01',
+    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
    'returnFaceId' => 'true');
 ```
 
@@ -266,3 +266,4 @@ Explore the Face API used to detect human faces in an image, demarcate the faces
 
 > [!div class="nextstepaction"]
 > [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+ 

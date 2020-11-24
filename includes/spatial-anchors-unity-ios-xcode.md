@@ -1,9 +1,9 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 08/14/2020
-ms.author: rgarcia
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 Select **Build**. On the pane that opens, select a folder to export the Xcode project to.
 

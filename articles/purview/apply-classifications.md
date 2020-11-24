@@ -57,5 +57,5 @@ At the time of rescan, if new classifications apply, the column gets additional 
 
 ## Next steps
 
-- [Create a custom classification](create-a-custom-classification.md)
-- [Create a custom classification rule](create-custom-classification-rule.md)
+- [Create a custom classification](create-a-custom-classification-and-classification-rule.md)
+- [Create a custom classification rule](create-a-custom-classification-and-classification-rule.md)

@@ -22891,6 +22891,16 @@
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
       "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/migrate/how-to-add-tool-first-time.md",
+      "redirect_url": "create-manage-projects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/contoso-migration-overview.md",
+      "redirect_url": "/azure/cloud-adoption-framework/migrate/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/tutorial-assess-import.md",
@@ -49783,6 +49793,101 @@
     {
       "source_path": "articles/iot-pnp/concepts-limits-quotas.md",
       "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-c.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-csharp.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-java.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-node.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide-device-python.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-c.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-csharp.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-java.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-device-python.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-c.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-csharp.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-java.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-node.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-multiple-components-python.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-multiple-components",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-csharp.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-java.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-service-python.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service",
       "redirect_document_id": false
     },
     {

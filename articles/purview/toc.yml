@@ -124,16 +124,12 @@ items:
     items: 
     - name: Use classifications
       href: use-classifications.md
-    - name: Create a custom classification
-      href: create-a-custom-classification.md
-    - name: Create a custom classification rule
-      href: create-custom-classification-rule.md
+    - name: Create custom classification & classification rule
+      href: create-a-custom-classification-and-classification-rule.md
     - name: Apply classifications
       href: apply-classifications.md
     - name: Automatically label your content
       href: create-sensitivity-label.md
-    - name: Custom classification & classification rule
-      href: create-a-custom-classification-and-classification-rule.md
   - name: Search & browse
     items:
     - name: Browse Data Catalog
