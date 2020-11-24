@@ -60,10 +60,10 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
    |Area  |Description  |
    |---------|---------|
    |**Overview of sources with sensitivity labels**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique sensitivity labels found in your data <br>- The number of labeled sources found <br>- The number of labeled files found <br>- The number of labeled tables found         |
-   |**Total sources with labeled data**     | Shows the trend, over the past 30 days, of the number of sources found with sensitivity labels.       |
-   |**Top labels applied across resources**     |Shows the top labels applied across all of your Purview data resources. |
+   |**Top sources with labeled data (last 30 days)**     | Shows the trend, over the past 30 days, of the number of sources found with sensitivity labels.       |
+   |**Top labels applied across sources**     |Shows the top labels applied across all of your Purview data resources. |
    |**Top labels applied on files**     |Shows the top sensitivity labels applied to files in your data.          |
-   |**Top classifications for tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
+   |**Top labels applied on tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
    |  **Labeling activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables labeled over the selected time frame. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |
 ## Sensitivity labeling insights drilldown
