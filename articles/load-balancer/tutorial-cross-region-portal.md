@@ -33,7 +33,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Sign in to Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com).
+> [!IMPORTANT]
+> Cross-region load balancer is currently in preview and hidden in the preview portal.  Sign-in to **https://preview.portal.azure.com/?feature.globallb=true** to view and deploy the feature.
 
 ## Create cross-region load balancer
 
@@ -55,6 +56,9 @@ In this section, you'll create a cross-region load balancer and public IP addres
     | Public IP address | Select **Create new**.|
     | Public IP address name | Type **myPublicIP-CR** in the text box.|
     | Routing preference| Select **Microsoft network** |
+
+> [!NOTE]
+> Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**.
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 
@@ -89,9 +93,37 @@ Create the backend address pool **myBackendPool-CR** to include the regional sta
 
 7. Repeat steps 4-6 to add **myLoadBalancer-R2**.
 
-8. Select **Save**.
+8. Select **Add**.
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Add regional load balancers to backendpool" border="true":::
+
+## Create a health probe
+
+In this section you'll create a health probe to create the load balancing rule:
+
+* Named **myHealthProbe**.
+* Protocol **TCP**.
+* Internal of **15** seconds.
+* Unhealthy threshold of **2** failures.
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
+
+2. Under **Settings**, select **Health probes**.
+
+3. Use these values to configure the health probe:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myHealthProbe**. |
+    | Protocol | Select **TCP**. |
+    | Port | Enter **80**. |
+    | Interval | Enter **5**. |
+    | Unhealthy threshold | Enter **2**. |
+
+4. Select **OK**.
+
+> [!NOTE]
+> Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
 
 ## Create a load balancer rule
 
@@ -118,11 +150,12 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
-    | Create implicit outbound rules | Select **No**.
+    | Idle timeout (minutes) | Move slider to **15**. |
+    | TCP reset | Select **Enabled**. |
 
 4. Leave the rest of the defaults and then select **OK**.
 
-**FINISH INSTRUCTIONS HERE WHEN PORTAL DONE**
+    :::image type="content" source="./media/tutorial-cross-region-portal/create-lb-rule.png" alt-text="Create load balancer rule" border="true":::
 
 ## Test the load balancer
 
@@ -132,13 +165,19 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
+    :::image type="content" source="./media/tutorial-cross-region-portal/test-cr-lb-1.png" alt-text="Test load balancer" border="true":::
+
 3. Stop the virtual machines in the backend pool of one of the regional load balancers.
 
 4. Refresh the web browser and observe the failover of the connection to the other regional load balancer.
 
+    :::image type="content" source="./media/tutorial-cross-region-portal/test-cr-lb-2.png" alt-text="Test load balancer" border="true":::
+
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **CreateCRLBTutorial-rg** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. 
+
+To do so, select the resource group **CreateCRLBTutorial-rg** that contains the resources and then select **Delete**.
 
 ## Next steps
 
@@ -149,7 +188,6 @@ In this tutorial, you:
 * Created a load-balancing rule.
 * Tested the load balancer.
 
-
-Advance to the next article to learn how to...
+Advance to the next article to learn how to:
 > [!div class="nextstepaction"]
-> [Load balancer VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
