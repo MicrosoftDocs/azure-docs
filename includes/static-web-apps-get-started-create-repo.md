@@ -13,7 +13,7 @@ This article uses a GitHub template repository to make it easy for you to get st
 # [No Framework](#tab/vanilla-javascript)
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/vanilla-basic/generate
+    1. https://github.com/staticwebdev/vanilla-basic/generate - if the link does not work, please [sign in to GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Fvanilla-basic%2Fgenerate) and try again
 1. Name your repository **my-first-static-web-app**
 
 > [!NOTE]
@@ -22,19 +22,19 @@ This article uses a GitHub template repository to make it easy for you to get st
 # [Angular](#tab/angular)
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/angular-basic/generate
+    1. https://github.com/staticwebdev/angular-basic/generate - if the link does not work, please [sign in to GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Fangular-basic%2Fgenerate) and try again
 1. Name your repository **my-first-static-web-app**
 
 # [React](#tab/react)
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/react-basic/generate
+    1. https://github.com/staticwebdev/react-basic/generate - if the link does not work, please [sign in to GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Freact-basic%2Fgenerate) and try again
 1. Name your repository **my-first-static-web-app**
 
 # [Vue](#tab/vue)
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
-    1. https://github.com/staticwebdev/vue-basic/generate
+    1. https://github.com/staticwebdev/vue-basic/generate - if the link does not work, please [sign in to GitHub](https://github.com/login?return_to=%2Fstaticwebdev%2Fvue-basic%2Fgenerate) and try again
 1. Name your repository **my-first-static-web-app**
 
 ---

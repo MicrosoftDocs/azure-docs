@@ -11,7 +11,7 @@ ms.date: 06/17/2020
 
 # Create an Azure container offer in Azure Marketplace
 
-This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](./partner-center-portal/create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -21,7 +21,7 @@ This article describes how to create and publish a container offer for Azure Mar
 
 3. On the Overview page, select **+ New offer** > **Azure Container**.
 
-   ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
+   ![Illustrates the left-navigation menu.](./partner-center-portal/media/new-offer-azure-container.png)
 
 > [!TIP]
 > After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
@@ -48,9 +48,9 @@ The **Offer overview** page shows a visual representation of the steps required 
 This page shows different links based on the current status of the offer. For example:
 
 - If the offer is a draft - Delete draft offer
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
-- If you haven't completed publisher sign-out - [Cancel publishing.](../review-publish-offer.md#cancel-publishing)
+- If the offer is live - [Stop selling the offer](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](review-publish-offer.md#previewing-and-approving-your-offer)
+- If you haven't completed publisher sign-out - [Cancel publishing.](review-publish-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -63,12 +63,12 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 1. **Select a lead destination where you want us to send customer leads**. Partner Center supports the following CRM systems:
 
-   - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
-   - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
-   - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
+   - [Dynamics 365](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+   - [Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md)
+   - [Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md)
 
    > [!NOTE]
-   > If your CRM system isn't listed above, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data, then export the data to your CRM system.
+   > If your CRM system isn't listed above, use [Azure Table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -76,9 +76,9 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 Here are some additional lead management resources:
 
-- [Customer leads from your commercial marketplace offer](commercial-marketplace-get-customer-leads.md)
-- [Common questions about lead management](../lead-management-faq.md#common-questions-about-lead-management)
-- [Troubleshooting lead configuration errors](../lead-management-faq.md#publishing-config-errors)
+- [Customer leads from your commercial marketplace offer](./partner-center-portal/commercial-marketplace-get-customer-leads.md)
+- [Common questions about lead management](lead-management-faq.md#common-questions-about-lead-management)
+- [Troubleshooting lead configuration errors](lead-management-faq.md#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
@@ -94,7 +94,7 @@ Select categories and subcategories to place your offer in the appropriate marke
 - At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
-See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Containers always appear under **Containers** and then the **Container Images** category.
+See the full list of categories and subcategories in [Offer Listing Best Practices](gtm-offer-listing-best-practices.md). Containers always appear under **Containers** and then the **Container Images** category.
 
 #### Legal
 
@@ -107,14 +107,14 @@ You must provide terms and conditions for the offer. There are two options:
 
 We offer a Standard Contract template to help facilitate transactions in the commercial marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don't want to create custom terms and conditions.
 
-To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
+To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
 To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplace](../standard-contract.md)
 
 > [!NOTE]
 > After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-1-standard-contract.png" alt-text="Illustrates the Using the Standard Contract for Microsoft's commercial marketplace checkbox.":::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-1-standard-contract.png" alt-text="Illustrates the Using the Standard Contract for Microsoft's commercial marketplace checkbox.":::
 
 ##### Your own terms and conditions
 
@@ -180,13 +180,13 @@ In the **CSP Program contact** section, provide the link (**CSP Program Marketin
 
 #### Additional marketplace listing resources
 
-To learn more about creating offer listings, see [Offer listing best practices](../gtm-offer-listing-best-practices.md)
+To learn more about creating offer listings, see [Offer listing best practices](gtm-offer-listing-best-practices.md)
 
 ### Marketplace images
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
-[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](./includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
@@ -201,9 +201,9 @@ Provide a PNG file for the **Large** size logo. Partner Center will use this to 
 
 These logos are used in different places in the listing:
 
-[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+[!INCLUDE [logos-azure-marketplace-only](./includes/logos-azure-marketplace-only.md)]
 
-[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
+[!INCLUDE [Logo tips](./includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 
@@ -219,19 +219,19 @@ The following examples show how the offer listing fields appear in different pla
 
 This shows the **Offer listing** page in Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustrates the Offer listing page in Azure Marketplace." :::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustrates the Offer listing page in Azure Marketplace." :::
 
 This shows search results in Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustrates the search results in Azure Marketplace.":::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustrates the search results in Azure Marketplace.":::
 
 This shows the **Offer listing** page in Azure portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
 
 This shows search results in Azure portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustrates the search results in Azure portal.":::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustrates the search results in Azure portal.":::
 
 ## Preview
 
@@ -253,7 +253,7 @@ Select **Save draft** before continuing.
 
 This tab lets you provide different plan options within the same offer. Plans (formerly called SKUs) can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the commercial marketplace, you must set up at least one plan.
 
-You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 After you create your plans, the **Plan overview** tab shows:
 
@@ -285,9 +285,9 @@ This tab lets you choose which clouds the plan is available in. Your answers on 
 
 #### Azure regions
 
-All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
+All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
 
-Select the [Azure Government](../../azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](../../azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the [Azure Government](/azure/azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](/azure/azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > After your plan is published and available in a specific region, you can't remove that region.
@@ -324,11 +324,11 @@ The following examples show how the plan listing fields appear in different view
 
 These are the fields in Azure Marketplace when viewing plan details:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustrates the fields you see when viewing plan details in Azure Marketplace.":::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustrates the fields you see when viewing plan details in Azure Marketplace.":::
 
 These are plan details on the Azure portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustrates plan details on the Azure portal.":::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustrates plan details on the Azure portal.":::
 
 ### Plan availability
 
@@ -353,19 +353,19 @@ Provide the following information on the **Image repository details** tab.
 
 **Azure subscription ID** – Provide the subscription ID where usage is reported and services are billed for the Azure Container Registry that includes your container image. You can find this ID on the [Subscriptions page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal.
 
-**Azure resource group name** – Provide the [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) name that contains the Azure Container Registry with your container image. The resource group must be accessible in the subscription ID (above). You can find the name on the [Resource groups](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) page in the Azure portal.
+**Azure resource group name** – Provide the [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal.md) name that contains the Azure Container Registry with your container image. The resource group must be accessible in the subscription ID (above). You can find the name on the [Resource groups](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) page in the Azure portal.
 
-**Azure Container Registry name** – Provide the name of the [Azure Container Registry](../../container-registry/container-registry-intro.md) that has your container image. The container registry must be in the Azure resource group you provided earlier. Include only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
+**Azure Container Registry name** – Provide the name of the [Azure Container Registry](/azure/container-registry/container-registry-intro.md) that has your container image. The container registry must be in the Azure resource group you provided earlier. Include only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
 
-**Admin username for the Azure Container Registry** – Provide the [admin username](../../container-registry/container-registry-authentication.md#admin-account)) linked with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in Azure portal.
+**Admin username for the Azure Container Registry** – Provide the [admin username](/azure/container-registry/container-registry-authentication.md#admin-account)) linked with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in Azure portal.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustrates the Update container registry dialog box.":::
+ :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustrates the Update container registry dialog box.":::
 
 **Password for the Azure Container Registry** – Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command](/cli/azure/acr/credential#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustrates the Access Key menu.":::
+:::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustrates the Access Key menu.":::
 
-**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. Include the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories** page. For more information, see [View container registry repositories in Azure portal](../../container-registry/container-registry-repositories.md).
+**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. Include the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories** page. For more information, see [View container registry repositories in Azure portal](/azure/container-registry/container-registry-repositories.md).
 
 > [!NOTE]
 > After the name is set, it can't be changed. Use a unique name for each offer in your account.
@@ -405,4 +405,4 @@ To publish your offer to the public, go to Partner Center and select **Go-live**
 
 ## Next step
 
-- [Update an existing offer in the commercial marketplace](update-existing-offer.md)
+- [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md)
