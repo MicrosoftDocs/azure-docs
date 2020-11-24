@@ -80,7 +80,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://<companyname>.xmatters.com/` |
 	| `https://www.xmatters.com` |
 	| `https://<companyname>.xmatters.com.au/` |
-	|-|
 
     b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
@@ -90,7 +89,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://<companyname>.xmatters.com/sp/<instancename>` |
 	| `https://<companyname>.cs1.xmatters.com/sp/<instancename>` |
 	| `https://<companyname>.au1.xmatters.com.au/<instancename>` |
-	|-|
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand Client support team](https://www.xmatters.com/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
