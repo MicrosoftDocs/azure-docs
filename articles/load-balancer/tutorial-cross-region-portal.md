@@ -58,7 +58,8 @@ In this section, you'll create a cross-region load balancer and public IP addres
     | Routing preference| Select **Microsoft network** |
 
 > [!NOTE]
-> Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**.
+> Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **http://aka.ms/homeregionforglb**.
+
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 
@@ -190,6 +191,9 @@ In this tutorial, you:
 * Added regional load balancers to the backend pool of the cross-region load balancer.
 * Created a load-balancing rule.
 * Tested the load balancer.
+
+For more information on cross-region load balancer, see [Cross-region load balancer (Preview)](cross-region-overview.md).
+
 
 Advance to the next article to learn how to:
 > [!div class="nextstepaction"]
