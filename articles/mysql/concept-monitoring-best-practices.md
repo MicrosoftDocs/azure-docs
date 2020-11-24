@@ -17,7 +17,7 @@ Learn about the best practices that can be used to monitor your database operati
 
 Azure Database for MySQL provides tools and methods you can use to monitor usage easily, add, or remove resources (such as CPU, memory, or I/O), troubleshoot potential problems, and help improve the performance of a database. You can [monitor performance metrics](concepts-monitoring.md#metrics) on a regular basis to see the average, maximum, and minimum values for a variety of time ranges.
 
-You can [set up alerts](howto-alert-on-metric.md#create-an-alert-rule-on-a-metric-from-the-azure-portal) for a metric threshold, so you are informed if the server has reached those limits andto  take appropriate actions.  
+You can [set up alerts](howto-alert-on-metric.md#create-an-alert-rule-on-a-metric-from-the-azure-portal) for a metric threshold, so you are informed if the server has reached those limits and take appropriate actions.  
 
 Monitor the database server to make sure that the resources assigned to the database can handle the application workload. If the database is hitting resource limits, consider:
     * Identifying and optimizing the top resource-consuming queries. 
