@@ -13,6 +13,7 @@ ms.custom: devx-track-java
 ---
 
 # Troubleshoot issues when you use the Azure Cosmos DB Async Java SDK v2 with SQL API accounts
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)

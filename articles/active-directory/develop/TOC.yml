@@ -539,6 +539,8 @@
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Handle ITP in Safari
       href: reference-third-party-cookies-spas.md
+    - name: Use Continuous Access Evaluation APIs
+      href: app-resilience-continuous-access-evaluation.md
   - name: Application configuration
     displayName: App configuration
     items:
@@ -559,6 +561,7 @@
       href: howto-add-branding-in-azure-ad-apps.md
     - name: Configure publisher domain
       href: howto-configure-publisher-domain.md
+      displayName: verified domain, verified publisher domain
     - name: Configure Terms of Service and Privacy Statement
       href: howto-add-terms-of-service-privacy-statement.md
     - name: Configure publisher verification for your app

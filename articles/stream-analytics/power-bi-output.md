@@ -46,7 +46,7 @@ Power BI uses the first-in, first-out (FIFO) retention policy. Data will collect
 
 Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
 
-This table covers the data type conversions from [Stream Analytics data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
+This table covers the data type conversions from [Stream Analytics data types](/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
 
 From Stream Analytics | To Power BI
 -----|-----
@@ -71,7 +71,7 @@ Datetime | String | String |  Datetime | String
 
 ## Output batch size
 
-For output batch size, see [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx).
+For output batch size, see [Power BI Rest API limits](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## Next steps
 

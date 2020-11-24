@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
+ms.date: 10/30/2020
 ---
 
 # Load data into Azure Synapse Analytics by using Azure Data Factory
@@ -37,7 +37,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Synapse Analytics: The data warehouse holds the data that's copied over from the SQL database. If you don't have an Azure Synapse Analytics, see the instructions in [Create an Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md).
-* Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database . You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database. You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Azure storage account: Azure Storage is used as the _staging_ blob in the bulk copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Create a data factory
@@ -108,9 +108,6 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
     d. Select the newly created linked service as sink, then click **Next**.
 
 7. In the **Table mapping** page, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table.
-
-   > [!NOTE]
-   > Automatic table creation for the Azure Synapse Analytics sink applies when SQL Server or Azure SQL Database is the source. If you copy data from another source data store, you need to pre-create the schema in the sink Azure Synapse Analytics before executing the data copy.
 
    ![Table mapping page](./media/load-azure-sql-data-warehouse/table-mapping.png)
 

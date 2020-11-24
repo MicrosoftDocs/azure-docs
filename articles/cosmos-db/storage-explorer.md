@@ -9,6 +9,7 @@ ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ---
 # Manage Azure Cosmos DB resources by using Azure Storage Explorer
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 You can use Azure Storage explorer to connect to Azure Cosmos DB. It lets you connect to Azure Cosmos DB accounts hosted on Azure and sovereign clouds from Windows, macOS, or Linux.
 
@@ -64,6 +65,9 @@ You can use a connection string to connect to an Azure Cosmos DB. This method on
    1. Select **Connect** to connect the Azure Cosmos DB account.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot of the Connect to Cosmos D B window, showing the API drop-down menu, the Connection String box and the Account label box.":::
+
+> [!NOTE]
+> If the Azure Storage Explorer shows that the Azure Cosmos DB connection string is in an invalid format, make sure that the connection string has a semicolon (`;`) at the end. An example of a valid Azure Cosmos DB connection string would be: `AccountEndpoint=https://accountname.documents.azure.com:443;AccountKey=accountkey==;`
 
 ## Use a local emulator to connect to Azure Cosmos DB
 

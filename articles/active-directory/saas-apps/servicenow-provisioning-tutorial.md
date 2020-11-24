@@ -8,7 +8,7 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ---
@@ -51,13 +51,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![ServiceNow admin role](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. Check to make sure that the following settings are **disabled** in ServiceNow:
-
-   1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
-   2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
-     
-   > [!IMPORTANT]
-   > If these setting are *enabled*, the provisioning engine will fail to communicate with ServiceNow.
 
 ## Step 3. Add ServiceNow from the Azure AD application gallery
 

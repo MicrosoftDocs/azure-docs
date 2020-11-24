@@ -77,7 +77,7 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 ### Outgoing claims
 
 - **policy_hash**:  String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text)))).
-- **policy_signer**:  String value containing a JWK with the public key or the certificate chain present in the signed policy header.
+- **policy_signer**:  Contains a JWK with the public key or the certificate chain present in the signed policy header.
 - **ver (Version)**:  String value containing version of the report. Currently 1.0.
 - **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
 - **rp_data (relying party data)**:  Relying party data, if any, specified in the request, used by the relying party as a nonce to guarantee freshness of the report.

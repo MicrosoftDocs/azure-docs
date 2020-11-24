@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -387,6 +387,12 @@ az storage blob show \
 ```
 
 ---
+
+If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
+
+- Make sure that the object replication policy is configured on the destination account.
+- Verify that the destination container still exists.
+- If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 ## Remove a replication policy
 

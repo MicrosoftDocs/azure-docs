@@ -314,6 +314,10 @@ ENTRYPOINT ["init.sh"]
 
 ## Build and test the image locally
 
+> [!NOTE]
+> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user (see **Data transfer**)](https://www.docker.com/pricing). If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
+> 
+
 1. Run the following command to build the image:
 
     ```bash

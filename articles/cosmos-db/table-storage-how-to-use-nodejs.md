@@ -11,6 +11,7 @@ ms.author: akshanka
 ms.custom: devx-track-js
 ---
 # How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]

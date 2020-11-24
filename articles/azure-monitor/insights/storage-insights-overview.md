@@ -90,7 +90,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 2. From the list, choose a storage account. In the Monitoring section, choose Insights.
 
-    ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Screenshot that shows the Overview workbook page for the storage account.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 On the **Overview** workbook for the storage account, it shows several storage performance metrics that help you quickly assess:
 

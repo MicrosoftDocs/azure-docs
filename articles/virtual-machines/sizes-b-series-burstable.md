@@ -12,7 +12,7 @@ ms.author: sttsinar
 
 # B-series burstable virtual machine sizes
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
+The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance that can build up credits when it is using less than its baseline. When the VM has accumulated credits, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
 
 The B-series comes in the following VM sizes:
 
@@ -88,17 +88,16 @@ For a D16s_v3 which has 16 vCPUs and 64 GiB of memory the hourly rate is $0.936 
 
 ## Q & A
 
-### Q: What happens if the credits run out?
+### Q: What happens when my credits run out?
 **A**: When the credits are exhausted, the VM returns to the baseline performance.
 
 ### Q: How do you get 135% baseline performance from a VM?
 
 **A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application uses 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
 
-
 ### Q: How can I monitor my credit balance and consumption?
 
-**A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
+**A**: The **Credit** metric allows you to view how many credits your VM have been banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
 
 For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
@@ -128,7 +127,7 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 
 ### Q: Why is my remaining credit set to 0 after a redeploy or a stop/start?
 
-**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240 mins.
+**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
 
 ### Q: What happens if I deploy an unsupported OS image on B1ls?
 

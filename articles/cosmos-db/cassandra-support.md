@@ -11,6 +11,7 @@ ms.date: 09/14/2020
 ---
 
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through the CQL Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
 
@@ -80,17 +81,24 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 | writetime | Yes |
 | cast | No |
 
-\* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is not supported.
+> [!NOTE]
+> \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.
+
 
 
 Aggregate functions:
 
 |Command  |Supported |
 |---------|---------|
-| min | Yes |
-| max | Yes |
 | avg | Yes |
 | count | Yes |
+| min | Yes |
+| max | Yes |
+| sum | Yes |
+
+> [!NOTE]
+> Aggregate functions work on regular columns, but aggregates on clustering columns are **not** supported.
+
 
 Blob conversion functions:
  
@@ -254,7 +262,7 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 
 ## Permission and role management
 
-Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities.
+Azure Cosmos DB supports Azure role-based access control (Azure RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities.
 
 ## Keyspace and Table options
 

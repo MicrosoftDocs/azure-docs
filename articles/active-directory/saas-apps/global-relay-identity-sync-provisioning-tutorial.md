@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
 ---
@@ -29,6 +29,10 @@ This tutorial describes the steps you need to perform in both Global Relay Ident
 > * Remove users in Global Relay Identity Sync when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Global Relay Identity Sync
 > * Provision groups and group memberships in Global Relay Identity Sync
+
+
+> [!NOTE]
+> Global Relay Identity Sync provisioning connector utilizes a SCIM authorization method that is no longer supported due to security concerns. Efforts are underway with Global Relay to switch to a more secure authorization method.
 
 ## Prerequisites
 

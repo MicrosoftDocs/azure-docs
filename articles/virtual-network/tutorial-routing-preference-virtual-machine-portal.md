@@ -65,10 +65,11 @@ Sign in to the [Azure portal](https://preview.portal.azure.com/).
 9. Once the virtual machine is deployed, enter *myPublicIpAddress* in the search box at the top of the portal. When **myPublicIpAddress** appears in the search results, select it.
 10. You can view the public IP address that is assigned, and that the address is assigned to the **myVM** virtual machine, as shown in the following picture:
 
-    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![Screenshot shows the NIC Public I P for the network interface mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
 11. Select **Networking**, then click on nic **mynic** and then select the public ip address to confirm that the routing preference is assigned as **Internet**.
-    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+
+    ![Screenshot shows the I P address and routing preference for a Public I P address.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## Clean up resources
 

@@ -100,6 +100,11 @@ This tutorial uses the To Do List sample application as an example.  The contain
 
 To push an image to an ACR instance, you must first have a container image. If you don't yet have any local container images, use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to pull the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) images from Docker Hub.
 
+>[!NOTE]
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. 
+> 
+> These commands makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+
 Pull the Windows images:
 
 ```bash

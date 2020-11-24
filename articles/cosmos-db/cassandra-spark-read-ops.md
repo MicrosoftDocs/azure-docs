@@ -13,6 +13,7 @@ ms.custom: seodec18
 ---
 
 # Read data from Azure Cosmos DB Cassandra API tables using Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
  This article describes how to read data stored in Azure Cosmos DB Cassandra API from Spark.
 

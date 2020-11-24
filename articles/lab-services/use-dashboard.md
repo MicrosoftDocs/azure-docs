@@ -8,7 +8,7 @@ ms.date: 06/26/2020
 # Dashboard for classroom labs
 This article describes the dashboard view of a classroom lab in Azure Lab Services. 
 
-![Screen capature shows the dashboard view of a classroom lab in Azure Lab Services.](./media/use-dashboard/dashboard.png)
+![Screen capture shows the dashboard view of a classroom lab in Azure Lab Services](./media/use-dashboard/dashboard.png)
 
 ## Costs and billing tile
 This tile provides the following cost estimate details:

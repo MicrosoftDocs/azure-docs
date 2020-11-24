@@ -76,7 +76,7 @@ Create an ASP.NET web app by following these steps:
 
    Wait for the deployment to complete. The **Publish** page now shows the repository name to use later.
 
-   ![Publish from project overview page](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+   ![Screenshot that highlights the repository name.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
 
 1. Copy this repository name for later.
 

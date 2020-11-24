@@ -231,6 +231,9 @@ The binlog_group_commit_sync_delay parameter controls how many microseconds the 
 
 It might be useful to set the binlog_group_commit_sync_delay parameter to 1000 or so. Then monitor the replication latency. Set this parameter cautiously, and use it only for high-concurrency workloads. 
 
+> [!IMPORTANT] 
+> In replica server, binlog_group_commit_sync_delay parameter is recommended to be 0. This is recommended because unlike source server, the replica server won't have high-concurrency and increasing the value for binlog_group_commit_sync_delay on replica server could inadvertently cause replication lag to increase.
+
 For low-concurrency workloads that include many singleton transactions, the binlog_group_commit_sync_delay setting can increase latency. Latency can increase because the IO thread waits for bulk binary log updates even if only a few transactions are committed. 
 
 ## Next steps

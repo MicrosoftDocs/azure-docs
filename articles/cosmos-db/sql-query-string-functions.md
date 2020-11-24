@@ -3,12 +3,14 @@ title: String functions in Azure Cosmos DB query language
 description: Learn about string SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # String functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The string functions let you perform operations on strings in Azure Cosmos DB.
 

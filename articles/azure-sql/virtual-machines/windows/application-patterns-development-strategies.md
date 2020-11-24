@@ -188,11 +188,11 @@ The following diagram demonstrates an on-premises scenario and its cloud enabled
 
 As seen in the diagram, Azure Load Balancer distributes traffic across multiple virtual machines and also determines which web server or application server to connect to. Having multiple instances of the web and application servers behind a load balancer ensures the high availability of the presentation tier and the business tier. For more information, see [Best practices for application patterns requiring SQL HADR](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Application patterns with Cloud Services](./media/application-patterns-development-strategies/IC728013.png)
+![Diagram shows on-premises physical or virtual machines connected to web role instances in an Azure virtual network through an Azure load balancer.](./media/application-patterns-development-strategies/IC728013.png)
 
 Another approach to implement this application pattern is to use a consolidated web role that contains both presentation tier and business tier components as shown in the following diagram. This application pattern is useful for applications that require stateful design. Since Azure provides stateless compute nodes on web and worker roles, we recommend that you implement a logic to store session state using one of the following technologies: [Azure Caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure Table Storage](../../../cosmos-db/tutorial-develop-table-dotnet.md) or [Azure SQL Database](../../database/sql-database-paas-overview.md).
 
-![Application patterns with Cloud Services](./media/application-patterns-development-strategies/IC728014.png)
+![Diagram shows on-premises physical or virtual machines connected to consolidated web/worker role instances in an Azure virtual network.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## Pattern with Azure Virtual Machines, Azure SQL Database, and Azure App Service (Web Apps)
 The primary goal of this application pattern is to show you how to combine Azure infrastructure as a service (IaaS) components with Azure platform-as-a-service components (PaaS) in your solution. This pattern is focused on Azure SQL Database for relational data storage. It does not include SQL Server in an Azure virtual machine, which is part of the Azure infrastructure as a service offering.

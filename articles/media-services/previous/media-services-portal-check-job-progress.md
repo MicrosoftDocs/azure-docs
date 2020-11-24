@@ -30,7 +30,7 @@ When you run jobs, you often require a way to track job progress.
 
 To monitor the progress of the encoding job, click **Settings** (at the top of the page) and then select **Jobs**.
 
-![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Screenshot that shows "Jobs" selected from the "Settings" menu.](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 You can click the job to see more details.
 

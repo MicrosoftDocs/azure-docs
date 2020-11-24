@@ -19,6 +19,28 @@ This article provides more information on the latest releases and updates to the
 
 ## What's new in Service Fabric
 
+### Service Fabric 7.2 
+We're excited to announce that 7.2 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
+## What is new in-Service Fabric 7.?
+This release is loaded with key features and improvements. Some of the key features are highlighted below:
+## Key Announcements in 7.2
+- **Preview**: [**Service Fabric managed clusters**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) are now in public preview. Service Fabric managed clusters aim to simplify cluster deployment and management by encapsulating the underlying resources that make up a Service Fabric cluster into a single ARM resource. For more details see, [Service Fabric managed cluster overview](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster).
+- **Preview**: [**Supporting stateless services with a number of instances greater than the number of nodes**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) is now in public preview. A placement policy enables the creation of multiple stateless instances of a partition on a node.
+- [**FabricObserver (FO) 3.0**](https://aka.ms/sf/fabricobserver) is now available.
+    - You can now run FabricObserver in Linux and Windows clusters.
+    - You can now build custom observer plugins. Please see [plugins readme](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) and the [sample plugin project](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin) for details and code.
+    - You can now change any observer setting via application parameters upgrade. This means you no longer need to redeploy FO to modify specific observer settings. Please see the [sample](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates).
+- [**Support for Ubuntu 18.04 OneBox container images**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
+- **Preview**: [**KeyVault Reference for Service Fabric applications supports **ONLY versioned secrets**. Secrets without versions are not supported.**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+- SF SDK requires the latest VS 2019 update 16.7.6 or 16.8 Preview 4 to be able create new .Net Framework stateless/stateful/actors projects. If you do not have the latest VS update, after creating the service project, use package manager to install Microsoft.ServiceFabric.Services (version 4.2.x) for stateful/stateless projects and Microsoft.ServiceFabric.Actors (version 4.2.x) for actor projects from nuget.org.
+- **RunToCompletion**: Service Fabric supports concept of run to completion for guest executables. With this update once the replica runs to completion, the cluster resources allocated to this replica will be released.
+- [**Resource governance support has been enhanced**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance): allowing requests and limits specifications for cpu and memory resources.
+
+### Service Fabric 7.2 releases
+| Release date | Release | More info |
+|---|---|---|
+| October 21, 2020 | [Azure Service Fabric 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
+
 ### Service Fabric 7.1
 Due to the current COVID-19 crisis, and taking into consideration the challenges faced by our customers, we are making 7.1 available, but will not automatically upgrade clusters set to receive automatic upgrades. We are pausing automatic upgrades until further notice to ensure that customers can apply upgrades when most appropriate for them, to avoid unexpected disruptions.
 

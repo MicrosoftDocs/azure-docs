@@ -20,8 +20,8 @@ Azure Synapse is a limitless analytics service that brings together enterprise d
 
 - Synapse SQL: Complete T-SQL based analytics
 
-  - SQL pool (pay per DWU provisioned) – Generally Available
-  - SQL on-demand (pay per TB processed) – (Preview)
+  - Dedicated SQL pool (pay per DWU provisioned) – Generally Available
+  - Serverless SQL pool (pay per TB processed) – (Preview)
 - Spark: Deeply integrated Apache Spark (Preview)
 - Data Integration: Hybrid data integration (Preview)
 - Studio: unified user experience.  (Preview)
@@ -30,7 +30,7 @@ Azure Synapse is a limitless analytics service that brings together enterprise d
 
 ## Synapse SQL architecture components
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) leverages a scale-out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage, which enables you to scale compute independently of the data in your system.
+[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) leverages a scale-out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage, which enables you to scale compute independently of the data in your system.
 
 ![Synapse SQL architecture](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

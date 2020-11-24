@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Apache Spark pool using the Azure portal'
-description: Create a new Apache Spark pool using the Azure portal by following the steps in this guide. 
+title: 'Quickstart: Create a serverless Apache Spark pool using the Azure portal'
+description: Create a serverless Apache Spark pool using the Azure portal by following the steps in this guide. 
 services: synapse-analytics 
 author: julieMSFT 
 ms.service: synapse-analytics 
@@ -11,7 +11,7 @@ ms.author: jrasnick
 ms.reviewer: jrasnick 
 ---
 
-# Quickstart: Create a new Apache Spark pool using the Azure portal
+# Quickstart: Create a new serverless Apache Spark pool using the Azure portal
 
 Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze, and distribute your data. An Apache Spark pool provides open-source big data compute capabilities. After you've created an Apache Spark pool in your Synapse workspace, data can be loaded, modeled, processed, and distributed for faster analytic insight.
 
@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
 3. Select **Next: additional settings** and review the default settings. Do not modify any default settings.
-    ![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Screenshot that shows the "Create Apache Spark pool" page with the "Additional settings" tab selected.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
 4. Select **Next: tags**. Don't add any tags.
     ![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
@@ -68,7 +68,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     ![Apache Spark pool create flow - review settings tab.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. At this point, the resource provisioning flow will start, indicating once it's complete.
-    ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Screenshot that shows the "Overview" page with a "Your deployment is complete" message displayed.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created Apache Spark pool.
     ![Apache Spark pool create flow - resource provisioning.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -94,4 +94,4 @@ If you want to delete the Apache Spark pool, do the following:
 ## Next steps
 
 - See [Quickstart: Create an Apache Spark notebook](quickstart-apache-spark-notebook.md).
-- See [Quickstart: Create a Synapse SQL pool using the Azure portal](quickstart-create-sql-pool-portal.md).
+- See [Quickstart: Create a Synapse dedicated SQL pool using the Azure portal](quickstart-create-sql-pool-portal.md).

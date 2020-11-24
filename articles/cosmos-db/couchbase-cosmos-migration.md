@@ -2,6 +2,7 @@
 title: 'Migrate from CouchBase to Azure Cosmos DB SQL API'
 description: Step-by-Step guidance for migrating from CouchBase to Azure Cosmos DB SQL API
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
@@ -10,6 +11,7 @@ ms.custom: devx-track-java
 ---
 
 # Migrate from CouchBase to Azure Cosmos DB SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](introduction.md) article. This article provides instructions to migrate Java applications that are connected to Couchbase to a SQL API account in Azure Cosmos DB.
 

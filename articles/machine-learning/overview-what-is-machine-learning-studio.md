@@ -1,6 +1,6 @@
 ---
 title: What is Azure Machine Learning studio?
-description: Azure Machine Learning studio is a web portal for Azure Machine Learning workspaces. The studio combines no-code and code-first experiences to create an inclusive data science platform.
+description: The studio is a web portal for Azure Machine Learning workspaces. The studio combines no-code and code-first experiences for an inclusive data science platform.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -78,7 +78,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 | Feature | ML Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
 | Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer](concept-designer.md)| 
-| Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) and [R](tutorial-1st-r-experiment.md) SDKs |
+| Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](/python/api/overview/azure/ml/) and [R](tutorial-1st-r-experiment.md) SDKs |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
 | Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](concept-compute-target.md#deploy). Includes GPU and CPU support |
@@ -98,4 +98,4 @@ Visit the [studio](https://ml.azure.com), or explore the different authoring opt
   + [Use Jupyter notebooks on a compute instance to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
-
+  + [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)

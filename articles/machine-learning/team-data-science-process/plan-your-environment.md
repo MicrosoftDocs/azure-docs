@@ -145,7 +145,7 @@ There are many options for languages, development environments, and tools. Be aw
 * [Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
+* [Python Tools for Visual Studio](/visualstudio/python/)
 * [Anaconda](https://www.anaconda.com/)
 * [Jupyter notebooks](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)

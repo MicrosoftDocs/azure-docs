@@ -31,7 +31,7 @@ This article shows how to create a project from scratch and also how to create a
 1. Select the **Projects** tab. If you have created projects before, you  will see all of your other projects here.
 1. Click **Create new project**.  
 
-    ![New project](./media/video-indexer-view-edit/new-project.png)
+    ![Screenshot that shows the "Video Indexer" page with the "Projects" tab selected.](./media/video-indexer-view-edit/new-project.png)
 1. Give your project a name by clicking on the pencil icon. Replace the text that says "Untitled project" with your project name and click on the check.
 
     ![New project](./media/video-indexer-view-edit/new-project3.png)

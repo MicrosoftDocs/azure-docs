@@ -72,7 +72,7 @@ Your function runtime might be unreachable for either of the following reasons:
 
 * Your function app is hosted in an [internally load balanced App Service Environment](../app-service/environment/create-ilb-ase.md) and it's configured to block inbound internet traffic.
 
-* Your function app has [inbound IP restrictions](functions-networking-options.md#inbound-ip-restrictions) that are configured to block internet access. 
+* Your function app has [inbound IP restrictions](functions-networking-options.md#inbound-access-restrictions) that are configured to block internet access. 
 
 The Azure portal makes calls directly to the running app to fetch the list of functions, and it makes HTTP calls to the Kudu endpoint. Platform-level settings under the **Platform Features** tab are still available.
 

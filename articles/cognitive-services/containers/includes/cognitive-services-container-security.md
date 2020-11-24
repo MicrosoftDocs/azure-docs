@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
 ---
 
@@ -28,7 +28,7 @@ As an alternative and *secure* approach, consumers of Cognitive Services contain
 
 ### Container networking
 
-The Cognitive Services containers are required to submit metering information for billing purposes. The only exception, is *Offline containers* as they follow a different billing methodology. Failure to allow list various network channels that the Cognitive Services containers rely on will prevent the container from working.
+The Cognitive Services containers are required to submit metering information for billing purposes. Failure to allow list various network channels that the Cognitive Services containers rely on will prevent the container from working.
 
 #### Allow list Cognitive Services domains and ports
 

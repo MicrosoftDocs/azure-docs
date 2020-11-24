@@ -12,6 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with SQL API accounts
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -172,12 +173,12 @@ Also add a log4j config.
 ```
 # this is a sample log4j configuration
 
-# Set root logger level to DEBUG and its only appender to A1.
+# Set root logger level to INFO and its only appender to A1.
 log4j.rootLogger=INFO, A1
 
-log4j.category.com.azure.cosmos=DEBUG
-#log4j.category.io.netty=INFO
-#log4j.category.io.reactivex=INFO
+log4j.category.com.azure.cosmos=INFO
+#log4j.category.io.netty=OFF
+#log4j.category.io.projectreactor=OFF
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 

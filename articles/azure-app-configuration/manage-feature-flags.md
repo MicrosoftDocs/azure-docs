@@ -54,6 +54,7 @@ To add a new feature flag:
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100 percent} |
     | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
+    | Microsoft.Targeting | { "Audience": JSON blob defining users, groups, and rollout percentages. See an example under the `EnabledFor` element of [this settings file](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Feature flag filter](./media/azure-app-configuration-feature-flag-filter.png)
 

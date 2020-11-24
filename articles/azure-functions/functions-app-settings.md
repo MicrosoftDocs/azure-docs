@@ -130,7 +130,7 @@ Specifies the repository or provider to use for key storage. Currently, the supp
 
 ## AzureWebJobsStorage
 
-The Azure Functions runtime uses this storage account connection string for all functions except for HTTP triggered functions. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](storage-considerations.md#storage-account-requirements).
+The Azure Functions runtime uses this storage account connection string for normal operation. Some uses of this storage account include key management, timer trigger management, and Event Hubs checkpoints. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
 |Key|Sample value|
 |---|------------|
@@ -221,6 +221,14 @@ For Consumption & Premium plans only. Connection string for storage account wher
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+## WEBSITE\_CONTENTOVERVNET
+
+For Premium plans only. A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## WEBSITE\_CONTENTSHARE
 
