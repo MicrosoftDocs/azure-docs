@@ -134,6 +134,9 @@ In this section, you'll create a load balancer rule:
 * Listening on **Port 80**.
 * Directs load balanced traffic to the backend named **myBackendPool-CR** on **Port 80**.
 
+> [!NOTE]
+> Frontend port must match backend port and the frontend port of the regional load balancers in the backend pool.
+
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
 
 2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
