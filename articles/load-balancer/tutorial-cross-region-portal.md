@@ -85,11 +85,11 @@ Create the backend address pool **myBackendPool-CR** to include the regional sta
 
 4. Select **myBackendPool-CR**.
 
-5. Under **Load balancers**, select the pull down box under **Load balancer**.
+5. Under **Load balancers**, select the pull-down box under **Load balancer**.
 
 5. Select **myLoadBalancer-R1**, or the name of your load balancer in region 1.
 
-6. Select the pull down box under **Frontend IP configuration**. Choose **LoadBalancerFrontEnd**.
+6. Select the pull-down box under **Frontend IP configuration**. Choose **LoadBalancerFrontEnd**.
 
 7. Repeat steps 4-6 to add **myLoadBalancer-R2**.
 
@@ -99,12 +99,12 @@ Create the backend address pool **myBackendPool-CR** to include the regional sta
 
 ## Create a health probe
 
-In this section you'll create a health probe to create the load balancing rule:
+In this section, you'll create a health probe to create the load-balancing rule:
 
 * Named **myHealthProbe**.
 * Protocol **TCP**.
 * Internal of **15** seconds.
-* Unhealthy threshold of **2** failures.
+* Unhealthy threshold of **two** failures.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
 
@@ -123,7 +123,7 @@ In this section you'll create a health probe to create the load balancing rule:
 4. Select **OK**.
 
 > [!NOTE]
-> Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
+> Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information, see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
 
 ## Create a load balancer rule
 
