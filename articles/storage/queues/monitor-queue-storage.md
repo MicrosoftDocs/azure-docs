@@ -152,7 +152,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-For a description of each parameter, see the [Archive Azure Resource logs via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#archive-diagnostic-logs-via-azure-powershell).
+For a description of each parameter, see the [Archive Azure Resource logs via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### Stream logs to an event hub
 
@@ -166,7 +166,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-For a description of each parameter, see the [Stream Data to Event Hubs via PowerShell cmdlets](../../azure-monitor/platform/resource-logs.md#via-powershell-cmdlets).
+For a description of each parameter, see the [Stream Data to Event Hubs via PowerShell cmdlets](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
@@ -210,7 +210,7 @@ Here's an example:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-For a description of each parameter, see the [Archive Resource logs via the Azure CLI](../../azure-monitor/platform/resource-logs.md#archive-diagnostic-logs-via-the-azure-cli).
+For a description of each parameter, see the [Archive Resource logs via the Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### Stream logs to an event hub
 
@@ -224,7 +224,7 @@ Here's an example:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-For a description of each parameter, see the [Stream data to Event Hubs via Azure CLI](../../azure-monitor/platform/resource-logs.md#via-azure-cli).
+For a description of each parameter, see the [Stream data to Event Hubs via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
