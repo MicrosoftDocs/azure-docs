@@ -13,7 +13,7 @@ In Azure Batch, a *task* represents a unit of computation. A *job* is a collecti
 
 A job is a collection of tasks. It manages how computation is performed by its tasks on the compute nodes in a pool.
 
-A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a [job schedule](scheduled-jobs), or one pool for all jobs that are associated with a job schedule.
+A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a [job schedule](#scheduled-jobs), or one pool for all jobs that are associated with a job schedule.
 
 ### Job priority
 
