@@ -1,6 +1,6 @@
 ---
-title: Copy data to/from Azure Synapse Analytics (formerly SQL Data Warehouse) 
-description: Learn how to copy data to/from Azure Synapse Analytics (formerly SQL Data Warehouse) using Azure Data Factory
+title: Copy data to/from Azure Synapse Analytics 
+description: Learn how to copy data to/from Azure Synapse Analytics using Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -18,7 +18,7 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Copy data to and from Azure Synapse Analytics (formerly SQL Data Warehouse) using Azure Data Factory
+# Copy data to and from Azure Synapse Analytics using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version 2 (current version)](../connector-azure-sql-data-warehouse.md)
