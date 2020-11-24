@@ -90,7 +90,7 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 - **Region availability** - A VM series or size might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
 - **Quotas** - The [cores quotas](batch-quota-limit.md#resource-quotas) in your Batch account can limit the number of nodes of a given size you can add to a Batch pool. When needed, you can [request a quota increase](batch-quota-limit.md#increase-a-quota).
-- 
+
 - **Pool configuration** - In general, you have more VM size options when you create a pool in the Virtual Machine configuration, compared with the Cloud Service configuration.
 
 ## Supported OS versions
