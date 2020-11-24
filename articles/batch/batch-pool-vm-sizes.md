@@ -1,5 +1,5 @@
 ---
-title: Choose VM sizes and OS versions for pools
+title: Choose VM sizes and imags for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
 ms.date: 11/24/2020
@@ -7,7 +7,7 @@ ms.custom: seodec18
 
 ---
 
-# Choose a VM size and OS version for compute nodes in an Azure Batch pool
+# Choose a VM size and image for compute nodes in an Azure Batch pool
 
 When you select a node size for an Azure Batch pool, you can choose from among almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
 
@@ -93,7 +93,7 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 
 - **Pool configuration** - In general, you have more VM size options when you create a pool in the Virtual Machine configuration, compared with the Cloud Service configuration.
 
-## Supported OS versions
+## Supported VM images
 
 Use one of the following APIs to return a list of Windows and Linux VM images currently supported by Batch, including the node agent SKU IDs for each image:
 
