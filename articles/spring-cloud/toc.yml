@@ -128,11 +128,11 @@
     - name: Migrate
       items:
         - name: Spring Cloud
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
         - name: Spring Boot
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
 - name: Reference
   items:
   - name: Azure CLI Plugin
