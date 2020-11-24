@@ -53,4 +53,4 @@ When a request times out applications should not retry immediately. Implement an
 
 - [Build resilience into applications that sign-in users](resilience-client-app.md)
 - [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
-- [Build resilience in your customer identity and access management with Azure Active Directory B2C](resilience-b2c.md)
+- [Build resilience in your CIAM systems](resilience-b2c.md)
