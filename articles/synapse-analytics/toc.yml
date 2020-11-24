@@ -493,7 +493,7 @@
         items:
         - name: Add an Azure Stream Analytics job
           href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Tool to connect to Synapse workspaces
+    - name: Tools to connect to Synapse workspaces
       items:
       - name: Overview
         href: sql/connect-overview.md
