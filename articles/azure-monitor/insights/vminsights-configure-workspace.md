@@ -64,7 +64,7 @@ Azure Monitor for VMs supports Log Analytics workspaces in the following regions
 - Australia East
 - Australia Southeast
 
-## Role-based access control
+## Azure role-based access control
 To enable and access the features in Azure Monitor for VMs, you must have the [Log Analytics contributor role](../platform/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../platform/roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
 
 ## Add VMInsights solution to workspace
