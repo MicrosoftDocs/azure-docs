@@ -1812,6 +1812,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
       "redirect_document_id": false
@@ -30570,6 +30580,11 @@
     {
       "source_path": "articles/sentinel/connect-microsoft-waf.md",
       "redirect_url": "/azure/sentinel/connect-azure-waf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/faq-billing.md",
+      "redirect_url": "/azure/security-center/security-center-pricing#faq---pricing-and-billing",
       "redirect_document_id": false
     },
     {
