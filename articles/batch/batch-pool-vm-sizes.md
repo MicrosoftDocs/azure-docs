@@ -98,8 +98,8 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 Use one of the following APIs to return a list of Windows and Linux VM images currently supported by Batch, including the node agent SKU IDs for each image:
 
 - Batch Service REST API: [List Supported Images](/rest/api/batchservice/account/listsupportedimages)
-- PowerShell: [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage)
-- Azure CLI: [Azure CLI](/cli/azure/batch/pool/supported-images)
+- PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
+- Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
 
 ## Next steps
 
