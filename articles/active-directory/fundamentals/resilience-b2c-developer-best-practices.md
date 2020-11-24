@@ -25,7 +25,7 @@ In this article, we share some learnings that are based on our experience from w
 
 The [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) and the [Microsoft identity web authentication library for ASP.NET](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries) simplify acquiring, managing, caching, and refreshing the tokens an application requires. These libraries are optimized specifically to support Microsoft Identity including features that improve application resiliency.
 
-Developers should adopt latest releases of MSAL. See [how to increase resilience of authentication and authorization]() in your applications. Where possible, avoid implementing your own authentication stack and use well-established libraries.
+Developers should adopt latest releases of MSAL. See [how to increase resilience of authentication and authorization](resilience-app-development-overview.md) in your applications. Where possible, avoid implementing your own authentication stack and use well-established libraries.
 
 ## Optimize directory reads and writes
 
@@ -134,4 +134,4 @@ We recommend your test plan to include [comprehensive API tests](https://docs.mi
   - [Resilient interfaces with external processes](resilient-external-processes.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
 - [Build resilience in your authentication infrastructure](resilience-in-infrastructure.md)
-- [Increase resilience of authentication and authorization in your applications]()
+- [Increase resilience of authentication and authorization in your applications](resilience-app-development-overview.md)
