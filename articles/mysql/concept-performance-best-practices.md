@@ -47,7 +47,6 @@ An Azure Database for MySQL performance best practice is to allocate enough RAM 
 
 ## Next steps
 
-[Best practice for server operations using Azure Database for MySQL](concept-server-operational-best-practice.md)
+[Best practice for server operations using Azure Database for MySQL](concept-operation-excellence-best-practices.md)
 [Best practice for monitoring your Azure Database for MySQL](concept-monitoring-best-practices.md)
-[Troubleshooting your existing Azure Database for MySQL](howto-troubleshoot-mysql.md)
 [Get started with Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
