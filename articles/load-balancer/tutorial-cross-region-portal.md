@@ -174,7 +174,7 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 
 4. Refresh the web browser and observe the failover of the connection to the other regional load balancer.
 
-    :::image type="content" source="./media/tutorial-cross-region-portal/test-cr-lb-2.png" alt-text="Test load balancer" border="true":::
+    :::image type="content" source="./media/tutorial-cross-region-portal/test-cr-lb-2.png" alt-text="Test load balancer after failover" border="true":::
 
 ## Clean up resources
 
