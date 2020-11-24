@@ -152,9 +152,9 @@ The following table illustrates a few examples of these formulae for the provisi
 
 |Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
-|100         | 500     | Up to 300     | 66   | 44   |
-|500         | 900     | Up to 1,500   | 90   | 60   |
-|1,024       | 1,424   | Up to 3,072   | 122   | 81   |
+|100         | 500     | Up to 4,000     | 66   | 44   |
+|500         | 900     | Up to 4,000  | 90   | 60   |
+|1,024       | 1,424   | Up to 4,000   | 122   | 81   |
 |5,120       | 5,520   | Up to 15,360  | 368   | 245   |
 |10,240      | 10,640  | Up to 30,720  | 675   | 450   |
 |33,792      | 34,192  | Up to 100,000 | 2,088 | 1,392   |
