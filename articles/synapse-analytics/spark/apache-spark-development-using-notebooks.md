@@ -151,27 +151,36 @@ The IntelliSense features are at different levels of maturity for different lang
 |.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### Format text cell with toolbar buttons
+
 # [Classical Notebook](#tab/classical)
+
 You can use the format buttons in the text cells toolbar to do common markdown actions. It includes bolding text, italicizing text, inserting code snippets, inserting unordered list, inserting ordered list and inserting image from URL.
 
   ![Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 # [Preview Notebook](#tab/preview)
-Coming soon.
+
+coming soon.
+
 ---
 
 ### Undo cell operations
+
 # [Classical Notebook](#tab/classical)
+
 Select the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
 
    ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 # [Preview Notebook](#tab/preview)
-Coming soon.
+
+coming soon.
+
 ---
 
 ### Move a cell
 
 # [Classical Notebook](#tab/classical)
+
 Select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Move cell up** or **Move cell down** to move the current cell. 
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Ctrl+Alt+↑** to move up the current cell. Press **Ctrl+Alt+↓** to move the current cell down.
@@ -179,6 +188,7 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
    ![move-a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
 
 # [Preview Notebook](#tab/preview)
+
 Click on the left-hand side of a cell and drag it to the desired position. 
     ![Synapse move cells](./media/apache-spark-development-using-notebooks/synapse-aznb-drag-drop-cell.gif)
 
@@ -187,6 +197,7 @@ Click on the left-hand side of a cell and drag it to the desired position.
 ### Delete a cell
 
 # [Classical Notebook](#tab/classical)
+
 To delete a cell, select the ellipses (...) to access the additional cell actions menu at the far right then select **Delete cell**. 
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **D,D** to delete the current cell.
@@ -194,6 +205,7 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
    ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
 # [Preview Notebook](#tab/preview)
+
 To delete a cell, select the delete button at the right hand of the cell. 
 
 You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+D** to delete the current cell. 
@@ -205,11 +217,13 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
 ### Collapse a cell input
 
 # [Classical Notebook](#tab/classical)
+
 Select the arrow button at the bottom of the current cell to collapse it. To expand it, select the arrow button while the cell is collapsed.
 
    ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 # [Preview Notebook](#tab/preview)
+
 Select the **More commands** ellipses (...) on the cell toolbar and **input** to collapse current cell's input. To expand it, Select the **input hidden** while the cell is collapsed.
 
    ![aznb-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-input.gif)
@@ -219,11 +233,13 @@ Select the **More commands** ellipses (...) on the cell toolbar and **input** to
 ### Collapse a cell output
 
 # [Classical Notebook](#tab/classical)
+
 Select the **collapse output** button at the upper left of the current cell output to collapse it. To expand it, select the **Show cell output** while the cell output is collapsed.
 
    ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
 # [Preview Notebook](#tab/preview)
+
 Select the **More commands** ellipses (...) on the cell toolbar and **output** to collapse current cell's output. To expand it, select the same button while the cell's output is hidden.
 
    ![aznb-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-aznb-collapse-cell-output.gif)
@@ -246,9 +262,11 @@ There are several ways to run the code in a cell.
 2. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+Enter** to run the current cell and select the cell below. Press **Alt+Enter** to run the current cell and insert a new cell below.
 
 # [Classical Notebook](#tab/classical)
+
 3. To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cell**.
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
+
 # [Preview Notebook](#tab/preview)
 
 ---
@@ -307,7 +325,7 @@ You can specify the timeout duration, the number, and the size of executors to g
 
 [![session-management](./media/apache-spark-development-using-notebooks/synapse-aznb-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-aznb-spark-session-management.png#lightbox)
 
-#### %%configure
+#### Spark session config magic command
 You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters 
 
 ```
@@ -466,7 +484,7 @@ Available line magics:
 [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
 Available cell magics:
-[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages),[%%configure](#%%configure)
+[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages),[%%configure](#spark-session-config-magic-command)
 
 
 
@@ -474,10 +492,10 @@ Available cell magics:
 
 
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%fs](), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#Reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%fs](), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Available cell magics:
-[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#%%configure)
+[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-config-magic-command)
 
 --- 
 
