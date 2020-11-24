@@ -1012,6 +1012,12 @@
     - name: Create an Apache Spark machine learning app
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       displayname: machine learning
+    - name: Sentiment analysis with Cognitive Services
+      href: ./machine-learning/tutorial-cognitive-services-sentiment.md
+    - name: Anomaly detection with Cognitive Services
+      href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+    - name: Machine learning model training using AutoML in Azure ML
+      href: ./machine-learning/tutorial-automl.md
 - name: Reference
   items:
   - name: Azure CLI
