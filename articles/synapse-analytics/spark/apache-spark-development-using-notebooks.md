@@ -156,7 +156,8 @@ You can use the format buttons in the text cells toolbar to do common markdown a
 
   ![Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
-
+# [Preview Notebook](#tab/preview)
+Coming soon.
 ---
 
 ### Undo cell operations
@@ -164,7 +165,8 @@ You can use the format buttons in the text cells toolbar to do common markdown a
 Select the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
 
    ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
-
+# [Preview Notebook](#tab/preview)
+Coming soon.
 ---
 
 ### Move a cell
@@ -247,6 +249,7 @@ There are several ways to run the code in a cell.
 3. To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cell**.
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
+# [Preview Notebook](#tab/preview)
 
 ---
 
@@ -272,8 +275,12 @@ Select the **Cancel All** button to cancel the running cells or cells waiting in
 ---
 
 
-# [Preview Notebook](#tab/preview)
+
 ### Reference notebook
+# [Classical Notebook](#tab/classical)
+Not support.
+
+# [Preview Notebook](#tab/preview)
 
 You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
 
