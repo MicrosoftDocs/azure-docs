@@ -29,7 +29,7 @@ A resilient service is one that continues to function despite disruptions. You c
 
 - providing redundancy with fast failover mechanisms and recovery paths
 
-As you develop your application, we recommend considering how to [increase resilience of authentication and authorization in your applications](https://microsoft.sharepoint.com/:w:/r/teams/GTP/_layouts/15/Doc.aspx?sourcedoc=%7B73B2E6C3-4BB6-4A84-B5C7-B230E0495606%7D&file=How%20to%20build%20your%20app%20to%20be%20resilient.docx&action=default&mobileredirect=true) with the identity components of your solution. This article attempts to address enhancements for resilience specific to Azure AD B2C applications. Our recommendations are grouped by CIAM functions.
+As you develop your application, we recommend considering how to [increase resilience of authentication and authorization in your applications](resilience-app-development-overview.md) with the identity components of your solution. This article attempts to address enhancements for resilience specific to Azure AD B2C applications. Our recommendations are grouped by CIAM functions.
 
 ![Image shows CIAM components](media/resilience-b2c/high-level-components.png)
 In the subsequent sections, we’ll guide you to build resilience in the following areas:
@@ -50,4 +50,4 @@ In the subsequent sections, we’ll guide you to build resilience in the followi
   - [Resilience through developer best practices](resilience-b2c-developer-best-practices.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
 - [Build resilience in your authentication infrastructure](resilience-in-infrastructure.md)
-- [Increase resilience of authentication and authorization in your applications]()
+- [Increase resilience of authentication and authorization in your applications](resilience-app-development-overview.md)
