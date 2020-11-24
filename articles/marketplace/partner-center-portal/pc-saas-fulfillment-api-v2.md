@@ -27,7 +27,7 @@ The states of a SaaS subscription and the applicable actions are shown in the fo
 
 After an end customer (or CSP) purchases a SaaS offer in the commercial marketplace, the publisher should be notified of the purchase. The publisher can then create and configure a new SaaS account on the publisher side for the end customer.
 
-To create and account:
+To create an account:
 
 1. The customer selects the **Configure** button that's available for a SaaS offer after its successful purchase in Microsoft AppSource or the Azure portal. Alternatively the customer can use the **Configure** button in the email that they will receive shortly after the purchase.
 2. Microsoft then notifies the partner about the purchase by opening in the new browser tab the landing page URL with the token parameter (the commercial marketplace purchase identification token).
