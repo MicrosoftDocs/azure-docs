@@ -31,7 +31,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
 1.  On the left side of the page, select **Pipelines**, and then select **Releases**.
 
-    ![Select Pipelines, Releases](media/Create-release.png)
+    ![Select Pipelines, Releases](media/create-release.png)
 
 1.  Select **New pipeline**, or, if you have existing pipelines, select **New** and then **New release pipeline**.
 
