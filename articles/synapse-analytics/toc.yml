@@ -125,15 +125,6 @@
           displayname: access, control
         - name: Synapse workspace managed Identity
           href: ./security/synapse-workspace-managed-identity.md
-    - name: Tools integration (AI, ETL, BI)
-      items:
-      - name: Troubleshoot Synapse Studio
-        href: troubleshoot/troubleshoot-synapse-studio.md
-      - name: Troubleshoot Synapse Studio connectivity issues
-        href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-        displayname: powershell
-      - name: Troubleshoot connectivity between Synapse Studio and storage
-        href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
   - name: How-to guides
     items:
     - name: Secure
@@ -156,6 +147,19 @@
           href: ./data-integration/linked-service.md
         - name: Connect to Synapse workspace from restricted network
           href: security/how-to-connect-to-workspace-from-restricted-network.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot Synapse Studio
+        href: troubleshoot/troubleshoot-synapse-studio.md
+      - name: Troubleshoot Synapse Studio connectivity issues
+        href: troubleshoot/troubleshoot-synapse-studio-powershell.md
+        displayname: powershell
+      - name: Troubleshoot connectivity between Synapse Studio and storage
+        href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
+      - name: Troubleshoot workspaces created by SDK
+        href: troubleshoot/workspaces-created-by-sdk.md
+      - name: Troubleshoot reading UTF-8 text
+        href: troubleshoot/reading-utf8-text.md
 - name: Synapse SQL
   items:
   - name: Overview
