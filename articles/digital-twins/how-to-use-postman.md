@@ -24,48 +24,43 @@ This article describes how to configure the [Postman REST client](https://www.ge
 
 To proceed with using Postman to access the Azure Digital Twins APIs, you need to set up an Azure Digital Twins instance and download Postman. The rest of this section walks you through these steps.
 
-### Set up Azure Digital Twins instance and app registration
+### Set up Azure Digital Twins instance
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-
-[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
 
 ### Download Postman
 
 Next, download the desktop version of the Postman client. Navigate to [*www.getpostman.com/apps*](https://www.getpostman.com/apps) and follow the prompts to download the app.
 
-## Configure app registration to use the OAuth 2.0 implicit grant flow
+## Get bearer token
 
-Now that you've set up Postman, your Azure Digital Twins instance, and an app registration, you'll need to configure the app registration to work with the OAuth 2.0 implicit grant flow that Postman will use. This will allow requests from Postman to use your app registration to authorize against the Azure Digital Twins APIs.
+Now that you've set up Postman and your Azure Digital Twins instance, you'll need to get a bearer token that Postman requests can use to authorize against the Azure Digital Twins APIs.
 
-Start by going to the [Azure portal](https://portal.azure.com).
+There are several ways to obtain such a token. This article uses the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to sign into your Azure account and obtain a token that way.
 
-Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your **app registration** that you created in the previous section from the list (you can use this link or look for it by name in the portal search bar).
+If you have an Azure CLI [installed locally](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), you can start a command prompt on your machine to run the following token commands.
+Otherwise, you can also open an [Azure Cloud Shell](https://shell.azure.com) window in your browser and run the commands there.
 
-Select *Authentication* from the registration's menu, and hit *+ Add a platform*.
+First, make sure you're logged into Azure with the appropriate credentials, by running this command:
 
-:::image type="content" source="media/how-to-use-postman/authentication-pre.png" alt-text="Azure portal page of the Authentication details for an app registration. There is a highlight around an 'Add a platform' button" lightbox="media/how-to-use-postman/authentication-pre.png":::
+```azurecli-interactive
+az login
+```
 
-In the *Configure platforms* page that follows, select *Web*.
-Fill the configuration details as follows:
-* **Redirect URIs**: Add a redirect URI of *https://www.getpostman.com/oauth2/callback*.
-* **Implicit grant**: Check the box for *Access tokens*. This will allow the OAuth 2.0 implicit grant flow to be used.
+Next, use the [az account get-access-token](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service.
 
-Hit *Configure* to finish.
+```azurecli-interactive
+az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
+```
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-postman/authentication-configure-web.png" alt-text="The Configure platforms page, highlighting the info described above onscreen" lightbox="media/how-to-use-postman/authentication-configure-web.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authenticate your requests.
 
-Now you have a web configuration configured that Postman will use. The Authentication tab in the Azure portal should reflect this. After verifying the sections below, hit *Save*.
+:::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="View of a local console window showing the result of the az account get-access-token command. One of the fields in the result is called accessToken and its sample value--beginning with ey--is highlighted.":::
 
-:::image type="content" source="media/how-to-use-postman/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of https://www.getpostman.com/oauth2/callback, and Implicit Grant being enabled for access tokens. The Save button is also highlighted." lightbox="media/how-to-use-postman/authentication-post.png":::
+>[!TIP]
+>This token is valid for at least 5 minutes with the maximum at 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
 
-## Set up Postman
+## Set up Postman collection and authorization
 
 Next, set up Postman to make API requests.
 These steps happens in your local Postman application, so go ahead and open the Postman application on your computer.
@@ -80,45 +75,19 @@ To create a collection, hit the *+ New Collection* button.
 
 In the *CREATE A NEW COLLECTION* window that follows, provide a **Name** and optional **Description** for your collection.
 
-Then, continue on to the next section to set up authorization details for the collection.
+Then, continue on to the next section to add a bearer token to the collection for authorization.
 
-### Set up authorization for the collection
+### Add authorization token and finish collection
 
-In the *CREATE A NEW COLLECTION* dialog, move to the *Authorization* tab. This is where you will use the values of your app registration to get an OAuth 2.0 token that you can use for all API requests in your collection.
+In the *CREATE A NEW COLLECTION* dialog, move to the *Authorization* tab. This is where you will place the **token value** you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
 :::image type="content" source="media/how-to-use-postman/postman-authorization.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab.":::
 
-Set the *Type* to _**OAuth 2.0**_, and hit the button for *Get New Access Token*.
+Set the *Type* to _**OAuth 2.0**_, and paste your access token into the *Access Token* box.
 
-:::image type="content" source="media/how-to-use-postman/postman-authorization-values.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and the 'Get New Access Token' button is highlighted.":::
+:::image type="content" source="media/how-to-use-postman/postman-paste-access-token.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted.":::
 
-In the *GET NEW ACCESS TOKEN* window that appears, fill in the following fields.
-* **Token Name**: Name the token whatever you want.
-* **Grant Type**: Select *Implicit*.
-* **Callback URL**: Enter *https://www.getpostman.com/oauth2/callback*.
-* **Auth URL**: Enter *https://login.microsoftonline.com/common/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0*. This is the URL for authorizing with the Azure Digital Twins APIs.
-* **Client ID**: Enter your app registration's **Application (client) ID** from the [*Prerequisites*](#prerequisites) section.
-* **Scope**: Leave blank.
-* **State**: Leave blank.
-* **Client Authentication**: Select *Send as Basic Auth header*.
-
-Then, select *Request Token*.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-use-postman/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted." lightbox="media/how-to-use-postman/postman-token-values.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-This will open the *MANAGE ACCESS TOKENS* window with a token that has been generated based on the information you've provided. Select *Use Token*.
-
-:::image type="content" source="media/how-to-use-postman/postman-use-token.png" alt-text="The 'MANAGE ACCESS TOKENS' Postman window, showing the details of the token that has been created. The 'Use Token' button is highlighted.":::
-
-### Finish collection
-
-Back on the *CREATE A NEW COLLECTION* dialog, hit *Create* to finish creating your collection.
+After pasting in your bearer token, hit *Create* to finish creating your collection.
 
 Your new collection can now be seen from your main Postman view, under *Collections*.
 
