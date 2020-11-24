@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: reference
-ms.date: 07/20/2020
+ms.date: 11/23/2020
 ms.author: mbaldwin
 
 
