@@ -105,14 +105,12 @@ You can now create a deadLetterSecret using all the above values replacing the p
 
 #### Configuring the endpoint
 
-Dead-letter endpoints are created using [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate). 
+Dead-letter endpoints are created using [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate). In this page, select _Try It_ to send API request. In the API request page, fill in the fields as mentioned below.
 
   - Choose a name for your endpoint in the _endpointName_ field.
-  - Enter your _resourceGroupName_, _resourceName_ and select your subscription from the dropdown.
-  - Use the deadLetterSecret created in the above section as a property in the json body below.
-  - Add the below Json body to the request and _Run_ to see the response code '201'.
-  - Verify that the deadLetterEndpoint is successfully created in the body of the response.
-  
+  - Enter your _resourceGroupName_, _resourceName_, and select your subscription.
+  - Add the below Json code to the _Body_ of the API request, replacing the placeholders in the deadLetterSecret and select _Run_ to see the response code '201'.
+    
 ```json
 {
   "properties": {
@@ -124,6 +122,7 @@ Dead-letter endpoints are created using [ARM APIs](/rest/api/digital-twins/contr
   }
 }
 ```
+Verify that the deadLetterEndpoint is successfully created in the body of the response.
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 
