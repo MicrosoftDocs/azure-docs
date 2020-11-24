@@ -132,7 +132,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     |Option  |Description  |
     |---------|---------|
     |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
-    |**Filter**     |   Use the **Filter by keyword**, **Time period**, **FIle extension**, and **Sources**, and **Content scanning** filters to filter the graphs to show data for specific content only.      |
+    |**Filter**     |   Use the **Filter by keyword**, **Time period**, **File extension**, and **Sources**, and **Content scanning** filters to filter the graphs to show data for specific content only.      |
     | | | 
 
 ## Next steps
