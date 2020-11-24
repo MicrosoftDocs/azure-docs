@@ -96,7 +96,7 @@
       href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Source control
       href: ./cicd/source-control.md
-    - name: CICD
+    - name: Continuous integration and delivery
       href: ./cicd/continuous-integration-deployment.md
     - name: Security
       items:

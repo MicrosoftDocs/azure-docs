@@ -11,7 +11,7 @@ ms.author: liud
 ms.reviewer: pimorano
 ---
 
-# Continuous integration and delivery for Azure Synapse Workspace
+# Continuous integration and delivery for Azure Synapse workspace
 
 ## Overview
 
@@ -23,8 +23,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
 ## Pre-requirements
 
--   The workspace used for development has been configured with a Git repository, see [Source control in Synapse](source-control.md).
-
+-   The workspace used for development has been configured with a Git repository in Studio, see [Source control in Synapse Studio](source-control.md).
 -   An Azure DevOps project has been prepared for running release pipeline.
 
 ## Set up a Release Pipelines
@@ -79,7 +78,7 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
     
     ![workspace and pools deploy](media/pools-resource-deploy.png)
 
-1. (**Optional**) Add **Azure PowerShell** for the grant and update workspace role assignment. If you use release pipeline to create a synapse workspace, the pipeline’s service principal is required to be added as default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
+1. (**Optional**) Add **Azure PowerShell** for the grant and update workspace role assignment. If you use release pipeline to create a Synapse workspace, the pipeline’s service principal is required to be added as default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
     
     ![workspace and pools deploy](media/release-creation-grant-permission.png)
 
@@ -109,12 +108,9 @@ After saving all changes, you can select **Create release** to manually create a
 
 ## Best practices for CI/CD
 
-If you're using Git integration with your synapse workspace and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:
+If you're using Git integration with your Synapse workspace and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:
 
--   **Git integration**. Configure only your development synapse workspace with Git integration. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
-
--   **Work in synapse workspace**. Synapse workspace is the only place you can enable workspace source control and sync changes to git. Any change via SDK, PowerShell, will not be synced to git. 
-
+-   **Git integration**. Configure only your development Synapse workspace with Git integration. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
 -   **Prepare pools before artifacts migration**. If you attach pools to your SQL script or notebook in the development workspace, the same name of pools in different environments are expected. 
 
 - **Others**. See [Other best practices](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
@@ -122,8 +118,6 @@ If you're using Git integration with your synapse workspace and have a CI/CD pip
 ## Unsupported features
 
 - Synapse Studio doesn't allow cherry-picking of commits or selective publishing of resources. 
-
 - Synapse Studio doesn't support customize commit message.
-
 - By design, delete action will be committed to git directly
 

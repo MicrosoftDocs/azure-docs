@@ -13,13 +13,13 @@ ms.reviewer: pimorano
 
 # Source control in Azure Synapse Studio
 
-By default, Azure Synapse Studio authors directly against the synapse service. However, this experience has the following limitations:
+By default, Azure Synapse Studio authors directly against the Synapse service. However, this experience has the following limitations:
 
 - Synapse studio doesn't include a temporary storage for storing your changes. The only way to save and share changes is via the **Publish** and all changes are published directly to the Synapse service.
 
 - Synapse Studio isn't optimized for collaboration and version control.
 
-To provide source control capability, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. This article will outline how to configure and work in a synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
+To provide source control capability, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. This article will outline how to configure and work in a Synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
 
 > [!NOTE]
 > Azure Synapse Studio git integration is not available in the Azure Government Cloud.
@@ -173,6 +173,19 @@ A side pane will open where you confirm that the publish branch and pending chan
 > [!IMPORTANT]
 > The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.
 
+## Switch to a different Git repository
+
+To switch to a different Git repository, go to Git configuration page in the management hub under **Source control**. Select **Disconnect**. 
+
+![Git icon](media/remove-repository.png)
+
+Enter your workspace name and click **Disconnect** to remove the Git repository associated with your workspace.
+
+After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing resources to the new repo.
+
+> [!IMPORTANT]
+> Removing Git configuration from a workspace doesn't delete anything from the repository. Synapse workspace will contain all published resources. You can continue to edit the workspace directly against the service.
+
 ## Best practices for Git integration
 
 ### Permissions
@@ -181,8 +194,17 @@ After you have a git repository connected to your workspace, anyone who can acce
 
 *   Only grant git repository permission to Synapse workspace artifact authors. 
 
+### Collaboration
+
 It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
+### Synapse live mode
+
+After publishing in git mode,  all changes will be reflected in Synapse live mode. In Synapse live mode, publishing is disabled. And you can view, run artifacts in live mode if you have been granted the right permission. 
+
+### Always edit artifacts in Studio
+
+ Synapse studio is the only place you can enable workspace source control and sync changes to git automatically. Any change via SDK, PowerShell, will not be synced to git. We recommend you always edit artifact in Studio when git is enabled.
 
 ## Troubleshooting Git integration
 
@@ -190,7 +212,7 @@ It's recommended to not allow direct check-ins to the collaboration branch. This
 
 If you have been granted the permission to the GitHub git repository linked with your workspace, but you can not access to Git mode: 
 
-1. Clear your cache and refresh page. 
+1. Clear your cache and refresh the page. 
 
 1. Login your GitHub account.
 
@@ -204,18 +226,6 @@ If the publish branch is out of sync with the collaboration branch and contains 
 
 1. Create a pull request to merge the changes to the collaboration branch 
 
-## Switch to a different Git repository
-
-To switch to a different Git repository, go to Git configuration page in the management hub under **Source control**. Select **Disconnect**. 
-
-![Git icon](media/remove-repository.png)
-
-Enter your workspace name and click **Disconnect** to remove the Git repository associated with your workspace.
-
-After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing resources to the new repo.
-
-> [!IMPORTANT]
-> Removing Git configuration from a workspace doesn't delete anything from the repository. Synapse workspace will contain all published resources. You can continue to edit the workspace directly against the service.
 
 ## Next steps
 
