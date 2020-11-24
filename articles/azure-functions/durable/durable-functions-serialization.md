@@ -19,7 +19,7 @@ To ensure your workflows persist data correctly, you will need to understand wha
 
 Durable Functions requires that the following pieces of data are serializable:
 
-- Orchestration inputs and outputs
+- Orchestration inputs and outputs, including external event payloads
 - Activity inputs and outputs
 - Entity State
 - Exceptions thrown by Activity and Orchestrator Functions
