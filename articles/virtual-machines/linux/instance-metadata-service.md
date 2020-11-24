@@ -262,46 +262,46 @@ API | Description | Version introduced
 ## Instance API
 
 Instance API exposes the important metadata for the VM instances, including the VM, network, and storage. 
-The following categories can be accessed through instance/compute:
+You can access the following categories through instance and compute:
 
-Data | Description | Version Introduced
+Data | Description | Version introduced
 -----|-------------|-----------------------
-azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
-isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
-licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
-location | Azure Region the VM is running in | 2017-04-02
-name | Name of the VM | 2017-04-02
-offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
-osProfile.adminUsername | Specifies the name of the admin account | 2020-07-15
-osProfile.computerName | Specifies the name of the computer | 2020-07-15
-osProfile.disablePasswordAuthentication | Specifies if password authentication is disabled. Note that this is only present for Linux VMs | 2020-10-01
-osType | Linux or Windows | 2017-04-02
-placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-platformUpdateDomain |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
-provider | Provider of the VM | 2018-10-01
-publicKeys | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
-publisher | Publisher of the VM image | 2017-04-02
-resourceGroupName | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
-resourceId | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
-sku | Specific SKU for the VM image | 2017-04-02
-securityProfile.secureBootEnabled | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
-securityProfile.virtualTpmEnabled | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
-storageProfile | See [Storage Profile](#storage-metadata) | 2019-06-01
-subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
-tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
-tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
-version | Version of the VM image | 2017-04-02
-vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-vmScaleSetName | [Virtual machine scale set Name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
-vmSize | [VM size](../sizes.md) | 2017-04-02
-zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+azEnvironment | The Azure environment in which the VM is running. | 2018-10-01
+customData | This feature is currently disabled. | 2019-02-01
+isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer. | 2020-06-01
+licenseType | The type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs. | 2020-09-01
+location | The Azure region in which the VM is running. | 2017-04-02
+name | The name of the VM. | 2017-04-02
+offer | Offer information for the VM image. This is only present for images deployed from the Azure image gallery. | 2017-04-02
+osProfile.adminUsername | Specifies the name of the admin account. | 2020-07-15
+osProfile.computerName | Specifies the name of the computer. | 2020-07-15
+osProfile.disablePasswordAuthentication | Specifies if password authentication is disabled. Note that this is only present for Linux VMs. | 2020-10-01
+osType | Linux or Windows. | 2017-04-02
+placementGroupId | [Placement group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set. | 2017-08-01
+plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing the name, product, and publisher for a VM if it is an Azure Marketplace image. | 2018-04-02
+platformUpdateDomain |  [Update domain](../manage-availability.md) in which the VM is running. | 2017-04-02
+platformFaultDomain | [Fault domain](../manage-availability.md) in which the VM is running. | 2017-04-02
+provider | The provider of the VM. | 2018-10-01
+publicKeys | [Collection of public keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths. | 2018-04-02
+publisher | Publisher of the VM image. | 2017-04-02
+resourceGroupName | [Resource group](../../azure-resource-manager/management/overview.md) for your VM. | 2017-08-01
+resourceId | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource. | 2019-03-11
+sku | The specific SKU for the VM image. | 2017-04-02
+securityProfile.secureBootEnabled | Identifies if UEFI secure boot is enabled on the VM. | 2020-06-01
+securityProfile.virtualTpmEnabled | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM. | 2020-06-01
+storageProfile | See [Storage profile](#storage-metadata). | 2019-06-01
+subscriptionId | Azure subscription for the VM. | 2017-08-01
+tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your VM.  | 2017-08-01
+tagsList | Tags formatted as a JSON array for easier programmatic parsing.  | 2019-06-04
+version | The version of the VM image. | 2017-04-02
+vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM. | 2017-04-02
+vmScaleSetName | [Virtual machine scale set name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set. | 2017-12-01
+vmSize | See [VM size](../sizes.md). | 2017-04-02
+zone | [Availability Zone](../../availability-zones/az-overview.md) of your VM. | 2017-12-01
 
-### Sample 1: Tracking VM running on Azure
+### Sample 1: Track a VM running on Azure
 
-As a service provider, you may require to track the number of VMs running your software or have agents that need to track uniqueness of the VM. To be able to get a unique ID for a VM, use the `vmId` field from Instance Metadata Service.
+As a service provider, you might need to track the number of VMs running your software, or have agents that need to track uniqueness of the VM. To be able to get a unique ID for a VM, use the `vmId` field from IMDS.
 
 **Request**
 
@@ -315,12 +315,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### Sample 2: Placement of containers, data-partitions based fault/update domain
+### Sample 2: Placement of different data replicas
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
-or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
+or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) might require you to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
 You can also use [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
-You can query this data directly via the Instance Metadata Service.
+You can query this data directly via IMDS.
 
 **Request**
 
@@ -334,9 +334,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-### Sample 3: Getting more information about the VM during support case
+### Sample 3: Get more information about the VM during support case
 
-As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure.
+As a service provider, you might get a support call where you want to know more information about the VM. Asking the customer to share the compute metadata can be useful in this case.
 
 **Request**
 
@@ -449,9 +449,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-### Sample 4: Getting Azure Environment where the VM is running
+### Sample 4: Get the Azure environment where the VM is running
 
-Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
+Azure has various sovereign clouds, like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
 
@@ -465,32 +465,32 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 AzurePublicCloud
 ```
 
-The cloud and the values of the Azure Environment are listed below.
+The cloud and the values of the Azure environment are listed here.
 
- Cloud   | Azure Environment
+ Cloud   | Azure environment
 ---------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[All generally available global Azure regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-## Network Metadata 
+## Network metadata 
 
-Network metadata is part of the instance API. The following Network categories are available through the instance/network endpoint.
+Network metadata is part of the instance API. The following network categories are available through the instance and network endpoint.
 
-Data | Description | Version Introduced
+Data | Description | Version introduced
 -----|-------------|-----------------------
-ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
-ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
-subnet/address | Subnet address of the VM | 2017-04-02
-subnet/prefix | Subnet prefix, example 24 | 2017-04-02
-ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
-macAddress | VM mac address | 2017-04-02
+ipv4/privateIpAddress | The local IPv4 address of the VM. | 2017-04-02
+ipv4/publicIpAddress | The public IPv4 address of the VM. | 2017-04-02
+subnet/address | The subnet address of the VM. | 2017-04-02
+subnet/prefix | The subnet prefix. Example: 24 | 2017-04-02
+ipv6/ipAddress | The local IPv6 address of the VM. | 2017-04-02
+macAddress | The VM mac address. | 2017-04-02
 
 > [!NOTE]
 > All API responses are JSON strings. All following example responses are pretty-printed for readability.
 
-#### Sample 1: Retrieving network information
+#### Sample 1: Retrieve network information
 
 **Request**
 
@@ -499,9 +499,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ```
 
 **Response**
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```json
 {
