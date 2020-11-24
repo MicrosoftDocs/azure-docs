@@ -25,5 +25,5 @@ The workaround to this issue is to always use UTF-8 collation when reading UTF-8
 
 ## Next steps
 
-* [What is Azure Synapse](overview-what-is.md)
-* [Get Started](get-started.md)
+* [What is Azure Synapse](../overview-what-is.md)
+* [Get Started](../get-started.md)
