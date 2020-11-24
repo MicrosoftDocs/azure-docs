@@ -2,12 +2,12 @@
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry by creating a container registry or geo-replica in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ---
 
 # Enable zone redundancy in Azure Container Registry for resiliency and high availability
 
-In addition to [geo-replication](container-registry-geo-replication.md), which replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations, Azure Container Registry provides *zone redundancy*. [Zone redundancy](../availability-zones/az-overview.md#availability-zones) provides resiliency and high availability to a registry or replica in a specific region.
+In addition to [geo-replication](container-registry-geo-replication.md), which replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations, Azure Container Registry supports optional *zone redundancy*. [Zone redundancy](../availability-zones/az-overview.md#availability-zones) provides resiliency and high availability to a registry or replication resource (replica) in a specific region.
 
 This article shows how to set up a zone-redundant container registry or zone-redundant replica by using an Azure Resource Manager template. 
 
@@ -21,13 +21,13 @@ The following are current limitations of zone redundancy in Azure Container Regi
 * Can only be enabled in a registry or a regional replica when you create the resource.
 * Can't be disabled after it's enabled. You can't migrate a zone-redundant registry or replica to a non-zone-redundant state, nor the other way around. You also can't downgrade the registry to a different service tier.
 * [ACR Tasks](container-registry-tasks-overview.md) configured for this registry aren't zone resilient.
-* Can only be enabled by using an Azure Resource Manager template.
+* Can only be enabled by using an Azure Resource Manager template. The feature roadmap includes additional tooling.
 
 ## About zone redundancy
 
-Use Azure [availability zones](../availability-zones/az-overview.md) to create a resilient and high availability Azure container registry (or geo-replica) in a specific Azure region. For example, organizations can set up a zone-redundant Azure container registry with other [supported Azure resources](../availability-zones/az-region.md) to meet data residency or other compliance requirements while providing high availability.
+Use Azure [availability zones](../availability-zones/az-overview.md) to create a resilient and high availability Azure container registry (or geo-replication) in a specific Azure region. For example, organizations can set up a zone-redundant Azure container registry with other [supported Azure resources](../availability-zones/az-region.md) to meet data residency or other compliance requirements while providing high availability.
 
-Availability zones are unique physical locations within an Azure region. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. Each zone has one or more datacenters equipped with independent power, cooling, and networking. When configured for zone redundancy, a registry (or a registry replica in a different region) is replicated across all availability zones in the region, protecting against datacenter failures.
+Availability zones are unique physical locations within an Azure region. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. Each zone has one or more datacenters equipped with independent power, cooling, and networking. When configured for zone redundancy, a registry (or a registry replica in a different region) is replicated across all availability zones in the region, keeping it available in the event of datacenter failures.
 
 ## Create a zone-redundant registry - template
 
@@ -163,7 +163,7 @@ In the command output, note the `zoneRedundancy` property for the registry and t
 ```JSON
 {
  [...]
-"zoneRedundancy": "enabled",
+"zoneRedundancy": "Enabled",
 }
 ```
 
