@@ -26,9 +26,9 @@ An Azure Active Directory (Azure AD) B2B guest user can decide to leave an organ
 
 ## Leave an organization
 
-To leave an organization, follow these steps.
+To leave an organization, follow these steps:
 
-1. Go to your Access Panel Profile page by doing one of the following steps:
+1. Go to your Access Panel Profile page:
    
    - In the [Azure portal](https://portal.azure.com), click your name in the upper right and select **View account**.
    - Open your [Access Panel](https://myapps.microsoft.com), click your name in the upper right, and next to **Organizations**, select the settings icon (gear).
@@ -38,11 +38,13 @@ To leave an organization, follow these steps.
    > [!NOTE]
    > If you’re not already signed in to the organization you want to leave, under **Organizations**, click the **Sign in to leave organization** link next to the organization’s name. After you’re signed in, click your name again in the upper right and next to **Organizations**, select the settings icon (gear).
 
-3. Under **Organizations**, find the organization that you want to leave, and select **Leave organization**.
+2. Under **Organizations**, select **Manage organizations**.
+
+   ![Screenshot showing Organizations page in the user interface](media/leave-the-organization/Orgs.png)
+
+3. From the list, select **Leave organization** for the particular org you . 
 
    ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/LeaveOrg.png)
-
-4. When asked to confirm, select **Leave**. 
 
 ## Account removal
 
