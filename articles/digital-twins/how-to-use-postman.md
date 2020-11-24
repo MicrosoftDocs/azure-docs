@@ -16,8 +16,8 @@ ms.date: 11/10/2020
 
 This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs, through the following steps:
 
-1. Configure an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration to use the OAuth 2.0 implicit grant flow.
-1. Set up a Postman collection and configure the Postman REST client to use the app registration for token authentication.
+1. Use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to get a bearer token that you will use to make API requests in Postman.
+1. Set up a Postman collection and configure the Postman REST client to use your bearer token to authenticate.
 1. Use the configured Postman to create and send a request to the Azure Digital Twins APIs.
 
 ## Prerequisites
