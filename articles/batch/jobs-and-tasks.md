@@ -2,7 +2,7 @@
 title: Jobs and tasks in Azure Batch
 description: Learn about jobs and tasks and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 11/23/2020
 
 ---
 # Jobs and tasks in Azure Batch
@@ -13,15 +13,19 @@ In Azure Batch, a *task* represents a unit of computation. A *job* is a collecti
 
 A job is a collection of tasks. It manages how computation is performed by its tasks on the compute nodes in a pool.
 
-A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a job schedule, or for all jobs that are associated with a job schedule.
+A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a [job schedule](scheduled-jobs), or one pool for all jobs that are associated with a job schedule.
 
 ### Job priority
 
-You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of job scheduling within an account (this is not to be confused with a [scheduled job](#scheduled-jobs)). The priority values range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest. To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) property (Batch .NET).
+You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of scheduling (for all tasks within the job) wtihin each pool.
 
-Within the same account, higher-priority jobs have scheduling precedence over lower-priority jobs. A job with a higher-priority value in one account does not have scheduling precedence over another job with a lower-priority value in a different account. Tasks in lower-priority jobs that are already running are not preempted.
+To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET). Priority values range from -1000 (lowest priority) to 1000 (highest priority).
 
-Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher-priority job is scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
+Within the same pool, higher-priority jobs have scheduling precedence over lower-priority jobs. Tasks in lower-priority jobs that are already running won't be preempted by tasks in a higher-priority job. Jobs with the same priority level have an equal chance of being scheduled, and ordering of task execution is not defined.
+
+A job with a high-priority value running in one pool won't impact scheduling of jobs running in a separate pool or in a different Batch account. Job priority doesn't apply to [autopools](nodes-and-pools.md#autopools), which are created when the job is submitted.
+
+You can also use  to define jobs that will recur.
 
 ### Job constraints
 
