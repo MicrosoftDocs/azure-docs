@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 
@@ -32,7 +32,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- Sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) web site and create custom tags. See [Use tags](./review-tool-user-guide/configure.md#tags) if you need help with this step.
+- Sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) web site and create custom tags for the features you want to identify. See [Use tags](./review-tool-user-guide/configure.md#tags) if you need help with this step.
 
     ![screenshot of Video moderation custom tags](images/video-tutorial-custom-tags.png)
 - To run the sample application, you need an Azure account, an Azure Media Services resource, an Azure Content Moderator resource, and Azure Active Directory credentials. For instructions on how to get these resources, see the [Video Moderation API](video-moderation-api.md) guide.
@@ -54,7 +54,7 @@ Edit the `App.config` file and add the Active Directory tenant name, service end
 
 ## Examine the main code
 
-The class `Program` in `Program.cs` is the main entry point to the video moderation application.
+The class **Program** in _Program.cs_ is the main entry point to the video moderation application.
 
 ### Methods of Program class
 
@@ -113,7 +113,7 @@ The following sections consider in more detail some of the individual processes 
 To minimize network traffic, the application converts video files to H.264 (MPEG-4 AVC) format and scales them to a maximum width of 640 pixels. The H.264 codec is recommended due to its high efficiency (compression rate). The compression is done using the free `ffmpeg` command-line tool, which is included in the `Lib` folder of the Visual Studio solution. The input files may be of any format supported by `ffmpeg`, including most commonly used video file formats and codecs.
 
 > [!NOTE]
-> When you start the program using command-line options, you specify a directory containing the video files to be submitted for moderation. All files in this directory having the `.mp4` filename extension are processed. To process other filename extensions, update the `Main()` method in `Program.cs` to include the desired extensions.
+> When you start the program using command-line options, you specify a directory containing the video files to be submitted for moderation. All files in this directory having the `.mp4` filename extension are processed. To process other filename extensions, update the `Main()` method in _Program.cs_ to include the desired extensions.
 
 The code that compresses a single video file is the `AmsComponent` class in `AMSComponent.cs`. The method responsible for this functionality is `CompressVideo()`, shown here.
 
@@ -135,7 +135,7 @@ The method returns the filename of the compressed output file.
 
 ## Upload and moderate the video
 
-The video must be stored in Azure Media Services before it can be processed by the Content Moderation service. The `Program` class in `Program.cs` has a short method `CreateVideoStreamingRequest()` that returns an object representing the streaming request used to upload the video.
+The video must be stored in Azure Media Services before it can be processed by the Content Moderation service. The **Program** class in _Program.cs_ has a short method `CreateVideoStreamingRequest()` that returns an object representing the streaming request used to upload the video.
 
 [!code-csharp[CreateVideoStreamingRequest](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=120-133)]
 
@@ -225,7 +225,7 @@ A transcription of the audio from the video is also produced when the `GenerateV
 
 ## Create a human review
 
-The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in the Content Moderator Review tool for human moderators. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
+The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in the Content Moderator Review tool for human moderators. Going back to the `ProcessVideo()` method in _Program.cs_, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 
