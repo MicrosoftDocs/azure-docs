@@ -10,20 +10,21 @@ ms.date: 11/22/2020
 ---
 
 # How to link Azure Data Factory account with Purview
+This document explains the steps required for connecting a Data Factory account with a Purview account to collect lineage. The document also get into the details of the coverage scope and supported lineage patterns.
 
 ## Connect to Azure Data Factory from management center
 
-This section explains the configuration steps required to report lineage in Azure Purview for ADF pipelines at execution time. Follow below instructions  to connect Azure Data Factory with Azure Purview for lineage reporting. This configuration is a one-time step to start ingesting lineage from ADF into Azure Purview. 
+ Follow below instructions to connect Azure Data Factory with Azure Purview for lineage reporting. This configuration is a one-time step to start ingesting lineage from Data Factory into Azure Purview. 
 
 ### View Data Factory connections
 
-More than one ADF at a time can connect to a catalog and push lineage information.
+More than one Data Factory at a time can connect to a catalog and push lineage information.
 
 To show the list of Data Factory accounts connected to your catalog:
 
-- Select **Management Center** on the left navigation pane
+1. Select **Management Center** on the left navigation pane
 
-- From the left pane, select **Data factory connection** under "External connections" section
+1. From the left pane, select **Data factory connection** under "External connections" section
 
     The Data Factory connection list appears.
 
@@ -39,18 +40,18 @@ To show the list of Data Factory accounts connected to your catalog:
 
 Follow below steps to connect existing Data Factory accounts to Purview
 
-- From the **Data Factory connection** page, select **New**.
+1. From the **Data Factory connection** page, select **New**.
 
-- Select Data Factory account from the list and select OK. You can also filter by subscription name to limit your list.
+1. Select Data Factory account from the list and select OK. You can also filter by subscription name to limit your list.
 
-   :::image type="content" source="./media/how-to-link-azure-data-factory/connect-to-azure-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-to-azure-data-factory.png":::
+   :::image type="content" source="./media/how-to-link-azure-data-factory/connect-azure-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-azure-data-factory.png":::
 
  >[!Note]
  >   Some Data Factory might be disabled if:
  >   - The data factory is already connected to the current Purview account.
  >   - The data factory doesn't have managed identity.
 > 
->    By default, you can't connect more than 10 Data Factory accounts from the Purview management center at a given time. This limit is *temporary* and will be soon lifted.
+>    By default, the current limit is to connect up 10 Data Factory accounts at a time from the Purview management center. 
 
  >[!Note]
  >   A warning message will be displayed if any of the selected Data Factories are already connected to other Purview account.
@@ -58,21 +59,21 @@ Follow below steps to connect existing Data Factory accounts to Purview
 > By selecting OK, the Data Factory connection with the other Purview account will be disconnected. No additional confirmations are requied.
 
 
-   :::image type="content" source="./media/how-to-link-azure-data-factory/warning-disconnect-data-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-disconnect-data-factory.png":::
+   :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-data-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-data-factory.png":::
 
 ### Remove data factory connections
 
 To remove a data factory connection:
 
-- Select the **remove** button next to one or more data factory connections.
-- Select **confirm** in the popup to delete the selected data factory connections.
+1. Select the **remove** button next to one or more data factory connections.
+1. Select **confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory.png":::
 
 
 ## Configure self-hosted IR to collect lineage from on-prem SQL
 
-Lineage for the ADF Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+Lineage for the Data Factory Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
 ## Supported Azure Data Factory activities
 
@@ -87,9 +88,9 @@ Azure Purview captures runtime lineage from the following Azure Data Factory act
 > [!IMPORTANT]
 > Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
 
-Azure Purview/ADF native integration supports only a subset of the data systems that ADF supports, as described in the following sections.
+Azure Purview/Data Factory native integration supports only a subset of the data systems that Data Factory supports, as described in the following sections.
 
-### ADF Copy Data support
+### Data Factory Copy Data support
 
 | Data storage system | Supported as source | Supported as sink |
 | ------------------- | ------------------- | ----------------- |
@@ -116,9 +117,9 @@ Azure Purview/ADF native integration supports only a subset of the data systems 
 | Hive | Yes | Yes |
 
 > [!Note]
->Lineage feature has certain perf overhead in ADF copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer time to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs taking significantly long time to finish than usual.
+>Lineage feature has certain perf overhead in Data Factory copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer time to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs taking significantly long time to finish than usual.
 
-### ADF Data Flow support
+### Data Factory Data Flow support
 
 | Data storage system | Supported |
 | ------------------- | ------------------- | ----------------- |
@@ -128,7 +129,7 @@ Azure Purview/ADF native integration supports only a subset of the data systems 
 | Azure SQL Database \* | Yes |
 | Azure Synapse Analytics(formerly SQL DW) \* | Yes |
 
-### ADF Execute SSIS Package support
+### Data Factory Execute SSIS Package support
 
 | Data storage system | Supported |
 | ------------------- | ------------------- | ----------------- |
@@ -139,19 +140,18 @@ Azure Purview/ADF native integration supports only a subset of the data systems 
 | On-premises SQL \* | Yes |
 | Azure Files | Yes |
 
-> [!Note]
->\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.
+*\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.*
 
 
 ## Supported lineage patterns
 
-There are several patterns of lineage that Azure Purview supports. The generated lineage data is based on the type of source and sink used in the ADF activities. Although ADF supports over 80 source/sinks, Azure Purview supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
-To configure ADF to send lineage, see [Get started with lineage](catalog-lineage-user-guide.md#get-started-with-lineage).
+There are several patterns of lineage that Azure Purview supports. The generated lineage data is based on the type of source and sink used in the Data Factory activities. Although Data Factory supports over 80 source/sinks, Azure Purview supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
+To configure Data Factory to send lineage, see [Get started with lineage](catalog-lineage-user-guide.md#get-started-with-lineage).
 
 > [!Note]
-> * In the **Lineage** tab, hover on shapes to preview additional information  about the asset in the tooltip .
-> * Select the node or edge to see the asset type it belongs or to switch assets.
-> * Columns of a Dataset is displayed in the left side of lineage tab. For more information about column-level lineage, see [Column-level lineage](catalog-lineage-user-guide.md#column-level-lineage).
+> 1.  In the **Lineage** tab, hover on shapes to preview additional information  about the asset in the tooltip .
+> 1.  Select the node or edge to see the asset type it belongs or to switch assets.
+> 1.  Columns of a Dataset is displayed in the left side of lineage tab. For more information about column-level lineage, see [Column-level lineage](catalog-lineage-user-guide.md#column-level-lineage).
 
 ### Data lineage for one input <\-\> one output
 
@@ -163,7 +163,7 @@ The following screenshot shows the representation of this pattern. Examples: Lin
 
 * 1 sink/output: *Customer1.csv* (Azure Blob)
 
-* 1 process: *CopyCustomerInfo1\#Customer1.csv* (ADF Copy activity)
+* 1 process: *CopyCustomerInfo1\#Customer1.csv* (Data Factory Copy activity)
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="Screenshot showing the lineage for a one to one Data Factory Copy operation." lightbox="./media/how-to-link-azure-data-factory/adf-copy-lineage.png":::
 
@@ -177,7 +177,7 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> Azure Blob/ADLS Gen1/Gen2 file(s):
 
 * Sink/output: *CustomerCall\*.csv* (Azure blob file)
 
-* 1 process: *CopyGen2ToBlob\#CustomerCall.csv* (ADF Copy activity)  
+* 1 process: *CopyGen2ToBlob\#CustomerCall.csv* (Data Factory Copy activity)  
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage-wildcard.png" alt-text="Screenshot showing lineage for a one to one Copy operation with wildcard support." lightbox="./media/how-to-link-azure-data-factory/adf-copy-lineage-wildcard.png":::
 
@@ -191,7 +191,7 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> SQL table:
 
 * 1 sink/output: *Company data* (Azure SQL table)
 
-* 1 process: *DataFlowBlobsToSQL* (ADF Data Flow activity)
+* 1 process: *DataFlowBlobsToSQL* (Data Factory Data Flow activity)
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-data-flow-lineage.png" alt-text="Screenshot showing the lineage for an n to one A D F Data Flow operation." lightbox="./media/how-to-link-azure-data-factory/adf-data-flow-lineage.png":::
 
@@ -205,7 +205,7 @@ In the following example, an Azure Data Lake Gen2 resource set is produced from 
 
 * 1 sink/output: *Employee\_management.csv* (Azure Data Lake Gen 2)
 
-* 1 process: *CopyBlobToAdlsGen2\_RS* (ADF Copy activity)
+* 1 process: *CopyBlobToAdlsGen2\_RS* (Data Factory Copy activity)
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png" alt-text="Screenshot showing the lineage for a resource set." lightbox="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png":::
 

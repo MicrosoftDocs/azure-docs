@@ -39,9 +39,8 @@ The following list summarizes the features of **Home**. Each number in the list 
 1. The **My items** tab is a list of data assets owned by the logged-on user.
 1. **Glossary terms** are a searchable dictionary of the organization's key business terms. For more information, see [Glossary terms](#glossary-terms).
 1. **FAQ/Documentation** is a list of frequently asked questions (FAQs), and documents.
-1. **Managed data sources by asset count are an array of tiles, each of which is a count of assets whose asset type is one of a system-defined set of related types. For more information, see [Managed data sources by asset count](#managed-data-sources-by-asset-count).
-1. **Top classifications are a bar graph of asset counts by classification for the most-used classifications. For more information about classifications, see [Classifications](#classifications).
-1. **Pinned assets are a list of buttons, each of which links to the details page for an asset. The user controls which assets appear in this list. For more information, see [Pin and unpin data assets](#pin-and-unpin-data-assets).
+1. **Managed data sources** by asset count are an array of tiles, each of which is a count of assets whose asset type is one of a system-defined set of related types. For more information, see [Managed data sources by asset count](#managed-data-sources-by-asset-count).
+1. **Top classifications** is a bar graph of asset counts by classification for the most-used classifications. For more information about classifications, see [Classifications](#classifications).
 
 ## Search the catalog for assets
 
@@ -194,24 +193,6 @@ Many pages other than **Home** have a **Search assets** box at the top. For inst
 Select **Search assets** to launch a search box like the one that you get from **Search catalog** on **Home**, with the same capabilities.
 
 :::image type="content" source="./media/catalog-client-overview/search-assets-dialog.png" alt-text="Screenshot showing an expanded Search assets box.":::
-
-## Pin and unpin data assets
-
-You can pin an asset to the **Home** page to access it later.
-
-To pin an asset:
-
-- From the **Overview** tab of the asset details page, select **Pin**.
-
-    :::image type="content" source="./media/catalog-client-overview/pin-an-asset.png" alt-text="Screenshot of the accounts_parquet asset details page with the Pin button highlighted.":::
-
-    The asset is added to the **Pinned assets** section on the **Home** page.
-
-    :::image type="content" source="./media/catalog-client-overview/select-in-pinned-assets.png" alt-text="The 'Pinned assets' section of **Home** is highlighted. Two assets are listed, including accounts_parquet." border="true":::
-
-- To unpin an asset, select **Unpin** from the **Overview** tab of its asset details page.
-
-    :::image type="content" source="./media/catalog-client-overview/unpin-an-asset.png" alt-text="Screenshot showing the Supplier_Contact asset details page with the Unpin button highlighted.":::
 
 ## Managed data sources by asset count
 
@@ -387,7 +368,7 @@ To filter the lineage by column or data asset, enter a name in the **Search for 
 
 - A schema.
 - 15 columns.
-- Four Azure Data Factory (ADF) copy processes.
+- Four Azure Data Factory copy processes.
 
 You can do the following tasks when you view related assets:
 
@@ -395,9 +376,9 @@ You can do the following tasks when you view related assets:
 
     :::image type="content" source="./media/catalog-client-overview/columns-pop-up.png" alt-text="Screenshot showing the columns of a related asset.":::
 
-- Select the **inputToProcesses** node to see the ADF copy processes in a pop-up window.
+- Select the **inputToProcesses** node to see the Data Factory copy processes in a pop-up window.
 
-    :::image type="content" source="./media/catalog-client-overview/copy-processes-pop-up.png" alt-text="Screenshot showing the ADF copy processes of the inputToProcesses node.":::
+    :::image type="content" source="./media/catalog-client-overview/copy-processes-pop-up.png" alt-text="Screenshot showing the Data Factory copy processes of the inputToProcesses node.":::
 
 - Drag the graph to reposition it.
 - Use the mouse wheel to change the zoom level.
