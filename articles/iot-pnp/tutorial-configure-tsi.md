@@ -15,10 +15,10 @@ services: iot-pnp
 
 In this tutorial, you learn how to create and correctly configure an [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) (TSI) environment to integrate with your IoT Plug and Play solution. Use TSI to collect, process, store, query, and visualize time series data at Internet of Things (IoT) scale.
 
-First, you provision a TSI environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md) instance based on the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files you used for the temperature controller and thermostat devices.
+First, you provision a TSI environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md) based on the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files you used for the temperature controller and thermostat devices.
 
 > [!NOTE]
-> This integration is in preview. How DTDL device models map to a Time Series Model instance may change.
+> This integration is in preview. How DTDL device models map to Time Series Model may change.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group
 
 ## Choose your Time Series ID
 
-When you provision your TSI environment, you need to select a *Time Series ID*. It's important to select the appropriate Time Series ID, because this property is immutable and can't be changed after it's set. A Time Series ID is like a database partition key. The Time Series ID acts as the primary key for your Time Series Model instance. To learn more, see [Best practices for choosing a Time Series ID](../time-series-insights/how-to-select-tsid.md).
+When you provision your TSI environment, you need to select a *Time Series ID*. It's important to select the appropriate Time Series ID, because this property is immutable and can't be changed after it's set. A Time Series ID is like a database partition key. The Time Series ID acts as the primary key for your Time Series Model. To learn more, see [Best practices for choosing a Time Series ID](../time-series-insights/how-to-select-tsid.md).
 
 As an IoT Plug and Play user, specify a _composite key_ that consists of `iothub-connection-device-id` and `dt-subject` as your Time Series ID. IoT Hub adds these system properties that contain your IoT Plug and Play device ID, and your device component names, respectively.
 
@@ -115,13 +115,13 @@ Next, you translate your DTDL device model to the asset model in Azure Time Seri
 
 ### Define your types
 
-You can begin ingesting data into Azure Time Series Insights Gen2 without having redefined a model. When telemetry arrives, TSI attempts to autoresolve time series instances based on your Time Series ID property value(s). All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances. The following details show the simplest method to synchronize your device DTDL models with your Time Series Model types:
+You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, TSI attempts to autoresolve time series instances based on your Time Series ID property value(s). All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances. The following details show the simplest method to synchronize your device DTDL models with your Time Series Model types:
 
 * Your digital twin model identifier becomes your type ID.
 * The type name can be either the model name or the display name.
 * The model description becomes the type's description.
 * At least one type variable is created for each telemetry with a numeric schema.
-  * Only numeric data types can be used for variables, but if a value is sent as a string that is parsable, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) function such as `toDouble`.
+  * Only numeric data types can be used for variables, but if a value is sent as another type that can be converted, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) function such as `toDouble`.
 * The variable name can be either the telemetry name or the display name.
 * When you define the variable Time Series Expression, refer to the telemetry's name on the wire, and it's data type.
 
