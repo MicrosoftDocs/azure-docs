@@ -38,7 +38,7 @@ The number of roles you add counts toward application manifest limits enforced b
 ### App roles UI | Preview
 
 > [!IMPORTANT]
-> The app roles portal UI feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 To create an app role by using the Azure portal's user interface:
 

@@ -70,9 +70,9 @@ You can designate a policy as the default policy for your organization. The poli
 
 For examples, read [examples of how to configure token lifetimes](configure-token-lifetimes.md).
 
-> [!NOTE]
-> Configurable token lifetime policy only applies to mobile and desktop clients that access SharePoint Online and OneDrive for Business resources, and does not apply to web browser sessions.
-> To manage the lifetime of web browser sessions for SharePoint Online and OneDrive for Business, use the [Conditional Access session lifetime](../conditional-access/howto-conditional-access-session-lifetime.md) feature. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
+Configurable token lifetime policy only applies to mobile and desktop clients that access SharePoint Online and OneDrive for Business resources, and does not apply to web browser sessions.
+
+To manage the lifetime of web browser sessions for SharePoint Online and OneDrive for Business, use the [Conditional Access session lifetime](../conditional-access/howto-conditional-access-session-lifetime.md) feature. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
 
 ## Token types
 
@@ -103,8 +103,7 @@ Confidential clients are applications that can securely store a client password 
 
 Public clients cannot securely store a client password (secret). For example, an iOS/Android app cannot obfuscate a secret from the resource owner, so it is considered a public client. You can set policies on resources to prevent refresh tokens from public clients older than a specified period from obtaining a new access/refresh token pair. To do this, use the [Refresh Token Max Inactive Time property](#refresh-token-max-inactive-time) (`MaxInactiveTime`). You also can use policies to set a period beyond which the refresh tokens are no longer accepted. To do this, use the [Single-Factor Refresh Token Max Age](#single-factor-session-token-max-age) or [Multi-Factor Session Token Max Age](#multi-factor-refresh-token-max-age) property. You can adjust the lifetime of a refresh token to control when and how often the user is required to reenter credentials, instead of being silently reauthenticated, when using a public client application.
 
-> [!NOTE]
-> The Max Age property is the length of time a single token can be used. 
+The Max Age property is the length of time a single token can be used. 
 
 ### ID tokens
 ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be reauthenticated with Microsoft identity platform (either silently or interactively).
@@ -158,26 +157,25 @@ A token’s validity is evaluated at the time the token is used. The policy with
 
 All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
 
-> [!NOTE]
-> Here's an example scenario.
->
-> A user wants to access two web applications: Web Application A and Web Application B.
-> 
-> Factors:
-> * Both web applications are in the same parent organization.
-> * Token Lifetime Policy 1 with a Session Token Max Age of eight hours is set as the parent organization’s default.
-> * Web Application A is a regular-use web application and isn’t linked to any policies.
-> * Web Application B is used for highly sensitive processes. Its service principal is linked to Token Lifetime Policy 2, which has a Session Token Max Age of 30 minutes.
->
-> At 12:00 PM, the user starts a new browser session and tries to access Web Application A. The user is redirected to Microsoft identity platform and is asked to sign in. This creates a cookie that has a session token in the browser. The user is redirected back to Web Application A with an ID token that allows the user to access the application.
->
-> At 12:15 PM, the user tries to access Web Application B. The browser redirects to Microsoft identity platform, which detects the session cookie. Web Application B’s service principal is linked to Token Lifetime Policy 2, but it's also part of the parent organization, with default Token Lifetime Policy 1. Token Lifetime Policy 2 takes effect because policies linked to service principals have a higher priority than organization default policies. The session token was originally issued within the last 30 minutes, so it is considered valid. The user is redirected back to Web Application B with an ID token that grants them access.
->
-> At 1:00 PM, the user tries to access Web Application A. The user is redirected to Microsoft identity platform. Web Application A is not linked to any policies, but because it is in an organization with default Token Lifetime Policy 1, that policy takes effect. The session cookie that was originally issued within the last eight hours is detected. The user is silently redirected back to Web Application A with a new ID token. The user is not required to authenticate.
->
-> Immediately afterward, the user tries to access Web Application B. The user is redirected to Microsoft identity platform. As before, Token Lifetime Policy 2 takes effect. Because the token was issued more than 30 minutes ago, the user is prompted to reenter their sign-in credentials. A brand-new session token and ID token are issued. The user can then access Web Application B.
->
->
+**Example**
+
+A user wants to access two web applications: Web Application A and Web Application B.
+
+Factors:
+ * Both web applications are in the same parent organization.
+* Token Lifetime Policy 1 with a Session Token Max Age of eight hours is set as the parent organization’s default.
+* Web Application A is a regular-use web application and isn’t linked to any policies.
+* Web Application B is used for highly sensitive processes. Its service principal is linked to Token Lifetime Policy 2, which has a Session Token Max Age of 30 minutes.
+
+At 12:00 PM, the user starts a new browser session and tries to access Web Application A. The user is redirected to Microsoft identity platform and is asked to sign in. This creates a cookie that has a session token in the browser. The user is redirected back to Web Application A with an ID token that allows the user to access the application.
+
+At 12:15 PM, the user tries to access Web Application B. The browser redirects to Microsoft identity platform, which detects the session cookie. Web Application B’s service principal is linked to Token Lifetime Policy 2, but it's also part of the parent organization, with default Token Lifetime Policy 1. Token Lifetime Policy 2 takes effect because policies linked to service principals have a higher priority than organization default policies. The session token was originally issued within the last 30 minutes, so it is considered valid. The user is redirected back to Web Application B with an ID token that grants them access.
+
+At 1:00 PM, the user tries to access Web Application A. The user is redirected to Microsoft identity platform. Web Application A is not linked to any policies, but because it is in an organization with default Token Lifetime Policy 1, that policy takes effect. The session cookie that was originally issued within the last eight hours is detected. The user is silently redirected back to Web Application A with a new ID token. The user is not required to authenticate.
+
+Immediately afterward, the user tries to access Web Application B. The user is redirected to Microsoft identity platform. As before, Token Lifetime Policy 2 takes effect. Because the token was issued more than 30 minutes ago, the user is prompted to reenter their sign-in credentials. A brand-new session token and ID token are issued. The user can then access Web Application B.
+
+
 
 ## Configurable policy property details
 ### Access Token Lifetime
