@@ -7,9 +7,9 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: mashamsft
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 03/27/2019
 ---
 

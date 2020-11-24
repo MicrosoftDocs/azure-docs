@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ---
 
 # Tutorial: Run TensorFlow model in Python
 
-After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
+After you have [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 > [!NOTE]
 > This tutorial applies only to models exported from image classification projects.
@@ -30,7 +30,7 @@ To use the tutorial, you need to do the following:
 
 Next, you'll need to install the following packages:
 
-```
+```bash
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -39,7 +39,7 @@ pip install opencv-python
 
 ## Load your model and tags
 
-The downloaded zip file contains a model.pb and a labels.txt. These files represent the trained model and the classification labels. The first step is to load the model into your project.
+The downloaded .zip file contains a _model.pb_ and a _labels.txt_ file. These files represent the trained model and the classification labels. The first step is to load the model into your project. Add the following code to a new Python script.
 
 ```Python
 import tensorflow as tf
@@ -122,6 +122,8 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
+### Add helper functions
+
 The steps above use the following helper functions:
 
 ```Python
@@ -187,7 +189,7 @@ with tf.compat.v1.Session() as sess:
         exit(-1)
 ```
 
-## View the results
+## Display the results
 
 The results of running the image tensor through the model will then need to be mapped back to the labels.
 

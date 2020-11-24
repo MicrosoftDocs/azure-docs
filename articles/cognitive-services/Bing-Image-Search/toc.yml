@@ -63,23 +63,23 @@
 - name: Reference
   items:
   - name: Bing Image Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference
   - name: Bing Image Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference
   - name: Azure PowerShell reference
-    href: https://aka.ms/azure-powershell-cognitiveservices
+    href: /powershell/module/azurerm.cognitiveservices/
   - name: Azure CLI reference
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: SDKs
     items:
       - name: .NET
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet
       - name: Java
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
       - name: Python
         href: /python/api/azure-cognitiveservices-search-imagesearch/?view=azure-python
       - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-imagesearch/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-imagesearch/?view=azure-node-latest
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch
   - name: Bing use and display requirements

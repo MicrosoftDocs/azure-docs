@@ -25,5 +25,5 @@ ms.author: maheshu
 > Follow the instructions below, depending on the type of users in your Azure
 > AD directory. Complete both sets of instructions if you have a mix of cloud-only
 > and synced user accounts in your Azure AD directory. You may not be able to carry out the following operations in case you are trying to  use a B2B Guest account (example , your gmail or MSA from a different Identity provider which we allow) because we do not have the password for these users synced to managed domain as these are guest accounts in the directory. The complete information about these accounts including their passwords would be outside of Azure AD and as this information is not in Azure AD hence it does not even get synced to the managed domain. 
-> - [Instructions for cloud-only user accounts](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
-> - [Instructions for user accounts synchronized from an on-premises directory](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> - [Instructions for cloud-only user accounts](../articles/active-directory-domain-services/tutorial-create-instance.md)
+> - [Instructions for user accounts synchronized from an on-premises directory](../articles/active-directory-domain-services/tutorial-configure-password-hash-sync.md)

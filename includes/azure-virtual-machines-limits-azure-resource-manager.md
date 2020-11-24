@@ -7,11 +7,11 @@ ms.author: cynthn
 ---
 | Resource | Limit |
 | --- | --- |
-| VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> per region. |
-| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. Contact support to increase limit. |
-| Azure Spot VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. Contact support to increase limit. |
-| VM per series, such as Dv2 and F, cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. Contact support to increase limit. |
-| [Availability sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,500 per region. |
+| VMs per [subscription](https://azure.microsoft.com/pricing/) |25,000<sup>1</sup> per region. |
+| VM total cores per [subscription](https://azure.microsoft.com/pricing/) |20<sup>1</sup> per region. Contact support to increase limit. |
+| Azure Spot VM total cores per [subscription](https://azure.microsoft.com/pricing/) |20<sup>1</sup> per region. Contact support to increase limit. |
+| VM per series, such as Dv2 and F, cores per [subscription](https://azure.microsoft.com/pricing/) |20<sup>1</sup> per region. Contact support to increase limit. |
+| [Availability sets](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,500 per region. |
 | Virtual machines per availability set | 200 |
 | Certificates per subscription |Unlimited<sup>2</sup> |
 
@@ -22,4 +22,4 @@ ms.author: cynthn
 > [!NOTE]
 > Virtual machine cores have a regional total limit. They also have a limit for regional per-size series, such as Dv2 and F. These limits are separately enforced. For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription can deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores. An example of a combination is 10 A1 VMs and 20 D1 VMs.  
 > <!-- -->
-> 
+>

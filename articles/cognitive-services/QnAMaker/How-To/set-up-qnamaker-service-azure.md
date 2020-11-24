@@ -127,6 +127,7 @@ The App Service Environment can be used to host QnA Maker app service. If the Ap
 2. Expose the app service and allow QnA Maker availability as:
     * Publicly available - default
     * DNS service tag: `CognitiveServicesManagement`
+3. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
 
 ### Network isolation for App Service
 
@@ -137,8 +138,6 @@ QnA Maker Cognitive Service uses the service tag: `CognitiveServicesManagement`.
 * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
 
 We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
-    
-1. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
 
 ### Business continuity with traffic manager
 

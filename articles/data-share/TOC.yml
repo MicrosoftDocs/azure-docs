@@ -8,7 +8,6 @@
   - name: Supported data stores
     href: supported-data-stores.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Share data - Azure portal
     href: share-your-data-portal.md
@@ -16,13 +15,20 @@
     displayName: Resource Manager
     href: share-your-data-arm.md
 - name: Tutorials
+  expanded: true
   items:
     - name: Share data
       href: share-your-data.md
+      displayName: Azure CLI, az datashare account create, az datashare create
     - name: Accept and receive data
       href: subscribe-to-data-share.md
+      displayName: Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Azure Data Share terminology
     href: terminology.md
   - name: Roles and requirements

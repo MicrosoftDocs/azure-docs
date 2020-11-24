@@ -143,6 +143,10 @@ You may have a limited number of ITSM actions in an Action Group.
 You may have a limited number of Logic App actions in an Action Group.
 
 ### Secure Webhook
+
+> [!NOTE]
+> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 1. Create an Azure AD Application for your protected web API. See [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -253,6 +257,10 @@ You may have a limited number of Voice actions in an Action Group.
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Webhook
+
+> [!NOTE]
+> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+
 Webhooks are processed using the following rules
 - A webhook call is attempted a maximum of 3 times.
 - The call will be retried if a response is not received within the timeout period or one of the following HTTP status codes is returned: 408, 429, 503 or 504.
@@ -260,22 +268,108 @@ Webhooks are processed using the following rules
 - The second and third attempts will wait 30 seconds for a response.
 - After the 3 attempts to call the webhook have failed no action group will call the endpoint for 15 minutes.
 
-Source IP address ranges
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
+Source IP address ranges:
+
+ - 13.66.60.119/32
+ - 13.66.143.220/30
+ - 13.66.202.14/32
+ - 13.66.248.225/32
+ - 13.66.249.211/32
+ - 13.67.10.124/30
+ - 13.69.109.132/30
+ - 13.71.199.112/30
+ - 13.77.53.216/30
+ - 13.77.172.102/32
+ - 13.77.183.209/32
+ - 13.78.109.156/30
+ - 13.84.49.247/32
+ - 13.84.51.172/32
+ - 13.84.52.58/32
+ - 13.86.221.220/30
+ - 13.106.38.142/32
+ - 13.106.38.148/32
+ - 13.106.54.3/32
+ - 13.106.54.19/32
+ - 13.106.57.181/32
+ - 13.106.57.196/31
+ - 20.38.149.132/30
+ - 20.42.64.36/30
+ - 20.43.121.124/30
+ - 20.44.17.220/30
+ - 20.45.123.236/30
+ - 20.72.27.152/30
+ - 20.150.172.228/30
+ - 20.192.238.124/30
+ - 20.193.202.4/30
+ - 40.68.195.137/32
+ - 40.68.201.58/32
+ - 40.68.201.65/32
+ - 40.68.201.206/32
+ - 40.68.201.211/32
+ - 40.68.204.18/32
+ - 40.115.37.106/32
+ - 40.121.219.215/32
+ - 40.121.221.62/32
+ - 40.121.222.201/32
+ - 40.121.223.186/32
+ - 51.104.9.100/30
+ - 52.183.20.244/32
+ - 52.183.31.0/32
+ - 52.183.94.59/32
+ - 52.184.145.166/32
+ - 191.233.50.4/30
+ - 191.233.207.64/26
+ - 2603:1000:4:402::178/125
+ - 2603:1000:104:402::178/125
+ - 2603:1010:6:402::178/125
+ - 2603:1010:101:402::178/125
+ - 2603:1010:304:402::178/125
+ - 2603:1010:404:402::178/125
+ - 2603:1020:5:402::178/125
+ - 2603:1020:206:402::178/125
+ - 2603:1020:305:402::178/125
+ - 2603:1020:405:402::178/125
+ - 2603:1020:605:402::178/125
+ - 2603:1020:705:402::178/125
+ - 2603:1020:805:402::178/125
+ - 2603:1020:905:402::178/125
+ - 2603:1020:a04:402::178/125
+ - 2603:1020:b04:402::178/125
+ - 2603:1020:c04:402::178/125
+ - 2603:1020:d04:402::178/125
+ - 2603:1020:e04:402::178/125
+ - 2603:1020:f04:402::178/125
+ - 2603:1020:1004:800::f8/125
+ - 2603:1020:1104:400::178/125
+ - 2603:1030:f:400::978/125
+ - 2603:1030:10:402::178/125
+ - 2603:1030:104:402::178/125
+ - 2603:1030:107:400::f0/125
+ - 2603:1030:210:402::178/125
+ - 2603:1030:40b:400::978/125
+ - 2603:1030:40c:402::178/125
+ - 2603:1030:504:802::f8/125
+ - 2603:1030:608:402::178/125
+ - 2603:1030:807:402::178/125
+ - 2603:1030:a07:402::8f8/125
+ - 2603:1030:b04:402::178/125
+ - 2603:1030:c06:400::978/125
+ - 2603:1030:f05:402::178/125
+ - 2603:1030:1005:402::178/125
+ - 2603:1040:5:402::178/125
+ - 2603:1040:207:402::178/125
+ - 2603:1040:407:402::178/125
+ - 2603:1040:606:402::178/125
+ - 2603:1040:806:402::178/125
+ - 2603:1040:904:402::178/125
+ - 2603:1040:a06:402::178/125
+ - 2603:1040:b04:402::178/125
+ - 2603:1040:c06:402::178/125
+ - 2603:1040:d04:800::f8/125
+ - 2603:1040:f05:402::178/125
+ - 2603:1040:1104:400::178/125
+ - 2603:1050:6:402::178/125
+ - 2603:1050:403:400::1f8/125
 
 To receive updates about changes to these IP addresses, we recommend you configure a Service Health alert, which monitors for Informational notifications about the Action Groups service.
 

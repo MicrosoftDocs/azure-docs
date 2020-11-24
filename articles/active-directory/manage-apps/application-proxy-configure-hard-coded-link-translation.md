@@ -42,14 +42,14 @@ These three features keep your links working no matter where your users are. Whe
 > [!NOTE]
 > The last option is only for tenants that, for whatever reason, can't use custom domains to have the same  internal and external URLs for their apps. Before you enable this feature, see if [custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md) can work for you. 
 > 
-> Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) for another approach to mapping links. 
+> Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings) for another approach to mapping links. 
 
  
 ### Option 1: Microsoft Edge Integration 
 
 You can use Microsoft Edge to further protect your application and content. To use this solution, you need to require/recommend users access the application through Microsoft Edge. All internal URLs published with Application Proxy will be recognized by Edge and redirected to the corresponding external URL. This ensures that all the hard-coded internal URLs work, and if a user goes to the browser and directly types the internal URL, it works even if the user is remote.  
 
-To learn more, including how to configure this option, please see the [Manage web access by using Edge for iOS and Android with Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) documentation.  
+To learn more, including how to configure this option, please see the [Manage web access by using Edge for iOS and Android with Microsoft Intune](/mem/intune/apps/manage-microsoft-edge) documentation.  
 
 ### Option 2: MyApps Browser Extension 
 
@@ -57,7 +57,7 @@ With the MyApps Browser Extension, all internal URLs published with Application 
 
 To use this feature, the user needs to download the extension and be logged in. There is no other configuration needed for admins or the users. 
 
-To learn more, including how to configure this option, please see the [MyApps Browser Extension](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
+To learn more, including how to configure this option, please see the [MyApps Browser Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
 
 ### Option 3: Link Translation Setting 
 
@@ -147,4 +147,4 @@ We want your help to make this feature work for all your apps. We search over 30
 ## Next steps
 [Use custom domains with Azure AD Application Proxy](application-proxy-configure-custom-domain.md) to have the same internal and external URL
 
-[Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configure alternate access mappings for SharePoint 2013](/SharePoint/administration/configure-alternate-access-mappings)
