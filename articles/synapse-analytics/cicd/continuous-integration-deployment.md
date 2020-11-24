@@ -78,7 +78,7 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
     
     ![workspace and pools deploy](media/pools-resource-deploy.png)
 
-1. (**Optional**) Add **Azure PowerShell** for the grant and update workspace role assignment. If you use release pipeline to create a Synapse workspace, the pipeline’s service principal is required to be added as default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
+1. (Optional) Add **Azure PowerShell** for the grant and update workspace role assignment. If you use release pipeline to create a Synapse workspace, the pipeline’s service principal is required to be added as default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
     
     ![workspace and pools deploy](media/release-creation-grant-permission.png)
 
@@ -112,8 +112,7 @@ If you're using Git integration with your Synapse workspace and have a CI/CD pip
 
 -   **Git integration**. Configure only your development Synapse workspace with Git integration. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
 -   **Prepare pools before artifacts migration**. If you attach pools to your SQL script or notebook in the development workspace, the same name of pools in different environments are expected. 
-
-- **Others**. See [Other best practices](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Others**. See [Other best practices](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
 
 ## Unsupported features
 
