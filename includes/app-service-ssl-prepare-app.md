@@ -26,7 +26,7 @@ Search for and select **App Services**.
 
 On the **App Services** page, select the name of your web app.
 
-![Portal navigation to Azure app](./media/app-service-ssl-prepare-app/select-app.png)
+![Screenshot of the App Services page in Azure portal showing a list of all running web apps, with the first app in the list highlighted.](./media/app-service-ssl-prepare-app/select-app.png)
 
 You have landed on the management page of your web app.  
 

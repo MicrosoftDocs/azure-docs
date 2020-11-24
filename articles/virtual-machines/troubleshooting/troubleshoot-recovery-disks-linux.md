@@ -34,6 +34,8 @@ The troubleshooting process is as follows:
 
 To perform these troubleshooting steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
 
+You can use the VM repair commands to automate steps 1, 2, 3, 4, 6, and 7. For more documentation and instructions, see [Repair a Linux VM by using the Azure Virtual Machine repair commands](repair-linux-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 > [!Important]
 > The scripts in this article only apply to the VMs that use [Managed Disk](../managed-disks-overview.md). 
 

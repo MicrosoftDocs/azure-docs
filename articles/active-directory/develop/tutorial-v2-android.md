@@ -98,6 +98,7 @@ If you do not already have an Android application, follow these steps to set up 
       "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
       "authorization_user_agent" : "DEFAULT",
       "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
+      "broker_redirect_uri_registered" : true,
       "account_mode" : "SINGLE",
       "authorities" : [
         {
@@ -149,7 +150,7 @@ If you do not already have an Android application, follow these steps to set up 
         jcenter()
     }
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:1.+'
+        implementation 'com.microsoft.identity.client:msal:2.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{

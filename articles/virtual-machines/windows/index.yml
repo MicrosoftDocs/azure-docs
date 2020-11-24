@@ -26,7 +26,7 @@ landingContent:
           - text: Spot VMs
             url: ../spot-vms.md
           - text: Dedicated hosts
-            url: dedicated-hosts.md
+            url: ../dedicated-hosts.md
           - text: Proximity placement groups
             url: proximity-placement-groups.md
 

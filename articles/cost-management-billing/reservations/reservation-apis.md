@@ -111,4 +111,4 @@ To change the scope programmatically, use the API [Reservation - Update](/rest/a
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with reservations](reserved-instance-windows-software-costs.md)
-- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

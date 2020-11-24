@@ -209,7 +209,7 @@ You can allow Azure Automation to verify if Key Vault and your Run As account se
 * Grant permissions to Key Vault.
 * Set the access policy.
 
-You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to give your Run As account permissions to Key Vault. See [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-powershell) for more details on setting permissions on Key Vault.
+You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script in the PowerShell Gallery to give your Run As account permissions to Key Vault. See [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-powershell.md) for more details on setting permissions on Key Vault.
 
 ## Resolve misconfiguration issues for Run As accounts
 

@@ -55,7 +55,7 @@ Each Azure subscription has default limits for the following resources:
  - The number of endpoints that can be created in a CDN profile. 
  - The number of custom domains that can be mapped to an endpoint.
 
-For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+For more information about CDN subscription limits, see [CDN limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
     
 ## Azure CDN features
 Azure CDN offers the following key features:

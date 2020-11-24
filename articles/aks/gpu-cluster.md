@@ -94,7 +94,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: nvidia/k8s-device-plugin:1.11
+      - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
@@ -269,7 +269,7 @@ spec:
     spec:
       containers:
       - name: samples-tf-mnist-demo
-        image: microsoft/samples-tf-mnist-demo:gpu
+        image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
         args: ["--max_steps", "500"]
         imagePullPolicy: IfNotPresent
         resources:

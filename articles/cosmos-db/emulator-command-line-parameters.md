@@ -10,6 +10,7 @@ ms.custom: contperfq1
 ---
 
 # Command-line and PowerShell reference for Azure Cosmos DB emulator
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for local development purposes. After [installing the emulator](local-emulator.md), you can control the emulator with command line and PowerShell commands. This article describes how to use the command-line and PowerShell commands to start and stop the emulator, configure options, and perform other operations. You have to run the commands from the installation location.
 

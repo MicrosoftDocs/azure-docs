@@ -1,7 +1,7 @@
 ---
 title: "Convert to Dataset: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Convert to Dataset module in Azure Machine Learning to convert data input to the internal dataset format used by Microsoft Azure Machine Learning.
+description: Learn how to use the Convert to Dataset module in Azure Machine Learning designer to convert data input to the internal dataset format.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -31,7 +31,7 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
 
 2. Connect it to any module that outputs a dataset.   
 
-    As long as the data is [tabular](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true), you can convert it to a dataset. This includes data loaded through [Import Data](import-data.md), data created through [Enter Data Manually](enter-data-manually.md), or datasets transformed through [Apply Transformation](apply-transformation.md).
+    As long as the data is [tabular](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), you can convert it to a dataset. This includes data loaded through [Import Data](import-data.md), data created through [Enter Data Manually](enter-data-manually.md), or datasets transformed through [Apply Transformation](apply-transformation.md).
 
 3.  In the **Action** drop-down list, indicate if you want to do any cleanup on the data before you save the dataset:  
   
@@ -66,4 +66,4 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

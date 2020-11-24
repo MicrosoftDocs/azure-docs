@@ -84,7 +84,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 |---------|--------------|--------------|
 | Boot             | PCAT                      | UEFI                               |
 | Disk controllers | IDE                       | SCSI                               |
-| VM sizes         | All VM sizes | [See available sizes](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
+| VM sizes         | All VM sizes | [See available sizes](#generation-2-vm-sizes) |
 
 ### Generation 1 vs. generation 2 capabilities
 
@@ -96,7 +96,8 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
-| Azure disk encryption             | :heavy_check_mark: | :x:                |
+| [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## Creating a generation 2 VM
 
@@ -217,4 +218,3 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 ## Next steps
 
 Learn about [generation 2 virtual machines in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
-

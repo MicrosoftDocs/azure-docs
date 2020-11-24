@@ -20,7 +20,7 @@ This article shows you how to render point data from a data source as a bubble l
 
 ## Add a bubble layer
 
-The following code loads an array of points into a data source. Then, it connects the data points are to a [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer). The bubble layer renders the radius of each bubble with five pixels and a fill color of white. And, a stroke color of blue, and a stroke width of six pixels. 
+The following code loads an array of points into a data source. Then, it connects the data points are to a [bubble layer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer). The bubble layer renders the radius of each bubble with five pixels and a fill color of white. And, a stroke color of blue, and a stroke width of six pixels. 
 
 ```javascript
 //Add point locations.
@@ -78,10 +78,10 @@ The Bubble layer only has a few styling options. Here is a tool to try them out.
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
+> [BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 See the following articles for more code samples to add to your maps:
 
@@ -95,4 +95,4 @@ See the following articles for more code samples to add to your maps:
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)

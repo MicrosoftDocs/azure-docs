@@ -2,7 +2,7 @@
 title: Network planning and connections for Azure AD Domain Services | Microsoft Docs
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Virtual network design considerations and configuration options for Azure Active Directory Domain Services

@@ -3,13 +3,13 @@ title: Metrics Advisor frequently asked questions
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions about the Metrics Advisor service.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/30/2020
-ms.author: aahi
+ms.date: 11/05/2020
+ms.author: mbullwin
 ---
 
 
@@ -19,15 +19,11 @@ ms.author: aahi
 
 There currently isn't a cost to use your instance during the preview.
 
-### Why is the demo website readonly?
-
-The [demo website](https://anomaly-detector.azurewebsites.net/) is publicly available. This instance is made read-only to prevent accidental upload of any data.
-
 ### Why can't I create the resource? The "Pricing tier" is unavailable and it says "You have already created 1 S0 for this subscription"?
 
 :::image type="content" source="media/pricing.png" alt-text="Message when an F0 resource already exists":::
 
-During public preview, only one instance of Metrics Advisor is allowed to created under a subscription, in one region.
+During public preview, only one instance of Metrics Advisor can be created per region under a subscription.
 
 If you already have an instance created in the same region using the same subscription, you can try a different region or a different subscription to create a new instance. You can also delete an existing instance to create a new one.
 
@@ -106,7 +102,53 @@ If your data is normally quite unstable and fluctuates a lot, and you want to be
 "Change threshold" is able to be configured to detect such data points when the change is too tiny.
 Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods) for details.
 
+### How to set up email settings and enable alerting by email?
+
+1.	A user with subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that created in the Azure portal, and select the **Access control(IAM)** tab. 
+2.	Select **Add role assignments**
+3.	Pick a role of **Cognitive Services Metrics Advisor Administrator**, select your account as in the image below.
+4.	Click **Save** button, then you are successfully been added as administrator of Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
+
+:::image type="content" source="media/access-control.png" alt-text="Access control(IAM) menu page with add a role assignment selected, followed by a box with assign access to selected user displayed with an access role of Cognitive Services Metrics Advisor Administrator, followed by the save button of the UI being selected to illustrate the steps of searching for a user and adding a particular level of access permissions." lightbox="media/access-control.png":::
+
+
+5.	It might take up to one minute for the permissions to propagate. Then, select your Metrics Advisor workspace, and select the **Email setting** option in the left navigation panel. Fill in the required items, in particular the SMTP-related info. 
+6.	Select **Save**, then you're all set with the e-mail configuration. You can create new hooks and subscribe to metric anomalies for near real-time alerts. 
+
+## Advanced concepts
+
+### How does Metric Advisor build an incident tree for multi-dimensional metrics?
+
+A metric can be split into multiple time series by dimensions. For example, the metric `Response latency` is monitored for all services owned by the team. The `Service` category could be used as a dimension to enrich the metric, so we get `Response latency` split by `Service1`, `Service2`, and so on. Each service could be deployed on different machines in multiple data centers, so the metric could be further split by `Machine` and `Data center`.
+
+|Service| Data center| Machine 	| 
+|----|------|----------------	|
+| S1 |	DC1 |	M1 |
+| S1 |	DC1 |	M2 |
+| S1 |	DC2 |	M3 |
+| S1 |	DC2 |	M4 |
+| S2 |	DC1 |	M1 |
+| S2 |	DC1 |	M2 |
+| S2 |	DC2 |	M5 |
+| S2 |	DC2 |	M6 |
+| ...|      |      |
+
+Starting from the total `Response latency`, we can drill down into the metric by `Service`, `Data center` and `Machine`. However, maybe it makes more sense for service owners to use the path `Service` -> `Data center` -> `Machine`, or maybe it makes more sense for infrastructure engineers to use the path `Data Center` -> `Machine` -> `Service`. It all depends on the individual business requirements of your users. 
+
+In Metric Advisor, users can specify any path they want to drill down or rollup from one node of the hierarchical topology. More precisely, the hierarchical topology is a directed acyclic graph rather than a tree structure. There's a full hierarchical topology that consists of all potential dimension combinations, like this: 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="hierarchical topology diagram consisting of multiple interconnecting vertices and edges with multiple dimensions labeled S,DC, and M with corresponding numbers ranging from 1 to 6" lightbox="media/dimension-combinations-view.png":::
+
+In theory, if the dimension `Service` has `Ls` distinct values, dimension `Data center` has `Ldc` distinct values, and dimension `Machine` has `Lm` distinct values, then there could be `(Ls + 1) * (Ldc + 1) * (Lm + 1)` dimension combinations in the hierarchical topology. 
+
+But usually not all dimension combinations are valid, which can significantly reduce the complexity. Currently if users aggregate the metric themselves, we don't limit the number of dimensions. If you need to use the rollup functionality provided by Metrics Advisor, the number of dimensions shouldn't be more than 6. However, we limit the number of time series expanded by dimensions for a metric to less than 10,000.
+
+The **Incident tree** tool in the diagnostics page only shows nodes where an anomaly has been detected, rather than the whole topology. This is to help you focus on the current issue. It also may not show all anomalies within the metric, and instead will display the top anomalies based on contribution. In this way, we can quickly find out the impact, scope, and the spread path of the abnormal data. Which significantly reduces the number of anomalies we need to focus on, and helps users to understand and locate their key issues. 
+ 
+For example, when an anomaly occurs on `Service = S2 | Data Center = DC2 | Machine = M5`, the deviation of the anomaly impacts the parent node `Service= S2` which also has detected the anomaly, but the anomaly doesn't affect the entire data center at `DC2` and all services on `M5`. The incident tree would be built as in the below screenshot, the top anomaly is captured on `Service = S2`, and root cause could be analyzed in two paths which both lead to `Service = S2 | Data Center = DC2 | Machine = M5`.
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 labeled vertices with two distinct paths connected by edges with a common node labeled S2. The top anomaly is captured on Service = S2, and root cause can be analyzed by the two paths which both lead to Service = S2 | Data Center = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
+
 ## Next Steps
 - [Metrics Advisor overview](overview.md)
-- [Try the demo site](quickstarts/explore-demo.md)
 - [Use the web portal](quickstarts/web-portal.md)

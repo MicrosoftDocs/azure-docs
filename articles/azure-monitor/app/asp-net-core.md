@@ -130,7 +130,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### ILogger logs
 
-Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize which log levels are captured by Application Insights.
+The default configuration collects `ILogger` logs of severity `Warning` and above. This configuration can be [customized](#how-do-i-customize-ilogger-logs-collection).
 
 ### Dependencies
 
@@ -394,7 +394,7 @@ Also, if you are using Visual Studio based instructions from [here](#enable-appl
 
 ### How can I track telemetry that's not automatically collected?
 
-Get an instance of `TelemetryClient` by using constructor injection, and call the required `TrackXXX()` method on it. We don't recommend creating new `TelemetryClient` instances in an ASP.NET Core application. A singleton instance of `TelemetryClient` is already registered in the `DependencyInjection` container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it needs a configuration that's separate from the rest of the telemetry.
+Get an instance of `TelemetryClient` by using constructor injection, and call the required `TrackXXX()` method on it. We don't recommend creating new `TelemetryClient` or `TelemetryConfiguration` instances in an ASP.NET Core application. A singleton instance of `TelemetryClient` is already registered in the `DependencyInjection` container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it needs a configuration that's separate from the rest of the telemetry.
 
 The following example shows how to track additional telemetry from a controller.
 
@@ -420,6 +420,40 @@ public class HomeController : Controller
 ```
 
 For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](./api-custom-events-metrics.md). A similar approach can be used for sending custom metrics to Application Insights using the [GetMetric API](./get-metric.md).
+
+### How do I customize ILogger logs collection?
+
+By default, only logs of severity `Warning` and above are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights` as shown below.
+The following configuration allows ApplicationInsights to capture all logs of severity `Information` and above.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+It is important to note that the following will not cause ApplicationInsights provider to capture `Information` logs. This is because SDK adds a default logging filter, instructing `ApplicationInsights` to capture only `Warning` and above. Because of this, an explicit override is required for ApplicationInsights.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  }
+}
+```
+
+Read more about [ILogger configuration](ilogger.md#control-logging-level).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
@@ -474,7 +508,7 @@ This SDK requires `HttpContext`, and hence does not work in any non-HTTP applica
 
 ## Open-source SDK
 
-* [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet).
 
 For the latest updates and bug fixes [consult the release notes](./release-notes.md).
 

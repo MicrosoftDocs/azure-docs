@@ -125,7 +125,7 @@ The PerfMon counters are available for processor, memory and, each logical disk 
 | **Max. Memory** |Amount of memory required to run application smoothly |% Committed Bytes in Use |Use vmstat |
 | **Max. CPU** |Amount CPU required to run application smoothly |% Processor time |%util |
 
-Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
+Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -338,7 +338,7 @@ There are configuration settings that you can alter to influence this multi-thre
 
 For example, say your application using SQL Server is executing a large query and an index operation at the same time. Let us assume that you wanted the index operation to be more performant compared to the large query. In such a case, you can set MAXDOP value of the index operation to be higher than the MAXDOP value for the query. This way, SQL Server has more number of processors that it can leverage for the index operation compared to the number of processors it can dedicate to the large query. Remember, you do not control the number of threads SQL Server will use for each operation. You can control the maximum number of processors being dedicated for multi-threading.
 
-Learn more about [Degrees of Parallelism](https://technet.microsoft.com/library/ms188611.aspx) in SQL Server. Find out such settings that influence multi-threading in your application and their configurations to optimize performance.
+Learn more about [Degrees of Parallelism](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) in SQL Server. Find out such settings that influence multi-threading in your application and their configurations to optimize performance.
 
 ## Queue depth
 

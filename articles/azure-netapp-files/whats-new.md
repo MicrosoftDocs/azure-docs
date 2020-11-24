@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.author: b-juche
 ---
 
@@ -21,13 +21,19 @@ ms.author: b-juche
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
 
+## November 2020
+
+* [Snapshot revert](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+
+    The snapshot revert functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system. It is also more space efficient compared to restoring a snapshot to a new volume.
+
 ## September 2020
 
 * [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Public Preview)
 
   Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way, protecting your data from unforeseeable regional failures. Azure NetApp Files cross region replication leverages NetApp SnapMirror® technology; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
 
-* [Manual QoS Capacity Pool](manage-manual-qos-capacity-pool.md) (Preview)  
+* [Manual QoS Capacity Pool](manual-qos-capacity-pool-introduction.md) (Preview)  
 
     In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It is determined by the combination of the pool size and the service-level throughput. Alternatively, a capacity pool’s [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) can be auto (automatic), which is the default. In an auto QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.
 

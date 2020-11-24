@@ -1,5 +1,5 @@
 ---
-title: Virtual network isolation and privacy overview
+title: Virtual network isolation and security overview
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
 services: machine-learning
@@ -27,10 +27,10 @@ Here are the other articles in this series:
 ## Prerequisites
 
 This article assumes that you have familiarity with the following topics:
-+ [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [IP networking](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
++ [IP networking](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [Network Security Groups (NSG)](../virtual-network/security-overview.md)
++ [Network Security Groups (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Network firewalls](../firewall/overview.md)
 
 ## Example scenario
@@ -154,6 +154,12 @@ To enable full studio functionality while inside of a VNet, see [Use Azure Machi
 Configure your firewall to control access to your Azure Machine Learning workspace resources and the public internet. While we recommend Azure Firewall, you should be able to use  other firewall products to secure your network. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
 For more information on firewall settings, see [Use workspace behind a Firewall](how-to-access-azureml-behind-firewall.md).
+
+## Custom DNS
+
+If you need to use a custom DNS solution for your virtual network, you must add host records for your workspace.
+
+For more information on the required domain names and IP addresses, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
 
 ## Next steps
 

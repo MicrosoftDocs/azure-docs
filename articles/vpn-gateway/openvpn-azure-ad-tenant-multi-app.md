@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
 
 ---
@@ -14,9 +14,7 @@ ms.author: cherylmc
 
 When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. If you want different set of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up an Azure AD tenant for P2S OpenVPN authentication and create and register multiple apps in Azure AD for allowing different access for different users and groups.
 
-> [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections. Azure AD authentication requires the Azure VPN client, which is available only for Windows 10.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
@@ -26,7 +24,7 @@ In this step, you will enable Azure AD authentication on the VPN gateway.
 
 1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type** then fill in the information under the **Azure Active Directory** section.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+    ![Azure portal view](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
 
     > [!NOTE]
     > Do not use the Azure VPN client's application ID: It will grant all users access to the VPN gateway. Use the ID of the application(s) you registered.

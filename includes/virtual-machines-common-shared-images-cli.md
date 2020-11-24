@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 03/24/2020
  ms.author: cynthn
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
  #PMcontact: akjosh
 ---
 
@@ -48,4 +48,4 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).

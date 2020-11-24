@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/21/2020
 ms.author: duau
 ---
 
@@ -165,9 +165,9 @@ If the ExpressRoute circuit service provider provisioning state is **Provisionin
 >* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
 
 
-## <a name="cleanup"></a>Clean up resources
+## Clean up resources
 
-You can delete your ExpressRoute circuit by selecting the **Delete** icon. 
+You can delete your ExpressRoute circuit by selecting the **Delete** icon. Ensure the provider status is *Not provisioned* before proceeding.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Delete circuit":::
 

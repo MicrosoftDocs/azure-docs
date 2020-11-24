@@ -40,4 +40,4 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Manage configurations for hybrid servers 
-            url: /architecture/hybrid/azure-arc-hybrid-config 
+            url: /azure/architecture/hybrid/azure-arc-hybrid-config 

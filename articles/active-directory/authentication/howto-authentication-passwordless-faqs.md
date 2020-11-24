@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: aakapo
 

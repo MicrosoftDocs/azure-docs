@@ -4,8 +4,8 @@ description: Step-by-step guide and publishing checklists for publishing apps to
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
 ---
 

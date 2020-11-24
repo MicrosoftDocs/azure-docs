@@ -119,6 +119,5 @@ To complete the steps in this article, you need the following resources:
 
 ## Next steps
 
-- [Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/)
+- [Azure Stream Analytics documentation](../../stream-analytics/index.yml)
 - [Azure Stream Analytics solution patterns](../../stream-analytics/stream-analytics-solution-patterns.md)
- 

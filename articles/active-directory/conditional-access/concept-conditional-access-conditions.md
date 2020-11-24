@@ -47,6 +47,9 @@ Azure AD Conditional Access supports the following device platforms:
 
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
+> [!IMPORTANT]
+> Microsoft recommends that you have a Conditional Access policy for unsupported device platforms. As an example, if you want to block access to your corporate resources from Linux or any other unsupported clients, you should configure a policy with a Device platforms condition that includes any device and excludes supported device platforms and Grant control set to Block access.
+
 ## Locations
 
 When configuring location as a condition, organizations can choose to include or exclude locations. These named locations may include the public IPv4 network information, country or region, or even unknown areas that don't map to specific countries or regions. Only IP ranges can be marked as a trusted location.

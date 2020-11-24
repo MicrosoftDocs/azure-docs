@@ -49,8 +49,8 @@ For information about the Media Services REST API version history, see the [Azur
 
 The following v2 properties will no longer be populated with historical job progress data:
 
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 To get task history, you should use the v2 job notifications via webhooks or queue messages using Notification Endpoints. For more information, see:
 
@@ -77,7 +77,7 @@ Also see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Me
 
 We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
-For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+For details, see [Migrate WAME to Media Encoder Standard](./migrate-windows-azure-media-encoder.md) and [Migrate AME to Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## March 2019
 
@@ -194,7 +194,7 @@ Some clients can come across a repeat tag issue in the Smooth Streaming manifest
 
 ## <a id="apr_changes16"></a>April 2016 release
 ### Media Analytics
- Media Services introduced Media Analytics for powerful video intelligence. For more information, see [Media Services Analytics overview](media-services-analytics-overview.md).
+ Media Services introduced Media Analytics for powerful video intelligence. For more information, see [Media Services Analytics overview](./legacy-components.md).
 
 ### Apple FairPlay (preview)
 You now can use Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay. You also can use the Media Services license delivery service to deliver FairPlay licenses to clients. For more information, see "Use Azure Media Services to stream your HLS content protected with Apple FairPlay."
@@ -271,7 +271,7 @@ For more information, see [this blog](https://azure.microsoft.com/blog/azure-med
 ## <a id="july_changes_15"></a>July 2015 release
 * The general availability of Media Encoder Standard was announced. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard uses presets, as described in [this section](https://go.microsoft.com/fwlink/?LinkId=618336). When you use a preset for 4K encodes, get the Premium reserved unit type. For more information, see [Scale encoding](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard uses presets, as described in [this section](./media-services-mes-presets-overview.md). When you use a preset for 4K encodes, get the Premium reserved unit type. For more information, see [Scale encoding](media-services-scale-media-processing-overview.md).
 * Live real-time captions were used with Media Services and the Media Player. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### Media Services .NET SDK updates

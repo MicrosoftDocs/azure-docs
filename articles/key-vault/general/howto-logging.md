@@ -143,7 +143,7 @@ What is logged:
   * Creating, modifying, or deleting these keys or secrets.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
 * Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
-* Event Grid notification events for near expiry, expired and vault access policy changed (new version event is not logged). Events are logged regardless if there is event subscription created on key vault. For more information see, [Event Grid event schema for Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Event Grid notification events for near expiry, expired and vault access policy changed (new version event is not logged). Events are logged regardless if there is event subscription created on key vault. For more information see, [Event Grid event schema for Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## Access your logs
 

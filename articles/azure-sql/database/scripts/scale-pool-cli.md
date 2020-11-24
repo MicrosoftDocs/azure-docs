@@ -4,7 +4,7 @@ description: Use an Azure CLI example script to scale an elastic pool in Azure S
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein

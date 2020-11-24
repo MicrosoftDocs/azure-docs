@@ -547,7 +547,8 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
         
         PS C:\07-30-2020>
     ```   
-You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here is a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
+
+    You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here is a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
 
     ```powershell	
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -565,8 +566,7 @@ You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously
 	 
 	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 	--     ----            -------------   -----         -----------     --------             -------
-	2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
-    ```
+	```
 
 7. Check if the VM is successfully provisioned. Run the following command:
 

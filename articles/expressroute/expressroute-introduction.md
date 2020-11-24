@@ -32,10 +32,10 @@ For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 ## Features
 
 ### Layer 3 connectivity
-Microsoft uses BGP, an industry standard dynamic routing protocol. To exchange routes between your on-premises network, your instances in Azure, and Microsoft public addresses. We establish multiple BGP sessions with your network for different traffic profiles. More details can be found in the [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) article.
+Microsoft uses BGP, an industry standard dynamic routing protocol, to exchange routes between your on-premises network, your instances in Azure, and Microsoft public addresses. We establish multiple BGP sessions with your network for different traffic profiles. More details can be found in the [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) article.
 
 ### Redundancy
-Each ExpressRoute circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) at an [ExpressRoute Location](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) from the connectivity provider/your network edge. Microsoft requires dual BGP connection from the connectivity provider/your network edge – one to each MSEE. You may choose not to deploy redundant devices/Ethernet circuits at your end. However, connectivity providers use redundant devices to ensure that your connections are handed off to Microsoft in a redundant manner. A redundant Layer 3 connectivity configuration is a requirement for our [SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
+Each ExpressRoute circuit consists of two connections to two Microsoft Enterprise edge routers (MSEEs) at an [ExpressRoute Location](./expressroute-locations.md#expressroute-locations) from the connectivity provider/your network edge. Microsoft requires dual BGP connection from the connectivity provider/your network edge – one to each MSEE. You may choose not to deploy redundant devices/Ethernet circuits at your end. However, connectivity providers use redundant devices to ensure that your connections are handed off to Microsoft in a redundant manner. A redundant Layer 3 connectivity configuration is a requirement for our [SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 ### Connectivity to Microsoft cloud services
 ExpressRoute connections enable access to the following services:
@@ -78,7 +78,7 @@ Key features that ExpressRoute Direct provides include, but aren't limited to:
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity, such as: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 
-For more information, see [About ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
+For more information, see [About ExpressRoute Direct](./expressroute-erdirect-about.md).
 
 ### Bandwidth options
 You can purchase ExpressRoute circuits for a wide range of bandwidths. The supported bandwidths are listed as followed. Be sure to check with your connectivity provider to determine the bandwidths they support.

@@ -253,7 +253,7 @@ As discussed in the [best practices for component format changes](configure-mode
 ### Texture sizes
 
 Depending on the type of scenario, the amount of texture data may outweigh the memory used for mesh data. Photogrammetry models are candidates.
-The conversion configuration does not provide a way to automatically scale down textures. If necessary, texture scaling has to be done as a client-side pre-processing step. The conversion step however does pick a suitable [texture compression format](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+The conversion configuration does not provide a way to automatically scale down textures. If necessary, texture scaling has to be done as a client-side pre-processing step. The conversion step however does pick a suitable [texture compression format](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
 * `BC1` for opaque color textures
 * `BC7` for source color textures with alpha channel

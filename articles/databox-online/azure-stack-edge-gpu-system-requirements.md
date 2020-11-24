@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
@@ -27,21 +27,29 @@ The system requirements for the Azure Stack Edge Pro include:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## Supported storage accounts
+## Supported Azure Storage accounts
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## Supported tiered storage accounts
+## Supported Edge storage accounts
 
-When managed from Azure Stack, the following tiered storage accounts are supported with SMB/NFS/REST interfaces.
+The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Storage account  |Comments  |
 |---------|---------|---------|
 |Standard     |GPv1: Block Blob         |         |
-|    |  Blob storage: Block Blob       | Supported only for NAS     |
 
-*Page blobs and Azure Files are currently not supported in Azure Stack.
-**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier]()
+*Page blobs and Azure Files are currently not supported.
+
+## Supported local Azure Resource Manager storage accounts
+
+These storage accounts are created via the device local APIs when you are connecting to local Azure Resource Manager. The following storage accounts are supported:
+
+|Type  |Storage account  |Comments  |
+|---------|---------|---------|
+|Standard     |GPv1: Block Blob, Page Blob        | SKU type is Standard_LRS       |
+|Premium     |GPv1: Block Blob, Page Blob        | SKU type is Premium_LRS        |
+
 
 ## Supported storage types
 

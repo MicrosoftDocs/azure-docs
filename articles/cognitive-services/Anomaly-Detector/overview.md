@@ -3,13 +3,13 @@ title: What is the Anomaly Detector API?
 titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API's algorithms to apply anomaly detection on your time series data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
-ms.author: aahi
+ms.date: 11/23/2020
+ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
 ---
@@ -80,6 +80,10 @@ You can read the paper [Time-Series Anomaly Detection Service at Microsoft](http
 
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## Deploy on premises using Docker containers
+
+[Use Anomaly Detector containers](anomaly-detector-container-howto.md) to deploy API features on-premises. Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons.
 
 ## Join the Anomaly Detector community
 

@@ -32,7 +32,7 @@ Each tier also provides a specific subset of App Service features. These feature
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> The new **PremiumV3** pricing tier guarantees [Dv3-series VMs](../virtual-machines/dv3-dsv3-series.md) with faster processors, SSD storage, and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
+> The new **PremiumV3** pricing tier guarantees machines with faster processors (minimum 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) per virtual CPU), SSD storage, and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
 >
 > Similar to other dedicated tiers, three VM sizes are available for this tier:
 >

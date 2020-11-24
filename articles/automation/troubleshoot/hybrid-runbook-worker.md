@@ -40,7 +40,7 @@ The following are possible causes:
 
 #### Resolution
 
-Verify that the computer has outbound access to ***.azure-automation.net** on port 443.
+Verify that the computer has outbound access to **\*.azure-automation.net** on port 443.
 
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use might cause the system to be overused and cause runbook job delays or timeouts.
 
@@ -220,7 +220,7 @@ In the **Application and Services Logs\Operations Manager** event log, you see e
 
 #### Cause
 
-This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to ***.azure-automation.net** on port 443.
+This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to **\*.azure-automation.net** on port 443.
 
 #### Resolution
 
@@ -287,7 +287,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>Scenario: You can't add a Hybrid Runbook Worker
+### <a name="already-registered"></a>Scenario: You can't add a Windows Hybrid Runbook Worker
 
 #### Issue
 
@@ -306,6 +306,46 @@ This issue can be caused if the machine is already registered with a different A
 To resolve this issue, remove the following registry key, restart `HealthService`, and try the `Add-HybridRunbookWorker` cmdlet again.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="already-registered"></a>Scenario: You can't add a Linux Hybrid Runbook Worker
+
+#### Issue
+
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### Cause
+
+This issue might occur if the machine is already registered with a different Automation account, if the Azure Hybrid Worker Group was deleted, or if you try to re-add the Hybrid Runbook Worker after you remove it from a machine.
+
+#### Resolution
+
+To resolve this issue:
+
+1. Remove the agent `sudo sh onboard_agent.sh --purge`.
+
+1. Run these commands:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Re-onboard the agent `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com`.
+
+1. Wait for the folder `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` to populate.
+
+1. Try the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script again.
 
 ## Next steps
 

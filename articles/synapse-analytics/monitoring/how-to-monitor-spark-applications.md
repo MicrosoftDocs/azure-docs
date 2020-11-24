@@ -6,7 +6,7 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: mahi
 ms.reviewer: mahi
 ---
@@ -29,7 +29,7 @@ Once you've opened your workspace, select the **Monitor** section on the left.
 
 Select **Apache Spark applications** to view the list of Apache Spark applications.
 
- ![Select Spark applications](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
+ ![Select Spark applications](./media/how-to-monitor-spark-applications/monitor-hub-nav-spark-applications.png)
 
 ## Filter your Apache Spark applications
 

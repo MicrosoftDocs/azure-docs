@@ -57,7 +57,7 @@ To access the **Users flagged for risk** reports in the Microsoft 365 admin cent
 Take the following actions to help rectify the impacted accounts and secure your environment:
 
 1.	[Validate correct information](https://aka.ms/MFAValid) for multi-factor authentication and self-service password reset. 
-2.	[Enable multi-factor authentication](https://aka.ms/MFAuth) for all users. 
+2.	[Enable multi-factor authentication](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) for all users. 
 3.	Use this [remediation script](https://aka.ms/remediate) for every impacted account, to automatically perform the following steps: 
 
     a. Reset password to secure the account and kill active sessions.
@@ -82,8 +82,8 @@ Take the following actions to help rectify the impacted accounts and secure your
 
 Additionally, you should:
 
-- Read and implement this [guidance on addressing unusual activities](https://aka.ms/fixaccount). 
-- [Enable the audit pipeline](https://aka.ms/improvesecurity) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](https://aka.ms/sccsearch). 
+- Read and implement this [guidance on addressing unusual activities](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [Enable the audit pipeline](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](https://aka.ms/sccsearch). 
 - Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](https://aka.ms/delegateforwardrules) to perform this task. 
 
 ## Next steps

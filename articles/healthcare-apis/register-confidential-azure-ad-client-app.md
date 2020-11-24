@@ -45,7 +45,7 @@ Now that you have registered your application, you'll need to select which API p
 
 1. Select **Add a permission**.
 
-    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare APIs** under **APIs my organization uses**. 
+    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare APIs** under **APIs my organization uses**. You will only be able to find this if you have already [deployed the Azure API for FHIR](fhir-paas-powershell-quickstart.md).
 
     If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
@@ -59,7 +59,7 @@ Now that you have registered your application, you'll need to select which API p
 
 ## Application secret
 
-1. Select **certificates & secrets**.
+1. Select **Certificates & secrets**.
 1. Select **New client secret**. 
 
     ![Confidential client. Application Secret](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
@@ -70,9 +70,7 @@ Now that you have registered your application, you'll need to select which API p
 
 ## Next steps
 
-In this article, you've learned how to register a confidential client application in Azure Active Directory. You are now ready to deploy the [Azure API for FHIR](fhir-paas-powershell-quickstart.md).
-
-Once you have deployed the Azure API for FHIR, you can review additional available settings.
+In this article, you've learned how to register a confidential client application in Azure Active Directory. Next you can access your FHIR server using Postman
  
 >[!div class="nextstepaction"]
->[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)
+>[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)

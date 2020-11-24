@@ -1,17 +1,17 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 06/16/2020
+ms.date: 10/20/2020
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
 
-> Applies to Azure Policy extension version **0.0.21** and newer
+> Applies to Azure Policy extension version **0.1.0** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code to look up
-[aliases](../concepts/definition-structure.md#aliases) and review resources and policies. First,
-we'll describe how to install the Azure Policy extension in Visual Studio Code. Then we'll walk
-through how to look up aliases.
+[aliases](../concepts/definition-structure.md#aliases), review resources and policies, export
+objects, and evaluate policy definitions. First, we'll describe how to install the Azure Policy
+extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
 Azure Policy extension for Visual Studio Code can be installed on all platforms that are supported
 by Visual Studio Code. This support includes Windows, Linux, and macOS.
@@ -87,11 +87,13 @@ these steps:
 
    - Command Palette: 
 
-     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select Subscriptions**.
+     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select
+     Subscriptions**.
 
    - Window footer
 
-     In the window footer at the bottom of the screen, select the segment that matches **Azure: \<your account\>**.
+     In the window footer at the bottom of the screen, select the segment that matches **Azure:
+     \<your account\>**.
 
 1. Use the filter box to quickly find subscriptions by name. Then, check or remove the check from
    each subscription to set the subscriptions shown by the Azure Policy extension. When done adding
@@ -189,6 +191,64 @@ When selecting a policy or assignment, whether through the search interface or b
 the treeview, the Azure Policy extension opens the JSON that represents the policy or assignment and
 all its Resource Manager property values. The extension can validate the opened Azure Policy JSON
 schema.
+
+## Export objects
+
+Objects from your subscriptions can be exported to a local JSON file. In either the **Resources** or
+**Policies** pane, hover over or select an exportable object. At the end of the highlighted row,
+select the save icon and select a folder to save that resources JSON.
+
+The following objects can be exported locally:
+
+- Resources pane
+  - Resource groups
+  - Individual resources (either in a resource group or under a Resource Provider)
+- Policies pane
+  - Policy assignments
+  - Built-in policy definitions
+  - Custom policy definitions
+  - Initiatives
+
+## On-demand evaluation scan
+
+An evaluation scan can be started with the Azure Policy extension for Visual Studio Code. To start
+an evaluation, select and pin each of the following objects: a resource, a policy definition, and a
+policy assignment.
+
+1. To pin each object, find it in either the **Resources** pane or the **Policies** pane and select
+   the pin to an edit tab icon. Pinning an object adds it to the **Evaluation** pane of the
+   extension.
+1. In the **Evaluation** pane, select one of each object and use the select for evaluation icon to
+   mark it as included in the evaluation.
+1. At the top of the **Evaluation** pane, select the run evaluation icon. A new pane in Visual
+   Studio Code opens with the resulting evaluation details in JSON form.
+
+> [!NOTE]
+> If the selected policy definition is either an
+> [AuditIfNotExists](../concepts/effects.md#auditifnotexists) or
+> [DeployIfNotExists](../concepts/effects.md#deployifnotexists), in the **Evaluation** pane use the
+> plus icon to selected a _related_ resource for the existence check.
+
+The evaluation results provide information about the policy definition and policy assignment along
+with the **policyEvaluations.evaluationResult** property. The output looks similar to the following
+example:
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## Sign out
 

@@ -3,13 +3,13 @@ title: Manage data feeds in Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Learn how to manage data feeds that you've added to Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # How to: Manage your data feeds

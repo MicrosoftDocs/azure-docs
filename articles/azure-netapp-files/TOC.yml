@@ -39,6 +39,8 @@
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: Manual QoS capacity pool
+    href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
     items: 
     - name: Understand cross-region replication
@@ -97,13 +99,13 @@
     href: dynamic-change-volume-service-level.md
   - name: Manage cross-region replication
     items:
-    - name: Create replication peering
+    - name: Create volume replication
       href: cross-region-replication-create-peering.md
     - name: Display health status of replication relationship
       href: cross-region-replication-display-health-status.md
     - name: Manage disaster recovery
       href: cross-region-replication-manage-disaster-recovery.md
-    - name: Delete replications 
+    - name: Delete volume replications or volumes
       href: cross-region-replication-delete.md
   - name: Develop
     items:
@@ -111,10 +113,8 @@
       href: azure-netapp-files-develop-with-rest-api.md
     - name: REST API using PowerShell
       href: develop-rest-api-powershell.md
-    - name: Azure NetApp Files SDKs and CLI tools
+    - name: SDKs, CLI tools, and ARM templates
       href: azure-netapp-files-sdk-cli.md
-    - name: Troubleshoot Azure NetApp Files Resource Provider errors
-      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot capacity pools 
@@ -125,10 +125,12 @@
       href: troubleshoot-dual-protocol-volumes.md
     - name: Troubleshoot snapshot policies
       href: troubleshoot-snapshot-policies.md
+    - name: Troubleshoot Resource Provider errors
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference
   items:
   - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/ 
+    href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
 - name: Resources

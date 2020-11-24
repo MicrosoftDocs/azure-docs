@@ -1,7 +1,7 @@
 ---
-title: Use Azure AD and RBAC for clusters
+title: Use Azure AD and Kubernetes RBAC for clusters
 titleSuffix: Azure Kubernetes Service
-description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using role-based access control (RBAC) in Azure Kubernetes Service (AKS)
+description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
 
 
@@ -11,9 +11,9 @@ ms.date: 07/21/2020
 
 ---
 
-# Control access to cluster resources using role-based access control and Azure Active Directory identities in Azure Kubernetes Service
+# Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service
 
-Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. You can also configure Kubernetes role-based access control (RBAC) to limit access to cluster resources based a user's identity or group membership.
+Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. You can also configure Kubernetes role-based access control (Kubernetes RBAC) to limit access to cluster resources based a user's identity or group membership.
 
 This article shows you how to use Azure AD group membership to control access to namespaces and cluster resources using Kubernetes RBAC in an AKS cluster. Example groups and users are created in Azure AD, then Roles and RoleBindings are created in the AKS cluster to grant the appropriate permissions to create and view resources.
 
@@ -78,7 +78,7 @@ az role assignment create \
 
 ## Create demo users in Azure AD
 
-With two example groups created in Azure AD for our application developers and SREs, now lets create two example users. To test the RBAC integration at the end of the article, you sign in to the AKS cluster with these accounts.
+With two example groups created in Azure AD for our application developers and SREs, now lets create two example users. To test the Kubernetes RBAC integration at the end of the article, you sign in to the AKS cluster with these accounts.
 
 Create the first user account in Azure AD using the [az ad user create][az-ad-user-create] command.
 
@@ -128,7 +128,7 @@ Create a namespace in the AKS cluster using the [kubectl create namespace][kubec
 kubectl create namespace dev
 ```
 
-In Kubernetes, *Roles* define the permissions to grant, and *RoleBindings* apply them to desired users or groups. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][rbac-authorization].
+In Kubernetes, *Roles* define the permissions to grant, and *RoleBindings* apply them to desired users or groups. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using Kubernetes RBAC authorization][rbac-authorization].
 
 First, create a Role for the *dev* namespace. This role grants full permissions to the namespace. In production environments, you can specify more granular permissions for different users or groups.
 
@@ -409,5 +409,5 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

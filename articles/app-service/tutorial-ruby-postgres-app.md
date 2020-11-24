@@ -4,7 +4,7 @@ description: Learn how to get a Linux Ruby app working in Azure App Service, wit
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ---
 
 # Build a Ruby and Postgres app in Azure App Service on Linux
@@ -103,7 +103,7 @@ To stop the Rails server, type `Ctrl + C` in the terminal.
 
 ## Create Postgres in Azure
 
-In this step, you create a Postgres database in [Azure Database for PostgreSQL](/azure/postgresql/). Later, you configure the Ruby on Rails application to connect to this database.
+In this step, you create a Postgres database in [Azure Database for PostgreSQL](../postgresql/index.yml). Later, you configure the Ruby on Rails application to connect to this database.
 
 ### Create a resource group
 
@@ -112,7 +112,7 @@ In this step, you create a Postgres database in [Azure Database for PostgreSQL](
 ## Create Postgres database in Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
 
 In this section, you create an Azure Database for PostgreSQL server and database. To start, install the `db-up` extension with the following command:
 

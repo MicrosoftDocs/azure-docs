@@ -2,14 +2,17 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/29/2020
 ---
 
 # Event Grid message delivery and retry
 
 This article describes how Azure Event Grid handles events when delivery isn't acknowledged.
 
-Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered endpoint of each subscription immediately. If an endpoint doesn't acknowledge receipt of an event, Event Grid retries delivery of the event.
+Event Grid provides durable delivery. It delivers each message **at least once** for each subscription. Events are sent to the registered endpoint of each subscription immediately. If an endpoint doesn't acknowledge receipt of an event, Event Grid retries delivery of the event.
+
+> [!NOTE]
+> Event Grid doesn't guarantee order for event delivery, so subscriber may receive them out of order. 
 
 ## Batched event delivery
 
@@ -75,12 +78,14 @@ The functional purpose of delayed delivery is to protect unhealthy endpoints as 
 ## Dead-letter events
 When Event Grid can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Event Grid dead-letters an event when **one of the following** conditions is met. 
 
-- Event isn't delivered within the time-to-live period
-- The number of tries to deliver the event has exceeded the limit
+- Event isn't delivered within the **time-to-live** period. 
+- The **number of tries** to deliver the event has exceeded the limit.
 
 If either of the conditions is met, the event is dropped or dead-lettered.  By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
 
 Event Grid sends an event to the dead-letter location when it has tried all of its retry attempts. If Event Grid receives a 400 (Bad Request) or 413 (Request Entity Too Large) response code, it immediately sends the event to the dead-letter endpoint. These response codes indicate delivery of the event will never succeed.
+
+The time-to-live expiration is checked ONLY at the next scheduled delivery attempt. Therefore, even if time-to-live expires before the next scheduled delivery attempt, event expiry is checked only at the time of the next delivery and then subsequently dead-lettered. 
 
 There is a five-minute delay between the last attempt to deliver an event and when it is delivered to the dead-letter location. This delay is intended to reduce the number Blob storage operations. If the dead-letter location is unavailable for four hours, the event is dropped.
 

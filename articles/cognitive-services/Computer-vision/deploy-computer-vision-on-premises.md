@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/30/2020
 ms.author: aahi
 ---
 
@@ -41,47 +41,6 @@ The following prerequisites before using Computer Vision containers on-premises:
 
 The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer. You can find more information on deployments in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
-### Sharing Docker credentials with the Kubernetes cluster
-
-To allow the Kubernetes cluster to `docker pull` the configured image(s) from the `containerpreview.azurecr.io` container registry, you need to transfer the docker credentials into the cluster. Execute the [`kubectl create`][kubectl-create] command below to create a *docker-registry secret* based on the credentials provided from the container registry access prerequisite.
-
-From your command-line interface of choice, run the following command. Be sure to replace the `<username>`, `<password>`, and `<email-address>` with the container registry credentials.
-
-```console
-kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> If you already have access to the `containerpreview.azurecr.io` container registry, you could create a Kubernetes secret using the generic flag instead. Consider the following command that executes against your Docker configuration JSON.
-> ```console
->  kubectl create secret generic containerpreview \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-The following output is printed to the console when the secret has been successfully created.
-
-```console
-secret "containerpreview" created
-```
-
-To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
-
-```console
-kubectl get secrets
-```
-
-Executing the `kubectl get secrets` prints all the configured secrets.
-
-```console
-NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
-```
-
 ## Configure Helm chart values for deployment
 
 Begin by creating a folder named *read*. Then, paste the following YAML content in a new file named `chart.yaml`:
@@ -90,7 +49,7 @@ Begin by creating a folder named *read*. Then, paste the following YAML content 
 apiVersion: v2
 name: read
 version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+description: A Helm chart to deploy the Read OCR container to a Kubernetes cluster
 dependencies:
 - name: rabbitmq
   condition: read.image.args.rabbitmq.enabled
@@ -106,15 +65,13 @@ To configure the Helm chart default values, copy and paste the following YAML in
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry:  containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-read
-    tag: latest
-    pullSecret: containerpreview # Or an existing secret
+    registry:  mcr.microsoft.com/
+    repository: azure-cognitive-services/vision/read
+    tag: 3.1-preview
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -143,7 +100,7 @@ read:
 > [!IMPORTANT]
 > - If the `billing` and `apikey` values aren't provided, the services expire after 15 minutes. Likewise, verification fails because the services aren't available.
 > 
-> - If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> - If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
 >
 
 Create a *templates* folder under the *read* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
@@ -222,11 +179,11 @@ The template specifies a load balancer service and the deployment of your contai
 
 ### The Kubernetes package (Helm chart)
 
-The *Helm chart* contains the configuration of which docker image(s) to pull from the `containerpreview.azurecr.io` container registry.
+The *Helm chart* contains the configuration of which docker image(s) to pull from the `mcr.microsoft.com` container registry.
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Computer Vision Service, and the corresponding service from the `containerpreview.azurecr.io` container 
+The provided *Helm charts* pull the docker images of the Computer Vision Service, and the corresponding service from the `mcr.microsoft.com` container 
 registry.
 
 ## Install the Helm chart on the Kubernetes cluster
@@ -296,7 +253,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm

@@ -55,12 +55,12 @@ To set up single sign-on for an application:
 
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
 ## Clean up resources
 
-When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+When you're done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
 
 ## Next steps
 

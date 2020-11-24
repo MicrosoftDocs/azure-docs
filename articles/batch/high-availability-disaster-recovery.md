@@ -34,5 +34,5 @@ Consider the following points when designing a solution that can failover:
 
 ## Next steps
 
-- Learn more about creating Batch accounts with the [Azure portal](batch-account-create-portal.md), the [Azure CLI](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md), or the [Batch management API](batch-management-dotnet.md).
+- Learn more about creating Batch accounts with the [Azure portal](batch-account-create-portal.md), the [Azure CLI](./scripts/batch-cli-sample-create-account.md), [PowerShell](batch-powershell-cmdlets-get-started.md), or the [Batch management API](batch-management-dotnet.md).
 - Default quotas are associated with a Batch account; [this article](batch-quota-limit.md) details the default quota values and describes how the quotas can be increased.

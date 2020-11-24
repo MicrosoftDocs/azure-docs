@@ -43,7 +43,7 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 * **Gender**. The estimated gender of the given face. Possible values are male, female, and genderless.
 * **Glasses**. Whether the given face has eyeglasses. Possible values are NoGlasses, ReadingGlasses, Sunglasses, and Swimming Goggles.
 * **Hair**. The hair type of the face. This attribute shows whether the hair is visible, whether baldness is detected, and what hair colors are detected.
-* **Head pose**. The face's orientation in 3D space. This attribute is described by the pitch, roll, and yaw angles in degrees. The value ranges are -90 degrees to 90 degrees, -180 degrees to 180 degrees, and -90 degrees to 90 degrees, respectively. See the following diagram for angle mappings:
+* **Head pose**. The face's orientation in 3D space. This attribute is described by the pitch, roll, and yaw angles in degrees. The value ranges are -90 degrees to 90 degrees, -90 degrees to 90 degrees, and -90 degrees to 90 degrees, respectively. See the following diagram for angle mappings:
 
     ![A head with the pitch, roll, and yaw axes labeled](../Images/headpose.1.jpg)
 * **Makeup**. Whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.
@@ -59,7 +59,7 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 Use the following tips to make sure that your input images give the most accurate detection results:
 
 * The supported input image formats are JPEG, PNG, GIF for the first frame, and BMP.
-* The image file size should be no larger than 4 MB.
+* The image file size should be no larger than 6 MB.
 * The detectable face size range is 36 x 36 to 4096 x 4096 pixels. Faces outside of this range won't be detected.
 * Some faces might not be detected because of technical challenges. Extreme face angles (head pose) or face occlusion (objects such as sunglasses or hands that block part of the face) can affect detection. Frontal and near-frontal faces give the best results.
 

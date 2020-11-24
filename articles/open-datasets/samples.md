@@ -35,7 +35,7 @@ The example Jupyter notebooks for Azure Open Datasets show you how to load open 
 
 ## Next steps
 
-* [Tutorial: Regression modeling with automated machine learning and an open dataset](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
-* [Python SDK for Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
+* [Tutorial: Regression modeling with automated machine learning and an open dataset](../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context)
+* [Python SDK for Open Datasets](/python/api/azureml-opendatasets/azureml.opendatasets)
 * [Azure Open Datasets catalog](https://azure.microsoft.com/services/open-datasets/catalog/)
 * [Create Azure Machine Learning dataset from Open Dataset](how-to-create-azure-machine-learning-dataset-from-open-dataset.md)

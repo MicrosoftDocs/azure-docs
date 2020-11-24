@@ -45,7 +45,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
     **Admin Username**: A username, which will be provided root privileges on deployment.
 
-    **Device Connection String**: A [Device Connection string](how-to-register-device.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md).
+    **Device Connection String**: A [Device Connection string](./how-to-manual-provision-symmetric-key.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md).
 
     **VM Size**: The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed
 

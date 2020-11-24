@@ -40,7 +40,7 @@ landingContent:
           - text: Create a digital distribution center application
             url: tutorial-iot-central-digital-distribution-center.md 
           - text: Create a video analytics application
-            url: tutorial-video-analytics-create-app.md 
+            url: tutorial-video-analytics-create-app-yolo-v3.md 
       - linkListType: how-to-guide
         links:
           - text: Connect a Rigado Cascade 500

@@ -79,7 +79,7 @@ Intelligent Insights options available are:
 
 Output of the Intelligent Insights can be streamed to one of several destinations for analysis:
 
-- Output streamed to a Log Analytics workspace can be used with [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) to view insights through the user interface of the Azure portal. This is the integrated Azure solution, and the most typical way to view insights.
+- Output streamed to a Log Analytics workspace can be used with [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) to view insights through the user interface of the Azure portal. This is the integrated Azure solution, and the most typical way to view insights.
 - Output streamed to Azure Event Hubs can be used for development of custom monitoring and alerting scenarios
 - Output streamed to Azure Storage can be used for custom application development, such are for example custom reporting, long-term data archival and so forth.
 
@@ -101,7 +101,7 @@ The following example shows an Intelligent Insights viewed through Azure SQL Ana
 
 ### Set up with Event Hubs
 
-To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and [Stream Azure diagnostics logs to Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and [Stream Azure diagnostics logs to Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 To use Event Hubs to set up custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 

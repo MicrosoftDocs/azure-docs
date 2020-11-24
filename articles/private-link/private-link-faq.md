@@ -45,6 +45,9 @@ Yes. Private endpoints can connect to Private Link services or Azure PaaS across
 ### Can private endpoint connect to Azure PaaS resources across Azure regions?
 Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.
 
+### Can I modify my Private Endpoint Network Interface (NIC) ?
+When a private endpoint is created, a read-only NIC is assigned. This cannot be modified and will remain for the life cycle of the Private endpoint.
+
 ## Private Link Service
  
 ### What are the pre-requisites for creating a Private Link service? 
@@ -62,8 +65,8 @@ Yes. One Private Link service can receive connections from multiple Private Endp
 ### How should I control the exposure of my Private Link service?
 You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
 
-- **None** - Only subscriptions with RBAC access can locate the service. 
-- **Restrictive** - Only subscriptions that are approved and with RBAC access can locate the service. 
+- **None** - Only subscriptions with Azure RBAC access can locate the service. 
+- **Restrictive** - Only subscriptions that are approved and with Azure RBAC access can locate the service. 
 - **All** - Everyone can locate the service. 
  
 ### Can I create a Private Link service with basic load balancer? 

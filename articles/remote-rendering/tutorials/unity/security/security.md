@@ -183,11 +183,11 @@ We have one more "password", the AccountKey, to remove from the local applicatio
 
 ## Azure Active Directory (Azure AD) authentication
 
-AAD authentication will allow you to determine which individuals or groups are using ARR in a more controlled way. ARR has built in support for accepting [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) instead of using an Account Key. You can think of Access Tokens as a time-limited, user-specific key, that only unlocks certain parts of the specific resource it was requested for.
+AAD authentication will allow you to determine which individuals or groups are using ARR in a more controlled way. ARR has built in support for accepting [Access Tokens](../../../../active-directory/develop/access-tokens.md) instead of using an Account Key. You can think of Access Tokens as a time-limited, user-specific key, that only unlocks certain parts of the specific resource it was requested for.
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **AzureFrontendAccountInfo** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **AzureFrontendAccountInfo** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
-1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
+1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
 1. After configuring the new AAD application, check your AAD application looks like the following images:
 
     **AAD Application -> Authentication**
@@ -359,7 +359,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 
 The code first tries to get the token silently using **AquireTokenSilent**. This will be successful if the user has previously authenticated this application. If it's not successful, move on to a more user-involved strategy.
 
-For this code, we're using the [device code flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) to obtain an Access Token. This flow allows the user to sign in to their Azure account on a computer or mobile device and have the resulting token sent back to the HoloLens application.
+For this code, we're using the [device code flow](../../../../active-directory/develop/v2-oauth2-device-code.md) to obtain an Access Token. This flow allows the user to sign in to their Azure account on a computer or mobile device and have the resulting token sent back to the HoloLens application.
 
 The most important part of this class from an ARR perspective is this line:
 

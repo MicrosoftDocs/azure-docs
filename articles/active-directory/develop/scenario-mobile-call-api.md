@@ -156,5 +156,5 @@ catch(MsalUiRequiredException ex)
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-mobile-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-mobile-production.md).

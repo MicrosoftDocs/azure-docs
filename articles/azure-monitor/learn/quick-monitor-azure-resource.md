@@ -65,5 +65,5 @@ Metrics are numerical values that describe some aspect of your resource at a par
 In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Continue to the next quickstart which shows you how to collect the Activity log into a Log Analytics workspace where they can be analyzed using [log queries](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Send Azure Activity log to Log Analytics workspace]()
+> [Send Azure Activity log to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-activity-log-portal)
 

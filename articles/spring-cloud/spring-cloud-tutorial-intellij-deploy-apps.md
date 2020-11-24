@@ -18,12 +18,12 @@ The IntelliJ plug-in for Azure Spring Cloud supports application deployment from
 Before running this example, you can try the [basic quickstart](spring-cloud-quickstart.md).
 
 ## Prerequisites
-* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable&preserve-view=true)
+* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## Install the plug-in
-You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.
+You can add the Azure Toolkit for IntelliJ IDEA 3.43.0 from the IntelliJ **Plugins** UI.
 
 1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then click **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
 
@@ -52,7 +52,7 @@ The following procedures deploy a Hello World application using the IntelliJ IDE
     ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## Deploy to Azure Spring Cloud
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
@@ -99,5 +99,5 @@ To get the logs:
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## Next steps
-* [Prepare Spring application for Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
-* [Learn more about Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)
+* [Prepare Spring application for Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
+* [Learn more about Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)

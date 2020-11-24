@@ -1,6 +1,6 @@
 ---
 title: 'Share outside your org (ARM template) - Azure Data Share quickstart'
-description: Learn how to share data with customers and partners using Azure Data Share and Resource Manager template in this quickstart.
+description: Learn how to share data with customers and partners using Azure Data Share and an Azure Resource Manager template (ARM template) in this quickstart.
 author: mumian
 ms.author: jgao
 ms.service: data-share
@@ -9,9 +9,9 @@ ms.custom: subject-armqs
 ms.date: 08/19/2020
 ---
 
-# Quickstart: Share data using Azure Data Share and Resource Manager templates
+# Quickstart: Share data using Azure Data Share and ARM template
 
-Learn how to set up a new Azure Data Share from an Azure storage account by using Azure Resource Manager template and start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
+Learn how to set up a new Azure Data Share from an Azure storage account by using an Azure Resource Manager template (ARM template). And, start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -33,12 +33,12 @@ The following resources are defined in the template:
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft.Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft.DataShare/accounts](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft.DataShare/accounts/shares](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft.Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/accounts](/rest/api/datashare/accounts/create)
-* [Microsoft.DataShare/accounts/shares](/rest/api/datashare/shares/create)
-* [Microsoft.DataShare/accounts/shares/dataSets](/rest/api/datashare/datasets/create)
-* [Microsoft.DataShare/accounts/shares/invitations](/rest/api/datashare/invitations/create)
-* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft.DataShare/accounts/shares/dataSets](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft.DataShare/accounts/shares/invitations](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 The template performs the following tasks:
 
@@ -51,11 +51,11 @@ The template performs the following tasks:
 
 This template is created for learning purposes. In practice, you usually have some data in an existing storage account. You would need to create the role assignment before running a template or a script to create the dataset. Sometimes, you might get the following error message when you deploy the template:
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-It is because the deployment is trying to create the dataset before the RBAC assignment gets finalized. Despite the error message, the deployment could be successful.  You would still be able to walk through [Review deployed resources](#review-deployed-resources).
+It's because the deployment is trying to create the dataset before the Azure role assignment gets finalized. Despite the error message, the deployment could be successful. You would still be able to walk through [Review deployed resources](#review-deployed-resources).
 
 ## Deploy the template
 

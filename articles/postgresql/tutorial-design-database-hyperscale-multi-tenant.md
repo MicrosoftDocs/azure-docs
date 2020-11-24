@@ -291,6 +291,6 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both within and between tenants, and to customize the schema per tenant.
 
-- Learn about server group [node types](https://aka.ms/hyperscale-concepts)
+- Learn about server group [node types](./concepts-hyperscale-nodes.md)
 - Determine the best [initial
-  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group
+  size](howto-hyperscale-scale-initial.md) for your server group

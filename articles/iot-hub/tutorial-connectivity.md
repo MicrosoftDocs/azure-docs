@@ -263,4 +263,4 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 In this tutorial, you've seen how to check your device keys, check device-to-cloud connectivity, check cloud-to-device connectivity, and check device twin synchronization. To learn more about how to monitor your IoT hub, visit the how-to article for IoT Hub monitoring.
 
 > [!div class="nextstepaction"]
-> [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
+> [Monitor IoT Hub](monitor-iot-hub.md)

@@ -31,7 +31,7 @@ Configure your Genomics account with the following information, as shown in the 
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------       |:-------------         |:----------            |
  |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
+ |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](../azure-resource-manager/management/overview.md#resource-groups). For valid resource group names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
  |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](/azure/architecture/best-practices/resource-naming) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
@@ -83,7 +83,7 @@ msgen list -f "<full path where you saved the config file>"
 ## Create a Microsoft Azure Storage account 
 The Microsoft Genomics service expects inputs to be stored as block blobs in an Azure storage account. It also writes output files as block blobs to a user-specified container in an Azure storage account. The inputs and outputs can reside in different storage accounts.
 If you already have your data in an Azure storage account, you only need to make sure that it is in the same location as your Genomics account. Otherwise, egress charges are incurred when running the Microsoft Genomics service. 
-If you don’t yet have an Azure storage account, you need to create one and upload your data. You can find more information about Azure storage accounts [here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), including what a storage account is and what services it provides. To create an Azure storage account, navigate to [Create storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal.  
+If you don’t yet have an Azure storage account, you need to create one and upload your data. You can find more information about Azure storage accounts [here](../storage/common/storage-account-create.md), including what a storage account is and what services it provides. To create an Azure storage account, navigate to [Create storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal.  
 
 ![Storage account create page](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade1.png "Storage account create page")
 
@@ -95,9 +95,9 @@ Configure your storage account with the following information, as shown in the p
  |Resource group       | MyResourceGroup       |  You can select the same resource group as your Genomics account. For valid resource group names, see [Naming rules](/azure/architecture/best-practices/resource-naming) |
  |Storage account name         | MyStorageAccount     |Choose a unique account identifier. For valid names, see [Naming rules](/azure/architecture/best-practices/resource-naming) |
  |Location                  | West US 2                  | Use the same location as the location of your Genomics account, to reduce egress charges, and reduce latency.  | 
- |Performance                  | Standard                   | The default is standard. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Performance                  | Standard                   | The default is standard. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure storage](../storage/common/storage-introduction.md)    |
  |Account kind       | BlobStorage       |  Blob storage can be 2-5x faster than general purpose for downloads and uploads. |
- |Replication                  | Locally redundant storage                  | Locally redundant storage replicates your data within the datacenter in the region you created your storage account. For more information, see [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |Replication                  | Locally redundant storage                  | Locally redundant storage replicates your data within the datacenter in the region you created your storage account. For more information, see [Azure Storage replication](../storage/common/storage-redundancy.md)    |
  |Access tier                  | Hot                   | Hot access indicates objects in the storage account will be more frequently accessed.    |
 
 Then select **Review + create** to create your storage account. As you did with the creation of your Genomics account, you can select **Notifications** in the top menu bar to monitor the deployment process. 
@@ -109,7 +109,7 @@ The Microsoft Genomics service expects paired end reads (fastq or bam files) as 
 [https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz)
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
-Within your storage account, you need to make one blob container for your input data and a second blob container for your output data.  Upload the input data into your input blob container. Various tools can be used to do this, including [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter), or [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+Within your storage account, you need to make one blob container for your input data and a second blob container for your output data.  Upload the input data into your input blob container. Various tools can be used to do this, including [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter), or [AzCopy](../storage/common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
 
 ## Run a workflow through the Microsoft Genomics service using the `msgen` Python client
 
@@ -141,4 +141,4 @@ Once your workflow completes, you can view the output files in your Azure storag
 
 ## Next steps
 
-In this article, you uploaded sample input data into Azure storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure Notebooks example](https://aka.ms/genomicsnotebook) by downloading the "Genomics Tutorial.ipynb" file and using a notebook reader like [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) to open the file and run through it.
+In this article, you uploaded sample input data into Azure storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure Notebooks example](https://aka.ms/genomicsnotebook) by downloading the "Genomics Tutorial.ipynb" file and using a notebook reader like [Jupyter](../notebooks/tutorial-create-run-jupyter-notebook.md) to open the file and run through it.

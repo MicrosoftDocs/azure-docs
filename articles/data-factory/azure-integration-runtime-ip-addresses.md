@@ -26,12 +26,12 @@ The IP addresses that Azure Integration Runtime uses depends on the region where
 
 ## Azure Integration Runtime IP addresses: Specific regions
 
-Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located. You can get an IP range list of service tags from the [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). For example, if the Azure region is **AustraliaEast**, you can get an IP range list from **DataFactory.AustraliaEast**.
+Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located. You can get an IP range list of service tags from the [service tags IP range download link](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). For example, if the Azure region is **AustraliaEast**, you can get an IP range list from **DataFactory.AustraliaEast**.
 
 
 ## Known issue with Azure Storage
 
-* When connecting to Azure Storage account, IP network rules have no effect on requests originating from the Azure integration runtime in the same region as the storage account. For more details, please [refer this article](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* When connecting to Azure Storage account, IP network rules have no effect on requests originating from the Azure integration runtime in the same region as the storage account. For more details, please [refer this article](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range). 
 
   Instead, we suggest using [trusted services while connecting to Azure Storage](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 

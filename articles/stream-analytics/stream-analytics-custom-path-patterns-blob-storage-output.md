@@ -58,6 +58,8 @@ Notice that each record in the blob has a **client_id** column matching the fold
 
 3. When an input stream consists of records with a partition key cardinality under 8000, the records will be appended to existing blobs and only create new blobs when necessary. If the cardinality is over 8000 there is no guarantee existing blobs will be written to and new blobs won't be created for an arbitrary number of records with the same partition key.
 
+4. If the blob output is [configured as immutable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics will create a new blob each time data is sent.
+
 ## Custom DateTime path patterns
 
 Custom DateTime path patterns allow you to specify an output format that aligns with Hive Streaming conventions, giving Azure Stream Analytics the ability to send data to Azure HDInsight and Azure Databricks for downstream processing. Custom DateTime path patterns are easily implemented using the `datetime` keyword in the Path Prefix field of your blob output, along with the format specifier. For example, `{datetime:yyyy}`.

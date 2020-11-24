@@ -119,5 +119,5 @@ There are two versions of the Azure Migrate service.
 
 ## Next steps
 
-- Try our tutorials to assess [VMware VMs](tutorial-prepare-vmware.md), [Hyper-V VMs](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md).
+- Try our tutorials to assess [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md).
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.

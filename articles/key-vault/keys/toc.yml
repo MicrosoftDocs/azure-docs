@@ -1,7 +1,7 @@
 - name: Keys
   href: index.yml
 
-- name: Overview 
+- name: Overview
   items:
   - name: About Key Vault keys
     href: about-keys.md
@@ -16,9 +16,12 @@
   - name: Portal
     href: quick-create-portal.md
   - name: Python
-
     href: quick-create-python.md
-- name: Tutorials 
+  - name: ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
+
+- name: Tutorials
   items:
   - name: Import HSM-protected keys (overview)
     href: hsm-protected-keys.md
@@ -31,7 +34,12 @@
 - name: Samples
   items:
   - name: Key Vault Code Samples
-    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
+    href: /samples/browse/?expanded=azure&products=azure-key-vault
+
+- name: Concepts 
+  items:
+  - name: Key types, algorithms, and operations
+    href: about-keys-details.md
 
 - name: Reference
   items:
@@ -44,7 +52,7 @@
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
-    href: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
   - name: Python
     href: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
   - name: REST
@@ -75,6 +83,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: https://blogs.technet.com/b/kv/
+    href: /archive/blogs/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault

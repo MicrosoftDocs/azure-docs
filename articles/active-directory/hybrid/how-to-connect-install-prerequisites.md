@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -37,10 +37,18 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### On-premises Active Directory
 * The Active Directory schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema version and forest-level requirements are met.
-* If you plan to use the feature *password writeback*, the domain controllers must be on Windows Server 2008 R2 or later.
+* If you plan to use the feature *password writeback*, the domain controllers must be on Windows Server 2012 or later.
 * The domain controller used by Azure AD must be writable. Using a read-only domain controller (RODC) *isn't supported*, and Azure AD Connect doesn't follow any write redirects.
 * Using on-premises forests or domains by using "dotted" (name contains a period ".") NetBIOS names *isn't supported*.
 * We recommend that you [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
+
+### PowerShell execution policy
+Azure Active Directory Connect runs signed PowerShell scripts as part of the installation. Ensure that the PowerShell execution policy will allow running of scripts.
+
+The recommended execution policy during installation is "RemoteSigned".
+
+For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### Azure AD Connect server
 The Azure AD Connect server contains critical identity data. It's important that administrative access to this server is properly secured. Follow the guidelines in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
@@ -89,7 +97,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.
 * If you have firewalls on your intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, see [Azure AD Connect ports](reference-connect-ports.md) for more information.
-* If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened.
+* If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * If you're using the Microsoft cloud in Germany or the Microsoft Azure Government cloud, see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.
 * Azure AD Connect (version 1.1.614.0 and after) by default uses TLS 1.2 for encrypting communication between the sync engine and Azure AD. If TLS 1.2 isn't available on the underlying operating system, Azure AD Connect incrementally falls back to older protocols (TLS 1.1 and TLS 1.0).
 * Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting communication between the sync engine and Azure AD. To change to TLS 1.2, follow the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).

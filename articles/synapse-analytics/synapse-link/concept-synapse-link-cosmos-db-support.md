@@ -28,14 +28,14 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 
 | Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | [Contact Us](mailto:cosmosdbsynapselink@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
+| **Run-time Support** |Supported Azure Synapse runtime to access Azure Cosmos DB| ✓ | ✓ |
 | **Azure Cosmos DB API support** | Supported Azure Cosmos DB API kind | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Objects such as a table that can be created, pointing directly to Azure Cosmos DB container| Dataframe, View, Table | View |
 | **Read**    | Type of Azure Cosmos DB container that can be read | OLTP / HTAP | HTAP  |
 | **Write**   | Can the Azure Synapse runtime be used to write data to an Azure Cosmos DB container | Yes | No |
 
 * If you write data into an Azure Cosmos DB container from Spark, this process happens through the transactional store of Azure Cosmos DB. It will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
-* SQL pool integration through external tables is currently not supported.
+* Dedicated SQL pool integration through external tables is currently not supported.
  
 ## Supported code-generated actions for Spark
 
@@ -59,4 +59,4 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 ## Next steps
 
 * See how to [connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Learn how to query the analytical store with Spark](how-to-query-analytical-store-spark.md)
+* [Learn how to query the Cosmos DB Analytical Store with Spark](how-to-query-analytical-store-spark.md)

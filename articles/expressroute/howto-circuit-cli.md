@@ -343,7 +343,7 @@ To deprovision and delete an ExpressRoute circuit, make sure you understand the 
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 * If the service provider has deprovisioned the circuit meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit will then stop.
 
-## <a name="cleanup"></a>Clean up resources
+## Clean up resources
 
 You can delete your ExpressRoute circuit by running the following command:
 
