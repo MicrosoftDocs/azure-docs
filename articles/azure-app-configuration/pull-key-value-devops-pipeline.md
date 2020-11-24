@@ -25,7 +25,8 @@ The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemNam
 A service connection allows you to access resources in your Azure subscription from your Azure DevOps project.
 
 1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.
-1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.
+1. Under **Pipelines** select **Service connections**.
+1. If you don't have any existing service connections, click the **Create service connection** button in the middle of the screen. Otherwise, click **New service connection** in the top right of the page.
 1. Select **Azure Resource Manager**.
 1. Select **Service principal (automatic)**.
 1. Fill in your subscription and resource. Give your service connection a name.
@@ -41,7 +42,7 @@ Now that your service connection is created, find the name of the service princi
 
 Assign the proper App Configuration role assignments to the credentials being used within the task so that the task can access the App Configuration store.
 
-1. Navigate to your target App Configuration store. 
+1. Navigate to your target App Configuration store. For a walkthrough of setting up an App Configuration store, see [Create an App Configuration store](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) in one of the Azure App Configuration quickstarts.
 1. On the left, select **Access control (IAM)**.
 1. At the top, select **+ Add** and pick **Add role assignment**.
 1. Under **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store. 
@@ -49,29 +50,32 @@ Assign the proper App Configuration role assignments to the credentials being us
   
 ## Use in builds
 
-This section will cover how to use the Azure App Configuration Push task in an Azure DevOps build pipeline.
+This section will cover how to use the Azure App Configuration Pull task in an Azure DevOps build pipeline.
 
-1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
+1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For build pipeline documentation, see  [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
       - If you're creating a new build pipeline, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration** task.
       - If you're using an existing build pipeline, navigate to the **Tasks** tab when editing the pipeline, and search for the **Azure App Configuration** Task.
-2. Configure the necessary parameters for the task to pull the key-values from the App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
-3. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
+1. Configure the necessary parameters for the task to pull the key-values from the App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
+      - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
+      - Set the **App configuration name** to the name of your App Configuration store.
+      - Leave the default values for the remaining parameters.
+1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in releases
 
-This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipeline.
+This section will cover how to use the Azure App Configuration Pull task in an Azure DevOps release pipeline.
 
-1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. Documentation for release pipelines can be found [here](/azure/devops/pipelines/release?view=azure-devops).
-1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
+1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. For release pipeline documentation, see [Release pipelines](/azure/devops/pipelines/release?view=azure-devops).
+1. Choose an existing release pipeline. If you don’t have one, click **New pipeline** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
-1. Choose the **Stage** to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Choose the **Stage** to add the task. For more information about stages, see [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments?view=azure-devops).
 1. Select **+** for that Job, then add the **Azure App Configuration** task under the **Deploy** tab.
 1. Configure the necessary parameters within the task to pull your key-values from your App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
 1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
 
 ## Parameters
 
-The following parameters are used by the App Configuration Push task:
+The following parameters are used by the App Configuration Pull task:
 
 - **Azure subscription**: A drop-down containing your available Azure service connections. To update and refresh your list of available Azure service connections, press the **Refresh Azure subscription** button to the right of the textbox.
 - **App Configuration Name**: A drop-down that loads your available configuration stores under the selected subscription. To update and refresh your list of available configuration stores, press the **Refresh App Configuration Name** button to the right of the textbox.
