@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ms.author: alkohli
 ---
 
@@ -55,7 +55,7 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-    To verify the installed version, type:  
+    To get the installed version, type:  
 
     ```azurepowershell
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
