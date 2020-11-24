@@ -21,7 +21,7 @@ Language support varies by Speech service functionality. The following tables su
 
 Both the Microsoft Speech SDK and the REST API support the following languages (locales). 
 
-To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](how-to-custom-speech.md).
+To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:
@@ -430,4 +430,4 @@ See the following table for supported languages for the various Speaker Recognit
 ## Next steps
 
 * [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-* [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-chsarp)
