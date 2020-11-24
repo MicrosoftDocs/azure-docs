@@ -31,7 +31,7 @@ The ETL pipelines also become complex when handling updates to the operational d
 
 Azure Cosmos DB analytical store addresses the complexity and latency challenges that occur with the traditional ETL pipelines. Azure Cosmos DB analytical store can automatically sync your operational data into a separate column store. Column store format is suitable for large-scale analytical queries to be performed in an optimized manner, resulting in improving the latency of such queries.
 
-Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly linking to Azure Cosmos DB analytical store from Synapse Analytics. It enables you to run near real-time large-scale analytics on your operational data.
+Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly linking to Azure Cosmos DB analytical store from Azure Synapse Analytics. It enables you to run near real-time large-scale analytics on your operational data.
 
 ## Features of analytical store 
 
@@ -176,10 +176,10 @@ Authentication with the analytical store is the same as the transactional store 
 
 The analytical store is optimized to provide scalability, elasticity, and performance for analytical workloads without any dependency on the compute run-times. The storage technology is self-managed to optimize your analytics workloads without manual efforts.
 
-By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Synapse Analytics supports Apache Spark and SQL serverless with Azure Cosmos DB analytical store.
+By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and SQL serverless with Azure Cosmos DB analytical store.
 
 > [!NOTE]
-> You can only read from analytical store using Synapse Analytics run time. You can write the data back to your transactional store as a serving layer.
+> You can only read from analytical store using Azure Synapse Analytics run time. You can write the data back to your transactional store as a serving layer.
 
 ## <a id="analytical-store-pricing"></a> Pricing
 
@@ -189,7 +189,7 @@ Analytical store follows a consumption-based pricing model where you are charged
 
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (auto-sync)
 
-* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL serverless run times.
+* Analytical read operations: the read operations performed against the analytical store from Azure Synapse Analytics Spark and SQL serverless run times.
 
 > [!NOTE]
 > Azure Cosmos DB analytical store is currently available in public preview free of any charges.

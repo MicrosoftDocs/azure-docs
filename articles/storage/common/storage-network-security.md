@@ -395,7 +395,7 @@ The **Allow trusted Microsoft services...** setting also allows a particular ins
 | Azure Synapse Analytics       | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
 | Azure SQL Database       | Microsoft.Sql                          | Allows [import](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) of data from storage accounts and [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Synapse Analytics. |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Azure Synapse Analytics. |
 
 
 ### Storage analytics data access
