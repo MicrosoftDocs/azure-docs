@@ -140,7 +140,7 @@ There are nine outbound port requirements. Outbound requests in these ranges are
 
 <sup>3</sup> Not needed for subnets with no custom DNS server, or newer redis caches that ignore custom DNS.
 
-<sup>4</sup> See additional notes in [Additional VNET network connectivity requirements'] section for a more detailed explanation.
+<sup>4</sup> For more information, see [Additional VNET network connectivity requirements](#additional-vnet-network-connectivity-requirements).
 
 #### Geo-replication peer port requirements
 
