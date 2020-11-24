@@ -71,20 +71,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL using one of the following patterns:
 
-	- `https://<companyname>.au1.xmatters.com.au/`
-	- `https://<companyname>.cs1.xmatters.com/`
-	- `https://<companyname>.xmatters.com/`
-	- `https://www.xmatters.com`
-	- `https://<companyname>.xmatters.com.au/`
+	| Identifier |
+	| ---------- |
+	| `https://<companyname>.au1.xmatters.com.au/` |
+	| `https://<companyname>.cs1.xmatters.com/` |
+	| `https://<companyname>.xmatters.com/` |
+	| `https://www.xmatters.com` |
+	| `https://<companyname>.xmatters.com.au/` |
+	|-|
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
-	- `https://<companyname>.au1.xmatters.com.au`
-	- `https://<companyname>.xmatters.com/sp/<instancename>`
-	- `https://<companyname>.cs1.xmatters.com/sp/<instancename>`
-	- `https://<companyname>.au1.xmatters.com.au/<instancename>`
+	| Reply URL |
+	| ---------- |
+	|  `https://<companyname>.au1.xmatters.com.au` |
+	| `https://<companyname>.xmatters.com/sp/<instancename>` |
+	| `https://<companyname>.cs1.xmatters.com/sp/<instancename>` |
+	| `https://<companyname>.au1.xmatters.com.au/<instancename>` |
+	|-|
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand Client support team](https://www.xmatters.com/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -155,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Sign in to your **XMatters OnDemand** tenant.
 
-2. Go to the **Users Icon** > **Users** . and then click **Add Users**.
+2. Go to the **Users Icon** > **Users** and then click **Add Users**.
 
 	![Users](./media/xmatters-ondemand-tutorial/add-user.png "Users")
 
