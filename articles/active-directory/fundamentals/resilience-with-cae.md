@@ -34,7 +34,7 @@ As a result, applications can reject unexpired tokens based on the events signal
 
 ![conceptualiagram of CAE](./media/resilience-with-cae/admin-resilience-cae.png)
 
-### How does CAE help?
+## How does CAE help?
 
 This mechanism allows Azure AD to issue longer-lived tokens, while enabling applications a way to revoke access and force re-authentication only when needed. The net result of this pattern is fewer calls to acquire tokens, which means that the end-to-end flow is more resilient. 
 
@@ -42,7 +42,7 @@ To use CAE, both the service and the client must be CAE-capable. Microsoft 365 s
 
 Microsoft is working with the industry to build [standards](https://openid.net/wg/sse/) that will allow third party applications to use this capability. You can also develop applications that are CAE-capable. See How to build resilience in your application for more information.
 
-### How do I implement CAE?
+## How do I implement CAE?
 
 * [Enable CAE](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) in the Azure AD Security Configuration.
 
@@ -62,7 +62,7 @@ Resilience resources for administrators and architects
 
 * [Build resilience in your hybrid authentication](resilience-in-hybrid.md)
 
-* [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
+* [Build resilience in application access with Application Proxy](resilience-on-premises-access.md)
 
 Resilience resources for developers
 
