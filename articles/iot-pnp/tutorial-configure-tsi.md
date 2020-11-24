@@ -132,7 +132,7 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 | `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
 |`contents` (array)| `variables` (object)  | View the example below
 
-![DTDL to Time Series Model Type](./media/tutorial-configure-tsi/DTDL-to-Time Series Model-Type.png)
+![DTDL to Time Series Model Type](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
 > This example shows three variables, but each type can have up to 100. Different variables can reference the same telemetry value to perform different calculations as needed. For the full list of filters, aggregates, and scalar functions see [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
