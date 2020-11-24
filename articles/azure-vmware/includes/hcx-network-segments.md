@@ -31,4 +31,4 @@ Four networks are needed for VMware HCX:
 - **Replication network:** You want to create a new network for VMware HCX Replication and extend that network to your vSphere cluster via a port group. At a minimum, identify two IPs on this network segment for VMware HCX. (You might need larger numbers, depending on your deployment.)
 
    > [!NOTE]
-   > This is optional. Typical deployments use the management network for replication. In that scenario, the replication VMK must be routable.
+   > This is optional. This configuration is only possible when the on-premises cluster hosts use a dedicated Replication VMkernel network.  If your on-premises cluster does not have a dedicated Replication VMkernel network defined there is no need to create this network.

@@ -180,4 +180,4 @@ When you are done using the Private Link service, delete the resource group to c
 
 ## Next steps
 
-In this quickstart, you created an internal Azure load balancer and a Private Link service. You can also learn how to [create a private endpoint by using the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+In this quickstart, you created an internal Azure load balancer and a Private Link service. You can also learn how to [create a private endpoint by using the Azure portal](./create-private-endpoint-portal.md).
