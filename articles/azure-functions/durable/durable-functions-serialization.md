@@ -15,7 +15,7 @@ Durable Functions automatically persists function inputs, outputs, and custom st
 
 To ensure your workflows persist data correctly, you will need to understand what data is serialized, how it is serialized, and how to customize serialization.
 
-## Serialized Data
+## Serialized data
 
 Durable Functions requires that the following pieces of data are serializable:
 
