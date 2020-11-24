@@ -26,7 +26,7 @@ Users access on-premises resources through a URL published via Application Proxy
 
 ![Architecture diagram of Application y](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 
- ## How do I implement Application Proxy?
+## How do I implement Application Proxy?
 
 To implement remote access with Azure AD Application Proxy, see the following resources.
 
