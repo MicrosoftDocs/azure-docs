@@ -129,55 +129,50 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
     ```toml
     [dependencies]
-    actix-web = "3"
-    serde = "1"
-    serde_derive = "1"
+    warp = "0.2"
+    tokio = { version = "0.2", features = ["full"] }
     ```
 
 1. In *src/main.rs*, add the following code and save the file. This is your Rust custom handler.
 
     ```rust
-    #[macro_use] extern crate serde_derive;
-    use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
+    use std::collections::HashMap;
+    use std::net::{IpAddr, Ipv4Addr, SocketAddr};
     use std::env;
+    use warp::{
+        http::{Response},
+        Filter,
+    };
 
-    #[derive(Deserialize)]
-    pub struct HelloParams {
-        name: Option<String>,
-    }
+    #[tokio::main]
+    async fn main() {
+        let example1 = warp::get()
+            .and(warp::path("api"))
+            .and(warp::path("HttpExample"))
+            .and(warp::query::<HashMap<String, String>>())
+            .map(|p: HashMap<String, String>| match p.get("name") {
+                Some(name) => Response::builder().body(format!("Hello, {}. This HTTP triggered function executed successfully.", name)),
+                None => Response::builder().body(String::from("This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.")),
+            });
 
-    #[get("/api/HttpExample")]
-    async fn hello(params: web::Query<HelloParams>) -> impl Responder {
-        let greeting = match &params.name {
-            None => String::from("This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response."),
-            Some(x) => format_args!("Hello, {}. This HTTP triggered function executed successfully.", x).to_string(),
-        };
-        HttpResponse::Ok().body(greeting)
-    }
-
-    #[actix_web::main]
-    async fn main() -> std::io::Result<()> {
         let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
-        let port = match env::var(port_key) {
-            Ok(val) => val,
-            Err(_) => String::from("8080"),
+        let port: u16 = match env::var(port_key) {
+            Ok(val) => val.parse().expect("Custom Handler port is not a number!"),
+            Err(_) => 3000,
         };
+        let socket = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)), port);
 
-        HttpServer::new(|| {
-            App::new()
-                .service(hello)
-        })
-        .bind(format_args!("127.0.0.1:{}", port).to_string())?
-        .run()
-        .await
+        warp::serve(example1)
+            .run(socket)
+            .await
     }
     ```
 
 1. In the integrated terminal, set the project to use the nightly channel of Cargo and compile your custom handler. An executable file named `handler` (`handler.exe` on Windows) is output in the function app root folder.
 
     ```bash
-    rustup override set nightly
-    cargo build --release -Z unstable-options --out-dir .
+    cargo build --release
+    cp target/release/handler .
     ```
 
     ![VS Code - Build Rust custom handler](./media/functions-create-first-function-vs-code/functions-vscode-rust.png)
@@ -263,11 +258,20 @@ This quickstart will deploy your application to an Azure Functions Linux Consump
 
 # [Rust](#tab/rust)
 
-Needs content.
+1. Create a file at *.cargo/config*. Add the following contents and save the file.
 
-1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
+    ```
+    [target.x86_64-unknown-linux-musl]
+    linker = "rust-lld"
+    ```
 
-    **Needs content**
+1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created. Copy it to the function app root.
+
+    ```bash
+    rustup target add x86_64-unknown-linux-musl
+    cargo build --release --target=x86_64-unknown-linux-musl
+    cp target/x86_64-unknown-linux-musl/release/handler .
+    ```
 
 1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the linux binary.
 
@@ -293,7 +297,7 @@ In this section, you create a function app and related resources in your Azure s
 
     + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
-    + **Select Function App in Azure**: Choose `+ Create new Function App (advanced)`. **Important**: The `advanced` option is required to ensure you select the correct operating system.
+    + **Select Function App in Azure**: Choose `+ Create new Function App (advanced)`. **Important: The `advanced` option is required to ensure you select the correct operating system.**
 
     + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.
 
