@@ -39,7 +39,7 @@ The following are operational guidelines that should be followed when working wi
 
 * **Configure TTL vaalue**: If your client application is caching the Domain Name Service (DNS) data of your server instances, set a time-to-live (TTL) value of less than 30 seconds. Because the underlying IP address of a server instance can change after a failover, caching the DNS data for an extended time can lead to connection failures if your application tries to connect to an IP address that no longer is in service.
 
-* Use connection pooling to avoid hitting the [maximum connection limits](concepts-server-parameters#max_connections)and use retry logic to avoid intermittent connection issues. 
+* Use connection pooling to avoid hitting the [maximum connection limits](concepts-server-parameters.md#max_connections)and use retry logic to avoid intermittent connection issues. 
 
 * If you are using replica, use [ProxySQL to balance off load](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/scaling-an-azure-database-for-mysql-workload-running-on/ba-p/1105847) between the primary server and the readable secondary replica server. See the setup steps here. </br> 
 
