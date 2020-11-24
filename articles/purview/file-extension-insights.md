@@ -82,8 +82,9 @@ Use the filters above the grid to filter the data shown:
 |**Content scanning**     |Select to choose **Supported** or **Not Supported**, to show only file types that can be further scanned for sensitive content, or files that cannot be scanned, such as **.cert** or **.jpg** files. |
 | | |
 
-Above the filters, select **Edit columns** :::image type="icon" source="media/insights/ico-columns.png" border="false"::: to display more or fewer columns in your grid, or to change the order.
+Above the filters, select **Edit columns** :::image type="icon" source="media/insights/ico-columns.png" border="false"::: to display more or fewer columns in your grid, or to change the order. 
 
+To sort the grid, select a column header to sort by that column.
 ## Next steps
 
 Learn more about Azure Purview insight reports

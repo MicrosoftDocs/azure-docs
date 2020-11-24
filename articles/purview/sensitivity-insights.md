@@ -70,7 +70,7 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 In any of the following **Sensitivity labeling insights** graphs, select the **View more** link to drill down for more details:
 
-- **Top labels applied across resources**
+- **Top labels applied across sources**
 - **Top labels applied on files**
 - **Top labels applied on tables**
 - **Labeling activity > Labeled data**
@@ -79,23 +79,16 @@ For example:
 
 :::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Sensitivity label drilldown" lightbox="media/insights/sensitivity-label-drilldown.png":::
 
-Use the filters above the grid to filter the data shown, including the sensitivity label name, subscription name, or source type. If you're not sure of the exact sensitivity label name, you can enter part or all of the name in the **Filter by keyword** box.
+Do any of the following to learn more:
 
-For example:
-
-:::image type="content" source="media/insights/sensitivity-labels-filter-small.png" alt-text="Filtered sensitivity insights report" lightbox="media/insights/sensitivity-labels-filter.png":::
-
-Above the filters: 
-
-- **To display more or fewer columns in your grid,** select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order
-
-- **To browse through the assets found with a specific label,** select a label and then select **Browse assets** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: 
-
-   The search results display all of the labeled assets found with the selected sensitivity label. For example:
-
-   :::image type="content" source="media/insights/sensitivity-label-search-results-small.png" alt-text="Sensitivity label search results" lightbox="media/insights/sensitivity-label-search-results.png":::
- 
-   For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).
+|Option  |Description  |
+|---------|---------|
+|**Filter your data**     |  Use the filters above the grid to filter the data shown, including the label name, subscription name, or source type. <br><br>If you're not sure of the exact label name, you can enter part or all of the name in the **Filter by keyword** box.       |
+|**Sort the grid** |Select a column header to sort the grid by that column. | 
+|**Edit columns**     |  To display more or fewer columns in your grid, select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order.    <br><br>Select a column header to sort the grid by that column.   |
+|**Drill down further**     | To drill down to a specific label, select a name in the **Sensitivity label** column to view the **Label by source** report. <br><br>This report displays data for the selected label, including the source name, source type, subscription ID, and the numbers of classified files and tables.      |
+|**Browse assets**     |  To browse through the assets found with a specific label or source, select one or more labels or sources, depending on the report you're viewing, and then select **Browse assets** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: above the filters. <br><br>The search results display all of the labeled assets found for the selected filter.  For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).       |
+| | |
 ## Sensitivity label integration with Microsoft 365 compliance
 
 Close integration with information protection offered in Microsoft 365 means that Purview offers easy and direct ways to scan your entire data estate, receive classification and labeling of your content as well as integrated content protection based on those labels and classifications.
