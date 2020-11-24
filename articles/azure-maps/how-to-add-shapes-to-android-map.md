@@ -72,7 +72,8 @@ Follow the steps below to use the **Line Layer** to add a line on the map.
     });
 
     ```
-
+    The code snippet above first obtains an Azure Maps map control instance in the **onReady()** callback method. It then creates a data source object using the **DataSource** class and adds it to the map. Then, it creates a list of **Point** objects. A **LineString** is created from the list of points and added to the data source. A **Line Layer** renders line objects wrapped in a data source on the map. A line layer is then created and the data source is added to it.
+    
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
 
     ```Java
@@ -169,9 +170,7 @@ Follow the steps below to use the **Line Layer** to add a line on the map.
     }
     ```
 
-If you run your application now, you should see a line on the map as seen below:
-
-
+When you run the application, you should see a line on the map as seen below:
 
 ![A line rendered on an Android map](./media/how-to-add-shapes-to-android-map/android-map-line.png)</
 
@@ -232,7 +231,7 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
             strokeWidth(2f)));
     });
     ```
-
+    
     After adding the code snippet above, your `MainActivity.java` should look like the one below:
 
     ```Java
@@ -339,7 +338,7 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
     }
     ```
 
-If you run your application now, you should see a polygon on the map as seen below:
+When you run the application, you should see a polygon on the map as seen below:
 
 ![A polygon rendered on an Android map](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</
 
