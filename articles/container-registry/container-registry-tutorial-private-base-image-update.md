@@ -8,7 +8,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # Tutorial: Automate container image builds when a base image is updated in another private container registry 
 
-ACR Tasks supports automated image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
+[ACR Tasks](container-registry-tasks-overview.md) supports automated image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
 
 In this tutorial, you learn how to create an ACR task that triggers a build in the cloud when a container's base image is pushed to another Azure container registry. You can also try a tutorial to create an ACR task that triggers an image build when a base image is pushed to the [same Azure container registry](container-registry-tutorial-base-image-update.md).
 
@@ -161,7 +161,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
-![Screenshot that shows a sample application rendered in a browser.][base-update-01]
+:::image type="content" source="media/container-registry-tutorial-base-image-update/base-update-01.png" alt-text="Screenshot of sample application in browser":::
 
 To stop and remove the container, run the following command:
 
@@ -197,7 +197,7 @@ caw       taskhelloworld  linux       Succeeded  Commit        2020-11-20T23:16:
 Here you simulate a framework patch in the base image. Edit **Dockerfile-base**, and add an "a" after the version number defined in `NODE_VERSION`:
 
 ```Dockerfile
-ENV NODE_VERSION 15.2.2a
+ENV NODE_VERSION 15.2.1a
 ```
 
 Run a quick task to build the modified base image. Take note of the **Run ID** in the output.
@@ -244,7 +244,7 @@ docker run -d -p 8081:80 --name updatedapp --rm $ACR_NAME.azurecr.io/helloworld:
 
 Navigate to http://localhost:8081 in your browser, and you should see the updated Node.js version number (with the "a") in the web page:
 
-![Screenshot of sample application rendered in browser][base-update-02]
+:::image type="content" source="media/container-registry-tutorial-base-image-update/base-update-02.png" alt-text="Screenshot of updated sample application in browser":::
 
 What's important to note is that you updated your **base** image with a new version number, but the last-built **application** image displays the new version. ACR Tasks picked up your change to the base image, and rebuilt your application image automatically.
 
@@ -284,6 +284,3 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 
-<!-- IMAGES -->
-[base-update-01]: ./media/container-registry-tutorial-base-image-update/base-update-01.png
-[base-update-02]: ./media/container-registry-tutorial-base-image-update/base-update-02.png

@@ -11,7 +11,7 @@ ms.custom: "seodec18, mvc, devx-track-azurecli"
 
 # Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks
 
-**ACR Tasks** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *quick task* feature of ACR Tasks.
+[ACR Tasks](container-registry-tasks-overview.md) is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *quick task* feature of ACR Tasks.
 
 The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. A quick task extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
@@ -268,7 +268,7 @@ Server running at http://localhost:80
 
 When `Server running at http://localhost:80` appears, navigate to the container's FQDN in your browser to see the running application. The FQDN should have been displayed in the output of the `az container create` command you executed in the previous section.
 
-![Screenshot of sample application rendered in browser][quick-build-02-browser]
+:::image type="content" source="media/container-registry-tutorial-quick-build/quick-build-02-browser.png" alt-text="Sample application running in browser":::
 
 To detach your console from the container, hit `Control+C`.
 

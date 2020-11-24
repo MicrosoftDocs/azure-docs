@@ -11,7 +11,7 @@ ms.custom: "seodec18, mvc, devx-track-js, devx-track-azurecli"
 
 # Tutorial: Automate container image builds when a base image is updated in an Azure container registry 
 
-ACR Tasks supports automated container image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
+[ACR Tasks](container-registry-tasks-overview.md) supports automated container image builds when a container's [base image is updated](container-registry-tasks-base-images.md), such as when you patch the OS or application framework in one of your base images. 
 
 In this tutorial, you learn how to create an ACR task that triggers a build in the cloud when a container's base image is pushed to the same registry. You can also try a tutorial to create an ACR task that triggers an image build when a base image is pushed to [another Azure container registry](container-registry-tutorial-private-base-image-update.md). 
 
@@ -158,7 +158,7 @@ cat       taskhelloworld  linux       Succeeded  Manual     2020-11-20T23:07:29Z
 Here you simulate a framework patch in the base image. Edit **Dockerfile-base**, and add an "a" after the version number defined in `NODE_VERSION`:
 
 ```dockerfile
-ENV NODE_VERSION 15.2.2a
+ENV NODE_VERSION 15.2.1a
 ```
 
 Run a quick task to build the modified base image. Take note of the **Run ID** in the output.
