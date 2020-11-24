@@ -53,8 +53,8 @@ Assign the proper App Configuration role assignments to the credentials being us
 This section will cover how to use the Azure App Configuration Pull task in an Azure DevOps build pipeline.
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For build pipeline documentation, see  [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
-      - If you're creating a new build pipeline, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration** task.
-      - If you're using an existing build pipeline, navigate to the **Tasks** tab when editing the pipeline, and search for the **Azure App Configuration** Task.
+      - If you're creating a new build pipeline, click **New pipeline**, select the repository for your pipeline. Select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration** task.
+      - If you're using an existing build pipeline, select **Edit** to edit the pipeline. In the **Tasks** tab, search for the **Azure App Configuration** Task.
 1. Configure the necessary parameters for the task to pull the key-values from the App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App configuration name** to the name of your App Configuration store.
