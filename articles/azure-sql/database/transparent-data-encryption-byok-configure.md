@@ -19,7 +19,8 @@ ms.date: 03/12/2019
 
 This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
-[!NOTE] Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in public preview. Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
+> [!NOTE] 
+> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in public preview. Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
 
 ## Prerequisites for PowerShell
 
@@ -78,15 +79,15 @@ For adding permissions to your server on a Managed HSM, add the 'Managed HSM Cry
 - Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet to set the key as the TDE protector for all server resources.
 - Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
 
-[!NOTE]
-**(In Preview)** For Managed HSM keys, use Az.Sql 2.11.1 version of PowerShell.
+> [!NOTE]
+> **(In Preview)** For Managed HSM keys, use Az.Sql 2.11.1 version of PowerShell.
 
-[!NOTE]
-The combined length for the key vault name and key name cannot exceed 94 characters.
+> [!NOTE]
+> The combined length for the key vault name and key name cannot exceed 94 characters.
 
-[!TIP]
-An example KeyId from Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
-An example KeyId from Managed HSM: https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
+> [!TIP]
+> An example KeyId from Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> An example KeyId from Managed HSM: https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
