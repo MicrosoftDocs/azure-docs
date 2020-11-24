@@ -22,7 +22,7 @@ Azure Monitor for Networks is structured around these key components of monitori
 
 The Azure Monitor for Networks **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts, and dependency view.
 
-[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png]((media/network-insights-overview/overview.png)#lightbox)
+[![Screenshot that shows the Overview page](media/network-insights-overview/overview.png)]((media/network-insights-overview/overview.png)#lightbox)
 
 ### Search and filtering
 You can customize the resource health and alerts view by using filters like **Subscription**, **Resource Group**, and **Type**.
@@ -75,7 +75,7 @@ The **Connectivity** tab provides an easy way to visualize all tests configured 
 
 Tests are grouped by **Sources** and **Destinations** tiles and display the reachability status for each test. Reachable settings provide easy access to configurations for your reachability criteria, based on checks failed (%) and RTT (ms). After you set the values, the status for each test updates based on the selection criteria.
 
-[![Screenshot that shows connectivity tests in Azure Monitor for Networks.](media/azure-network-latency/azure-network-latency.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
+[![Screenshot that shows connectivity tests in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png#lightbox)
 
 You can select any source or destination tile to open a metric view:
 
@@ -89,7 +89,7 @@ The **Alert** box on the right side of the page provides a view of all alerts 
 ## <a name="traffic"></a>Traffic
 The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
 
-[![Screenshot that shows the Traffic tab in Azure Monitor for Networks.](media/azure-network-latency/azure-network-latency.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)#lightbox)
+[![Screenshot that shows the Traffic tab in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png#lightbox)
 
 If you select any region tile, a grid view appears. The grid provides NSG flow logs and Traffic Analytics in a view that's easy to read and configure:  
 
