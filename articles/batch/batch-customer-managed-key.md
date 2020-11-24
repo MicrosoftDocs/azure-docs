@@ -140,7 +140,7 @@ az batch account set \
   * **Are customer-managed keys supported for existing Batch accounts?** No. Customer-managed keys are only supported for new Batch accounts.
   * **Can I select RSA key sizes larger than 2048 bits?** Yes, RSA key sizes of `3072` and `4096` bits are also supported.
   * **What operations are available after a customer-managed key is revoked?** The only operation allowed is account deletion if Batch loses access to the customer-managed key.
-  * **How should I restore access to my Batch account if I accidentally delete the Key Vault key?** Since purge protection and soft delete are enabled, you could restore the existing keys. For more information, see [Recover an Azure Key Vault](../key-vault/general/key-vault-recovery.md#recovering-a-key-vault).
+  * **How should I restore access to my Batch account if I accidentally delete the Key Vault key?** Since purge protection and soft delete are enabled, you could restore the existing keys. For more information, see [Recover an Azure Key Vault](../key-vault/general/key-vault-recovery.md).
   * **Can I disable customer-managed keys?** You can set the encryption type of the Batch Account back to "Microsoft managed key" at any time. After this, you are free to delete or change the key.
   * **How can I rotate my keys?** Customer-managed keys are not automatically rotated. To rotate the key, update the Key Identifier that the account is associated with.
   * **After I restore access how long will it take for the Batch account to work again?** It can take up to 10 minutes for the account to be accessible again once access is restored.
