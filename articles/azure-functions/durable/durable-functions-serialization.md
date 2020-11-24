@@ -17,16 +17,16 @@ To ensure your workflows persist data correctly, you will need to understand wha
 
 ## Serialized data
 
-Durable Functions requires that the following pieces of data are serializable:
+Durable Functions automatically serializes and persists the following data:
 
 - Orchestration inputs and outputs, including external event payloads
 - Activity inputs and outputs
 - Entity State
-- Exceptions thrown by Activity and Orchestrator Functions
+- Exceptions thrown by Activity, Orchestrator, and Entity functions
 
-## Serialization Algorithm
+## Serialization methods
 
-Durable Functions uses [Newtonsoft.Json](https://www.newtonsoft.com/json/help/html/Introduction.htm) to serialize data. The default settings are below:
+Durable Functions internally uses [Newtonsoft.Json](https://www.newtonsoft.com/json/help/html/Introduction.htm) to serialize orchestration and entity data to JSON. The default settings are below:
 
 **Inputs, Outputs and State:**
 
@@ -51,14 +51,14 @@ new JsonSerializerSettings
 
 Read more detailed documentation about `JsonSerializerSettings` [here](https://www.newtonsoft.com/json/help/html/SerializationSettings.htm).
 
-## Customizing Serialization
+## Customizing serialization (.NET only)
 
 The Durable Functions team selected the above default settings to cover a broad variety of types while balancing performance and serialization size. However, these defaults may not work for all of the types used by your application. Applications that meet all of the below requirements can use Dependency Injection (DI) to customize how data and exceptions are serialized.
 
 - The application uses C# (class library) for a programming language
 - The application is on Functions V3
 
-The sample classes below show how you can utilize DI to override these settings.
+The sample classes below demonstrate how to utilize DI to override the default serialization settings using custom [IMessageSerializerSettingsFactory](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.imessageserializersettingsfactory?view=azure-dotnet) and [IErrorSerializerSettingsFactory](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.ierrorserializersettingsfactory?view=azure-dotnet) service interfaces.
 
 ```csharp
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
