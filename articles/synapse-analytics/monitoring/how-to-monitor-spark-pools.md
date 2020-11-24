@@ -13,7 +13,7 @@ ms.reviewer: mahi
 
 # Use Synapse Studio to monitor your Apache Spark pools
 
-With Azure Synapse Analytics, you can use Spark to run notebooks, jobs, and other kinds of applications on your Spark pools in your workspace.
+With Azure Synapse Analytics, you can use Spark to run notebooks, jobs, and other kinds of applications on Spark pools in your workspace.
 
 This article explains how to monitor your Apache Spark pools, allowing you to keep an eye on the status of your pools, including how many vCores are in use by different workspace users.
 
