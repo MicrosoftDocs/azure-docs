@@ -121,7 +121,7 @@ az aks nodepool show \
 
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
-- [Automatically apply cluster and node pool upgrades with GitHub Actions](github-schedule)
+- [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS - internal -->
