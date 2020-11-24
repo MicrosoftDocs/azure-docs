@@ -19,6 +19,10 @@ When UTF-8 text is read from a CSV or PARQUET file using serverless SQL pool, so
 
 The workaround to this issue is to always use UTF-8 collation when reading UTF-8 text  from CSV or PARQUET files.
 
+-	In many cases, you just need to set UTF8 collation on the database (metadata operation).
+-	If you did not specify UTF8 collation on external tables that read UTF8 data, you need to re-create impacted external tables and set UTF8 collation on VARCHAR columns (metadata operation).
+
+
 ## Next steps
 
 * [What is Azure Synapse](overview-what-is.md)
