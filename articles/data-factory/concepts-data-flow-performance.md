@@ -82,6 +82,12 @@ If you have a good understanding of the cardinality of your data, key partitioni
 > [!TIP]
 > Manually setting the partitioning scheme reshuffles the data and can offset the benefits of the Spark optimizer. A best practice is to not manually set the partitioning unless you need to.
 
+## Logging level
+
+If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode, you are requesting ADF to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
+
+![Logging level](media/data-flow/logging.png "Set logging level")
+
 ## <a name="ir"></a> Optimizing the Azure Integration Runtime
 
 Data flows run on Spark clusters that are spun up at run-time. The configuration for the cluster used is defined in the integration runtime (IR) of the activity. There are three performance considerations to make when defining your integration runtime: cluster type, cluster size, and time to live.
@@ -179,6 +185,10 @@ When data flows write to sinks, any custom partitioning will happen immediately 
 
 With Azure SQL Database, the default partitioning should work in most cases. There is a chance that your sink may have too many partitions for your SQL database to handle. If you are running into this, reduce the number of partitions outputted by your SQL Database sink.
 
+#### Impact of error row handling to performance
+
+When you enable error row handling ("continue on error") in the sink transformation, ADF will take an additional step before writing the compatible rows to your destination table. This additional step will have a small performance penalty that can be in the range of 5% added for this step with an additional small performance hit also added if you set the option to also with the incompatible rows to a log file.
+
 #### Disabling indexes using a SQL Script
 
 Disabling indexes before a load in a SQL database can greatly improve performance of writing to the table. Run the below command before writing to your SQL sink.
@@ -235,7 +245,6 @@ When writing to CosmosDB, altering throughput and batch size during data flow ex
 **Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
 
 **Write Throughput Budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
-
 
 ## Optimizing transformations
 
