@@ -69,7 +69,7 @@ To perform the steps described in this article, you must have:
 
     Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
-    ![Select VPN][api-management-setup-vpn-select]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in porta":::
 
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
