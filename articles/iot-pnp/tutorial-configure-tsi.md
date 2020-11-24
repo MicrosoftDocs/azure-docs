@@ -13,7 +13,7 @@ services: iot-pnp
 
 # Preview Tutorial: Create and Connect to Time Series Insights Gen2 to store, visualize, and analyze IoT Plug and Play device telemetry
 
-In this tutorial, you learn how to create and correctly configure an [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) (TSI) environment to integrate with your IoT Plug and Play solution. Use TSI to collect, process, store, query, and visualize time series data at Internet of Things (IoT) scale.
+In this tutorial, you learn how to create and correctly configure an [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) (TSI) environment to integrate with your IoT Plug and Play solution. Use TSI to collect, process, store, query, and visualize time series data at Internet of Things (IoT) scale.
 
 First, you provision a TSI environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [Time Series Model](../time-series-insights/concepts-model-overview.md) based on the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files you used for the temperature controller and thermostat devices.
 
@@ -36,10 +36,16 @@ To avoid the requirement to install the Azure CLI locally, you can use the Azure
 
 ## Prepare your event source
 
+<<<<<<< HEAD
 The IoT hub you created previously will be your TSI environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources).
 
 > [!IMPORTANT]
 > Disable any existing IoT Hub routes. There is a known issue when you use an IoT hub as a TSI event source with [routing](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configured. Temporarily disable any routing endpoints, and when your IoT hub is connected to TSI you can re-enable them.
+=======
+The IoT Hub you created previously will be your TSI environment's [event source](../time-series-insights/concepts-streaming-ingestion-event-sources.md).
+
+Disable any existing IoT Hub routes: There is a known issue when using IoT Hubs as a TSI event source with [routing](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configured. Temporarily disable any routing endpoints, and once your IoT Hub is connected to TSI you can re-enable them.
+>>>>>>> b9c9396867b (Links: Azure (2020-11) - 19)
 
 Create a unique consumer group on your IoT hub for TSI to consume. Replace `my-pnp-hub` with the name of the IoT hub you used previously:
 
@@ -47,11 +53,22 @@ Create a unique consumer group on your IoT hub for TSI to consume. Replace `my-p
 az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group
 ```
 
+<<<<<<< HEAD
 ## Choose your Time Series ID
+=======
+### Time Series ID selection
+
+While provisioning your TSI environment, you'll be required to select a Time Series ID. Selecting the appropriate Time Series ID is critical, as the property is immutable and cannot be changed after it's set. Choosing a Time Series ID is like choosing a partition key for a database, and it acts as the primary key for your Time Series Model. For more details, read [Best practices for choosing a Time Series ID
+](../time-series-insights/how-to-select-tsid.md).
+>>>>>>> b9c9396867b (Links: Azure (2020-11) - 19)
 
 When you provision your TSI environment, you need to select a *Time Series ID*. It's important to select the appropriate Time Series ID, because this property is immutable and can't be changed after it's set. A Time Series ID is like a database partition key. The Time Series ID acts as the primary key for your Time Series Model. To learn more, see [Best practices for choosing a Time Series ID](../time-series-insights/how-to-select-tsid.md).
 
+<<<<<<< HEAD
 As an IoT Plug and Play user, specify a _composite key_ that consists of `iothub-connection-device-id` and `dt-subject` as your Time Series ID. IoT Hub adds these system properties that contain your IoT Plug and Play device ID, and your device component names, respectively.
+=======
+My IoT Plug & Play devices are no component [devices](./concepts-convention.md)--why should I include the component name as part of my TS ID? 
+>>>>>>> b9c9396867b (Links: Azure (2020-11) - 19)
 
 Even if your IoT Plug and Play device models don't currently use components, you should include `dt-subject` as part of a composite key so that you can use them in the future. Because your Time Series ID is immutable, Microsoft recommends enabling this option in case you need it in the future.
 
@@ -64,7 +81,7 @@ This section describes how to provision your Azure Time Series Insights Gen2 env
 
 The following command:
 
-* Creates an Azure storage account for your environment's [cold store](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store), designed for long-term retention and analytics over historical data.
+* Creates an Azure storage account for your environment's [cold store](../time-series-insights/concepts-storage.md#cold-store), designed for long-term retention and analytics over historical data.
   * Replace `mytsicoldstore` with a unique name for your cold storage account.
 * Creates an Azure Time Series Insights Gen2 environment, including warm storage with a retention period of seven days, and cold storage for infinite retention.
   * Replace `my-tsi-env` with a unique name for your TSI environment.
@@ -107,7 +124,13 @@ In the explorer, you see three instances:
 
 ## Configure model translation
 
+<<<<<<< HEAD
 Next, you translate your DTDL device model to the asset model in Azure Time Series Insights (TSI). TSI's Time Series Model is a semantic modeling tool for data contextualization within TSI. Time Series Model has three core components:
+=======
+* [Time Series Model instances](../time-series-insights/concepts-model-overview.md#time-series-model-instances). Instances are virtual representations of the time series themselves. Instances will be uniquely identified by your TS ID.
+* [Time Series Model hierarchies](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies). Hierarchies organize instances by specifying property names and their relationships.
+* [Time Series Model types](../time-series-insights/concepts-model-overview.md#time-series-model-types). Types help you define [variables](../time-series-insights/concepts-variables.md) or formulas for doing computations. Types are associated with a specific instance.
+>>>>>>> b9c9396867b (Links: Azure (2020-11) - 19)
 
 * [Time Series Model instances](../time-series-insights/concepts-model-overview.md#time-series-model-instances). Instances are virtual representations of the time series themselves. Instances are uniquely identified by your Time Series ID.
 * [Time Series Model hierarchies](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies). Hierarchies organize instances by specifying property names and their relationships.
@@ -115,7 +138,17 @@ Next, you translate your DTDL device model to the asset model in Azure Time Seri
 
 ### Define your types
 
+<<<<<<< HEAD
 You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, TSI attempts to autoresolve time series instances based on your Time Series ID property value(s). All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances. The following details show the simplest method to synchronize your device DTDL models with your Time Series Model types:
+=======
+* Your digital twin model identifier (DTMI) will become your Type ID
+* The Type name can be either the model's name or display name
+* The model description becomes the Type's description
+* At least one Type variable is created for each telemetry of  numeric schema. 
+  * Only numeric data types can be used for variables, but if a value is sent as a string that is parsable, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) function such as `toDouble`
+* The variable name can either be the telemetry name or display name
+* When defining the variable Time Series Expression (TSX), refer to the telemetry's name on the wire, and it's data type.
+>>>>>>> b9c9396867b (Links: Azure (2020-11) - 19)
 
 * Your digital twin model identifier becomes your type ID.
 * The type name can be either the model name or the display name.
@@ -135,7 +168,11 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 ![DTDL to Time Series Model Type](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
+<<<<<<< HEAD
 > This example shows three variables, but each type can have up to 100. Different variables can reference the same telemetry value to perform different calculations as needed. For the full list of filters, aggregates, and scalar functions see [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
+=======
+> This example shows three variables, but each Type can have up to 100. Different variables can reference the same telemetry value to perform different calucaultions as needed. For the full list of filters, aggregates, and scalar functions view the [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax) documentation.
+>>>>>>> b9c9396867b (Links: Azure (2020-11) - 19)
 
 Open a text editor and save the following JSON to your local drive:
 
@@ -219,8 +256,17 @@ Navigate back to the charting pane and expand **Device Fleet > your device**. Se
 
 ## Next steps
 
+<<<<<<< HEAD
 * To learn more about the various charting options, including interval sizing and Y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
 
 * For an in-depth overview of your environment's Time Series Model, see [Time Series Model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md) article.
 
 * To dive into the query APIs and the Time Series Expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis.md).
+=======
+* To learn more about the various charting options, including interval sizing and Y-axis controls, view the [Azure Time Series Insights Explorer
+](../time-series-insights/concepts-ux-panels.md) documentation.
+
+* For an in-depth overview of your environment's Time Series Model see [this](../time-series-insights/concepts-model-overview.md) article.
+
+* To dive into the query APIs and the Time Series Expression syntax, [select](/rest/api/time-series-insights/reference-query-apis).
+>>>>>>> b9c9396867b (Links: Azure (2020-11) - 19)

@@ -23,7 +23,7 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
 ## Pre-requisites
 
 - An Azure account with a valid subscription
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot).
+- [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](/cli/azure/azure-cli-reference-for-iot).
 - An **IoT Hub** of SKU either F1, S1, S2 or S3.
 - Have an **IoT Edge device with version 1.2 or above**. Since IoT Edge MQTT broker is currently in public preview, set the following environment variables to true on the edgeHub container to enable the MQTT broker:
 
