@@ -1742,6 +1742,8 @@
         href: trend-micro-tutorial.md
       - name: TrendMiner
         href: trendminer-tutorial.md
+      - name: Tribeloo
+        href: tribeloo-tutorial.md
       - name: TripActions
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
@@ -1983,6 +1985,8 @@
         href: concur-provisioning-tutorial.md
       - name: Cornerstone OnDemand
         href: cornerstone-ondemand-provisioning-tutorial.md
+      - name: CybSafe
+        href: cybsafe-provisioning-tutorial.md
       - name: DocuSign
         href: docusign-provisioning-tutorial.md
       - name: Dropbox Business

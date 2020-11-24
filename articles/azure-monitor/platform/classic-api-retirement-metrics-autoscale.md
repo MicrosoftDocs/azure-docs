@@ -49,7 +49,7 @@ If you're unsure whether your code or custom tools are calling the classic APIs,
 
 All the existing capabilities for autoscale and metrics will continue to work via the new APIs.  
 
-Migrating over to newer APIs come with Resource Manager based capabilities, such as support for consistent Role-Based Access Control (RBAC) across all your monitoring services. You also gain additional functionality for metrics: 
+Migrating over to newer APIs come with Resource Manager based capabilities, such as support for consistent Azure role-based access control (Azure RBAC) across all your monitoring services. You also gain additional functionality for metrics: 
 
 - support for dimensions
 - consistent 1-minute metric granularity across all services 
