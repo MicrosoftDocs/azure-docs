@@ -287,5 +287,6 @@ In this quickstart, you learned how to use the Computer Vision Java library to d
 > [!div class="nextstepaction"]
 >[Computer Vision reference (Java)](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
 
+
 * [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

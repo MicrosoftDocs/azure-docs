@@ -206,7 +206,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 In this quickstart, you learned how to use the Computer Vision library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
-
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
