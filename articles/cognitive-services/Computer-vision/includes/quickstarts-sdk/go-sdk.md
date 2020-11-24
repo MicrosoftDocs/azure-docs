@@ -59,7 +59,7 @@ or if you use dep, within your repo run:
 dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
-### Create a Go application
+### Create a Go application 
 
 Next, create a file in the **src** directory named `sample-app.go`:
 

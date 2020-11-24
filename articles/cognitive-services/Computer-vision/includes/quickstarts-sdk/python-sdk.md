@@ -24,7 +24,7 @@ ms.author: pafarley
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
- 
+
 ### Install the client library
 
 You can install the client library with:
