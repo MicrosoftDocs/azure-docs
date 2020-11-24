@@ -163,11 +163,11 @@ Azure Synapse Studio can only have one publish branch at a time. When you specif
 
 After merging changes to the collaboration branch , click **Publish** to manually publish your code changes in the collaboration branch to the Synapse service.
 
-![Publish changes](media/source-control-publish.png)
+![Publish changes](media/gitmode-publish.png)
 
 A side pane will open where you confirm that the publish branch and pending changes are correct. Once you verify your changes, click **OK** to confirm the publish.
 
-![Confirm the correct publish branch](media/publish-changes.png)
+![Confirm the correct publish branch](media/publish-change.png)
 
 > [!IMPORTANT]
 > The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.

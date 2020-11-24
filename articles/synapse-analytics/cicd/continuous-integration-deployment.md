@@ -31,7 +31,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
 1.  On the left side of the page, select **Pipelines**, and then select **Releases**.
 
-    ![Select Pipelines, Releases](media/create-release.png)
+    ![Select Pipelines, Releases](media/create-release-1.png)
 
 1.  Select **New pipeline**, or, if you have existing pipelines, select **New** and then **New release pipeline**.
 
@@ -94,7 +94,7 @@ Use [Synapse workspaces Build & Release](https://marketplace.visualstudio.com/it
 
 1.  In the task, provide related git repository information of **workspace_publish** , and select resource group, region, name, and Cloud environment for the target workspace. Provide parameters and values if you need.
 
-    ![synapse workspace deploy](media/create-release-extn-edit.png)
+    ![synapse workspace deploy](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
@@ -103,7 +103,7 @@ Use [Synapse workspaces Build & Release](https://marketplace.visualstudio.com/it
 
 After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)
 
-   ![Select Create release](media/release-creation-manual.png)
+   ![Select Create release](media/release-creation-manually.png)
 
 ## Best practices for CI/CD
 
