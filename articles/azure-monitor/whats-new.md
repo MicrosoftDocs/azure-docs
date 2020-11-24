@@ -290,7 +290,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 
 ### Logs
 - [Delete and recover Azure Log Analytics workspace](platform/delete-workspace.md) - Added PowerShell command. Updated troubleshooting.
-- [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Added example for unallowed tables in RBAC section.
+- [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Added example for unallowed tables in Azure RBAC section.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Additional detail on calculation of data size. Updated configuring data volume alerts. Details about security data collected by Azure Sentinel. Clarification on data cap.
 - [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Added connector limits.
 
@@ -565,7 +565,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 #### Azure Monitor for Containers
 
-- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support RBAC-enabled cluster to support Azure Monitor for containers.
+- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support Kubernetes RBAC-enabled cluster to support Azure Monitor for containers.
 
 #### Azure Monitor for VMs
 
