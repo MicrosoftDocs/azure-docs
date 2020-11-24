@@ -130,6 +130,9 @@ You can get the value of these service-defined variables to make adjustments tha
 > [!TIP]
 > These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
 
+> [!NOTE]
+> Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
+
 ## Types
 
 Autoscale formulas support the following types:
