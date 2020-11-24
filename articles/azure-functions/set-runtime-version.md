@@ -125,7 +125,7 @@ The function app restarts after the change is made to the application setting.
 
 ## Manual version updates on Linux
 
-To pin a Linux function app to a specific host version, you specify the image URL in the 'LinuxFxVersion' field in application settings. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
+To pin a Linux function app to a specific host version, you specify the image URL in the 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
 
 For **linux app service/elastic premium apps** -
 Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice`.
@@ -133,12 +133,54 @@ Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142
 For **linux consumption apps** -
 Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10`.
 
-Similarly, the function app restarts after the change is made to the application setting.
+
+# [Azure CLI](#tab/azurecli)
+
+You can view and set the `LinuxFxVersion` from the Azure CLI.  
+
+Using the Azure CLI, view the current runtime version with the [az functionapp config show](/cli/azure/functionapp/config) command.
+
+```azurecli-interactive
+az functionapp config show --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. 
+
+You see the `linuxFxVersion` in the following output, which has been truncated for clarity:
+
+```output
+{
+  ...
+
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": <LINUX_FX_VERSION>,
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US",
+  "logsDirectorySizeLimit": 35,
+   ...
+}
+```
+
+You can update the `linuxFxVersion` setting in the function app with the [az functionapp config set](/cli/azure/functionapp/config) command.
+
+```azurecli-interactive
+az functionapp config set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--linux-fx-version <LINUX_FX_VERSION>
+```
+
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the values explained above.
+
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
+
+
+Similarly, the function app restarts after the change is made to the site config.
 
 > [!NOTE]
 > Note that setting `LinuxFxVersion` to image url directly for consumption apps will opt them out of placeholders and other cold start optimizations. So apps should only be pinned to an older host version in case of a regression in the latest functions host version.
-
-
 
 
 ## Next steps
