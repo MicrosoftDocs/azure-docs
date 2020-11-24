@@ -25,7 +25,7 @@ In this tutorial:
 
 ### Complete the previous tutorials
 
-This tutorial assumes you've already you've already configured your environment and completed the steps in the first two tutorials in the series, in which you:
+This tutorial assumes you've already configured your environment and completed the steps in the first two tutorials in the series, in which you:
 
 * Create Azure container registry
 * Fork sample repository

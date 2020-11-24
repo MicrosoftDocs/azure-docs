@@ -4,7 +4,7 @@ description: In this tutorial, learn how to run an Azure Container Registry Task
 ms.topic: article
 ms.date: 11/24/2020
 ---
-# Run an ACR task on a defined schedule
+# Tutorial: Run an ACR task on a defined schedule
 
 This tutorial shows you how to run an [ACR Task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*. Timer triggers can be used alone, or in combination with other task triggers.
 
@@ -19,7 +19,7 @@ Scheduling a task is useful for scenarios like the following:
 * Run a container workload for scheduled maintenance operations. For example, run a containerized app to remove unneeded images from your registry.
 * Run a set of tests on a production image during the workday as part of your live-site monitoring.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h2.md](../../includes/azure-cli-prepare-your-environment-h2.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## About scheduling a task
 

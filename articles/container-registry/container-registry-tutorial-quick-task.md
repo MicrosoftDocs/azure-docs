@@ -253,7 +253,7 @@ To watch the startup process of the container, use the [az container attach][az-
 az container attach --resource-group $RES_GROUP --name acr-tasks
 ```
 
-The `az container attach` output first displays the container's status as it pulls the image and starts, then binds your local console's STDOUT and STDERR to that of the container's.
+The `az container attach` output first displays the container's status as it pulls the image and starts, then binds your local console's STDOUT and STDERR to that of the container.
 
 ```output
 Container 'acr-tasks' is in state 'Running'...
