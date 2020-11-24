@@ -104,23 +104,10 @@ Fully supported Service Bus client libraries are available via the Azure SDK.
 - [Azure Service Bus Modules for JavaScript and TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
 - [Azure Service Bus libraries for Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
 
-[Azure Service Bus' primary protocol is AMQP 1.0](service-bus-amqp-overview.md)
-and it can be used from any AMQP 1.0 compliant protocol client. Several open
-source AMQP clients have samples that explicitly demonstrate Service Bus
-interoperability. Please review the [AMQP 1.0 protocol
-guide](service-bus-amqp-protocol-guide.md) to understand how to use Service Bus'
+[Azure Service Bus' primary protocol is AMQP 1.0](service-bus-amqp-overview.md) and it can be used from any AMQP 1.0 compliant protocol client. Several open source AMQP clients have samples that explicitly demonstrate Service Bus interoperability. Please review the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md) to understand how to use Service Bus'
 features with AMQP 1.0 clients directly.
 
-| Language | Library |
-| --- | --- |
-| Java | [Apache Qpid Proton-J](https://qpid.apache.org/proton/index.html) |
-| C/C++ |[Azure uAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache Qpid Proton-C](https://qpid.apache.org/proton/index.html) |
-| Python |[Azure uAMQP for Python](https://github.com/azure/azure-uamqp-python/), [Apache Qpid Proton Python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
-| PHP | [Azure uAMQP for PHP](https://github.com/vsouz4/azure-uamqp-php/) |
-| Ruby | [Apache Qpid Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
-| Go | [Azure Go AMQP](https://github.com/Azure/go-amqp), [Apache Qpid Proton Go](https://github.com/apache/qpid-proton/tree/master/go/examples)
-| C#/F#/VB | [AMQP .NET Lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
-| JavaScript/Node | [Rhea](https://github.com/grs/rhea) |
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## Integration
 
