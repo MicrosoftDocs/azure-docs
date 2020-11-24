@@ -53,7 +53,7 @@ items:
     href: supported-stores-and-classifications.md
   - name: Data lineage
     href: data-lineage.md
-  - name: Supported data sources
+  - name: Supported data sources and file types
     href: sources-and-scans.md
   - name: Catalog permissions
     href: catalog-permissions.md
