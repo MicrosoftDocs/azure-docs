@@ -33,19 +33,23 @@ ms.custom: has-adal-ref
 
     ![Openid in the results list](common/search-new-app.png)
 
-    > [!NOTE]
-    > For OpenID Connect and OAuth apps, the **Sign up** button is disabled by default. Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.
+
+1. In the Application name page, click on **Sign up** button.
 
     ![Add button](./media/openidoauth-tutorial/addbutton.png)
 
-5. When you select the sign-up button, you're redirected to the Azure Active Directory (Azure AD) page for sign-in credentials.
+    > [!NOTE]
+    > Here the tenant admin should select the sign-up button and provide the consent to the application. The application is then added to the customer tenant, where you can do the configurations. There's no need to add the application explicitly.
+
+5. You're redirected to the Application Login page or Azure Active Directory (Azure AD) page for sign-in credentials.
 
 6. After successful authentication, you accept the consent from the consent page. After that, the application home page appears.
 
     > [!NOTE]
     > You can add only one instance of the application. If you have already added one and tried to provide the consent again, it will not be added again in the tenant. So logically, you can use only one app instance in the tenant.
 
->[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
+1. Follow the below video to add an OpenID application from the gallery.
+    >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## Authentication flow using OpenID Connect
 
