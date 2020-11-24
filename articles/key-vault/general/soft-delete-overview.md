@@ -44,7 +44,7 @@ You cannot reuse the name of a key vault that has been soft-deleted until the re
 
 ### Purge protection
 
-Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](./key-vault-recovery.md#enabling-purge-protection) or [PowerShell](./key-vault-recovery.md#enabling-purge-protection).
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-cli) or [PowerShell](./key-vault-recovery.md?tabs=azure-powershell).
 
 When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed.
 
@@ -58,7 +58,7 @@ Exceptions are:
 - When the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
 - When the `--enable-purge-protection flag` is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
 
-For steps, see [How to use Key Vault soft-delete with CLI: Purging a key vault](./key-vault-recovery.md#purging-a-key-vault) or [How to use Key Vault soft-delete with PowerShell: Purging a key vault](./key-vault-recovery.md#purging-a-key-vault).
+For steps, see [How to use Key Vault soft-delete with CLI: Purging a key vault](./key-vault-recovery.md?tabs=azure-cli#key-vault-cli) or [How to use Key Vault soft-delete with PowerShell: Purging a key vault](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).
 
 ### Key vault recovery
 
@@ -66,7 +66,7 @@ Upon deleting a key vault, the service creates a proxy resource under the subscr
 
 ### Key vault object recovery
 
-Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered, or forcefully/permanently deleted. To view the objects, use the Azure CLI `az keyvault key list-deleted` command (as documented in [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md)), or the Azure PowerShell `-InRemovedState` parameter (as described in [How to use Key Vault soft-delete with PowerShell](./key-vault-recovery.md#secrets)).  
+Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered, or forcefully/permanently deleted. To view the objects, use the Azure CLI `az keyvault key list-deleted` command (as documented in [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md)), or the Azure PowerShell `-InRemovedState` parameter (as described in [How to use Key Vault soft-delete with PowerShell](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell)).  
 
 At the same time, Key Vault will schedule the deletion of the underlying data corresponding to the deleted key vault or key vault object for execution after a predetermined retention interval. The DNS record corresponding to the vault is also retained for the duration of the retention interval.
 
