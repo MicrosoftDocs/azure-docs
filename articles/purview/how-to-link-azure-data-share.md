@@ -29,7 +29,7 @@ All the Data Share lineage information will be collected by Purview account. You
 ### Step 2: Connect your Azure Data Share to your Purview account.
 In Purview portal, you can go to Management Center and connect your Azure Data Share under the 'External connections' section. Select New on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. It's mandatory to execute Step 3 in the next section. Run a snapshot job after connecting your Data Share to Purview account, so that the Data Share assets and lineage information is visible in Purview.
  
-:::image type="content" source="media/how-to-link-azure-data-share/connect-to-azure-data-share.png" alt-text="Management center to link Azure Data Share":::
+:::image type="content" source="media/how-to-link-azure-data-share/connect-to-data-share.png" alt-text="Management center to link Azure Data Share":::
 
 ### Step 3: Execute your Snapshot in Azure Data Share.
 Once the Azure Data share connection is established with Azure Purview, you can execute a snapshot for your existing shares. If you don’t have any existing shares, go to the Azure Data Share portal to [share your data](https://docs.microsoft.com/azure/data-share/share-your-data) [and subscribe to a data share](https://docs.microsoft.com/azure/data-share/subscribe-to-data-share). Once the share snapshot is complete, you can view associated Data Share assets and lineage in Purview.

@@ -44,7 +44,7 @@ Follow below steps to connect existing Data Factory accounts to Purview
 
 1. Select Data Factory account from the list and select OK. You can also filter by subscription name to limit your list.
 
-   :::image type="content" source="./media/how-to-link-azure-data-factory/connect-azure-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-azure-data-factory.png":::
+   :::image type="content" source="./media/how-to-link-azure-data-factory/connect-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-data-factory.png":::
 
  >[!Note]
  >   Some Data Factory might be disabled if:
@@ -59,7 +59,7 @@ Follow below steps to connect existing Data Factory accounts to Purview
 > By selecting OK, the Data Factory connection with the other Purview account will be disconnected. No additional confirmations are requied.
 
 
-   :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-data-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-data-factory.png":::
+   :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
 
 ### Remove data factory connections
 
@@ -68,7 +68,7 @@ To remove a data factory connection:
 1. Select the **remove** button next to one or more data factory connections.
 1. Select **confirm** in the popup to delete the selected data factory connections.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
 
 ## Configure self-hosted IR to collect lineage from on-prem SQL
