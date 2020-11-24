@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/22/2020
+ms.date: 11/24/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
 ---
 
@@ -40,17 +40,13 @@ When scanning your assets, Azure Purview is able to detect the file types found 
 
 1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview** account tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 
-   :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
-
-1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
-
-   :::image type="content" source="./media/insights/view-insights-small.png" alt-text="View your insights in the Azure portal" lightbox="media/insights/view-insights.png":::
+1. In Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
     
 1. Within **Insights**, select the **File extensions** tab.
 
-    The report displays a summary of how many unique file extensions are found, as well as a graph of top 10 extensions found.
+    The report displays a summary of how many unique file extensions are found, as well as a graph of top 10 extensions found, over the selected timeframe (default: 30 days).
 
     :::image type="content" source="media/file-extension-insights/file-extension-overview-small.png" alt-text="File extension report - overview" lightbox="media/file-extension-insights/file-extension-overview.png":::
 
@@ -80,23 +76,15 @@ Use the filters above the grid to filter the data shown:
 |Option  |Description  |
 |---------|---------|
 |**Filter by keyword**     |    Enter text in the **Filter by keyword**  box to view filter your file types by name. For example, to view PDFs only, enter `PDF`.     |
-|**Time**        | Select to filter by a specific time span for when your content was created.   |
+|**Time**        | Select to filter by a specific time span for when your content was created. <br>**Default:** 30 days  |
 |**File extension**     |Select to filter the grid by one or more file types.        |
 |**Sources**    |Select to filter the grid by the specific data sources. |
 |**Content scanning**     |Select to choose **Supported** or **Not Supported**, to show only file types that can be further scanned for sensitive content, or files that cannot be scanned, such as **.cert** or **.jpg** files. |
 | | |
 
-Above the filters: 
+Above the filters, select **Edit columns** :::image type="icon" source="media/insights/ico-columns.png" border="false"::: to display more or fewer columns in your grid, or to change the order. 
 
-- **To display more or fewer columns in your grid,** select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order
-
-- **To browse through the assets found with a specific file extension,** select a file extension and then select **Browse in Catalog** :::image type="icon" source="media/insights/ico-browse-in-catalog.png" border="false"::: 
-
-   The search results display all of the assets found with the selected file extension. For example:
-
-    :::image type="content" source="media/file-extension-insights/file-extension-search-results-small.png" alt-text="File extension search results" lightbox="media/file-extension-insights/file-extension-search-results.png":::
- 
-   For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).
+To sort the grid, select a column header to sort by that column.
 ## Next steps
 
 Learn more about Azure Purview insight reports

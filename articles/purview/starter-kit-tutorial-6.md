@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 10/29/2020
+ms.date: 11/24/2020
 ---
 
 # Tutorial: Use Catalog insights
@@ -68,46 +68,50 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the left, select **Classification** to view insights about the classifications found in your content.
 
-    
     |Option  |Description  |
     |---------|---------|
-    |**Overall statistics**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
-    |**Total sources with classified data**  |Use the **Total sources with classified data** graph to view the numbers of classified data found in various sources, over the last 30 days. |
+    |**Overview of sources with classifications**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
+    |**Top sources with classified data (last 30 days)**  |Use the **Top sources with classified data (last 30 days)** graph to view the trend, over the past 30 days, of the number of sources found with classified data. |
     | **Top classification categories by sources** |Use the **Top classification categories by sources** graph to view the number of sources that contain top classification categories. |
     |**Top classifications**     |  Use the **Top classifications** graphs for files and tables to view the most commonly used classifications in your content, such as credit card numbers or national identification numbers.       |
-    |**Classification activity** | Use the **Classified data (daily activity)** graphs to view the number of classified files found for files and tables over time. |
+    |**Classification activity** | Use the **Classified data** graphs to view the number of classified files found for files and tables over time, and adjust the time selector above the graphs to view data for different time periods. |
+    | | |
 
-1. Click **View report details** to drill down further. 
+1. Inside the graphs, click **View more** to drill down further.
 
     On the detailed classification report, use the following methods to modify the data displayed:
     
     |Option  |Description  |
     |---------|---------|
-    |**Filter**     |   Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.      |
+    |**Filter**     |   Use the **Filter by keyword**, **Classification**, **Subscription**, and **Source Type** filters to filter the graphs to show data for specific content only.      |
     |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
-    |**Find more information** |In the table below your graphs, select a specific classification to view additional information about the data sources, such as: </br>- Source types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected classification. | 
-    | | | 
+    |**Find more information** |In the grid, select a specific classification to view additional information about the data sources, such as: </br>- Source types </br>- Subscription details </br>- Numbers of classified files or tables for the selected classification. | 
+    |**Browse assets** | In the grid, select one or more classifications, and then above the filter, select **Browse assets** to view the relevant assets as a search result in the Purview catalog. | 
+    | | |
 
-## View Labeling insights
+## View Sensitivity labeling insights
 
-1. On the left, select **Labels** to view insights about the sensitivity labels found in your content.
+1. On the left, select **Sensitivity labels** to view insights about the sensitivity labels found in your content.
 
     |Option  |Description  |
     |---------|---------|
-    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
-    |**Overall statistics**     | Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.        |
-    |**Top labels**     |  Use the **Top labels** graph to view the most commonly used labels found in your content, such as **Secret**, **All Employees**, or another specific group of internal users.    |
+    |**Overview of sources with classifications**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
+    |**Top sources with labeled data (last 30 days)**  |Use the **Top sources with labeled data (last 30 days)** graph to view the trend, over the past 30 days, of the number of sources found with labeled data. |
+    | **Top labels applied across sources** |Use the **Top labels applied across sources** graph to view the sources that have top labels applied. |
+    |**Top labels applied**     |  Use the **Top labels applied** graphs for files and tables to view the most commonly used labels in your content.       |
+    |**Labeling activity** | Use the **Labeled data** graphs to view the number of labeled files found for files and tables over time, and adjust the time selector above the graphs to view data for different time periods. |
     | | |
             
-1. Click **View all labels** to drill down further.
+1. Inside the graphs, click **View more** to drill down further.
 
    On the detailed labeling report, use the following methods to modify the data displayed:
     
     |Option  |Description  |
     |---------|---------|
-    |**Filter**     |   Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.      |
     |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
-    |**Find more information** |In the table below your graphs, select a specific label to view additional information about the data sources, such as: </br>- Asset types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected label. | 
+    |**Filter**     |   Use the **Filter by keyword**, **Sensitivity label**, **Subscription**, and **Source type** filters to filter the graphs to show data for specific content only.      |
+    |**Find more information** |In the grid, select a specific label to view additional information about the data sources, such as: </br>- Source types </br>- Subscription details </br>- Numbers of labeled files or tables for the selected sensitivity label. | 
+    |**Browse assets** | In the grid, select one or more sensitivity labels, and then above the filter, select **Browse assets** to view the relevant assets as a search result in the Purview catalog. | 
     | | | 
 
 ## View File extension insights
@@ -117,20 +121,19 @@ Sign in to the [Azure portal](https://portal.azure.com).
     |Option  |Description  |
     |---------|---------|
     |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
-    |**Overall statistics**     | Use the tile at the top to view the number of unique file extensions found across your content.       |
+    |**Unique file extensions found**     | Use the tile at the top to view the number of unique file extensions found across your content.       |
     |**Top file extensions**     |  Use the **Top file extensions** graph to view the most commonly found file extensions in your content.       |
     | | |
     
-1. Click **View all file extensions** to drill down further.
+1. Click **View more** to drill down further.
 
     On the file extension analysis report, use any of the following steps to modify the data displayed:
     
     |Option  |Description  |
     |---------|---------|
-    |**Search box**     |   Enter a file extension name in the search box to display data for that file extension only.      |
-    |**Filters**     | Use the filters to show data only for: <br>- Specific file extensions </br>- Data from specific sources </br>- Data found during specific time periods </br>- Files that can be scanned further for sensitive content, or files that cannot be scanned further such as **.cert** or **.jpg** files        |
-    |**Edit columns**     |   Select **Edit Columns** to change the column data shown in the table below your graphs.      |
-    | | |
+    |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
+    |**Filter**     |   Use the **Filter by keyword**, **Time period**, **File extension**, and **Sources**, and **Content scanning** filters to filter the graphs to show data for specific content only.      |
+    | | | 
 
 ## Next steps
 
