@@ -80,7 +80,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         await queueClient.CloseAsync();
     }
     ```
-1. Directly after the `MainAsync()` method, add the following `SendMessagesAsync()` method that does the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
+1. Directly after the `Main()` method, add the following `SendMessagesAsync()` method that does the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
