@@ -1,6 +1,6 @@
 ---
-title: Quickstart -  Use Key Vault secrets in GitHub Actions workflows
-description: Use Key Vault secrets in GitHub Actions to automate your software development workflows
+title: Quickstart -  Use Azure Key Vault secrets in GitHub Actions workflows
+description: Use Azure Key Vault secrets in GitHub Actions to automate your software development workflows
 author: juliakm
 ms.custom: github-actions-azure
 ms.author: jukullam
@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 # Use Key Vault secrets in GitHub Actions workflows
 
-Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in an Azure key vaul. Learn more about [Key Vault](../general/overview.md). 
+Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in an Azure key vault. Learn more about [Key Vault](../general/overview.md). 
 
 With Key Vault and GitHub Actions, you have the benefits of a centralized secrets management tool and all the advantages of GitHub Actions. GitHub Actions is a suite of features in GitHub to automate your software development workflows. You can deploy workflows in the same place where you store code and collaborate on pull requests and issues. 
 
