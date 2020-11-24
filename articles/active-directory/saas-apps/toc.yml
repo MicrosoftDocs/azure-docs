@@ -2019,6 +2019,8 @@
         href: github-ae-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: GroupTalk
+        href: grouptalk-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
       - name: Hootsuite
