@@ -87,7 +87,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 5. Select **Secure Webhook**.
 6. Select these details:
    1. Select the object ID of the Azure Active Directory instance that you registered.
-   2. For the URI, paste in the webhook URL that you copied from the [ITSM tool environment](#configure-the-partner-environment).
+   2. For the URI, paste in the webhook URL that you copied from the [ITSM tool environment](#configure-the-itsm-tool-environment).
    3. Set **Enable the common Alert Schema** to **Yes**. 
 
    The following image shows the configuration of a sample Secure Webhook action:
