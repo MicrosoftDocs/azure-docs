@@ -5,10 +5,6 @@ items:
   items:
   - name: What is Azure Purview?
     href: overview.md
-  - name: Deployment best practices
-    href: deployment-best-practices.md
-  - name: Azure Purview limits
-    href: how-to-manage-quotas.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -43,17 +39,19 @@ items:
 #- name: Samples
 - name: Concepts
   items:
+  - name: Deployment best practices
+    href: deployment-best-practices.md
+  - name: Azure Purview limits
+    href: how-to-manage-quotas.md 
   - name: Catalog client overview
     href: catalog-client-overview.md
-  - name: Catalog lineage user guide
-    href: catalog-lineage-user-guide.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding Resource sets
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
-  - name: Data lineage
+  - name: Lineage
     href: data-lineage.md
   - name: Supported data sources
     href: sources-and-scans.md
@@ -129,16 +127,12 @@ items:
     items: 
     - name: Use classifications
       href: use-classifications.md
-    - name: Create a custom classification
-      href: create-a-custom-classification.md
-    - name: Create a custom classification rule
-      href: create-custom-classification-rule.md
+    - name: Create custom classification & classification rule
+      href: create-a-custom-classification-and-classification-rule.md
     - name: Apply classifications
       href: apply-classifications.md
     - name: Automatically label your content
       href: create-sensitivity-label.md
-    - name: Custom classification & classification rule
-      href: create-a-custom-classification-and-classification-rule.md
   - name: Search & browse
     items:
     - name: Browse Data Catalog
@@ -147,6 +141,10 @@ items:
       href: how-to-search-catalog.md  
   - name: Lineage 
     items:
+    - name: Lineage user guide
+      href: catalog-lineage-user-guide.md
+    - name: Azure Data Factory
+      href: catalog-lineage-user-guide.md
     - name: Azure Data Share
       href: how-to-link-azure-data-share.md
   - name: Security
