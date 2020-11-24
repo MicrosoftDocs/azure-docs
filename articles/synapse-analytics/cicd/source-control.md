@@ -1,5 +1,5 @@
 ---
-title: Source control
+title: Source control in Synapse Studio 
 description: Learn how to configure source control in Azure Synapse Studio
 services: synapse-analytics 
 author: liud
@@ -13,17 +13,18 @@ ms.reviewer: pimorano
 
 # Source control in Azure Synapse Studio
 
-By default, Azure Synapse Studio authors directly against the synapse service. This experience has the following limitations:
+By default, Azure Synapse Studio authors directly against the synapse service. However, this experience has the following limitations:
 
-- For now, Synapse Studio doesn't include a temporary storage for storing your changes. The only way to save and share changes is via the **Publish** and all changes are published directly to the Synapse service.
-- The Synapse Studio isn't optimized for collaboration and version control.
+- Synapse studio doesn't include a temporary storage for storing your changes. The only way to save and share changes is via the **Publish** and all changes are published directly to the Synapse service.
 
-To provide a good way to manage and version changes, Synapse Studio allows you to integrate your workspace with a Git repository, Azure DevOps or GitHub. This article will outline how to configure and work in a workspace with git repository enabled with highlighting best practices and a troubleshooting guide.
+- Synapse Studio isn't optimized for collaboration and version control.
+
+To provide source control capability, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. This article will outline how to configure and work in a synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
 
 > [!NOTE]
 > Azure Synapse Studio git integration is not available in the Azure Government Cloud.
 
-## Configure Git repository in workspace 
+## Configure Git repository in Synapse Studio 
 
 After launching your Synapse Studio, you can configure git repository in workspace. A Synapse Studio workspace can only be associated with only one git repository at a time. 
 
@@ -46,7 +47,7 @@ You can connect either Azure DevOps or GitHub git repository in your workspace.
 
 ## Connect with Azure DevOps Git 
 
-You can associate a Synapse Studio workspace with an Azure DevOps Repository for source control, collaboration, versioning, and so on. If you don't have an Azure DevOps repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your repository resources first.
+You can associate a Synapse workspace with an Azure DevOps Repository for source control, collaboration, versioning, and so on. If you don't have an Azure DevOps repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your repository resources first.
 
 ### Azure DevOps Git repository settings
 
@@ -68,7 +69,7 @@ The configuration pane shows the following Azure DevOps git settings:
 | **Import existing resources to repository** | Specifies whether to import existing resources from the Synapse Studio into an Azure Repos Git repository. Check the box to import your workspace resources (except pools) into the associated Git repository in JSON format. This action exports each resource individually. When this box isn't checked, the existing resources aren't imported. | Checked (default) |
 | **Import resource into this branch** | Select which branch the resources (sql script, notebook, spark job definition, dataset, dataflow etc.) are imported to. 
 
-Your can also use repository link to quickly point to the repository  you want to connect with. 
+Your can also use repository link to quickly point to the git repository you want to connect with. 
 
 ### Use a different Azure Active Directory tenant
 
@@ -87,16 +88,15 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 3. Go to the Azure DevOps section, where you now see your personal repo. Select the repo and connect with Active Directory.
 
-After these configuration steps, your personal repo is available when you set up Git integration in the Data Factory UI.
+After these configuration steps, your personal repo is available when you set up Git integration in the Synapse Studio.
 
 For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Connect with GitHub 
 
- You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
+ You can associate a workspace with a GitHub repository for source control, collaboration, versioning. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
 The GitHub integration with Synapse Studio supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories as long you have read and write permission to the repository in GitHub.
-
 
 ### GitHub settings
 
@@ -120,14 +120,16 @@ The configuration pane shows the following GitHub repository settings:
 
 ### GitHub organizations
 
-Connecting to a GitHub organization requires the organization to grant permission to Synapse studio. A user with ADMIN permissions on the organization must perform the below steps to allow data factory to connect.
+Connecting to a GitHub organization requires the organization to grant permission to Synapse Studio. A user with ADMIN permissions on the organization must perform the below steps.
 
 #### Connecting to GitHub for the first time
 
-If you're connecting to GitHub from Synapse studio for the first time, follow these steps to connect to a GitHub organization.
+If you're connecting to GitHub from Synapse Studio for the first time, follow these steps to connect to a GitHub organization.
 
 1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to login into GitHub will appear. 
+
 1. Login using your user credentials.
+
 1. You'll be asked to authorize Synapse as an application called *Azure Synapse*. On this screen, you will see an option to grant permission for Synapse to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
 
 Once you follow these steps, your workspace will be able to connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
@@ -138,7 +140,7 @@ Version control systems (also known as _source control_) allows developers to co
 
 ### Creating feature branches
 
-Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main`or`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
+Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` or `master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
 
 ![Create a new branch](media/create-new-branch.png)
 
@@ -148,7 +150,7 @@ When you are ready to merge the changes from your feature branch to your collabo
 
 ### Configure publishing settings
 
-By default, synapse generates the Resource Manager templates of the published factory and saves them into a branch called `workspace_publish`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, synapse studio reads this file, looks for the field `publishBranch`, and saves all Resource Manager templates to the specified location. If the branch doesn't exist, data factory will automatically create it. And example of what this file looks like is below:
+By default, Synapse Studio generates the workspace templates and saves them into a branch called `workspace_publish`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, Synapse Studio reads this file, looks for the field `publishBranch`, and saves workspace template files to the specified location. If the branch doesn't exist, Synapse Studio will automatically create it. And example of what this file looks like is below:
 
 ```json
 {
@@ -156,13 +158,13 @@ By default, synapse generates the Resource Manager templates of the published fa
 }
 ```
 
-Azure synapse studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
+Azure Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
 
 ### Publish code changes
 
-After merging changes to the collaboration branch , click **Publish** to manually publish your code changes in the collaboration branch to the synapse service.
+After merging changes to the collaboration branch , click **Publish** to manually publish your code changes in the collaboration branch to the Synapse service.
 
-![Publish changes to the Data Factory service](media/publish-changes.png)
+![Publish changes](media/publish-changes.png)
 
 A side pane will open where you confirm that the publish branch and pending changes are correct. Once you verify your changes, click **OK** to confirm the publish.
 
@@ -177,28 +179,30 @@ A side pane will open where you confirm that the publish branch and pending chan
 
 After you have a git repository connected to your workspace, anyone who can access to your git repo with any role in your workspace will be able to update artifacts, like sql script, notebook,spark job definition, dataset, dataflow and pipeline in git mode. Typically you don't want every team member to have permissions to update workspace. The following permissions settings are recommended:
 
-*   For now, Workspace contributors or higher level roles of Azure RBAC roles can configure git/disconnect/setting . 
-
-*   Only grant git repository permission to Synapse workspace admin and artifact authors. For more information on permissions, see [Roles and permissions for Synapse](concepts-roles-permissions.md).
+*   Only grant git repository permission to Synapse workspace artifact authors. 
 
 It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
 
 ## Troubleshooting Git integration
 
+### Access to git mode 
+
+If you have been granted the permission to the GitHub git repository linked with your workspace, but you can not access to Git mode: 
+
+1. Clear your cache and refresh page. 
+
+1. Login your GitHub account.
+
 ### Stale publish branch
 
-If the publish branch is out of sync with the collaboration   branch and contains out-of-date resources despite a recent publish, try following these steps:
+If the publish branch is out of sync with the collaboration branch and contains out-of-date resources despite a recent publish, try following these steps:
 
 1. Remove your current Git repository
-1. Reconfigure Git with the same settings, but make sure **Import existing resources to repository** is selected and choose **New branch**
-1. Create a pull request to merge the changes to the collaboration branch 
 
-Below are some examples of situations that can cause a stale publish branch:
-- A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) or and never merged the feature branch into the collaboration branch.
-- A user modified using the SDK or PowerShell
-- A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
-- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the service.
+1. Reconfigure Git with the same settings, but make sure **Import existing resources to repository** is checked and choose the same branch.  
+
+1. Create a pull request to merge the changes to the collaboration branch 
 
 ## Switch to a different Git repository
 
@@ -206,14 +210,13 @@ To switch to a different Git repository, go to Git configuration page in the man
 
 ![Git icon](media/remove-repository.png)
 
-Enter your workspace name and click **Disconnect** to remove the Git repository associated with your data factory.
+Enter your workspace name and click **Disconnect** to remove the Git repository associated with your workspace.
 
 After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing resources to the new repo.
 
 > [!IMPORTANT]
-> Removing Git configuration from a workspace doesn't delete anything from the repository. The factory will contain all published resources. You can continue to edit the factory directly against the service.
+> Removing Git configuration from a workspace doesn't delete anything from the repository. Synapse workspace will contain all published resources. You can continue to edit the workspace directly against the service.
 
 ## Next steps
 
-* To learn more about monitoring and managing pipelines, see [Monitor and manage pipelines programmatically](monitor-programmatically.md).
 * To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-deployment.md).
