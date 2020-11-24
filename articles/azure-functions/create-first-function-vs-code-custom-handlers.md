@@ -137,12 +137,9 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
     ```rust
     use std::collections::HashMap;
-    use std::net::{IpAddr, Ipv4Addr, SocketAddr};
     use std::env;
-    use warp::{
-        http::{Response},
-        Filter,
-    };
+    use std::net::{IpAddr, Ipv4Addr, SocketAddr};
+    use warp::{http::Response, Filter};
 
     #[tokio::main]
     async fn main() {
@@ -162,9 +159,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
         };
         let socket = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)), port);
 
-        warp::serve(example1)
-            .run(socket)
-            .await
+        warp::serve(example1).run(socket).await
     }
     ```
 
