@@ -109,7 +109,7 @@ Resilience resources for administrators and architects
 
 * [Build resilience by using Continuous Access Evaluation (CAE)](resilience-with-cae.md)
 
-* [Build resilience in external user authentication](resilience-b2c-authentication.md)
+* [Build resilience in external user authentication](resilience-b2b-authentication.md)
 
 * [Build resilience in application access with Application Proxy](resilience-on-prem-access.md)
 
