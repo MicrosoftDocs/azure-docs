@@ -293,6 +293,7 @@ In this section, you create a function app and related resources in your Azure s
     + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
     + **Select Function App in Azure**: Choose `+ Create new Function App (advanced)`. **Important: The `advanced` option is required to ensure you select the correct operating system.**
+        ![VS Code - Build Rust custom handler](./media/functions-create-first-function-vs-code/functions-vscode-create-azure-advanced.png)
 
     + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.
 
