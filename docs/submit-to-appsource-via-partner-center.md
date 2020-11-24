@@ -42,6 +42,7 @@ In order for your submission to be approved:
 For more details about Microsoft AppSource requirements, see the [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
 
 <a name="bk_Validation"> </a>
+
 ## Certification process
 
 After you submit your solution:
