@@ -7,7 +7,7 @@ ms.date: 11/24/2020
 
 # Subscription Rule SQL Filter Syntax
 
-A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It is a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
+A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It is a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
 
 Service Bus Premium also supports the [JMS SQL message selector syntax](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) through the JMS 2.0 API.
 
@@ -323,4 +323,4 @@ For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/a
 - [SqlFilter class (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
 - [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
 - [az servicebus topic subscription rule](/cli/azure/servicebus/topic/subscription/rule)
-- [New-AzServiceBusRule](h/powershell/module/az.servicebus/new-azservicebusrule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

@@ -7,7 +7,7 @@ ms.date: 11/24/2020
 
 # Subscription Rule SQL Action Syntax
 
-A *SQL action* is used to manipulate message metadata after a message has been selected by a filter of a subscription rule. It is a text expression that leans on a subset of the SQL-92 standard. Action expressions are used with the `sqlExpression` element of the 'action' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
+A *SQL action* is used to manipulate message metadata after a message has been selected by a filter of a subscription rule. It is a text expression that leans on a subset of the SQL-92 standard. Action expressions are used with the `sqlExpression` element of the 'action' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
   
   
 ```  
@@ -210,4 +210,4 @@ The `property(name)` function returns the value of the property referenced by `n
 - [SqlRuleAction class (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
 - [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
 - [az servicebus topic subscription rule](/cli/azure/servicebus/topic/subscription/rule)
-- [New-AzServiceBusRule](h/powershell/module/az.servicebus/new-azservicebusrule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)
