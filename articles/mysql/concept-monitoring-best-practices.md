@@ -41,7 +41,7 @@ This refers to the [amount of storage](howto-create-manage-server-portal.md#scal
 **Network Receive Throughput, Network Transmit Throughput** – The rate of network traffic to and from the MySQL instance in megabytes per second. As an administrator you should evaluate the throughput requirement for your domain and constantly monitor the traffic if throughput is lower than expected. 
 
 ### Database connections 
-**Database Connections** – The number of client sessions that are connected to the Azure Database for MySQL should be aligned with the [connection limits for the selected SKU](concepts-server-parameters#max_connections) size. Based on the expected use connections to your database you can vary the instance class and size to ensure the best database performance level. 
+**Database Connections** – The number of client sessions that are connected to the Azure Database for MySQL should be aligned with the [connection limits for the selected SKU](concepts-server-parameters.md#max_connections) size. Based on the expected use connections to your database you can vary the instance class and size to ensure the best database performance level. 
 
 Note that the level of performance metrics numbers which is acceptable is dependent on the baseline level defined by you and the type of application you are running against the database. The Azure Database for MySQL provides you tools and resources to help troubleshoot and fix potential performance problems described below.
 
