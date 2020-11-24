@@ -138,7 +138,7 @@ Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next si
 > [!TIP]
 > Baseline IOPS = 400 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
 >
-> Burst Limit = MAX (4,000, 3 * Baseline IOPS). (Up to a max of 100,000 IOPS).
+> Burst Limit = MAX (4,000, 3 * Baseline IOPS). (whichever limit is greater, up to a max of 100,000 IOPS).
 >
 > egress rate = 60 MiB/s + 0.06 * provisioned GiB
 >
