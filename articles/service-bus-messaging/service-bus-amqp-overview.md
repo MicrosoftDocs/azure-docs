@@ -65,20 +65,11 @@ All supported Service Bus client libraries available via the Azure SDK use AMQP 
 - [Azure Service Bus Modules for JavaScript and TypeScript](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)
 - [Azure Service Bus libraries for Python](https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python&preserve-view=true)
 
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
 In addition, you can use Service Bus from any AMQP 1.0 compliant protocol stack:
 
-| Language | Library |
-| --- | --- |
-| Java | [Apache Qpid Proton-J](https://qpid.apache.org/proton/index.html) |
-| C/C++ |[Azure uAMQP C](https://github.com/azure/azure-uamqp-c/), [Apache Qpid Proton-C](https://qpid.apache.org/proton/index.html) |
-| Python |[Azure uAMQP for Python](https://github.com/azure/azure-uamqp-python/), [Apache Qpid Proton Python](https://qpid.apache.org/releases/qpid-proton-0.32.0/proton/python/docs/overview.html) |
-| PHP | [Azure uAMQP for PHP](https://github.com/vsouz4/azure-uamqp-php/) |
-| Ruby | [Apache Qpid Proton Ruby](https://github.com/apache/qpid-proton/tree/master/ruby) |
-| Go | [Azure Go AMQP](https://github.com/Azure/go-amqp), [Apache Qpid Proton Go](https://github.com/apache/qpid-proton/tree/master/go/examples)
-| C#/F#/VB | [AMQP .NET Lite](https://github.com/Azure/amqpnetlite), [Apache NMS AMQP](https://github.com/apache/activemq-nms-amqp)|
-| JavaScript/Node | [Rhea](https://github.com/grs/rhea) |
-
-**Figure 2: Table of AMQP 1.0 client libraries**
+[!INCLUDE [messaging-oss-amqp-stacks.md](../../includes/messaging-oss-amqp-stacks.md)]
 
 ## Summary
 * AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.
