@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Leave an organization as a guest user
 
-An Azure Active Directory (Azure AD) B2B guest user can decide to leave an organization at any time if they no longer need to use apps from that organization or maintain any association. A user can leave an organization on their own, without having to contact an administrator.
+An Azure Active Directory (Azure AD or "AAD") B2B guest user can leave an organization at any time if they no longer need to use apps from that organization or maintain an association. A user can also leave an organization on their own, without having to contact an administrator.
 
 > [!NOTE]
 > A guest user can't leave an organization if their account is disabled in either the home tenant or the resource tenant. If their account is disabled, the guest user will need to contact the tenant admin, who can either delete the guest account or enable the guest account so the user can leave the organization.
@@ -30,7 +30,8 @@ To leave an organization, follow these steps:
 
 1. Go to your Access Panel Profile page:
    
-   - In the [Azure portal](https://portal.azure.com), click your name in the upper right and select **View account**.
+   - In the [Azure portal](https://portal.azure.com), click your name in the upper right and select **View account**, 
+  -or-
    - Open your [Access Panel](https://myapps.microsoft.com), click your name in the upper right, and next to **Organizations**, select the settings icon (gear).
  
    ![Screenshot showing user settings in Access Panel](media/leave-the-organization/UserSettings.png) 
@@ -42,7 +43,7 @@ To leave an organization, follow these steps:
 
    ![Screenshot showing Organizations page in the user interface](media/leave-the-organization/Orgs.png)
 
-3. From the list, select **Leave organization** for the particular org you . 
+3. From the list, select **Leave organization** for the particular organization. 
 
    ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/LeaveOrg.png)
 
