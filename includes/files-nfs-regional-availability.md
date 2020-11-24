@@ -9,7 +9,7 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: "include file"
 ---
-- East US
+- East US (LRS and ZRS)
 - East US 2
 - West US 2
 - West Europe

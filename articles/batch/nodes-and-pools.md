@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/20/2020
 
 ---
 # Nodes and pools in Azure Batch
@@ -35,7 +35,7 @@ Every node that is added to a pool is assigned a unique name and IP address. Whe
 
 A pool can be used only by the Batch account in which it was created. A Batch account can create multiple pools to meet the resource requirements of the applications it will run.
 
-The pool can be created manually, or automatically by the Batch service when you specify the work to be done. When you create a pool, you can specify the following attributes:
+The pool can be created manually, or [automatically by the Batch service](#autopools) when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
 - [Node operating system and version](#operating-system-and-version)
 - [Node type and target number of nodes](#node-type-and-target)
@@ -179,6 +179,10 @@ On one end of the spectrum, you can create a pool for each job that you submit, 
 At the other end of the spectrum, if having jobs start immediately is the highest priority, you can create a pool ahead of time and make its nodes available before jobs are submitted. In this scenario, tasks can start immediately, but nodes might sit idle while waiting for them to be assigned.
 
 A combined approach is typically used for handling a variable but ongoing load. You can have a pool in which multiple jobs are submitted, and can scale the number of nodes up or down according to the job load. You can do this reactively, based on current load, or proactively, if load can be predicted. For more information, see [Automatic scaling policy](#automatic-scaling-policy).
+
+## Autopools
+
+An [autopool](/rest/api/batchservice/job/add#autopoolspecification) is a pool that is created by the Batch service when a job is submitted, rather than being created prior to the jobs that will run in the pool. The Batch service will manage the lifetime of an autopool according to the characteristics that you specify. Most often, these pools are also set to delete automatically after their jobs have completed.
 
 ## Security with certificates
 

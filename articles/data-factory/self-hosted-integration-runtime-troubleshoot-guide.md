@@ -2,10 +2,10 @@
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
 ---
 
@@ -42,6 +42,21 @@ For failed activities running on Self-hosted IR / Shared IR, Azure Data Factory 
 
 
 ## Self-hosted IR general failure or error
+
+### Out of memory issue
+
+#### Symptoms
+
+The "OutOfMemoryException" issue occurs when trying to run lookup activity with linked IR or Self-hosted IR.
+
+#### Cause
+
+New activity can meet with OOM (OutOfMemory) issue if the IR machine has a high memory usage at the moment. The issue could be caused by a large scale of concurrent activity execution, and the error is by design.
+
+#### Resolution
+
+Please check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time of activity runs to avoid too much execution on the same IR node at the same time.
+
 
 ### TLS/SSL certificate issue
 
@@ -301,7 +316,7 @@ If the error shows as above *UnauthorizedAccessException*, follow below instruct
         1. Clean uninstall the current Self-hosted IR.
         1. Install the Self-hosted IR bits.
         1. Follow below instructions to change the service account: 
-            1. Go to selfhosted IR's installation folder, switch to the folder: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Go to Self-hosted IR's installation folder, switch to the folder: *Microsoft Integration Runtime\4.0\Shared*.
             1. Start a command line using elevated privilege. Replace *\<user>* and *\<password>* with your own username and password and then run below command:
                        
                 ```
@@ -400,6 +415,47 @@ The installation depends on the Windows Installer Service. There are variant rea
 - CPU utilization is too high
 - MSI file is hosted in a slow network location
 - Some system files or registries were touched unintentionally
+
+
+### IR service account failed to fetch certificate access
+
+#### Symptoms
+
+When installing Self-hosted IR via the Microsoft Integration Runtime Configuration manager, a certificate with a trusted CA is generated. The certificate was unable to be applied to encrypt communication between two nodes. 
+
+The error information shows as below: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Failed to grant IR service account certificate access](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### Cause
+
+The certificate is using KSP (Key storage provider), which is not supported yet. SHIR only support CSP (Cryptographic Service Provider) certificate so far.
+
+#### Resolution
+
+CSP certificate is recommended for this case.
+
+**Solution 1:** Use below command to import the certificate:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Use certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Solution 2:** Conversion of certificates:
+
+openssl pkcs12 -in .\xxxx.pfx -out .\xxxx_new.pem -password pass:*\<EnterPassword>*
+
+openssl pkcs12 -export -in .\xxxx_new.pem -out xxxx_new.pfx
+
+Before and after conversion:
+
+![Before certificate change](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![After certificate change](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 
 ## Self-hosted IR connectivity issues
@@ -674,7 +730,7 @@ Two possible reasons for this issue:
 - The Root CA of ADF service server certificate is not trusted on the machine where the SHIR is installed. 
 - You are using proxy in your environment and the server certificate of ADF service is replaced by the proxy, while the replaced server certificate is not trusted by the machine where the SHIR is installed.
 
-#### Solution
+#### Resolution
 
 - For reason 1, make sure the ADF server certificate and its certificate chain is trusted by the machine where the SHIR is installed.
 - For reason 2, either trust the replaced root CA on SHIR machine, or configure the proxy not to replace ADF server certificate.
@@ -687,6 +743,7 @@ We are rolling out a new SSL certificate, which is signed from DigiCert, please 
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 If not, download it from [here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## Self-hosted IR sharing
 

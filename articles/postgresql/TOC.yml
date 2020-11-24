@@ -106,8 +106,6 @@
     items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-    - name: Azure Policy built-ins
-      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -147,6 +145,9 @@
       - name: Infrastructure double encryption
         href: concepts-infrastructure-double-encryption.md
         displayName: security, infrastructure encryption
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
       - name: Security baseline
         href: security-baseline.md
     - name: Networking
@@ -602,8 +603,14 @@
         href: reference-hyperscale-metadata.md
   - name: How-to guides
     items:
-    - name: Scale a server group
-      href: howto-hyperscale-scaling.md
+    - name: Server group size
+      items:
+      - name: Pick initial size
+        href: howto-hyperscale-scale-initial.md
+      - name: Scale server group
+        href: howto-hyperscale-scale-grow.md
+      - name: Rebalance shards
+        href: howto-hyperscale-scale-rebalance.md
     - name: Firewall rules
       items:
       - name: Azure portal
@@ -638,6 +645,9 @@
      href: /rest/api/postgresql
    - name: Resource Manager template
      href: /azure/templates/microsoft.dbforpostgresql/allversions
+   - name: Azure Policy built-ins
+     displayName: samples, policies, definitions
+     href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

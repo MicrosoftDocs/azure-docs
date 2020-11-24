@@ -33,7 +33,7 @@ You use vSphere and NSX-T Manager to manage most other aspects of cluster config
 
 ## Hosts
 
-Azure VMware Solution private cloud clusters use hyper-converged, bare-metal infrastructure nodes. The following table shows the RAM, CPU, and disk capacities of the host. 
+Azure VMware Solution private cloud clusters use hyper-converged, bare-metal infrastructure hosts. The following table shows the RAM, CPU, and disk capacities of the host. 
 
 | Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -54,7 +54,7 @@ The current software versions of the VMware software used in Azure VMware Soluti
 
 For any new cluster in a private cloud, the software version matches what's currently running. For any new private cloud in a subscription, the software stack's latest version gets installed.
 
-You can find the general upgrade policies and processes for the Azure VMware Solution platform software described in the [Upgrades Concepts](concepts-upgrades.md) article.
+You can find the general upgrade policies and processes for the Azure VMware Solution platform software described in [Private cloud updates and upgrades](concepts-upgrades.md).
 
 ## Host maintenance and lifecycle management
 

@@ -7,7 +7,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -122,8 +122,6 @@ To import the TDSP team repositories:
    ![Import Microsoft TDSP team repository](./media/group-manager-tasks/import-repo-2.png)
    
 1. At the top of the **Repos** page, drop down and select the **GroupUtilities** repository.
-   
-1. Repeat the import process to import the contents of the Microsoft TDSP team **Utilities** repository, *https:\//github.com/Azure/Azure-TDSP-Utilities.git*, into your **GroupUtilities** repository. 
    
 Each of your two group repositories now contains all the files, except those in the *.git* directory, from the Microsoft TDSP team's corresponding repository. 
 
