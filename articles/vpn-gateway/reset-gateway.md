@@ -48,7 +48,7 @@ You can reset a Resource Manager VPN gateway using the Azure portal. If you want
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-The cmdlet for resetting a gateway is **Reset-AzVirtualNetworkGateway**. Before performing a reset, make sure you have the latest version of the [PowerShell Az cmdlets](https://docs.microsoft.com/powershell/module/az.network). The following example resets a virtual network gateway named VNet1GW in the TestRG1 resource group:
+The cmdlet for resetting a gateway is **Reset-AzVirtualNetworkGateway**. Before performing a reset, make sure you have the latest version of the [PowerShell Az cmdlets](/powershell/module/az.network). The following example resets a virtual network gateway named VNet1GW in the TestRG1 resource group:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -61,7 +61,7 @@ When you receive a return result, you can assume the gateway reset was successfu
 
 ### <a name="resetclassic"></a>Classic deployment model
 
-The cmdlet for resetting a gateway is **Reset-AzureVNetGateway**. The Azure PowerShell cmdlets for Service Management must be installed locally on your desktop. You can't use Azure Cloud Shell. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). When using this command, make sure you are using the full name of the virtual network. Classic VNets that were created using the portal have a long name that is required for PowerShell. You can view the long name by using 'Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml'.
+The cmdlet for resetting a gateway is **Reset-AzureVNetGateway**. The Azure PowerShell cmdlets for Service Management must be installed locally on your desktop. You can't use Azure Cloud Shell. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets). When using this command, make sure you are using the full name of the virtual network. Classic VNets that were created using the portal have a long name that is required for PowerShell. You can view the long name by using 'Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml'.
 
 The following example resets the gateway for a virtual network named "Group TestRG1 TestVNet1" (which shows as simply "TestVNet1" in the portal):
 
@@ -82,7 +82,7 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Azure CLI
 
-To reset the gateway, use the [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway) command. The following example resets a virtual network gateway named VNet5GW in the TestRG5 resource group:
+To reset the gateway, use the [az network vnet-gateway reset](/cli/azure/network/vnet-gateway) command. The following example resets a virtual network gateway named VNet5GW in the TestRG5 resource group:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

@@ -3,6 +3,7 @@ title: Azure PowerShell samples for Azure Cosmos DB Core (SQL) API
 description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB for Core (SQL) API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown

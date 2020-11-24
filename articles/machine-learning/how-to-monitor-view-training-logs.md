@@ -1,7 +1,7 @@
 ---
 title: Monitor and view ML run logs & metrics
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML experiments and view run metrics to enhance the model creation process. Use widgets and the studio portal to explore run status and view run records.
+description: Monitor your ML experiments and view run metrics with Jupyter widgets and the Azure Machine Learning studio. 
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -14,8 +14,6 @@ ms.custom: how-to
 ---
 
 # Monitor and view ML run logs and metrics
-
-
 
 In this article, you learn how to monitor Azure Machine Learning runs and view their logs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 

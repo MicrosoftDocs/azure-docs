@@ -17,10 +17,10 @@ ms.custom: contperfq2
 # Problems signing in to SAML-based single sign-on configured apps
 To troubleshoot the sign-in issues below, we recommend the following to better diagnosis and automate the resolution steps:
 
-- Install the [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
-- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Install the [My Apps Secure Browser Extension](./access-panel-deployment-plan.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
+- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](./debug-saml-sso-issues.md)
 
-If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.
+If you use the [testing experience](./debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.
 
 To open the SAML-based single sign-on configuration page:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Coadmin**.
@@ -83,7 +83,7 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md) to learn how to capture the SAML request.
 1. Contact the application vendor and share the following info:
     - SAML request
     - [Azure AD Single Sign-on SAML protocol requirements](../develop/single-sign-on-saml-protocol.md)
@@ -142,6 +142,23 @@ Delete the unused reply URLs configured for the application.
 
 On the SAML-based SSO configuration page, in the **Reply URL (Assertion Consumer Service URL)** section, delete unused or default Reply URLs created by the system. For example, `https://127.0.0.1:444/applications/default.aspx`.
 
+
+## Authentication method by which the user authenticated with the service doesn't match requested authentication method
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Possible cause**
+
+The `RequestedAuthnContext` is in the SAML request. This means the app is expecting the `AuthnContext` specified by the `AuthnContextClassRef`. However, the user has already authenticated prior to access the application and the `AuthnContext` (authentication method) used for that previous authentication is different from the one being requested. For example, a federated user access to myapps and WIA occurred. The `AuthnContextClassRef` will be `urn:federation:authentication:windows`. AAD won’t perform a fresh authentication request, it will use the authentication context that was passed-through it by the IdP (ADFS or any other federation service in this case). Therefore, there will be a mismatch if the app requests other than `urn:federation:authentication:windows`. Another scenario is when MultiFactor was used: `'X509, MultiFactor`.
+
+**Resolution**
+
+
+`RequestedAuthnContext` is an optional value. Then, if possible, ask the application if it could be removed.
+
+Another option is to make sure the `RequestedAuthnContext` will be honored. This will be done by requesting a fresh authentication. By doing this, when the SAML request is processed, a fresh authentication will be done and the `AuthnContext` will be honored. To request a Fresh Authentication the SAML request most contain the value `forceAuthn="true"`. 
+
+
+
 ## Problem when customizing the SAML claims sent to an application
 To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
@@ -152,5 +169,5 @@ Compare the resource you’re requesting access to in code with the configured p
 
 ## Next steps
 - [Quickstart Series on Application Management](add-application-portal-assign-users.md)
-- [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Azure AD Single Sign-on SAML protocol requirements](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md)
+- [Azure AD Single Sign-on SAML protocol requirements](../develop/single-sign-on-saml-protocol.md)

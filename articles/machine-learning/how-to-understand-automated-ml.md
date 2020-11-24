@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
+ms.custom: how-to, contperfq2, automl
 ---
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to view and evaluate the results of your automated machine learning, AutoML, experiments. These experiments consist of multiple runs, where each run creates a model. To help you evaluate each model, AutoML automatically generates performance metrics and charts specific to your experiment type. 
+In this article, learn how to view and evaluate the results of your automated machine learning, automated ML, experiments. These experiments consist of multiple runs, where each run creates a model. To help you evaluate each model, automated ML automatically generates performance metrics and charts specific to your experiment type. 
 
-For example, AutoML provides different charts for classification and regression models. 
+For example, automated ML provides different charts for classification and regression models. 
 
 |Classification|Regression
 |---|---|
@@ -56,7 +56,7 @@ To view the run history and model performance metrics and charts in the studio:
 
 ## Classification performance metrics
 
-The following table summarizes the model performance metrics that AutoML calculates for each classification model generated for your experiment. 
+The following table summarizes the model performance metrics that automated ML calculates for each classification model generated for your experiment. 
 
 Metric|Description|Calculation|Extra Parameters
 --|--|--|--
@@ -83,7 +83,7 @@ weighted_accuracy|Weighted accuracy is accuracy where the weight given to each e
 
 ### Binary vs. multiclass metrics
 
-AutoML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
+Automated ML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
 
 For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
@@ -205,7 +205,7 @@ A well-calibrated model aligns with the y=x line, where it correctly predicts th
 
 ## Regression performance metrics
 
-The following table summarizes the model performance metrics that AutoML calculates for each regression or forecasting model that is generated for your experiment. 
+The following table summarizes the model performance metrics that automated ML calculates for each regression or forecasting model that is generated for your experiment. 
 
 |Metric|Description|Calculation|Extra Parameters
 --|--|--|--|

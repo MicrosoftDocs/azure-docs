@@ -489,3 +489,4 @@ See the following articles for information on how to measure RUs per query, get 
 * [Get SQL query execution metrics by using .NET SDK](profile-sql-api-query.md)
 * [Tuning query performance with Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Performance tips for .NET SDK](performance-tips.md)
+* [Performance tips for Java v4 SDK](performance-tips-java-sdk-v4-sql.md)

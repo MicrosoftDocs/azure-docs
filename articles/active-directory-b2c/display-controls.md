@@ -24,8 +24,6 @@ The following image illustrates a self-asserted sign-up page with two display co
 
 ![Example rendered display control](media/display-controls/display-control-email.png)
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## Prerequisites
 
  In the [Metadata](self-asserted-technical-profile.md#metadata) section of a [self-asserted technical profile](self-asserted-technical-profile.md), the referenced [ContentDefinition](contentdefinitions.md) needs to have `DataUri` set to page contract version 2.0.0 or higher. For example:

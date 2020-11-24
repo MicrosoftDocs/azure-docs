@@ -139,7 +139,7 @@
       href: understand-spark-code-concepts.md
   - name: Troubleshoot U-SQL jobs
     items:
-    - name: Troubleshoot U-SQL runtime failures
+    - name: Troubleshoot U-SQL runtime failures and known issues
       href: runtime-troubleshoot.md
     - name: Troubleshoot a .NET upgrade
       href: dotnet-upgrade-troubleshoot.md

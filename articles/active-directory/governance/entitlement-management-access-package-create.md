@@ -123,7 +123,7 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 1. Review the access package's settings
 
-    ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-create/review-create.png)
+    ![Access package - Enable policy setting](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Click **Create** to create the access package.
 

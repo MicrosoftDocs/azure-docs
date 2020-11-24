@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -113,6 +113,10 @@ Configuring a policy for **Other clients** blocks the entire organization from c
 It can take up to 24 hours for the policy to go into effect.
 
 You can select all available grant controls for the **Other clients** condition; however, the end-user experience is always the same - blocked access.
+
+### SharePoint Online and B2B guest users
+
+To block B2B user access via legacy authentication to SharePoint Online, organizations must disable legacy authentication on SharePoint using the `Set-SPOTenant` PowerShell command and setting the `-LegacyAuthProtocolsEnabled` parameter to `$false`. More information about setting this parameter can be found in the SharePoint PowerShell reference document regarding [Set-SPOTenant](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)
 
 ## Next steps
 

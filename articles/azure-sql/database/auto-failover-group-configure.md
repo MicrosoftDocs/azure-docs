@@ -8,9 +8,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database

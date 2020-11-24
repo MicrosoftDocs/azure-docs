@@ -53,7 +53,7 @@ For recommendations, see [High availability and load balancing of your Applicati
 The Application Proxy Connector performs certificate-based authentication to Azure. TLS Termination (TLS/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing TLS Termination.  
 
 ### Is TLS 1.2 required for all connections?
-Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) for useful references and resources.
+Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) for useful references and resources.
 
 ### Can I place a forward proxy device between the connector server(s) and the back-end application server?
 Yes, this scenario is supported starting from the connector version 1.5.1526.0. See [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -97,7 +97,7 @@ The default length is 85 seconds. The "long" setting is 180 seconds. The timeout
 
 ### How do I change the landing page my application loads?
 
-From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page)
+From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Azure AD Application Proxy](./application-proxy-configure-custom-home-page.md)
 
 ### Can only IIS-based applications be published? What about web applications running on non-Windows web servers? Does the connector have to be installed on a server with IIS installed?
 
@@ -166,7 +166,7 @@ Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](ap
 
 ### Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint server?
 
-The [SharePoint mobile app](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
+The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
 
 ## Active Directory Federation Services (AD FS) publishing 
 
@@ -188,7 +188,7 @@ Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Ce
 
 Yes. Link translation affects performance. The Application Proxy service scans the application for hardcoded links and replaces them with their respective, published external URLs before presenting them to the user. 
 
-For best performance, we recommend using identical internal and external URLs by configuring [custom domains](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
+For best performance, we recommend using identical internal and external URLs by configuring [custom domains](./application-proxy-configure-custom-domain.md). If using custom domains isn't possible, you can improve link translation performance by using the My Apps Secure Sign in Extension or Microsoft Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
 
 ## Wildcards
 
@@ -199,5 +199,5 @@ This scenario isn't supported directly. Your options for this scenario are:
 1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
 
 2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-   - [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Application Proxy Application Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

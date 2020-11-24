@@ -1,7 +1,7 @@
 ---
 title: What are compute targets
 titleSuffix: Azure Machine Learning
-description: Define where you want to train or deploy your model with Azure Machine Learning.
+description: Learn how to designate a compute resource or environment to train or deploy your model with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -86,7 +86,7 @@ For instructions see [What are Azure Arc enabled data services?](overview.md)
 
 - Preview does not support backup/restore for PostgreSQL version 11 engine. It only supports backup/restore for PostgreSQL version 12.
 - `azdata arc dc debug copy-logs` ndoes not collect PostgreSQL engine logs on Windows.
-- Recreating a server group with the name of a server group that was just deleted may fail or hang. 
+- Recreating a server group with the name of a server group that was just deleted may fail or stop responding. 
    - **Workaround** Do not reuse the same name when you recreate a server group or wait for the load balancer/external service of previously deleted server group. Assuming that the name of the server group you deleted was `postgres01` and it was hosted in a namespace `arc`, before you recreate a server group with the same name, wait until `postgres01-external-svc` is not showing up in the output of the kubectl command `kubectl get svc -n arc`.
  - Loading the Overview page and Compute + Storage configuration page in Azure Data Studio is slow. 
 

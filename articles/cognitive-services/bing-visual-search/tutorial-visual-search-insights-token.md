@@ -39,7 +39,7 @@ The full source code for this tutorial can be found with additional error handli
 
 ## Get the ImageInsightsToken from the Bing Image Search client library
 
-This application uses an `ImageInsightsToken` obtained through the [Bing Image Search client library](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). In a new C# console application, create a client to call the API using `ImageSearchClient()`. Then use `SearchAsync()` with your query:
+This application uses an `ImageInsightsToken` obtained through the [Bing Image Search client library](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp). In a new C# console application, create a client to call the API using `ImageSearchClient()`. Then use `SearchAsync()` with your query:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -124,7 +124,7 @@ Getting the actual image URLs from action types requires a cast that reads an `A
     }
 ```
 
-For more information about these data types, see [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+For more information about these data types, see [Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 ## Returned URLs
 

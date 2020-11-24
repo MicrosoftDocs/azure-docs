@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -45,7 +45,7 @@ Log Analytics Dedicated Clusters are collections of workspaces into a single man
 
 The cluster capacity reservation level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys.md#cmk-management). The two modes are: 
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys.md#customer-managed-key-operations). The two modes are: 
 
 1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
@@ -206,10 +206,10 @@ You can configure a daily cap and limit the daily ingestion for your workspace, 
 
 Each workspace has its daily cap applied on a different hour of the day. The reset hour is shown in the **Daily Cap** page (see below). This reset hour cannot be configured. 
 
-Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
+Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached (see [below](#alert-when-daily-cap-reached)). 
 
 > [!NOTE]
-> The daily cap cannot stop data collection as precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data.  
+> The daily cap cannot stop data collection as precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. See [below](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
 
 > [!WARNING]
 > The daily cap does not stop the collection of data from Azure Sentinal or Azure Security Center, except for workspaces in which Azure Security Center was installed before June 19, 2017. 
@@ -229,6 +229,20 @@ The following steps describe how to configure a limit to manage the volume of da
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 	
 The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described at [Workspaces - Create Or Update](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+
+### View the effect of the Daily Cap
+
+To view the effect of the daily cap, it's important to account for the security data types not included in the daily cap, and the reset hour for your workspace. The daily cap reset hour is visible in the **Daily Cap** page.  The following query can be used to track the data volumes subject to the Daily Cap between daily cap resets. In this example, the workspace's reset hour is 14:00.  You'll need to update this for your workspace.
+
+```kusto
+let DailyCapResetHour=14;
+Usage
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable
+| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+```
 
 ### Alert when Daily Cap reached
 
@@ -398,17 +412,16 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, get subscription ID the `_ResourceId` property as:
+For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, get use the `_SubscriptionId` property as:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend subscriptionId = tostring(split(_ResourceId, "/")[2]) 
-| summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
+| summarize BillableDataBytes = sum(BillableDataBytes) by _SubscriptionId | sort by BillableDataBytes nulls last
 ```
 
-Similarly, to get data volume by resource group this would be:
+To get data volume by resource group, you can parse `_ResourceId`:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -466,7 +479,7 @@ Some suggestions for reducing the volume of logs collected include:
 | Performance counters       | Change [performance counter configuration](data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
-| AzureDiagnostics           | Change resource log collection to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
+| AzureDiagnostics           | Change [resource log collection](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal) to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
 
 ### Getting nodes as billed in the Per Node pricing tier
@@ -613,7 +626,7 @@ When you receive an alert, use the steps in the above sections about how to trou
 
 ## Data transfer charges using Log Analytics
 
-Sending data to Log Analytics might incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Log Analytics data ingestion. Consequently controlling costs for Log Analytics needs to focus on your [ingested data volume](#understanding-ingested-data-volume). 
+Sending data to Log Analytics might incur data bandwidth charges, however that its limited to Virtual Machines where an Log Analytics agent is installed and doesn't apply when using Diagnostics settings or with other connectors that are built into Azure Sentinel. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Log Analytics data ingestion. Consequently controlling costs for Log Analytics needs to focus on your [ingested data volume](#understanding-ingested-data-volume). 
 
 
 ## Troubleshooting why Log Analytics is no longer collecting data

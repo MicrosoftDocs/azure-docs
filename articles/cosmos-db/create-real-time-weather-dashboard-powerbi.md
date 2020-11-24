@@ -4,6 +4,7 @@ description: Learn how to create a live weather dashboard in Power BI using Azur
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun

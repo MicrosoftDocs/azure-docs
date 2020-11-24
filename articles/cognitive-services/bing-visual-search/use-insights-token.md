@@ -258,7 +258,7 @@ namespace VisualSearchInsightsToken
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-* [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will suffice.
+* [JDK 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will suffice.
 
 
 ## Run the Java application
@@ -532,4 +532,4 @@ if __name__ == '__main__':
 [Create a Visual Search single-page web app](tutorial-bing-visual-search-single-page-app.md)  
 [What is the Bing Visual Search API?](overview.md)  
 [Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[Images - Visual Search](https://aka.ms/bingvisualsearchreferencedoc)
+[Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)

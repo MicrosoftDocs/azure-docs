@@ -15,7 +15,7 @@ ms.date: 09/30/2020
 
 
 
-Learn how to interactively debug Azure Machine Learning experiments, pipelines, and deployments using Visual Studio Code (VS Code) and [depugpy](https://github.com/microsoft/debugpy/).
+Learn how to interactively debug Azure Machine Learning experiments, pipelines, and deployments using Visual Studio Code (VS Code) and [debugpy](https://github.com/microsoft/debugpy/).
 
 ## Run and debug experiments locally
 

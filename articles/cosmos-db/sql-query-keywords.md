@@ -3,6 +3,7 @@ title: SQL keywords for Azure Cosmos DB
 description: Learn about SQL keywords for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande

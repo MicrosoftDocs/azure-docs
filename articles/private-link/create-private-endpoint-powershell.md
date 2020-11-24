@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
 
@@ -149,8 +149,9 @@ In this section, you'll create the private endpoint and connection using:
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{

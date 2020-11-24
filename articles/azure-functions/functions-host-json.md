@@ -157,6 +157,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.samplingSettings
 
+For more information about these settings, see [Sampling in Application Insights](../azure-monitor/app/sampling.md). 
+
 |Property | Default | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | Enables or disables sampling. | 
@@ -352,7 +354,7 @@ Configuration settings can be found in [Storage queue triggers and bindings](fun
 
 ## retry
 
-Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies) options for all executions in the app.
+Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) options for all executions in the app.
 
 ```json
 {

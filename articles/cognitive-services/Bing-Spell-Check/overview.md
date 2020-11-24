@@ -44,4 +44,4 @@ First, try the Bing Spell Check Search API [interactive demo](https://azure.micr
 
 When you are ready to call the API, create a [Cognitive services API account](../../cognitive-services/cognitive-services-apis-create-account.md). If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 
-You can also visit the [Bing Search API hub page](../bing-web-search/search-the-web.md) to explore the other available APIs.
+You can also visit the [Bing Search API hub page](../bing-web-search/overview.md) to explore the other available APIs.

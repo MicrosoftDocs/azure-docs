@@ -4,7 +4,6 @@ description: Learn how to secure pods with Azure Policy on Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
 ---
 
 # Secure pods with Azure Policy

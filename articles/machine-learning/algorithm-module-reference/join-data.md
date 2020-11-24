@@ -1,7 +1,7 @@
 ---
 title: "Join Data: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the join Join Data module in Azure Machine Learning to merge datasets.
+description: Learn how to use the Join Data module in Azure Machine Learning designer to merge two datasets together.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

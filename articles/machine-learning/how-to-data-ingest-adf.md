@@ -1,7 +1,7 @@
 ---
 title: Data ingestion with Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Learn how to build a data ingestion pipeline with Azure Data Factory.
+description: Learn the available options for building a data ingestion pipeline with Azure Data Factory and the benefits of each.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,7 +11,7 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 
@@ -19,7 +19,7 @@ ms.custom: how-to, devx-track-python
 
 # Data ingestion with Azure Data Factory
 
-In this article, you learn how to build a data ingestion pipeline with Azure Data Factory (ADF). This pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models.
+In this article, you learn about the available options for building a data ingestion pipeline with Azure Data Factory (ADF). This pipeline is used to ingest data for use with Azure Machine Learning. Azure Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models.
 
 Simple data transformation can be handled with native ADF activities and instruments such as [data flow](../data-factory/control-flow-execute-data-flow-activity.md). When it comes to more complicated scenarios, the data can be processed with some custom code. For example, Python or R code.
 

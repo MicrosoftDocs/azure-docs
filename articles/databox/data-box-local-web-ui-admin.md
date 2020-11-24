@@ -207,7 +207,7 @@ To enable Backup Operator privileges in your Azure Device:
 
 1. In the top-right corner of the local web UI of your device, select **Settings**.
 
-   ![Open Data Box Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Open Data Box Settings - 1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Enable** Backup Operator privileges.
 
@@ -230,7 +230,7 @@ To enable transfer of ACLs for Azure files:
 
 1. In the top-right corner of the local web UI of your device, select **Settings**.
 
-    ![Open Data Box Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Open Data Box Settings -2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Enable** ACLs for Azure files.
 
@@ -250,7 +250,7 @@ To enable TLS 1.1 in your Azure device:
 
 1. In the top-right corner of the local web UI of your device, select **Settings**.
 
-    ![Open Data Box Settings](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Open Data Box Settings -3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Enable** TLS 1.1.
 

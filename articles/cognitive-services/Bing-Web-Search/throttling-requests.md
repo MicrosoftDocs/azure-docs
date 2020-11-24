@@ -24,4 +24,4 @@ ms.author: aahi
 
 ## Next steps
 
-* [Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing Web Search API reference](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
