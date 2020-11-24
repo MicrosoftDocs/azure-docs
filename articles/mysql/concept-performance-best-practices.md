@@ -8,7 +8,8 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ---
 
-# Best practice for optimal performance of your Azure Database for MySQL
+# Best practices for optimal performance of your Azure Database for MySQL - Single server
+[!INCLUDE[applies-to-single-flexible-server]
 
 Learn about the best practices for getting the best performance while working with your Azure Database for MySQL - Single server. As we add new capabilities to the platform, we will continue refine the best practices detailed in this section.
 
