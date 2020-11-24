@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Data Warehouse Units (DWUs)
 
-Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
+This document contains recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
 ## What are Data Warehouse Units
 
