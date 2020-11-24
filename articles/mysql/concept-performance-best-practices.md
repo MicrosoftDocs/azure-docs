@@ -9,7 +9,7 @@ ms.date: 11/23/2020
 ---
 
 # Best practices for optimal performance of your Azure Database for MySQL - Single server
-[!INCLUDE applies-to-single-flexible-server]
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Learn about the best practices for getting the best performance while working with your Azure Database for MySQL - Single server. As we add new capabilities to the platform, we will continue refine the best practices detailed in this section.
 
