@@ -159,7 +159,7 @@ You can use the format buttons in the text cells toolbar to do common markdown a
 
 # [Preview Notebook](#tab/preview)
 
-Format button toolbar is not available for the preview notebook experience yet. This is in our to do list and going to be ready soon.
+Format button toolbar is not available for the preview notebook experience yet. 
 
 ---
 
@@ -172,7 +172,7 @@ Select the **undo** button or press **Ctrl+Z** to revoke the most recent cell op
    ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 # [Preview Notebook](#tab/preview)
 
-Undo cell operation is not available for the preview notebook experience yet. This is in our to do list and going to be ready soon.
+Undo cell operation is not available for the preview notebook experience yet. 
 
 ---
 
@@ -283,7 +283,7 @@ Select the **Cancel All** button to cancel the running cells or cells waiting in
 
 # [Preview Notebook](#tab/preview)
 
-Cancel all running cells is not available for the preview notebook experience yet. This is in our to do list and going to be ready soon.
+Cancel all running cells is not available for the preview notebook experience yet. 
 
 ---
 
