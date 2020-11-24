@@ -43,10 +43,10 @@ For each of these events, Azure Attestation collects the following information:
 - Operation Name
 - Operation Success
 - Operation Caller, which could be any of the following:
-    - AAD UPN
+    - Azure AD UPN
     - Object ID
     - Certificate
-    - AAD Tenant ID
+    - Azure AD Tenant ID
 - Operation Target, which could be any of the following:
     - Environment
     - Service Region
