@@ -22,15 +22,15 @@ Use accelerated networking for the application server if you are using Azure vir
 
 ## Connection Efficiency
 
-Establishing a new connection is always an expensive and time-consuming task, reduce the number of attempts to create new connections by implementing the following approaches. When a program/application requests a database connection, it prioritizes the allocation of existing idle database connections rather than creating a new one.  Here are some options for good connection practices:
+Establishing a new connection is always an expensive and time-consuming task. When an application requests a database connection, it prioritizes the allocation of existing idle database connections rather than creating a new one.  Here are some options for good connection practices:
 
-- **ProxySQL**: leverage ProxySQL, an open source, high performance proxy which provide built-in connection pooling and further allows you to scale out and [load balance your workload](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to multiple read replicas as required on demand with any changes in application code.
+- **ProxySQL**: Use [ProxySQL](https://proxysql.com/) which provides built-in connection pooling and [load balance your workload](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to multiple read replicas as required on demand with any changes in application code.
 
 - **Heimdall Data Proxy**: Alternatively, you can also leverage Heimdall Data Proxy, a vendor-neutral proprietary proxy solution. It supports query caching and read/write split with replication lag detection. You can also refer to how to [accelerate MySQL Performance with the Heimdall proxy](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/accelerate-mysql-performance-with-the-heimdall-proxy/ba-p/1063349).  
 
-- **Persistent or Long-Lived Connection**: If your application has short transactions/queries typically with execution time < 5-10 ms then replace short connections with persistent connections. Replace short connections with persistent connections requires only minor changes to the code, but it has a major effect in terms of improving performance in many typical application scenarios. By using this approach you can avoid opening a new request for each connection instead reuse the existing connection to send more requests. Please make sure to set the timeout or close connection when it is done.
+- **Persistent or Long-Lived Connection**: If your application has short transactions or queries typically with execution time < 5-10 ms, then replace short connections with persistent connections. Replace short connections with persistent connections requires only minor changes to the code, but it has a major effect in terms of improving performance in many typical application scenarios. Make sure to set the timeout or close connection when the transaction is complete.
 
-- **Replica**: If you are using replica, use ProxySQL to balance off load between the primary server and the readable secondary replica server. Please see the setup steps [here](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/scaling-an-azure-database-for-mysql-workload-running-on/ba-p/1105847).
+- **Replica**: If you are using replica, use [ProxySQL](https://proxysql.com/) to balance off load between the primary server and the readable secondary replica server. Learn [how to set up ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/scaling-an-azure-database-for-mysql-workload-running-on/ba-p/1105847).
 
 ## Data Import configurations
 
