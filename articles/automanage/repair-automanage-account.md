@@ -1,6 +1,6 @@
 ---
 title: Repair a broken Azure Automanage Account
-description: Learn how to fix a broken Automanage Account
+description: If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure it. In this article, you'll learn how. 
 author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -10,17 +10,17 @@ ms.date: 11/05/2020
 ms.author: alsin
 ---
 
-# Repair a broken Automanage Account
-The [Automanage Account](./automanage-virtual-machines.md#automanage-account) is the security context or the identity under which the automated operations occur. If you have recently moved a subscription containing an Automanage Account to a new tenant, you will need to reconfigure your Automanage Account. To reconfigure your Automanage Account, you will need to reset the identity type and assign the appropriate roles for the account.
+# Repair an Automanage Account
+Your [Azure Automanage Account](./automanage-virtual-machines.md#automanage-account) is the security context or identity under which the automated operations occur. If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure the account. To reconfigure it, you need to reset the identity type and assign the appropriate roles for the account.
 
-## Step 1: Reset Automanage Account identity type
-Reset the Automanage Account identity type with the Azure Resource Manager (ARM) template below. Save the file locally as `armdeploy.json` or similar. Note down your Automanage account name and location, as those are required parameters in the ARM template.
+## Step 1: Reset the Automanage Account identity type
+Reset the Automanage Account identity type by using the following Azure Resource Manager (ARM) template. Save the file locally as armdeploy.json or a similar name. Note your Automanage Account name and location because they're required parameters in the ARM template.
 
-1. Create a new ARM deployment with the template below, and use `identityType = None`
-    * You may do this with Azure CLI using `az deployment sub create`. Learn more about the `az deployment sub` command [here](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * You may also do this with PowerShell using the `New-AzDeployment` module. Learn more about the `New AzDeployment` module [here](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+1. Create a Resource Manager deployment by using the following template. Use `identityType = None`.
+    * You can create the deployment in the Azure CLI by using `az deployment sub create`. For more information, see [az deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
+    * You can create the deployment in PowerShell by using the `New-AzDeployment` module. For more information, see [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
 
-1. Run the same ARM template again with `identityType = SystemAssigned`
+1. Run the same ARM template again with `identityType = SystemAssigned`.
 
 ```json
 {
@@ -54,24 +54,24 @@ Reset the Automanage Account identity type with the Azure Resource Manager (ARM)
 ```
 
 ## Step 2: Assign appropriate roles for the Automanage Account
-The Automanage Account requires the Contributor and Resource Policy Contributor roles on the subscription containing the VMs that Automanage is managing. You can assign these roles using the Azure portal, ARM templates, or Azure CLI.
+The Automanage Account requires the Contributor and Resource Policy Contributor roles on the subscription that contains the VMs that Automanage is managing. You can assign these roles by using the Azure portal, ARM templates, or the Azure CLI.
 
-If you are using an ARM template or Azure CLI, you will need the principal ID (also known as Object ID) of your Automanage Account (this is not necessary if you are using the Azure portal). You may find the Principal ID (Object ID) of your Automanage account by using the following methods:
+If you're using an ARM template or the Azure CLI, you'll need the Principal ID (also known as the Object ID) of your Automanage Account. (You don't need the ID if you're using the Azure portal.) You can find this ID by using these methods:
 
 - [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): Use the command `az ad sp list --display-name <name of your Automanage Account>`.
 
-- Azure portal: Navigate to **Azure Active Directory** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it displays.
+- Azure portal: Go to **Azure Active Directory** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it appears.
 
 ### Azure portal
-1. Under **Subscriptions**, navigate to the subscription containing your Automanaged VMs.
-1. Navigate to **Access control (IAM)**.
-1. Click **Add role assignments**.
-1. Select the **Contributor** role and type the name of your Automanage account.
-1. Press **Save**.
-1. Repeat steps 3-5, this time with the **Resource Policy Contributor** role.
+1. Under **Subscriptions**, go to the subscription that contains your automanaged VMs.
+1. Go to **Access control (IAM)**.
+1. Select **Add role assignments**.
+1. Select the **Contributor** role and enter the name of your Automanage Account.
+1. Select **Save**.
+1. Repeat steps 3 through 5, this time with the **Resource Policy Contributor** role.
 
 ### ARM template
-Run the following ARM template. You will need the Principal ID of your Automanage Account - steps to get the Principal ID are above. Enter it when prompted.
+Run the following ARM template. You'll need the Principal ID of your Automanage Account. The steps to get it are at the start of this section. Enter the ID when you're prompted.
 
 ```json
 {
@@ -113,13 +113,13 @@ Run the following ARM template. You will need the Principal ID of your Automanag
 ```
 
 ### Azure CLI
-Run the following commands:
+Run these commands:
 
 ```azurecli
-az role assignment create --assignee-object-id <your Automanage Account's object id> --role "Contributor" --scope /subscriptions/<your subscription id>
+az role assignment create --assignee-object-id <your Automanage Account Object ID> --role "Contributor" --scope /subscriptions/<your subscription ID>
 
-az role assignment create --assignee-object-id <your Automanage Account's object id> --role "Resource Policy Contributor" --scope /subscriptions/<your subscription id>
+az role assignment create --assignee-object-id <your Automanage Account Object ID> --role "Resource Policy Contributor" --scope /subscriptions/<your subscription ID>
 ```
 
 ## Next steps
-Learn more about Azure Automanage [here](./automanage-virtual-machines.md).
+[Learn more about Azure Automanage](./automanage-virtual-machines.md)

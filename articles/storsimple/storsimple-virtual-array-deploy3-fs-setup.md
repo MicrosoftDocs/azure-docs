@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
 The setup and configuration process can take around 10 minutes to complete. The information in this article applies only to the deployment of the StorSimple Virtual Array. For the deployment of StorSimple 8000 series devices, go to:
-[Deploy your StorSimple 8000 series device running Update 2](storsimple-deployment-walkthrough-u2.md).
+[Deploy your StorSimple 8000 series device running Update 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## Setup prerequisites
 Before you configure and set up your StorSimple Virtual Array, make sure that:
@@ -135,7 +135,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     
    3. A 256-bit AES key is used with the user-defined key for encryption. Specify a 32 character key and then reenter the key to confirm it. Record the key in a key management app for future reference.
     
-   4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured. **Ensure that the storage account you use supports block blobs. Page blobs are not supported.** More information about [blocks blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured. **Ensure that the storage account you use supports block blobs. Page blobs are not supported.** More information about [blocks blobs and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configure a file server 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. In the **Add a storage account credentials** blade, do the following: 
@@ -210,4 +210,3 @@ You will now need to connect to one or more shares that you created in the previ
 
 ## Next steps
 Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

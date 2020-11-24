@@ -10,9 +10,9 @@
  ms.custom: include file
 ---
 
-From a browser, navigate to the Azure portal and sign in with your Azure account.
+From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
-1. Navigate to the Virtual WAN page. In the portal, click **+Create a resource**. Type **Virtual WAN** into the search box and select **Enter**.
+1. In the portal, select **+ Create a resource**. Type **Virtual WAN** into the search box and select **Enter**.
 1. Select **Virtual WAN** from the results. On the Virtual WAN page, select **Create** to open the Create WAN page.
 1. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
 

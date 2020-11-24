@@ -27,9 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this guide, you must have the following resources.
 * A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
-   - [Create a key vault with the Azure CLI](../secrets/quick-create-cli.md)
-   - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
+   - [Create a key vault with the Azure CLI](../general/quick-create-cli.md)
+   - [Create a key vault with Azure PowerShell](../general/quick-create-powershell.md)
+   - [Create a key vault with the Azure portal](../general/quick-create-portal.md).
 *	You need to activate DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
 *	Administrator level permissions in your accounts.
 

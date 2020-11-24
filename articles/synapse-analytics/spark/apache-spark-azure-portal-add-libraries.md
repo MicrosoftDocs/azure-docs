@@ -6,7 +6,7 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick 
 ms.subservice: spark
 ---
@@ -15,6 +15,9 @@ ms.subservice: spark
 
 Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally-built code available to your applications, you can install a library onto one of your serverless Apache Spark Pools (preview). Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
 
+## Before you begin
+- To install and update libraries, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
+  
 ## Default Installation
 Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md). 
 
@@ -30,6 +33,7 @@ Once you have identified the libraries that you would like to use for your Spark
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Packages which require compiler support at install time, such as GCC, are not supported.
 > - Packages can not be downgraded, only added or upgraded.
+> - To install libraries, you must have Storage Blob Data Contributor or Storage Blob Data Owner permissions on the primary Gen2 Storage account linked to the Synapse workspace.
 
 ### Requirements format
 
@@ -87,9 +91,9 @@ To install a library onto a Spark pool (preview) directly from the Azure portal:
 To verify if the correct versions of the correct libraries are installed run the following code
 
 ```python
-import pip #needed to use the pip functions
-for i in pip.get_installed_distributions(local_only=True):
-    print(i)
+import pkg_resources
+for d in pkg_resources.working_set:
+     print(d)
 ```
 ### Update Python packages
 Packages can be added or modified anytime between sessions. When a new package configuration file is uploaded, this will overwrite the existing packages and versions.  

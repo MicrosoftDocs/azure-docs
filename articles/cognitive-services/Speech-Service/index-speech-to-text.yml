@@ -35,7 +35,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Choose speech recognition mode
-          url: how-to-choose-recognition-mode.md
+          url: ./get-started-speech-to-text.md
         - text: Change speech recognition source language
           url: how-to-specify-source-language.md
         - text: Improve accuracy with Custom Speech

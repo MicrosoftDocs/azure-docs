@@ -223,7 +223,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-This example would give you 4000 Allocated Outbound Ports for each node in my cluster, and with 7 IPs you would have *4000 ports per node * 100 nodes = 400k total ports <  = 448k total ports = 7 IPs * 64k ports per IP*. This would allow you to safely scale to 100 nodes and have a default upgrade operation. It is critical to allocate sufficient ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade, in this example this requires 4000 free ports at any given point in time. If using [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade-preview), multiply the outbound ports per node by your maxSurge value.
+This example would give you 4000 Allocated Outbound Ports for each node in my cluster, and with 7 IPs you would have *4000 ports per node * 100 nodes = 400k total ports <  = 448k total ports = 7 IPs * 64k ports per IP*. This would allow you to safely scale to 100 nodes and have a default upgrade operation. It is critical to allocate sufficient ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade, in this example this requires 4000 free ports at any given point in time. If using [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade), multiply the outbound ports per node by your maxSurge value.
 
 To safely go above 100 nodes, you'd have to add more IPs.
 

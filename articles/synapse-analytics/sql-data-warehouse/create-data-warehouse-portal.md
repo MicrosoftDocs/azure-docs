@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw 
 ms.date: 05/28/2019
-ms.author: Kevin
+ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse 
 ---
