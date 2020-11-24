@@ -65,8 +65,8 @@ items:
   items:
   - name: Register & scan
     items:
-    - name: Bring new data sources under management
-      href: bring-new-data-sources-under-management.md
+    - name: Manage data sources
+      href: manage-data-sources.md
     - name: Purview connectors overview
       href: purview-connector-overview.md
     - name: Azure Files
