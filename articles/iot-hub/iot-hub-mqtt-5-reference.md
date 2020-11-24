@@ -13,7 +13,7 @@
 
 This document defines operations available in version 2.0 (api-version: `2020-10-01-preview`) of IoT Hub data plane API.
 
-# Operations
+## Operations
 
 ### Get Twin
 
@@ -139,7 +139,7 @@ Receive and handle commands
 
 **Payload**: any byte sequence
 
-#### Success Acknowledgement
+#### Success Acknowledgment
 
 Indicates command was accepted for handling by the client
 
@@ -148,11 +148,11 @@ Indicates command was accepted for handling by the client
 
 **Payload**: empty
 
-#### Alternative Acknowledgements
+#### Alternative Acknowledgments
 
 | Reason Code | Status | Name | Description |
 | :---------- | :----- | :--- | :---------- |
-| 131 | 0603 | Abandon | Indicates command will not be processed at this time and should be re-delivered in the future. |
+| 131 | 0603 | Abandon | Indicates command will not be processed at this time and should be redelivered in the future. |
 | 131 | 0100 | Reject | Indicates command is rejected by the client and should not be attempted again. |
 
 #### Pseudo-code Sample
@@ -270,7 +270,7 @@ Post message to telemetry channel - EventHubs by default or other endpoint via r
 
 **Payload**: any byte sequence
 
-#### Success Acknowledgement
+#### Success Acknowledgment
 
 Message has been successfully posted to telemetry channel
 
@@ -279,7 +279,7 @@ Message has been successfully posted to telemetry channel
 
 **Payload**: empty
 
-#### Alternative Acknowledgements
+#### Alternative Acknowledgments
 
 | Reason Code | Status | Name | Description |
 | :---------- | :----- | :--- | :---------- |
@@ -407,7 +407,7 @@ Resource was not modified based on provided precondition.
 
 ### Precondition Failed
 
-precondition was not met resulting in request being canceled
+Precondition was not met resulting in request being canceled
 
 **Reason Code:** `131`
 
