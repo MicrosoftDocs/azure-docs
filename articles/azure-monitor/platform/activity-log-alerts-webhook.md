@@ -264,7 +264,7 @@ For specific schema details on service health notification activity log alerts, 
 | resourceGroupName |Name of the resource group for the impacted resource. |
 | properties |Set of `<Key, Value>` pairs (that is, `Dictionary<String, String>`) that includes details about the event. |
 | event |Element that contains metadata about the event. |
-| authorization |The Role-Based Access Control properties of the event. These properties usually include the action, the role, and the scope. |
+| authorization |The Azure role-based access control properties of the event. These properties usually include the action, the role, and the scope. |
 | category |Category of the event. Supported values include Administrative, Alert, Security, ServiceHealth, and Recommendation. |
 | caller |Email address of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls. |
 | correlationId |Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId. |

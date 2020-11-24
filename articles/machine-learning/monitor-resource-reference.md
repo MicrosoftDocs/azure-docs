@@ -75,7 +75,7 @@ Azure Machine Learning has the following dimensions associated with its metrics.
 
 | Dimension | Description |
 | ---- | ---- |
-| Cluster Name | The name of the compute instance. Available for all quota metrics. |
+| Cluster Name | The name of the compute cluster resource. Available for all quota metrics. |
 | Vm Family Name | The name of the VM family used by the cluster. Available for quota utilization percentage. |
 | Vm Priority | The priority of the VM. Available for quota utilization percentage.
 | CreatedTime | Only available for CpuUtilization and GpuUtilization. |
