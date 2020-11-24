@@ -35,7 +35,7 @@ To access the chart options:
    | Value | Specify the range of values for the y-axis values |
    | Series Group | Used to determine the groups for the aggregation | 
    | Aggregation | Method to aggregate data in your visualization| 
-   ||| 
+   
    
     > [!NOTE]
     > By default the ```display(df)``` function will only take the first 1000 rows of the data to render the charts. Check the **Aggregation over all results** and click the **Apply** button, you will apply the chart generation from the whole dataset. A Spark job will be triggered when the chart setting changes. Please note that it may take several minutes to complete the calculation and render the chart.

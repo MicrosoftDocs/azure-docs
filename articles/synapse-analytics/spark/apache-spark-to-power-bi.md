@@ -13,7 +13,7 @@ ms.date: 11/16/2020
 
 # Tutorial: Create a Power BI report using Apache Spark and Azure Synapse Analytics
 
-Often times, organizations need to process large volumes of data before serving to key business stakeholders. In this tutorial, you will learn how to leverage the integrated experiences in Azure Synapse Analytics to process data using Apache Spark and later serve the data to end-users through Power BI and Serverless SQL.
+Organizations often need to process large volumes of data before serving to key business stakeholders. In this tutorial, you will learn how to leverage the integrated experiences in Azure Synapse Analytics to process data using Apache Spark and later serve the data to end-users through Power BI and Serverless SQL.
 
 ## Before you begin
 - [Azure Synapse Analytics workspace](../quickstart-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. 
@@ -83,7 +83,7 @@ Next, we will connect our serverless SQL pool to our Power BI workspace. Once yo
 >[!Note]
 > Before you begin, you will need to set up a linked service to your [Power BI workspace](../quickstart-power-bi.md) and download the [Power BI desktop](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).  
 
-To connect our severless SQL pool to our Power BI workspace:
+To connect our serverless SQL pool to our Power BI workspace:
 
 1.  Navigate to the **Power BI datasets** tab and select the option to **+ New Dataset**. From the prompt, download the .pbids file from the SQL Analytics database you would like to use as a data source. 
    :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-datasets.png" alt-text="Power BI datasets." border="true":::
