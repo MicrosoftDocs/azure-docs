@@ -66,6 +66,6 @@ Resilience resources for administrators and architects
 
 Resilience resources for developers
 
-* [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
+* [Build IAM resilience in your applications](resilience-app-development-overview.md)
 
-* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
+* [Build resilience in your CIAM systems](resilience-b2c.md)
