@@ -35,11 +35,9 @@ Security Center is offered in two modes:
     - **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments. When enabling the **Azure Defender for container registries**, it may take up to 12hrs until all the features are enabled. Charges are based on the number of unique container images pushed to your connected registry. After an image has been scanned once, you won't be charged for it again unless it's modified and pushed once more. 
 
 ## Try Azure Defender free for 30 days
-
 Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.
 
 ## Enable Azure Defender
-
 You can protect an entire Azure subscription with Azure Defender and the protections will be inherited by all resources within the subscription.
 
 To enable Azure Defender:
@@ -59,6 +57,58 @@ Below is the pricing page for an example subscription. You'll notice that each p
 > You can enable **Azure Defender for Storage accounts** at either the subscription level or resource level.
 > You can enable **Azure Defender for SQL** at either the subscription level or resource level.
 > You can enable threat protection for **Azure Database for MariaDB/ MySQL/ PostgreSQL** at the resource level only.
+
+
+## FAQ - Pricing and billing 
+
+### How can I track who in my organization enabled Azure Defender changes in Azure Security Center
+Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user performed a change, use the Azure Activity Log. 
+
+If the user's info isn't listed in the **Event initiated by** column, explore the event for the relevant details.
+
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Azure Event Log showing a pricing change event":::
+
+
+### What are the plans offered by Security Center? 
+Security Center has two offerings: 
+
+- Azure Security Center free 
+- Azure Defender  
+
+### How do I enable Azure Defender for my subscription? 
+You can use any of the following ways to enable Azure Defender for your subscription: 
+
+|Method  |Instructions  |
+|---------|---------|
+|Azure Security Center pages of the Azure portal|[Enable Azure Defender](#enable-azure-defender)|
+|REST API|[Pricings API](https://docs.microsoft.com/rest/api/securitycenter/pricings)|
+|Azure CLI|[az security pricing](https://docs.microsoft.com/cli/azure/security/pricing?view=azure-cli-latest)|
+|PowerShell|[Set-AzSecurityPricing](https://docs.microsoft.com/powershell/module/az.security/set-azsecuritypricing)|
+|Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
+|||
+
+### Can I enable Azure Defender for servers on a subset of servers in my subscription?
+No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, all the servers in the subscription will be protected by Azure Defender. 
+
+An alternative is to enable Azure Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include just-in-time VM access, network detections, regulatory compliance, adaptive network hardening, adaptive application control, and more. 
+
+
+### My subscription has Azure Defender for servers enabled, do I pay for not-running servers? 
+No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, you'll be billed hourly for running servers only. You won't be charged for any server that's turned off,  during the time it's off. 
+
+> [!TIP]
+> This also applies to the other resource types protected by Security Center. 
+
+### Will I be charged for machines without the Log Analytics agent installed?
+Yes. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent.
+
+For Azure Arc machines, you'll only be charged if a Log Analytics agent is installed and reports data to a workspace that has a 'Security' or 'AntiMalware' solutions installed. 
+
+### If a Log Analytics agent reports to multiple workspaces, will I be charged twice? 
+Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll be charged for every workspace that has a 'Security' or 'AntiMalware' solutions installed. 
+
+### If a Log Analytics agent reports to multiple workspaces, is the 500MB free data ingestion available on all of them?
+Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll get 500MB free data ingestion. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solutions installed. If the ingested data exceeds, 500MB you'll be charged for the extra.
 
 
 ## Next steps
