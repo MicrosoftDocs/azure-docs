@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create a server - Azure CLI - Azure Database for MySQL'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -23,7 +23,7 @@ This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/
 
  - This quickstart requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
- - Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+ - Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
    ```azurecli
    az account set --subscription <subscription id>

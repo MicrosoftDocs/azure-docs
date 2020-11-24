@@ -24,7 +24,7 @@ Azure Database for MySQL supports the following database versions.
 
 
 ## Major version support
-Each major version of MySQL will be supported by Azure Database for MySQL from the date on which Azure begins supporting the version until the version is retired by the MySQL community, as provided in the [versioning policy](https://en.wikipedia.org/wiki/mysql).
+Each major version of MySQL will be supported by Azure Database for MySQL from the date on which Azure begins supporting the version until the version is retired by the MySQL community, as provided in the [versioning policy](https://www.mysql.com/support/eol-notice.html).
 
 ## Minor version support
 Azure Database for MySQL automatically performs minor version upgrades to the Azure preferred MySQL version as part of periodic maintenance. 
@@ -34,8 +34,8 @@ The table below provides the retirement details for MySQL major versions. The da
 
 | Version | What's New | Azure support start date | Retirement date|
 | ----- | ----- | ------ | ----- |
-| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/)| [Features](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | March 20, 2018 | February 2021
-| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | March 20, 2018 | October 2023
+| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [Features](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | March 20, 2018 | February 2021
+| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | March 20, 2018 | October 2023
 | [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | December 11, 2019 | April 2026
 
 

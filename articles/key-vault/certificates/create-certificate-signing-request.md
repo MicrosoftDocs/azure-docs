@@ -21,7 +21,15 @@ For more general information about Certificates, see [Azure Key Vault Certificat
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Adding Certificate in Key Vault issued by a non-trusted CA
+## Adding Certificate in Key Vault issued by partnered CA
+Key Vault partners with following two Certificate Authorities to simplify the creation of certificates. 
+
+|Provider|Certificate type|Configuration setup  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration Guide](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration Guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## Adding Certificate in Key Vault issued by non-partnered CA
 
 The following steps will help you create a certificate from certificate authorities that are not partnered with Key Vault (for example, GoDaddy is not a trusted key vault CA) 
 

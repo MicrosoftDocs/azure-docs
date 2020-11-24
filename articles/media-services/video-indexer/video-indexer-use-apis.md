@@ -203,6 +203,10 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
+## Clean up resources
+
+After you are done with this tutorial, delete resources that you are not planning to use.
+
 ## See also
 
 - [Video Indexer overview](video-indexer-overview.md)

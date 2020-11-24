@@ -14,7 +14,7 @@ ms.author: shants
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. Updates are changes like patching the hosting environment or upgrading and decommissioning hardware. A majority of these updates are completed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
-- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated. These types maintenance operations are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
+- If the maintenance does not require a reboot, Azure pauses the VM for few seconds while the host is updated. These types of maintenance operations are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
 
 - If maintenance requires a reboot, you get a notice of when the maintenance is planned. You are given a time window of about 35 days where you can start the maintenance yourself, when it works for you.
 
@@ -76,7 +76,7 @@ For more information about high availability, see [Availability for virtual mach
 
 **Q: How do I get notified about planned maintenance?**
 
-**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription admin and co-admins (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription admins, co-admins, owners, and contributors (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
 
 **Q: I don't see any indication of planned maintenance in the portal, PowerShell, or CLI. What is wrong?**
 

@@ -13,7 +13,7 @@ With Azure Kubernetes Service (AKS), the master components such as the *kube-api
 
 ## Before you begin
 
-This article requires an existing AKS cluster running in your Azure account. If you do not already have an AKS cluster, create one using the [Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]. Azure Monitor logs works with both RBAC and non-RBAC enabled AKS clusters.
+This article requires an existing AKS cluster running in your Azure account. If you do not already have an AKS cluster, create one using the [Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]. Azure Monitor logs works with both Kubernetes RBAC, Azure RBAC, and non-RBAC enabled AKS clusters.
 
 ## Enable resource logs
 

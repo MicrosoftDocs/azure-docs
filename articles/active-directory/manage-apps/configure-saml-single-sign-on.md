@@ -27,7 +27,7 @@ In the [quickstart series](add-application-portal-setup-sso.md), there's an arti
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be present in the navigation for an application in **Enterprise applications**. 
 >
-> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -67,7 +67,7 @@ You can add new claims, for details see [Adding application-specific claims](../
 >- To create custom roles via the Azure portal, see [Configure role claims](../develop/active-directory-enterprise-app-role-management.md).
 >- To customize the claims via PowerShell, see [Customize claims - PowerShell](../develop/active-directory-claims-mapping.md).
 >- To modify the application manifest to configure optional claims for your application, see [Configure optional claims](../develop/active-directory-optional-claims.md).
->- To set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens, see [Configure token lifetimes](../develop/active-directory-configurable-token-lifetimes.md). Or, to restrict authentication sessions via Azure AD Conditional Access, see [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106).
+>- To set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens, see [Configure token lifetimes](../develop/active-directory-configurable-token-lifetimes.md). Or, to restrict authentication sessions via Azure AD Conditional Access, see [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ## SAML signing certificate
 
@@ -123,12 +123,12 @@ If an error message appears, complete the following steps:
 
 4. Run the test again until it completes successfully.
 
-For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md).
 
 
 ## Next steps
 
 - [Quickstart Series on Application Management](view-applications-portal.md)
-- [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
+- [Assign users or groups to the application](./assign-user-or-group-access-portal.md)
 - [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md)

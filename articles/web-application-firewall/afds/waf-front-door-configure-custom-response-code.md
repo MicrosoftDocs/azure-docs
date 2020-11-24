@@ -12,7 +12,7 @@ ms.reviewer: tyao
 
 # Configure a custom response for Azure Web Application Firewall (WAF)
 
-By default, when WAF blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. The default message also includes the tracking reference string that can be used to link to [log entries](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) for the request.  You can configure a custom response status code and a custom message with reference string for your use case. This article describes how to configure a custom response page when a request is blocked by WAF.
+By default, when WAF blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. The default message also includes the tracking reference string that can be used to link to [log entries](./waf-front-door-monitor.md) for the request.  You can configure a custom response status code and a custom message with reference string for your use case. This article describes how to configure a custom response page when a request is blocked by WAF.
 
 ## Configure custom response status code and message use portal
 
@@ -31,9 +31,9 @@ In the above example, we kept the response code as 403, and configured a short "
 
 ### Set up your PowerShell environment
 
-Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
+Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
 
 ### Connect to Azure with an interactive dialog for sign-in
 

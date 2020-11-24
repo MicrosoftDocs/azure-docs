@@ -1,7 +1,7 @@
 ---
 title: Where to save & write experiment files
 titleSuffix: Azure Machine Learning
-description: Learn where to save your experiment input files, and where to write output files to prevent storage limitation errors and experiment latency.
+description: Learn where to save your input and output files to prevent storage limitation errors and experiment latency.
 services: machine-learning
 author: rastala
 ms.author: roastala
