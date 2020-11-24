@@ -5,21 +5,25 @@ author: hophan
 ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/23/2020
 ---
 # Azure Purview deployment best practices
 
-This article identifies common tasks that can help you deploy Purview into production. These tasks can be completed in phases, over the course of a month or more. Even organizations who have already deployed Purview can use this guide to ensure they are getting the most out of their investment.
+This article identifies common tasks that can help you deploy Purview into production. These tasks can be completed in phases, over the course of a month or more. Even organizations who have already deployed Purview can use this guide to ensure they're getting the most out of their investment.
 
-A well-planned and executed data governance platform deployment, paves the way for better data discovery, improved analytic collaboration, and maximizing return on investment.
+A well-planned deployment of a data governance platform (such as Azure Purview), can give the following benefits:
+
+- Better data discovery
+- Improved analytic collaboration
+- Maximized return on investment.
 
 ## Prerequisites
 
 * Access to Microsoft Azure with a development or production subscription
 * Ability to create Azure resources including Purview
 * Access to data sources such as Azure Data Lake Storage or Azure SQL in test, development, or production environments
-  * For Data Lake, the required role is Reader Role in order to scan
+  * For Data Lake Storage, the required role to scan is Reader Role
   * For SQL, the identity must be able to query tables for sampling of classifications
 * Access to Azure Security Center or ability to collaborate with Security Center Admin for data labeling
 
@@ -70,7 +74,7 @@ While you might not have the answer to most of these questions right away, it ca
 
 ## Include the right stakeholders
 
-To ensure the success of implementing Purview for the entire enterprise, it’s important to involve the right stakeholders. Only a few people are actually involved in the initial phase. However, as the scope expands, you will require additional personas to contribute to the project and provide feedback.
+To ensure the success of implementing Purview for the entire enterprise, it’s important to involve the right stakeholders. Only a few people are involved in the initial phase. However, as the scope expands, you will require additional personas to contribute to the project and provide feedback.
 
 Some key stakeholders that you may want to include:
 
@@ -82,7 +86,7 @@ Some key stakeholders that you may want to include:
 |**Data Architect**|Design databases for mission-critical line-of-business apps along with designing and implementing data security|
 |**Data Engineer**|Operate and maintain the data stack, pull data from different sources, integrate and prepare data, set up data pipelines|
 |**Data Scientist**|Build analytical models and set up data products to be accessed by APIs|
-|**DB Admin**|Own, track, and resolve database-related incidents and requests within service-level agreements (SLAs); May to set up data pipelines|
+|**DB Admin**|Own, track, and resolve database-related incidents and requests within service-level agreements (SLAs); May set up data pipelines|
 |**DevOps**|Line-of-Business application development and implementation; may include writing scripts and orchestration capabilities|
 |**Data Security Specialist**|Assess overall network and data security, which involves data coming in and out of Purview|
 
@@ -110,7 +114,7 @@ The scenarios must be specific, actionable, and executable with measurable resul
 
 ## Deployment models
 
-If you have only one small group using Purview with basic consumption use cases, the approach could be as simple as having one Purview instance to service the entire group. However, you may also wonder whether your organization needs more than one Purview instance. And in the case of using multiple Purview instances, how employees can promote the assets from one stage to another.
+If you have only one small group using Purview with basic consumption use cases, the approach could be as simple as having one Purview instance to service the entire group. However, you may also wonder whether your organization needs more than one Purview instance. And if using multiple Purview instances, how can employees promote the assets from one stage to another.
 
 ### Determine the number of Purview instances
 
@@ -125,7 +129,7 @@ However, there are exceptions to this pattern:
 
 ### Create a process to move to production
 
-Some organizations may decide to keep things simple by working with a single production version of Purview. They probably don’t need to go beyond discovery, search, and browse scenarios. If some assets have incorrect glossary terms, it’s quite forgiving to let people to self-correct. However, most organizations that want to deploy Purview across various business units will want to have some form of process and control.
+Some organizations may decide to keep things simple by working with a single production version of Purview. They probably don’t need to go beyond discovery, search, and browse scenarios. If some assets have incorrect glossary terms, it’s quite forgiving to let people  self-correct. However, most organizations that want to deploy Purview across various business units will want to have some form of process and control.
 
 Another important aspect to include in your production process is how classifications and labels can be migrated. Purview has over 90 system classifiers. You can apply system or custom classifications on file, table, or column assets. Classifications are like subject tags and are used to mark and identify content of a specific type found within your data estate during scanning. Sensitivity labels are used to identify the categories of classification types within your organizational data, and then group the policies you wish to apply to each category. It makes use of the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate. It can scan and automatically classify documents. For example, if you have a file named multiple.docx and it has a National ID number in its content, Purview will add classification such as EU National Identification Number in the Asset Detail page.
 
@@ -158,7 +162,7 @@ In this phase, Purview must be created and configured for a very small set of us
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Gather & agree on requirements|Discussion with all stakeholders to gather a full set of requirements. Different personas must participate to agree on a subset of requirements to complete for each phase of the project.|1 Week|
-|Set up Starter Kit|Go through Quick Start and set up the Starter Kit to demo Purview to all stakeholders.|1 Day|
+|Set up the starter kit|Go through [Purview Quick Start](create-catalog-portal.md) and set up the [Purview Starter Kit](starter-kit-tutorial-1.md) to demo Purview to all stakeholders.|1 Day|
 |Navigating Purview|Understand how to use Purview from the home page.|1 Day|
 |Configure ADF for lineage|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|1 Day|
 |Scan a data source such as Azure Data Lake Storage|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|2 Day|
@@ -178,16 +182,16 @@ In this phase, Purview must be created and configured for a very small set of us
 
 ## Phase 2: Minimum viable product
 
-Once you have the agreed requirements and participated business units to onboard Purview, the next step is to work on a Minimum Viable Product (MVP) release. In this phase, you will expand the usage of Purview to more users who will have additional needs horizontally and vertically. There will be key scenarios that must be met horizontally for all users such as glossary terms, search, and browse. There will be also in-depth requirement vertically for each business unit or group to cover specific end-to-end scenarios such as lineage from Azure Data Lake Storage to Azure Synapse DW to Power BI.
+Once you have the agreed requirements and participated business units to onboard Purview, the next step is to work on a Minimum Viable Product (MVP) release. In this phase, you will expand the usage of Purview to more users who will have additional needs horizontally and vertically. There will be key scenarios that must be met horizontally for all users such as glossary terms, search, and browse. There will also be in-depth requirements vertically for each business unit or group to cover specific end-to-end scenarios such as lineage from Azure Data Lake Storage to Azure Synapse DW to Power BI.
 
 ### Tasks to complete
 
 |Task|Detail|Duration|
 |---------|---------|---------|
-|Scan Azure Synapse Analytics|Start to onboard your database sources and scan them to populate key assets|2 Days|
-|Create custom classifications and rules|Once your assets are scanned, your users may realize that there are additional use cases for more classification beside the default classifications from Purview.|2-4 Weeks|
-|Scan Power BI|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts which have requirements to include lineage from the storage layer.|1-2 Weeks|
-|Import glossary terms|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Purview via .csv file.|1 Week|
+|[Scan Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)|Start to onboard your database sources and scan them to populate key assets|2 Days|
+|[Create custom classifications and rules](create-a-custom-classification-and-classification-rule.md)|Once your assets are scanned, your users may realize that there are additional use cases for more classification beside the default classifications from Purview.|2-4 Weeks|
+|[Scan Power BI](register-scan-power-bi-tenant.md)|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts which have requirements to include lineage from the storage layer.|1-2 Weeks|
+|[Import glossary terms](how-to-create-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Purview via .csv file.|1 Week|
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|1 Week|
 |Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from M365.|1-2 Weeks|
 |Get classification and sensitive insights|For reporting and insight in Purview, you can access this functionality to get various reports and provide presentation to management.|1 Day|
@@ -203,16 +207,17 @@ Once you have the agreed requirements and participated business units to onboard
 
 ## Phase 3: Pre-production
 
-Once the MVP phase has passed, it’s time to plan for pre-production milestone. Depending on the objective, your organization may decide to have a separate instance of Purview for pre-production vs. production or keep the same instance but restrict access. Also in this phase, you may want to include scanning on on-premise data sources such as SQL Server. If there is any gap in data sources not supported by Purview, it is time to explore Atlas API to understand additional options.
-Tasks to complete
+Once the MVP phase has passed, it’s time to plan for pre-production milestone. Your organization may decide to have a separate instance of Purview for pre-production and production, or keep the same instance but restrict access. Also in this phase, you may want to include scanning on on-premise data sources such as SQL Server. If there is any gap in data sources not supported by Purview, it is time to explore the Atlas API to understand additional options.
+
+### Tasks to complete
 
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Refine your scan using scan rule set|Your organization will have a lot of data sources for pre-production. It’s important to pre-define key criteria for scanning so that classifications and file extension can be applied consistently across the board.|1-2 Days|
 |Assess region availability for scan|Depending on the region of the data sources and organizational requirements on compliance and security, you may want to consider what regions must be available for scanning.|1 Day|
-|Understand firewall concept when scanning|This step requires some exploration in how the organization setup firewall and how Purview can authenticate itself to access the data sources for scanning.|1 Day|
+|Understand firewall concept when scanning|This step requires some exploration of how the organization configures its firewall and how Purview can authenticate itself to access the data sources for scanning.|1 Day|
 |Understand Private Link concept when scanning|If your organization uses Private Link, you must lay out the foundation of network security to include Private Link as a part of the requirements.|1 Day|
-|Scan on-premise SQL Server|This is optional if you have on-premise SQL Server. The scan will require setting up Self-hosted Integration Runtime and add SQL Server as a data source.|1-2 Weeks|
+|[Scan on-premise SQL Server](register-scan-on-premises-sql-server.md)|This is optional if you have on-premise SQL Server. The scan will require setting up [Self-hosted Integration Runtime](manage-integration-runtimes.md) and adding SQL Server as a data source.|1-2 Weeks|
 |Use Purview REST API for integration scenarios|If you have requirements to integrate Purview with other 3rd party technologies such as orchestration or ticketing system, you may want to explore REST API area.|1-4 Weeks|
 |Understand Purview pricing|This step will provide the organization important financial information to make decision.|1-5 Days|
 
@@ -229,6 +234,8 @@ The above phases should be followed to create an effective information governanc
 
 * **Business Focused** - A solution that is aligned to business requirements and scenarios over technical requirements.
 * **Future Ready** - A solution will maximize default features of the platform and use standardized industry practices for configuration or scripting activities to support the advancements/evolution of the platform.
+
+### Tasks to complete
 
 |Task|Detail|Duration|
 |---------|---------|---------|
