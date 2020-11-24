@@ -26,7 +26,7 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) by using your key and region. See the [Find keys and region](../../../overview.md#find-keys-and-region) page to find your key-region pair.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) by using your key and region. See the [Find keys and region](../../../overview.md#find-keys-and-region) page to find your key-region pair.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -41,7 +41,7 @@ public class Program {
 }
 ```
 
-There are a few other ways that you can initialize a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable):
+There are a few other ways that you can initialize a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig):
 
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
@@ -52,7 +52,7 @@ There are a few other ways that you can initialize a [`SpeechConfig`](/java/api/
 
 ## Recognize from microphone
 
-To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`. Then initialize a[`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable), passing your `audioConfig` and `config`.
+To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`. Then initialize a[`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer), passing your `audioConfig` and `config`.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -82,7 +82,7 @@ If you want to use a *specific* audio input device, you need to specify the devi
 
 ## Recognize from file
 
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable), instead of calling `fromDefaultMicrophoneInput()`, call `fromWavFileInput()` and pass the file path.
+If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig), instead of calling `fromDefaultMicrophoneInput()`, call `fromWavFileInput()` and pass the file path.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -109,7 +109,7 @@ public class Program {
 
 ## Error handling
 
-The previous examples simply get the recognized text using `result.getText()`, but to handle errors and other responses, you'll need to write some code to handle the result. The following  example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.resultreason?view=azure-java-stable&preserve-view=true) and:
+The previous examples simply get the recognized text using `result.getText()`, but to handle errors and other responses, you'll need to write some code to handle the result. The following  example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.resultreason&preserve-view=true) and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`
 * If there is no recognition match, inform the user: `ResultReason.NoMatch`
@@ -239,7 +239,7 @@ There are a few ways to improve recognition accuracy with the Speech SDK. Let's 
 > [!IMPORTANT]
 > The Phrase List feature is only available in English.
 
-To use a phrase list, first create a [`PhraseListGrammar`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar) object, then add specific words and phrases with [`AddPhrase`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?view=azure-java-stable#com_microsoft_cognitiveservices_speech_PhraseListGrammar_addPhrase_String_).
+To use a phrase list, first create a [`PhraseListGrammar`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar) object, then add specific words and phrases with [`AddPhrase`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar.addphrase#com_microsoft_cognitiveservices_speech_PhraseListGrammar_addPhrase_String_).
 
 Any changes to [`PhraseListGrammar`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar) take effect on the next recognition or after a reconnection to the Speech service.
 
