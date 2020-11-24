@@ -36,8 +36,8 @@
   - name: Security
     items:
     - name: Recommended security practices
-    displayName: mfa, authentication, secure, group
-    href: ./concepts/recommended-security-practices.md
+      displayName: mfa, authentication, secure, group
+      href: ./concepts/recommended-security-practices.md
     - name: Security baseline
       href: security-baseline.md
 - name: How-to guides
