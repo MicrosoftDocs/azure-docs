@@ -928,8 +928,6 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 * [Azure Repos Documentation](/azure/devops/repos/index)
 
-* [Understand the Azure API Management DevOps Resource Kit](#configuration-management)
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -967,8 +965,6 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 **Guidance**: Use the Azure API Management DevOps Resource Kit to perform configuration management for Azure API Management.
 
 In addition, define and implement standard security configurations for your Azure API Management services with Azure Policy. Use Azure Policy aliases in the "Microsoft.ApiManagement" namespace to create custom policies to audit or enforce the configuration of Azure API Management instances. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
-
-* [Understand the Azure API Management DevOps Resource Kit](#configuration-management)
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
