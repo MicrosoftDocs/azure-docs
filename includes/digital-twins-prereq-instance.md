@@ -13,4 +13,4 @@ Otherwise, follow the instructions in [Set up an instance and authentication](..
 
 After you set up your Azure Digital Twins instance, make a note of the following values that you'll need to connect to the instance later:
 * the instance's *_host name_*. You can find this value in the Azure portal ([instructions](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-* either the name or ID of the Azure subscription that you used to create the instance (either identifying value will work)
+* either the name or ID of the Azure subscription that you used to create the instance (either of these identifying values will work). You can see what subscription an Azure Digital Twins instance is in by viewing the same *Overview* page for your instance in the [Azure portal](https://portal.azure.com).
