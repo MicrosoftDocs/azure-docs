@@ -56,7 +56,7 @@ As an IoT Plug and Play user, for your time series ID, specify a _composite key_
 Even if your IoT Plug and Play device models don't currently use components, you should include `dt-subject` as part of a composite key so that you can use the components in the future. Because your time series ID is immutable, Microsoft recommends enabling this option in case you need it in the future.
 
 > [!NOTE]
-> The examples in this article are for the multiple-component TemperatureController device. But the concepts are the same for the no-component Thermostat device.
+> The examples in this article are for the multiple-component `TemperatureController` device. But the concepts are the same for the no-component `Thermostat` device.
 
 ## Provision your Time Series Insights environment
 
@@ -65,11 +65,11 @@ This section describes how to provision your Azure Time Series Insights Gen2 env
 Run the following command to:
 
 * Create an Azure storage account for your environment's [cold store](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store). This account is designed for long-term retention and analytics for historical data.
-  * Replace `mytsicoldstore` with a unique name for your cold storage account.
-* Create an Azure Time Series Insights Gen2 environment, including warm storage with a retention period of seven days, and cold storage for infinite retention.
-  * Replace `my-tsi-env` with a unique name for your Time Series Insights environment.
-  * Replace `my-pnp-resourcegroup` with the name of the resource group you used during set-up.
-  * `iothub-connection-device-id, dt-subject` is your time series ID property.
+  * In your code, replace `mytsicoldstore` with a unique name for your cold storage account.
+* Create an Azure Time Series Insights Gen2 environment. In the environment, warm storage should have a retention period of seven days. Cold storage should have infinite retention.
+  * In your code, replace `my-tsi-env` with a unique name for your Time Series Insights environment.
+  * In your code, replace `my-pnp-resourcegroup` with the name of the resource group you used during set-up.
+  * Your time series ID property is `iothub-connection-device-id, dt-subject`.
 
 ```azurecli-interactive
 storage=mytsicoldstore
@@ -90,9 +90,9 @@ shared_access_key=$(az iot hub policy list -g $rg --hub-name $iothub --query "[?
 az timeseriesinsights event-source iothub create -g $rg --environment-name $env -n iot-hub-event-source --consumer-group-name tsi-consumer-group  --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id
 ```
 
-Navigate to your resource group in the [Azure portal](https://portal.azure.com) and select your new Time Series Insights environment. Visit the *Time Series Insights Explorer URL* shown in the instance overview:
+In the [Azure portal](https://portal.azure.com), go to your resource group, and then select your new Time Series Insights environment. Visit the **Time Series Insights Explorer URL** shown in the instance overview:
 
-![Portal overview page](./media/tutorial-configure-tsi/view-environment.png)
+![Screenshot of the portal overview page.](./media/tutorial-configure-tsi/view-environment.png)
 
 In the explorer, you see three instances:
 
@@ -101,21 +101,23 @@ In the explorer, you see three instances:
 * &lt;your pnp device ID&gt;, `null`
 
 > [!NOTE]
-> The third tag represents telemetry from the **TemperatureController** itself, such as the working set of device memory. Because this is a top level property, the value for the component name is null. In a later step, you update this to a more user-friendly name.
+> The third tag represents telemetry from the `TemperatureController` itself, such as the working set of device memory. Because this is a top-level property, the value for the component name is null. In a later step, you update this to a more user-friendly name.
 
-![Explorer view 1](./media/tutorial-configure-tsi/tsi-env-first-view.png)
+![Screenshot showing three instances in the explorer.](./media/tutorial-configure-tsi/tsi-env-first-view.png)
 
 ## Configure model translation
 
-Next, you translate your DTDL device model to the asset model in Azure Time Series Insights. Time Series Insights's Time Series Model is a semantic modeling tool for data contextualization within Time Series Insights. Time Series Model has three core components:
+Next, you translate your DTDL device model to the asset model in Azure Time Series Insights. In Time Series Insights, the time series model is a semantic modeling tool for data contextualization. The model has three core components:
 
-* [Time Series Model instances](../time-series-insights/concepts-model-overview.md#time-series-model-instances). Instances are virtual representations of the time series themselves. Instances are uniquely identified by your Time series ID.
-* [Time Series Model hierarchies](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies). Hierarchies organize instances by specifying property names and their relationships.
-* [Time Series Model types](../time-series-insights/concepts-model-overview.md#time-series-model-types). Types help you define [variables](../time-series-insights/concepts-variables.md) or formulas for computations. Types are associated with a specific instance.
+* [Time series model instances](../time-series-insights/concepts-model-overview.md#time-series-model-instances) are virtual representations of the time series themselves. Instances are uniquely identified by your time series ID.
+* [Time series model hierarchies](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies) organize instances by specifying property names and their relationships.
+* [Time series model types](../time-series-insights/concepts-model-overview.md#time-series-model-types) help you define [variables](../time-series-insights/concepts-variables.md) or formulas for computations. Types are associated with a specific instance.
 
 ### Define your types
 
-You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, Time Series Insights attempts to autoresolve time series instances based on your Time series ID property value(s). All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances. The following details show the simplest method to synchronize your device DTDL models with your Time Series Model types:
+You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, Time Series Insights attempts to automatically resolve time series instances based on your time series ID property values. All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances. 
+
+The following details outline the simplest method to synchronize your device DTDL models with your time series model types:
 
 * Your digital twin model identifier becomes your type ID.
 * The type name can be either the model name or the display name.
@@ -123,19 +125,19 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 * At least one type variable is created for each telemetry with a numeric schema.
   * Only numeric data types can be used for variables, but if a value is sent as another type that can be converted, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) function such as `toDouble`.
 * The variable name can be either the telemetry name or the display name.
-* When you define the variable Time Series Expression, refer to the telemetry's name on the wire, and it's data type.
+* When you define the time series expression variable, refer to the telemetry's name on the wire and to the telemetry's data type.
 
-| DTDL JSON | Time Series Model type JSON | Example value |
+| DTDL JSON | Time series model type JSON | Example value |
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
 | `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
-|`contents` (array)| `variables` (object)  | View the example below
+|`contents` (array)| `variables` (object)  | See the following example.
 
-![DTDL to Time Series Model Type](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
+![Screenshot showing DTDL to time series model type.](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
-> This example shows three variables, but each type can have up to 100. Different variables can reference the same telemetry value to perform different calculations as needed. For the full list of filters, aggregates, and scalar functions see [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
+> This example shows three variables, but each type can have up to 100 variables. Different variables can reference the same telemetry value to do different calculations as needed. For the full list of filters, aggregates, and scalar functions, see [Time Series Insights Gen2 time series expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
 
 Open a text editor and save the following JSON to your local drive:
 
@@ -177,50 +179,50 @@ Open a text editor and save the following JSON to your local drive:
 }
 ```
 
-In your Time Series Insights Explorer, navigate to the **Model** tab by selecting the model icon on the left. Select **Types** and then select **Upload JSON**:
+In the Time Series Insights explorer, select the model icon on the left to open the **Model** tab. Select **Types** and then select **Upload JSON**:
 
-![Upload](./media/tutorial-configure-tsi/upload-type.png)
+![Screenshot showing how to upload JSON.](./media/tutorial-configure-tsi/upload-type.png)
 
-Select **Choose file**, select the JSON you saved previously, and select **Upload**
+Select **Choose file**, select the JSON you saved previously, and then select **Upload**.
 
 You see the newly defined **Temperature Controller** type.
 
 ### Create a hierarchy
 
-Create a hierarchy to organize the tags under their **TemperatureController** parent. The following simple example has a single level, but IoT solutions commonly have many levels of nesting to contextualize tags within their physical and semantic position within an organization.
+Create a hierarchy to organize the tags under their `TemperatureController` parent. The following simple example has a single level, but IoT solutions commonly have many levels of nesting. Tags are contextualized within their physical and semantic position within an organization.
 
-Select **Hierarchies** and select **Add hierarchy**. Enter *Device Fleet* as the name and create one level called *Device Name*. Then select **Save**.
+Select **Hierarchies** and select **Add hierarchy**. For the name, enter *Device Fleet*. Create one level called *Device Name*. Then select **Save**.
 
-![Add a hierarchy](./media/tutorial-configure-tsi/add-hierarchy.png)
+![Screenshot showing how to add a hierarchy.](./media/tutorial-configure-tsi/add-hierarchy.png)
 
 ### Assign your instances to the correct type
 
 Next you change the type of your instances and place them in the hierarchy.
 
-Select the **Instances** tab, find the instance that represents the device's working set, and select the **Edit** icon on the far right:
+Select the **Instances** tab. Find the instance that represents the device's working set, and then select the **Edit** icon on the far right:
 
-![Edit instances](./media/tutorial-configure-tsi/edit-instance.png)
+![Screenshot showing how to edit an instance.](./media/tutorial-configure-tsi/edit-instance.png)
 
-Select the **Type** dropdown and select **Temperature Controller**. Enter *defaultComponent, <your device name>* to update the name of the instance that represents all top-level tags associated with your device.
+Open the **Type** drop-down menu, and then select **Temperature Controller**. Enter *defaultComponent, <your device name>* to update the name of the instance that represents all top-level tags associated with your device.
 
-![Change instance type](./media/tutorial-configure-tsi/change-type.png)
+![Screenshot showing how to change an instance type.](./media/tutorial-configure-tsi/change-type.png)
 
-Before you select save, select the **Instance Fields** tab and check the **Device Fleet** box. Enter `<your device name> - Temp Controller` to group the telemetry together, and then select **Save**.
+Before you select **Save**, first select the **Instance Fields** tab, and then select **Device Fleet**. To group the telemetry together, enter *\<your device name> - Temp Controller*. Then select **Save**.
 
-![Assign to hierarchy](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
+![Screenshot showing how to assign an instance to a hierarchy](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 
 Repeat the previous steps to assign your thermostat tags the correct type and hierarchy.
 
 ## View your data
 
-Go back to the charting pane and expand **Device Fleet > your device**. Select **thermostat1**, select the **Temperature** variable, and then select **Add** to chart the value. Do the same for **thermostat2** and the **defaultComponent** **workingSet** value.
+Go back to the charting pane and expand **Device Fleet** > your device. Select **thermostat1**, select the **Temperature** variable, and then select **Add** to chart the value. Do the same for **thermostat2** and the **defaultComponent** **workingSet** value.
 
-![Change instance type for thermostat2](./media/tutorial-configure-tsi/charting-values.png)
+![Screenshot showing how to change the instance type for thermostat2.](./media/tutorial-configure-tsi/charting-values.png)
 
 ## Next steps
 
-* To learn more about the various charting options, including interval sizing and Y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
+* To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights explorer](../time-series-insights/concepts-ux-panels.md).
 
-* For an in-depth overview of your environment's Time Series Model, see [Time Series Model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md) article.
+* For an in-depth overview of your environment's time series model, see [Time series model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
 
-* To dive into the query APIs and the Time Series Expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis.md).
+* To dive into the query APIs and the time series expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis.md).
