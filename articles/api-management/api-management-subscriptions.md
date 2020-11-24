@@ -28,7 +28,7 @@ To get a subscription key for accessing APIs, a subscription is required. A subs
 > API Management also supports other mechanisms for securing access to APIs, including the following examples:
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
 > - [Client certificates](api-management-howto-mutual-certificates-for-clients.md)
-> - [IP whitelisting](./api-management-access-restriction-policies.md#RestrictCallerIPs)
+> - [Restrict caller IPs](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## Scope of subscriptions
 
