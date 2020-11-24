@@ -22,7 +22,7 @@ Application Proxy is a feature of Azure AD that enables users to access on-premi
 Users access on-premises resources through a URL published via Application Proxy. They are redirected to the Azure AD sign in page. The Application Proxy service in Azure AD then sends a token to the Application Proxy connector in the corporate network, which passes the token to the on-premises Active Directory The authenticated user can then access the on-premises resource. In the diagram below, [connectors](../manage-apps/application-proxy-connectors.md) are shown in a [connector group](../manage-apps/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> When you publish your applications via Application Proxy, you must implement capacity planning and appropriate redundancy for the Application Proxy connectors.
+> When you publish your applications via Application Proxy, you must implement [capacity planning and appropriate redundancy for the Application Proxy connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning).
 
 ![Architecture diagram of Application y](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 
@@ -53,6 +53,6 @@ Resilience resources for administrators and architects
 
 Resilience resources for developers
 
-* [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
+* [Build IAM resilience in your applications](resilience-app-development-overview.md)
 
-* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
+* [Build resilience in your CIAM systems](resilience-b2c.md)
