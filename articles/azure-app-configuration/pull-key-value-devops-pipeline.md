@@ -69,7 +69,7 @@ This section will cover how to use the Azure App Configuration Pull task in an A
 1. Choose an existing release pipeline. If you don’t have one, click **New pipeline** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
 1. Choose the **Stage** to add the task. For more information about stages, see [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments?view=azure-devops).
-1. Select **+** for that Job, then add the **Azure App Configuration** task under the **Deploy** tab.
+1. Click **+** for on "Run on agent", then add the **Azure App Configuration** task under the **Add tasks** tab.
 1. Configure the necessary parameters within the task to pull your key-values from your App Configuration store. Descriptions of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App configuration name** to the name of your App Configuration store.
