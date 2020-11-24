@@ -36,10 +36,10 @@ Next, download the desktop version of the Postman client. Navigate to [*www.getp
 
 Now that you've set up Postman and your Azure Digital Twins instance, you'll need to get a bearer token that Postman requests can use to authorize against the Azure Digital Twins APIs.
 
-There are several ways to obtain such a token. This article uses the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to sign into your Azure account and obtain a token that way.
+There are several possible ways to obtain this token. This article uses the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to sign into your Azure account and obtain a token that way.
 
-If you have an Azure CLI [installed locally](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), you can start a command prompt on your machine to run the following token commands.
-Otherwise, you can also open an [Azure Cloud Shell](https://shell.azure.com) window in your browser and run the commands there.
+If you have an Azure CLI [installed locally](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), you can start a command prompt on your machine to run the following commands.
+Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window in your browser and run the commands there.
 
 First, make sure you're logged into Azure with the appropriate credentials, by running this command:
 
@@ -58,7 +58,7 @@ Copy the value of `accessToken` in the result, and save it to use in the next se
 :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="View of a local console window showing the result of the az account get-access-token command. One of the fields in the result is called accessToken and its sample value--beginning with ey--is highlighted.":::
 
 >[!TIP]
->This token is valid for at least 5 minutes with the maximum at 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
+>This token is valid for at least five minutes and a maximum of 60 minutes. If you run out of time allotted for the current token, you can repeat the steps in this section to get a new one.
 
 ## Set up Postman collection and authorization
 
