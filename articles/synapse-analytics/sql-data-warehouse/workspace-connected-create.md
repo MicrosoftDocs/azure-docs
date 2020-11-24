@@ -58,7 +58,7 @@ The following steps must be completed to ensure that your existing dedicated SQL
 
 ## Next steps
 
-Using Synapse Workspace Studio capabilities
+Getting started with Synapse Workspace and Studio.
 Provisioning a new Spark instance
 
 
