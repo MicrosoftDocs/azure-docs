@@ -522,7 +522,7 @@ The following sample creates a diagnostic setting for a Log Analytics workspace 
                 "metrics": [],
                 "logs": [
                     {
-                        "category": "LAQueryLogs",
+                        "category": "Audit",
                         "enabled": true
                     }
                 ]

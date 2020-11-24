@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app
 
-In this tutorial, you learn how to integrate an iOS or macOS app with the Microsoft identity platform. The app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
+In this tutorial, you build an iOS or macOS app that integrates with the Microsoft identity platform to sign users and get an access token to call the Microsoft Graph API.
 
 When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. This tutorial is applicable to both iOS and macOS apps. Some steps are different between the two platforms.
 
