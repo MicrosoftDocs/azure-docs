@@ -25,8 +25,6 @@ Within the same pool, higher-priority jobs have scheduling precedence over lower
 
 A job with a high-priority value running in one pool won't impact scheduling of jobs running in a separate pool or in a different Batch account. Job priority doesn't apply to [autopools](nodes-and-pools.md#autopools), which are created when the job is submitted.
 
-You can also use  to define jobs that will recur.
-
 ### Job constraints
 
 You can use job constraints to specify certain limits for your jobs:
