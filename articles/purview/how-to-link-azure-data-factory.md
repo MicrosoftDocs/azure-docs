@@ -10,7 +10,7 @@ ms.date: 11/22/2020
 ---
 
 # How to link Azure Data Factory account with Purview
-This document explains the steps required for connecting a Data Factory account with a Purview account to collect lineage. The document also get into the details of the coverage scope and supported lineage patterns.
+This document explains the steps required for connecting a Data Factory account with a Purview account to collect lineage. The document also gets into the details of the coverage scope and supported lineage patterns.
 
 ## Connect to Azure Data Factory from management center
 
