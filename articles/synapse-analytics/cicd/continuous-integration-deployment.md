@@ -101,7 +101,7 @@ Use [Synapse workspaces Build & Release](https://marketplace.visualstudio.com/it
 
 ## Create release for deployment 
 
-After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers?view=azure-devops)
+After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)
 
    ![Select Create release](media/release-creation-manual.png)
 

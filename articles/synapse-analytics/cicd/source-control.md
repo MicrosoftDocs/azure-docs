@@ -72,7 +72,7 @@ Your can also use repository link to quickly point to the git repository you wan
 
 ### Use a different Azure Active Directory tenant
 
-The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
+The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator)
 
 > [!IMPORTANT]
 > To connect to another Azure Active Directory, the user logged in must be a part of that active directory. 
@@ -81,7 +81,7 @@ The Azure Repos Git repo can be in a different Azure Active Directory tenant. To
 
 To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
 
-1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
+1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/external-identities/add-users-administrator).
 
 2. Log in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
 
@@ -167,7 +167,7 @@ After merging changes to the collaboration branch , click **Publish** to manuall
 
 A side pane will open where you confirm that the publish branch and pending changes are correct. Once you verify your changes, click **OK** to confirm the publish.
 
-![Confirm the correct publish branch](media/media/publish-changes.png)
+![Confirm the correct publish branch](media/publish-changes.png)
 
 > [!IMPORTANT]
 > The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.
@@ -187,23 +187,11 @@ After you remove the association with the current repo, you can configure your G
 
 ## Best practices for Git integration
 
-### Permissions
-
-After you have a git repository connected to your workspace, anyone who can access to your git repo with any role in your workspace will be able to update artifacts, like sql script, notebook,spark job definition, dataset, dataflow and pipeline in git mode. Typically you don't want every team member to have permissions to update workspace. The following permissions settings are recommended:
-
-*   Only grant git repository permission to Synapse workspace artifact authors. 
-
-### Collaboration
-
-It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
-
-### Synapse live mode
-
-After publishing in git mode,  all changes will be reflected in Synapse live mode. In Synapse live mode, publishing is disabled. And you can view, run artifacts in live mode if you have been granted the right permission. 
-
-### Always edit artifacts in Studio
-
- Synapse studio is the only place you can enable workspace source control and sync changes to git automatically. Any change via SDK, PowerShell, will not be synced to git. We recommend you always edit artifact in Studio when git is enabled.
+-   **Permissions**. After you have a git repository connected to your workspace, anyone who can access to your git repo with any role in your workspace will be able to update artifacts, like sql script, notebook,spark job definition, dataset, dataflow and pipeline in git mode. Typically you don't want every team member to have permissions to update workspace. 
+Only grant git repository permission to Synapse workspace artifact authors. 
+-   **Collaboration**. It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
+-   **Synapse live mode**. After publishing in git mode,  all changes will be reflected in Synapse live mode. In Synapse live mode, publishing is disabled. And you can view, run artifacts in live mode if you have been granted the right permission. 
+-   **Edit artifacts in Studio**. Synapse studio is the only place you can enable workspace source control and sync changes to git automatically. Any change via SDK, PowerShell, will not be synced to git. We recommend you always edit artifact in Studio when git is enabled.
 
 ## Troubleshooting Git integration
 
