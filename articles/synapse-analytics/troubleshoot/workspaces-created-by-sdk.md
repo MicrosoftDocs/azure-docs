@@ -28,5 +28,5 @@ To launch Synapse Studio from your SDK created workspace, complete the following
 
 ## Next steps
 
-* [What is Azure Synapse](overview-what-is.md)
-* [Get Started](get-started.md)
+* [What is Azure Synapse](../overview-what-is.md)
+* [Get Started](../get-started.md)
