@@ -2,7 +2,7 @@
 title: Tutorial - Trigger image build on base image update
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated in the same registry.
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 11/24/2020
 ms.custom: "seodec18, mvc, devx-track-js, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want container
 # images to be built automatically when the base image of a container is
@@ -24,15 +24,11 @@ In this tutorial:
 > * Display the triggered task
 > * Verify updated application image
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you'd like to use the Azure CLI locally, you must have the Azure CLI version **2.0.46** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
-
 ## Prerequisites
 
 ### Complete the previous tutorials
 
-This tutorial assumes you've already completed the steps in the first two tutorials in the series, in which you:
+This tutorial assumes you've already configured your environment and completed the steps in the first two tutorials in the series, in which you:
 
 * Create Azure container registry
 * Fork sample repository
@@ -48,8 +44,6 @@ If you haven't already done so, complete the following tutorials before proceedi
 ### Configure the environment
 
 Populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
-
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -76,7 +70,7 @@ In this tutorial, your ACR task builds and pushes an application container image
 
 Start by building the base image with an ACR Tasks *quick task*, using [az acr build][az-acr-build]. As discussed in the [first tutorial](container-registry-tutorial-quick-task.md) in the series, this process not only builds the image, but pushes it to your container registry if the build is successful.
 
-```azurecli-interactive
+```azurecli
 az acr build --registry $ACR_NAME --image baseimages/node:15-alpine --file Dockerfile-base .
 ```
 
@@ -84,7 +78,7 @@ az acr build --registry $ACR_NAME --image baseimages/node:15-alpine --file Docke
 
 Next, create a task with [az acr task create][az-acr-task-create]:
 
-```azurecli-interactive
+```azurecli
 az acr task create \
     --registry $ACR_NAME \
     --name baseexample1 \
@@ -107,7 +101,7 @@ This configuration makes it easy to simulate a framework patch in the base image
 
 Use [az acr task run][az-acr-task-run] to manually trigger the task and build the application image. This step is needed so that the task tracks the application image's dependency on the base image.
 
-```azurecli-interactive
+```azurecli
 az acr task run --registry $ACR_NAME --name baseexample1
 ```
 
@@ -143,7 +137,7 @@ docker stop myapp
 
 Next, list the task runs that ACR Tasks has completed for your registry using the [az acr task list-runs][az-acr-task-list-runs] command:
 
-```azurecli-interactive
+```azurecli
 az acr task list-runs --registry $ACR_NAME --output table
 ```
 
@@ -169,7 +163,7 @@ ENV NODE_VERSION 15.2.2a
 
 Run a quick task to build the modified base image. Take note of the **Run ID** in the output.
 
-```azurecli-interactive
+```azurecli
 az acr build --registry $ACR_NAME --image baseimages/node:15-alpine --file Dockerfile-base .
 ```
 
@@ -179,7 +173,7 @@ Once the build is complete and the ACR task has pushed the new base image to you
 
 Now that you've updated the base image, list your task runs again to compare to the earlier list. If at first the output doesn't differ, periodically run the command to see the new task run appear in the list.
 
-```azurecli-interactive
+```azurecli
 az acr task list-runs --registry $ACR_NAME --output table
 ```
 

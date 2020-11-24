@@ -2,7 +2,7 @@
 title: Tutorial - Build image on code commit
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want to trigger
 # container image builds automatically when I commit code to a Git repo.
@@ -27,19 +27,14 @@ In this tutorial:
 
 This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-task.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-task.md#prerequisites) section of the previous tutorial before proceeding.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed  and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
-
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create the build task
 
 Now that you've completed the steps required to enable ACR Tasks to read commit status and create webhooks in a repository, you can create a task that triggers a container image build on commits to the repo.
 
 First, populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
-
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -49,7 +44,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 
 Now, create the task by executing the following [az acr task create][az-acr-task-create] command:
 
-```azurecli-interactive
+```azurecli
 az acr task create \
     --registry $ACR_NAME \
     --name taskhelloworld \
@@ -125,7 +120,7 @@ Output from a successful [az acr task create][az-acr-task-create] command is sim
 
 You now have a task that defines your build. To test the build pipeline, trigger a build manually by executing the [az acr task run][az-acr-task-run] command:
 
-```azurecli-interactive
+```azurecli
 az acr task run --registry $ACR_NAME --name taskhelloworld
 ```
 
@@ -201,14 +196,14 @@ git push origin master
 
 You may be asked to provide your GitHub credentials when you execute the `git push` command. Provide your GitHub username, and enter the personal access token (PAT) that you created earlier for the password.
 
-```azurecli-interactive
+```azurecli
 Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
 Once you've pushed a commit to your repository, the webhook created by ACR Tasks fires and kicks off a build in Azure Container Registry. Display the logs for the currently running task to verify and monitor the build progress:
 
-```azurecli-interactive
+```azurecli
 az acr task logs --registry $ACR_NAME
 ```
 
@@ -227,7 +222,7 @@ Run ID: ca7 was successful after 38s
 
 To see a list of the task runs that ACR Tasks has completed for your registry, run the [az acr task list-runs][az-acr-task-list-runs] command:
 
-```azurecli-interactive
+```azurecli
 az acr task list-runs --registry $ACR_NAME --output table
 ```
 
