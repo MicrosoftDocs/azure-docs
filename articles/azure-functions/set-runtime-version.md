@@ -14,7 +14,7 @@ The way that you manually target a specific version depends on whether you are r
 
 ## Automatic and manual version updates
 
-_This section doesn't apply when running your function app [on Linux](#manual_version_updates_on_linux)._
+_This section doesn't apply when running your function app [on Linux](#manual-version-updates-on-linux)._
 
 Azure Functions lets you target a specific version of the runtime on Windows by using the `FUNCTIONS_EXTENSION_VERSION` application setting in a function app. The function app is kept on the specified major version until you explicitly choose to move to a new version. If you specify only the major version, the function app is automatically updated to new minor versions of the runtime when they become available. New minor versions shouldn't introduce breaking changes. 
 
@@ -37,7 +37,7 @@ A change to the runtime version causes a function app to restart.
 
 ## View and update the current runtime version
 
-_This section doesn't apply when running your function app [on Linux](#manual_version_updates_on_linux)._
+_This section doesn't apply when running your function app [on Linux](#manual-version-updates-on-linux)._
 
 You can change the runtime version used by your function app. Because of the potential of breaking changes, you can only change the runtime version before you have created any functions in your function app. 
 
