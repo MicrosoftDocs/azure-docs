@@ -61,9 +61,9 @@ Refer to this [document](https://docs.microsoft.com/azure/event-hubs/event-hubs-
 
 ### Schema registry limitations
 
-#### Limits that are the same for **standard** and **dedicated** tiers 
+#### Limits that are the same for standard and dedicated tiers 
 | Feature | Limit | 
-|---|---|--|
+|---|---|
 | Maximum length of a schema group name | 50 |  
 | Maximum length of a schema name | 100 |    
 | Size in bytes per schema | 1 MB |   
@@ -72,10 +72,10 @@ Refer to this [document](https://docs.microsoft.com/azure/event-hubs/event-hubs-
 | Size in bytes per group property value | 1024 | 
 
 
-#### Limits that are different for **standard** and **dedicated** tiers 
+#### Limits that are different for standard and dedicated tiers 
 
 | Limit | Standard | Dedicated | 
-|---|---|--|---|
+|---|---|--|
 | Size of the schema registry (namespace) in mega bytes | 25 |  1024 |
 | Number of schema groups in a schema registry or namespace | 1 - excluding the default group | 1000 |
 | Number of schema versions across all schema groups | 25 | 10000 |
