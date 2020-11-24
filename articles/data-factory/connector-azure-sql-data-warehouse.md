@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 10/12/2020
 ---
 
-# Copy and transform data in Azure Synapse Analytics (formerly SQL Data Warehouse) by using Azure Data Factory
+# Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 >

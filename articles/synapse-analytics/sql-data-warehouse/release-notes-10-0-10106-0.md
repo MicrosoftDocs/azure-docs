@@ -31,7 +31,7 @@ For tooling improvements, make sure you have the correct version installed speci
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics:
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
