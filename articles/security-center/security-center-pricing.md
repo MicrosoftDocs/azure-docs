@@ -82,7 +82,7 @@ You can use any of the following ways to enable Azure Defender for your subscrip
 |---------|---------|
 |Azure Security Center pages of the Azure portal|[Enable Azure Defender](#enable-azure-defender)|
 |REST API|[Pricings API](https://docs.microsoft.com/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](https://docs.microsoft.com/cli/azure/security/pricing?view=azure-cli-latest)|
+|Azure CLI|[az security pricing](https://docs.microsoft.com/cli/azure/security/pricing)|
 |PowerShell|[Set-AzSecurityPricing](https://docs.microsoft.com/powershell/module/az.security/set-azsecuritypricing)|
 |Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
 |||
