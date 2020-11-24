@@ -143,7 +143,7 @@ The default message is part of the settings in your App service.
 <summary><b>Why is my SharePoint link not getting extracted?</b></summary>
 
 **Answer**:
-See [Data source locations](./index.yml#data-source-locations) for more information.
+See [Data source locations](./concepts/data-sources-and-content.md#data-source-locations) for more information.
 
 </details>
 
@@ -235,7 +235,7 @@ You can share an entire QnAMaker service, not individual knowledge bases.
 <summary><b>Why is my SharePoint link not getting extracted?</b></summary>
 
 **Answer**:
-See [Data source locations](./index.yml#data-source-locations) for more information.
+See [Data source locations](./concepts/data-sources-and-content.md#data-source-locations) for more information.
 
 </details>
 
