@@ -33,13 +33,14 @@ Azure Active Directory (Azure AD) implements OpenID Connect (OIDC). OIDC lets yo
 
 ## Access the built-in container image registry
 
-Now that you've set up the authentication methods to the built-in container image registry, let's enable access to the built-in registry.
+Now that you've set up the authentication methods to the ARO cluster, let's enable access to the built-in registry.
 
 #### Define the Azure AD user to be an administrator
 
-1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
+1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user. We'll leverage the OpenShift OpenID authentication against Azure Active Directory to use OpenID to define the administrator.
 
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
+   
    :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
    1. Select **openid**
 
