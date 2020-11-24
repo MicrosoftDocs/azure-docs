@@ -167,7 +167,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
     - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-    - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set.
+    - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set and set to the jre folder, not just the jdk.
 
 ## Installation best practices
 
