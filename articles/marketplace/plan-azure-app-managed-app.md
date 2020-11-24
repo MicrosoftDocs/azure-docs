@@ -27,7 +27,7 @@ Use an Azure Application: Managed application plan when the following conditions
 | ------------ | ------------- |
 | An Azure subscription | Managed applications must be deployed to a customer's subscription, but they can be managed by a third party. |
 | Billing and metering | The resources are provided in a customer's Azure subscription. VMs that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license VMs, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly. |
-| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<br> • [Create an Azure VM technical asset](./azure-vm-create-certification-faq.md#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (for Windows VHDs).<br> •  [Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md) (for Linux VHDs). |
+| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<br> • [Create an Azure VM technical asset](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (for Windows VHDs).<br> •  [Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md) (for Linux VHDs). |
 | Customer usage attribution | All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID. For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
 | Deployment package | You’ll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same package. For details, see the next section: Deployment package. |
 |||
@@ -41,7 +41,7 @@ The deployment package contains all the template files needed for this plan, as 
 
 All Azure applications must include these two files in the root folder of a .zip archive:
 
-- A Resource Manager template file named [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template.md). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+- A Resource Manager template file named [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 - A user interface definition for the Azure application creation experience named [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). In the user interface, you specify elements that enable consumers to provide parameter values.
 
 Maximum file sizes supported are:
@@ -89,7 +89,7 @@ JIT access enables you to request elevated access to a managed application's res
 
 ## Deployment mode
 
-You can configure a managed application plan to use either the **Complete** or **Incremental** deployment mode. In complete mode, a redeployment of the application by the customer results in removal of resources in the managed resource group if the resources are not defined in the [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template.md). In incremental mode, a redeployment of the application leaves existing resources unchanged. To learn more, see [Azure Resource Manager deployment modes](../azure-resource-manager/templates/deployment-modes.md).
+You can configure a managed application plan to use either the **Complete** or **Incremental** deployment mode. In complete mode, a redeployment of the application by the customer results in removal of resources in the managed resource group if the resources are not defined in the [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). In incremental mode, a redeployment of the application leaves existing resources unchanged. To learn more, see [Azure Resource Manager deployment modes](../azure-resource-manager/templates/deployment-modes.md).
 
 ## Notification endpoint URL
 
