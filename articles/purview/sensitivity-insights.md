@@ -47,7 +47,7 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 
    :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
 
@@ -68,7 +68,7 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
    |**Top labels applied across resources**     |Shows the top labels applied across all of your Purview data resources. |
    |**Top labels applied on files**     |Shows the top sensitivity labels applied to files in your data.          |
    |**Top classifications for tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
-   |  **Labeling activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables labeled over the selected time frame. <br>Select the **Time** filter above the graphs to select a different time frame to display.    |
+   |  **Labeling activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables labeled over the selected time frame. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |
 ## Sensitivity labeling insights drilldown
 
@@ -93,7 +93,7 @@ Above the filters:
 
 - **To display more or fewer columns in your grid,** select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order
 
-- **To browse through the assets found with a specific label,** select a label and then select **Browse in Catalog** :::image type="icon" source="media/insights/ico-browse-in-catalog.png" border="false"::: 
+- **To browse through the assets found with a specific label,** select a label and then select **Browse assets** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: 
 
    The search results display all of the labeled assets found with the selected sensitivity label. For example:
 

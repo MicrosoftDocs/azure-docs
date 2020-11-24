@@ -39,15 +39,13 @@ For more information, see [Use the portal to scan Azure data sources (preview)](
 
 In Azure Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
 
-[Sensitivity labels](create-sensitivity-label.md#what-are-sensitivity-labels) are used to identify classification type categories within your organizational data, as well as the group the policies you want to apply to each category.
-
 Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate.
 
 **To view classification insights:**
 
 1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 
    :::image type="content" source="./media/insights/portal-access-small.png" alt-text="Launch Purview from the Azure portal" lightbox="media/insights/portal-access.png":::
 
@@ -64,18 +62,18 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
    |Area  |Description  |
    |---------|---------|
    |**Overview of sources with classifications**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique classifications found in your data <br>- The number of classified sources found <br>- The number of classified files found <br>- The number of classified tables found         |
-   |**Total sources with classified data**     |Shows the trend, over the past 30 days, of the number of sources found with classified data.            |
-   |**Total sources by classification categories**     |Shows the number of sources by classification category, such as **Financial** or **Government**.      |
+   |**Top sources with classified data (last 30 days)**     |Shows the trend, over the past 30 days, of the number of sources found with classified data.            |
+   |**Top classification categories by sources**     |Shows the number of sources by classification category, such as **Financial** or **Government**.      |
    |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national identification numbers.         |
-   |**Top classifications for tables**     | Shows the top classifications applied to database tables in your data, such as personal identifying information. |   
-   |  **Classification activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected time frame. <br>Select the **Time** filter above the graphs to select a different time frame to display.    |
+   |**Top classifications for tables**     | Shows the top classifications applied to database tables and/or column assets in your data, such as personal identifying information. |   
+   |  **Classification activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected timeframe. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |
 
 ## Classification insights drilldown
 
 In any of the following **Classification insights** graphs, select the **View more** link to drill down for more details:
 
-- **Total sources by classification categories**
+- **Top classification categories by sources**
 - **Top classifications for files**
 - **Top classifications for tables**
 - **Classification activity > Classification data**
