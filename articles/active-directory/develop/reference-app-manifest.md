@@ -118,8 +118,7 @@ Example:
 
 Set to true if the application is shared with other tenants; otherwise, false.
 
-> [!NOTE]
-> This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInAudience` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
+This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInAudience` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
 
 ### appId attribute
 
@@ -168,8 +167,7 @@ Example:
 
 The display name for the app.
 
-> [!NOTE]
-> This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
+This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
 
 ### errorUrl attribute
 
@@ -206,8 +204,7 @@ Example:
 
 The URL to the application's homepage.
 
-> [!NOTE]
-> This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
+This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
 
 ### objectId attribute
 
