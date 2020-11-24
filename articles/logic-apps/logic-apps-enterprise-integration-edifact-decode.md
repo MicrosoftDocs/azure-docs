@@ -1,21 +1,13 @@
 ---
-title: Decode EDIFACT messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate acknowledgements with the EDIFACT message decoder in the Enterprise Integration Pack for Azure Logic Apps
+title: Decode EDIFACT messages
+description: Validate EDI and generate acknowledgments with the EDIFACT message decoder for Azure Logic Apps with Enterprise Integration Pack 
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: 
-
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-
+ms.date: 04/22/2020
 ---
 
 # Decode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
@@ -38,7 +30,11 @@ that's already defined in your integration account
 
 ## Decode EDIFACT messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+> [!IMPORTANT]
+> The EDIFACT connector supports only UTF-8 characters.
+> If your output contains unexpected characters, check that your EDIFACT messages use the UTF-8 character set. 
+
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Decode EDIFACT message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 
@@ -97,20 +93,20 @@ more than one transaction based on the agreement's receive settings configuratio
 * Splits the interchange into transaction sets, or preserves the entire interchange:
   * Split Interchange as transaction sets - suspend transaction sets on error: 
   Splits interchange into transaction sets and parses each transaction set. 
-  The X12 Decode action outputs only those transaction sets 
+  The EDIFACT Decode action outputs only those transaction sets 
   that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
   * Split Interchange as transaction sets - suspend interchange on error: 
   Splits interchange into transaction sets and parses each transaction set. 
   If one or more transaction sets in the interchange fail validation, 
-  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`.
+  the EDIFACT Decode action outputs all the transaction sets in that interchange to `badMessages`.
   * Preserve Interchange - suspend transaction sets on error: 
   Preserve the interchange and process the entire batched interchange. 
-  The X12 Decode action outputs only those transaction sets that fail validation to `badMessages`, 
+  The EDIFACT Decode action outputs only those transaction sets that fail validation to `badMessages`, 
   and outputs the remaining transactions sets to `goodMessages`.
   * Preserve Interchange - suspend interchange on error: 
   Preserve the interchange and process the entire batched interchange. 
   If one or more transaction sets in the interchange fail validation, 
-  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`.
+  the EDIFACT Decode action outputs all the transaction sets in that interchange to `badMessages`.
 * Generates a Technical (control) and/or Functional acknowledgment (if configured).
   * A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
   * A functional acknowledgment acknowledges accept or reject a received interchange or a group

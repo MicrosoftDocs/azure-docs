@@ -1,0 +1,119 @@
+- name: Azure Government Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Government?
+    href: documentation-government-welcome.md
+  - name: Compare Azure Government and global Azure
+    href: compare-azure-government-global-azure.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Azure Government Portal
+    href: documentation-government-get-started-connect-with-portal.md
+  - name: Azure CLI
+    href: documentation-government-get-started-connect-with-cli.md
+  - name: PowerShell
+    href: documentation-government-get-started-connect-with-ps.md
+  - name: Visual Studio
+    href: documentation-government-connect-vs.md
+- name: Tutorials
+  items:
+  - name: Deploy App Services
+    href: documentation-government-howto-deploy-webandmobile.md
+  - name: Create Virtual Machines
+    href: documentation-government-quickstarts-vm.md
+- name: Concepts
+  items:
+  - name: Considerations for naming Azure resources
+    href: documentation-government-concept-naming-resources.md
+  - name: Plan
+    items:
+    - name: Security
+      href: documentation-government-plan-security.md
+    - name: Compliance
+      href: documentation-government-plan-compliance.md
+    - name: Identity
+      href: documentation-government-plan-identity.md
+  - name: Manage
+    items:
+    - name: Azure Monitor logs
+      href: documentation-government-manage-oms.md
+    - name: Marketplace
+      href: documentation-government-manage-marketplace.md
+  - name: Industry segments
+    items:
+    - name: Export controls
+      href: documentation-government-overview-itar.md
+    - name: Justice and Public Safety
+      href: documentation-government-overview-jps.md
+    - name: Department of Defense
+      href: documentation-government-overview-dod.md        
+- name: How-to guides
+  items: 
+  - name: Develop
+    items:
+    - name: Guidance for developers
+      href: documentation-government-developer-guide.md
+    - name: Use SQL Server Management Studio
+      href: documentation-government-connect-ssms.md
+    - name: Use Azure Storage
+      href: documentation-government-get-started-connect-to-storage.md    
+    - name: Use Cognitive Services API
+      href: documentation-government-cognitiveservices.md     
+    - name: Integrate Azure AD authentication
+      href: documentation-government-aad-auth-qs.md
+  - name: Secure
+    items:
+    - name: Impact Level 5 isolation guidance 
+      href: documentation-government-impact-level-5.md
+    - name: Azure secure isolation guidance
+      href: azure-secure-isolation-guidance.md
+    - name: Secure Azure computing architecture 
+      href: compliance/secure-azure-computing-architecture.md
+  - name: Deploy
+    items:
+    - name: Deploy with Azure Pipelines
+      href: connect-with-azure-pipelines.md
+    - name: Use DISA CAP
+      href: documentation-government-ase-disa-cap.md
+- name: Compliance
+  items:
+  - name: Trusted Internet Connections with Azure
+    href: compliance/compliance-tic.md
+  - name: Azure services by audit scope
+    href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Accelerate your path to ATO with Azure
+    href: compliance/documentation-accelerate-compliance.md
+- name: Reference
+  items:
+  - name: Marketplace
+    items:
+    - name: Images
+      href: documentation-government-image-gallery.md
+    - name: Extensions
+      href: documentation-government-extension.md
+    - name: Marketplace for partners
+      href: documentation-government-manage-marketplace-partners.md
+  - name: Cloud Solution Providers
+    items:
+    - name: CSP application process
+      href: documentation-government-csp-application.md
+    - name: Authorized reseller list
+      href: documentation-government-csp-list.md
+- name: Resources
+  items:
+  - name: Azure Government Website
+    href: https://azure.microsoft.com/overview/clouds/government/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
+  - name: Blog
+    href: https://blogs.msdn.microsoft.com/azuregov/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Trial
+    href: https://azuregov.microsoft.com/trial/azuregovtrial

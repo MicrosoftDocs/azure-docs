@@ -1,126 +1,189 @@
- 
 ---
-title: Learn how to use the MQ connector in Azure Logic Apps | Microsoft Docs
-description: Connect to an on-premises or Azure MQ server from your logic app workflow to browse, receive, and send messages to WebSphere MQ
+title: Connect to IBM MQ server
+description: Send and retrieve messages with an Azure or on-premises IBM MQ server and Azure Logic Apps
 services: logic-apps
-author: valthom
-manager: anneta
-documentationcenter: ''
-editor: ''
-tags: connectors
-
-ms.assetid:
-ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ChristopherHouser
+ms.author: chrishou
+ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  integration
-ms.date: 06/01/2017
-ms.author: valthom; ladocs
+ms.date: 05/14/2020
+tags: connectors
 ---
 
-# Connect to an IBM MQ server from logic apps using the MQ connector 
+# Connect to an IBM MQ server from Azure Logic Apps
 
-Microsoft Connector for MQ sends and retrieves messages stored in an MQ Server on-premises, or in Azure. This connector includes a Microsoft MQ client that communicates with a remote IBM MQ server across a TCP/IP network. This document is a starter guide to use the MQ connector. We recommended you begin by browsing a single message on a queue, and then trying the other actions.    
+The IBM MQ connector sends and retrieves messages stored in an IBM MQ server on premises or in Azure. This connector includes a Microsoft MQ client that communicates with a remote IBM MQ server across a TCP/IP network. This article provides a starter guide to use the MQ connector. You can start by browsing a single message on a queue and then try other actions.
 
-The MQ connector includes the following actions. There are no triggers.
+The IBM MQ connector includes these actions but provides no triggers:
 
--	Browse a single message without deleting the message from the IBM MQ Server
--	Browse a batch of messages without deleting the messages from the IBM MQ Server
--	Receive a single message and delete the message from the IBM MQ Server
--	Receive a batch of messages and delete the messages from the IBM MQ Server
--	Send a single message to the IBM MQ Server 
+- Browse a single message without deleting the message from the IBM MQ server.
+- Browse a batch of messages without deleting the messages from the IBM MQ server.
+- Receive a single message and delete the message from the IBM MQ server.
+- Receive a batch of messages and delete the messages from the IBM MQ server.
+- Send a single message to the IBM MQ server.
+
+Here are the officially supported IBM WebSphere MQ versions:
+
+  * MQ 7.5
+  * MQ 8.0
+  * MQ 9.0
+  * MQ 9.1
 
 ## Prerequisites
 
-* If using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. If the MQ Server is publicly available, or available within Azure, then the data gateway is not used or required.
+* If you're using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. The server where the on-premises data gateway is installed must also have .NET Framework 4.6 installed for the MQ connector to work.
 
-    > [!NOTE]
-    > The server where the On-Premises Data Gateway is installed must also have .Net Framework 4.6 installed for the MQ Connector to function.
+  After you finish installing the gateway, you must also create a resource in Azure for the on-premises data gateway. For more information, see [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md).
 
-* Create the Azure resource for the on-premises data gateway - [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md).
+  If your MQ server is publicly available or available within Azure, you don't have to use the data gateway.
 
-* Officially supported IBM WebSphere MQ versions:
-   * MQ 7.5
-   * MQ 8.0
+* The logic app where you want to add the MQ action. This logic app must use the same location as your on-premises data gateway connection and must already have a trigger that starts your workflow.
 
-## Create a logic app
+  The MQ connector doesn't have any triggers, so you must add a trigger to your logic app first. For example, you can use the Recurrence trigger. If you're new to logic apps, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**. 
-2. Enter the **Name**, such as MQTestApp, **Subscription**, **Resource group**, and **Location** (use the location where the on-premises Data Gateway connection is configured). Select **Pin to dashboard**, and select **Create**.  
-![Create Logic App](media/connectors-create-api-mq/Create_Logic_App.png)
+<a name="create-connection"></a>
 
-## Add a trigger
+## Create MQ connection
 
-> [!NOTE]
-> The MQ Connector does not have any triggers. So, use another trigger to start your logic app, such as the **Recurrence** trigger. 
+If you don't already have an MQ connection when you add an MQ action, you're prompted to create the connection, for example:
 
-1. The **Logic Apps Designer** opens, select **Recurrence** in the list of common triggers.
-2. Select **Edit** within the Recurrence Trigger. 
-3. Set the **Frequency** to **Day**, and set the **Interval** to **7**. 
+![Provide connection information](media/connectors-create-api-mq/connection-properties.png)
 
-## Browse a single message
-1. Select **+ New step**, and select **Add an action**.
-2. In the search box, type `mq`, and then select **MQ - Browse message**.  
-![Browse message](media/connectors-create-api-mq/Browse_message.png)
+1. If you're connecting to an on-premises MQ server, select **Connect via on-premises data gateway**.
 
-3. If there isn't an existing MQ connection, then create the connection:  
+1. Provide the connection information for your MQ server.
 
-    1. Select **Connect via on-premises data gateway**, and enter the properties of your MQ server.  
-    For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number. 
-    2. The **gateway** dropdown lists any existing gateway connections that have been configured. Select your gateway.
-    3. Select **Create** when finished. Your connection looks similar to the following:   
-    ![Connection Properties](media/connectors-create-api-mq/Connection_Properties.png)
+   * For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number.
 
-4. In the action properties, you can:  
+   * To use Secure Sockets Layer (SSL), select **Enable SSL?**.
 
-    * Use the **Queue** property to access a different queue name than what is defined in the connection
-    * Use the **MessageId**, **CorrelationId**, **GroupId**, and other properties to browse for a message based on the different MQ message properties
-    * Set **IncludeInfo** to **True** to include additional message information in the output. Or, set it to **False** to not include additional message information in the output.
-    * Enter a **Timeout** value to determine how long to wait for a message to arrive in an empty queue. If nothing is entered, the first message in the queue is retrieved, and there is no time spent waiting for a message to appear.  
-    ![Browse Message Properties](media/connectors-create-api-mq/Browse_message_Props.png)
+     The MQ connector currently supports only server authentication, not client authentication. For more information, see [Connection and authentication problems](#connection-problems).
 
-5. **Save** your changes, and then **Run** your logic app:  
-![Save and run](media/connectors-create-api-mq/Save_Run.png)
+1. In the **gateway** section, follow these steps:
 
-6. After a few seconds, the steps of the run are shown, and you can look at the output. Select the green checkmark to see details of each step. Select **See raw outputs** to see additional details on the output data.  
-![Browse message output](media/connectors-create-api-mq/Browse_message_output.png)  
+   1. From the **Subscription** list, select the Azure subscription associated with your Azure gateway resource.
 
-    Raw output:  
-    ![Browse message raw output](media/connectors-create-api-mq/Browse_message_raw_output.png)
+   1. From the **Connection Gateway** list, select the Azure gateway resource that you want to use.
 
-7. When the **IncludeInfo** option is set to true, the following output is displayed:  
-![Browse message include info](media/connectors-create-api-mq/Browse_message_Include_Info.png)
+1. When you're done, select **Create**.
+
+<a name="connection-problems"></a>
+
+### Connection and authentication problems
+
+When your logic app tries connecting to your on-premises MQ server, you might get this error:
+
+`"MQ: Could not Connect the Queue Manager '<queue-manager-name>': The Server was expecting an SSL connection."`
+
+* If you're using the MQ connector directly in Azure, the MQ server needs to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
+
+* If you're using the on-premises data gateway, try to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) when possible. However, if this option isn't possible, you could use a self-signed certificate, which is isn't issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) and is considered less secure.
+
+  To install the server's self-signed certificate, you can use the **Windows Certification Manager** (certmgr.msc) tool. For this scenario, on your local computer where the on-premises data gateway service is running, you need to install the certificate in your **Local Computer** certificates store at the **Trusted Root Certification Authorities** level.
+
+  1. On the computer where the on-premises-data gateway service is running, open the start menu, find and select **Manage user certificates**.
+
+  1. After the Windows Certification Manager tool opens, go to the **Certificates - Local Computer** >  **Trusted Root Certification Authorities** folder, and install the certificate.
+
+     > [!IMPORTANT]
+     > Make sure that you install certificate in the **Certificates - Local Computer** > **Trusted Root Certification Authorities** store.
+
+* The MQ server requires that you define the cipher specification that you want to use for TLS/SSL connections. However, SslStream in .NET doesn't permit you to specify the order for cipher specifications. To work around this limitation, you can change your MQ server configuration to match the first cipher specification in the suite that the connector sends in the TLS/SSL negotiation.
+
+  When you try the connection, the MQ server logs an event message that indicates the connection failed because the other end used the incorrect cipher specification. The event message contains the cipher specification that appears first in the list. Update the cipher specification in the channel configuration to match the cipher specification in the event message.
+
+## Browse single message
+
+1. In your logic app, under the trigger or another action, select **New step**.
+
+1. In the search box, enter `mq`, and select the **Browse message** action.
+
+   ![Select "Browse message" action](media/connectors-create-api-mq/browse-message.png)
+
+1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection).
+
+1. After you create the connection, set up the **Browse message** action's properties:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Queue** | If different from the queue specified in the connection, specify that queue. |
+   | **MessageId**, **CorrelationId**, **GroupId**, and other properties | Browse for a message that's based on the different MQ message properties |
+   | **IncludeInfo** | To include additional message information in the output, select **true**. To omit additional message information in the output, select **false**. |
+   | **Timeout** | Enter a value to determine how long to wait for a message to arrive in an empty queue. If nothing is entered, the first message in the queue is retrieved, and there is no time spent waiting for a message to appear. |
+   |||
+
+   For example:
+
+   ![Properties for "Browse message" action](media/connectors-create-api-mq/browse-message-properties.png)
+
+1. When you're done, on the designer toolbar, select **Save**. To test your app, select **Run**.
+
+   After the run finishes, the designer shows the workflow steps and their status so that you can review the output.
+
+1. To view the details about each step, click the step's title bar. To review more information about a step's output, select **Show raw outputs**.
+
+   ![Browse message output](media/connectors-create-api-mq/browse-message-output.png)
+
+   Here is some sample raw output:
+
+   ![Browse message raw output](media/connectors-create-api-mq/browse-message-raw-output.png)
+
+1. If you set **IncludeInfo** to **true**, additional output is shown:
+
+   ![Browse message include info](media/connectors-create-api-mq/browse-message-include-info.png)
 
 ## Browse multiple messages
-The **Browse messages** action includes a **BatchSize** option to indicate how many messages should be returned from the queue.  If **BatchSize** has no entry, all messages are returned. The returned output is an array of messages.
 
-1. When adding the **Browse messages** action, the first connection that is configured is selected by default. Select **Change connection** to create a new connection, or select a different connection.
+The **Browse messages** action includes a **BatchSize** option to indicate how many messages to return from the queue. If **BatchSize** has no value, all messages are returned. The returned output is an array of messages.
 
-2. The output of Browse messages shows:  
-![Browse messages output](media/connectors-create-api-mq/Browse_messages_output.png)
+1. Follow the previous steps, but add the **Browse messages** action instead.
 
-## Receive a single message
-The **Receive message** action has the same inputs and outputs as the **Browse message** action. When using 
-**Receive message**, the message is deleted from the queue.
+1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection). Otherwise, by default, the first previously configured connection is used. To create a new connection, select **Change connection**. Or, select a different connection.
+
+1. Provide the information for the action.
+
+1. Save and run the logic app.
+
+   After the logic app finishes running, here is some sample output from the **Browse messages** action:
+
+   ![Sample "Browse messages" output](media/connectors-create-api-mq/browse-messages-output.png)
+
+## Receive single message
+
+The **Receive message** action has the same inputs and outputs as the **Browse message** action. When you use **Receive message**, the message is deleted from the queue.
 
 ## Receive multiple messages
-The **Receive messages** action has the same inputs and outputs as the **Browse messages** action. When using 
-**Receive messages**, the messages are deleted from the queue.
 
-If there are no messages in the queue when doing a browse or a receive, the step fails with the following output:  
-![MQ No Message Error](media/connectors-create-api-mq/MQ_No_Msg_Error.png)
+The **Receive messages** action has the same inputs and outputs as the **Browse messages** action. When you use **Receive messages**, the messages are deleted from the queue.
 
-## Send a message
-1. When adding the **Send message** action, the first connection that is configured is selected by default. Select **Change connection** to create a new connection, or select a different connection. The valid **Message Types** are **Datagram**, **Reply**, or **Request**.  
-![Send Msg Props](media/connectors-create-api-mq/Send_Msg_Props.png)
+> [!NOTE]
+> When running a browse or a receive action on a queue that doesn't have any messages, 
+> the action fails with this output:
+>
+> ![MQ "no message" error](media/connectors-create-api-mq/mq-no-message-error.png)
 
-2. The output of Send message looks like the following:  
-![Send Msg Output](media/connectors-create-api-mq/Send_Msg_Output.png)
+## Send message
 
-## Connector-specific details
+1. Follow the previous steps, but add the **Send message** action instead.
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/mq/).
+1. If you haven't already created an MQ connection, you're prompted to [create that connection](#create-connection). Otherwise, by default, the first previously configured connection is used. To create a new connection, select **Change connection**. Or, select a different connection.
+
+1. Provide the information for the action. For **MessageType**, select a valid message type: **Datagram**, **Reply**, or **Request**
+
+   ![Properties for "Send message action"](media/connectors-create-api-mq/send-message-properties.png)
+
+1. Save and run the logic app.
+
+   After the logic app finishes running, here is some sample output from the **Send message** action:
+
+   ![Sample "Send message" output](media/connectors-create-api-mq/send-message-output.png)
+
+## Connector reference
+
+For technical details about actions and limits, which are described by the connector's Swagger description, 
+review the connector's [reference page](/connectors/mq/).
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

@@ -1,40 +1,52 @@
-## View device telemetry in the dashboard
-The dashboard in the remote monitoring solution enables you to view the telemetry your devices send to IoT Hub.
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
 
-1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
-2. In the **Devices list**, you should see that the status of your device is **Running**. If not, click **Enable Device** in the **Device Details** panel.
-   
-    ![View device status][18]
-3. Click **Dashboard** to return to the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity.
-   
-    ![View device telemetry][img-telemetry]
+## View device telemetry
 
-## Invoke a method on your device
-The dashboard in the remote monitoring solution enables you to invoke methods on your devices through IoT Hub. For example, in the remote monitoring solution you can invoke a method to simulate rebooting a device.
+You can view the telemetry sent from your device on the **Device Explorer** page in the solution.
 
-1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
-2. Click **Device ID** for your device in the **Devices list**.
-3. In the **Device details** panel, click **Methods**.
-   
-    ![Device methods][13]
-4. In the **Method** drop-down, select **InitiateFirmwareUpdate**, and then in **FWPACKAGEURI** enter a dummy URL. Click **Invoke Method** to call the method on the device.
-   
-    ![Invoke a device method][14]
-   
+1. Select the device you provisioned in the list of devices on the **Device Explorer** page. A panel displays information about your device including a plot of the device telemetry:
 
-5. You see a message in the console running your device code when the device handles the method. The results of the method are added to the history in the solution portal:
+    ![See device detail](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-    ![View method history][img-method-history]
+1. Choose **Pressure** to change the telemetry display:
+
+    ![View pressure telemetry](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. To view diagnostic information about your device, scroll down to **Diagnostics**:
+
+    ![View device diagnostics](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## Act on your device
+
+To invoke methods on your devices, use the **Device Explorer** page in the Remote Monitoring solution. For example, in the Remote Monitoring solution **Chiller** devices implement a **Reboot** method.
+
+1. Choose **Devices** to navigate to the **Device Explorer** page in the solution.
+
+1. Select the device you provisioned in the list of devices on the **Device Explorer** page:
+
+    ![Select your real device](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. To display a list of the methods you can call on your device, choose **Jobs**, then **Methods**. To schedule a job to run on multiple devices, you can select multiple devices in the list. The **Jobs** panel shows the types of method common to all the devices you selected.
+
+1. Choose **Reboot**, set the job name to **RebootPhysicalChiller** and then choose **Apply**:
+
+    ![Schedule the firmware update](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. A sequence of messages displays in the console running your device code while the simulated device handles the method.
+
+> [!NOTE]
+> To track the status of the job in the solution, choose **View Job Status**.
 
 ## Next steps
-The article [Customizing preconfigured solutions][lnk-customize] describes some ways you can extend this sample. Possible extensions include using real sensors and implementing additional commands.
 
-You can learn more about the [permissions on the azureiotsuite.com site][lnk-permissions].
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+The article [Customize the Remote Monitoring solution accelerator](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) describes some ways to customize the solution accelerator.

@@ -1,0 +1,106 @@
+### YamlMime:Landing
+
+title: Azure Sentinel documentation # < 60 chars
+summary: This article presents use cases to get started using Azure Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Azure Sentinel is your birds-eye view across the enterprise. # < 160 chars
+
+metadata:
+  title: Azure Sentinel documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: This article presents use cases and scenarios to get started using Azure Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Azure Sentinel is your birds-eye view across the enterprise.# Required; article description that is displayed in search results. < 160 chars.
+  services: sentinel
+  ms.service: sentinel #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: azure-sentinel
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: yelevin #Required; your GitHub user alias, with correct capitalization.
+  ms.author: yelevin #Required; microsoft alias of author; optional team alias.
+  ms.date: 06/25/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Sentinel
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Sentinel?
+            url: overview.md
+       
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Onboard Azure Sentinel
+            url: quickstart-onboard.md
+          - text: Get visibility into alerts
+            url: quickstart-get-visibility.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect data to Azure Sentinel
+            url: connect-data-sources.md
+          
+  # Card
+  - title: Connect additional data sources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect Azure Active Directory
+            url: connect-azure-active-directory.md
+          - text: Connect Azure Information Protection
+            url: connect-azure-information-protection.md
+          - text: Connect AWS
+            url: connect-aws.md
+          - text: Connect Palo Alto Networks
+            url: connect-paloalto.md
+          - text: Connect threat intelligence
+            url: connect-threat-intelligence.md
+      
+  # Card
+  - title: Work with multiple tenants
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to enable multi-tenant support in Azure Sentinel
+            url: multiple-tenants-service-providers.md
+  
+ # Card (optional)
+  - title: Know what's happening in your environment
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Monitor your data
+            url: tutorial-monitor-your-data.md
+          - text: Investigate incidents
+            url: tutorial-investigate-cases.md
+            
+ # Card (optional)
+  - title: Detect threats
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Use built-in-analytics to detect threats
+            url: tutorial-detect-threats-built-in.md
+          - text: Create custom detection rules
+            url: tutorial-detect-threats-custom.md
+
+# Card (optional)
+  - title: Automate threat prevention
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Respond automatically to threats
+            url: tutorial-respond-threats-playbook.md
+          - text: Use Jupyter Notebooks to hunt for security threats
+            url: notebooks.md
+# Card (optional)
+  - title: Be proactive about threat detection
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect threat intelligence
+            url: connect-threat-intelligence.md
+          - text: Hunt for threats
+            url: hunting.md

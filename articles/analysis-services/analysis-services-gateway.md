@@ -1,79 +1,51 @@
 ---
-title: On-premises data gateway | Microsoft Docs
+title: On-premises data gateway for Azure Analysis Services | Microsoft Docs
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 08/21/2017
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/29/2020
 ms.author: owend
-
+ms.reviewer: minewiskan
 ---
-# Connecting to on-premises data sources with Azure On-premises Data Gateway
-The On-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same region with a single gateway. 
+# Connecting to on-premises data sources with On-premises data gateway
 
- Azure Analysis Services requires a gateway resource in the same region. For example, if you have Azure Analysis Services servers in the East US 2 region, you need a gateway resource in the East US 2 region. Multiple servers in East US 2 can use the same gateway.
+The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Power Automate. While the gateway you install is the same across all of these services, Azure Analysis Services and Logic Apps have some additional steps.
 
-Getting setup with the gateway the first time is a four-part process:
+Information provided here is specific to how Azure Analysis Services works with the On-premises Data Gateway. To learn more about the gateway in general and how it works with other services, see [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem).
 
-- **Download and run setup** - This step installs a gateway service on a computer in your organization.
+For Azure Analysis Services, getting setup with the gateway the first time is a four-part process:
 
-- **Register your gateway** - In this step, you specify a name and recovery key for your gateway, and select a region, registering your gateway with the Gateway Cloud Service.
+- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
-- **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
+- **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but it's recommended it be in the same region as your Analysis Services servers. 
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it.
+- **Create a gateway resource in Azure** - In this step, you create a gateway resource in Azure.
 
-Once you have a gateway resource configured for your subscription, you can connect multiple servers, and other services to it. You only need to install a different gateway and create additional gateway resources if you have servers or other services in a different region.
+- **Connect the gateway resource to servers** - Once you have a gateway resource, you can begin connecting servers to it. You can connect multiple servers and other resources provided they are in the same region.
 
-To get started right away, see [Install and configure on-premises data gateway](analysis-services-gateway-install.md).
+## Installing
 
-## How it works
-The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create a gateway resource Gateway Cloud Service for your Azure subscription. Your Azure Analysis Services servers are then connected to your gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
+When installing for an Azure Analysis Services environment, it's important you follow the steps described in [Install and configure on-premises data gateway for Azure Analysis Services](analysis-services-gateway-install.md). This article is specific to Azure Analysis Services. It includes additional steps required to setup an On-premises data gateway resource in Azure, and connect your Azure Analysis Services server to the resource.
 
-![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+## Connecting to a gateway resource in a different subscription
 
-Queries and data flow:
+It's recommended you create your Azure gateway resource in the same subscription as your server. However, you can configure your servers to connect to a gateway resource in another subscription. Connecting to a gateway resource in another subscription is not supported when configuring existing server settings or creating a new server in the portal, but can be configured by using PowerShell. To learn more, see [Connect gateway resource to server](analysis-services-gateway-install.md#connect-gateway-resource-to-server).
 
-1. A query is created by the cloud service with the encrypted credentials for the on-premises data source. It's then sent to a queue for the gateway to process.
-2. The gateway cloud service analyzes the query and pushes the request to the [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. The on-premises data gateway polls the Azure Service Bus for pending requests.
-4. The gateway gets the query, decrypts the credentials, and connects to the data sources with those credentials.
-5. The gateway sends the query to the data source for execution.
-6. The results are sent from the data source, back to the gateway, and then onto the cloud service and your server.
+## Ports and communication settings
 
-## Windows Service account
-The on-premises data gateway is configured to use *NT SERVICE\PBIEgwService* for the Windows service logon credential. By default, it has the right of Logon as a service; in the context of the machine that you are installing the gateway on. This credential is not the same account used to connect to on-premises data sources or your Azure account.  
-
-If you encounter issues with your proxy server due to authentication, you may want to change the Windows service account to a domain user or managed service account.
-
-## Ports
 The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354.  The gateway does not require inbound ports.
 
-We recommend you whitelist the IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly.
+You may need to include IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=56519). This list is updated weekly. The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-> [!NOTE]
-> The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. For example, 10.0.0.0/24 does not mean 10.0.0.0 through 10.0.0.24. Learn more about the [CIDR notation](http://whatismyipaddress.com/cidr).
->
->
-
-The following are the fully qualified domain names used by the gateway.
+The following are fully qualified domain names used by the gateway.
 
 | Domain names | Outbound ports | Description |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP used to download the installer. |
 | *.powerbi.com |443 |HTTPS |
 | *.analysis.windows.net |443 |HTTPS |
-| *.login.windows.net |443 |HTTPS |
+| *.login.windows.net, login.live.com, aadcdn.msauth.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
 | *.servicebus.windows.net |443, 9350-9354 |Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
@@ -81,152 +53,17 @@ The following are the fully qualified domain names used by the gateway.
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
+| dc.services.visualstudio.com    |443 |Used by AppInsights to collect telemetry. |
 
-### Forcing HTTPS communication with Azure Service Bus
-You can force the gateway to communicate with Azure Service Bus by using HTTPS instead of direct TCP; however, doing so can greatly reduce performance. You can modify the *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* file by changing the value from `AutoDetect` to `Https`. This file is typically located at *C:\Program Files\On-premises data gateway*.
+## Next steps 
 
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
+The following articles are included in the On-premises data gateway general content that applies to all services the gateway supports:
 
-
-<a name="faq"></a>
-## Frequently asked questions
-
-### General
-
-**Q**: Do I need a gateway for data sources in the cloud, such as SQL Azure? <br/>
-**A**: No. A gateway connects to on-premises data sources only.
-
-**Q**: Does the gateway have to be installed on the same machine as the data source? <br/>
-**A**: No. The gateway connects to the data source using the connection information that was provided. 
-Consider the gateway as a client application in this sense. 
-The gateway just needs the capability to connect to the server name that was provided.
-
-<a name="why-azure-work-school-account"></a>
-
-**Q**: Why do I need to use a work or school account to sign in? <br/>
-**A**: You can only use an Azure work or school account when you install the on-premises data gateway. 
-Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
-Usually, your Azure AD account's user principal name (UPN) matches the email address.
-
-**Q**: Where are my credentials stored? <br/>
-**A**: The credentials that you enter for a data source are encrypted and stored in the Gateway Cloud Service. 
-The credentials are decrypted at the on-premises data gateway.
-
-**Q**: Are there any requirements for network bandwidth? <br/>
-**A**: It's recommend your network connection has good throughput. 
-Every environment is different, and the amount of data being sent affects the results. 
-Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
-You can use the third-party tool Azure Speed Test app to help gauge your throughput.
-
-**Q**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
-**A**: To reduce network latency, install the gateway as close to the data source as possible. 
-If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. 
-Consider the datacenters too. For example, if your service uses the West US datacenter, 
-and you have SQL Server hosted in an Azure VM, your Azure VM should be in the West US too. 
-This proximity minimizes latency and avoids egress charges on the Azure VM.
-
-**Q**: How are results sent back to the cloud? <br/>
-**A**: Results are sent through the Azure Service Bus.
-
-**Q**: Are there any inbound connections to the gateway from the cloud? <br/>
-**A**: No. The gateway uses outbound connections to Azure Service Bus.
-
-**Q**: What if I block outbound connections? What do I need to open? <br/>
-**A**: See the ports and hosts that the gateway uses.
-
-**Q**: What is the actual Windows service called?<br/>
-**A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
-
-**Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
-**A**: No. The Windows service must have a valid Windows account. By default, 
-the service runs with the Service SID, NT SERVICE\PBIEgwService.
-
-### High availability and disaster recovery
-
-**Q**: What options are available for disaster recovery? <br/>
-**A**: You can use the recovery key to restore or move a gateway. 
-When you install the gateway, specify the recovery key.
-
-**Q**: What is the benefit of the recovery key? <br/>
-**A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
-
-## Troubleshooting
-
-**Q**: How can I see what queries are being sent to the on-premises data source? <br/>
-**A**: You can enable query tracing, which includes the queries that are sent. 
-Remember to change query tracing back to the original value when done troubleshooting. 
-Leaving query tracing turned on creates larger logs.
-
-You can also look at tools that your data source has for tracing queries. 
-For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
-
-**Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this topic.
-
-### Update to the latest version
-
-Many issues can surface when the gateway version becomes outdated. 
-As good general practice, make sure that you use the latest version. 
-If you haven't updated the gateway for a month or longer, 
-you might consider installing the latest version of the gateway, 
-and see if you can reproduce the issue.
-
-### Error: Failed to add user to group. (-2147463168 PBIEgwService Performance Log Users)
-
-You might get this error if you try to install the gateway on a domain controller, which isn't supported. 
-Make sure that you deploy the gateway on a machine that isn't a domain controller.
-
-## Tools
-
-### Collect logs from the gateway configurer
-
-You can collect several logs for the gateway. Always start with the logs!
-
-#### Installer logs
-
-`%localappdata%\Temp\Power_BI_Gateway_–Enterprise.log`
-
-#### Configuration logs
-
-`%localappdata%\Microsoft\Power BI Enterprise Gateway\GatewayConfigurator.log`
-
-#### Enterprise gateway service logs
-
-`C:\Users\PBIEgwService\AppData\Local\Microsoft\Power BI Enterprise Gateway\EnterpriseGateway.log`
-
-#### Event logs
-
-You can find the Data Management Gateway and PowerBIGateway logs under **Application and Services Logs**.
-
-### Fiddler Trace
-
-[Fiddler](http://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. 
-You can see this traffic with the Power BI service from the client machine. 
-This service might show errors and other related information.
-
-### Telemetry
-Telemetry can be used for monitoring and troubleshooting. 
-
-**To turn on telemetry**
-
-1.	Check the On-premises data gateway client directory on the computer. Typically, it is **%systemdrive%\Program Files\On-premises data gateway**. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
-2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.	Save your changes and restart the Windows service: On-premises data gateway service.
-
-
-
-
-## Next steps
-* [Manage Analysis Services](analysis-services-manage.md)
-* [Get data from Azure Analysis Services](analysis-services-connect.md)
+* [On-premises data gateway FAQ](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Use the on-premises data gateway app](/data-integration/gateway/service-gateway-app)   
+* [Tenant level administration](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Configure proxy settings](/data-integration/gateway/service-gateway-proxy)   
+* [Adjust communication settings](/data-integration/gateway/service-gateway-communication)   
+* [Configure log files](/data-integration/gateway/service-gateway-log-files)   
+* [Troubleshoot](/data-integration/gateway/service-gateway-tshoot)
+* [Monitor and optimize gateway performance](/data-integration/gateway/service-gateway-performance)

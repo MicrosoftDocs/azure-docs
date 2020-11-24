@@ -1,21 +1,11 @@
 ---
-title: Specify metrics and placement settings in Azure microservices | Microsoft Docs
-description: Describing a Service Fabric service by specifying metrics, placement constraints, and other placement policies.
-services: service-fabric
-documentationcenter: .net
+title: Specify metrics and placement settings
+description: Learn how to describe a Service Fabric service by specifying metrics, placement constraints, and other placement policies.
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: Service-Fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Configuring cluster resource manager settings for Service Fabric services
 The Service Fabric Cluster Resource Manager allows fine-grained control over the rules that govern every individual named service. Each named service can specify rules for how it should be allocated in the cluster. Each named service can also define the set of metrics that it wants to report, including how important they are to that service. Configuring services breaks down into three different tasks:
@@ -25,7 +15,7 @@ The Service Fabric Cluster Resource Manager allows fine-grained control over the
 3. Configuring advanced placement policies and other rules (less common)
 
 ## Placement constraints
-Placement constraints are used to control which nodes in the cluster a service can actually run on. Typically a particular named service instance or all services of a given type constrained to run on a particular type of node. Placement constraints are extensible. You can define any set of properties per  node type, and then select for them with constraints when creating services. You can also change a service's placement constraints while it is running. THis allows you to respond to changes in the cluster or the requirements of the service. The properties of a given node can also be updated dynamically in the cluster. More information on placement constraints and how to configure them can be found in [this article](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
+Placement constraints are used to control which nodes in the cluster a service can actually run on. Typically a particular named service instance or all services of a given type constrained to run on a particular type of node. Placement constraints are extensible. You can define any set of properties per  node type, and then select for them with constraints when creating services. You can also change a service's placement constraints while it is running. This allows you to respond to changes in the cluster or the requirements of the service. The properties of a given node can also be updated dynamically in the cluster. More information on placement constraints and how to configure them can be found in [this article](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 ## Metrics
 Metrics are the set of resources that a given named service needs. A service's metric configuration includes how much of that resource each stateful replica or stateless instance of that service consumes by default. Metrics also include a weight that indicates how important balancing that metric is to that service, in case tradeoffs are necessary.

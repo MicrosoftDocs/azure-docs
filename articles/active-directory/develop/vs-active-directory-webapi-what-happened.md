@@ -1,110 +1,125 @@
 ---
-title: Changes made to a WebApi project when you connect to Azure AD | Microsoft Docs
-description: Describes what happens to your WebApi project when you connect to Azure AD by using Visual Studio
-services: active-directory
-documentationcenter: ''
-author: TomArcher
-manager: douge
-editor: ''
-
-ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
-ms.date: 03/01/2017
-ms.author: tarcher
-ms.custom: aaddev
-
+title: Changes made to WebAPI projects when connecting to Azure AD
+description: Describes what happens to your WebAPI project when you connect to Azure AD using Visual Studio
+author: ghogen
+manager: jillfra
+ms.workload: azure-vs
+ms.prod: visual-studio-windows
+ms.technology: vs-azure
+ms.topic: how-to
+ms.date: 03/12/2018
+ms.author: ghogen
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ---
-# What happened to my WebApi project (Visual Studio Azure Active Directory connected service)
+# What happened to my WebAPI project (Visual Studio Azure Active Directory connected service)
+
 > [!div class="op_single_selector"]
-> * [Getting Started](vs-active-directory-webapi-getting-started.md)
-> * [What Happened](vs-active-directory-webapi-what-happened.md)
-> 
-> 
+> - [Getting Started](vs-active-directory-webapi-getting-started.md)
+> - [What Happened](vs-active-directory-webapi-what-happened.md)
 
-## References have been added
-### NuGet package references
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+This article identifies the exact changes made to ASP.NET WebAPI, ASP.NET Single-Page Application, and ASP.NET Azure API projects when adding the [Azure Active Directory connected service using Visual Studio](vs-active-directory-add-connected-service.md). Also applies to the ASP.NET Azure Mobile Service projects in Visual Studio 2015.
 
-### .NET references
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+For information on working with the connected service, see [Getting Started](vs-active-directory-webapi-getting-started.md).
 
-## Code changes
-### Code files were added to your project
-An authentication startup class, **App_Start/Startup.Auth.cs** was added to your project containing startup logic for Azure AD authentication.
+## Added references
 
-### Startup code was added to your project
-If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)`. Otherwise, a Startup class was added to your project.
+Affects the project file *.NET references) and `packages.config` (NuGet references).
 
-### Your app.config or web.config file has new configuration values.
-The following configuration entries have been added.
+| Type | Reference |
+| --- | --- |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.ActiveDirectory |
+| .NET; NuGet | Microsoft.Owin.Security.Jwt |
+| .NET; NuGet | Microsoft.Owin.Security.OAuth |
+| .NET; NuGet | Owin |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 
-```
+Additional references if you selected the **Read directory data** option:
+
+| Type | Reference |
+| --- | --- |
+| .NET; NuGet | EntityFramework |
+| .NET        | EntityFramework.SqlServer (Visual Studio 2015 only) |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(Visual Studio 2015 only) |
+| .NET; NuGet | System.Spatial |
+
+The following references are removed (ASP.NET 4 projects only, as in Visual Studio 2015):
+
+| Type | Reference |
+| --- | --- |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+
+## Project file changes
+
+- Set the property `IISExpressSSLPort` to a distinct number.
+- Set the property `WebProject_DirectoryAccessLevelKey` to 0, or 1 if you selected the **Read directory data** option.
+- Set the property `IISUrl` to `https://localhost:<port>/` where `<port>` matches the `IISExpressSSLPort` value.
+
+## web.config or app.config changes
+
+- Added the following configuration entries:
+
+    ```xml
     <appSettings>
-            <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-            <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
-            <add key="ida:Audience" value="The App ID Uri from the wizard" />
-    </appSettings>`
-```
+        <add key="ida:ClientId" value="<ClientId from the new Azure AD app>" />
+        <add key="ida:Tenant" value="<your selected Azure domain>" />
+        <add key="ida:Audience" value="<your selected domain + / + project name>" />
+    </appSettings>
+    ```
 
-### An Azure AD App was created
-An Azure AD Application was created in the directory that you selected in the wizard.
+- Visual Studio 2017 only: Also added the following entry under `<appSettings>`"
 
-[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+    ```xml
+    <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
+    ```
 
-## If I checked *disable Individual User Accounts authentication*, what additional changes were made to my project?
-NuGet package references were removed, and files were removed and backed up. Depending on the state of your project, you may have to manually remove additional references or files, or modify code as appropriate.
+- Added `<dependentAssembly>` elements under the `<runtime><assemblyBinding>` node for `System.IdentityModel.Tokens.Jwt`.
 
-### NuGet package references removed (for those present)
-* `Microsoft.AspNet.Identity.Core`
-* `Microsoft.AspNet.Identity.EntityFramework`
-* `Microsoft.AspNet.Identity.Owin`
+- If you selected the **Read directory data** option, added the following configuration entry under `<appSettings>`:
 
-### Code files backed up and removed (for those present)
-Each of following files was backed up and removed from the project. Backup files are located in a 'Backup' folder at the root of the project's directory.
+    ```xml
+    <add key="ida:Password" value="<Your Azure AD app's new password>" />
+    ```
 
-* `App_Start\IdentityConfig.cs`
-* `Controllers\AccountController.cs`
-* `Controllers\ManageController.cs`
-* `Models\IdentityModels.cs`
-* `Providers\ApplicationOAuthProvider.cs`
+## Code changes and additions
 
-### Code files backed up (for those present)
-Each of following files was backed up before being replaced. Backup files are located in a 'Backup' folder at the root of the project's directory.
+- Added the `[Authorize]` attribute to `Controllers/ValueController.cs` and any other existing controllers.
 
-* `Startup.cs`
-* `App_Start\Startup.Auth.cs`
+- Added an authentication startup class, `App_Start/Startup.Auth.cs`, containing startup logic for Azure AD authentication, or modified it accordingly. If you selected the **Read directory data** option, this file also contains code to receive an OAuth code and exchange it for an access token.
 
-## If I checked *Read directory data*, what additional changes were made to my project?
-### Additional changes were made to your app.config or web.config
-The following additional configuration entries have been added.
+- (Visual Studio 2015 with ASP.NET 4 app only) Removed `App_Start/IdentityConfig.cs` and added `Controllers/AccountController.cs`, `Models/IdentityModel.cs`, and `Providers/ApplicationAuthProvider.cs`.
 
-```
-    <appSettings>
-        <add key="ida:Password" value="Your Azure AD App's new password" />
-    </appSettings>`
-```
+- Added `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) or `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), containing information that Visual Studio uses to track the addition of the connected service.
 
-### Your Azure Active Directory App was updated
-Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:Password* in the `web.config` file.
+### File backup (Visual Studio 2015)
+
+When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 does not create backups.
+
+- `Startup.cs`
+- `App_Start\IdentityConfig.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ApplicationOAuthProvider.cs`
+
+## Changes on Azure
+
+- Created an Azure AD Application in the domain that you selected when adding the connected service.
+- Updated the app to include the **Read directory data** permission if that option was selected.
+
+[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## Next steps
-- [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

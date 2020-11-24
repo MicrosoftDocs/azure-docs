@@ -1,6 +1,13 @@
-## Prerequisite: Install the Azure PowerShell Module
+---
+author: vhorne
+ms.service: application-gateway
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: victorh
+---
+## Prerequisite: Install the Azure PowerShell module
 
-To perform the steps in this article, you'll need to [to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+To perform the steps in this article, you need to [install and configure the Azure PowerShell module](/powershell/azureps-cmdlets-docs). Be sure to complete all of the instructions. After the installation is finished, sign in to Azure and select your subscription.
 
 > [!NOTE]
-> If you don't have an Azure account, you'll need one. Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md).
+> You need an Azure account to complete these steps. If you don't have an Azure account, you can sign up for a [free trial](../articles/active-directory/fundamentals/sign-up-organization.md).

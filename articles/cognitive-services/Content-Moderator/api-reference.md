@@ -1,35 +1,43 @@
 ---
-title: API reference for Content Moderator  | Microsoft Docs
-description: Learn about the Image and Text Moderation, and Review APIs for Content Moderator.
+title: API reference - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Learn about the various content moderation and review APIs for Content Moderator.
 services: cognitive-services
-author: sanjeev3
-manager: mikemcca
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 06/25/2017
-ms.author: sajagtap
+ms.subservice: content-moderator
+ms.topic: reference
+ms.date: 05/29/2019
+ms.author: pafarley
+
 ---
 
-# API Reference #
-You get started with the Content Moderator APIs in the following ways:
+# Content Moderator API reference
 
-  1. [Subscribe to the Content Moderator API](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/ContentModerator) on the Microsoft Azure portal.
-  1. Sign up for the [content moderator review tool](http://contentmoderator.cognitive.microsoft.com/). See [Your API Key in the review tool](images/7-Settings-Credentials.png).
+You can get started with Azure Content Moderator APIs in the following ways:
 
-## Content Moderation APIs ##
+- In the Azure portal, [subscribe to the Content Moderator API](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
+- See [Try Content Moderator on the web](quick-start.md) to sign up with the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/).
 
-| API Description | API Reference |
-| -------------------- |-------------|
-| **Image Moderation** : Scan images and get back predicted tags, their confidence scores, and other extracted information. Use this information to implement your post-moderation workflow: publish, reject, or review the content within your systems.   | [Image Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image Moderation API Reference")   |
-| **Text Moderation API** : Scan text content and get back identified profanity terms and Personal Identifiable Information (PII). Use this information to implement your post-moderation workflow: publish, reject, or review the content within your systems. | [Text Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API Reference")   |
-| **List Management API** : Create and manage custom exclusion or inclusion lists of images and text. If enabled, the Image/Match and Text/Screen operations do fuzzy matching of the submitted content against your custom lists, and skip the ML-based moderation step for efficiency. | [List Management API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "List Management API Reference")   |
+## Moderation APIs
 
-## Review API ##
+You can use the following Content Moderator APIs to set up your post-moderation workflows.
 
 | Description | Reference |
 | -------------------- |-------------|
-| **Job**: Initiate scan-and-review moderation workflows with both image and text content. The moderation job scans your content by using the Image and Text Moderation APIs. It then uses the defined and default workflows to generate reviews. Once your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the API submits all information to your API endpoint. | [Job Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Job Reference")   |
-| **Review**: Directly create image or text reviews in the review tool for human moderators. Once your human moderators have reviewed the tags and meta data and submitted their final decision, the API submits all information to your API endpoint. | [Review Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Review Reference")   |
-| **Workflow**: Create, update, and get details of the custom workflows created by your team. (Workflows are defined using the Review Tool.) Workflows typically use Content Moderator, but can also use certain other APIs that are available as connectors within the Review Tool. | [Workflow Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Workflow Reference")   |
+| **Image Moderation API**<br /><br />Scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information. <br /><br />Use this information to publish, reject, or review the content in your post-moderation workflow. <br /><br />| [Image Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image Moderation API reference")   |
+| **Text Moderation API**<br /><br />Scan text content. Profanity terms and personal data are returned. <br /><br />Use this information to publish, reject, or review the content in your post-moderation workflow.<br /><br /> | [Text Moderation API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API reference")   |
+| **Video Moderation API**<br /><br />Scan videos and detect potential adult and racy content. <br /><br />Use this information to publish, reject, or review the content in your post-moderation workflow.<br /><br /> | [Video Moderation API overview](video-moderation-api.md "Video Moderation API overview")   |
+| **List Management API**<br /><br />Create and manage custom exclusion or inclusion lists of images and text. If enabled, the **Image - Match** and **Text - Screen** operations do fuzzy matching of the submitted content against your custom lists. <br /><br />For efficiency, you can skip the machine learning-based moderation step.<br /><br /> | [List Management API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "List Management API reference")   |
+
+## Review APIs
+
+The Review APIs have the following components:
+
+| Description | Reference |
+| -------------------- |-------------|
+| **Jobs**<br /><br /> Initiate scan-and-review moderation workflows for both image and text content. A moderation job scans your content by using the Image Moderation API and the Text Moderation API. Moderation jobs use the defined and default workflows to generate reviews. <br /><br />After a human moderator has reviewed the auto-assigned tags and prediction data and submitted a content moderation decision, the Review API submits all information to your API endpoint.<br /><br /> | [Job reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Job reference")   |
+| **Reviews**<br /><br />Use the Review tool to directly create image or text reviews for human moderators.<br /><br /> After a human moderator has reviewed the auto-assigned tags and prediction data and submitted a content moderation decision, the Review API submits all information to your API endpoint.<br /><br /> | [Review reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Review reference")   |
+| **Workflows**<br /><br />Create, update, and get details about the custom workflows that your team creates. You define workflows by using the Review tool. <br /> <br />Workflows typically use Content Moderator, but can also use certain other APIs that are available as connectors in the Review tool.<br /><br /> | [Workflow reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Workflow reference")   |

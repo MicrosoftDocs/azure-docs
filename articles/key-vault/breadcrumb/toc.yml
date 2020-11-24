@@ -1,0 +1,66 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Key Vault
+    tocHref: /azure/
+    topicHref: /azure/key-vault/index
+
+- name: Azure
+  tocHref: /java/
+  topicHref: /azure/index
+  items:
+  - name: Key Vault
+    tocHref: /java/azure/
+    topicHref: /azure/key-vault/
+    items:
+    - name: Spring
+      tocHref: /java/azure/spring-framework/
+      topicHref: /java/azure/spring-framework/
+
+- name: Azure
+  tocHref: /powershell/
+  topicHref: /azure/index
+  items:
+  - name: Key Vault
+    tocHref: /powershell/module/
+    topicHref: /azure/key-vault/
+    items:
+    - name: Key Vault PowerShell cmdlets
+      tocHref: /powershell/module/az.keyvault/
+      topicHref: /powershell/module/az.keyvault/
+
+- name: Azure
+  tocHref: /cli/
+  topicHref: /azure/index
+  items:
+  - name: Key Vault
+    tocHref: /cli/azure/
+    topicHref: /azure/key-vault/
+    items:
+    - name: Key Vault CLI reference
+      tocHref: /cli/azure/keyvault/
+      topicHref: /azure/key-vault/
+      items:
+      - name: Certificates 
+        tocHref: /cli/azure/keyvault/certificate
+        topicHref:  /azure/key-vault/
+      - name: Keys
+        tocHref: /cli/azure/keyvault/key
+        topicHref:  /azure/key-vault/
+      - name: Secrets
+        tocHref: /cli/azure/keyvault/secret
+        topicHref: /azure/key-vault/       
+
+### Leave this element for testing from the contributor guide instructions. 
+- name: Azure
+  tocHref: /sccm/
+  topicHref: /azure/index
+  items: 
+  - name: Key Vault
+    tocHref: /sccm/apps/
+    topicHref: /azure/key-vault/index
+    items: 
+    - name: Run SCCM scripts
+      tocHref: /sccm/apps/deploy-use/
+      topicHref: /azure/key-vault/index

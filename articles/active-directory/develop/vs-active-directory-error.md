@@ -1,96 +1,93 @@
 ---
-title: How to diagnose errors with the Azure Active Directory Connection Wizard
-description: The active directory connection wizard detected an incompatible authentication type
-services: active-directory
-documentationcenter: ''
-author: TomArcher
-manager: douge
-editor: ''
-
-ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2017
-ms.author: tarcher
-ms.custom: aaddev
-
+title: Diagnose errors with Azure AD connected service (Visual Studio)
+description: The active directory connected service detected an incompatible authentication type
+author: ghogen
+manager: jillfra
+ms.prod: visual-studio-windows
+ms.technology: vs-azure
+ms.workload: azure-vs
+ms.topic: how-to
+ms.date: 03/12/2018
+ms.author: ghogen
+ms.custom: aaddev, vs-azure
 ---
-# Diagnosing errors with the Azure Active Directory Connection Wizard
-While detecting previous authentication code, the wizard detected an incompatible authentication type.   
+# Diagnosing errors with the Azure Active Directory Connected Service
 
-## What is being checked?
-**Note:** To correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have a previous authentication code in your project, rebuild and try again.
+While detecting previous authentication code, the Azure Active Directory connected service detected an incompatible authentication type.
 
-### Project Types
-The wizard checks the type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, the project is considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, the project is considered an MVC project.  Anything else is not supported by the wizard.
+To correctly detect previous authentication code in a project, the project must be rebuilt. If you see this error and you don't have a previous authentication code in your project, rebuild and try again.
 
-### Compatible Authentication Code
-The wizard also checks for authentication settings that have been previously configured with the wizard or are compatible with the wizard.  If all settings are present, it is considered a re-entrant case, and the wizard opens display the settings.  If only some of the settings are present, it is considered an error case.
+## Project types
 
-In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:
+The connected service checks the type of project you’re developing so it can inject the right authentication logic into the project. If there's any controller that derives from `ApiController` in the project, the project is considered a WebAPI project. If there are only controllers that derive from `MVC.Controller` in the project, the project is considered an MVC project. The connected service doesn't support any other project type.
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:AADInstance" value="" />
-    <add key="ida:PostLogoutRedirectUri" value="" />
+## Compatible authentication code
 
-In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:
+The connected service also checks for authentication settings that have been previously configured or are compatible with the service. If all settings are present, it's considered a re-entrant case, and the connected service opens display the settings.  If only some of the settings are present, it's considered an error case.
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:Audience" value="" />
+In an MVC project, the connected service checks for any of the following settings, which result from previous use of the service:
 
-### Incompatible Authentication Code
-Finally, the wizard attempts to detect versions of authentication code that have been configured with previous versions of Visual Studio. If you received this error, it means your project contains an incompatible authentication type. The wizard detects the following types of authentication from previous versions of Visual Studio:
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:AADInstance" value="" />
+<add key="ida:PostLogoutRedirectUri" value="" />
+```
 
-* Windows Authentication 
-* Individual User Accounts 
-* Organizational Accounts 
+Also, the connected service checks for any of the following settings in a Web API project, which result from previous use of the service:
 
-To detect Windows Authentication in an MVC project, the wizard looks for the `authentication` element from your **web.config** file.
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:Audience" value="" />
+```
 
-<pre>
-    &lt;configuration&gt;
-        &lt;system.web&gt;
-            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-        &lt;/system.web&gt;
-    &lt;/configuration&gt;
-</pre>
+## Incompatible authentication code
 
-To detect Windows Authentication in a Web API project, the wizard looks for the `IISExpressWindowsAuthentication` element from your project's **.csproj** file:
+Finally, the connected service attempts to detect versions of authentication code that have been configured with previous versions of Visual Studio. If you received this error, it means your project contains an incompatible authentication type. The connected service detects the following types of authentication from previous versions of Visual Studio:
 
-<pre>
-    &lt;Project&gt;
-        &lt;PropertyGroup&gt;
-            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup>
-    &lt;/Project&gt;
-</pre>
+* Windows Authentication
+* Individual User Accounts
+* Organizational Accounts
 
-To detect Individual User Accounts authentication, the wizard looks for the package element from your **Packages.config** file.
+To detect Windows Authentication in an MVC project, the connected looks for the `authentication` element in your `web.config` file.
 
-<pre>
-    &lt;packages&gt;
-        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-    &lt;/packages&gt;
-</pre>
+```xml
+<configuration>
+    <system.web>
+        <authentication mode="Windows" />
+    </system.web>
+</configuration>
+```
 
-To detect an old form of Organizational Account authentication, the wizard looks for the following element from **web.config**:
+To detect Windows Authentication in a Web API project, the connected service looks for the `IISExpressWindowsAuthentication` element in your project's `.csproj` file:
 
-<pre>
-    &lt;configuration&gt;
-        &lt;appSettings&gt;
-            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-        &lt;/appSettings&gt;
-    &lt;/configuration&gt;
-</pre>
+```xml
+<Project>
+    <PropertyGroup>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    </PropertyGroup>
+</Project>
+```
 
-To change the authentication type, remove the incompatible authentication type and run the wizard again.
+To detect Individual User Accounts authentication, the connected service looks for the package element in your `packages.config` file.
 
-For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+```xml
+<packages>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
+</packages>
+```
 
-#Next steps
-- [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
+To detect an old form of Organizational Account authentication, the connected service looks for the following element in`web.config`:
+
+```xml
+<configuration>
+    <appSettings>
+        <add key="ida:Realm" value="***" />
+    </appSettings>
+</configuration>
+```
+
+To change the authentication type, remove the incompatible authentication type and try adding the connected service again.
+
+For more information, see [Authentication Scenarios for Azure AD](./authentication-vs-authorization.md).

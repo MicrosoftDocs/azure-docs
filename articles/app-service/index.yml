@@ -1,0 +1,173 @@
+### YamlMime:Landing
+
+title: App Service documentation
+summary: Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
+
+metadata:
+  title: Azure App Service documentation
+  description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.
+  ms.topic: landing-page
+  ms.service: app-service
+  ms.date: 08/06/2020
+
+landingContent:
+  - title: About App Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is App Service?
+            url: overview.md
+          - text: App Service Environments
+            url: environment/intro.md
+          - text: Compare hosting options
+            url: /azure/architecture/guide/technology-choices/compute-decision-tree
+      - linkListType: whats-new
+        links:
+          - text: Service updates
+            url: https://azure.microsoft.com/updates/?product=app-service
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: First ASP.NET Core app
+            url: quickstart-dotnetcore.md
+          - text: First ASP.NET app (Windows only)
+            url: quickstart-dotnet-framework.md
+          - text: First Node.js app
+            url: quickstart-nodejs.md
+          - text: First PHP app
+            url: quickstart-php.md
+          - text: First Java app
+            url: quickstart-java.md
+          - text: First Python Flask app (Linux only)
+            url: quickstart-python.md
+          - text: First Ruby app (Linux only)
+            url: quickstart-ruby.md
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Map a custom domain to your app
+            url: app-service-web-tutorial-custom-domain.md
+          - text: Secure a custom domain with an SSL binding
+            url: configure-ssl-bindings.md
+          - text: Run app in staged environments
+            url: deploy-staging-slots.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable diagnostic logs
+            url: troubleshoot-diagnostic-logs.md
+          - text: Connect to Linux container via SSH
+            url: configure-linux-open-ssh-session.md
+          - text: Migrate an active domain to App Service
+            url: manage-custom-dns-migrate-domain.md
+  - title: CRUD app with database
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET app with SQL Database
+            url: app-service-web-tutorial-dotnet-sqldatabase.md
+          - text: ASP.NET Core app with SQL Database
+            url: tutorial-dotnetcore-sqldb-app.md
+          - text: PHP (Laravel) app with Azure MySQL
+            url: tutorial-php-mysql-app.md
+          - text: Node.js (MEAN.js) app with MongoDB
+            url: tutorial-nodejs-mongodb-app.md
+          - text: Java (Spring Boot) app with Cosmos DB
+            url: tutorial-java-spring-cosmosdb.md
+          - text: Python (Django) app with PostgreSQL
+            url: tutorial-python-postgresql-app.md
+          - text: Ruby (Rails) app with PostgreSQL
+            url: tutorial-ruby-postgres-app.md
+  - title: Upload your code or content
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Upload content with FTP
+            url: deploy-ftp.md
+          - text: Upload content as zip packages
+            url: deploy-zip.md
+          - text: Git push from local machine
+            url: deploy-local-git.md
+          - text: Sync content with OneDrive or Dropbox
+            url: deploy-content-sync.md
+          - text: CI/CD with GitHub, BitBucket, etc.
+            url: deploy-continuous-deployment.md
+          - text: Run from package
+            url: deploy-run-package.md
+
+
+  - title: Run custom containers
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Run a custom container
+            url: quickstart-custom-container.md
+      - linkListType: tutorial
+        links:
+          - text: Run a Docker Compose app (Linux only)
+            url: tutorial-multi-container-app.md          
+          - text: Migrate custom software to Azure in a container
+            url: tutorial-custom-container.md
+      - linkListType: how-to-guide
+        links:
+          - text: CI/CD to a custom container
+            url: deploy-ci-cd-custom-container.md
+          - text: Connect a container to Storage Files
+            url: configure-connect-to-azure-storage.md
+          - text: Deploy with GitHub Actions
+            url: deploy-container-github-action.md
+
+  - title: Manage and integrate
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Manage App Service plans
+            url: overview-hosting-plans.md
+      - linkListType: tutorial
+        links:
+          - text: Secure resource access with managed identities
+            url: app-service-web-tutorial-connect-msi.md
+          - text: Authenticate users
+            url: tutorial-auth-aad.md
+          - text: Host RESTful API with CORS
+            url: app-service-web-tutorial-rest-api.md
+          - text: Add a CDN to your application
+            url: ../cdn/cdn-add-to-web-app.md
+      - linkListType: how-to-guide
+        links:
+          - text: Integrate with a Virtual Network
+            url: web-sites-integrate-with-vnet.md
+          - text: Create hybrid connections to on-prem
+            url: app-service-hybrid-connections.md
+          - text: Load balance with Traffic Manager
+            url: configure-domain-traffic-manager.md
+          - text: Back up your app to Storage Blobs
+            url: manage-backup.md
+
+
+
+  - title: More resources
+    linkLists:
+      - linkListType: video
+        links:
+          - text: App Service video library
+            url: https://azure.microsoft.com/resources/videos/index/?services=app-service
+          - text: Pluralsight video training
+            url: https://www.pluralsight.com/search?q=azure%20app%20service
+      - linkListType: sample
+        links:
+          - text: Azure CLI samples
+            url: samples-cli.md
+          - text: Azure PowerShell samples
+            url: samples-powershell.md
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/appservice
+          - text: Azure PowerShell
+            url: /powershell/module/az.websites/#app_service
+          - text: REST API
+            url: /rest/api/appservice/
+          - text: Resource Manager
+            url: /azure/templates/microsoft.web/allversions

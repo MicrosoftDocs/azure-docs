@@ -1,57 +1,56 @@
 ---
-title: 'Backup Azure Linux VMs | Microsoft Docs'
-description: Protect your Linux VMs by backing them up using Azure Backup.
+title: Tutorial - Back up Linux virtual machines in the Azure portal 
+description: In this tutorial, you learn how to use the Azure portal to protect your Linux virtual machines with Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
-editor: tysonn
+manager: gwallace
+
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
----
-# Back up Linux  virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
+#Customer intent: As an IT administrator, I want to learn about Azure Backup so that I can back up and restore files on Linux virtual machines.
+---
+# Tutorial: Back up and restore files for Linux virtual machines in Azure
+
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a backup of a VM
 > * Schedule a daily backup
 > * Restore a file from a backup
 
-
-
 ## Backup overview
 
 When the Azure Backup service initiates a backup, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
 
-By default, Azure Backup takes a file system consistent backup for Linux VM but it can be configured to take [application consistent backup using pre-script and post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). 
+By default, Azure Backup takes a file system consistent backup for Linux VM but it can be configured to take [application consistent backup using pre-script and post-script framework](../../backup/backup-azure-linux-app-consistent.md). 
 Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
 
 ## Create a backup
-Create a simple scheduled daily backup to a Recovery Services Vault. 
+Create a scheduled daily backup to a Recovery Services Vault:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the menu on the left, select **Virtual machines**. 
 3. From the list, select a VM to back up.
-4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
+4. On the VM blade, in the **Operations** section, click **Backup**. The **Enable backup** blade opens.
 5. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and location as the virtual machine.
 6. Click **Backup policy**. For this example, keep the defaults and click **OK**.
 7. On the **Enable backup** blade, click **Enable Backup**. This creates a daily backup based on the default schedule.
 10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
 11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
-12. In the **Backup** blade for your VM, you will see the number of recovery points that are complete.
+12. In the **Backup** blade for your VM, you see the number of recovery points that are complete.
 
 	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
 
@@ -59,24 +58,25 @@ The first backup takes about 20 minutes. Proceed to the next part of this tutori
 
 ## Restore a file
 
-If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
+If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as a local drive. These drives remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
 
 In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *13.69.75.209*. You can find the IP address of your vm using:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
  
 1. On your local computer, open a browser and type in the public IP address of your VM to see the default nginx web page.
 
-	![Default nginx web page](./media/tutorial-backup-vms/nginx-working.png)
+	![Screenshot that shows the default nginx web page.](./media/tutorial-backup-vms/nginx-working.png)
 
 1. SSH into your VM.
 
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Delete /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -85,7 +85,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	
 4. On your local computer, refresh the browser by hitting CTRL + F5 to see that default nginx page is gone.
 
-	![Default nginx web page](./media/tutorial-backup-vms/nginx-broken.png)
+	![Screenshot that shows the default nginx page is gone.](./media/tutorial-backup-vms/nginx-broken.png)
 	
 1. On your local computer, sign in to the [Azure portal](https://portal.azure.com/).
 6. In the menu on the left, select **Virtual machines**. 
@@ -121,7 +121,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	
 12. The output from the script gives you the path for the mount point. The output looks similar to this:
 
-    ```bash
+    ```output
 	Microsoft Azure VM Backup - File Recovery
 	______________________________________________
                           
@@ -154,7 +154,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 
 	![Default nginx web page](./media/tutorial-backup-vms/nginx-working.png)
 
-18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button. If you forget to do this step, the connection to the mountpoint is automatically close after 12 hours. After those 12 hours, you need to download a new script to create a new mountpoint.
+18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button. If you forget to do this step, the connection to the mountpoint is automatically closed after 12 hours. After those 12 hours, you need to download a new script to create a new mountpoint.
 
 
 ## Next steps
@@ -169,5 +169,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)
-
+> [Govern virtual machines](tutorial-govern-resources.md)

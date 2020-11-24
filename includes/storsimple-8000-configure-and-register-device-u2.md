@@ -1,5 +1,10 @@
-<!--author=alkohli last changed: 01/18/2017-->
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To configure and register the device
 
@@ -9,14 +14,14 @@
 
 3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press **Enter**.
 
-4. In the serial console menu that is presented, choose option 1 to **log in with full access**.
+4. In the serial console menu that is presented, choose option 1, **Log in with full access**.
      Complete steps 5-12 to configure the minimum required network settings for your device. **These configuration steps need to be performed on the active controller of the device.** The serial console menu indicates the controller state in the banner message. If you are not connected to the active controller, disconnect and then connect to the active controller.
 
 5. At the command prompt, type your password. The default device password is **Password1**.
 
 6. Type the following command: `Invoke-HcsSetupWizard`.
 
-7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information:
+7. A setup wizard will appear to help you configure the network settings for the device. Supply the following information:
    
    * IP address for the DATA 0 network interface
    * Subnet mask
@@ -88,7 +93,7 @@
 
     ```
 
-12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Device Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Device Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-8000-security.md) for more information about this key.
     
     ![StorSimple register device 7](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup1.png)
     
@@ -107,4 +112,3 @@
         You may need to wait for a couple of minutes for the device status to change to **Ready to set up**.
        
         If the device does not show up in this list, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-8000-system-requirements.md). Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Device Manager service-to-device communication.
-

@@ -3,7 +3,7 @@ title: Deploy StorSimple Snapshot Manager | Microsoft Docs
 description: Learn how to download and install the StorSimple Snapshot Manager, an MMC snap-in for managing StorSimple data protection and backup features.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: alkohli
 
 ---
 # Deploy the StorSimple Snapshot Manager MMC snap-in
@@ -182,7 +182,7 @@ Use the following steps to create and save a copy of the StorSimple Snapshot Man
 4. Restart the Microsoft StorSimple Management Service: 
    
    1. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
-   2. On the **Services** page, select the **Microsoft StorSimple Management Servic**e.
+   2. On the **Services** page, select the **Microsoft StorSimple Management Service**.
    3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**. 
 
 ### Step 3: Reinstall StorSimple Snapshot Manager and restore the database

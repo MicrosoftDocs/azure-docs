@@ -1,311 +1,378 @@
 ---
-title: IoT DevKit to cloud - Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs
-description: Learn how to setup and connect IoT DevKit AZ3166 to Azure IoT Hub for it to send data to the Azure cloud platform in this tutorial.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
-keywords: ''
-
+title: Connect IoT DevKit AZ3166 to an Azure IoT Hub
+description: In this tutorial, learn how to set up and connect IoT DevKit AZ3166 to Azure IoT Hub so it can send data to the Azure cloud platform.
+author: wesmc7777
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/11/2017
-ms.author: xshi
-
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 06/25/2019
+ms.author: wesmc
+ms.custom:  [mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ---
-# Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud
+
+# Connect IoT DevKit AZ3166 to Azure IoT Hub
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-The [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) can be used to develop and prototype Internet of Things (IoT) solutions leveraging Microsoft Azure services. It includes an Arduino compatible board with rich peripherals and sensors, an open-source board package and a growing [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
-
-## What you do
-Connect [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to an Azure IoT hub that you create, collect the temperature and humidity data from sensors and send the data to IoT hub.
-
-Don't have a DevKit yet? Get a new one [here](https://aka.ms/iot-devkit-purchase).
+You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to develop and prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services. It includes an Arduino-compatible board with rich peripherals and sensors, an open-source board package, and a rich [sample gallery](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
 
 ## What you learn
 
-* How to connect IoT DevKit to Wireless access point and prepare your development environment.
-* How to create an IoT hub and register a device for MXChip IoT DevKit.
-* How to collect sensor data by running a sample application on MXChip IoT DevKit.
-* How to send the sensor data to your IoT hub.
+* How to create an IoT hub and register a device for the MXChip IoT DevKit.
+* How to connect the IoT DevKit to Wi-Fi and configure the IoT Hub connection string.
+* How to send the DevKit sensor telemetry data to your IoT hub.
+* How to prepare the development environment and develop application for the IoT DevKit.
+
+Don't have a DevKit yet? Try the [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [purchase a DevKit](https://aka.ms/iot-devkit-purchase).
+
+You can find the source code for all DevKit tutorials from [code samples gallery](/samples/browse/?term=mxchip).
 
 ## What you need
 
-* An MXChip IoT DevKit board with a micro USB cable. [Get it now](https://aka.ms/iot-devkit-purchase)
-* A computer running Windows 10 or macOS 10.10+
-* An active Azure subscription
-  * Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html)
+* A MXChip IoT DevKit board with a Micro-USB cable. [Get it now](https://aka.ms/iot-devkit-purchase).
+* A computer running Windows 10, macOS 10.10+ or Ubuntu 18.04+.
+* An active Azure subscription. [Activate a free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+  
 ## Prepare your hardware
 
-Hook up the hardware to your computer.
-
-### Hardware you need
+Hook up the following hardware to your computer:
 
 * DevKit board
-* Micro USB cable
+* Micro-USB cable
 
-![getting-started-hardware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/hardware.jpg)
+![Required hardware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/hardware.jpg)
 
-### Connect DevKit to your computer
+To connect the DevKit to your computer, follow these steps:
 
-1. Connect USB end to your PC
-2. Connect Micro USB end to the DevKit
-3. The green LED next to power confirms connection
+1. Connect the USB end to your computer.
 
-![getting-started-connect](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect.jpg)
+2. Connect the Micro-USB end to the DevKit.
 
-## Configure WiFi
+3. The green LED for power confirms the connection.
 
-IoT projects rely on Internet connectivity. Use the following instructions to configure the DevKit to connect to WiFi.
+   ![Hardware connections](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect.jpg)
 
-### Enter AP Mode
+## Quickstart: Send telemetry from DevKit to an IoT Hub
 
-Hold down button B, then push and release the reset button, then release button B. Your DevKit will enter AP Mode for configuring WiFi. The screen will display the Service Set Identifier(SSID) of the DevKit as well as the configuration portal IP address:
+The quickstart uses pre-compiled DevKit firmware to send the telemetry to the IoT Hub. Before you run it, you create an IoT hub and register a device with the hub.
 
-![getting-started-wifi-ap](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ap.jpg)
+### Create an IoT hub
 
-### Connect to DevKit AP
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-Now, use another WiFi enabled device (PC or mobile phone) to connect to the DevKit SSID (highlighted in the screenshot above), leave the password empty.
+### Register a device
 
-![getting-started-ssid](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect-ssid.png)
+A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-### Configure WiFi for DevKit
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
-Open the IP address shown on the DevKit screen on your PC or mobile phone browser, select the WiFi network you want the DevKit to connect to, then type the password. Click **Connect** to complete:
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-![getting-started-wifi-portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-portal.png)
+   **MyNodeDevice**: The name of the device you're registering. Use **MyNodeDevice** as shown. If you choose a different name for your device, you need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
-Once the connection succeeds, the DevKit will reboot in a few seconds. If succeeded, you will see the WiFi name and IP address on the screen:
+    ```azurecli-interactive
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
+    ```
 
-![getting-started-wifi-ip](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
-
-> [!NOTE] 
-The IP address displayed in the photo may not match the actual IP assigned and displayed on the DevKit screen. This is normal as WiFi uses DHCP to dynamically assign IPs.
-
-After WiFi is configured, your credentials will be persisted on the device for that connection, even if unplugged. For example, if you configured the DevKit for WiFi in your home and then took the DevKit to the office, you will need to reconfigure AP mode (starting at step **Enter AP Mode**) to connect the DevKit to your office WiFi. 
-
-## Start using DevKit
-
-The default app running on DevKit will check the latest version of the firmware and display some sensor diagnosis data for you.
-
-### Upgrade to the latest firmware
-
-You will be prompted on the screen both the current and latest firmware version if there is an upgrade needed. Follow [Upgrade firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) guide to upgrade it.
-
-![getting-started-firmware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
-
-> [!NOTE] 
-This is a one-time effort, once you start developing on the DevKit and upload your app, you will have the latest firmware come with your app.
-
-### Test various sensors
-
-Press button B to test sensors, continue pressing and releasing the B button to cycle through each sensor.
-
-![getting-started-sensors](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/sensors.jpg)
-
-## Prepare development environment
-
-Now it's time to set up the development environment: tools and packages for you to build stunning IoT applications. You can choose Windows or macOS version according to your operating system.
-
-
-### Windows
-
-We encourage you to use the installation package to prepare the development environment. If you encounter any issues, you can follow the [manual steps](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) to get it done.
-
-#### Download latest package
-
-The `.zip` file you download contains all necessary tools and packages required for DevKit development.
-
-> [!div class="button"]
-[Download](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
-
-
-> [!NOTE] 
-> The `.zip` file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
-> * Node.js and Yarn: Runtime for the setup script and automated tasks
-> * [Azure CLI 2.0 MSI](https://docs.microsoft.com//cli/azure/install-azure-cli#windows) - Cross-platform command-line experience for managing Azure resources, the MSI contains dependent Python and pip.
-> * [Visual Studio Code](https://code.visualstudio.com/): Lightweight code editor for DevKit development
-> * [Visual Studio Code extension for Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Enables Arduino development in VS Code
-> * [Arduino IDE](https://www.arduino.cc/en/Main/Software): The extension for Arduino relies on this tool
-> * DevKit Board Package: Tool chains, libraries and projects for the DevKit
-> * ST-Link Utility: Essential utilities and drivers
-
-#### Run installation script
-
-In Windows File Explorer, locate the `.zip` and extract it, find `install.cmd`, right-click and select **"Run as administrator"** to start.
-
-![getting-started-run-admin](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/run-admin.png)
-
-During installation, you will see the progress of each tool or package.
-
-![getting-started-install](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install.png)
-
-#### Confirm to install drivers
-
-The VS Code for Arduino extension relies on the Arduino IDE. If this is the first time you are installing the Arduino IDE, you will be prompted to install relevant drivers:
-
-![getting-started-driver](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/driver.png)
-
-It should take around 10 minutes to finish installation depending on your Internet speed. Once the installation is complete, you should see Visual Studio Code and Arduino IDE shortcuts on your desktop.
-
-> [!NOTE] 
-Occasionally, when you launch VS Code, you will be prompted with an error that cannot find Arduino IDE or related board package. To solve it, close VS Code, launch Arduino IDE once and VS Code should locate Arduino IDE path correctly.
-
-
-### macOS (Preview)
-
-Follow these steps to prepare development environment on macOS.
-
-#### Install Azure CLI 2.0
-
-Follow the [official guide](https://docs.microsoft.com//cli/azure/install-azure-cli) to install Azure CLI 2.0:
-
-Install Azure CLI 2.0 with one `curl` command:
-
-```bash
-curl -L https://aka.ms/InstallAzureCli | bash
-```
-
-And restart your command shell for changes to take effect:
-
-```bash
-exec -l $SHELL
-```
-
-#### Install Arduino IDE
-
-The Visual Studio Code Arduino extension relies on the Arduino IDE. Download and install the [Arduino IDE for macOS](https://www.arduino.cc/en/Main/Software).
-
-#### Install Visual Studio Code
-
-Download and install [Visual Studio Code for macOS](https://code.visualstudio.com/). This will be the primary development tool for building DevKit IoT applications.
-
-####  Download latest package
-
-1. Install Node.js. You can use popular macOS package manager [Homebrew](https://brew.sh/) or [pre-built installer](https://nodejs.org/en/download/) to install it.
-
-2. Download `.zip` file containing task scripts required for DevKit development in VS Code.
-
-   > [!div class="button"]
-   [Download](https://azureboard.azureedge.net/installpackage/devkit_tasks_1.0.2.zip)
-
-   Locate the `.zip` and extract it. Then launch **Terminal** app and run the following commands to configure:
-
-   Move extracted folder to your macOS user folder:
-   ```bash
-   mv [.zip extracted folder]/azure-board-cli ~/. ; cd ~/azure-board-cli
-   ```
+   > [!NOTE]
+   > If you get an error running `device-identity`, install the [Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds commands that are specific to IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) to Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
-   Install `npm` packages:
-   ```
-   npm install
-   ```
+1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
-#### Install VS Code extension for Arduino
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-Visual Studio Code allows you to install Marketplace extensions directly in the tool, simply click the extensions icon in the left menu pane and then search `Arduino` to install:
+    ```azurecli-interactive
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    ```
 
-![installation-extensions](media/iot-hub-arduino-devkit-az3166-get-started/installation-extensions-mac.png)
+    Make a note of the device connection string, which looks like:
 
-#### Install DevKit board package
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-You will need to add the DevKit board using the Board Manager in Visual Studio Code.
+    You use this value later in the quickstart.
 
-1. Use `Cmd+Shift+P` to invoke command palette and type **Arduino** then find and select **Arduino: Board Manager**.
+### Send DevKit telemetry
 
-2. Click **'Additional URLs'** at the bottom right.
-   ![installation-additional-urls](media/iot-hub-arduino-devkit-az3166-get-started/installation-additional-urls-mac.png)
+The DevKit connects to a device-specific endpoint on your IoT hub and sends temperature and humidity telemetry.
 
-3. In the `settings.json` file, add a line at the bottom of `USER SETTINGS` pane and save.
-   ```json
-   "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-   ```
-   ![installation-settings-json](media/iot-hub-arduino-devkit-az3166-get-started/installation-settings-json-mac.png)
+1. Download the latest version of [GetStarted firmware](https://aka.ms/devkit/prod/getstarted/latest) for IoT DevKit.
 
-4. Now in the Board Manager search for 'az3166' and install the latest version.
-   ![installation-az3166](media/iot-hub-arduino-devkit-az3166-get-started/installation-az3166-mac.png)
+1. Make sure IoT DevKit connect to your computer via USB. Open File Explorer there is a USB mass storage device called **AZ3166**.
 
-You now have all the necessary tools and packages installed for macOS.
+    ![Open Windows Explorer](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/az3166-usb.png)
 
+1. Drag and drop the firmware just downloaded into the mass storage device and it will flash automatically.
 
-## Open project folder
+    ![Copy firmware](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/copy-firmware.png)
 
-### Launch VS Code
+1. On the DevKit, Hold down button **B**, push and release the **Reset** button, and then release button **B**. Your DevKit enters AP mode. To confirm, the screen displays the service set identifier (SSID) of the DevKit and the configuration portal IP address.
 
-Make sure your DevKit is not connected. Launch VS Code first and connect the DevKit to your computer. VS Code will automatically find it and pop up an introduction page:
+    ![Reset button, button B, and SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ap.jpg)
 
-![mini-solution-vscode](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+    ![Set AP Mode](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/set-ap-mode.gif)
 
-> [!NOTE] 
-Occasionally, when you launch VS Code, you will be prompted with error that cannot find Arduino IDE or related board package. To solve it, close VS Code, launch Arduino IDE once again and VS Code should locate Arduino IDE path correctly.
+1. Use a Web browser on a different Wi-Fi enabled device (computer or mobile phone) to connect to the IoT DevKit SSID displayed in the previous step. If it asks for a password, leave it empty.
 
-### Open Arduino Examples folder
+    ![Connect SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/connect-ssid.png)
 
-Switch to **'Arduino Examples'** tab, navigate to `Examples for MXCHIP AZ3166 > AzureIoT` and click on `GetStarted`.
+1. Open **192.168.0.1** in the browser. Select the Wi-Fi that you want the IoT DevKit connect to, type the Wi-Fi password, then paste the device connection string you made note of previously. Then click Save.
 
-![mini-solution-examples](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
+    ![Configuration UI](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui.png)
 
-If you happen to close the pane, to reload it, use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to invoke command palette and type **Arduino** to find and select **Arduino: Examples**.
+    > [!NOTE]
+    > The IoT DevKit only supports 2.4GHz network. Check [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration) for more details.
 
-## Provision Azure services
+1. The WiFi information and device connection string will be stored into the IoT DevKit when you see the result page.
 
-In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by typing 'task cloud-provision':
+    ![Configuration result](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui-result.png)
 
-In the VS Code terminal, an interactive command line will guide you through provisioning the required Azure services:
+    > [!NOTE]
+    > After Wi-Fi is configured, your credentials will persist on the device for that connection, even if the device is unplugged.
 
-![mini-solution-cloud-provision](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/cloud-provision.png)
+1. The IoT DevKit reboots in a few seconds. On the DevKit screen, you see the IP address for the DevKit follows by the telemetry data including temperature and humidity value with message count send to Azure IoT Hub.
 
-## Build and upload Arduino sketch
+    ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
-### Install required library
+    ![Sending data](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
 
-1. Press `F1` or `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to invoke command palette and type **Arduino** then find and select **Arduino: Library Manager**.
+1. To verify the telemetry data sent to Azure, run the following command in Azure Cloud Shell:
 
-2. Search for `ArduinoJson` library and click **Install**
+    ```azurecli
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    ```
 
-### Build and upload the device code
+## Prepare the development environment
 
-Use `Ctrl+P` (macOS: `Cmd+P`) to run 'task device-upload'. The terminal will prompt you to enter configuration mode. To do so, hold down button A, then push and release the reset button. The screen will display 'Configuration'. This is to set the connection string that retrieves from 'task cloud-provision' step.
+Follow these steps to prepare the development environment for the DevKit:
 
-Then it will start verifying and uploading the Arduino sketch:
+### Install Visual Studio Code with Azure IoT Tools extension package
 
-![mini-solution-device-upload](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
+1. Install [Arduino IDE](https://www.arduino.cc/en/Main/Software). It provides the necessary toolchain for compiling and uploading Arduino code.
+    * **Windows**: Use Windows Installer version. Do not install from the App Store.
+    * **macOS**: Drag and drop the extracted **Arduino.app** into `/Applications` folder.
+    * **Ubuntu**: Unzip it into folder such as `$HOME/Downloads/arduino-1.8.8`
 
-The DevKit will reboot and start running the code.
+2. Install [Visual Studio Code](https://code.visualstudio.com/), a cross platform source code editor with powerful intellisense, code completion and debugging support as well as rich extensions can be installed from marketplace.
+
+3. Launch VS Code, look for **Arduino** in the extension marketplace and install it. This extension provides enhanced experiences for developing on Arduino platform.
+
+    ![Install Arduino](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino.png)
+
+4. Look for [Azure IoT Tools](https://aka.ms/azure-iot-tools) in the extension marketplace and install it.
+
+    ![Screenshot that shows Azure IoT Tools in the extension marketplace.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+
+    Or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
+
+    > [!NOTE]
+    > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub extension](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
+
+5. Configure VS Code with Arduino settings.
+
+    In Visual Studio Code, click **File > Preferences > Settings** (on macOS, **Code > Preferences > Settings**). Then click the **Open Settings (JSON)** icon in the upper-right corner of the *Settings* page.
+
+    ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
+
+    Add following lines to configure Arduino depending on your platform: 
+
+    * **Windows**:
+
+        ```json
+        "arduino.path": "C:\\Program Files (x86)\\Arduino",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
+
+    * **macOS**:
+
+        ```json
+        "arduino.path": "/Applications",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
+
+    * **Ubuntu**:
+
+        Replace the **{username}** placeholder below with your username.
+
+        ```json
+        "arduino.path": "/home/{username}/Downloads/arduino-1.8.8",
+        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        ```
+
+6. Click `F1` to open the command palette, type and select **Arduino: Board Manager**. Search for **AZ3166** and install the latest version.
+
+    ![Install DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-az3166-sdk.png)
+
+### Install ST-Link drivers
+
+[ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) is the USB interface that IoT DevKit uses to communicate with your development machine. You need to install it on Windows to flash the compiled device code to the DevKit. Follow the OS-specific steps to allow the machine access to your device.
+
+* **Windows**: Download and install USB driver from [STMicroelectronics website](https://www.st.com/en/development-tools/stsw-link009.html).
+* **macOS**: No driver is required for macOS.
+* **Ubuntu**: Run the commands in terminal and sign out and sign in for the group change to take effect:
+
+    ```bash
+    # Copy the default rules. This grants permission to the group 'plugdev'
+    sudo cp ~/.arduino15/packages/AZ3166/tools/openocd/0.10.0/linux/contrib/60-openocd.rules /etc/udev/rules.d/
+    sudo udevadm control --reload-rules
+
+    # Add yourself to the group 'plugdev'
+    # Logout and log back in for the group to take effect
+    sudo usermod -a -G plugdev $(whoami)
+    ```
+
+Now you are all set with preparing and configuring your development environment. Let us build the GetStarted sample you just ran.
+
+## Build your first project
+
+### Open sample code from sample gallery
+
+The IoT DevKit contains a rich gallery of samples that you can use to learn connect the DevKit to various Azure services.
+
+1. Make sure your IoT DevKit is **not connected** to your computer. Start VS Code first, and then connect the DevKit to your computer.
+
+1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Open Examples...**. Then select **IoT DevKit** as board.
+
+1. In the IoT Workbench Examples page, find **Get Started** and click **Open Sample**. Then selects the default path to download the sample code.
+
+    ![Open sample](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
+
+### Provision Azure IoT Hub and device
+
+Instead of provisioning Azure IoT Hub and device from the Azure portal, you can do it in the VS Code without leaving the development environment.
+
+1. In the new opened project window, click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Provision Azure Services...**. Follow the step by step guide to finish provisioning your Azure IoT Hub and creating the IoT Hub device.
+
+    ![Provision command](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
+
+    > [!NOTE]
+    > If you have not signed in Azure. Follow the pop-up notification for signing in.
+
+1. Select the subscription you want to use.
+
+    ![Select sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
+
+1. Then select or create a new [resource group](../azure-resource-manager/management/overview.md#terminology).
+
+    ![Select resource group](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
+
+1. In the resource group you specified, follow the guide to select or create a new Azure IoT Hub.
+
+    ![Select IoT Hub steps](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provision.png)
+
+    ![Select IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-hub.png)
+
+    ![Selected IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-selected.png)
+
+1. In the output window, you will see the Azure IoT Hub provisioned.
+
+    ![IoT Hub Provisioned](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provisioned.png)
+
+1. Select or create a new device in Azure IoT Hub you provisioned.
+
+    ![Select IoT Device steps](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-device-provision.png)
+
+    ![Select IoT Device Provisioned](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-device.png)
+
+1. Now you have Azure IoT Hub provisioned and device created in it. Also the device connection string will be saved in VS Code for configuring the IoT DevKit later.
+
+    ![Provision done](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision-done.png)
+
+### Configure and compile device code
+
+1. In the bottom-right status bar, check the **MXCHIP AZ3166** is shown as selected board and serial port with **STMicroelectronics** is used.
+
+    ![Select board and COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
+
+1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Configure Device Settings...**, then select **Config Device Connection String > Select IoT Hub Device Connection String**.
+
+1. On DevKit, hold down **button A**, push and release the **reset** button, and then release **button A**. Your DevKit enters configuration mode and saves the connection string.
+
+    ![Connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
+
+1. Click `F1` again, type and select **Azure IoT Device Workbench: Upload Device Code**. It starts compile and upload the code to DevKit.
+
+    ![Arduino upload](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
+
+The DevKit reboots and starts running the code.
+
+> [!NOTE]
+> If there is any errors or interruptions, you can always recover by running the command again.
 
 ## Test the project
 
-In VS Code, click the power plug icon on the status bar to open the Serial Monitor.
+### View the telemetry sent to Azure IoT Hub
+
+Click the power plug icon on the status bar to open the Serial Monitor:
+
+![Serial monitor](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/serial-monitor.png)
 
 The sample application is running successfully when you see the following results:
 
-* The Serial Monitor displays the same information as the content in the screenshot below.
-* The LED on MXChip IoT DevKit is blinking.
+* The Serial Monitor displays the message sent to the IoT Hub.
+* The LED on the MXChip IoT DevKit is blinking.
 
-![Final output in VS Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
+![Serial monitor output](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+
+> [!NOTE]
+> You might encounter an error during testing in which the LED isn't blinking, the Azure portal doesn't show incoming data from the device, but the device OLED screen shows as **Running...**. To resolve the issue, in the Azure portal, go to the device in the IoT hub and send a message to the device. If you see the following response in the serial monitor in VS Code, it's possible that direct communication from the device is blocked at the router level. Check firewall and router rules that are configured for the connecting devices. Also, ensure that outbound port 1833 is open.
+> 
+> ERROR: mqtt_client.c (ln 454): Error: failure opening connection to endpoint  
+> INFO: >>>Connection status: disconnected  
+> ERROR: tlsio_mbedtls.c (ln 604): Underlying IO open failed  
+> ERROR: mqtt_client.c (ln 1042): Error: io_open failed  
+> ERROR: iothubtransport_mqtt_common.c (ln 2283): failure connecting to address atcsliothub.azure-devices.net.  
+> INFO: >>>Re-connect.  
+> INFO: IoThub Version: 1.3.6  
+
+### View the telemetry received by Azure IoT Hub
+
+You can use [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to monitor device-to-cloud (D2C) messages in IoT Hub.
+
+1. Sign in [Azure portal](https://portal.azure.com/), find the IoT Hub you created.
+
+    ![Azure portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+
+1. In the **Shared access policies** pane, click the **iothubowner policy**, and write down the Connection string of your IoT hub.
+
+    ![Azure IoT Hub connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
+
+1. In VS Code, click `F1`, type and select **Azure IoT Hub: Set IoT Hub Connection String**. Copy the connection string into it.
+
+    ![Set Azure IoT Hub connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
+
+1. Expand the **AZURE IOT HUB DEVICES** pane on the left, right click on the device name you created and select **Start Monitoring Built-in Event Endpoint**.
+
+    ![Monitor D2C Message](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
+
+1. In **OUTPUT** pane, you can see the incoming D2C messages to the IoT Hub.
+
+    ![Screenshot that shows the incoming D2C messages to the IoT Hub.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+
+## Review the code
+
+The `GetStarted.ino` is the main Arduino sketch file.
+
+![D2C message](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/code.png)
+
+To see how device telemetry is sent to the Azure IoT Hub, open the `utility.cpp` file in the same folder. View [API Reference](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/) to learn how to use sensors and peripherals on IoT DevKit.
+
+The `DevKitMQTTClient` used is a wrapper of the **iothub_client** from the [Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) to interact with Azure IoT Hub.
 
 ## Problems and feedback
 
-You can find [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) if you encounter problems or reach out to us from the channels below.
+If you encounter problems, you can check for a solution in the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or reach out to us from [Gitter](https://gitter.im/Microsoft/azure-iot-developer-kit). You can also give us feedback by leaving a comment on this page.
 
 ## Next steps
 
-You have successfully connected an MXChip IoT DevKit to your IoT Hub, and sent the captured sensor data to your IoT hub.
+You have successfully connected an MXChip IoT DevKit to your IoT hub, and you have sent the captured sensor data to your IoT hub.
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-- [Manage cloud device messaging with iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)
-- [Save IoT Hub messages to Azure data storage](https://docs.microsoft.com//azure/iot-hub/iot-hub-store-data-in-azure-table-storage)
-- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
-- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-web-apps)
-- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
-- [Device management with iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
-- [Remote monitoring and notifications with ​​Logic ​​Apps](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
+[!INCLUDE [iot-hub-get-started-az3166-next-steps](../../includes/iot-hub-get-started-az3166-next-steps.md)]

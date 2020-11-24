@@ -1,45 +1,58 @@
 ---
 title: Azure portal keyboard shortcuts | Microsoft Docs
-description: This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts.
+description: The Azure portal supports global keyboard shortcuts to help you perform actions, navigate, and go to locations in the Azure portal. 
 services: azure-portal
 documentationcenter: ''
-author: flanakin
+author: adamabmsft
 manager: lwelicki
 editor: ''
 
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
-ms.author: micflan
-
+ms.date: 12/20/2019
+ms.author: mblythe
+ms.custom: accessibility
 ---
-# Azure portal keyboard shortcuts
-## Open hubs
-| Shortcut | Action |
+# Keyboard shortcuts in the Azure portal
+
+This article lists the keyboard shortcuts that work everywhere in the Azure portal. Individual services may have their own keyboard shortcuts.
+
+## Actions
+
+|To do this action |Press |
 | --- | --- |
-| N |Notifications |
-| / |Browse services |
-| A |Active sessions |
-| B |Billing |
-| C |Create |
+|Create a resource|G+N|
+|Open **All services**|G+B|
+|Search resources, services, and docs|G+/|
+|Search resource menu items|CTRL+/ |
+|Move up the selected left sidebar item |ALT+Shift+Up Arrow|
+|Move the selected left sidebar item down |ALT+Shift+Down Arrow|
 
 ## Navigation
-| Shortcut | Action |
-| --- | --- |
-| H |Azure Start dashboard |
-| F |First open blade |
-| J |Previous open blade |
-| K |Next open blade |
-| L |Last open blade |
-| - |Minimize blade or restore from maximized |
-| + |Maximize blade or restore from minimized |
-| # |Close current blade |
-| ¦ |Close all blades |
-| , |Move focus to command bar |
-| . |Move focus to navigation bar |
-| ? |View keyboard shortcuts |
 
+|To do this navigation |Press |
+| --- | --- |
+|Move focus to command bar |G+, |
+|Toggle focus between header and left sidebar | G+. |
+
+## Go to
+
+|To go to this location |Press |
+| --- | --- |
+|Go to **Dashboard** |G+D |
+|Go to **All resources**|G+A |
+|Go to **Resource groups**|G+R |
+|Open the left sidebar item at this position |G+number|
+
+## Keyboard shortcuts for specific pages in the Azure portal
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
+
+## Next steps
+
+- [Turn on high contrast or change theme](set-preferences.md#choose-a-theme-or-enable-high-contrast)
+- [Supported browsers and devices](azure-portal-supported-browsers-devices.md)
