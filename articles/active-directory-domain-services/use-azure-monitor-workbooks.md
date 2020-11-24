@@ -118,5 +118,5 @@ For problems with users, learn how to troubleshoot [account sign-in problems][tr
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
 [kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer
