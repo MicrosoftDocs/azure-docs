@@ -1,12 +1,27 @@
-# Increase resilience of authentication and authorization in your applications
+---
+title: Increase resilience of authentication and authorization applications you develop
+titleSuffix: Microsoft identity platform
+description: Overview of our resilience guidance for application development using Azure Active Directory and the Microsoft identity platform
+services: active-directory 
+ms.service: active-directory
+ms.subservice: fundamentals 
+ms.workload: identity
+ms.topic: how-to
+author: knicholasa
+ms.author: nichola
+manager: martinco
+ms.date: 11/23/2020
+---
+
+# Increase resilience of authentication and authorization applications you develop
 
 Microsoft Identity uses modern, token-based authentication and authorization. This means that an application acquires tokens from an Identity provider to authenticate the user and to authorize the application to call protected APIs.
 
-![Image of application calling Microsoft Identity](media/resilience-app-development-overview/app-overview.png)
-
 A token is valid for a certain length of time before the app must acquire a new one. Rarely, a call to retrieve a token could fail due to an issue like network or infrastructure failure or authentication service outage. In this document, we outline steps a developer can take to increase resilience in their applications if a token acquisition failure occurs.
 
-These articles provide guidance for client applications that work on behalf of a signed in user as well as daemon applications that work on their own behalf. There are best practices for using tokens as well as calling resources.
+These articles provide guidance on increasing resiliency in apps using the Microsoft identity platform and Azure Active Directory. There is guidance for both client applications that work on behalf of a signed in user as well as daemon applications that work on their own behalf. They contain best practices for using tokens as well as calling resources.
+
+![Image of application calling Microsoft Identity](media/resilience-app-development-overview/app-overview.png)
 
 ## Next steps
 

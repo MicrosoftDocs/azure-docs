@@ -1,12 +1,27 @@
-# Increase the resilience of client applications
+---
+title: Increase the resilience of authentication and authorization in client applications you develop
+titleSuffix: Microsoft identity platform
+description: Guidance for increasing resiliency of authentication and authorization in client application using the Microsoft identity platform 
+services: active-directory 
+ms.service: active-directory
+ms.subservice: fundamentals 
+ms.workload: identity
+ms.topic: how-to
+author: knicholasa
+ms.author: nichola
+manager: martinco
+ms.date: 11/23/2020
+---
 
-This section provides guidance on building resilience into client applications that sign in users and perform actions on behalf of those users.
+# Increase the resilience of authentication and authorization in client applications you develop
+
+This section provides guidance on building resilience into client applications that use the Microsoft identity platform and Azure Active Directory to sign in users and perform actions on behalf of those users.
 
 ## Use the Microsoft Authentication Library (MSAL)
 
 The [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) is a key part of the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/id-tokens). It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. MSAL is designed to enable a secure solution without developers having to worry about the implementation details.
 
-MSAL caches tokens and uses a silent token acquisition pattern. It also automatically serializes the token cache on platforms that natively provide secure storage like Windows UWP, iOS and Android. Developers can customize the serialization behavior when using [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization), [MSAL.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization), [MSAL for Java](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-java-token-cache-serialization), and [MSAL for Python](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-python-token-cache-serialization).
+MSAL caches tokens and uses a silent token acquisition pattern. It also automatically serializes the token cache on platforms that natively provide secure storage like Windows UWP, iOS and Android. Developers can customize the serialization behavior when using [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization), [MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization), [MSAL for Java](https://docs.microsoft.com/azure/active-directory/develop/msal-java-token-cache-serialization), and [MSAL for Python](https://docs.microsoft.com/azure/active-directory/develop/msal-python-token-cache-serialization).
 
 ![Image of device with and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-msal.png)
 
@@ -128,7 +143,7 @@ Broker authentication is automatically supported by MSAL. You can find more info
 
 [Continuous Access Evaluation (CAE)](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) is a recent development that can increase application security and resilience. CAE is an emerging industry standard being developed in the Shared Signals and Events Working Group of the OpenID Foundation. With CAE, an access token can be revoked based on [critical events](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation#critical-event-evaluation) and [policy evaluation](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview), rather than relying on a short token lifetime. For some resource APIs, because risk and policy are evaluated in real time, CAE can substantially increase token lifetime up to 28 hours. As resource APIs and applications adopt CAE, Microsoft Identity will be able to issue access tokens that are revokable and are valid for extended periods of time. These long-lived tokens will be proactively refreshed by MSAL.
 
-While CAE is in early phases, it is possible to [develop client applications today that will benefit from CAE](../develop/app-resilience-continuous-access-evaluation.md) when the resources (APIs) the application uses adopt CAE. As more resources adopt CAE, your application will be able to acquire CAE enabled tokens for those resources as well. The Microsoft Graph API, and [Microsoft Graph SDKs](https://docs.microsoft.com/en-us/graph/sdks/sdks-overview), will preview CAE capability early 2021. If you would like to participate in the public preview of Microsoft Graph with CAE, you can let us know you are interested here: [https://aka.ms/GraphCAEPreview](https://aka.ms/GraphCAEPreview).
+While CAE is in early phases, it is possible to [develop client applications today that will benefit from CAE](../develop/app-resilience-continuous-access-evaluation.md) when the resources (APIs) the application uses adopt CAE. As more resources adopt CAE, your application will be able to acquire CAE enabled tokens for those resources as well. The Microsoft Graph API, and [Microsoft Graph SDKs](https://docs.microsoft.com/graph/sdks/sdks-overview), will preview CAE capability early 2021. If you would like to participate in the public preview of Microsoft Graph with CAE, you can let us know you are interested here: [https://aka.ms/GraphCAEPreview](https://aka.ms/GraphCAEPreview).
 
 If you develop resource APIs, we encourage you to participate in the [Shared Signals and Events WG](https://openid.net/wg/sse/). We are working with this group to enable the sharing of security events between Microsoft Identity and resource providers.
 
