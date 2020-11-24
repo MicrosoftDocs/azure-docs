@@ -9,8 +9,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
-ms.author: duau
+ms.date: 11/23/2020
+ms.author: yuajia
 ---
 
 # Monitoring metrics and logs in Azure Front Door
@@ -86,10 +86,11 @@ Front Door currently provides diagnostic logs (batched hourly). Diagnostic logs 
 | RulesEngineMatchNames | The names of the rules that the request matched. |
 | SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. |
 | SentToOriginShield </br> (deprecated) * **See notes on deprecation in the following section.**| If true, it means that request was answered from origin shield cache instead of the edge pop. Origin shield is a parent cache used to improve cache hit ratio. |
-| isReceivedFromClient | If true, it means that the request came from the client. If false, the request is a miss in the edge (child POP) and is responded from origin shield (parent POP). 
+| isReceivedFromClient | If true, it means that the request came from the client. If false, the request is a miss in the edge (child POP) and is responded from origin shield (parent POP). |
 | TimeTaken | The length of time from first byte of request into Front Door to last byte of response out, in seconds. |
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
 | UserAgent | The browser type that the client used. |
+| ErrorInfo | This field contains the specific type of error for further troubleshooting. </br> Possible values include the following: </br> **NoError**: Indicates no error was encountered. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or does not match. </br> **ClientDisconnected**: Request failure due to client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur due to malformed header, body and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address could not be resolved. </br> **OriginConnectionAborted**: The connection with the origin was terminated abnormally. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin was not established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned a too big response header. </br> **RestrictedIP**: The request was blocked due to restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin due to SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
 
 ### Sent to origin shield deprecation
 The raw log property **isSentToOriginShield** has been deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
@@ -117,8 +118,8 @@ If the value is false, then it means the request is responded from origin shield
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Routing rule without caching enabled | 1 | Edge POP code | Backend where request was forwarded | True | CONFIG_NOCACHE |
 | Routing rule with caching enabled. Cache hit at the edge POP | 1 | Edge POP code | Empty | True | HIT |
-| Routing rule with caching enabled. Cache miss at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Empty | 1. True</br>2. False | 1. MISS</br>2. HIT |
-| Routing rule with caching enabled. Cache miss at edge POP but PARTIAL cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Backend that helps populate cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
+| Routing rule with caching enabled. Cache misses at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Empty | 1. True</br>2. False | 1. MISS</br>2. HIT |
+| Routing rule with caching enabled. Caches miss at edge POP but PARTIAL cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Backend that helps populate cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
 | Routing rule with caching enabled. Cache PARTIAL_HIT at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
 | Routing rule with caching enabled. Cache miss at both edge and parent cache POPP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. MISS</br>2. MISS |
 

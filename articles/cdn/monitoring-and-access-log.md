@@ -8,11 +8,11 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/25/2020
-ms.author: allensu
+ms.date: 11/23/2020
+ms.author: yuajia
 ---
 
-# Monitoring Metrics and Raw Logs for Azure CDN from Microsoft
+# Real-time Monitoring Metrics and Access Logs for Azure CDN from Microsoft
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues. 
 
 * Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.
@@ -146,26 +146,30 @@ Retention data is defined by the **-RetentionInDays** option in the command.
 
 Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide individual API requests with each entry having the following schema: 
 
-| Property              | Description                                                                                                                                                                                          |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| TrackingReference     | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
-| HttpMethod            | HTTP method used by the request.                                                                                                                                                                     |
-| HttpVersion           | Type of the request or connection.                                                                                                                                                                   |
-| RequestUri            | URI of the received request.                                                                                                                                                                         |
-| RequestBytes          | The size of the HTTP request message in bytes, including the request headers and the request body.                                                                                                   |
-| ResponseBytes         | Bytes sent by the backend server as the response.                                                                                                                                                    |
-| UserAgent             | The browser type that the client used.                                                                                                                                                               |
-| ClientIp              | The IP address of the client that made the request.                                                                                                                                                  |
-| TimeTaken             | The length of time that the action took, in milliseconds.                                                                                                                                            |
-| SecurityProtocol      | The TLS/SSL protocol version used by the request or null if no encryption.                                                                                                                           |
-| Endpoint              | The CDN endpoint host has configured under the parent CDN profile.                                                                                                                                   |
-| Backend Host name     | The name of the backend host or origin where requests are being sent.                                                                                                                                |
-| Sent to origin shield </br> (deprecated) * **See note on deprecation below.** | If true, it means that request was answered from origin shield cache instead of the edge pop. Origin shield is a parent cache used to improve cache hit ratio.                                       |
-| isReceivedFromClient | If true, it means that the request came from the client. If false, the request is a miss in the edge (child POP) and is responded from origin shield (parent POP). 
-| HttpStatusCode        | The HTTP status code returned from the proxy.                                                                                                                                                        |
-| HttpStatusDetails     | Resulting status on the request. Meaning of this string value can be found at a Status reference table.                                                                                              |
-| Pop                   | The edge pop, which responded to the user request. POPs' abbreviations are airport codes of their respective metros.                                                                                   |
-| Cache Status          | Signifies if the object was returned from cache or came from the origin.                                                                                                             |
+| Property  | Description |
+| ------------- | ------------- |
+| BackendHostname | If request was being forwarded to a backend, this field represents the hostname of the backend. This field will be blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
+| CacheStatus | For caching scenarios, this field defines the cache hit/miss at the POP |
+| ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
+| ClientPort | The IP port of the client that made the request. |
+| HttpMethod | HTTP method used by the request. |
+| HttpStatusCode | The HTTP status code returned from the proxy. |
+| HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
+| HttpVersion | Type of the request or connection. |
+| POP | Short name of the edge where the request landed. |
+| RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. |
+| RequestUri | URI of the received request. |
+| ResponseBytes | Bytes sent by the backend server as the response.  |
+| RoutingRuleName | The name of the routing rule that the request matched. |
+| RulesEngineMatchNames | The names of the rules that the request matched. |
+| SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. |
+| SentToOriginShield </br> (deprecated) * **See notes on deprecation in the following section.**| If true, it means that request was answered from origin shield cache instead of the edge pop. Origin shield is a parent cache used to improve cache hit ratio. |
+| isReceivedFromClient | If true, it means that the request came from the client. If false, the request is a miss in the edge (child POP) and is responded from origin shield (parent POP). |
+| TimeTaken | The length of time from first byte of request into Front Door to last byte of response out, in seconds. |
+| TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
+| UserAgent | The browser type that the client used. |
+| ErrorInfo | This field contains the specific type of error to narrow down troubleshooting area. </br> Possible values include the following: </br> **NoError**: Indicates no error was encountered. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or does not match. </br> **ClientDisconnected**: Request failure due to client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur due to malformed header, body and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address could not be resolved. </br> **OriginConnectionAborted**: The connection with the origin was terminated abnormally. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin was not established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned a too big response header. </br> **RestrictedIP**: The request was blocked due to restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin due to SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
+| TimeToFirstByte | The length of time in milliseconds from Microsoft CDN receives the request to the time the first byte was sent to client, as measured on Microsoft CDN. This doesn't measure the client side data. |
 > [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like:
     ```
@@ -210,12 +214,12 @@ For more information, see [Azure Monitor metrics](../azure-monitor/platform/data
 
 **Metrics supported by Azure CDN from Microsoft**
 
-| Metrics         | Description                                                                                                      | Dimension                                                                                   |
-|-----------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Bytes Hit ratio* | The percentage of egress from CDN cache, computed against the total egress.                                      | Endpoint                                                                                    |
-| RequestCount    | The number of client requests served by CDN.                                                                     | Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
-| ResponseSize    | The number of bytes sent as responses from CDN edge to clients.                                                  |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group.                                                                                          |
-| TotalLatency    | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group.                                                                                             |
+| Metrics  | Description | Dimensions |
+| ------------- | ------------- | ------------- |
+| Bytes Hit ratio* | The percentage of egress from CDN cache, computed against the total egress. | Endpoint |
+| RequestCount | The number of client requests served by CDN. | Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
+| ResponseSize | The number of bytes sent as responses from CDN edge to clients. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
+| TotalLatency | The total time from the client request received by CDN **until the last response byte send from CDN to client**. |Endpoint </br> Client country. </br> Client region. </br> HTTP status. </br> HTTP status group. |
 
 ***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
 
