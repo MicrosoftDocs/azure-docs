@@ -19,7 +19,7 @@ This article lists known issues you may come across when using third-party appli
 
 ## Tableau error: “An attempt to complete a transaction has failed. No corresponding transaction found”
 
-Starting from Azure Synapse SQL dedicated pool version 10.0.11038.0, some Tableau queries making stored procedure calls may fail with the following error message: "**[Microsoft][ODBC Driver 17 for SQL Server][SQL Server]111214; An attempt to complete a transaction has failed. No corresponding transaction found.**"
+Starting from Azure Synapse dedicated SQL pool version 10.0.11038.0, some Tableau queries making stored procedure calls may fail with the following error message: "**[Microsoft][ODBC Driver 17 for SQL Server][SQL Server]111214; An attempt to complete a transaction has failed. No corresponding transaction found.**"
 
 ### Cause
 
