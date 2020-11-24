@@ -98,4 +98,4 @@ Periodically test your CDN’s availability and the performance of content distr
   - [Resilience through developer best practices](resilience-b2c-developer-best-practices.md)
   - [Resilience through monitoring and analytics](resilience-with-monitoring-alerting.md)
 - [Build resilience in your authentication infrastructure](resilience-in-infrastructure.md)
-- [Increase resilience of authentication and authorization in your applications]()
+- [Increase resilience of authentication and authorization in your applications](resilience-app-development-overview.md)
