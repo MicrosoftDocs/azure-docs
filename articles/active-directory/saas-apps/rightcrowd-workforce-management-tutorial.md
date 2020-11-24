@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.author: jeedes
 
 ---
@@ -76,75 +76,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type one of the following URLs:
-    
-    **PPE**:
-
-    | Identifier |
-    |------------|
-    |`http://rcppe.corp.microsoft.com`|
-    |`http://rightcrowdamppe.corp.microsoft.com`|
-    |`http://gsamrcemeappe.corp.microsoft.com`|
-    |`http://rcapacppe.corp.microsoft.com`|
-    |
-
-    **Prod**:
-
-    | Identifier |
-    |------------|
-    |`http://gsamportalps.corp.microsoft.com`|
-    |`http://gsamportalam.corp.microsoft.com`|
-    |`http://gsamportalem.corp.microsoft.com`|
-    |`http://gsamportalap.corp.microsoft.com`|
-    |
-
+    a. In the **Identifier** text box, type one of the following URLs: 
+    `http://<SUBDOMAIN>.rightcrowdcustomerdomain.com`
 
     b. In the **Reply URL** text box, type one of the following URLs:
+    `https://<SUBDOMAIN>.rightcrowdcustomerdomain.com/RightCrowd/Saml2/Auth/AssertionComsumerService`
 
-    **PPE**:
-
-    | Reply URL |
-    |-----------|
-    |`http://rcppe.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |`http://rightcrowdamppe.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |`http://gsamrcemeappe.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |`http://rcapacppe.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |
-
-    **Prod**:
-
-    | Reply URL |
-    |-----------|
-    |`http://gsamportalps.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |`http://gsamportalam.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |`http://gsamportalem.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |`http://gsamportalap.corp.microsoft.com/RightCrowd/Saml2/Auth/AssertionComsumerService`|
-    |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type one of the following URLs:
-    
-    **PPE**:
+    `http://<SUBDOMAIN>.rightcrowdcustomerdomain.com`
 
-    | Sign-on URL |
-    |-------------|
-    |`http://rcppe.corp.microsoft.com`|
-    |`http://rightcrowdamppe.corp.microsoft.com`|
-    |`http://gsamrcemeappe.corp.microsoft.com`|
-    |`http://rcapacppe.corp.microsoft.com`|
-    |
-
-    **Prod**:
-    
-    | Sign-on URL |
-    |-------------|
-    |`http://gsamportalps.corp.microsoft.com`|
-    |`http://gsamportalam.corp.microsoft.com`|
-    |`http://gsamportalem.corp.microsoft.com`|
-    |`http://gsamportalap.corp.microsoft.com`|
-    |
-
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [RightCrowd Workforce Management support team](mailto:rcsup@microsoft.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Save**.
 
@@ -193,9 +138,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to RightCrowd Workforce Management Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to RightCrowd Workforce Management Sign on URL where you can initiate the login flow.  
 
-1. Go to RightCrowd Workforce Management Sign-on URL directly and initiate the login flow from there.
+* Go to RightCrowd Workforce Management Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
