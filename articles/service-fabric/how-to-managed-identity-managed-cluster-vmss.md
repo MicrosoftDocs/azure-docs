@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # Add a managed identity to a Service Fabric managed cluster node type (preview)
 
-Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed identities to be used with a managed cluster node type, a property `vmManagedIdentity` has been added to node type definitions containing a list of identities that may be used, `userAssignedIdentities`. Functionality mirrors how managed identities can be used in non-managed clusters, such as using a managed identity with the [Azure Key Vault VMSS extension](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed identities to be used with a managed cluster node type, a property `vmManagedIdentity` has been added to node type definitions containing a list of identities that may be used, `userAssignedIdentities`. Functionality mirrors how managed identities can be used in non-managed clusters, such as using a managed identity with the [Azure Key Vault virtual machine scale set extension](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 
 
 For an example of a Service Fabric managed cluster deployment that makes use of managed identity on a node type, see [this template](LINK). For a list of supported regions, see the [managed cluster FAQ](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
@@ -38,7 +38,7 @@ az identity create --name <userAssignedIdentityName> --resource-group <res
 
 ## Add a role assignment with Service Fabric Resource Provider
 
-Add a role assignment to the managed identity with the Service Fabric Resource Provider application. This allows Service Fabric Resource Provider to assign the identity to the managed cluster's virtual machine scale set. 
+Add a role assignment to the managed identity with the Service Fabric Resource Provider application. This assignment allows Service Fabric Resource Provider to assign the identity to the managed cluster's virtual machine scale set. 
 
 The following values must be used where applicable:
 
