@@ -33,7 +33,7 @@ When a PRT is used to request access to an application, its device, session, and
 
 * Enable [hybrid Azure AD Joined](../devices/hybrid-azuread-join-plan.md) and [Azure AD Join](../devices/azureadjoin-plan.md) for company owned Windows devices, and require they be joined if possible. If not possible, require they be registered.
 
-oIf there are older versions of Windows in your organization, upgrade those devices to use Windows 10.
+If there are older versions of Windows in your organization, upgrade those devices to use Windows 10.
 
 * Standardize user browser access to use either [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) or Google Chrome with [supported](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) that enabled seamless SSO to web applications using the PRT.
 
@@ -45,7 +45,6 @@ oIf there are older versions of Windows in your organization, upgrade those devi
 
 ## Next steps
 Resilience resources for administrators and architects
- 
  
 * [Build resilience with credential management](resilience-in-credentials.md)
 
@@ -60,6 +59,6 @@ Resilience resources for administrators and architects
 
 Resilience resources for developers
 
-* [Build IAM resilience in your applications](https://aka.ms/azureadresilience/developer)
+* [Build IAM resilience in your applications](resilience-app-development-overview.md)
 
-* [Build IAM resilience in your Azure AD B2C systems](resilience-b2c.md)
+* [Build resilience in your CIAM systems](resilience-b2c.md)
