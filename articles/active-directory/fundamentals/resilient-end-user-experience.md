@@ -90,7 +90,7 @@ Content delivery networks (CDNs) are better performant and less expensive than b
 
 Periodically test your CDN’s availability and the performance of content distribution through end-to-end scenario and load testing. If you're planning for an upcoming surge because of promotion or holiday traffic, revise your estimates for load testing.
   
-## Additional resources
+## Next steps
 
 - [Resilience resources for Azure AD B2C developers](resilience-b2c.md)
   
