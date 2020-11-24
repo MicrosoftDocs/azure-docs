@@ -89,7 +89,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 > [!Note]
 >- For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) builds.  [Semi-Annual Channel](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) releases are currently unsupported at this time.
->- Please ensure that for Linux versions, Azure Site Recovery does not support customized OS images. We only support the official kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
+>- Please ensure that for Linux versions, Azure Site Recovery does not support customized OS images. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
 ### Ubuntu kernel versions
 
