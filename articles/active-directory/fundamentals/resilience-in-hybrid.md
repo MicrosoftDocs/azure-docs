@@ -41,7 +41,7 @@ Microsoft offers three mechanisms for hybrid authentication. The options are lis
 
 The simplest and most resilient hybrid authentication option for Azure AD is [Password Hash Synchronization](../hybrid/whatis-phs.md) which does not have any on-premises identity infrastructure dependency when processing authentication requests. Once identities with password hashes are synchronized to Azure AD, users can authenticate to cloud resources with no dependency on the on-premises identity components. 
 
-![Architecture diagram of PHS](./media/resilience-in-hybrid/admin-resilience-phs.png)
+![Architecture diagram of PHS](./media/resilience-in-hybrid/admin-resilience-password-hash-sync.png)
 
 If you choose this authentication option, you will not experience disruption when on-premises identity components become unavailable. On-premises disruption can occur for many reasons, including hardware failure, power outages, natural disasters, and malware attacks. 
 
@@ -59,7 +59,7 @@ If your requirements are such that you cannot use PHS, use Pass-through Authenti
 
 Pass-through Authentication has a dependency on authentication agents that reside on-premises on servers. A persistent connection, or service bus, is present between Azure AD and the on-premises PTA agents. The firewall, servers hosting the authentication agents, and the on-premises Windows Server Active Directory (or other identity provider) are all potential failure points. 
 
-![Architecture diagram of PTA](./media/resilience-in-hybrid/admin-resilience-pta.png)
+![Architecture diagram of PTA](./media/resilience-in-hybrid/admin-resilience-pass-through-authentication.png)
 
 ### How do I implement PTA?
 

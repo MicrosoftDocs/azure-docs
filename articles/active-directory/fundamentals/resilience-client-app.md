@@ -19,11 +19,11 @@ This section provides guidance on building resilience into client applications t
 
 ## Use the Microsoft Authentication Library (MSAL)
 
-The [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) is a key part of the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/id-tokens). It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. MSAL is designed to enable a secure solution without developers having to worry about the implementation details.
+The [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) is a key part of the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop). It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. MSAL is designed to enable a secure solution without developers having to worry about the implementation details.
 
 MSAL caches tokens and uses a silent token acquisition pattern. It also automatically serializes the token cache on platforms that natively provide secure storage like Windows UWP, iOS and Android. Developers can customize the serialization behavior when using [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization), [MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization), [MSAL for Java](https://docs.microsoft.com/azure/active-directory/develop/msal-java-token-cache-serialization), and [MSAL for Python](https://docs.microsoft.com/azure/active-directory/develop/msal-python-token-cache-serialization).
 
-![Image of device with and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-msal.png)
+![Image of device with and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
 When using MSAL, you get token caching, refreshing, and silent token acquisition by using the following pattern.
 

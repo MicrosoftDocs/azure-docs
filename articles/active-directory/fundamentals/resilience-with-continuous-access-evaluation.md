@@ -32,7 +32,7 @@ ms.collection: M365-identity-device-management
 
 As a result, applications can reject unexpired tokens based on the events signaled by Azure AD, as depicted in the following diagram.
 
-![conceptualiagram of CAE](./media/resilience-with-cae/admin-resilience-cae.png)
+![conceptualiagram of CAE](./media/resilience-with-cae/admin-resilience-continuous-access-evaluation.png)
 
 ## How does CAE help?
 
