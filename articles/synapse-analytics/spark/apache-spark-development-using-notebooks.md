@@ -290,12 +290,18 @@ To Access the additional cell actions menu at the far right, select the ellipses
 Select the **Cancel All** button to cancel the running cells or cells waiting in the queue. 
    ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
+# [Preview Notebook](#tab/preview)
+
+Coming soon.
+
 ---
 
 
 
 ### Reference notebook
+
 # [Classical Notebook](#tab/classical)
+
 Not support.
 
 # [Preview Notebook](#tab/preview)
