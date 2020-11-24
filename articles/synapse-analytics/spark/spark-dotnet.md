@@ -69,9 +69,11 @@ The .NET Spark notebook is based on the [.NET interactive](https://github.com/do
 
 ### Install NuGet packages in notebooks
 
-You can install NuGet packages of your choice into your notebook by using the `#r` symbol before the name of the NuGet package. The following diagram shows an example:
+You can install NuGet packages of your choice into your notebook by using the `#r nuget` magic command before the name of the NuGet package. The following diagram shows an example:
 
 ![Screenshot that shows using #r to install a Spark .NET notebook NuGet package](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+
+To learn more about how to work with NuGet packages in notebooks, see the [.NET Interactive Documentation](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
 
 ### .NET for Apache Spark C# kernel features
 
