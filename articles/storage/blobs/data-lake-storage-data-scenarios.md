@@ -48,7 +48,7 @@ Here's a list of tools that you can use to ingest streamed data.
 
 |Tool | Guidance |
 |---|--|
-|Azure Stream Analytics|[Quickstart: Create a Stream Analytics job by using the Azure portal](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Egress to Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2)|
+|Azure Stream Analytics|[Quickstart: Create a Stream Analytics job by using the Azure portal](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Egress to Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Azure HDInsight Storm | [Write to Apache Hadoop HDFS from Apache Storm on HDInsight](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
 
 ### Relational data

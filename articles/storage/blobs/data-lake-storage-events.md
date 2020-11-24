@@ -43,7 +43,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those values later.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those values later.
 
 ## Create a sales order
 

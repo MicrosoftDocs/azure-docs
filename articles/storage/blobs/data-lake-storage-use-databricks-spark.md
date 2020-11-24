@@ -44,7 +44,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
 
 ### Download the flight data
 
