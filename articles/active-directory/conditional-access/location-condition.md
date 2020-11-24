@@ -62,13 +62,13 @@ This option can factor in to Conditional Access policies where you may, for exam
 Some organizations may choose to define entire countries or regions IP boundaries as named locations for Conditional Access policies. They may use these locations when blocking unnecessary traffic when they know valid users will never come from a location such as North Korea. These mappings of IP address to country are updated periodically. 
 
 > [!NOTE]
-> Countries do not include IPv6 address ranges, only known IPv4 address ranges, and cannot be marked as trusted.
+> IPv6 address ranges cannot be mapped to countries. Only IPv4 addresses map to countries.
 
 ![Create a new country or region-based location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
 #### Include unknown areas
 
-Some IP addresses are not mapped to a specific country or region. To capture these IP locations, check the box **Include unknown areas** when defining a location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+Some IP addresses are not mapped to a specific country or region, including all IPv6 addresses. To capture these IP locations, check the box **Include unknown areas** when defining a location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
 ### Configure MFA trusted IPs
 
@@ -112,7 +112,7 @@ With the preview, there are now two create options:
 - **IP ranges location**
 
 > [!NOTE]
-> Countries do not include IPv6 address ranges, only known IPv4 address ranges, and cannot be marked as trusted.
+> IPv6 address ranges cannot be mapped to countries. Only IPv4 addresses map to countries.
 
 ![Named locations preview interface](./media/location-condition/named-location-preview.png)
 
