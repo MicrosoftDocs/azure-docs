@@ -25,7 +25,7 @@ ms.custom: subject-armqs
 
 This article shows you how to use an Azure Resource Manager template (ARM template) to create a media services account.
 
-[!INCLUDE [About Azure Resource Manager](./../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 Readers who are experienced with ARM templates can continue to the deployment.
 
@@ -116,7 +116,7 @@ The syntax for the JSON code fence is:
 Three Azure resource types are defined in the template:
 
 - [Microsoft.Media/mediaservices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices): create a Media Services account
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts): create a storage account
+- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): create a storage account
 
 ## Set the account
 
