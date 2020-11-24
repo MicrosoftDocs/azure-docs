@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Compatibility issues with third-party applications and Azure Synapse Analytics
 
-Applications built for SQL Server will seamlessly work with Azure Synapse SQL dedicated pools. In some cases, however, features and language elements that are commonly used in SQL Server may not be available in Azure Synapse, or they may behave differently.
+Applications built for SQL Server will seamlessly work with Azure Synapse dedicated SQL pools. In some cases, however, features and language elements that are commonly used in SQL Server may not be available in Azure Synapse, or they may behave differently.
 
 This article lists known issues you may come across when using third-party applications with Azure Synapse Analytics. 
 
