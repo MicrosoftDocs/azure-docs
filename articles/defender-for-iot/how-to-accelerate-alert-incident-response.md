@@ -5,7 +5,6 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 11/23/2020
-ms.topic: article
 ms.service: azure
 ms.topic: how-to
 ---
@@ -16,17 +15,17 @@ ms.topic: how-to
 
 Work with alert comments to improve communication between individuals and teams during the investigation of an alert event.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image167.png" alt-text="Malicious Activity":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/suspicion-of malicious-activity-screen.png" alt-text="Malicious activity":::
 
 Use alert commenting to improve:
 
-  - **Workflow Steps**: Provide guidelines regarding alert mitigation steps.
+  - **Workflow steps**: Provide guidelines regarding alert mitigation steps.
 
   - **Workflow follow-up**: Notify that steps were taken.
 
-  - **Workflow guidance**: Provide recommendations, insights or warnings about the event.
+  - **Workflow guidance**: Provide recommendations, insights, or warnings about the event.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image188.png" alt-text="Alert Comments":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/alert-comment-screen.png" alt-text="Alert comments":::
 
 The list of available options appears in each Alert. Users can select one or several messages.
 
@@ -36,15 +35,15 @@ The list of available options appears in each Alert. Users can select one or sev
 
 2. In the **System Setting** window, select **Alert Comments**.
 
-3. In the **Add comments** box, type the comment text. Use up to 50 characters; do not use commas.
+3. In the **Add comments** box, type the comment text. Use up to 50 characters; commas are not permissable.
 
 4. Select **Add**.
 
 ## Accelerate incident workflow with alert grouping
 
-*Alert Groups* let SOC teams view and filter alerts in their SIEM solutions and manage them based on enterprise security policies and business priorities. For example, alerts regarding new detections are organized in a **Discovery** group. This group includes alerts that deal with new assets detected, new VLANs detected, new user accounts, new MAC addresses detected and more.
+*Alert groups* let SOC teams view and filter alerts in their SIEM solutions and manage them based on enterprise security policies and business priorities. For example, alerts regarding new detections are organized in a **Discovery** group. This group includes alerts that deal with new devices detected, new VLANs detected, new user accounts, new MAC addresses detected and more.
 
-Alert grouping is applied when Forwarding Rules are created for the following 3rd party solutions:
+Alert grouping is applied when Forwarding Rules are created for the following partner solutions:
 
   - SYSLOG servers
 
@@ -52,15 +51,13 @@ Alert grouping is applied when Forwarding Rules are created for the following 3r
 
   - ArcSight
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image189.png" alt-text="Create Forwarding Rule":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule.png" alt-text="Create forwarding rule":::
 
-The relevant Alert Group appears in 3rd party output solutions. In the example below, the *Discovery* Alert Group is displayed.
-
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image190.png" alt-text="TimeGenerated UTC":::
+The relevant alert group appears in partner output solutions. In the example below, the *Discovery* alert group is displayed.
 
 **Requirements**
 
-The Alert Group will be shown in supported 3rd party solutions with the following prefixes:
+The alert group will be shown in supported partner solutions with the following prefixes:
 
   - **cat** for QRadar, ArcSight, Syslog CEF, Syslog LEEF
 
@@ -68,20 +65,20 @@ The Alert Group will be shown in supported 3rd party solutions with the followin
 
   - **alert_group** for Syslog Object
 
-These fields should be configured in the 3rd party solution to display the Alert Group name. If there is no alert associated with an Alert Group, the field in the 3rd party solution will display **NA**.
+These fields should be configured in the partner solution to display the alert group name. If there is no alert associated with an alert group, the field in the partner solution will display **NA**.
 
 **Default Alert Groups**
 
-The following Alert Groups are automatically defined:
+The following alert groups are automatically defined:
 |  |  |  |
 |--|--|--|
-| Abnormal Communication Behavior | Custom Alerts | Remote access |
-| Abnormal HTTP Communication Behavior | Discovery | Restart/ Stop Commands |
+| Abnormal communication behavior | Custom alerts | Remote access |
+| Abnormal HTTP communication behavior | Discovery | Restart and stop commands |
 | Authentication | Firmware change | Scan |
-| Unauthorized Communication Behavior | Illegal commands | Sensor traffic |
-| Bandwidth Anomalies | Internet Access | Suspicion of Malware |
-| Buffer overflow | Operation Failures | Suspicion of malicious activity |
+| Unauthorized communication behavior | Illegal commands | Sensor traffic |
+| Bandwidth anomalies | Internet access | Suspicion of malware |
+| Buffer overflow | Operation failures | Suspicion of malicious activity |
 | Command Failures | Operational issues |  |
 | Configuration changes | Programming |  |
 
-Alert Groups are pre-defined. Contact [support.microsoft.com](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099) for details about alerts associated with Alert Groups, and about creating custom Alert Groups.
+Alert groups are pre-defined. Contact [support.microsoft.com](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099) for details about alerts associated with alert groups, and about creating custom alert groups.
