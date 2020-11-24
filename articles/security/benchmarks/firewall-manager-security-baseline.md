@@ -4,7 +4,7 @@ description: The Azure Firewall Manager security baseline provides procedural gu
 author: msmbaldwin
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -18,119 +18,11 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 To see how Azure Firewall Manager completely maps to the Azure Security Benchmark, see the [full Azure Firewall Manager security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
-
-## Network Security
-
-*For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
-
-### NS-1: Implement security for internal traffic  
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40024).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. By design, it cannot be deployed or secured to a private network.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-2: Connect private networks together
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40025).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. By design, establishing private customer-facing network connections is not applicable to this service.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-3: Establish private network access to Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40026).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. By design, establishing private customer-facing network connections is not applicable to this service.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-4: Protect applications and services from external network attacks  
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40027).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service. It does not expose any endpoints to external networks which would need to be secured by conventional network protections.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40028).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is a control plane management service. By design, it does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution to detect or prevent threats on the network.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-6: Simplify network security rules
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40029).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is an control plane management service. By design, it doesn't support service tags or representing its public IP range as a grouping of service IPs for reference in network security rules.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-7: Secure Domain Name Service (DNS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40030).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Firewall Manager does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ## Identity Management
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40010).
 
 **Guidance**: Azure Firewall Manager uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
 
@@ -154,24 +46,7 @@ Note: Azure AD supports external identity that allows users without a Microsoft 
 
 **Responsibility**: Customer
 
-### IM-2: Manage application identities securely and automatically
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40011).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager uses Azure Active Directory (Azure AD) for identity and authentication. However, Azure Firewall Manager does not host any applications, use any application-level identities, or manage any secrets for which this control would apply.
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Not applicable
-
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40012).
 
 **Guidance**: Azure Firewall Manager uses Azure Active Directory to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
 
@@ -182,9 +57,6 @@ Note: Azure AD supports external identity that allows users without a Microsoft 
 **Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40013).
 
 **Guidance**: Azure Firewall Manager uses Azure Active Directory which supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
 - Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
@@ -205,9 +77,6 @@ For administrator and privileged users, ensure the highest level of the strong a
 **Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40014).
 
 **Guidance**: Azure Firewall Manager is integrated with Azure Active Directory in which provides the following data sources:
 - Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
@@ -239,9 +108,6 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 ### IM-6: Restrict Azure resource access based on conditions
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40015).
-
 **Guidance**: Azure Firewall Manager supports Azure Active Directory (Azure AD) conditional access for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges that need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
 
 - [Azure conditional access overview](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
@@ -254,42 +120,11 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Responsibility**: Customer
 
-### IM-7: Eliminate unintended credential exposure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40016).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager uses Azure Active Directory (Azure AD) for authentication and Azure role-based access control (Azure RBAC) to manage access. Azure Firewall Manager does not use keys for service authentication, this control is focused on eliminating exposure of credentials in code.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### IM-8: Secure user access to legacy applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40052).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager doesn't host or access any legacy applications.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Privileged Access
 
 *For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
 ### PA-1: Protect and limit highly privileged users
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40017).
 
 **Guidance**: Azure Firewall Manager uses Azure Active Directory (Azure AD) for identity and access. The most critical built-in roles are Azure AD are Global Administrator and the Privileged Role Administrator as users assigned to these two roles can delegate administrator roles:
 - Global Administrator / Company Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
@@ -311,9 +146,6 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 
 ### PA-2: Restrict administrative access to business-critical systems
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40018).
-
 **Guidance**: Use custom Azure RBAC roles to isolate access to rule collection groups for Azure Firewall policy. Use an Azure custom role definition to prevent inadvertent base policy removal and provide selective access to rule collection groups within a subscription or resource group.
 
 Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
@@ -334,10 +166,7 @@ Azure subscription administrators https://docs.microsoft.com/azure/cost-manageme
 
 ### PA-3: Review and reconcile user access regularly
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40019).
-
-**Guidance**: Azure Firewall Manager uses Azure Active Directory (AAD) accounts to manage its resources. Review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
+**Guidance**: Azure Firewall Manager uses Azure Active Directory (Azure AD) accounts to manage its resources. Review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
@@ -353,9 +182,6 @@ Note: Some Azure services support local users and roles which not managed throug
 
 ### PA-4: Set up emergency access in Azure AD
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40020).
-
 **Guidance**: Azure Firewall Manager uses Azure Active Directory to authenticate users managing the service. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
@@ -367,9 +193,6 @@ You should ensure that the credentials (such as password, certificate, or smart 
 **Responsibility**: Customer
 
 ### PA-5: Automate entitlement management 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40021).
 
 **Guidance**: Azure Firewall Manager is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
@@ -383,9 +206,6 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ### PA-6: Use privileged access workstations
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40022).
-
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations for performing administrative management tasks with your Azure Firewall Manager resources in production environments. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration, including strong authentication, software and hardware baselines, and restricted logical and network access.
 
 - [Understand privileged access workstations](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
@@ -398,14 +218,11 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40023).
-
 **Guidance**: Azure Firewall Manager is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-What is Azure role-based access control (Azure RBAC) https://docs.microsoft.com/azure/role-based-access-control/overview 
+- [What is Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 
 
 - [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -413,42 +230,11 @@ What is Azure role-based access control (Azure RBAC) https://docs.microsoft.com/
 
 **Responsibility**: Customer
 
-### PA-8: Choose approval process for Microsoft support  
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40079).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager doesn't store customer data, and doesn't support the Customer Lockbox solution.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Data Protection
 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
-### DP-1: Discovery, classify and label sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40031).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager doesn't allow for data classification of Firewall Policy resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### DP-2: Protect sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40032).
 
 **Guidance**: Protect sensitive data like the configuration data for Azure Firewall Policy by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services.
 
@@ -466,9 +252,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40033).
-
 **Guidance**: Azure Firewall Policy resources can only be accessed by authenticated users. Customers will need to make sure that only authorized users have access to the data.
 
 - [Create custom roles to access rule collection groups](https://docs.microsoft.com/azure/firewall-manager/rule-hierarchy#create-custom-roles-to-access-the-rule-collection-groups)
@@ -478,9 +261,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility**: Customer
 
 ### DP-4: Encrypt sensitive information in transit
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40034).
 
 **Guidance**: To complement access controls, data in transit should be protected against ‘out of band’ attacks (for example, traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 
@@ -500,28 +280,11 @@ By default, Azure provides encryption for data in transit between Azure data cen
 
 **Responsibility**: Shared
 
-### DP-5: Encrypt sensitive data at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40035).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Firewall Manager policy resource configuration data is stored and handled by the service. Configuration data stored by the platform is encrypted at rest with Microsoft-managed keys.
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Microsoft
-
 ## Asset Management
 
 *For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40053).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -541,9 +304,6 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40054).
-
 **Guidance**: Ensure that security teams have access to a continuously updated inventory of your Azure Firewall Manager assets on Azure. They can use Azure Resource Graph to query and discover all Azure Firewall resources in your subscriptions, including Azure services, applications, and network resources.
 
 Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
@@ -560,9 +320,6 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 ### AM-3: Use only approved Azure services
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40055).
-
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment, this includes being able to allow or deny deployments of Azure Firewall resources. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
 - [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
@@ -577,9 +334,6 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 ### AM-4: Ensure security of asset lifecycle management
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40056).
-
 **Guidance**: Remove Azure Firewall Manager resources when they are no longer needed to minimize attack surface. Users can manage their Azure Firewall Manager resources via the Azure portal, CLI, or REST APIs.
 
 - [Azure Firewall Policy CLI](https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/policy?view=azure-cli-latest&amp;preserve-view=true)
@@ -592,9 +346,6 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40057).
-
 **Guidance**: Azure Firewall Manager is integrated with Azure Active Directory (Azure AD) for identity and authentication. You can use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 - [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
@@ -603,28 +354,11 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 **Responsibility**: Customer
 
-### AM-6: Use only approved applications in compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40058).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service and does not allow customers to install applications onto the service's resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Logging and Threat Detection
 
 *For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
 
 ### LT-1: Enable threat detection for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40036).
 
 **Guidance**: Forward activity logs produced by or related to Firewall Policy to your SIEM which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
@@ -640,9 +374,6 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40037).
-
 **Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 - Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
@@ -650,7 +381,7 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 - Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 - Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability gives you visibility on account anomalies inside the individual resources.
 
 Note: Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
 
@@ -664,24 +395,7 @@ Note: Currently actions surrounding Firewall Policy rule collection groups are n
 
 **Responsibility**: Customer
 
-### LT-3: Enable logging for Azure network activities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40038).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is not intended to deploy directly into virtual networks. So you can't enable network security group flow logging, route traffic through a firewall, or perform packet captures on the service's network traffic.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### LT-4: Enable logging for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40039).
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Firewall Policy resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
@@ -696,9 +410,6 @@ Note: Currently actions surrounding Firewall Policy rule collection groups are n
 **Responsibility**: Customer
 
 ### LT-5: Centralize security log management and analysis
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40040).
 
 **Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
@@ -718,9 +429,6 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### LT-6: Configure log storage retention
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40041).
-
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Firewall Policy logs has the log retention period set according to your organization's compliance regulations.
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake, or Log Analytics workspace accounts for long-term and archival storage.
@@ -733,28 +441,11 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 **Responsibility**: Customer
 
-### LT-7: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40042).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Firewall Manager does not support configuring your own time synchronization sources. The Azure Firewall Manager service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ## Incident Response
 
 *For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
 ### IR-1: Preparation – update incident response process for Azure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40043).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
@@ -768,9 +459,6 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 ### IR-2: Preparation – setup incident notification
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40044).
-
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
 - [How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
@@ -781,14 +469,11 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40045).
+**Guidance**: Ensure you have a process to create high-quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
-**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
+High-quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
-
-Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
+Azure Security Center provides high-quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
@@ -801,9 +486,6 @@ Export your Azure Security Center alerts and recommendations using the export fe
 **Responsibility**: Customer
 
 ### IR-4: Detection and analysis – investigate an incident
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40046).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
@@ -835,12 +517,9 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40047).
-
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
@@ -853,9 +532,6 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Responsibility**: Customer
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40048).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
@@ -876,10 +552,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-1: Establish secure configurations for Azure services 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40063).
-
-**Guidance**: Automate and secure the deployment and configuration of Azure Firewall Manager resources in your environments, using mechanisms such as: Azure Resource Manager templates, Azure RBAC controls, and Azure Policy. Define secure configurations for you Azure Firewall Manager resources at deployment time, audit and enforce those configurations by defining custom Azure Policy definitions using aliases in the 'Azure.Network' namespace.
+**Guidance**: Automate and secure the deployment and configuration of Azure Firewall Manager resources in your environments, using mechanisms such as: Azure Resource Manager templates, Azure RBAC controls, and Azure Policy. Define secure configurations for your Azure Firewall Manager resources at deployment time, audit and enforce those configurations by defining custom Azure Policy definitions using aliases in the 'Azure.Network' namespace.
 
 - [Azure Firewall Policy template reference](https://docs.microsoft.com/azure/templates/microsoft.network/firewallpolicies)
 
@@ -894,9 +567,6 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 **Responsibility**: Customer
 
 ### PV-2: Sustain secure configurations for Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40064).
 
 **Guidance**: Azure Firewall Manager supports Azure Resource Manager based templates and enforcement of configuration settings via Azure Policy. Define custom Azure Policy definitions to audit and enforce Azure Firewall Manager resource configurations using aliases in the 'Azure.Network' namespace.
 
@@ -914,75 +584,13 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-3: Establish secure configurations for compute resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40065).
-
 **Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service and doesn't expose the underlying service's compute infrastructure for customers to configure.
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### PV-4: Sustain secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40066).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service and doesn't expose the underlying service's compute infrastructure for customers to configure.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-5: Securely store custom operating system and container images
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40067).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager is firewall control plane management service and doesn't expose the underlying service's compute infrastructure for customers to configure.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-6: Perform software vulnerability assessments
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40068).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Firewall Manager.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
-### PV-7: Rapidly and automatically remediate software vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40069).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Microsoft performs vulnerability management and software update on the underlying systems that support Azure Firewall Manager.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ### PV-8: Conduct regular attack simulation
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40070).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
@@ -997,60 +605,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 **Responsibility**: Shared
 
-## Endpoint Security
-
-*For more information, see the [Azure Security Benchmark: Endpoint Security](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
-
-### ES-1: Use Endpoint Detection and Response (EDR)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40049).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Firewall Manager does not deploy any customer-facing compute resources which would require Endpoint Detection and Response (EDR) protection. The underlying infrastructure for the Azure Firewall Manager service is handled by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
-### ES-2: Use centrally managed modern anti-malware software
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40050).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Firewall Manager does not deploy any customer-facing compute resources which could be configured with an anti-malware solution. The underlying infrastructure for the Azure Firewall Manager service is handled by Microsoft, which includes managing any installed anti-malware software.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
-### ES-3: Ensure anti-malware software and signatures are updated
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40051).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Firewall Manager does not deploy any customer-facing compute resources which could be configured with an anti-malware solution. The underlying infrastructure for the Azure Firewall Manager service is handled by Microsoft, which includes managing any installed anti-malware software.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ## Backup and Recovery
 
 *For more information, see the [Azure Security Benchmark: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
 
 ### BR-1: Ensure regular automated backups
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40059).
 
 **Guidance**: Azure Firewall Manager does not have the concept of customer facing system backups, the underlying infrastructure is handled by Microsoft.
 
@@ -1066,24 +625,7 @@ For resource configuration backups, use Azure Resource Manager to export firewal
 
 **Responsibility**: Shared
 
-### BR-2: Encrypt backup data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40060).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Firewall Manager does not have the concept of customer facing system backups, so it doesn't support any customer configurable backup features. The underlying service infrastructure is handled by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
 ### BR-3: Validate all backups including customer-managed keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40061).
 
 **Guidance**: Azure Firewall Manager does not have the concept of customer facing system backups. For any exported Azure Firewall Manager resource templates periodically perform restoration using these Azure Resource Manager template files.
 
@@ -1095,28 +637,11 @@ For resource configuration backups, use Azure Resource Manager to export firewal
 
 **Responsibility**: Customer
 
-### BR-4: Mitigate risk of lost keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40062).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Firewall Manager does not leverage any service-level keys for authentication or data at rest encryption.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Governance and Strategy
 
 *For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
 ### GS-1: Define asset management and data protection strategy 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40071).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1132,7 +657,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Required access control strategy in accordance with organizational data classification
 
--	Use of Azure native and third party data protection capabilities
+-	Use of Azure native and third-party data protection capabilities
 
 -	Data encryption requirements for in-transit and at-rest use cases
 
@@ -1155,9 +680,6 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40078).
-
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
 Carefully balance the need for security separation with the need to enable daily operation of the systems that need to communicate with each other and access data.
@@ -1176,9 +698,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40072).
-
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
 - [Azure Security Benchmark - Posture and vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
@@ -1188,9 +707,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40073).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1205,9 +721,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-5: Define network security strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40074).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1240,9 +753,6 @@ For more information, see the following references:
 
 ### GS-6: Define identity and privileged access strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40075).
-
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
@@ -1272,9 +782,6 @@ For more information, see the following references:
 **Responsibility**: Customer
 
 ### GS-7: Define logging and threat response strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40076).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
