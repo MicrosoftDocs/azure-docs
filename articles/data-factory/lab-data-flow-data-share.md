@@ -303,7 +303,7 @@ You have now completed the data factory portion of this lab. Publish your resour
 
 ## Share data using Azure Data Share
 
-In this section, you'll learn how to set up a new data share using the Azure portal. This will involve creating a new data share that will contain datasets from Azure Data Lake Store Gen2 and Azure Synapse Analytics (formerly SQL Data Warehouse). You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
+In this section, you'll learn how to set up a new data share using the Azure portal. This will involve creating a new data share that will contain datasets from Azure Data Lake Store Gen2 and Azure Synapse Analytics. You'll then configure a snapshot schedule, which will give the data consumers an option to automatically refresh the data being shared with them. Then, you'll invite recipients to your data share. 
 
 Once you have created a data share, you'll then switch hats and become the *data consumer*. As the data consumer, you'll walk through the flow of accepting a data share invitation, configuring where you'd like the data to be received and mapping datasets to different storage locations. Then you'll trigger a snapshot, which will copy the data shared with you into the destination specified. 
 
