@@ -77,7 +77,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Keep in mind that if you are unable to perform an operation you may not have the right permissions. If you want write access to keys you need to use an RBAC role such as DocumentDB Account Contributor or create a custom role. For more information review [Role-based access control in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+> Keep in mind that if you are unable to perform an operation you may not have the right permissions. If you want write access to keys you need to use an Azure role such as DocumentDB Account Contributor or create a custom role. For more information review [Azure role-based access control in Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
 
 ## Access data
 
