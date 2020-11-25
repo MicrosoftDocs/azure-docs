@@ -126,7 +126,7 @@ The actual location of a BIG-IP instance can be either on-premises or any suppor
 
  - A [Premium subscription](https://azure.microsoft.com/pricing/details/active-directory/) provides all additional value adds outlined in the preface, including [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks), and [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
 
-No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://support.f5.com/kb/products/big-ip_apm.html) is also a good place to start building BIG-IP knowledge.
+No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://www.f5.com/services/resources/glossary) is also a good place to start building BIG-IP knowledge.
 
 ## Deployment scenarios
 

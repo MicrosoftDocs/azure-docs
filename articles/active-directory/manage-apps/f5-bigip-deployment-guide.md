@@ -23,7 +23,7 @@ This tutorial walks you through the end to end process of deploying BIG-IP Vitur
 
 ## Prerequisites
 
-Prior F5 BIG-IP experience or knowledge isn't necessary, however, we do recommend familiarizing yourself with [F5 BIG-IP terminology](https://docs.microsoft.com/azure/sentinel/overview). Deploying a BIG-IP in Azure for Secure Hybrid Access requires:
+Prior F5 BIG-IP experience or knowledge isn't necessary, however, we do recommend familiarizing yourself with [F5 BIG-IP terminology](https://www.f5.com/services/resources/glossary). Deploying a BIG-IP in Azure for SHA requires:
 
 - A paid Azure subscription or a free 12-month [trial subscription](https://azure.microsoft.com/free/).
 
@@ -45,7 +45,7 @@ VM deployment and base system configs take approx. 30 minutes, at which point yo
 
 For testing the scenarios, this tutorial assumes the BIG-IP will be deployed into an Azure resource group containing an Active Directory (AD) environment. The environment should consist of a Domain Controller (DC) and web host (IIS) VMs. Having these servers in other locations to the BIG-IP VM is also ok, providing the BIG-IP has line of sight to each of the roles required to support a given scenario. Scenarios where the BIG-IP VM is connected to another environment over a VPN connection are also supported.
 
-If you don't have the above items for testing, you may deploy an entire Active Directory domain environment into Azure, using this [script](https://github.com/Rainier-MSFT/Cloud_Identity_Lab). A collection of sample test applications can also be programmatically deployed to an IIS web host using this [scripted automation](https://github.com/jeevanbisht/DemoSuite).
+If you don't have the items mentioned here for testing, you may deploy an entire AD domain environment into Azure, using this [script](https://github.com/Rainier-MSFT/Cloud_Identity_Lab). A collection of sample test applications can also be programmatically deployed to an IIS web host using this [scripted automation](https://github.com/jeevanbisht/DemoSuite).
 
 >[!NOTE]
 >The [Azure portal](https://portal.azure.com/#home) is constantly evolving, so some of the steps in this tutorial may differ from the actual layout observed in the Azure portal.
@@ -62,7 +62,7 @@ Complete the following tasks to deploy BIG-IP VE from the [Azure Marketplace](ht
 
 3. Type **F5** into the Marketplace filter, followed by **Enter**
 
-4. Select **+ Add** from the top ribbon and type **F5** into  the Marketplace filter, followed by **Enter**
+4. Select **+ Add** from the top ribbon and type **F5** into  the marketplace filter, followed by **Enter**
 
 5. Select **F5 BIG-IP Virtual Edition (BYOL)** > **Select a software plan** > **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)**
 
@@ -72,29 +72,29 @@ Complete the following tasks to deploy BIG-IP VE from the [Azure Marketplace](ht
 
 7. Step through the **Basics** menu and use the following settings
 
-|  Project details     |       |
+|  Project details     |  Value     |
 |:-------|:--------|
 |Subscription|Target subscription for the BIG-IP VM deployment|
 |Resource group | Existing Azure Resource Group the BIG-IP VM will be deployed into or create one. Should be the same resource group of your DC and IIS VMs|
-| **Instance details**|
+| **Instance details**|  |
 |VM Name| Example BIG-IP-VM |
 |Region | Target Azure geo for BIG-IP-VM |
 |Availability options| Only enable if using VM in production|
 |Image| F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)|
 |Azure Spot instance| No but feel free to enable if appropriate |
 |Size| Minimum specification should be 2 vCPUs and 8-Gb memory|
-|**Administrator account**|
+|**Administrator account**|  |
 |Authentication type|Select password for now. You can switch to a key pair later |
 |Username|The identity that will be created as a BIG-IP local account for accessing its management interfaces. Username is CASE sensitive.|
 |Password|Secure admin access with a strong password|
-|**Inbound port rules**|
+|**Inbound port rules**|  |
 |Public inbound ports|None|
 
 8. Select **Next: Disks** leaving all the defaults and select **Next: Networking**.
 
 9. On the **Networking** menu, complete these settings.
 
-|Network interface|             |
+|Network interface|      Value |
 |:--------------|:----------------|
 |Virtual network|Same Azure VNet used by your DC and IIS VMs, or create one|
 |Subnet| Same Azure internal subnet as your DC and IIS VMs, or create one|
@@ -106,14 +106,14 @@ Complete the following tasks to deploy BIG-IP VE from the [Azure Marketplace](ht
 
 10. Select **Next: Management** and complete these settings.
 
-|Monitoring|      |
+|Monitoring|    Value |
 |:---------|:-----|
 |Detailed monitoring| Off|
 |Boot diagnostics|Enable with custom storage account. Allows connecting to the BIG-IP Secure Shell (SSH) interface via the Serial Console option in the Azure portal. Select any available Azure storage account|
-|**Identity**|
+|**Identity**|  |
 |System assigned managed identity|Off|
 |Azure Active Directory|BIG-IP doesn’t currently support this option|
-|**Autoshutdown**|     |
+|**Autoshutdown**|    |
 |Enable Auto shutdown| If testing, consider setting the BIG-IP-VM to shut-down daily|
 
 11. Select **Next: Advanced** leaving all the defaults and select **Next: Tags**.
@@ -136,7 +136,7 @@ Exposing either of these management interfaces to the internet increases the BIG
 This 1 to 1 mapping between a VM public IP and private IP enables external traffic to reach a VM. However, an Azure NSG rule is also required to allow the traffic, in much the same way as a firewall.
 
 The diagram shows a single NIC deployment of a BIG-IP VE in Azure, configured with a primary IP for general operations and management, and a separate virtual server IPs for publishing services.
-In this arrangement, an NSG rule allows remote traffic destined for intranet.contoso.com to route to the public IP for the published service, before being forwarded on to the BIG-IP virtual server.
+In this arrangement, an NSG rule allows remote traffic destined for `intranet.contoso.com` to route to the public IP for the published service, before being forwarded on to the BIG-IP virtual server.
 
 ![The image shows the single nic deployment](./media/f5ve-deployment-plan/single-nic-deployment.png)
 By default, private and public IPs issued to Azure VMs are always dynamic, so will likely change on every restart of a VM. Avoid unforeseen connectivity issues by changing the BIG-IPs management IP to static and do the same to secondary IPs used for publishing services.
@@ -186,7 +186,7 @@ The example illustrates the 1 to 1 relationship between a VM public and private 
 
 ![This image shows all secondary IPs](./media/f5ve-deployment-plan/secondary-ips.png)
 
-To implement SHA using the BIG-IP **Access Guided Configuration**, repeat steps 5-9 to create additional private and public IP pairs for every additional service you plan to publish via the BIG-IP APM. The same approach can also be used if publishing services using BIG-IPs **Advanced Configuration**. However, in that scenario you have the option of avoiding public IP overheads by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration. In this configuration, a BIG-IP virtual server will accept all client traffic it receives, and route it onwards to its destination.
+To implement SHA using the BIG-IP **Access Guided Configuration**, repeat steps 5-11 to create additional private and public IP pairs for every additional service you plan to publish via the BIG-IP APM. The same approach can also be used if publishing services using BIG-IPs **Advanced Configuration**. However, in that scenario you have the option of avoiding public IP overheads by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration. In this configuration, a BIG-IP virtual server will accept all client traffic it receives, and route it onwards to its destination.
 
 ## DNS configuration
 
@@ -246,7 +246,7 @@ By default, Azure VNets and associated subnets are private networks that are una
 |Protocol| TCP |
 |Action| Allow|
 |Priority|Lowest available value between 100 - 4096|
-|Name | A descriptive name, for example: BIG-IP-VM_Web_Services_80_443|
+|Name | A descriptive name, for example: `BIG-IP-VM_Web_Services_80_443`|
 
 3. Select **Add** to commit the changes, and close the **Networking** menu.
 
@@ -280,7 +280,7 @@ A BIG-IP system can also be managed via its underlying SSH environment, which is
 
 - As with the web config, you can also connect directly to the CLI from the internet by configuring the BIG-IP’s primary IP with a public IP and adding an NSG rule to allow SSH traffic. Again, be sure to restrict the source to your own trusted IP, if using this method.  
 
-## BIG-IP License
+## BIG-IP license
 
 A BIG-IP system must be activated and provisioned with the APM module before it can be configured for publishing services and SHA.
 
@@ -300,7 +300,7 @@ A BIG-IP system must be activated and provisioned with the APM module before it 
 
 7. Select **Submit** and accept the warning
 
-8. Be patient and wait for the BIG-IP to complete lighting up the new features. It may cycle several times before being fully initialized. Refer to this article for any issues relating to memory.
+8. Be patient and wait for the BIG-IP to complete lighting up the new features. It may cycle several times before being fully initialized. 
 
 9. When ready select **Continue** and from the **About** tab select **Run the setup utility**
 
@@ -327,7 +327,7 @@ Securing management traffic to and from BIG-IPs web config is paramount. Configu
 
 7. Specify a reliable NTP source and select **Add**, followed by **Update**. For example, `time.windows.com`
 
-You now need a DNS record to resolve the BIG-IPs FQDN specified in the previous steps, to its primary private IP. A record should be added to your environment's internal DNS, or to the localhost file of a PC that will be used to connect to the BIG-IP’s web config. Either way, the browser warning should no longer appear when you connect to the web config directly. That is, not via Application Proxy or another reverse proxy.
+You now need a DNS record to resolve the BIG-IPs FQDN specified in the previous steps, to its primary private IP. A record should be added to your environment's internal DNS, or to the localhost file of a PC that will be used to connect to the BIG-IP’s web config. Either way, the browser warning should no longer appear when you connect to the web config directly. That is, not via Application Proxy or any other reverse proxy.
 
 ## SSL profile
 
@@ -480,4 +480,4 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## Next steps
 
-Select a scenario mentioned in [F5 BIG-IP APM and Azure AD integration for SHA](f5-aad-integration.md) and start your implementation.
+Select a [deployment scenario](f5-aad-integration.md) and start your implementation.

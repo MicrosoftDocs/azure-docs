@@ -52,7 +52,7 @@ Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need
 
 - The BIG-IP should be provisioned with the necessary SSL certificates for publishing services over HTTPS.
 
-Familiarizing yourself with [F5 BIG-IP terminology](https://support.f5.com/kb/products/big-ip_apm.html) will also help understand the various components that are referenced throughout the tutorial.
+Familiarizing yourself with [F5 BIG-IP terminology](https://www.f5.com/services/resources/glossary) will also help understand the various components that are referenced throughout the tutorial.
 
 >[!NOTE]
 >Azure is constantly evolving so don’t be surprised if you find any nuances between the instructions in this guide and what you see in the Azure portal. Screenshots are from BIG-IP v15, however, remain relatively similar from v13.1.
