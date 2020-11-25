@@ -2,7 +2,7 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 11/27/2020
+ms.date: 11/20/2020
 ms.author: parkerra
 ---
 ## Create a Spatial Anchors resource

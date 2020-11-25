@@ -47,6 +47,9 @@ On the **Register sources (Azure Data Lake Storage Gen1)** screen, do the follow
 
 :::image type="content" source="media/register-scan-adls-gen1/register-sources.png" alt-text="register sources options" border="true":::
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+
 ## Setting up authentication for a scan
 
 The following authentication methods are supported for Azure Data Lake Storage Gen1:

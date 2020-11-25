@@ -5,7 +5,7 @@ author: prmujumd
 ms.author: prmujumd
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: how-to
 ms.date: 11/17/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen2 into the catalog.
 ---
