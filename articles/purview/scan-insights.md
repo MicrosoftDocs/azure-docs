@@ -7,7 +7,6 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/20/2020
-
 ---
 
 # Scan insights on your data in Azure Purview
