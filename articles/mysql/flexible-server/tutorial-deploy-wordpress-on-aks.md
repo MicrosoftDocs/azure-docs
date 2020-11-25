@@ -62,7 +62,7 @@ az aks create --resource-group wordpress-project --name wordpresscluster--node-c
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
 > [!NOTE]
-> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
