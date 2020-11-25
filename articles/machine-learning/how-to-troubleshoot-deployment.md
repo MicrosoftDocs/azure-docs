@@ -23,9 +23,6 @@ Learn how to troubleshoot and solve, or work around, common Docker deployment er
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* To debug locally, you must have a working Docker installation on your local system.
-
-    To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 
 ## Steps for Docker deployment of machine learning models
 
@@ -71,7 +68,11 @@ print(service.get_logs())
 ```
 
 ---
- 
+
+## Debug locally
+
+If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](./how-to-troubleshoot-deployment-local.md).
+
 ## Container cannot be scheduled
 
 When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
@@ -82,7 +83,7 @@ The error message will typically indicate which resource you need more of - for 
 
 After the image is successfully built, the system attempts to start a container using your deployment configuration. As part of container starting-up process, the `init()` function in your scoring script is invoked by the system. If there are uncaught exceptions in the `init()` function, you might see **CrashLoopBackOff** error in the error message.
 
-Use the info in the [Inspect the Docker log](#dockerlog) section to check the logs.
+Use the info in the [Inspect the Docker log](how-to-troubleshoot-deployment-local.md#dockerlog) article.
 
 ## Function fails: get_model_path()
 
