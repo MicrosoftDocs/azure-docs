@@ -37,11 +37,14 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 - **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 - **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 - **Quality improvements** - Extraction improvements including single digit extraction improvements.
-- **New try-it-out feature in the Form Recognizer Sample Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
+- **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
   > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
 
   ![FOTT example](./media/ui-preview.jpg)
+  
+- **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adujst the lables if necessary and train to improve the model.
+- **Auto Label Documets** - Automitcally labels additional documents based on previous labeld documents in the project. 
 
 ## August 2020
 
