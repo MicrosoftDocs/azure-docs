@@ -42,13 +42,6 @@ There are two ways within Synapse to use Spark:
 * **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
 * **Spark job definitions** for running batch Spark jobs using jar files.
 
-Version support:
-* Spark 2.4
-* Python 3.6.1
-* Scala 2.11.12
-* .NET for Apache Spark 1.0
-* Delta Lake 0.3.  
-
 ## Pipelines
 
 Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
