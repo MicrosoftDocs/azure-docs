@@ -2,6 +2,8 @@
 title: 'Quickstart: Deploy WordPress on AKS cluster with MySQL Flexible Server by using Azure CLI'
 description: Learn how to quickly build and deploy WordPress  on AKS with Azure Database for MySQL - Flexible Server.
 services: mysql
+author: mksuni
+ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
