@@ -125,3 +125,4 @@ Learn more about deployment:
 * [How to troubleshoot remote deployments](how-to-troubleshoot-deployment.md)
 * [How to deploy and where](how-to-deploy-and-where.md)
 * [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
+* [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)
