@@ -1,5 +1,5 @@
 ---
-title: Metrics Monitor REST API quickstart
+title: Metrics Advisor REST API quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
