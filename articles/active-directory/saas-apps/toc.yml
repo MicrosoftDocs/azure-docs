@@ -1244,8 +1244,6 @@
         href: panorama9-tutorial.md
       - name: Panorays
         href: panorays-tutorial.md
-      - name: Parsable
-        href: parsable-provisioning-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md        
       - name: PatentSQUARE
@@ -2083,6 +2081,8 @@
         href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: Parsable
+        href: parsable-provisioning-tutorial.md        
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Playvox
