@@ -19,6 +19,9 @@ ms.date: 03/12/2019
 
 This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
+> [!NOTE] 
+> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](../../key-vault/managed-hsm/index.yml).
+
 ## Prerequisites for PowerShell
 
 - You must have an Azure subscription and be an administrator on that subscription.
@@ -32,6 +35,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
   - No expiration date
   - Not disabled
   - Able to perform *get*, *wrap key*, *unwrap key* operations
+- **(In Preview)** To use a Managed HSM key, follow instructions to [create and activate a Managed HSM using Azure CLI](../../key-vault/managed-hsm/quick-create-cli.md)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -65,6 +69,8 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+For adding permissions to your server on a Managed HSM, add the 'Managed HSM Crypto Service Encryption' local RBAC role to the server. This will enable the server to perform get, wrap key, unwrap key operations on the keys in the Managed HSM.
+[Instructions for provisioning server access on Managed HSM](../../key-vault/managed-hsm/role-management.md)
 
 ## Add the Key Vault key to the server and set the TDE Protector
 
@@ -74,10 +80,15 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
 - Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
 
 > [!NOTE]
+> **(In Preview)** For Managed HSM keys, use Az.Sql 2.11.1 version of PowerShell.
+
+> [!NOTE]
 > The combined length for the key vault name and key name cannot exceed 94 characters.
 
 > [!TIP]
-> An example KeyId from Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> An example KeyId from Key Vault:<br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> An example KeyId from Managed HSM:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server

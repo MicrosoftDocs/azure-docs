@@ -71,18 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-
-    | Sign-on URL |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. Click **Save**.
+1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the Save button.
 
 1. Your Panorays application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname**. Panorays application expects **Unique User Identifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -130,9 +119,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to Panorays Sign on URL where you can initiate the login flow.  
-
-1. Go to Panorays Sign-on URL directly and initiate the login flow from there.
+Go to [Panorays Sign-on URL](https://www.panoraysapp.com) directly and initiate the login flow from there.
 
 #### IDP initiated:
 
