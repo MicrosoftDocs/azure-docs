@@ -51,8 +51,9 @@ Version support:
 
 ## Pipelines
 
-* **Data Integration** - Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.
-* **Data Flow** - Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion.
+Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
+
+* **Data Flows** provide a no-codine experience for doing data transformation that uses Synapse Spark under-the-covers.
 * **Pipeline** - Logical grouping of activities that perform a task together.
 * **Activity** - Defines actions to perform on data such as copying data, running a Notebook or a SQL script.
 * **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
