@@ -63,7 +63,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 ## Set up Postman collection and authorization
 
 Next, set up Postman to make API requests.
-These steps happens in your local Postman application, so go ahead and open the Postman application on your computer.
+These steps happen in your local Postman application, so go ahead and open the Postman application on your computer.
 
 ### Create a Postman collection
 
@@ -71,7 +71,7 @@ Requests in Postman are saved in **collections** (groups of requests). When you 
 
 1. To create a collection, hit the *+ New Collection* button.
 
-    :::image type="content" source="media/how-to-use-postman/postman-new-collection.png" alt-text="View of a newly-opened Postman window. The 'New Collection' button is highlighted":::
+    :::image type="content" source="media/how-to-use-postman/postman-new-collection.png" alt-text="View of a newly opened Postman window. The 'New Collection' button is highlighted":::
 
 1. In the *CREATE A NEW COLLECTION* window that follows, provide a **Name** and optional **Description** for your collection.
 
@@ -91,7 +91,7 @@ Next, continue on to the next section to add a bearer token to the collection fo
 
 Your new collection can now be seen from your main Postman view, under *Collections*.
 
-:::image type="content" source="media/how-to-use-postman/postman-post-collection.png" alt-text="View of the main Postman window. The newly-created collection is highlighted in the 'Collections' tab.":::
+:::image type="content" source="media/how-to-use-postman/postman-post-collection.png" alt-text="View of the main Postman window. The newly created collection is highlighted in the 'Collections' tab.":::
 
 ## Create a request
 
@@ -105,7 +105,7 @@ After completing the previous steps, you can create requests to the Azure Digita
 
     :::image type="content" source="media/how-to-use-postman/postman-new-request-2.png" alt-text="View of the options you can select to create something new. The 'Request' option is highlighted":::
 
-1. This opens the *Save request* window, where you can enter a name for your request, give it an optional description, and choose the collection that it's a part of. Fill in the details and save the request to the collection you created earlier.
+1. This action opens the *Save request* window, where you can enter a name for your request, give it an optional description, and choose the collection that it's a part of. Fill in the details and save the request to the collection you created earlier.
 
     :::row:::
         :::column:::
@@ -130,10 +130,10 @@ To proceed with an example query, this article will use the Query API (and its [
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="In the details of the new request, the query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
     
-1. Check that the parameters shown for the request in the *Params* tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was auto-filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
+1. Check that the parameters shown for the request in the *Params* tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was automatically filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
 1. In the *Authorization* tab, set the *Type* to *Inherit auth from parent*. This indicates that this request will use the authentication you set up earlier for the entire collection.
-1. Check that the headers shown for the request in the *Headers* tab match those described in the reference documentation. For this request, several headers have been auto-filled. For the Query API, none of the header options are required, so this step is done.
-1. Check that the body shown for the request in the *Body* tab match the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
+1. Check that the headers shown for the request in the *Headers* tab match those described in the reference documentation. For this request, several headers have been automatically filled. For the Query API, none of the header options are required, so this step is done.
+1. Check that the body shown for the request in the *Body* tab matches the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
    :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'."lightbox="media/how-to-use-postman/postman-request-body.png":::
 
@@ -151,6 +151,4 @@ You can also compare the response to the expected response data given in the ref
 
 ## Next steps
 
-To learn more about the Digital Twins APIs, read [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
-
-To view the reference documentation for the REST APIs, go [here](/rest/api/azure-digitaltwins/).
+To learn more about the Digital Twins APIs, read [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md), or view the [reference documentation for the REST APIs](/rest/api/azure-digitaltwins/).
