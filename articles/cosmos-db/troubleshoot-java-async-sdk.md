@@ -177,9 +177,9 @@ This modification solves the problem. You won't get a `io.netty.handler.timeout.
 ### Request rate too large
 This failure is a server-side failure. It indicates that you consumed your provisioned throughput. Retry later. If you get this failure often, consider an increase in the collection throughput.
 
-### Failure connecting to Azure Cosmos DB emulator
+### Failure connecting to Azure Cosmos DB Emulator
 
-The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB emulator certificates](local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](local-emulator-export-ssl-certificates.md).
 
 ### Dependency Conflict Issues
 

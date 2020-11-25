@@ -125,7 +125,7 @@ To set the Azure AD administrator:
     ![select admin](./media/secure-database-tutorial/admin-select.png)
 
     > [!IMPORTANT]
-    > Role-based access control (RBAC) only applies to the portal and isn't propagated to SQL Server.
+    > Azure role-based access control (Azure RBAC) only applies to the portal and isn't propagated to SQL Server.
 
 1. At the top of the **Active Directory admin** page, select **Save**.
 
