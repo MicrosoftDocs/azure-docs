@@ -341,7 +341,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-## Remove role assignment
+## Remove a role assignment
 
 In Azure RBAC, to remove access, you remove a role assignment by using [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 

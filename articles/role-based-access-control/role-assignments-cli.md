@@ -325,7 +325,7 @@ az role assignment create --assignee "alain@example.com" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-## Remove role assignment
+## Remove a role assignment
 
 In Azure RBAC, to remove access, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete).
 
