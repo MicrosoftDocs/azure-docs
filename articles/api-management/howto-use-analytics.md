@@ -5,12 +5,12 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.author: apimpm
 ---
 # Get API analytics in Azure API Management
 
-Azure API Management provides built-in analytics for your APIs, so you can review API usage in your API Management instance across several dimensions, including:
+Azure API Management provides built-in analytics for your APIs. Analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 
 * Time
 * Geography
