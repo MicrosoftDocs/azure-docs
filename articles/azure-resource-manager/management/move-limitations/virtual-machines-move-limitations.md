@@ -36,9 +36,9 @@ Virtual machines created from Marketplace resources with plans attached can't be
 
 1. Copy information about the plan.
 
-1. Either clone the OS disk to the destination subscription, or move the original disk after deleting the VM from source subscription.
+1. Either clone the OS disk to the destination subscription, or move the original disk after deleting the virtual machine from source subscription.
 
-1. In the destination subscription, accept the marketplace terms for your plan. You can accept the terms by running the following PowerShell command:
+1. In the destination subscription, accept the Marketplace terms for your plan. You can accept the terms by running the following PowerShell command:
 
    ```azurepowershell
    Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
