@@ -528,30 +528,30 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 ```
 
-#### Sample 2: Retrieving public IP address
+#### Sample 2: Retrieve public IP address
 
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
-## Storage Metadata
+## Storage metadata
 
-Storage metadata is part of the instance API under instance/compute/storageProfile endpoint.
+Storage metadata is part of the instance API, under `instance/compute/storageProfile` endpoint.
 It provides details about the storage disks associated with the VM. 
 
-The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks.
+The storage profile of a VM is divided into three categories: image reference, operating system disk, and data disks.
 
-The image reference object contains the following information about the OS image:
+The image reference object contains the following information about the operating system image:
 
 Data    | Description
 --------|-----------------
 id      | Resource ID
-offer   | Offer of the platform or marketplace image
+offer   | Offer of the platform or image
 publisher | Image publisher
 sku     | Image sku
-version | Version of the platform or marketplace image
+version | Version of the platform or image
 
-The OS disk object contains the following information about the OS disk used by the VM:
+The operating system disk object contains the following information about the operating system disk used by the VM:
 
 Data    | Description
 --------|-----------------
@@ -564,7 +564,7 @@ lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
 vhd     | Virtual hard disk
-writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
+writeAcceleratorEnabled | Whether or not `writeAccelerator` is enabled on the disk
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following information:
 
@@ -578,9 +578,9 @@ encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
 managedDisk | Managed disk parameters
 name    | Disk name
-osType  | Type of OS included in the disk
+osType  | Type of operating system included in the disk
 vhd     | Virtual hard disk
-writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
+writeAcceleratorEnabled | Whether or not `writeAccelerator` is enabled on the disk
 
 The following example shows how to query the VM's storage information.
 
@@ -651,10 +651,10 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-## VM Tags
+## VM tags
 
-VM tags are included the instance API under instance/compute/tags endpoint.
-Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+VM tags are included the instance API, under the `instance/compute/tags` endpoint.
+Tags might have been applied to your Azure VM to logically organize them into a taxonomy. You can retrieve the tags assigned to a VM by using the following request.
 
 **Request**
 
@@ -668,7 +668,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently, easier to parse.
+The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently it's easier to parse.
 
 **Request**
 
@@ -695,11 +695,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ]
 ```
 
-## Attested Data
+## Attested data
 
-Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
+IMDS helps to provide guarantees that the data provided is coming from Azure. Microsoft signs part of this information, so you can confirm that an image in Azure Marketplace is the one you are running on Azure.
 
-### Sample 1: Getting attested Data
+### Sample 1: Get attested data
 
 > [!NOTE]
 > All API responses are JSON strings. The following example responses are pretty-printed for readability.
@@ -710,16 +710,13 @@ Part of the scenario served by Instance Metadata Service is to provide guarantee
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 ```
 
-Api-version is a mandatory field. Refer to the [usage section](#usage) for supported API versions.
-Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place.
+`Api-version` is a mandatory field. Refer to the [usage section](#usage) for supported API versions.
+`Nonce` is an optional, 10-digit string. If it's not provided, IMDS returns the current UTC timestamp in its place.
 
 > [!NOTE]
-> Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+> Due to IMDS's caching mechanism, a previously cached `nonce` value might be returned.
 
 **Response**
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```json
 {
@@ -727,29 +724,27 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 }
 ```
 
-The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of the document. It contains the certificate used for signing, along with certain VM-specific details. For VMs created by using Azure Resource Manager, this includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images. For VMs created by using the classic deployment model, only `vmId` is guaranteed to be populated. You can extract the certificate from the response, and use it to confirm that the response is valid and is coming from Azure.
+
 The document contains the following fields:
 
-Data | Description | Version Introduced
+Data | Description | Version introduced
 -----|-------------|-----------------------
-licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
-nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used | 2018-10-01
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs. | 2020-09-01
+nonce | A string that can be optionally provided with the request. If no `nonce` was supplied, the current Coordinated Universal Time timestamp is used. | 2018-10-01
 plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
-timestamp/createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
-timestamp/expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
-vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
-subscriptionId | Azure subscription for the Virtual Machine | 2019-04-30
-sku | Specific SKU for the VM image | 2019-11-01
+timestamp/createdOn | The Coordinated Universal Time timestamp for when the signed document was created. | 2018-20-01
+timestamp/expiresOn | The Coordinated Universal Time timestamp for when the signed document expires. | 2018-10-01
+vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM. | 2018-10-01
+subscriptionId | The Azure subscription for the VM. | 2019-04-30
+sku | The specific SKU for the VM image. | 2019-11-01
+
+### Sample 2: Validate that the VM is running in Azure
+
+Vendors in Azure Marketplace want to ensure that their software is licensed to run only in Azure. If someone copies the VHD to an on-premises environment, the vendor needs to be able to detect that. Through IMDS, these vendors can get signed data that guarantees response only from Azure.
 
 > [!NOTE]
-> For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
-
-### Sample 2: Validating that the VM is running in Azure
-
-Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
-
-> [!NOTE]
-> Requires jq to be installed.
+> This sample requires the jq utility to be installed.
 
 **Request**
 
@@ -793,7 +788,7 @@ Verification successful
 }
 ```
 
-Verify that the signature is from Microsoft Azure and check the certificate chain for errors.
+Verify that the signature is from Microsoft Azure, and check the certificate chain for errors.
 
 ```bash
 # Verify the subject name for the main certificate
