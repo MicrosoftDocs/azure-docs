@@ -176,7 +176,7 @@ Authentication with the analytical store is the same as the transactional store 
 
 The analytical store is optimized to provide scalability, elasticity, and performance for analytical workloads without any dependency on the compute run-times. The storage technology is self-managed to optimize your analytics workloads without manual efforts.
 
-By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and SQL serverless with Azure Cosmos DB analytical store.
+By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and serverless SQL pool with Azure Cosmos DB analytical store.
 
 > [!NOTE]
 > You can only read from analytical store using Azure Synapse Analytics run time. You can write the data back to your transactional store as a serving layer.
@@ -189,7 +189,7 @@ Analytical store follows a consumption-based pricing model where you are charged
 
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (auto-sync)
 
-* Analytical read operations: the read operations performed against the analytical store from Azure Synapse Analytics Spark and SQL serverless run times.
+* Analytical read operations: the read operations performed against the analytical store from Azure Synapse Analytics Spark pool and serverless SQL pool run times.
 
 > [!NOTE]
 > Azure Cosmos DB analytical store is currently available in public preview free of any charges.
