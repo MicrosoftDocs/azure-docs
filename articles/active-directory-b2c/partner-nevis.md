@@ -13,47 +13,47 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial to configure Nevis Authentication Cloud with Azure Active Directory B2C for passwordless authentication 
+# Tutorial to configure Nevis with Azure Active Directory B2C for passwordless authentication
 
-In this sample tutorial, learn how to extend Azure AD B2C with the [Nevis Authentication Cloud](https://www.nevis.net/solution/authentication-cloud) to enable passwordless authentication. The Nevis Authentication Cloud provides a mobile-first, fully branded and secure authentication experience for the end users with Azure AD B2C. It uses the white-label Nevis Access app to provide strong customer authentication and comply with Payment Services Directive 2 (PDS2) transaction requirements.
+In this sample tutorial, learn how to extend Azure AD B2C with  [Nevis](https://www.nevis.net/solution/authentication-cloud) to enable passwordless authentication. Nevis provides a mobile-first, fully branded end-user experience with Nevis Access app to provide strong customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements.
 
 ## Prerequisites
 
 To get started, you'll need:
 
-- A Nevis Authentication Cloud [trial account](https://www.nevis-security.com/aadb2c/)
+- A Nevis [trial account](https://www.nevis-security.com/aadb2c/)
 
 - An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
 - An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
 
-- Configured Azure AD B2C environment for using [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), if you wish to integrate Nevis Authentication Cloud into your sign-up policy flow.
+- Configured Azure AD B2C environment for using [custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), if you wish to integrate Nevis into your sign-up policy flow.
 
 ## Scenario description
 
 In this scenario, add fully branded access app to your back-end application for passwordless authentication. The following components make up the solution:
 
 - An Azure AD B2C tenant, with a combined sign-in and sign-up policy to your back-end
-- Nevis Authentication Cloud instance and its REST API to enhance Azure AD B2C
+- Nevis instance and its REST API to enhance Azure AD B2C
 - Your own branded access app
 
-The below diagram shows the implementation.
+The diagram shows the implementation.
 
-![High-level password sign-in flow with Azure AD B2C and Nevis Authentication Cloud](./media/partner-nevis/nevis-architecture-diagram.png)
+![High-level password sign-in flow with Azure AD B2C and Nevis](./media/partner-nevis/nevis-architecture-diagram.png)
 
 |Step | Description |
 |:-----| :-----------|
-| 1. | A user attempts to sign in to or sign up to an application via Azure AD B2C sign-in and sign-up policy.
-| 2. | During sign-up, the Nevis Access App is registered to the user device using a QR code. A private key is generated on the user device and is used to sign in the user requests.
-| 3. |  Azure AD B2C uses a RESTful technical profile to start the login with the Nevis Authentication Cloud.
+| 1. | A user attempts to sign in or sign up to an application via Azure AD B2C sign-in and sign-up policy.
+| 2. | During sign-up, the Nevis Access App is registered to the user device using a QR code. A private key is generated on the user device and is used to sign the user requests.
+| 3. |  Azure AD B2C uses a RESTful technical profile to start the login with the Nevis solution.
 | 4. | The login request is sent to the access app, either as a push message, QR code or as a deep-link.
-| 5. | The user approves the sign-in attempt with their biometrics. A message is then returned to the Authentication Cloud, which verifies the login with the stored public key.
-| 6. | Azure AD B2C sends one last request to the Authentication Cloud to confirm that the login was successfully completed.
+| 5. | The user approves the sign-in attempt with their biometrics. A message is then returned to Nevis, which verifies the login with the stored public key.
+| 6. | Azure AD B2C sends one last request to Nevis to confirm that the login was successfully completed.
 | 7. |Based on the success/failure message from Azure AD B2C user is granted/denied access to the application.
 
 ## Integrate your Azure AD B2C tenant
 
-### Onboard to Nevis Authentication Cloud 
+### Onboard to Nevis 
 
 [Sign up for a Nevis account](https://www.nevis-security.com/aadb2c/).
 You'll receive two emails:
@@ -64,11 +64,11 @@ You'll receive two emails:
 
 ### Add your Azure AD B2C tenant to your Nevis account
 
-1. From the Nevis management account trial email, copy your Authentication Cloud Management Key to your clipboard.
+1. From the Nevis management account trial email, copy your management key to your clipboard.
 
 2. Open https://console.nevis.cloud/ in a browser.
 
-3. Sign in to the Authentication Cloud Management Console with your key.
+3. Sign in to the management console with your key.
 
 4. Select **Add Instance**
 
@@ -97,9 +97,7 @@ You'll receive two emails:
 
 3. Follow the instructions given to install the Nevis Access app.
 
-### Integrate Azure AD B2C with Nevis Authentication Cloud
-
-Connect Azure to the Nevis Authentication Cloud
+### Integrate Azure AD B2C with Nevis
 
 1. Open the [Azure Portal](https://portal.azure.com/).
 
@@ -127,7 +125,7 @@ Connect Azure to the Nevis Authentication Cloud
 
 2. Open the  [**nevis.html**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/nevis.html) file.
 
-3. Replace the  **authentication\_cloud\_url** with the URL of your Nevis Admin console - `https://<instance\_id>.mauth.nevis.cloud`.
+3. Replace the  **authentication_cloud_url** with the URL of your Nevis Admin console - `https://<instance_id>.mauth.nevis.cloud`.
 
 4. **Save** the changes to the file.
 
@@ -140,8 +138,9 @@ Connect Azure to the Nevis Authentication Cloud
 8. In the **Overview** tab, next to the **URL**, select the **copy link** icon.
 
 9. Open the link in a new browser tab to make sure it displays a grey box.
+
 >[!NOTE]
->You'll need the blob link later. 
+>You'll need the blob link later.
 
 ### Customize your TrustFrameworkBase.xml
 
@@ -153,7 +152,7 @@ Connect Azure to the Nevis Authentication Cloud
 
 4. Replace **yourtenant** with your Azure tenant account name in **PublicPolicyURI**.
 
-5. Replace all **authentication\_cloud\_url** instances with the URL of your Nevis Admin console 
+5. Replace all **authentication_cloud_url** instances with the URL of your Nevis Admin console
 
 6. **Save** the changes to your file.
 
@@ -212,7 +211,7 @@ Connect Azure to the Nevis Authentication Cloud
 
 2. Select **Identity Experience Framework**.
 
-3. Scroll down to Custom policies and select **B2C\_1A\_signup\_signin**.
+3. Scroll down to Custom policies and select **B2C_1A_signup_signin**.
 
 4. Select **Run now**.
 
@@ -244,7 +243,7 @@ Connect Azure to the Nevis Authentication Cloud
 
 ### Test the pure passwordless sign-in
 
-1. Under **Identity Experience Framework**, select the **B2C\_1A\_signup\_signin**.
+1. Under **Identity Experience Framework**, select the **B2C_1A_signup_signin**.
 
 2. Select **Run now**.
 
@@ -260,11 +259,9 @@ Connect Azure to the Nevis Authentication Cloud
 
 8. You'll be automatically taken to the [jwt.ms](https://jwt.ms) landing page that displays your tokens.
 
-## Additional information
+## Next steps
 
 For additional information, review the following articles
-
-- [Create a biometrically secured mobile-first sign-in page](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/Signin.xml)
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 
