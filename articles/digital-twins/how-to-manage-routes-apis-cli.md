@@ -91,26 +91,36 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
+To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-route-events.md#dead-letter-events).
+
+#### Set up storage resources
+
+Before setting the dead-letter location, you must have a [storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) with a [container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) set up in your Azure account. You'll provide the URL for this container when creating the endpoint later.
+The dead-letter is provided as a container URL with a [SAS token](/azure/storage/common/storage-sas-overview). That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
+`https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Follow the steps below to set up these storage resources in your Azure account, to prepare to set up the endpoint connection in the next section.
+
 In order to create an endpoint with dead-lettering enabled, you must have:
 - Storage account
     - Follow [this article](/azure/storage/common/storage-account-create?tabs=azure-portal) to create a storage account and save the storage account name to use it later.
 - Container
-    - Create a container using [this article](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and save the container name to use it in the deadLetterSecret.
+    - Create a container using [this article](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and save the container name to use it later, when setting up the connection between the container and the endpoint.
 - SAS token
-    - In the storage account page, choose *Shared access signature* link in the left navigation bar to select the right permissions to generate SAS token.
-    - For _Allowed services_ and _Allowed resource types_, select the checkboxes as you wish, and for _Allowed permissions_, choose _Write_.
-    - Then, select _Generate SAS and connection string_ button to generate the SAS token. Copy the _SAS token_ using _copy to clipboard_ and save it.
+    - Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
+    - In the storage account page, choose _Shared access signature_ link in the left navigation bar to select the right permissions to generate SAS token.
+    - For _Allowed services_ and _Allowed resource types_, select the settings that you'd like. You'll need to select at least one box in each category. For Allowed permissions, choose **Write** (you can also select other permissions if you want).
+    - Set the remaining settings however you'd like.
+    - Then, select the _Generate SAS and connection string_ button to generate the SAS token. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values and use the copy to clipboard icon to copy the **SAS token** value. Save it to use later.
 
-You can now create a deadLetterSecret using all the above values replacing the placeholders in the format `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` to configure the endpoint.
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Storage account page in the Azure portal showing all the setting selection to generate a SAS token." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
 
-#### Configuring the endpoint
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copy SAS token to use in the dead-letter secret." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
 
-Dead-letter endpoints are created using [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate). In this page, select _Try It_ to send API request. In the API request page, fill in the fields as mentioned below.
+#### Configure the endpoint
 
-  - Choose a name for your endpoint in the _endpointName_ field.
-  - Enter your _resourceGroupName_, _resourceName_, and select your subscription.
-  - Add the below Json code to the _Body_ of the API request, replacing the placeholders in the deadLetterSecret and select _Run_ to see the response code '201'.
-    
+Dead-letter endpoints are created using ARM APIs. When creating an endpoint, use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) documentation to fill the required request parameters. Also, add the deadLetterSecret to the properties object in the **body** of the request, which contains a container URL and SAS token for your storage account.
+      
 ```json
 {
   "properties": {
@@ -122,13 +132,7 @@ Dead-letter endpoints are created using [ARM APIs](/rest/api/digital-twins/contr
   }
 }
 ```
-Verify that the deadLetterEndpoint is successfully created in the body of the response.
-
-To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
-
-To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-route-events.md#dead-letter-events).
-
-For more information, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+For more information on structuring this request, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### Message storage schema
 
