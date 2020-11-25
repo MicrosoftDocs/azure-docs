@@ -5,9 +5,11 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 10/28/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure
 ---
+
+#
 
 ## User roles and permissions
 
@@ -21,4 +23,4 @@ User permissions are designed to facilitate granular security roles within your 
 
 - **Administrator** – The administrator has all the permissions of the RO and the security analyst and can also manage the system configuration, create, and delete users and create notifications. Administrators can see the **Navigation, Analysis**, and **Administration** sections.
 
-See [Manage Users](./manage-users.md) for details about creating users and permission assignments.
+See [Create and manage users](how-to-create-and-manage-users.md) for details about creating users and permission assignments.

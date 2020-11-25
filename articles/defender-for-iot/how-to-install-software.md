@@ -4,7 +4,7 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/22/2020
+ms.date: 11/24/2020
 ms.topic: article
 ms.service: azure
 ms.topic: how-to
@@ -185,7 +185,7 @@ This article describes the requirements for installing the Dell PowerEdge R340XL
 
 ### Dell PowerEdge R340 front panel
 
-![This image shows the front view of the 4 x 3.5-inch drive configuration.](media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg)
+:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Dell PowerEdge R340 front panel":::
 
  1. Left control panel 
  2. Optical drive (optional) 
@@ -195,8 +195,7 @@ This article describes the requirements for installing the Dell PowerEdge R340XL
 
 ### Dell PowerEdge R340 back panel
 
-![This image shows the rear view of the system.](media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg)
-
+:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Dell PowerEdge R340 back panel":::
 
 1. Serial port 
 2. NIC port (Gb 1) 
@@ -209,8 +208,7 @@ This article describes the requirements for installing the Dell PowerEdge R340XL
 9. System status indicator cable port (CMA) button 
 10. USB 3.0 port (2) 
 11. iDRAC9 dedicated network port 
-12. VGA port |  |       
-
+12. VGA port 
 ### Dell BIOS configuration
 
 Dell BIOS configuration is required to adjust the Dell appliance to work with the software.
@@ -250,7 +248,7 @@ To configure Dell BIOS:
 
 6. Change the static subnet mask to 255.255.255.0.
 
-   ![Static Subnet Mask](media/tutorial-install-components/idrac-network-settings-screen.png)
+   :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen.png" alt-text="Static subnet mask":::
 
 7. Select **Back** and **Finish**.
 
@@ -260,7 +258,7 @@ This article describes how to configure the BIOS using the configuration file.
 
 1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to **iDRAC** port.
 
-   ![preconfigured IP address](media/tutorial-install-components/image8.png)
+   :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="preconfigured IP address port":::
 
 2. Open a browser and type **10.100.100.250** to connect to iDRAC web interface.
 
@@ -285,7 +283,7 @@ This article describes how to configure the BIOS using the configuration file.
 
 5. Go to **Configuration** > **Server Configuration Profile**. And set the following parameters:
 
-   ![Configuration](media/tutorial-install-components/image9.png)
+   :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Configure your server profile":::
 
    | Parameter | Configuration |
    |--|--|
@@ -298,7 +296,7 @@ This article describes how to configure the BIOS using the configuration file.
 
 7. To monitor the process, go to **Maintenance** > **Job Queue**:
 
-   ![Job Queue](media/tutorial-install-components/image10.png)
+   :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Job queue":::
 
 #### Manually configuring BIOS 
 
@@ -365,15 +363,11 @@ To install:
 
 2. In the **Map CD/DVD** section, select **Choose File**.
 
-   ![Choose File](media/tutorial-install-components/image26.png)
-
 3. Choose the version ISO image file for this version from the dialog box that opens.
-
-   ![the version ISO image](media/tutorial-install-components/image27.png)
 
 4. Select the **Map Device** button.
 
-   ![Map Device](media/tutorial-install-components/image28.png)
+   :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen.png" alt-text="Mapped device":::
 
 5. The media is mounted. Select **Close**.
 
@@ -381,13 +375,13 @@ To install:
 
 7. Select **English**.
 
-8. Select `SENSOR-RELEASE-\<version\> Enterprise…`
+8. Select **SENSOR-RELEASE-\<version\> Enterprise…**
 
-   ![version](media/tutorial-install-components/image30.png)
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Version select":::   
 
 9. Define the appliance profile and network properties:
 
-   ![appliance profile](media/tutorial-install-components/image31.png)
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen.png" alt-text="appliance profile":::   
 
    | Parameter | Configuration |
    |--|--|
@@ -424,10 +418,11 @@ This article describes the HPE ProLiant DL20 installation process, which include
 
 ### HPE ProLiant DL20 front panel
 
-![HPE ProLiant DL20 Front Panel](media/tutorial-install-components/image33.png)
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel.png" alt-text="HPE Proliant DL20 front panel":::
 
 ### HPE ProLiant DL20 back panel
 
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel.png" alt-text="HPE Proliant DL20 back panel":::
 ![HPE ProLiant DL20 back panel](media/tutorial-install-components/image34.png)
 
 ### Enable remote access and update password
@@ -438,11 +433,11 @@ This article describes how to set up network options and update the default pass
 
 1. Connect a screen and a keyboard to the HP appliance and power the appliance and Press **F9**.
 
-    ![Screenshot of HPE ProLiant window](media/tutorial-install-components/image35.png)
+    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen.png" alt-text="HPE ProLiant window":::
 
 2. Go to **System Utilities >** **System Configuration > iLO 5 Configuration Utility > Network Options**.
 
-    ![Screenshot of System Configuration window](media/tutorial-install-components/image36.png)
+    :::image type="content" source="media/tutorial-install-components/system-configuration-window.png" alt-text="System configuration window":::
 
     1.  Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
     
@@ -502,10 +497,9 @@ This article describes how to configure the HPE BIOS for the Enterprise and SMB 
 
 11. The Booting in Legacy and Boot override windows appear. Choose a boot override option, for example to a CD-ROM, USB, HDD, or UEFI Shell.
 
-    ![Boot override windows 1](media/tutorial-install-components/image52.png)
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-one.png" alt-text="The boot override window screen number one":::
 
-    ![Boot override windows 2](media/tutorial-install-components/image53.png)
-
+    :::image type="content" source="media/tutorial-install-components/boot-override-window-two.png" alt-text="The boot override window screen number two":::
 ### Software installation (HPE ProLiant DL20 appliance)
 
 The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
@@ -520,15 +514,15 @@ The installation process takes approximately 20 minutes. After the installation,
 
 4. Select **English**.
 
-    ![CLI window](media/tutorial-install-components/image54.png)
+    :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="CLI window select english":::
 
 5. Select **SENSOR -RELEASE**-<version> Enterprise.
 
-    ![SENSOR -RELEASE Enterprise](media/tutorial-install-components/image30.png)
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Select version screen":::
 
 6. In the installation Wizard, define the appliance profile and network properties:
 
-    ![Installation Wizard](media/tutorial-install-components/image55.png)
+    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Installation wizard":::
 
     | Parameter | Configuration |
     | ----------| ------------- |
@@ -553,11 +547,11 @@ The installation process takes approximately 20 minutes. After the installation,
 
 ### HPE ProLiant DL360 front panel
 
-![HPE ProLiant DL360 front panel](media/tutorial-install-components/image56.png)
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="HPE ProLiant DL360 front panel":::
 
 ### HPE ProLiant DL360 back panel
 
-![HPE ProLiant DL360 back panel](media/tutorial-install-components/image57.png)
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="HPE Proliant DL360 back panel":::
 
 ### Enable remote access and update password
 
@@ -608,11 +602,11 @@ The installation process takes approximately 20 minutes. After the installation,
 
 5. Select **SENSOR-RELEASE**-<version> Enterprise.
 
-    ![SENSOR-RELEASE Enterprise](media/tutorial-install-components/image30.png)
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen.png" alt-text="Select version screen":::
 
 6. In the installation Wizard, define the appliance profile and network properties:
 
-    ![Installation Wizard](media/tutorial-install-components/image55.png)
+    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen.png" alt-text="Installation wizard":::
 
     | Parameter | Configuration |
     | ----------| ------------- |
@@ -757,7 +751,7 @@ This article describes the ESXi and Hyper-V software installation.
 
 8. Access the management console via the IP address previously configured `https://ip_address`
 
-    ![Access the management console](media/tutorial-install-components/image91.png)
+    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Access to management console":::
 
 ## Virtual appliance - on-premises management console installation
 
@@ -910,7 +904,7 @@ Booting the virtual machine will start the installation process from the ISO ima
 
 6. Access the management console via the IP address previously configured <https://ip_address>
 
-    ![Microsoft](media/tutorial-install-components/image97.png)
+    :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Management console sign in screen":::
 
 ## Post install validation
 
@@ -928,7 +922,7 @@ Post install validation must include the following tests:
 
 ### Checking system health using the GUI
 
-![System Health check](media/tutorial-install-components/image98.png)
+:::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="System Health check":::
 
 #### Sanity
 
@@ -975,7 +969,7 @@ Post install validation must include the following tests:
 
 2. Select **System Statistics** from the **System Settings** window.
 
-    ![System Statistics](media/tutorial-install-components/image99.png)
+    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
 ### Checking system health using the CLI
 
@@ -987,7 +981,7 @@ Post install validation must include the following tests:
 
 3. Check that all the services are green, up and running
 
-    ![support](media/tutorial-install-components/image100.png)
+    :::image type="content" source="media/tutorial-install-components/support-screen.png" alt-text="Support":::
 
 4. Verify that *System is UP! (prod)* is displayed at the bottom
 
@@ -1007,7 +1001,7 @@ Post install validation must include the following tests:
 
 3. Validate that the required input interfaces appear. For example, if two quad Copper NICs are installed, there should be 10 interfaces in the list.
 
-    ![cid:image010.png@01D5171A.069E64D0](media/tutorial-install-components/image101.png)
+    :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="List of interfaces screen":::
 
 **Test 4: Management access to UI – verify that you can access the Console Web GUI:**
 
@@ -1015,7 +1009,7 @@ Post install validation must include the following tests:
 
 2. Define the laptop NIC address to be in the same range as the appliance.
 
-    ![Management Access to UI](media/tutorial-install-components/image102.png)
+    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Management access to UI":::
 
 3. Ping to \<appliance IP> from the laptop to verify connectivity (default: 10.100.10.1).
 
@@ -1025,7 +1019,7 @@ Post install validation must include the following tests:
 
 6. The test is successful when the Defender for IoT sign-in screen appears.
 
-   ![Microsoft](media/tutorial-install-components/image91.png)
+   :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Access to management console":::
 
 ## Troubleshooting
 
@@ -1043,7 +1037,7 @@ Post install validation must include the following tests:
 
    - Use the command **network list** to see the current IP address.
 
-      ![network list](media/tutorial-install-components/image103.png)
+      :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Network list":::
 
 4. In case the network parameters are misconfigured, use the following procedure to change it:
 
@@ -1073,7 +1067,7 @@ Post install validation must include the following tests:
 
 3. Use the system sanity command and check that all processes are up and running.
 
-    ![system sanity](media/tutorial-install-components/image104.png)
+    :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="System sanity":::
 
 For any other issues, contact [support.microsoft.com](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
@@ -1116,7 +1110,7 @@ You can enhance system security by preventing user  directly to the sensor. Inst
 
 However, The user's experience when signing in to the sensor remains the same.
 
-![sensor](media/tutorial-install-components/image110.png)
+:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Sensor":::
 
 **To enable tunneling:**
 
@@ -1124,6 +1118,6 @@ However, The user's experience when signing in to the sensor remains the same.
 
 2. Type: `sudo cyberx-management-tunnel-enable`.
 
-3. Select enter.
+3. Select **Enter**.
 
 4. Type `--port 10000`.

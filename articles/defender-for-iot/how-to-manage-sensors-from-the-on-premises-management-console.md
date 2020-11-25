@@ -45,19 +45,19 @@ To apply system settings:
 
 2. In the Configure Sensors pane, select one of the sensor system setting options.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for your sensor":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for your sensor":::            
 
-The following example describes how to set up define Mail Server parameters for your enterprise sensors.
+   The following example describes how to set up define Mail Server parameters for your enterprise sensors.
 
 3. Select Mail Server.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Select your mail server from the system setting screen":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Select your mail server from the system setting screen":::
 
 4. Select a sensor on the left.
 
 5. Set the mail server parameters and select Duplicate. Each item in the Sensors tree appears with a checkbox next to it.
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/check-off-each-sensor.png" alt-text="Ensure the checkbox is selected for your sensors":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/check-off-each-sensor.png" alt-text="Ensure the checkbox is selected for your sensors":::
 
 6. In the Sensors tree, select the items to which you want to apply the configuration.
 
@@ -141,15 +141,13 @@ Sensors are protected by five Defender for IoT engines. You can enable or disabl
 
 1. In the console left pane, select System Settings. 
 
-2. In the Sensor Engine Configuration section, enable or disable engines for connected sensors. 		
- 	 	 
-IMAGE 1	 		
+2. In the Sensor Engine Configuration section, enable or disable engines for connected sensors. 		 		
  	 	 
 3. Select SAVE CHANGES. 
 
-    A red exclamation mark appears if there is a mismatch of enabled engines on one of your enterprise sensors. The engine may have been disabled directly form the sensor.
+   A red exclamation mark appears if there is a mismatch of enabled engines on one of your enterprise sensors. The engine may have been disabled directly form the sensor.
 
-Image 2
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/red-exclamation-example.png" alt-text="Mismatch of enabled engines "::: 
 
 ## Define sensor backup schedules 
 
@@ -159,9 +157,9 @@ You can schedule sensor backups and perform on-demand sensor backups from the On
 
 **What is not backed up**: PCAP files and logs. Backup and restore of PCAPs and logs can be done manually. 
 
-By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the On-premises management console, or an external backup server. Copying files from sensors to the On-premises management console is carried out over an encrypted channel. 
+By default, sensors are automatically backed up at 3:00 AM daily. The sensor Backup Schedule feature lets you collect these backups and store them up on the on-premises management console, or an external backup server. Copying files from sensors to the On-premises management console is carried out over an encrypted channel. 
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/Image X.png" alt-text="REPLACE THIS ALT TEXT":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-backup-schedule-screen.png" alt-text="The sensor backup screen":::
 
 When the default sensor backup location is changed, the on-premises management console automatically retrieves the files from the new location on the sensor or an external location - provided the on-premises management console has permission to access the location. 
 
@@ -189,7 +187,7 @@ The space available is calculated based on the management console model you are 
 
 The default allocation is displayed in the sensor Backup Schedule dialog box. 
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/Image XA.png" alt-text="REPLACE THIS ALT TEXT":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-mail-server-configuration.png" alt-text="The edit mail server configuration screen":::
 
 **External Server Storage (Custom Path)** 
 
@@ -243,9 +241,9 @@ Select Save.
 
 - Select Back up Now. The sensor backup files are created and collected by the On-premises management console. 
 
-### Receiving Backup Notifications for Sensors 
+### Receiving backup notifications for sensors 
 
-Information about backup successes and failures are automatically listed in the Sensor Backup Schedule dialog box and Backup log.  
+Information about backup successes and failures are automatically listed in the sensor backup schedule dialog box and backup log.  
 
 :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/Image XB.png" alt-text="REPLACE THIS ALT TEXT":::
 
