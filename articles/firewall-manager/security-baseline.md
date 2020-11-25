@@ -32,7 +32,7 @@ To see how Azure Firewall Manager completely maps to the Azure Security Benchmar
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Note: Azure AD supports external identity that allows users without a Microsoft account to sign in to their applications and resources with their external identity.
+Azure AD supports external identity that allows users without a Microsoft account to sign in to their applications and resources with their external identity.
 
 - [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md)
 
@@ -86,7 +86,7 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 These data sources can be integrated with Azure Monitor, Azure Sentinel or third-party SIEM systems.
 
-Note: Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
+Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription.
 
@@ -130,7 +130,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 - Global Administrator / Company Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
 - Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
-Note: You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.
+You may have other critical roles that need to be governed if you use custom roles with certain privileged permissions assigned. And you may also want to apply similar controls to the administrator account of critical business assets.
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
@@ -154,11 +154,11 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 - [Use Azure Firewall policy to define a rule hierarch](rule-hierarchy.md)
 
-Azure Components and Reference model /security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151
+- [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-Management Group Access ../governance/management-groups/overview.md#management-group-access
+- [Management Group Access](../governance/management-groups/overview.md#management-group-access)
 
-Azure subscription administrators ../cost-management-billing/manage/add-change-subscription-administrator.md
+- [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -170,7 +170,7 @@ Azure subscription administrators ../cost-management-billing/manage/add-change-s
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
-Note: Some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
+Some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
 
 - [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
@@ -292,7 +292,7 @@ Depending on how security team responsibilities are structured, monitoring for s
 
 Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-Note: Additional permissions might be required to get visibility into workloads and services. 
+Additional permissions might be required to get visibility into workloads and services. 
 
 - [Overview of Security Reader Role](../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -383,7 +383,7 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability gives you visibility on account anomalies inside the individual resources.
 
-Note: Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
+Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
 
 - [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md)
 
@@ -399,7 +399,7 @@ Note: Currently actions surrounding Firewall Policy rule collection groups are n
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Firewall Policy resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-Note: Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
+Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
