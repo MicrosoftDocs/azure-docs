@@ -35,15 +35,15 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 ### Supported Linux operating systems
 
-The Hybrid Runbook Worker feature supports the following distributions:
+The Hybrid Runbook Worker feature supports the following distributions. All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
-* Amazon Linux 2012.09 to 2015.09 (x64)
-* CentOS Linux 5, 6, and 7 (x64)
-* Oracle Linux 5, 6, and 7 (x64)
-* Red Hat Enterprise Linux Server 5, 6, and 7 (x64)
-* Debian GNU/Linux 6, 7, and 8 (x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* Amazon Linux 2012.09 to 2015.09
+* CentOS Linux 5, 6, and 7
+* Oracle Linux 5, 6, and 7
+* Red Hat Enterprise Linux Server 5, 6, and 7
+* Debian GNU/Linux 6, 7, and 8
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 LTS
+* SUSE Linux Enterprise Server 12
 
 ### Minimum requirements
 

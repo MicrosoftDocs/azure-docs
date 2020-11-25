@@ -20,6 +20,9 @@ In this article, you learn how to add, view, edit, and delete data sources from 
 - An Azure SQL Server.
 - A CosmosDB instance.
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+
 Data sources must be registered before they can be managed in **Management Center**.
 
 ## View data sources
