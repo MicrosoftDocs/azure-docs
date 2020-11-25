@@ -44,7 +44,7 @@ For more information about storage accounts, see [Azure storage accounts overvie
 Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-account-create.md).
 
 > [!IMPORTANT]
-> For storage accounts where the [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled, use the **Allow trusted Microsoft services...** setting to [enable Import/Export](/azure/storage/common/storage-network-security) service to perform import/export of data to/from Azure.
+> For storage accounts where the [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled, use the **Allow trusted Microsoft services...** setting to [enable Import/Export](./storage-network-security.md) service to perform import/export of data to/from Azure.
 
 ## Supported storage types
 
@@ -88,4 +88,4 @@ When preparing hard drives and copying the data using the WAImportExport tool, y
 
 ## Next steps
 
-* [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+* [Transfer data with the AzCopy command-line utility](./storage-use-azcopy-v10.md)

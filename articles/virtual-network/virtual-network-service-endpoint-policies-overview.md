@@ -118,7 +118,7 @@ Virtual networks and Azure Storage accounts can be in the same or different subs
 - Virtual networks must be in the same region as the service endpoint policy.
 - You can only apply service endpoint policy on a subnet if service endpoints are configured for the Azure services listed in the policy.
 - You can't use service endpoint policies for traffic from your on-premises network to Azure services.
-- Azure managed services do not currently support Endpoint policies. This includes managed services deployed into the shared subnets (e.g. *Azure HDInsight, Azure Batch, Azure ADDS, Azure APplication Gateway, Azure VPN gateway, Azure Firewall*) or into the dedicated subnets (e.g. *Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQL MI, classic managed services*).
+- Azure managed services do not currently support Endpoint policies. This includes managed services deployed into the shared subnets (e.g. *Azure HDInsight, Azure Batch, Azure ADDS, Azure Application Gateway, Azure VPN Gateway, Azure Firewall*) or into the dedicated subnets (e.g. *Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQL MI, classic managed services*).
 
  > [!WARNING]
  > Azure services deployed into your virtual network, such as Azure HDInsight, access other Azure services, such as Azure Storage, for infrastructure requirements. Restricting endpoint policy to specific resources could break access to these infrastructure resources for the Azure services deployed in your virtual network.

@@ -7,30 +7,32 @@ ms.date: 05/15/2020
 ms.author: v-demjoh
 ---
 
-## Prerequisites
-
-The only prerequisite is an Azure Speech subscription. See the [guide](../get-started.md#new-resource) on creating a new subscription if you don't already have one.
-
 ## Download and install
 
 #### [Windows Install](#tab/windowsinstall)
 
 Follow these steps to install the Speech CLI on Windows:
 
-1. Install either [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) or [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+1. On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing this for the first time may require a restart.
 2. Download the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471` for .NET Framework 4.7, or `spx-netcore-win-x64` for .NET Core 3.0 on an x64 CPU).
+3. Go to the directory where you extracted `spx-zips`. This folder contains program files for the Speech CLI on a variety of platforms. 
+4. Extract the files for your platform (`spx-net471` for .NET Framework 4.7, or `spx-netcore-win-x64` for .NET Core 3.0 on an x64 CPU). Keep in mind that you'll run `spx` from this directory.
 
-In the command prompt, change directory to this location, and then type `spx` to see help for the Speech CLI.
+### Run the Speech CLI
 
-> [!NOTE]
-> On Windows, the Speech CLI can only show fonts available to the command prompt on the local computer.
-> [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) supports all fonts produced interactively by the Speech CLI.
-> If you output to a file, a text editor like Notepad or a web browser like Microsoft Edge can also show all fonts.
+1. Open the command prompt or PowerShell, then navigate to the directory where you extracted the Speech CLI.  
+2. Type `spx` to see help commands for the Speech CLI.
 
 > [!NOTE]
 > Powershell does not check the local directory when looking for a command. In Powershell, change directory to the location of `spx` and call the tool by entering `.\spx`.
 > If you add this directory to your path, Powershell and the Windows command prompt will find `spx` from any directory without including the `.\` prefix.
+
+### Font limitations
+
+On Windows, the Speech CLI can only show fonts available to the command prompt on the local computer.
+[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) supports all fonts produced interactively by the Speech CLI.
+
+If you output to a file, a text editor like Notepad or a web browser like Microsoft Edge can also show all fonts.
 
 #### [Linux Install](#tab/linuxinstall)
 
@@ -48,12 +50,14 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install](#tab/dockerinstall)
 
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop for your platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> must be installed.
+
 Follow these steps to install the Speech CLI within a Docker container:
 
-1. Install and run [Docker Desktop for your platform](https://www.docker.com/get-started).
 1. In a new command prompt or terminal, type this command:
     `docker pull msftspeech/spx`
-1. Type this command. You should see help information for Speech CLI:
+2. Type this command. You should see help information for Speech CLI:
     `docker run -it --rm msftspeech/spx help`
 
 ### Mount a directory in the container
@@ -106,8 +110,8 @@ For example, on Windows, this command sets your key:
 
 ## Create subscription config
 
-To start using the Speech CLI, you first need to enter your Speech subscription key and region information. 
-See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier. 
+To start using the Speech CLI, you need to enter your Speech subscription key and region identifier. 
+Get these credentials by following steps in [Try the Speech service for free](../overview.md#try-the-speech-service-for-free).
 Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
 ```shell

@@ -47,7 +47,7 @@ If you are already using a phone number with an organization, and using your pho
 
 1. When SMS sign-in is available, a banner is displayed asking if you'd like to enable the phone number for SMS sign-in:
 
-    [![Banner to enable SMS sign-in for a phone number.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Screenshot that shows the banner to enable SMS sign-in for a phone number with the 'Enable' action selected." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. Also, an **Enable** button appears if you select the caret on the phone method tile:
 

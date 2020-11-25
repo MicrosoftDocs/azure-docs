@@ -46,7 +46,7 @@ For an overview of the Integrated Solutions program, watch the [Overview video f
 
 ## Submit a nomination
 
-Partners who want to participate in the program should identify other partners they want to work with. They should complete the [Integrated solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
+Partners who want to participate in the program should identify other partners they want to work with. They should complete the [integrated solutions nomination form](https://aka.ms/AA5qicu). The Integrated Solutions program team reviews the nomination and follows up within 10 business days. The team provides approval and next steps.
 
 ## Develop an integrated solution
 
@@ -108,4 +108,4 @@ When your solution is live in Microsoft AppSource or Azure Marketplace, you'll w
 
 ## Next steps
 
-For information about purchasing an integrated solution in the marketplace, see [Integrated solutions](./integrated-solutions.md).
+- [Integrated solutions nomination form](https://aka.ms/AA5qicu)

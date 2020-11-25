@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Direct web traffic using PowerShell'
 titleSuffix: Azure Application Gateway
-description: Learn how to use Azure PowerShell to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
+description: In this quickstart, you learn how to use Azure PowerShell to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -19,14 +19,14 @@ The application gateway directs application web traffic to specific resources in
 
 You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or the [Azure portal](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-az-ps) (if you run Azure PowerShell locally).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Connect to Azure
 
@@ -48,6 +48,8 @@ For Azure to communicate between the resources that you create, it needs a virtu
 1. Create the subnet configurations using `New-AzVirtualNetworkSubnetConfig`.
 2. Create the virtual network with the subnet configurations using `New-AzVirtualNetwork`. 
 3. Create the public IP address using `New-AzPublicIpAddress`. 
+> [!NOTE]
+> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

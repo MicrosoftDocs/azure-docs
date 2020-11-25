@@ -2,12 +2,12 @@
 title: Data migration options from StorSimple 8000 series devices
 description: Provides an overview of the options to migrate data from StorSimple 8000 series.
 services: storsimple
-author: priestlg
+author: alkohli
 
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020 
-ms.author: v-grpr
+ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 8000 series
@@ -27,7 +27,7 @@ The customers using StorSimple 8000 series have Azure or third-party options.
 
 This brand new migration option enables customers to store their organization's file shares in the Azure Files. These files shares are then centralized for on-premises access using Azure File Sync (AFS). AFS can be deployed on a Windows Server host. The actual data migration is then performed as a host copy or using the migration tool.
 
-For more information on how to migrate data to Azure File Sync, go to [StorSimple 8100 and 8600 migration to Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+For more information on how to migrate data to Azure File Sync, go to [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### Third-party options
 
@@ -107,4 +107,4 @@ A. The time to migrate data depends on the amount of the data and the upgrade op
 
 ## Next steps
 
-* [Migrate data from a StorSimple 8000 series to Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [Migrate data from a StorSimple 8000 series to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

@@ -1,6 +1,8 @@
 ---
 title: "Application settings"
 description: Configure your application and version settings in the LUIS portal such as utterance normalization and app privacy.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/17/2020
 

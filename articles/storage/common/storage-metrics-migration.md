@@ -4,7 +4,7 @@ description: Learn how to transition from Storage Analytics metrics (classic met
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
@@ -13,7 +13,7 @@ ms.custom: monitoring
 
 # Transition to metrics in Azure Monitor
 
-Azure Storage now integrates metrics into the Azure Monitor platform. This article helps you make the transition.
+On **August 31, 2023** Storage Analytics metrics, also referred to as *classic metrics* will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). If you use classic metrics, make sure to transition to metrics in Azure Monitor prior to that date. This article helps you make the transition. 
 
 ## Steps to complete the transition
 
@@ -25,12 +25,12 @@ To transition to metrics in Azure Monitor, we recommend the following approach.
 
 3. Identify [which metrics in Azure Monitor](#metrics-mapping-between-old-metrics-and-new-metrics) provide the same data as the metrics you currently use. 
    
-4. Create [charts](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) or [dashboards](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) to view metric data.
+4. Create [charts](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) or [dashboards](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) to view metric data.
 
    > [!NOTE]
    > Metrics in Azure Monitor are enabled by default, so there is nothing you need to do to begin capturing metrics. You must however, create charts or dashboards to view those metrics. 
  
-5. If you've created alert rules that are based on classic storage metrics, then [create alert rules](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) that are based on metrics in Azure Monitor. 
+5. If you've created alert rules that are based on classic storage metrics, then [create alert rules](../../azure-monitor/platform/alerts-overview.md) that are based on metrics in Azure Monitor. 
 
 6. After you're able to see all of your metrics in Azure Monitor, you can turn off classic logging. 
 
@@ -42,11 +42,13 @@ This section describes a few key differences between these two metrics platforms
 
 The main difference is in how metrics are managed. Classic metrics are managed by Azure Storage whereas metrics in Azure Monitor are managed by Azure Monitor. With classic metrics, Azure Storage collects metric values, aggregates them, and then stores them in tables that are located in the storage account. With metrics in Azure Monitor, Azure Storage sends metric data to the Azure Monitor back end. Azure Monitor provides a unified monitoring experience that includes data from the Azure portal as well as data that is ingested. 
 
+Classic metrics are sent and stored in an Azure storage account. Azure Monitor metrics can be sent to multiple locations. A storage account can be one of those locations, but it not required.  
+
 As far as metrics support, classic metrics provide **capacity** metrics only for Azure Blob storage. Metrics in Azure Monitor provide capacity metrics for Blob, Table, File, Queue, and premium storage. Classic metrics provide **transaction** metrics on Blob, Table, Azure File, and Queue storage. Metrics in Azure Monitor add premium storage to that list.
 
 If the activity in your account does not trigger a metric, classic metrics will show a value of zero (0) for that metric. Metrics in Azure Monitor will omit the data entirely, which leads to cleaner reports. For example, with classic metrics, if no server timeout errors are reported, then the `ServerTimeoutError` value in the metrics table is set to 0. Azure Monitor doesn't return any data when you query the value of metric `Transactions` with dimension `ResponseType` equal to `ServerTimeoutError`. 
 
-To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -63,7 +65,7 @@ To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](htt
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> There are also several new capacity metrics that weren't available as classic metrics. To view the complete list, see [Metrics](../common/monitor-storage-reference.md#metrics).
+> There are also several new capacity metrics that weren't available as classic metrics. To view the complete list, see [Metrics](../blobs/monitor-blob-storage-reference.md#metrics).
 
 **Transaction metrics**
 
@@ -110,5 +112,4 @@ To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](htt
 
 ## Next steps
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Storage metrics in Azure Monitor](./storage-metrics-in-azure-monitor.md)
+* [Azure Monitor](../../azure-monitor/overview.md)

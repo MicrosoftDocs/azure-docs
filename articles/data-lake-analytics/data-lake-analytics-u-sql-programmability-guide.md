@@ -1,10 +1,8 @@
 ---
 title: U-SQL programmability guide for Azure Data Lake
 description: Learn about the set of services in Azure Data Lake Analytics that enable you to create a cloud-based big data platform.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
 ---
@@ -116,7 +114,7 @@ The following code shows how to reference an assembly:
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Consult the [assembly registration instructions](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) that covers this topic in greater detail.
+Consult the [assembly registration instructions](/archive/blogs/azuredatalake/how-to-register-u-sql-assemblies-in-your-u-sql-catalog) that covers this topic in greater detail.
 
 
 ### Use assembly versioning

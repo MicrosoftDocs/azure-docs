@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 
@@ -63,7 +63,7 @@ As a best practice, you should update your organization's ADFS error pages with 
 * The requirement for installing the Microsoft Authenticator on Android.
 * Instructions on how to get a user certificate.
 
-For more information, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
+For more information, see [Customizing the AD FS Sign-in Pages](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Some Office apps (with modern authentication enabled) send '*prompt=login*' to Azure AD in their request. By default, Azure AD translates '*prompt=login*' in the request to ADFS as '*wauth=usernamepassworduri*' (asks ADFS to do U/P Auth) and '*wfresh=0*' (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Set the '*PromptLoginBehavior*' in your federated domain settings to '*Disabled*'.
 You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task:

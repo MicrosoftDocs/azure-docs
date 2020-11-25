@@ -11,6 +11,7 @@ ms.date: 07/08/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Configure Transport Layer Security (TLS) for a client application

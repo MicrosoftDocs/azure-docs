@@ -3,12 +3,14 @@ title: GROUP BY clause in Azure Cosmos DB
 description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
 
 ---
 # GROUP BY clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The GROUP BY clause divides the query's results according to the values of one or more specified properties.
 

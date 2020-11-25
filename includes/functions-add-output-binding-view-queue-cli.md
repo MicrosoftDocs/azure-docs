@@ -12,7 +12,7 @@ You can view the queue in the [Azure portal](../articles/storage/queues/storage-
     # [bash](#tab/bash)
     
     ```bash
-    AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
+    export AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
     # [PowerShell](#tab/powershell)

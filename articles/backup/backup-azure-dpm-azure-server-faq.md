@@ -34,7 +34,7 @@ For the DPM servers with data sources that are protected to the cloud (by using 
 
 ### Are there recommendations for configuring exclusions for antivirus software?
 
-Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Yes, it's recommended to configure antivirus exclusion. For exclusions for DPM, see [Run antivirus software on the DPM server](/system-center/dpm/run-antivirus-server). For exclusions for MABS, see [Configure antivirus for MABS server](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## VMware and Hyper-V backup
 
@@ -60,7 +60,7 @@ Yes, the item can be recovered to the original SharePoint site.
 
 ### Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?
 
-Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, DPM cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
+Because SharePoint databases are configured in SQL AlwaysOn, they can't be modified unless the availability group is removed. As a result, DPM can't restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
 ## Next steps
 

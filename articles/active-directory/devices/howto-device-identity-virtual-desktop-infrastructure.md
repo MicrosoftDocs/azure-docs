@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 09/14/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -59,15 +59,14 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 |   |   |   | Non-Persistent | No |
 | Azure AD registered | Federated/Managed | Windows current/Windows down-level | Persistent/Non-Persistent | Not Applicable |
 
-<sup>1</sup> **Windows current** devices represent Windows 10, Windows Server 2016, and Windows Server 2019.
-
+<sup>1</sup> **Windows current** devices represent Windows 10, Windows Server 2016 v1803 or higher, and Windows Server 2019.
 <sup>2</sup> **Windows down-level** devices represent Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). For support information on Windows Server 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP.
 
 <sup>4</sup> A **Managed** identity infrastructure environment represents an environment with Azure AD as the identity provider deployed with either [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> **Non-Persistence support for Windows current** requires additional consideration as documented below in guidance section.
+<sup>5</sup> **Non-Persistence support for Windows current** requires additional consideration as documented below in guidance section. This scenario requires Windows 10 1803,  Windows Server 2019 or Windows Server (Semi-annual channel) starting version 1803
 
 <sup>6</sup> **Non-Persistence support for Windows down-level** requires additional consideration as documented below in guidance section.
 

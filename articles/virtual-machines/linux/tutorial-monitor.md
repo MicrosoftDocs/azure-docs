@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn about monitoring so that I can review the health status and perform troubleshooting on Linux virtual machines.
 ---
@@ -190,4 +190,4 @@ In this tutorial, you configured and viewed performance of your VM. You learned 
 Advance to the next tutorial to learn about Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](../../security/fundamentals/overview.md)
+> [Manage VM security](tutorial-azure-security.md)

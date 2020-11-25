@@ -18,19 +18,21 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Azure AD PowerShell cmdlets for reporting
 
 > [!NOTE] 
-> These Powershell cmdlets currently only work with the [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
+> These PowerShell cmdlets currently only work with the [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
 
 To install the public preview release, use the following. 
 
 ```powershell
 Install-module AzureADPreview
 ```
-For more infromation on how to connect to Azure AD using powershell , please see the article [Azure AD Powershell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+
+For more infromation on how to connect to Azure AD using PowerShell, please see the article [Azure AD PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 With Azure Active Directory (Azure AD) reports, you can get details on activities around all the write operations in your direction (audit logs) and authentication data (sign-in logs). Although the information is available by using the MS Graph API, now you can retrieve the same data by using the Azure AD PowerShell cmdlets for reporting.
 
@@ -38,7 +40,7 @@ This article gives you an overview of the PowerShell cmdlets to use for audit lo
 
 ## Audit logs
 
-[Audit logs](concept-audit-logs.md) provide traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+[Audit logs](concept-audit-logs.md) provide traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles, and policies.
 
 You get access to the audit logs using the `Get-AzureADAuditDirectoryLogs cmdlet.
 
@@ -53,7 +55,7 @@ You get access to the audit logs using the `Get-AzureADAuditDirectoryLogs cmdlet
 
 The following image shows an example for this command. 
 
-![The "Data Summary" button](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Screenshot shows the result of the Get-Azure A D Audit Directory Logs command.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -75,7 +77,7 @@ You get access to the sign-in logs using the `Get-AzureADAuditSignInLogs cmdlet.
 
 The following image shows an example for this command. 
 
-![The "Data Summary" button](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Screenshot shows the result of the Get-Azure A D Audit Sign In Logs command.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

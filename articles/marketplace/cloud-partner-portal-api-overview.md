@@ -14,7 +14,7 @@ ms.date: 07/14/2020
 > [!NOTE]
 > The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the [Changes to CPP APIs](#changes-to-cpp-apis-after-the-migration-to-partner-center) listed in this document to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
-The Cloud Partner Portal REST APIs allow the programmatic retrieval and manipulation of workloads, offers, and publisher profiles. The APIs use role-based access control (RBAC) to enforce correct permissions at processing time.
+The Cloud Partner Portal REST APIs allow the programmatic retrieval and manipulation of workloads, offers, and publisher profiles. The APIs use Azure role-based access control (Azure RBAC) to enforce correct permissions at processing time.
 
 This reference provides the technical details for the Cloud Partner Portal REST APIs. The payload samples in this document are for reference only and are subject to change as new functionality is added.
 

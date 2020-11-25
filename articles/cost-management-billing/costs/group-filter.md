@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 06/08/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ---
 
@@ -43,10 +44,10 @@ The following table lists some of the most common grouping and filtering options
 | **Service name** or **Meter category** | Break down cost by Azure service. | Purchases and Marketplace usage will show as **Not applicable** or **unassigned**. |
 | **Service tier** or **Meter subcategory** | Break down cost by Azure usage meter subclassification. | Purchases and Marketplace usage will show as **Not applicable** or **unassigned**. |
 | **Subscription** | Break down costs by Azure subscription and AWS linked account. | Purchases and tenant resources may show as **Not applicable**. |
-| **Tag** | Break down costs by tag values for a specific tag key. | Tags aren't available for: purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, or classic resources. Some services don't include tags in usage data. Learn more about [tags support for each resource type](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
+| **Tag** | Break down costs by tag values for a specific tag key. | Tags aren't available for: purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, or classic resources. Some services don't include tags in usage data. Learn more about [tags support for each resource type](../../azure-resource-manager/management/tag-support.md). |
 
 For more information about terms, see [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md).
 
 ## Next steps
 
-- [Start analyzing costs](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).
+- [Start analyzing costs](./quick-acm-cost-analysis.md).

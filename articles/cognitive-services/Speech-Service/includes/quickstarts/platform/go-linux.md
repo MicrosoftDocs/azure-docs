@@ -2,7 +2,7 @@
 author: glecaros
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/30/2020
+ms.date: 10/15/2020
 ms.author: gelecaro
 ---
 
@@ -12,7 +12,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ## System requirements
 
-Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
+Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## Prerequisites
 
@@ -23,21 +23,16 @@ To complete this quickstart, you'll need:
 
 * Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 
-   * On Ubuntu:
+   * On Ubuntu/Debian:
 
      ```sh
      sudo apt-get update
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-   * On Debian 9:
+     If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
 
-     ```sh
-     sudo apt-get update
-     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
-     ```
-
-   * On RHEL/CentOS 8:
+   * On RHEL/CentOS:
 
      ```sh
      sudo yum update
@@ -46,7 +41,8 @@ To complete this quickstart, you'll need:
      ```
 
 > [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 

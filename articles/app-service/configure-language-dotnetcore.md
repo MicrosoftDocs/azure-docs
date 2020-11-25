@@ -3,7 +3,7 @@ title: Configure ASP.NET Core apps
 description: Learn how to configure a ASP.NET Core app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
@@ -53,7 +53,7 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 
 ::: zone pivot="platform-windows"  
 
-Set the target framework in the project file for your ASP.NET Core project. For more information, see [Select the .NET Core version to use](https://docs.microsoft.com/dotnet/core/versions/selection) in .NET Core documentation.
+Set the target framework in the project file for your ASP.NET Core project. For more information, see [Select the .NET Core version to use](/dotnet/core/versions/selection) in .NET Core documentation.
 
 ::: zone-end
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets your run the app in product with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
 
 > [!NOTE]
-> Note the [hierarchical configuration data](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in *appsettings.json* is accessed using the `:` delimiter that's standard to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. you can run the following example in the [Cloud Shell](https://shell.azure.com):
+> Note the [hierarchical configuration data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in *appsettings.json* is accessed using the `:` delimiter that's standard to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. you can run the following example in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
@@ -141,7 +141,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## Access diagnostic logs
 
-ASP.NET Core provides a [built-in logging provider for App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). In *Program.cs* of your project, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
+ASP.NET Core provides a [built-in logging provider for App Service](/aspnet/core/fundamentals/logging/#azure-app-service). In *Program.cs* of your project, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -156,11 +156,11 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
-You can then configure and generate logs with the [standard .NET Core pattern](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+You can then configure and generate logs with the [standard .NET Core pattern](/aspnet/core/fundamentals/logging).
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-For more information on troubleshooting ASP.NET Core apps in App Service, see [Troubleshoot ASP.NET Core on Azure App Service and IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
+For more information on troubleshooting ASP.NET Core apps in App Service, see [Troubleshoot ASP.NET Core on Azure App Service and IIS](/aspnet/core/test/troubleshoot-azure-iis)
 
 ## Get detailed exceptions page
 
@@ -174,9 +174,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to know if the user requests are encrypted or not, configure the Forwarded Headers Middleware in *Startup.cs*:
 
-- Configure the middleware with [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) to forward the `X-Forwarded-For` and `X-Forwarded-Proto` headers in `Startup.ConfigureServices`.
+- Configure the middleware with [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) to forward the `X-Forwarded-For` and `X-Forwarded-Proto` headers in `Startup.ConfigureServices`.
 - Add private IP address ranges to the known networks, so that the middleware can trust the App Service load balancer.
-- Invoke the [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in `Startup.Configure` before calling other middleware.
+- Invoke the [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in `Startup.Configure` before calling other middleware.
 
 Putting all three elements together, your code looks like the following example:
 
@@ -205,7 +205,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ::: zone pivot="platform-linux"
 
@@ -228,4 +228,3 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 > [App Service Linux FAQ](faq-app-service-linux.md)
 
 ::: zone-end
-

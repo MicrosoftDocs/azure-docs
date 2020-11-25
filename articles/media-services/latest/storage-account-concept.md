@@ -5,17 +5,19 @@ titleSuffix: Azure Media Services
 description: Learn how to create an Azure storage account to use with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 07/01/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Azure Storage accounts
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account.
 

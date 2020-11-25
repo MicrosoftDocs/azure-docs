@@ -38,19 +38,16 @@ You can change the runtime version used by your function app. Because of the pot
 > [!IMPORTANT]
 > Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, you should make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed.
 
-### From the Azure portal
+# [Portal](#tab/portal)
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
 > Using the Azure portal, you can't change the runtime version for a function app that already contains functions.
 
-### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>From the Azure CLI
+# [Azure CLI](#tab/azurecli)
 
-You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.
-
->[!NOTE]
->Because other settings may be impacted by the runtime version, you should change the version in the portal. The portal automatically makes the other needed updates, such as Node.js version and runtime stack, when you change runtime versions.  
+You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.  
 
 Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
 
@@ -89,16 +86,36 @@ You see the `FUNCTIONS_EXTENSION_VERSION` in the following output, which has bee
 You can update the `FUNCTIONS_EXTENSION_VERSION` setting in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group <my_resource_group> \
---settings FUNCTIONS_EXTENSION_VERSION=<version>
+az functionapp config appsettings set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-Replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. Also, replace `<version>` with a valid version of the 1.x runtime or `~2` for version 2.x.
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a specific version, or `~3`, `~2`, or `~1`.
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 
+# [PowerShell](#tab/powershell)
 
+To check the Azure Functions runtime, use the following cmdlet: 
+
+```powershell
+Get-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>"
+```
+
+Replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>`. The current value of the `FUNCTIONS_EXTENSION_VERSION` setting is returned in the hash table.
+
+Use the following script to change the Functions runtime:
+
+```powershell
+Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>" -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "<VERSION>"} -Force
+```
+
+As before, replace `<FUNCTION_APP>` with the name of your function app and `<RESOURCE_GROUP>` with the name of the resource group. Also, replace `<VERSION>` with the specific version or major version, such as `~2` or `~3`. You can verify the updated value of the `FUNCTIONS_EXTENSION_VERSION` setting in the returned hash table. 
+
+---
+
+The function app restarts after the change is made to the application setting.
 
 ## Next steps
 

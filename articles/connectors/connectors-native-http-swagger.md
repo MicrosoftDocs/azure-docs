@@ -22,6 +22,8 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
   Typically, the REST endpoint must meet this criteria for the connector to work:
 
   * The Swagger file must be hosted on an HTTPS URL that's publicly accessible.
+  
+  * The Swagger file must contain an `operationID` for each operation in the definition. If not, the connector only shows the last operation in the Swagger file. 
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
@@ -49,17 +51,17 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Enter URL for Swagger endpoint](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Screenshot that shows the Logic App Designer with the"H T T P + Swagger" trigger and the "Swagger Endpoint U R L" property set to a U R L value.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. When the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
-   ![Operations in Swagger file](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Screenshot that shows the Logic App Designer with the "H T T P + Swagger" trigger and a list that displays Swagger operations.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Provide the values for the trigger parameters, which vary based on the selected operation, that you want to include in the endpoint call. Set up the recurrence for how often you want the trigger to call the endpoint.
 
    This example renames the trigger to "HTTP + Swagger trigger: Face - Detect" so that the step has a more descriptive name.
 
-   ![Operation details](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Screenshot that shows the Logic App Designer with the "H T T P + Swagger" trigger that displays the "Face - Detect" operation.](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
@@ -161,4 +163,3 @@ Here is more information about the outputs from an HTTP + Swagger trigger or act
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-

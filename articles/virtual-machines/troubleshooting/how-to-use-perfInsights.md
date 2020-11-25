@@ -163,7 +163,15 @@ Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
 -  This tool must be run on the VM that has the performance issue. 
 
--  The following operating systems are supported: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016; Windows 8.1 and Windows 10.
+-  The following operating systems are supported:
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### Possible problems when you run the tool on production VMs
 
@@ -249,8 +257,8 @@ Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you ca
 
 Select the **Findings** tab.
 
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/pi-findings.png)
+![Screenshot of Overview tab of the PerfInsights Report.](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Screenshot of Storage tab of the PerfInsights Report.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.

@@ -45,7 +45,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     - Over public endpoint
 
-        Azure SQL Managed Instances can provide connectivity over [public endpoints](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Inbound and outbound requirements need to meet to allow traffic between SQL Managed Instance and Azure-SSIS IR:
+        Azure SQL Managed Instances can provide connectivity over [public endpoints](../azure-sql/managed-instance/public-endpoint-configure.md). Inbound and outbound requirements need to meet to allow traffic between SQL Managed Instance and Azure-SSIS IR:
 
         - when Azure-SSIS IR not inside a virtual network (preferred)
 
@@ -55,7 +55,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             |---|---|---|---|---|
             |TCP|Azure Cloud service tag|*|VirtualNetwork|3342|
 
-            For more information, see [Allow public endpoint traffic on the network security group](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group).
+            For more information, see [Allow public endpoint traffic on the network security group](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
         - when Azure-SSIS IR inside a virtual network
 
@@ -71,11 +71,11 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
                 | Transport protocol | Source | Source port range | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL Managed Instance public endpoint IP address](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[SQL Managed Instance public endpoint IP address](../azure-sql/managed-instance/management-endpoint-find-ip-address.md)|3342|
 
 ### Configure virtual network
 
-1. **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
+1. **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
 
     - Use the built-in Network Contributor role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
     - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. If you also want to bring your own public IP addresses for Azure-SSIS IR while joining it to an Azure Resource Manager virtual network, also include _Microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
@@ -91,7 +91,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
         Those resources will be created when your Azure-SSIS IR starts. They'll be deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources.
 
-    1. Make sure that you have no [resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
+    1. Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
     1. Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
         - Microsoft.Network/LoadBalancers
@@ -110,7 +110,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
         |---|---|---|---|---|---|
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Allow outbound traffic to SQL Managed Instance. If connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | The nodes of your Azure-SSIS IR in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
-        | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, refer to [Use Azure ExpressRoute or User Defined Route(UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
+        | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, refer to [Use Azure ExpressRoute or User Defined Route(UDR)](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
         | TCP | VirtualNetwork | * | Storage | 445 | (Optional) This rule is only required when you want to execute SSIS package stored in Azure Files. |
         |||||||
 
@@ -136,7 +136,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     Public endpoint host name comes in the format <mi_name>.public.<dns_zone>.database.windows.net and that the port used for the connection is 3342.  
 
-    ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![Screenshot shows Integration runtime setup with Create S S I S catalog selected and Catalog database server endpoint entered.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. Select Azure AD authentication when applies.
 
@@ -152,13 +152,13 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     For more information about how to join Azure-SSIS IR into a virtual network, see [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 
-    ![join-virtual-network](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![Screenshot shows the Integration runtime setup Advanced settings, where you can select a virtual network for your runtime to join.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 For more info about how to create an Azure-SSIS IR, see [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
 
 ## Clean up SSISDB logs
 
-SSISDB logs retention policy are defined by below properties in [catalog.catalog_properties](https://docs.microsoft.com/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
+SSISDB logs retention policy are defined by below properties in [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
 
 - OPERATION_CLEANUP_ENABLED
 

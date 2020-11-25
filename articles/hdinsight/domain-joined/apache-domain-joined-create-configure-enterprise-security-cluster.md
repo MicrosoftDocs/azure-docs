@@ -187,11 +187,11 @@ Create an Active Directory tenant administrator.
 
 1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
 
-    ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![The "Connect to Azure A D" page.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
 1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**.
 
-   ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![The "Connect to A D D S" page.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. On the **Azure AD sign-in configuration** page, select **Next**.
    ![The "Azure AD sign-in configuration" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -222,7 +222,7 @@ Create a user-assigned managed identity that you can use to configure Azure AD D
 
 ### Enable Azure AD DS
 
-Follow these steps to enable Azure AD DS. For more information, see [Enable Azure AD DS by using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Follow these steps to enable Azure AD DS. For more information, see [Enable Azure AD DS by using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
 1. Create a virtual network to host Azure AD DS. Run the following PowerShell code.
 
@@ -297,7 +297,7 @@ In our scenario, we configured Azure AD DS to use IP addresses 10.0.0.4 and 10.0
 
 Lightweight Directory Access Protocol (LDAP) is used to read from and write to Azure Active Directory. You can make LDAP traffic confidential and secure by using Secure Sockets Layer (SSL) or Transport Layer Security (TLS) technology. You can enable LDAP over SSL (LDAPS) by installing a properly formatted certificate.
 
-For more information about secure LDAP, see [Configure LDAPS for an Azure AD DS managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
+For more information about secure LDAP, see [Configure LDAPS for an Azure AD DS managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md).
 
 In this section, you create a self-signed certificate, download the certificate, and configure LDAPS for the **HDIFabrikam** Azure AD DS managed domain.
 

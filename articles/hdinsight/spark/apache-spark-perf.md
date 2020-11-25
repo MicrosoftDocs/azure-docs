@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/21/2020
+ms.custom: contperfq1
 ---
 # Optimize Apache Spark jobs in HDInsight
 

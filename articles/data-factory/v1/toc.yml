@@ -80,7 +80,7 @@
         href: data-factory-azure-search-connector.md
       - name: Azure SQL Database
         href: data-factory-azure-sql-connector.md
-      - name: Azure SQL Data Warehouse
+      - name: Azure Synapse Analytics
         href: data-factory-azure-sql-data-warehouse-connector.md
       - name: Azure Table Storage
         href: data-factory-azure-table-connector.md
@@ -139,9 +139,9 @@
       href: data-factory-hadoop-streaming-activity.md
     - name: HDInsight Spark Activity
       href: data-factory-spark.md
-    - name: Machine Learning Batch Execution Activity
+    - name: Azure Machine Learning Studio (classic) Batch Execution Activity
       href: data-factory-azure-ml-batch-execution-activity.md
-    - name: Machine Learning Update Resource Activity
+    - name: Azure Machine Learning Studio (classic) Update Resource Activity
       href: data-factory-azure-ml-update-resource-activity.md
     - name: Stored Procedure Activity
       href: data-factory-stored-proc-activity.md
@@ -200,7 +200,7 @@
   - name: Case Studies
     href: data-factory-customer-case-studies.md
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
+    href: /answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Pricing calculator

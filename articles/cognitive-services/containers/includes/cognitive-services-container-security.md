@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
 ---
 
@@ -22,13 +22,13 @@ The diagram below illustrates the default and **non-secure** approach:
 
 ![Container security](../media/container-security.svg)
 
-As an alternative and *secure* approach, consumers of Cognitive Services containers could augment a container with a front-facing component, keeping the container endpoint private. Let's consider a scenario where we use [Istio][istio] as an ingress gateway. Istio supports HTTPS/TLS and client-certificate authentication. In this scenario, the Istio frontend exposes the container access, presenting the client certificate that is whitelisted beforehand with Istio.
+As an alternative and *secure* approach, consumers of Cognitive Services containers could augment a container with a front-facing component, keeping the container endpoint private. Let's consider a scenario where we use [Istio][istio] as an ingress gateway. Istio supports HTTPS/TLS and client-certificate authentication. In this scenario, the Istio frontend exposes the container access, presenting the client certificate that is approved beforehand with Istio.
 
 [Nginx][nginx] is another popular choice in the same category. Both Istio and Nginx act as a service mesh and offer additional features including things like load-balancing, routing, and rate-control.
 
 ### Container networking
 
-The Cognitive Services containers are required to submit metering information for billing purposes. The only exception, is *Offline containers* as they follow a different billing methodology. Failure to allow list various network channels that the Cognitive Services containers rely on will prevent the container from working.
+The Cognitive Services containers are required to submit metering information for billing purposes. Failure to allow list various network channels that the Cognitive Services containers rely on will prevent the container from working.
 
 #### Allow list Cognitive Services domains and ports
 

@@ -16,7 +16,9 @@ ms.date: 03/14/2019
 ms.author: juliako
 
 ---
-# Azure Media Services concepts 
+# Azure Media Services concepts
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
@@ -97,12 +99,11 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files and have at least one standard or premium streaming endpoint in started state.
 
-Media Services supports the following on-demand encoders that are described in this article:
+Media Services supports the following on-demand encoder that is described in this article:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-For information about supported encoders, see [Encoders](media-services-encode-asset.md).
+For information about this supported encoder, see [Encoder](media-services-encode-asset.md).
 
 ## Live Streaming
 In Azure Media Services, a Channel represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:

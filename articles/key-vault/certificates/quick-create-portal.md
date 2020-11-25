@@ -41,7 +41,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 Take note of the two properties listed below:
 
 * **Vault Name**: In the example, this is **Example-Vault**. You will use this name for other steps.
-* **Vault URI**: In the example, this is https://example-vault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+* **Vault URI**: In the example, this is `https://example-vault.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 

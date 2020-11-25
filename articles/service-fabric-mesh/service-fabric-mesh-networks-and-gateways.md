@@ -1,10 +1,10 @@
 ---
 title: Introduction to Azure Service Fabric networking 
 description: Learn about networks, gateways, and intelligent traffic routing in Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 
 ---

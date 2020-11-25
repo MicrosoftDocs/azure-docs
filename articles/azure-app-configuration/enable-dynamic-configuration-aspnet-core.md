@@ -50,13 +50,11 @@ Before you continue, finish [Create an ASP.NET Core app with App Configuration](
 A *sentinel key* is a special key used to signal when configuration has changed. Your app monitors the sentinel key for changes. When a change is detected, you refresh all configuration values. This approach reduces the overall number of requests made by your app to App Configuration, compared to monitoring all keys for changes.
 
 1. In the Azure portal, select **Configuration Explorer > Create > Key-value**.
-
 1. For **Key**, enter *TestApp:Settings:Sentinel*. For **Value**, enter 1. Leave **Label** and **Content type** blank.
-
 1. Select **Apply**.
 
-    > [!NOTE]
-    > If you're not using a sentinel key, you'll need to manually register every key you want to watch.
+> [!NOTE]
+> If you aren't using a sentinel key, you need to manually register every key you want to watch.
 
 ## Reload data from App Configuration
 
@@ -159,9 +157,8 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     }
     ```
     ---
-
-    > [!TIP]
-    > To learn more about the options pattern when reading configuration values, please see [Options Patterns in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Update the `Configure` method, adding the `UseAzureAppConfiguration` middleware to allow the configuration settings registered for refresh to be updated while the ASP.NET Core web app continues to receive requests.
 
@@ -313,15 +310,15 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. After the build successfully completes, run the following command to run the web app locally:
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Open a browser window, and go to the URL shown in the `dotnet run` output.
 

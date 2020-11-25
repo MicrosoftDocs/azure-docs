@@ -2,12 +2,12 @@
 title: Troubleshoot Hyper-V disaster recovery with Azure Site Recovery 
 description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
-ms.author: rajanaki
+ms.author: sharrai
 
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
@@ -24,7 +24,7 @@ If you experience issues when you enable protection for Hyper-V VMs, check the f
 4. Check for issues that appear in the Hyper-V-VMMS\Admin sign in to the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
 5. On the guest VM, verify that WMI is enabled and accessible.
    - [Learn about](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) basic WMI testing.
-   - [Troubleshoot](https://aka.ms/WMiTshooting) WMI.
+   - [Troubleshoot](/windows/win32/wmisdk/wmi-troubleshooting) WMI.
    - [Troubleshoot](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problems with WMI scripts and services.
 6. On the guest VM, ensure that the latest version of Integration Services is running.
     - [Check](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.

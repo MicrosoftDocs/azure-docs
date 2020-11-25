@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
@@ -18,13 +18,13 @@ ms.custom: aaddev
 
 # Microsoft identity platform application authentication certificate credentials
 
-Microsoft identity platform allows an application to use its own credentials for authentication, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
+Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
 
 One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) assertion signed with a certificate that the application owns.
 
 ## Assertion format
 
-To compute the assertion, you can use one of the many JWT libraries in the language of your choice. The information is carried by the token in its [Header](#header), [Claims](#claims-payload), and [Signature](#signature).
+To compute the assertion, you can use one of the many JWT libraries in the language of your choice - [MSAL supports this using `.WithCertificate()`](msal-net-client-assertions.md). The information is carried by the token in its [Header](#header), [Claims](#claims-payload), and [Signature](#signature).
 
 ### Header
 
@@ -32,18 +32,18 @@ To compute the assertion, you can use one of the many JWT libraries in the langu
 | --- | --- |
 | `alg` | Should be **RS256** |
 | `typ` | Should be **JWT** |
-| `x5t` | The X.509 certificate hash (also known as the cert's SHA-1 *thumbprint*) encoded as a Base64 string value. For example, given an X.509 certificate hash of `84E05C1D98BCE3A5421D225B140B36E86A3D5534`, the `x5t` claim would be `hOBcHZi846VCHSJbFAs26Go9VTQ`. |
+| `x5t` | The X.509 certificate hash's (also known as the cert's SHA-1 *thumbprint*) Hex representation encoded as a Base64 string value. For example, given an X.509 certificate hash of `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), the `x5t` claim would be `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64). |
 
 ### Claims (payload)
 
-| Parameter |  Remarks |
-| --- | --- |
-| `aud` | Audience: Should be `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
-| `exp` | Expiration date: The date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires. We recommend using a short expiration time - 10 minutes to one hour.|
-| `iss` | Issuer: Should be the client_id (*Application (client) ID* of the client service) |
-| `jti` | GUID: The JWT ID |
-| `nbf` | Not Before: The date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the assertion was created. |
-| `sub` | Subject: As for `iss`, should be the client_id (*Application (client) ID* of the client service) |
+Claim type | Value | Description
+---------- | ---------- | ----------
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | The "aud" (audience) claim identifies the recipients that the JWT is intended for (here Azure AD) See [RFC 7519, Section 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In this case, that recipient is the login server (login.microsoftonline.com).
+exp | 1601519414 | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing. See [RFC 7519, Section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  This allows the assertion to be used until then, so keep it short - 5-10 minutes after `nbf` at most.  Azure AD does not place restrictions on the `exp` time currently. 
+iss | {ClientID} | The "iss" (issuer) claim identifies the principal that issued the JWT, in this case your client application.  Use the GUID application ID.
+jti | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well. The "jti" value is a case-sensitive string. [RFC 7519, Section 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Using the current time is appropriate. 
+sub | {ClientID} | The "sub" (subject) claim identifies the subject of the JWT, in this case also your application. Use the same value as `iss`. 
 
 ### Signature
 
@@ -122,7 +122,18 @@ In the Azure app registration for the client application:
 3. Save the edits to the application manifest and then upload the manifest to Microsoft identity platform.
 
    The `keyCredentials` property is multi-valued, so you may upload multiple certificates for richer key management.
+   
+## Using a client assertion
+
+Client assertions can be used anywhere a client secret would be used.  So for example, in the [authorization code flow](v2-oauth2-auth-code-flow.md), you can pass in a `client_secret` to prove that the request is coming from your app. You can replace this with `client_assertion` and `client_assertion_type` parameters. 
+
+| Parameter | Value | Description|
+|-----------|-------|------------|
+|`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| This is a fixed value, indicating that you are using a certificate credential. |
+|`client_assertion`| JWT |This is the JWT created above. |
 
 ## Next steps
+
+The [MSAL.NET library handles this scenario](msal-net-client-assertions.md) in a single line of code.
 
 The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.

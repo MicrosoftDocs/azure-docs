@@ -87,25 +87,25 @@ In this example, the range variable `room` appears in the `room/Type` field path
 
 ### Using field paths
 
-Field paths are used in many parameters of the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). The following table lists all the places where they can be used, plus any restrictions on their usage:
+Field paths are used in many parameters of the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). The following table lists all the places where they can be used, plus any restrictions on their usage:
 
 | API | Parameter name | Restrictions |
 | --- | --- | --- |
-| [Create](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `suggesters/sourceFields` | None |
-| [Create](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `scoringProfiles/text/weights` | Can only refer to **searchable** fields |
-| [Create](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update](https://docs.microsoft.com/rest/api/searchservice/update-index) Index | `scoringProfiles/functions/fieldName` | Can only refer to **filterable** fields |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` when `queryType` is `full` | Can only refer to **searchable** fields |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Can only refer to **facetable** fields |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Can only refer to **searchable** fields |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Can only refer to **searchable** fields |
-| [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) and [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Can only refer to fields that are part of a [suggester](index-add-suggesters.md) |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions), and [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Can only refer to **filterable** fields |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) and [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Can only refer to **sortable** fields |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions), and [Lookup](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Can only refer to **retrievable** fields |
+| [Create](/rest/api/searchservice/create-index) or [Update](/rest/api/searchservice/update-index) Index | `suggesters/sourceFields` | None |
+| [Create](/rest/api/searchservice/create-index) or [Update](/rest/api/searchservice/update-index) Index | `scoringProfiles/text/weights` | Can only refer to **searchable** fields |
+| [Create](/rest/api/searchservice/create-index) or [Update](/rest/api/searchservice/update-index) Index | `scoringProfiles/functions/fieldName` | Can only refer to **filterable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `search` when `queryType` is `full` | Can only refer to **searchable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `facet` | Can only refer to **facetable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `highlight` | Can only refer to **searchable** fields |
+| [Search](/rest/api/searchservice/search-documents) | `searchFields` | Can only refer to **searchable** fields |
+| [Suggest](/rest/api/searchservice/suggestions) and [Autocomplete](/rest/api/searchservice/autocomplete) | `searchFields` | Can only refer to fields that are part of a [suggester](index-add-suggesters.md) |
+| [Search](/rest/api/searchservice/search-documents), [Suggest](/rest/api/searchservice/suggestions), and [Autocomplete](/rest/api/searchservice/autocomplete) | `$filter` | Can only refer to **filterable** fields |
+| [Search](/rest/api/searchservice/search-documents) and [Suggest](/rest/api/searchservice/suggestions) | `$orderby` | Can only refer to **sortable** fields |
+| [Search](/rest/api/searchservice/search-documents), [Suggest](/rest/api/searchservice/suggestions), and [Lookup](/rest/api/searchservice/lookup-document) | `$select` | Can only refer to **retrievable** fields |
 
 ## Constants
 
-Constants in OData are literal values of a given [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for a list of supported types in Azure Cognitive Search. Constants of collection types aren't supported.
+Constants in OData are literal values of a given [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](/rest/api/searchservice/supported-data-types) for a list of supported types in Azure Cognitive Search. Constants of collection types aren't supported.
 
 The following table shows examples of constants for each of the data types supported by Azure Cognitive Search:
 
@@ -239,6 +239,6 @@ The **$filter**, **$orderby**, and **$select** parameters are explored in more d
 
 - [Faceted navigation in Azure Cognitive Search](search-faceted-navigation.md)
 - [Filters in Azure Cognitive Search](search-filters.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)
 - [Lucene query syntax](query-lucene-syntax.md)
 - [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)

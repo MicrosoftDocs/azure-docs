@@ -38,7 +38,7 @@ You can view how your organization uses your data from the **Settings & Privacy*
 
 After viewing how your organization uses your data, you can:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- View or manage your [security info](./security-info-setup-signin.md).
 
 - View or manage your connected [devices](my-account-portal-devices-page.md).
 

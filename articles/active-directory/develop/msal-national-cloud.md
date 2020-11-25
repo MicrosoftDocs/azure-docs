@@ -39,14 +39,14 @@ Before you start, make sure that you meet these prerequisites.
 
 [Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, you need to decide which authority endpoint you should choose for your scenario:
 
-- Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
+- Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Microsoft 365 (Public or GCC) or another application.
 - Azure AD Government: Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or is creating a new tenant in Azure AD Government.
 
 After you decide, a special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant.
 
 ### Get an Azure Government subscription
 
-To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
+To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](../../azure-government/compare-azure-government-global-azure.md).
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 

@@ -6,7 +6,7 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020

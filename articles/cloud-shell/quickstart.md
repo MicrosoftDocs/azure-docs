@@ -92,5 +92,5 @@ Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. 
 
 ## Next steps
 [Learn about persisting files for Bash in Cloud Shell](persisting-shell-storage.md) <br>
-[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure CLI](/cli/azure/) <br>
 [Learn about Azure Files storage](../storage/files/storage-files-introduction.md) <br>

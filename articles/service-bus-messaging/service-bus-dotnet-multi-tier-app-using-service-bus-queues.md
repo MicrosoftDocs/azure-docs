@@ -4,6 +4,7 @@ description: A .NET tutorial that helps you develop a multi-tier app in Azure th
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
 
 # .NET multi-tier application using Azure Service Bus queues
@@ -96,7 +97,7 @@ queue and displays status information about the queue.
 ### Create the project
 
 1. Using administrator privileges, start Visual
-   Studio: right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
+   Studio: right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure Compute Emulator,
    discussed later in this article, requires that Visual Studio be
    started with administrator privileges.
    

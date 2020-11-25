@@ -16,7 +16,7 @@ We will be using a .json template to configure the image. The .json file we are 
 
 To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
+Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
 
 Be aware how many times you layer customizations. You can run the Sysprep command up to 8 times on a single Windows image. After running Sysprep 8 times, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 

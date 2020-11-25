@@ -59,7 +59,7 @@ These policies allow Azure administrators to restrict creation to a list of nomi
 
 ### Redundant and geographically dispersed storage
 
-Data stored in the Azure Recovery Service Vault is always stored on redundant storage. By default the Recovery Service Vault uses Azure Geographically Redundant Storage (GRS). Data stored using GRS is replicated to other Azure data centres in the Recovery Service Vault's [secondary paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). This replicated data is stored as read-only and is only made writeable if there is an Azure failover event. Within the Azure data centre, the data is replicated between separate fault domains and upgrade domains to minimise the chance of hardware or maintenance-based outage. GRS provides at least 99.99999999999999% availability annually.
+Data stored in the Azure Recovery Service Vault is always stored on redundant storage. By default the Recovery Service Vault uses Azure Geographically Redundant Storage (GRS). Data stored using GRS is replicated to other Azure data centres in the Recovery Service Vault's [secondary paired region](../best-practices-availability-paired-regions.md). This replicated data is stored as read-only and is only made writeable if there is an Azure failover event. Within the Azure data centre, the data is replicated between separate fault domains and upgrade domains to minimise the chance of hardware or maintenance-based outage. GRS provides at least 99.99999999999999% availability annually.
 
 The Azure Recovery Services Vault can be configured to utilise Locally Redundant Storage (LRS). LRS is a lower-cost storage option with the trade-off of reduced availability. This redundancy model employs the same replication between separate fault domains and upgrade domains but is not replicated between geographic regions. Data located on LRS storage, while not as resilient as GRS, still provides at least 99.999999999% availability annually.
 
@@ -67,7 +67,7 @@ Unlike traditional offsite storage technologies like tape media, the additional 
 
 ### Restricted access and activity monitoring
 
-Backup data must be protected from corruption, modification, and unapproved deletion. Both Azure Backup and Azure Site Recovery make use of the common Azure management fabric. This fabric provides detailed auditing, logging, and Role-Based Access Control (RBAC) to resources located within Azure. Access to backup data can be restricted to select administrative staff and all actions involving backup data can be logged and audited.
+Backup data must be protected from corruption, modification, and unapproved deletion. Both Azure Backup and Azure Site Recovery make use of the common Azure management fabric. This fabric provides detailed auditing, logging, and Azure role-based access control (Azure RBAC) to resources located within Azure. Access to backup data can be restricted to select administrative staff and all actions involving backup data can be logged and audited.
 
 Both Azure Backup and Azure Site Recovery have built-in logging and reporting features. Any issues that occur during backup or replication are reported to administrators using the Azure management fabric.
 

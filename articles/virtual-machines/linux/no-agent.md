@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -195,7 +195,7 @@ WantedBy=multi-user.target
 This systemd service does three things for basic provisioning:
 
 1. Reports ready to Azure (to indicate that it came up successfully).
-1. Renames the VM based off of the user-supplied VM name by pulling this data from IMDS.
+1. Renames the VM based off of the user-supplied VM name by pulling this data from [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md). **Note** IMDS also provides other [instance metadata](./instance-metadata-service.md#accessing-azure-instance-metadata-service), such as SSH Public Keys, so you can set more than the hostname.
 1. Disables itself so that it only runs on first boot and not on subsequent reboots.
 
 With the unit on the filesystem, run the following to enable it:

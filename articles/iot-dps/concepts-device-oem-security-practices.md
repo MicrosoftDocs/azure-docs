@@ -176,7 +176,7 @@ A device can sit in a warehouse for 6-12 months before being deployed.
 #### Step 5: Device is installed into the location
 After the device arrives at its final location, it goes through automated provisioning with DPS.
 
-For more information, see [Autoprovisioning concepts](concepts-auto-provisioning.md) and [TPM attestation](concepts-tpm-attestation.md). 
+For more information, see [provisioning](about-iot-dps.md#provisioning-process) and [TPM attestation](concepts-tpm-attestation.md). 
 
 ## Resources
 

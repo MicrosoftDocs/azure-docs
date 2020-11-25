@@ -2,13 +2,13 @@
 title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template to deploy resource type many times.
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 09/21/2020
 ---
 # Resource iteration in ARM templates
 
 This article shows you how to create more than one instance of a resource in your Azure Resource Manager (ARM) template. By adding the **copy** element to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
 
-You can also use copy with [properties](copy-properties.md), [variables](copy-variables.md) and [outputs](copy-outputs.md).
+You can also use copy with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
@@ -149,6 +149,8 @@ If you want to return values from the deployed resources, you can use [copy in t
 By default, Resource Manager creates the resources in parallel. It applies no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the template. The order in which they're created isn't guaranteed.
 
 However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+
+The value for `batchSize` can't exceed the value for `count` in the copy element.
 
 For example, to serially deploy storage accounts two at a time, use:
 

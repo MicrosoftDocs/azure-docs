@@ -150,7 +150,7 @@ As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity c
 
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], a server that hosts protected resources, capable of accepting and responding to protected resource requests by [client applications](#client-application) that present an [access token](#access-token). Also known as a protected resource server, or resource application.
 
-A resource server exposes APIs and enforces access to its protected resources through [scopes](#scopes) and [roles](#roles), using the OAuth 2.0 Authorization Framework. Examples include the [Microsoft Graph API][Microsoft-Graph] which provides access to Azure AD tenant data, and the Office 365 APIs that provide access to data such as mail and calendar.
+A resource server exposes APIs and enforces access to its protected resources through [scopes](#scopes) and [roles](#roles), using the OAuth 2.0 Authorization Framework. Examples include the [Microsoft Graph API][Microsoft-Graph] which provides access to Azure AD tenant data, and the Microsoft 365 APIs that provide access to data such as mail and calendar.
 
 Just like a client application, resource application's identity configuration is established via [registration](#application-registration) in an Azure AD tenant, providing both the application and service principal object. Some Microsoft-provided APIs, such as the Microsoft Graph API, have pre-registered service principals made available in all tenants during provisioning.
 
@@ -160,7 +160,7 @@ Like [scopes](#scopes), roles provide a way for a [resource server](#resource-se
 
 Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][Graph-Sp-Resource]. The Azure portal is also used to assign users to "user" roles, and configure client [application permissions](#permissions) to access an "application" role.
 
-For a detailed discussion of the application roles exposed by the Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For a step-by-step implementation example, see [Manage access using RBAC and the Azure portal][AAD-RBAC].
+For a detailed discussion of the application roles exposed by the Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For a step-by-step implementation example, see [Add or remove Azure role assignments using the Azure portal][AAD-RBAC].
 
 ## scopes
 
@@ -168,7 +168,7 @@ Like [roles](#roles), scopes provide a way for a [resource server](#resource-ser
 
 Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][Graph-Sp-Resource]. The Azure portal is also used to configure client application [delegated permissions](#permissions) to access a scope.
 
-A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For scopes exposed by Office 365 services, see [Office 365 API permissions reference][O365-Perm-Ref].
+A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For scopes exposed by Microsoft 365 services, see [Microsoft 365 API permissions reference][O365-Perm-Ref].
 
 ## security token
 
@@ -198,7 +198,7 @@ An instance of an Azure AD directory is referred to as an Azure AD tenant. It pr
 * authentication of user accounts and registered applications
 * REST endpoints required to support various protocols including OAuth2 and SAML, including the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
 
-Azure AD tenants are created/associated with Azure and Office 365 subscriptions during sign-up, providing Identity & Access Management features for the subscription. Azure subscription administrators can also create additional Azure AD tenants via the Azure portal. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [Associate or add an Azure subscription to your Azure Active Directory tenant][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant, and for instructions on how to associate or add a subscription to an Azure AD tenant.
+Azure AD tenants are created/associated with Azure and Microsoft 365 subscriptions during sign-up, providing Identity & Access Management features for the subscription. Azure subscription administrators can also create additional Azure AD tenants via the Azure portal. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [Associate or add an Azure subscription to your Azure Active Directory tenant][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant, and for instructions on how to associate or add a subscription to an Azure AD tenant.
 
 ## token endpoint
 

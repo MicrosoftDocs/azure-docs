@@ -60,8 +60,7 @@ easy API hosting.
 > * [Ruby](../app-service/quickstart-ruby.md)
 >
 > For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](https://github.com/logicappsio) 
-> or [blog](https://aka.ms/logicappsblog).
+> [Azure Logic Apps GitHub repository](https://github.com/logicappsio).
 
 ## How do custom APIs differ from custom connectors?
 

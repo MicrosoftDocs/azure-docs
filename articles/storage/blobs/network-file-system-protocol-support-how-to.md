@@ -66,7 +66,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## Step 3: Create an Azure Virtual Network (VNet)
 
-Your storage account must be contained within a VNet. A VNet enables clients to securely connect to your storage account. To learn more about VNet, and how to create one, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/).
+Your storage account must be contained within a VNet. A VNet enables clients to securely connect to your storage account. To learn more about VNet, and how to create one, see the [Virtual Network documentation](../../virtual-network/index.yml).
 
 > [!NOTE]
 > Clients in the same VNet can mount containers in your account. You can also mount a container from a client that runs in an on-premises network, but you'll have to first connect your on-premises network to your VNet. See [Supported network connections](network-file-system-protocol-support.md#supported-network-connections).
@@ -104,11 +104,11 @@ Create a container in your storage account by using any of these tools or SDKs:
 
 |Tools|SDKs|
 |---|---|
-|[Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-|[Azure portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](/rest/api/storageservices/create-container)|
 
 ## Step 7: Mount the container
 
@@ -139,7 +139,7 @@ Create a directory on your Windows or Linux system, and then mount a container i
 
    ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Mount a container by using the [mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) command.
+2. Mount a container by using the [mount](/windows-server/administration/windows-commands/mount) command.
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -148,6 +148,15 @@ Create a directory on your Windows or Linux system, and then mount a container i
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
    - Replace the `<container-name>` placeholder with the name of your container.
+
+3. If you need write permissions, you may need to change the default UID and GID that Windows uses to connect to the share. To do this, run the following PowerShell commands as an administrator:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Restart the NFS client service or reboot the server after making this change.
 
 ---
 
@@ -161,10 +170,3 @@ Create a directory on your Windows or Linux system, and then mount a container i
 ## See also
 
 [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md)
-
-
-
-
-
-
-

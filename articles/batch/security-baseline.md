@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -597,13 +597,13 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory(AAD) Role-based access control (RBAC) to control access to the management plane of Azure resources including Batch Account, Batch Pool(s), and Storage Accounts.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the management plane of Azure resources including Batch Account, Batch Pool(s), and Storage Accounts.
 
 Understand Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-How to configure RBAC in Azure:
+How to configure Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -944,13 +944,13 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### 7.6: Securely Store Custom Operating System Images
 
-**Guidance**: If using custom images for your Azure Batch pools, use Role-based access control (RBAC) to ensure only authorized users may access the images.
+**Guidance**: If using custom images for your Azure Batch pools, use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images.
 
-Understand RBAC in Azure:
+Understand Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-How to configure RBAC in Azure:
+How to configure Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
@@ -1016,13 +1016,17 @@ How to integrate with Azure Managed Identities:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-How to create a Azure Key Vault:
+How to create a Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity:
+How to authenticate to Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center monitoring**: Yes
 

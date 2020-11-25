@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Output Metadata
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks. For example, encode an MP4 file to H.264 MP4 adaptive bitrate sets; create a thumbnail; create overlays. Upon completion of a task, an output asset is produced.  The output asset contains video, audio, thumbnails, etc. The output asset also contains a file with metadata about the output asset. The name of the metadata XML file has the following format: &lt;source_file_name&gt;_manifest.xml (for example, BigBuckBunny_manifest.xml).  
 

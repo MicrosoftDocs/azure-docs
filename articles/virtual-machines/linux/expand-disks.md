@@ -66,7 +66,7 @@ To use an expanded disk, expand the underlying partition and filesystem.
 1. SSH to your VM with the appropriate credentials. You can see the public IP address of your VM with [az vm show](/cli/azure/vm#az-vm-show):
 
     ```azurecli
-    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --output tsv
     ```
 
 1. Expand the underlying partition and filesystem.

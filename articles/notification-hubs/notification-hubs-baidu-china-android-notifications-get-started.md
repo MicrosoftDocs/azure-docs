@@ -15,7 +15,7 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
-ms.custom: devx-track-java
+ms.custom: "devx-track-java, devx-track-csharp"
 ---
 
 # Get started with Notification Hubs using Baidu

@@ -18,12 +18,12 @@ ms.collection: M365-identity-device-management
 
 #  Use a SAML 2.0 Identity Provider (IdP) for Single Sign On
 
-This document contains information on using a SAML 2.0 compliant SP-Lite profile-based Identity Provider as the preferred Security Token Service (STS) / identity provider. This scenario is useful when you already have a user directory and password store on-premises that can be accessed using SAML 2.0. This existing user directory can be used for sign-on to Office 365 and other Azure AD-secured resources. The SAML 2.0 SP-Lite profile is based on the widely used Security Assertion Markup Language (SAML) federated identity standard to provide a sign-on and attribute exchange framework.
+This document contains information on using a SAML 2.0 compliant SP-Lite profile-based Identity Provider as the preferred Security Token Service (STS) / identity provider. This scenario is useful when you already have a user directory and password store on-premises that can be accessed using SAML 2.0. This existing user directory can be used for sign-on to Microsoft 365 and other Azure AD-secured resources. The SAML 2.0 SP-Lite profile is based on the widely used Security Assertion Markup Language (SAML) federated identity standard to provide a sign-on and attribute exchange framework.
 
 >[!NOTE]
 >For a list of 3rd party Idps that have been tested for use with Azure AD see the [Azure AD federation compatibility list](how-to-connect-fed-compatibility.md)
 
-Microsoft supports this sign-on experience as the integration of a Microsoft cloud service, such as Office 365, with your properly configured SAML 2.0 profile-based IdP. SAML 2.0 identity providers are third-party products and therefore Microsoft does not provide support for the deployment, configuration, troubleshooting best practices regarding them. Once properly configured, the integration with the SAML 2.0 identity provider can be tested for proper configuration by using the Microsoft Connectivity Analyzer Tool, which is described in more detail below. For more information about your SAML 2.0 SP-Lite profile-based identity provider, ask the organization that supplied it.
+Microsoft supports this sign-on experience as the integration of a Microsoft cloud service, such as Microsoft 365, with your properly configured SAML 2.0 profile-based IdP. SAML 2.0 identity providers are third-party products and therefore Microsoft does not provide support for the deployment, configuration, troubleshooting best practices regarding them. Once properly configured, the integration with the SAML 2.0 identity provider can be tested for proper configuration by using the Microsoft Connectivity Analyzer Tool, which is described in more detail below. For more information about your SAML 2.0 SP-Lite profile-based identity provider, ask the organization that supplied it.
 
 > [!IMPORTANT]
 > Only a limited set of clients are available in this sign-on scenario with SAML 2.0 identity providers, this includes:
@@ -39,12 +39,12 @@ Microsoft supports this sign-on experience as the integration of a Microsoft clo
 All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to sign in to the service with your SAML 2.0 Identity Provider configured for single sign-on.
 
 ## Azure AD SAML 2.0 protocol requirements
-This document contains detailed requirements on the protocol and message formatting that your SAML 2.0 identity provider must implement to federate with Azure AD to enable sign-on to one or more Microsoft cloud services (such as Office 365). The SAML 2.0 relying party (SP-STS) for a Microsoft cloud service used in this scenario is Azure AD.
+This document contains detailed requirements on the protocol and message formatting that your SAML 2.0 identity provider must implement to federate with Azure AD to enable sign-on to one or more Microsoft cloud services (such as Microsoft 365). The SAML 2.0 relying party (SP-STS) for a Microsoft cloud service used in this scenario is Azure AD.
 
 It is recommended that you ensure your SAML 2.0 identity provider output messages be as similar to the provided sample traces as possible. Also, use specific attribute values from the supplied Azure AD metadata where possible. Once you are happy with your output messages, you can test with the Microsoft Connectivity Analyzer as described below.
 
 The Azure AD metadata can be downloaded from this URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-For customers in China using the China-specific instance of Office 365, the following federation endpoint should be used: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+For customers in China using the China-specific instance of Microsoft 365, the following federation endpoint should be used: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## SAML protocol requirements
 This section details how the request and response message pairs are put together in order to help you to format your messages correctly.
@@ -77,7 +77,7 @@ This table shows requirements for specific attributes in the SAML 2.0 message.
 |Attribute|Description|
 | ----- | ----- |
 |NameID|The value of this assertion must be the same as the Azure AD user’s ImmutableID. It can be up to 64 alpha numeric characters. Any non-html safe characters must be encoded, for example a “+” character is shown as “.2B”.|
-|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Azure AD/Office 365. The UPN is in email address format. UPN value in Windows Office 365 (Azure Active Directory).|
+|IDPEmail|The User Principal Name (UPN) is listed in the SAML response as an element with the name IDPEmail The user’s UserPrincipalName (UPN) in Azure AD/Microsoft 365. The UPN is in email address format. UPN value in Windows Microsoft 365 (Azure Active Directory).|
 |Issuer|Required to be a URI of the identity provider. Do not reuse the Issuer from the sample messages. If you have multiple top-level domains in your Azure AD tenants the Issuer must match the specified URI setting configured per domain.|
 
 >[!IMPORTANT]
@@ -100,7 +100,7 @@ The following is a sample request message that is sent from Azure AD to a sample
 	</samlp:AuthnRequest>
 ```
 
-The following is a sample response message that is sent from the sample SAML 2.0 compliant identity provider to Azure AD / Office 365.
+The following is a sample response message that is sent from the sample SAML 2.0 compliant identity provider to Azure AD / Microsoft 365.
 
 ```xml
     <samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -156,7 +156,7 @@ The following is a sample response message that is sent from the sample SAML 2.0
 ```
 
 ## Configure your SAML 2.0 compliant identity provider
-This section contains guidelines on how to configure your SAML 2.0 identity provider to federate with Azure AD to enable single sign-on access to one or more Microsoft cloud services (such as Office 365) using the SAML 2.0 protocol. The SAML 2.0 relying party for a Microsoft cloud service used in this scenario is Azure AD.
+This section contains guidelines on how to configure your SAML 2.0 identity provider to federate with Azure AD to enable single sign-on access to one or more Microsoft cloud services (such as Microsoft 365) using the SAML 2.0 protocol. The SAML 2.0 relying party for a Microsoft cloud service used in this scenario is Azure AD.
 
 ## Add Azure AD metadata
 Your SAML 2.0 identity provider needs to adhere to information about the Azure AD relying party. Azure AD publishes metadata at https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
@@ -175,7 +175,7 @@ You must enable communication between your SAML 2.0 identity provider and Azure 
 ## Install Windows PowerShell for sign-on with SAML 2.0 identity provider
 After you have configured your SAML 2.0 identity provider for use with Azure AD sign-on, the next step is to download and install the Azure Active Directory Module for Windows PowerShell. Once installed, you will use these cmdlets to configure your Azure AD domains as federated domains.
 
-The Azure Active Directory Module for Windows PowerShell is a download for managing your organizations data in Azure AD. This module installs a set of cmdlets to Windows PowerShell; you run those cmdlets to set up single sign-on access to Azure AD and in turn to all of the cloud services you are subscribed to. For instructions about how to download and install the cmdlets, see [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
+The Azure Active Directory Module for Windows PowerShell is a download for managing your organizations data in Azure AD. This module installs a set of cmdlets to Windows PowerShell; you run those cmdlets to set up single sign-on access to Azure AD and in turn to all of the cloud services you are subscribed to. For instructions about how to download and install the cmdlets, see [/previous-versions/azure/jj151815(v=azure.100)](/previous-versions/azure/jj151815(v=azure.100))
 
 ## Set up a trust between your SAML identity provider and Azure AD
 Before configuring federation on an Azure AD domain, it must have a custom domain configured. You cannot federate the default domain that is provided by Microsoft. The default domain from Microsoft ends with “onmicrosoft.com”.
@@ -197,7 +197,7 @@ The following procedure walks you through converting an existing standard domain
 	Connect-MsolService
 	```
 	
-2. Configure your desired Office 365 domain to use federation with SAML 2.0:
+2. Configure your desired Microsoft 365 domain to use federation with SAML 2.0:
 
 	```powershell
 	$dom = "contoso.com" 
@@ -235,19 +235,19 @@ The following procedure walks you through converting an existing standard domain
 	</IDPSSODescriptor>
 	``` 
 
-For more information about “Set-MsolDomainAuthentication”, see: [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
+For more information about “Set-MsolDomainAuthentication”, see: [/previous-versions/azure/dn194112(v=azure.100)](/previous-versions/azure/dn194112(v=azure.100)).
 
 >[!NOTE]
 >You must use `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` only if you set up an ECP extension for your identity provider. Exchange Online clients, excluding Outlook Web Application (OWA), rely on a POST based active end point. If your SAML 2.0 STS implements an active end point similar to Shibboleth’s ECP implementation of an active end point it may be possible for these rich clients to interact with the Exchange Online service.
 
-Once federation has been configured you can switch back to “non-federated” (or “managed”), however this change takes up to two hours to complete and it requires assigning new random passwords for cloud-based sign-in to each user. Switching back to “managed” may be required in some scenarios to reset an error in your settings. For more information on Domain conversion see: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Once federation has been configured you can switch back to “non-federated” (or “managed”), however this change takes up to two hours to complete and it requires assigning new random passwords for cloud-based sign-in to each user. Switching back to “managed” may be required in some scenarios to reset an error in your settings. For more information on Domain conversion see: [/previous-versions/azure/dn194122(v=azure.100)](/previous-versions/azure/dn194122(v=azure.100)).
 
-## Provision user principals to Azure AD / Office 365
-Before you can authenticate your users to Office 365, you must provision Azure AD with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Azure AD in advance, then they cannot be used for federated sign-in. Either Azure AD Connect or Windows PowerShell can be used to provision user principals.
+## Provision user principals to Azure AD / Microsoft 365
+Before you can authenticate your users to Microsoft 365, you must provision Azure AD with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Azure AD in advance, then they cannot be used for federated sign-in. Either Azure AD Connect or Windows PowerShell can be used to provision user principals.
 
 Azure AD Connect can be used to provision principals to your domains in your Azure AD Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md).
 
-Windows PowerShell can also be used to automate adding new users to Azure AD and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets, you must download the [Azure Active Directory Modules](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+Windows PowerShell can also be used to automate adding new users to Azure AD and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets, you must download the [Azure Active Directory Modules](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 This procedure shows how to add a single user to Azure AD.
 
@@ -267,7 +267,7 @@ This procedure shows how to add a single user to Azure AD.
       -UsageLocation "US" 
     ```
 
-For more information about “New-MsolUser” checkout, [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
+For more information about “New-MsolUser” checkout, [/previous-versions/azure/dn194096(v=azure.100)](/previous-versions/azure/dn194096(v=azure.100))
 
 >[!NOTE]
 >The “UserPrinciplName” value must match the value that you will send for “IDPEmail” in your SAML 2.0 claim and the “ImmutableID” value must match the value sent in your “NameID” assertion.
@@ -280,7 +280,7 @@ As the administrator, before you verify and manage single sign-on (also called i
 2.	You have configured your SAML 2.0 identity provider
 3.	Install Windows PowerShell for single sign-on with SAML 2.0 identity provider
 4.	Set up a trust between SAML 2.0 identity provider and Azure AD
-5.	Provisioned a known test user principal to Azure Active Directory (Office 365) either through Windows PowerShell or Azure AD Connect.
+5.	Provisioned a known test user principal to Azure Active Directory (Microsoft 365) either through Windows PowerShell or Azure AD Connect.
 6.	Configure directory synchronization using [Azure AD Connect](whatis-hybrid-identity.md).
 
 After setting up single sign-on with your SAML 2.0 SP-Lite based identity Provider, you should verify that it is working correctly.
@@ -304,7 +304,7 @@ Microsoft has provided a tool that you can use to test your SAML 2.0 based ident
 3.	Select “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory”.
 4.	Once the tool is downloaded and running, you will see the Connectivity Diagnostics window. The tool will step you through testing your federation connection.
 5.	The Connectivity Analyzer will open your SAML 2.0 IDP for you to sign-in, enter the credentials for the user principal you are testing:
-![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+![Screenshot that shows the sign-in window for your SAML 2.0 IDP.](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  At the Federation test sign-in window, you should enter an account name and password for the Azure AD tenant that is configured to be federated with your SAML 2.0 identity provider. The tool will attempt to sign-in using those credentials and detailed results of tests performed during the sign-in attempt will be provided as output.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. This window shows a failed result of testing. Clicking on Review detailed results will show information about the results for each test that was performed. You can also save the results to disk in order to share them.

@@ -87,7 +87,7 @@ With public peering: Ensure access to the following domains/addresses:
 * `.microsoftonline.com`
 * `.windows.net`
 
-With Microsoft peering, please select the following services/regions and relevant community values:
+With Microsoft peering, select the following services/regions and relevant community values:
 
 * Azure Active Directory (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)

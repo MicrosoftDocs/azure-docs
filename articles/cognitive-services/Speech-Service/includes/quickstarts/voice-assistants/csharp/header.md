@@ -9,6 +9,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
+ms.custom: devx-track-csharp
 ---
 
 You can view or download all [Speech SDK C# Samples](https://aka.ms/speech/github-csharp) on GitHub. 

@@ -145,7 +145,7 @@ As with metrics, you can specify any arbitrary criteria to any of the Applicatio
 
 See the details of an item in the live feed by clicking it. You can pause the feed either by clicking **Pause** or simply scrolling down, or clicking an item. Live feed will resume after you scroll back to the top, or by clicking the counter of items collected while it was paused.
 
-![Sampled live failures](./media/live-stream/sample-telemetry.png)
+![Screenshot shows the Sample telemetry window with an exception selected and the exception details displayed at the bottom of the window.](./media/live-stream/sample-telemetry.png)
 
 ## Filter by server instance
 
