@@ -10,7 +10,7 @@ ms.custom: "seodec18, mvc, devx-track-azurecli"
 
 # Tutorial: Automate container image builds in the cloud when you commit source code
 
-In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds in the cloud when you commit source code to a Git repository. Supported Git contexts for ACR Tasks include public or private GitHub or Azure repos.
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds in the cloud when you commit source code to a Git repository. Supported Git contexts for ACR Tasks include public or private GitHub or Azure Repos.
 
 > [!NOTE]
 > Currently, ACR Tasks doesn't support commit or pull request triggers in GitHub Enterprise repos.
