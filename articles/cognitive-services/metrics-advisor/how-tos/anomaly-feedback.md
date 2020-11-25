@@ -102,7 +102,7 @@ Another way to view feedback history is from a series. You will see several butt
 :::image type="content" source="../media/feedback/feedback-list.png" alt-text="Feedback list menu with two dimensions":::
 
 > [!NOTE]
-> Anyone who has access to the metric is permitted to give feedback, so you may see feedback given by other datafeed owners. If you edit the same point as someone else, your feedback will overwrite the previous feedback entry.       |
+> Anyone who has access to the metric is permitted to give feedback, so you may see feedback given by other datafeed owners. If you edit the same point as someone else, your feedback will overwrite the previous feedback entry.       
 
 ## Next steps
 - [Diagnose an incident](diagnose-incident.md).
