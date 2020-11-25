@@ -1,6 +1,6 @@
 ---
-title: Security Playbooks in Azure Sentinel | Microsoft Docs
-description: This article explains what is a security playbooks in Azure Sentinel and the related concepts.
+title: Automate threat response with playbooks in Azure Sentinel | Microsoft Docs
+description: This article explains automation in Azure Sentinel, and shows how to use playbooks to automate threat prevention and response.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -19,44 +19,23 @@ ms.author: yelevin
 
 ---
 
-# Security playbooks in Azure Sentinel
+# Automate threat response with playbooks in Azure Sentinel
 
-This article explains what Azure Sentinel Security Playbooks are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, achieving better results while saving time and resources.
+This article explains what Azure Sentinel playbooks are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, achieving better results while saving time and resources.
 
-## What is a security playbook?
+## What is a playbook?
 
 SIEM/SOC teams are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A security playbook (or just a "playbook" for short) is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response, and can be run manually or set to run automatically when triggered by an analytics rule. 
+A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts, when triggered by an analytics rule. 
 
-Playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which means that you get all the power and customizability of Logic Apps' built-in templates. Playbooks are created and run at the subscription level, but the Playbooks gallery displays all the playbooks available across any selected subscriptions.
+Playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which means that you get all the power and customizability of Logic Apps' built-in templates. Each playbook is created for a specific subscription, but when you look at the Playbooks page, you will see all the playbooks available across any selected subscriptions.
 
 Azure Sentinel already enables you to define your remediation in playbooks. It is also possible to set real-time automation as part of your playbook definition to enable you to fully automate a defined response to particular security alerts. Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more. <!-- This needs more explanation. Is this talking about automation rules, or something else? -->
 
-## Prerequisites
-
-### Permissions required
-
-Playbooks are built on Azure Logic Apps, and are a separate Azure resource. You can assign Azure roles to specific members of your security operations team, to give them the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations.
-
-#### Azure Logic Apps roles
-
-- **Logic App Contributor** lets you manage logic apps, but you can't change access to them.
-- **Logic App Operator**  lets you read, enable, and disable logic apps, but you can't edit or update them.
-
-#### Azure Sentinel roles
-
-- **Azure Sentinel Contributor** role lets you attach a playbook to an analytic rule.
-- **Azure Sentinel Responder** role lets you run a playbook manually.
-
-### Learn more
-
-- [Learn more about permissions in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations).
-- [Learn more about permissions in Azure Sentinel](roles.md).
-
-### Steps for creating a security playbook
+## Steps for creating a security playbook
 
 - [Define the automation scenario](#When-to-use-playbooks?)
 
@@ -65,6 +44,26 @@ Playbooks are built on Azure Logic Apps, and are a separate Azure resource. You 
 - [Test your Logic App](link)
 
 - Attach the playbook to an automation rule or an analytics rule, or run manually when required
+
+### Permissions required
+
+Playbooks are built on Azure Logic Apps, which are a separate Azure resource. You can assign Azure roles to specific members of your security operations team, to give them the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations.
+
+#### Azure roles for Logic Apps
+
+- **Logic App Contributor** lets you manage logic apps, but you can't change access to them.
+- **Logic App Operator**  lets you read, enable, and disable logic apps, but you can't edit or update them.
+
+#### Azure roles for Sentinel
+
+- **Azure Sentinel Contributor** role lets you attach a playbook to an analytic rule.
+- **Azure Sentinel Responder** role lets you run a playbook manually.
+
+#### Learn more
+
+- [Learn more about Azure roles in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations).
+- [Learn more about Azure roles in Azure Sentinel](roles.md).
+
 
 ### Azure Logic Apps basic concepts
 
