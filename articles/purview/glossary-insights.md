@@ -19,9 +19,6 @@ In this how-to guide, you'll learn how to:
 > - Go to Insights from your Purview account
 > - Get a bird's eye view of your data
 
-> [!NOTE]
-> If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
-
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
@@ -34,7 +31,7 @@ Before getting started with Purview insights, make sure that you've completed th
 
 For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) 
 
-## Use Purview Asset Insights
+## Use Purview Glossary Insights
 
 In Azure Purview, you can create glossary terms and attach them to assets. Later, you can view the glossary distribution in Glossary Insights. This tells you the state of your glossary by terms attached to assets. It also tells you terms by status and distribution of roles by number of users.
 
@@ -44,17 +41,15 @@ In Azure Purview, you can create glossary terms and attach them to assets. Later
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/glossary-insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
+1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/glossary-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Glossary** to display the Purview **Glossary insights** report.
+1. In the **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area, select **Glossary** to display the Purview **Glossary insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report":::
-
-   The **Glossary Insights** page displays the following areas:
+The **Glossary Insights** page displays the following areas:
 - **High level KPI's to show glossary terms and catalog users**
 
 - **Top glossary terms and count of assets** 
