@@ -33,7 +33,7 @@ The following are a common, _but by no means exhaustive_, set of scenarios for A
 | --- | --- |
 | **Build a web API** | Implement an endpoint for your web applications using the [HTTP trigger](./functions-bindings-http-webhook.md) |
 | **Process file uploads** | Run code when a file is uploaded or changed in [blob storage](./functions-bindings-storage-blob.md) |
-| **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable-functions-overview.md) |
+| **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable/durable-functions-overview.md) |
 | **Respond to database changes** | Run custom logic when a document is created or updated in [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Run scheduled tasks** | Execute code at [set times](./functions-bindings-timer.md) |
 | **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
