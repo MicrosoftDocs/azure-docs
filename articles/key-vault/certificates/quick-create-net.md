@@ -27,6 +27,7 @@ For more information about Key Vault and certificates, see:
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure CLI](/cli/azure/install-azure-cli)
+* Key Vault - you can create a key vault  using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
 This quickstart is using `dotnet` and Azure CLI
 
@@ -95,7 +96,7 @@ dotnet add package Azure.Identity
 Create an access policy for your key vault that grants certificate permission to your user account
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create purge
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
 #### Set environment variables
@@ -244,8 +245,8 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
     A variation of the following output appears:
 
     ```console
-    Creating a certificate in jl-kv called 'myCertificate3' ... done.
-    Retrieving your certificate from jl-kv.
+    Creating a certificate in mykeyvault called 'myCertificate' ... done.
+    Retrieving your certificate from mykeyvault.
     Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
     Deleting your certificate from jl-kv ... done
     ```
