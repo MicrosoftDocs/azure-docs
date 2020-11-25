@@ -1,40 +1,16 @@
 ---
-title: Tutorial - Connect a generic Java client app to Azure IoT Central | Microsoft Docs
-description: This tutorial shows you how, as a device developer, to connect a device running a Java client app to your Azure IoT Central application. You modify the automatically generated device template by adding views that let an operator interact with a connected device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
-ms.topic: tutorial
-ms.service: iot-central
-services: iot-central
-ms.custom: [mqtt, device-developer]
-
-# As a device developer, I want to try out using Java device code that uses the Azure IoT Java SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using commands.
+ms.service: iot-pnp
+ms.topic: include
+ms.date: 11/24/2020
 ---
-
-# Tutorial: Create and connect a client application to your Azure IoT Central application (Java)
-
-[!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
-
-*This article applies to solution builders and device developers.*
-
-This tutorial shows you how, as a device developer, to connect a Java client application to your Azure IoT Central application. The Java application simulates the behavior of a thermostat device. When the application connects to IoT Central, it sends the model ID of the thermostat device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add customizations and views to the device template to enable an operator to interact with a device.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create and run the Java device code and see it connect to your IoT Central application.
-> * View the simulated telemetry sent from the device.
-> * Add custom views to a device template.
-> * Publish the device template.
-> * Use a view to manage device properties.
-> * Call a command to control the device.
 
 ## Prerequisites
 
 To complete the steps in this article, you need the following:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
+* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
 * A development machine with Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), under **Long-term support**, select **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 * A local copy of the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-java/archive/master.zip). Then unzip the file to a suitable location on your local machine.
@@ -263,7 +239,7 @@ public DeviceMethodData call(String methodName, Object methodData, Object contex
 
 ## Get connection information
 
-[!INCLUDE [iot-central-connection-configuration](../../../includes/iot-central-connection-configuration.md)]
+[!INCLUDE [iot-central-connection-configuration](iot-central-connection-configuration.md)]
 
 On Windows, navigate to the root folder of the Java SDK repository you downloaded.
 
@@ -277,7 +253,7 @@ mvn install -T 2C -DskipTests
 
 To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/thermostat-device-sample* folder that contains the *Thermostat.java* sample file.
 
-[!INCLUDE [iot-central-connection-environment](../../../includes/iot-central-connection-environment.md)]
+[!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 
 Run the sample:
 
@@ -287,7 +263,7 @@ mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.Therm
 
 The following output shows the device registering and connecting to IoT Central. The sample starts sending telemetry:
 
-```cmd/sh
+```output
 Waiting for Provisioning Service to register
 Waiting for Provisioning Service to register
 IotHUb Uri : iotc-...azure-devices.net
@@ -316,11 +292,11 @@ Device ID : sample-device-01
 2020-11-05 14:38:29.169 DEBUG Thermostat:419 - Telemetry: Sent - {"temperature": 39.6 C} with message Id 752f3b01-6c28-4f76-a314-97c75f37bc64.
 ```
 
-[!INCLUDE [iot-central-monitor-thermostat](../../../includes/iot-central-monitor-thermostat.md)]
+[!INCLUDE [iot-central-monitor-thermostat](iot-central-monitor-thermostat.md)]
 
 You can see how the device responds to commands and property updates:
 
-```cmd/sh
+```output
 2020-11-05 14:43:03.179 DEBUG Thermostat:318 - Command: Received - Generating min, max, avg temperature report since Thu Nov 05 06:30:00 GMT 2020.
 2020-11-05 14:43:03.180 DEBUG Thermostat:345 - Command: MaxMinReport since Thu Nov 05 06:30:00 GMT 2020: "maxTemp": 33.1 C, "minTemp": 33.1 C, "avgTemp": 33.1 C, "startTime": 2020-11-05T14:42:28Z, "endTime": 2020-11-05T14:42:58Z
 
@@ -330,20 +306,3 @@ You can see how the device responds to commands and property updates:
 2020-11-05 14:49:08.185 DEBUG Thermostat:270 - Property: Update - {"targetTemperature": 56.0 C} is IN_PROGRESS
 2020-11-05 14:49:18.206 DEBUG Thermostat:282 - Property: Update - {"targetTemperature": 55.9 C} is COMPLETED
 ```
-
-## View raw data
-
-[!INCLUDE [iot-central-monitor-thermostat-raw-data](../../../includes/iot-central-monitor-thermostat-raw-data.md)]
-
-## Next steps
-
-If you'd prefer to continue through the set of IoT Central tutorials and learn more about building an IoT Central solution, see:
-
-> [!div class="nextstepaction"]
-> [Create a gateway device template](./tutorial-define-gateway-device-type.md)
-
-As a device developer, now that you've learned the basics of how to create a device using Java, some suggested next steps are to:
-
-* Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
-* Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
-* Read [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md) to learn more about the data the device exchanges with IoT Central.
