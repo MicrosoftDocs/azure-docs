@@ -31,23 +31,39 @@ Many, if not most, of these alerts and incidents conform to recurring patterns t
 
 A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts, when triggered by an analytics rule. 
 
-Playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which means that you get all the power and customizability of Logic Apps' built-in templates. Each playbook is created for a specific subscription, but when you look at the Playbooks page, you will see all the playbooks available across any selected subscriptions.
+Each playbook is created for a specific subscription, but when you look at the Playbooks page, you will see all the playbooks available across any selected subscriptions.
 
-Azure Sentinel already enables you to define your remediation in playbooks. It is also possible to set real-time automation as part of your playbook definition to enable you to fully automate a defined response to particular security alerts. Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more. <!-- This needs more explanation. Is this talking about automation rules, or something else? -->
+<!-- Azure Sentinel already enables you to define your remediation in playbooks. It is also possible to set real-time automation as part of your playbook definition to enable you to fully automate a defined response to particular security alerts. Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more. -->
+<!-- This needs more explanation. Is this talking about automation rules, or something else? -->
 
-## Steps for creating a security playbook
+### Azure Logic Apps basic concepts
+Playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-apps-overview.md), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise. This means that playbooks can take advantage of all the power and customizability of Logic Apps' built-in templates.
 
-- [Define the automation scenario](#When-to-use-playbooks?)
+> [!NOTE]
+> Because Azure Logic Apps are a separate resource, additional charges may apply. Visit the [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
 
-- Build the Azure Logic App
+Azure Logic Apps communicates with other systems and services using connectors. The following is a brief explanation of the types of connectors in use:
 
-- [Test your Logic App](link)
+- **Managed Connector:** A set of actions and triggers, which wrap API calls to a certain product. Azure Logic Apps offers hundreds of connectors to connect to both Microsoft and non-Microsoft services.
+  - [List of all Logic Apps connectors and their documentation](https://docs.microsoft.com/connectors/connector-reference/)
 
-- Attach the playbook to an automation rule or an analytics rule, or run manually when required
+- **Custom connector:** You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector with its own triggers and actions.
+  - [Create your own custom Logic Apps connectors](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
+
+- **Azure Sentinel Connector:** To create playbooks that interact with Azure Sentinel, use the Azure Sentinel connector.
+  - [Azure Sentinel connector documentation](https://docs.microsoft.com/connectors/azuresentinel/)
+
+- **Trigger:** A connector component that starts a playbook. It defines the schema that the playbook expects to receive when triggered. The Azure Sentinel connector currently has two triggers:
+  - [Incident trigger](https://docs.microsoft.com/connectors/azuresentinel/)
+  - [Alert trigger](https://docs.microsoft.com/connectors/azuresentinel/)
+
+- **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
+
+- **Dynamic fields:** The output schema of trigger/action is parsed to dynamic fields that can be used in the actions that follow.
 
 ### Permissions required
 
-Playbooks are built on Azure Logic Apps, which are a separate Azure resource. You can assign Azure roles to specific members of your security operations team, to give them the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations.
+ To give your SecOps team the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations - that is, to create and run playbooks - in Azure Sentinel, you can assign Azure roles, either to specific members of your security operations team or to the whole team. The following describes the different available roles, and the tasks for which they should be assigned:
 
 #### Azure roles for Logic Apps
 
@@ -56,7 +72,7 @@ Playbooks are built on Azure Logic Apps, which are a separate Azure resource. Yo
 
 #### Azure roles for Sentinel
 
-- **Azure Sentinel Contributor** role lets you attach a playbook to an analytic rule.
+- **Azure Sentinel Contributor** role lets you attach a playbook to an analytics rule.
 - **Azure Sentinel Responder** role lets you run a playbook manually.
 
 #### Learn more
@@ -64,48 +80,39 @@ Playbooks are built on Azure Logic Apps, which are a separate Azure resource. Yo
 - [Learn more about Azure roles in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations).
 - [Learn more about Azure roles in Azure Sentinel](roles.md).
 
+## Steps for creating a security playbook
 
-### Azure Logic Apps basic concepts
+- [Define the automation scenario](#when-to-use-playbooks)
 
-- **Managed Connector:** A set of actions and triggers, which wrap API calls to a certain product. Azure Logic Apps offers hundreds of connectors to connect to both Microsoft and non-Microsoft services.
-  - [List of all Logic Apps connectors and their documentation](https://docs.microsoft.com/connectors/connector-reference/)
+- Build the Azure Logic App
 
-- **Custom connector:** You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector with its own triggers and actions.
-  - [Create your own custom Logic Apps connectors](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
+- [Test your Logic App](#run-a-playbook-manually-on-an-alert)
 
-- **Azure Sentinel Connector:** To create security playbooks that interact with Azure Sentinel, use the Azure Sentinel connector.
-  - [Azure Sentinel connector documentation](https://docs.microsoft.com/connectors/azuresentinel/)
+- Attach the playbook to an automation rule or an analytics rule, or run manually when required
 
-- **Trigger:** A connector component that starts a playbook. It defines the schema that the playbook expects to receive when triggered. The Azure Sentinel connector currently has two triggers:
-  - [Incident trigger](link)
-  - [Alert trigger](link)
-
-- **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
-
-- **Dynamic fields:** The output schema of trigger/action is parsed to dynamic fields that can be used in the actions that follow.
-
-### When to use playbooks?
+### When to use playbooks
 
 The Azure Logic Apps platform offers hundreds of actions and triggers, so almost any automation scenario can be created. Azure Sentinel recommends starting with the following SOC scenarios:
 
 #### Enrichment
 
-Collect data and attach it to the incident in order to make smarter decisions.
+**Collect data and attach it to the incident in order to make smarter decisions.**
 
 For example:
 
-An Azure Sentinel incident was created from an alert by an analytics rule that generates IP entities.
-The analytic rule triggers a playbook with the following steps:
+An Azure Sentinel incident was created from an alert by an analytics rule that generates IP address entities.
+The analytics rule triggers a playbook with the following steps:
 
-- Starts with [Azure Sentinel incident trigger](link). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities list of the incident arrives as part of the trigger dynamic fields.
+- Start with [Azure Sentinel incident trigger](https://docs.microsoft.com/connectors/azuresentinel/). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities list of the incident arrives as part of the trigger's dynamic fields.
 
-- For each ip address, use an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
+- For each IP address, query an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
 
-- Add the interesting insights as comments of the incident.
+- Add the returned data and insights as comments of the incident.
 
+<!-- This section is only available with the incident trigger.
 #### Bi-directional sync
 
-Playbooks can be used to sync your Azure Sentinel incidents with other ticketing systems.
+**Playbooks can be used to sync your Azure Sentinel incidents with other ticketing systems.**
 
 For example:
 
@@ -115,51 +122,52 @@ Create an automation rule for all incident creation, and attach a playbook that 
 
 - Create a new ticket in ServiceNow
 
-- Include in the ticket the incident name, important fields and a URL to the Sentinel incident for easy pivoting.
+- Include in the ticket the incident name, important fields and a URL to the Sentinel incident for easy pivoting. -->
 
 #### Orchestration
 
-Better control the incidents queue leveraging the SOC chat platform.
+**Use the SOC chat platform to better control the incidents queue.**
 
 For example:
 
-- When a new Azure Sentinel incident is created.
+An Azure Sentinel incident was created from an alert by an analytics rule that generates username and IP address entities.
+The analytics rule triggers a playbook with the following steps:
 
-- Send a message to your security operations channel in [Microsoft Teams](link) or [Slack](link) to make sure your security analysts are aware of the incident.
+- Start when a new Azure Sentinel incident is created.
 
-- Send all the information in the alert to your senior network admin and security admin. The email message also includes two user option buttons Block or Ignore.
+- Send a message to your security operations channel in [Microsoft Teams](https://docs.microsoft.com/connectors/teams/) or [Slack](https://docs.microsoft.com/connectors/slack/) to make sure your security analysts are aware of the incident.
 
-- The playbook continues to run after a response is received from the admins.
+- Send all the information in the alert by email to your senior network admin and security admin. The email message will include **Block** and **Ignore** user option buttons.
 
-- If the admins choose Block, the IP address is blocked in the firewall and the user is disabled in Azure AD.
+- Wait until a response is received from the admins, then continue to run.
+
+- If the admins have chosen **Block**, send a command to the firewall to block the IP address in the alert, and another to Azure AD to disable the user.
 
 #### Response
 
-Immediately respond to threats with minimal human dependencies.
+**Immediately respond to threats with minimal human dependencies.**
 
-For example:
+Two examples:
 
-Respond to an analytics rule that indicates a compromised user with [Azure AD Identity Protection](link) capabilities:
+1. Respond to an analytics rule that indicates a compromised user, as discovered by [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md):
 
-- When a new Azure Sentinel incident is created
+   - Start when a new Azure Sentinel incident is created.
 
-- For each user suspected as compromised in the incident entities:
+   - For each user suspected as compromised in the incident entities:
 
-  - Send a Teams message to the user, confirming if they did the suspicious action.
+     - Send a Teams message to the user, confirming if they took the suspicious action.
 
-  - [Confirm user as compromised](link)
+     - Check with Azure AD Identity Protection to [confirm the user's status as compromised](https://docs.microsoft.com/connectors/azureadip/#confirm-a-risky-user-as-compromised).
 
-  - [Require MFA for next log in](link)
+   - Set the Azure AD Identity Protection policy to require the user to use MFA when next signing in.
 
-Respond to an analytics rule that indicates a compromised machine with [Microsoft Defender for Endpoint](link) capabilities:
+1. Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](https://docs.microsoft.com/windows/security/threat-protection/):
 
-- When a new Azure Sentinel incident is created
+   - Start when a new Azure Sentinel incident is created.
 
-- Entities - Get Hosts to parse the suspicious machines that are included in the incident entities.
+   - Use the **Entities - Get Hosts** action in Azure Sentinel to parse the suspicious machines that are included in the incident entities.
 
-- For each machine
-
-  - Isolate the machine
+   - Set the Microsoft Defender for Endpoint policy to [isolate the machines](https://docs.microsoft.com/connectors/wdatp/#actions---isolate-machine) in the alert.
 
 ## How to run a Security Playbook
 
@@ -260,4 +268,4 @@ In order to change the authorization of an existing connection, enter the connec
 
 ## Next steps
 
-- [Tutorial: Create a security playbook](link)
+- [Tutorial: Create a security playbook](tutorial-respond-threats-playbook.md)
