@@ -366,5 +366,5 @@ If the appliance interconnect tunnel status is **UP** and green, you can migrate
 For more information on using HCX, go to the VMware technical documentation:
 
 * [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html)
-* [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [HCX required ports](https://ports.vmware.com/home/VMware-HCX)
