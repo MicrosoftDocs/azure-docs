@@ -115,7 +115,7 @@ In order to create an endpoint with dead-lettering enabled, you must have:
 
 :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Storage account page in the Azure portal showing all the setting selection to generate a SAS token." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
 
-:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copy SAS token to use in the dead-letter secret." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copy SAS token to use in the dead-letter secret." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
 
 #### Configure the endpoint
 
