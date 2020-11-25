@@ -24,7 +24,7 @@ In this tutorial, you'll use a managed identity to authenticate an Azure web app
 
 ## Prerequisites
 
-To complete this quickstart:
+To complete this quickstart, you need:
 
 * An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * The [.NET Core 3.1 SDK (or later)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
@@ -61,7 +61,7 @@ You'll see the "Hello World!" message from the sample app displayed on the page.
 
 ## Deploy the app to Azure
 
-In this step, you'll deploy your .NET Core application to Azure App Service by using local Git. For more information on how to create and deploy applications, see [Create an ASP.NET Core web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
+In this step, you'll deploy your .NET Core application to Azure App Service by using local Git. For more information on how to create and deploy applications, see [Create an ASP.NET Core web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore).
 
 ### Configure the local Git deployment
 
@@ -124,14 +124,14 @@ When the App Service plan is created, the Azure CLI displays information similar
 } 
 </pre>
 
-For more information on App Service plan management, see [Manage an App Service plan in Azure](https://docs.microsoft.com/azure/app-service/app-service-plan-manage).
+For more information, see [Manage an App Service plan in Azure](https://docs.microsoft.com/azure/app-service/app-service-plan-manage).
 
 ### Create a web app
 
 Create an [Azure web app](../../app-service/overview.md) in the `myAppServicePlan` App Service plan. 
 
 > [!Important]
-> Like a key vault, an Azure web app must have a unique name. Replace `<your-webapp-name>` with the name of your web app the following examples.
+> Like a key vault, an Azure web app must have a unique name. Replace `<your-webapp-name>` with the name of your web app in the following examples.
 
 
 ```azurecli-interactive
@@ -273,7 +273,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add the following lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. This code uses  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](https://docs.microsoft.com/azure/key-vault/general/overview-throttling).
+Add the following lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](https://docs.microsoft.com/azure/key-vault/general/overview-throttling).
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
