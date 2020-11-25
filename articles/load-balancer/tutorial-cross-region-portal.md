@@ -57,8 +57,8 @@ In this section, you'll create a cross-region load balancer and public IP addres
     | Public IP address name | Type **myPublicIP-CR** in the text box.|
     | Routing preference| Select **Microsoft network** |
 
-> [!NOTE]
-> Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
+    > [!NOTE]
+    > Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
 
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
@@ -123,8 +123,8 @@ In this section, you'll create a health probe to create the load-balancing rule:
 
 4. Select **OK**.
 
-> [!NOTE]
-> Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information, see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
+    > [!NOTE]
+    > Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information, see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
 
 ## Create a load balancer rule
 
@@ -135,8 +135,8 @@ In this section, you'll create a load balancer rule:
 * Listening on **Port 80**.
 * Directs load balanced traffic to the backend named **myBackendPool-CR** on **Port 80**.
 
-> [!NOTE]
-> Frontend port must match backend port and the frontend port of the regional load balancers in the backend pool.
+    > [!NOTE]
+    > Frontend port must match backend port and the frontend port of the regional load balancers in the backend pool.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
 
