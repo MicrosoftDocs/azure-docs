@@ -188,6 +188,8 @@
     href: ../../logic-apps/security-baseline.md
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
+  - name: Power BI baseline
+    href: /power-bi/fundamentals/security-baseline
   - name: Security Center baseline
     href: ../../security-center/security-baseline.md
   - name: Service Bus baseline
@@ -209,6 +211,8 @@
   - name: Virtual Network security baseline
     href: ../../virtual-network/security-baseline.md
   - name: Virtual Network NAT security baseline
-    href: ../../virtual-network/nat-security-baseline.md 
+    href: ../../virtual-network/nat-security-baseline.md
+  - name: Virtual WAN security baseline
+    href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
