@@ -64,7 +64,9 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-Use the '-ForceDelete' parameter to [Remove-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/remove-azoperationalinsightsworkspace) to permanently delete your workspace. The '-ForceDelete' option is currently available with Az.OperationalInsights 2.3.0 or higher. 
+To permanently delete a workspace using the Azure portal, select the **Delete the workspace permanently** checkbox before clicking the **Delete** button.
+
+To permanently delete a workspace using PowerShell, use the '-ForceDelete' parameter to [Remove-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/remove-azoperationalinsightsworkspace). The '-ForceDelete' option is available with Az.OperationalInsights 2.3.0 or higher. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
