@@ -54389,6 +54389,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-launch.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-business-intelligence",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-android.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=android"
     },
