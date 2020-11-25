@@ -12,7 +12,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Machine learning model scoring wizard for dedicated SQL pools
+# Tutorial: Machine learning model scoring wizard (preview) for dedicated SQL pools
 
 Learn how to easily enrich your data in dedicated SQL pools with predictive machine learning models.  The models that your data scientists create are now easily accessible to data professionals for predictive analytics. A data professional in Synapse can simply select a model from the Azure Machine Learning model registry for deployment in Synapse SQL pools and launch predictions to enrich the data.
 
@@ -145,4 +145,4 @@ Before running all cells in the notebook, check if the compute instance is runni
 ## Next steps
 
 - [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

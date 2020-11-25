@@ -101,4 +101,4 @@ You can now **Run All** cells to enrich your data with sentiments. The sentiment
 ## Next steps
 - [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md)
-- [Machine Learning capabilities in Azure Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Machine Learning capabilities in Azure Azure Synapse Analytics](what-is-machine-learning.md)
