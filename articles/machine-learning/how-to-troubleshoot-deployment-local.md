@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Web Service Deployment Locally
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Azure Machine Leanring Docker deployment errors locally.
+description: Learn how to work around, solve, and troubleshoot the common Azure Machine Learning Docker deployment errors locally.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
