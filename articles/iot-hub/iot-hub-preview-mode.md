@@ -26,10 +26,10 @@ New features are in public preview for IoT Hub, including:
 
 - MQTT 5
 - ECC server certificate
-- TLS frame size negotiation
+- TLS fragment length negotiation
 - X509 CA chain support for HTTPS/WebSocket
 
-These features are improvements at the IoT Hub protocol and authentication layers, so they're only available for **new** IoT hub for now. They're *not* available for existing IoT hubs yet.
+These features are improvements at the IoT Hub protocol and authentication layers, so they're only available for **new** IoT hub for now. They're *not* available for existing IoT hubs yet. To preview these features, the IoT hub must be created with preview mode turned on.
 
 ## Turn on preview mode for a new IoT hub
 
@@ -61,7 +61,7 @@ Once created, an IoT Hub in preview mode always shows this banner, letting you k
 
 Do *not* use an IoT hub in preview mode for production. Preview mode is intended *only* to preview the select features listed at top of this page. Some other limitations to IoT Hub preview mode are
 
-- Some existing features such as private link, managed identity, device streams, and failover may work unexpectedly or not at all.
+- Some existing IoT Hub features such as private link, managed identity, device streams, and failover may work unexpectedly or not at all.
 - An IoT hub in preview mode can't be changed or upgraded to a normal IoT hub.
 - We can't guarantee the normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) - do not use for production.
 
@@ -71,3 +71,5 @@ Do *not* use an IoT hub in preview mode for production. Preview mode is intended
 ## Next steps
 
 - To preview the MQTT 5 support, see [IoT Hub MQTT 5 support overview (preview)](iot-hub-mqtt-5.md)
+- To preview the ECC server certificate, see [Elliptic Curve Cryptography (ECC) server TLS certificate (preview)](iot-hub-tls-support.md#elliptic-curve-cryptography-ecc-server-tls-certificate-preview)
+- To preview TLS fragment size negotiation, see [TLS maximum fragment length negotiation (preview)](iot-hub-tls-support.md#tls-maximum-fragment-length-negotiation-preview)
