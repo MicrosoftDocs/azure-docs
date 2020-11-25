@@ -274,4 +274,3 @@ To learn more about using an ARM template by following the process of creating a
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
- try the tutorial [Create and deploy your first ARM template](https://review.docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
