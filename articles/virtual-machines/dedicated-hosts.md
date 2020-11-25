@@ -164,6 +164,9 @@ The *type* is the hardware generation. Different hardware types for the same VM 
 
 The sizes and hardware types vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
+### Limitations
+
+Once a Dedicated host of a particular Size and Type of your choosing is provisoned , You are not allowed to change the Size or Type of the provisoned Dedicated Host. In the case that another SKU or Type is required you will have to proceed creating a fresh new host of the desired type and SKU post which the workloads have to be migrated across.  
 
 ## Host life cycle
 
