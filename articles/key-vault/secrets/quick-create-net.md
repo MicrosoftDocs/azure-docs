@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Azure Key Vault client library for .NET (v4)
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library (v4)
+title: Quickstart - Azure Key Vault secrets client library for .NET (version 4)
+description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library (version 4)
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/23/2020
