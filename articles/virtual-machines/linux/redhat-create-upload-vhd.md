@@ -313,17 +313,17 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Deprovision
 
-Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-    ```console
-    # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
-    # skip the deprovision step
-    # sudo waagent -force -deprovision
+	```console
+	# Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+	# skip the deprovision step
+	# sudo waagent -force -deprovision
 
-    # export HISTSIZE=0
+	# export HISTSIZE=0
 
-    # logout
-    ```
+	# logout
+	```
 
 1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
