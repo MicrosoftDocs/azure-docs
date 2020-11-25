@@ -4,22 +4,22 @@ description: Use Azure Private Link to securely connect networks to Azure Automa
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 11/25/2020
 ms.subservice: 
 ---
 
-# Use Azure Private Link to securely connect networks to Azure Automation (preview)
+# Use Azure Private Link to securely connect networks to Azure Automation
 
 Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the Automation service into your VNet. Network traffic between the machines on the VNet and the Automation account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 For example, you have a VNet where you have disabled outbound internet access. However, you want to access your Automation account privately and use Automation features like Webhooks, State Configuration, and runbook jobs on Hybrid Runbook Workers. Moreover, you want users to have access to the Automation account only through the VNET.  Deploying private endpoint achieves these goals.
 
-This article covers when to use and how to set up a private endpoint with your Automation account (preview).
+This article covers when to use and how to set up a private endpoint with your Automation account.
 
 ![Conceptual overview of Private Link for Azure Automation](./media/private-link-security/private-endpoints-automation.png)
 
 >[!NOTE]
-> Private Link support with Azure Automation (preview) is available only in Azure Commercial and Azure US Government clouds.
+> Private Link support with Azure Automation is available only in Azure Commercial and Azure US Government clouds.
 
 ## Advantages
 
@@ -44,11 +44,33 @@ Azure Automation Private Link connects one or more private endpoints (and theref
 
 After you create private endpoints for Automation, each of the public facing Automation URLs, which you or a machine can directly contact, is mapped to one private endpoint in your VNet.
 
-As part of the preview release, an Automation account cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage Account, etc.
-
 ### Webhook scenario
 
 You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+
+### Hybrid Runbook Worker scenario
+
+The user Hybrid Runbook Worker feature of Azure Automation enables you to run runbooks directly on the Azure or non-Azure machine, including servers registered with Azure Arc enabled servers. From the machine or server that's hosting the role, you can run runbooks directly on it and against resources in the environment to manage those local resources.
+
+A JRDS endpoint is used by the hybrid worker to start/stop runbooks, download the runbooks to the worker, and to send the job log stream back to the Automation service. After enabling JRDS endpoint, the URL would look like this: `https://<automationaccountID>.jobruntimedata.<region>.azure-automation.net`. This would ensure runbook execution on the hybrid worker connected to Azure Virtual Network is able to execute jobs without the need to open an outbound connection to the Internet.  
+
+> [!NOTE]
+>With the current implementation of Private Links for Azure Automation, it only supports running jobs on the Hybrid Runbook Worker connected to an Azure virtual network and does not support cloud jobs.
+
+## Hybrid Worker scenario for Update Management  
+
+The system Hybrid Runbook Worker supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines. When Azure Automation Update Management is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker.
+
+To understand & configure Update Management review [About Update Management](../update-management/overview.md). The Update Management feature has a dependency on a Log Analytics workspace, and therefore requires linking the workspace with an Automation account. A Log Analytics workspace stores data collected by the solution, and host its log searches and views.
+
+If you want your machines configured for Update management to connect to Automation & Log Analytics workspace in a secure manner over Private Link channel, you have to enable Private Link for the Log Analytics workspace linked to the Automation Account configured with Private Link. 
+
+You can control how a Log Analytics workspace can be reached from outside of the Private Link scopes by following the steps described in [Configure Log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace.
+
+Use **DSCAndHybridWorker** target sub-resource to enable Private Link for user & system hybrid workers.
+
+> [!NOTE]
+> Machines hosted outside of Azure that are managed by Update Management and are connected to the Azure VNet over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints support Private Link.
 
 ### State Configuration (agentsvc) scenario
 
@@ -64,11 +86,11 @@ Before setting up your Automation account resource, consider your network isolat
 
 ### Connect to a private endpoint
 
-Create a private endpoint to connect our network. You can create it in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and private link are applied, it can take up to 35 minutes for them to take effect.
+Create a private endpoint to connect our network. You can create it in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and Private Link are applied, it can take up to 35 minutes for them to take effect.
 
 In this section, you'll create a private endpoint for your Automation account.
 
-1. On the upper-left side of the screen, select **Create a resource > Networking > Private Link Center (Preview)**.
+1. On the upper-left side of the screen, select **Create a resource > Networking > Private Link Center**.
 
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 
@@ -115,7 +137,7 @@ In this section, you'll create a private endpoint for your Automation account.
 
 9. When you see the **Validation passed** message, select **Create**.
 
-In the **Private Link Center (Preview)**, select **Private endpoints** to view your private link resource.
+In the **Private Link Center**, select **Private endpoints** to view your private link resource.
 
 ![Automation resource private link](./media/private-link-security/private-link-automation-resource.png)
 
@@ -147,7 +169,7 @@ The network interface associated with the private endpoint contains the complete
 
 You can use the following options to configure your DNS settings for private endpoints:
 
-* Use the host file (only recommended for testing). You can use the host file on a virtual machine to override using DNS for name resolution first.
+* Use the host file (only recommended for testing). You can use the host file on a virtual machine to override using DNS for name resolution first. Your DNS entry should look like the following: `privatelinkFQDN.jrds.sea.azure-automation.net`.
 
 * Use a [private DNS zone](../../dns/private-dns-privatednszone.md). You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on your virtual machine to communicate over the private endpoint, create a Private DNS record as `privatelink.azure-automation.net`. Add a new DNS *A* record mapping to the IP of the private endpoint.
 
