@@ -98,9 +98,9 @@ The REST source connector works in below sequence:
     - HTTP headers (optional)
     - HTTP body (optional)
 
-1. Send the HTTP request to the specified URL
+1. Send the HTTP request to the specified URL.
 
-1. Receive the response from the endpoint
+1. Receive the response from the endpoint.
 
 The issue is most likely caused by some mistakes in one or more specified parameters.
 
@@ -112,7 +112,7 @@ Below are the steps to troubleshoot with **curl**:
 
 1. Use Win+R and enter "cmd" to open command console.
  
-1. Run following command in the cmd window:
+1. Run following command in cmd window:
 
     ```
     curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
@@ -120,11 +120,11 @@ Below are the steps to troubleshoot with **curl**:
     > [!IMPORTANT] 
     > Please be noticed that **"Accept"** and **"User-Agent"** headers should always be included.
 
-1. If the command returns the same unexpected response, please fix above parameters with curl until it returns the expected response.
+1. If the command returns the same unexpected response, please fix above parameters with 'curl' until it returns the expected response.
 
 1. If only ADF REST connector returns unexpected response, you can create an IcM ticket to PG for further troubleshooting.
 
-1. For more advanced usage of curl, please use 'curl --help'
+1. For more advanced usage of curl, please use 'curl --help'.
 
 ## Next steps
 
