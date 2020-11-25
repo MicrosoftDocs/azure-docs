@@ -1957,6 +1957,8 @@
         href: https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad?toc=/azure/active-directory/saas-apps/toc.json&bc=/azure/active-directory/saas-apps/breadcrumb/toc.json 
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
+      - name: Bizagi Studio for Digital Process Automation
+        href: bizagi-studio-for-digital-process-automation-provisioning-tutorial.md
       - name: Blink
         href: blink-provisioning-tutorial.md
       - name: BlogIn
