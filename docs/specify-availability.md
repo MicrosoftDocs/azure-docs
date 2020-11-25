@@ -9,7 +9,7 @@ localization_priority: Normal
 You can define the markets in which your solution will be available, and schedule the date on which your solution will be discoverable, on the Availability page in Partner Center.
 
 > [!NOTE] 
-> Pricing model management is not supported for Office marketplace products. Existing paid products that migrated from Seller Dashboard will need to move to a SaaS model or be made free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). You can monetize your add-in through the Microsoft Commercial Marketplace; for details, see [Monetize your add-in](monetize-addins-through-microsoft-commercial-marketplace.md). 
+> Pricing model management is not supported for Office marketplace products. Existing paid products that migrated from Seller Dashboard will need to move to a SaaS model or be made free by July 2020. You can monetize your add-in through the Microsoft Commercial Marketplace; for details, see [Monetize your add-in](monetize-addins-through-microsoft-commercial-marketplace.md). 
 
 ## Markets
 
@@ -23,11 +23,12 @@ If you don't want your solution to automatically be made available in future mar
 ## Schedule
 
 By default, your solution will be made available and discoverable in Microsoft AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in Microsoft AppSource, use the date and time selectors to specify the date and time at which your solution will be discoverable to customers. 
+
 <!--Note that your solution will still be accessible via direct link in Microsoft AppSource prior to the release date.-->
 <!--
 If you choose not to make your solution discoverable in Microsoft AppSource, select the **Make my product hidden after release and accessible only by direct link** check box.
 -->
 <!--
 > [!NOTE]
-> If you’re submitting a freemium add-in or an add-in that requires the purchase of an additional external service, see the **Associated service purchase** option on the **Add-in setup** page. 
+> If you’re submitting a freemium app or an add-in that requires the purchase of an additional external service, see the **Associated service purchase** option on the **Add-in setup** page. 
 -->

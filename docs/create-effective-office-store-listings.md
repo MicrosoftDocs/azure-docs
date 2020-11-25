@@ -1,10 +1,10 @@
 ---
-title: Create effective listings in Microsoft AppSource and within Office
+title: Create effective listings in Microsoft AppSource and within Microsoft 365 app stores
 description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
 localization_priority: Normal
 ---
 
-# Create effective listings in Microsoft AppSource and within Office
+# Create effective listings in Microsoft AppSource and Microsoft 365 app stores
 
 The information and images that you submit to Partner Center become the Microsoft AppSource and in-product listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your name, description, icons, and images—clearly communicates the benefits and functionality that your solution provides.
 
@@ -106,7 +106,7 @@ For Office Add-ins that you are submitting to Microsoft AppSource, you have to l
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
 
-||**Outlook add-ins**|**Task pane and content add-ins**|
+|**Outlook add-ins**|**Task pane and content add-ins**|
 |:-----|:-----|:-----|
 |Accepted formats|.bmp, .gif, .exif, .jpg, .png, and .tiff|.bmp, .gif, .exif, .jpg, .png, and .tiff|
 |Source location|The image specified must be secured with HTTPS.|The image specified does not have to be secured with HTTPS.|

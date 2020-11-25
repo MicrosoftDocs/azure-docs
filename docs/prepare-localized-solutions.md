@@ -1,24 +1,24 @@
 ---
 title: Prepare localized solutions
 description: Obtain localized metadata and create descriptions for each language beyond the primary language.
-ms.date: 1/11/2018
+ms.date: 11/24/2020
 localization_priority: Normal
 ---
 
 # Prepare localized solutions
 
-To offer your add-in solution in languages beyond the primary language, you need localized metadata for each additional language. For add-ins, the best customer experience is to provide web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that Partner Center currently accepts, see the table later in this article.
+To offer your app solution in languages beyond the primary language, you need localized metadata for each additional language. For apps, the best customer experience is to provide web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that Partner Center currently accepts, see the table later in this article.
 
 > [!NOTE]
 > For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
 
-To distribute your solution in additional languages, choose **Manage additional languages** on the **Marketplace listings** page in Partner Center. After you add other languages, you need to submit your solution for certfication again. 
+To distribute your solution in additional languages, choose **Manage additional languages** on the **Marketplace listings** page in Partner Center. After you add other languages, you need to submit your solution for certification again. 
 
-For previously approved add-ins, if you updated your manifest, you need to ensure that you update the add-in version in the manifest. The current add-in version remains in Microsoft AppSource and the in-product experience until your new add-in is approved, unless you unpublish the current add-in. 
+For previously approved apps, if you updated your manifest, you need to ensure that you update the app version in the manifest. The current app version remains in Microsoft AppSource and the in-product experience until your new app is approved, unless you unpublish the current app. 
 
 ## Localized Microsoft AppSource fronts
 
-Microsoft AppSource is available in 40 languages in 60 corresponding markets. In each of these markets, Microsoft AppSource displays metadata in either English or the corresponding language. When you submit your solution, you can provide metadata (descriptions, screen shots, name) in the languages that you would like to be listed in, and explicitly specify these languages on the **Marketplace listings** page in Partner Center. Verify that the primary submission language is in the add-in manifest, if applicable. 
+Microsoft AppSource is available in 40 languages in 60 corresponding markets. In each of these markets, Microsoft AppSource displays metadata in either English or the corresponding language. When you submit your solution, you can provide metadata (descriptions, screen shots, name) in the languages that you would like to be listed in, and explicitly specify these languages on the **Marketplace listings** page in Partner Center. Verify that the primary submission language is in the app manifest, if applicable. 
 
 If English is the only submission language, by default, your solution is listed in Microsoft AppSource fronts in all 60 markets with English metadata. 
 

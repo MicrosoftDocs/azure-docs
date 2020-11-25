@@ -23,7 +23,7 @@ The following guidelines apply to using the **Get it from Microsoft AppSource** 
 - Provide a link to the associated product listing landing page.
 - Always use the full name by referencing "Microsoft AppSource".
 
-## Track your campaign performance and customize your add-in for targeted audiences
+## Track your campaign performance and customize your app for targeted audiences
 
 > [!NOTE]
 > Campaign tracking is enabled for all Office 365 listings on Microsoft AppSource. Currently, activation data is only provided for Word, Excel, and PowerPoint add-ins.

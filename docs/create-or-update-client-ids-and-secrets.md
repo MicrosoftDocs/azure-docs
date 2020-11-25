@@ -7,7 +7,7 @@ localization_priority: Priority
 
 # Create or update client IDs and secrets in Partner Center
 
-Create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your add-ins in Partner Center to enable OAuth in your SharePoint Add-ins.
+Create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your apps in Partner Center to enable OAuth in your SharePoint Add-ins.
 
 ### To update expiring client secrets in SharePoint Add-ins
 
@@ -31,7 +31,7 @@ If your add-in requires this type of authorization, you have to associate OAuth 
 
 When a user installs an add-in that has an associated client ID and client secret, a consent dialog box appears. If the user gives consent, the add-in can act on behalf of the user to access the data that the add-in requires. Users can only grant the permissions that they have. Grants represent the permissions that a user has delegated to an add-in. 
 
-For example, your add-in could be a trip calendar add-in that opens as an **IFRAME** on an Office 365 SharePoint site. OAuth would allow the add-in to identify the user to whom the trip calendar belongs, or if the trip calendar add-in needed to access other aspects of Office 365, such as resources or calendar information, it could access those on behalf of the signed-in user.
+For example, your add-in could be a trip calendar add-in that opens as an **IFRAME** on a Microsoft 365 SharePoint site. OAuth would allow the add-in to identify the user to whom the trip calendar belongs, or if the trip calendar add-in needed to access other aspects of Microsoft 365, such as resources or calendar information, it could access those on behalf of the signed-in user.
 
 > [!NOTE]
 > For more information about OAuth, client ID and client secrets, see [Authorization and authentication of SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins), [Context Token OAuth flow for SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins), and [Register SharePoint Add-ins 2013](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/register-sharepoint-add-ins).

@@ -51,7 +51,7 @@ If you're new to Partner Center, follow the instructions in this section to crea
 > [!IMPORTANT]
 > You must be authorized to act on your company's behalf in order to accept these terms.
 
-If your tenant already has an existing enrollment in Partner Center, you will see a list of accounts in the dropdown to choose from. Select an account, and your Office enrollmnent will be associated with the same accounts.
+If your tenant already has an existing enrollment in Partner Center, you will see a list of accounts in the dropdown to choose from. Select an account, and your Office enrollment will be associated with the same accounts.
 
 ### Create an account using an existing Partner Center enrollment
 If you already have an enrollment in Partner Center, to create your account:

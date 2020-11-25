@@ -1,12 +1,12 @@
 ---
 title: Create your Microsoft AppSource listing
-description: You enter the Microsoft AppSource listing information on the Marketplace listings page in Partner Center.
+description: Learn how to list your app within Microsoft AppSource using Partner Center.
 localization_priority: Normal
 ---
 
 # Create your Microsoft AppSource listing
 
-You enter the Microsoft AppSource listing information on the Marketplace listings page in Partner Center. For Office Add-ins, this is also the listing that appears in the in-product experience. Your Microsoft AppSource listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the listing information for each language; you must complete an Microsoft AppSource listing page for at least one language.
+You enter the Microsoft AppSource listing information on the Marketplace listings page in Partner Center. For Microsoft 365 Add-ins, this is also the listing that appears in the in-product experience. Your Microsoft AppSource listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the listing information for each language; you must complete an Microsoft AppSource listing page for at least one language.
 
 > [!NOTE]
 > We recommend that you follow the guidelines in [Create effective listings](create-effective-office-store-listings.md) when you create your Microsoft AppSource listing.
