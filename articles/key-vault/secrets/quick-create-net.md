@@ -87,10 +87,6 @@ For this quickstart, you'll also need to install the Azure SDK client library fo
 dotnet add package Azure.Identity
 ```
 
-### Create a resource group and key vault
-
-[!INCLUDE[Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
-
 #### Grant access to your key vault
 
 Create an access policy for your key vault that grants secret permission to your user account
