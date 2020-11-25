@@ -50,25 +50,23 @@ On the Add role assignment tab, you can create role assignments at workspace sco
 
 ## Add workspace-scoped role assignment
 
-First, select **Workspace** as the scope, then select the **Synapse RBAC role**.  Then using the dropdown, select the **principal(s)** to be assigned the role. Select **Apply** to create the role assignment(s). 
+First, select **Workspace** as the scope, then select the **Synapse RBAC role**.  Select the **principal(s)** to be assigned the role, then create the role assignment(s). 
 
 ![Add workspace role assignment - select role](./media/how-to-manage-synapse-rbac-role-assignments/access-control-workspace-role-assignment.png) 
 
-The assigned role will apply to the principal for all applicable objects in the workspace.
+The assigned role will apply for all applicable objects in the workspace.
 
 ## Add workspace item-scoped role assignment
 
-Select **Workspace item** as the scope, then select the scoping **item type**, which may be Apache Spark pool, Integration runtime, Linked service, or Credential.       
+To assign a role at a more limited scope, select **Workspace item** as the scope, then select the scoping **item type**, which may be Apache Spark pool, Integration runtime, Linked service, or Credential.       
 
 ![Add workspace item role assignment - select item type](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Select the **item** to be used as the scope, then select the **role** to be assigned from the drop-down.  The drop-down lists only those roles that are valid for the selected item type. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306).  
+Select the specific **item** to be used as the scope, then select the **role** to be assigned from the drop-down.  The drop-down lists only those roles that are valid for the selected item type. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306).  
 
 ![Add workspace item role assignment - select role](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
 Then **select the principal(s)** to which the role is to be assigned.  You can iteratively select multiple principals.  Select **Apply** to create the role assignment(s).
-
-
 
 ## Delete a Synapse RBAC role assignment
 
