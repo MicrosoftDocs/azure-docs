@@ -31,11 +31,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-wan/security-baseline.md",
-      "redirect_url": "/azure/virtual-wan/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/digital-twins/concepts-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
@@ -54391,6 +54386,11 @@
     {
       "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-launch.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-system-integration",
       "redirect_document_id": true
     },
     {
