@@ -30,6 +30,9 @@ Azure Purview supports the following sources:
 | Cosmos DB                                 | Account Key                                    | UX/Managed Scanning PowerShell            |
 | Azure File Storage                       | Account Key                                    | UX/PowerShell
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+
 ## File types supported for scanning
 Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
 Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT

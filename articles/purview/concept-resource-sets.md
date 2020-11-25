@@ -37,6 +37,9 @@ Using this strategy, Azure Purview would map the following resources to the same
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+
 ## File types that Azure Purview will not detect as resource sets
 
 Purview intentionally does not try to classify most Document File Types like Word, Excel or PDF as Resource Sets. The exception are CSVs since that is a common partitioned file format.

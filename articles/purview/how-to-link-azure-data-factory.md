@@ -142,6 +142,8 @@ Azure Purview/Data Factory native integration supports only a subset of the data
 
 *\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.*
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
 
 ## Supported lineage patterns
 
@@ -195,6 +197,8 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> SQL table:
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-data-flow-lineage.png" alt-text="Screenshot showing the lineage for an n to one A D F Data Flow operation." lightbox="./media/how-to-link-azure-data-factory/adf-data-flow-lineage.png":::
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
 ### Lineage for resource sets
 
 A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Understanding Resource sets](concept-resource-sets.md). When Azure Purview captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
