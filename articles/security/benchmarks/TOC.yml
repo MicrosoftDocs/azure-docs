@@ -142,6 +142,8 @@
     href: ../../azure-resource-manager/management/security-baseline.md
   - name: Azure Sentinel security baseline
     href: ../../sentinel/security-baseline.md
+  - name: Azure SignalR Service security baseline
+    href: ../../azure-signalr/security-baseline.md
   - name: Azure SQL Database security baseline
     href: ../../azure-sql/database/security-baseline.md
   - name: Azure Storage security baseline
