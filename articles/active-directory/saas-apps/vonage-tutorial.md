@@ -136,8 +136,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Upload the downloaded **Certificate(Base64)** into the **Upload Certificate**.
 
-    e. Click on **Download Public Certificate** to download the Certificate and save it in your computer.
-
 ### Create vonage test user
 
 1. In a different web browser window, sign into vonage website as an administrator.
