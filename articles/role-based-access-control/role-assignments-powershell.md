@@ -309,7 +309,7 @@ CanDelegate        : False
 
 Assigns the [Reader](built-in-roles.md#reader) role to the *annm\@example.com* user at a subscription scope.
 
-```Example
+```azurepowershell
 PS C:\> New-AzRoleAssignment -SignInName annm@example.com -RoleDefinitionName "Reader" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
