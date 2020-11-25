@@ -15,7 +15,7 @@ services: iot-pnp
 
 In this tutorial, you learn how to create and configure an [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) environment to integrate with your IoT Plug and Play solution. Use Time Series Insights to collect, process, store, query, and visualize time series data at the scale of Internet of Things (IoT).
 
-First, you provision a Time Series Insights environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [time series model](../time-series-insights/concepts-model-overview.md). You use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files you used for the temperature controller and thermostat devices.
+First, you provision a Time Series Insights environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [time series model](../time-series-insights/concepts-model-overview.md). You use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files that you used for the temperature controller and thermostat devices.
 
 > [!NOTE]
 > The integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights time series model might change. 
@@ -41,7 +41,7 @@ The IoT hub you created previously is your Time Series Insights environment's [e
 > [!IMPORTANT]
 > Disable any existing IoT Hub routes. There's a known issue with using an IoT hub as a Time Series Insights event source with [routing](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configured. Temporarily disable any routing endpoints. When your IoT hub is connected to Time Series Insights, you can enable routing endpoints again.
 
-On your IoT hub, create a unique consumer group for Time Series Insights to consume. In the following example,replace `my-pnp-hub` with the name of the IoT hub you used previously.
+On your IoT hub, create a unique consumer group for Time Series Insights to consume. In the following example, replace `my-pnp-hub` with the name of the IoT hub you used previously.
 
 ```azurecli-interactive
 az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group
@@ -90,20 +90,20 @@ shared_access_key=$(az iot hub policy list -g $rg --hub-name $iothub --query "[?
 az timeseriesinsights event-source iothub create -g $rg --environment-name $env -n iot-hub-event-source --consumer-group-name tsi-consumer-group  --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id
 ```
 
-In the [Azure portal](https://portal.azure.com), go to your resource group, and then select your new Time Series Insights environment. Visit the **Time Series Insights Explorer URL** shown in the instance overview:
+In the [Azure portal](https://portal.azure.com), go to your resource group, and then select your new Time Series Insights environment. Go to the **Time Series Insights Explorer URL** shown in the instance overview:
 
 ![Screenshot of the portal overview page.](./media/tutorial-configure-tsi/view-environment.png)
 
-In the explorer, you see three instances:
+In the Explorer, you see three instances:
 
 * &lt;your pnp device ID&gt;, thermostat1
 * &lt;your pnp device ID&gt;, thermostat2
 * &lt;your pnp device ID&gt;, `null`
 
 > [!NOTE]
-> The third tag represents telemetry from the `TemperatureController` itself, such as the working set of device memory. Because this is a top-level property, the value for the component name is null. In a later step, you update this to a more user-friendly name.
+> The third tag represents telemetry from the `TemperatureController` itself, such as the working set of device memory. Because this is a top-level property, the value for the component name is null. In a later step, you make this name more user-friendly.
 
-![Screenshot showing three instances in the explorer.](./media/tutorial-configure-tsi/tsi-env-first-view.png)
+![Screenshot showing three instances in the Explorer.](./media/tutorial-configure-tsi/tsi-env-first-view.png)
 
 ## Configure model translation
 
@@ -139,7 +139,7 @@ The following details outline the simplest method to synchronize your device DTD
 > [!NOTE]
 > This example shows three variables, but each type can have up to 100 variables. Different variables can reference the same telemetry value to do different calculations as needed. For the full list of filters, aggregates, and scalar functions, see [Time Series Insights Gen2 time series expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
 
-Open a text editor and save the following JSON to your local drive:
+Open a text editor and save the following JSON to your local drive.
 
 ```JSON
 {
@@ -179,7 +179,7 @@ Open a text editor and save the following JSON to your local drive:
 }
 ```
 
-In the Time Series Insights explorer, select the model icon on the left to open the **Model** tab. Select **Types** and then select **Upload JSON**:
+In the Time Series Insights Explorer, select the model icon on the left to open the **Model** tab. Select **Types** and then select **Upload JSON**:
 
 ![Screenshot showing how to upload JSON.](./media/tutorial-configure-tsi/upload-type.png)
 
@@ -191,7 +191,7 @@ You see the newly defined **Temperature Controller** type.
 
 Create a hierarchy to organize the tags under their `TemperatureController` parent. The following simple example has a single level, but IoT solutions commonly have many levels of nesting. Tags are contextualized within their physical and semantic position within an organization.
 
-Select **Hierarchies** and select **Add hierarchy**. For the name, enter *Device Fleet*. Create one level called *Device Name*. Then select **Save**.
+Select **Hierarchies** and then select **Add hierarchy**. For the name, enter *Device Fleet*. Create one level called *Device Name*. Then select **Save**.
 
 ![Screenshot showing how to add a hierarchy.](./media/tutorial-configure-tsi/add-hierarchy.png)
 
@@ -199,11 +199,11 @@ Select **Hierarchies** and select **Add hierarchy**. For the name, enter *Device
 
 Next you change the type of your instances and place them in the hierarchy.
 
-Select the **Instances** tab. Find the instance that represents the device's working set, and then select the **Edit** icon on the far right:
+Select the **Instances** tab. Find the instance that represents the device's working set, and then select the **Edit** icon on the far right.
 
 ![Screenshot showing how to edit an instance.](./media/tutorial-configure-tsi/edit-instance.png)
 
-Open the **Type** drop-down menu, and then select **Temperature Controller**. Enter *defaultComponent, <your device name>* to update the name of the instance that represents all top-level tags associated with your device.
+Open the **Type** drop-down menu and then select **Temperature Controller**. Enter *defaultComponent, <your device name>* to update the name of the instance that represents all top-level tags associated with your device.
 
 ![Screenshot showing how to change an instance type.](./media/tutorial-configure-tsi/change-type.png)
 
@@ -221,8 +221,8 @@ Go back to the charting pane and expand **Device Fleet** > your device. Select *
 
 ## Next steps
 
-* To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights explorer](../time-series-insights/concepts-ux-panels.md).
+* To learn more about the various charting options, including interval sizing and y-axis controls, see [Azure Time Series Insights Explorer](../time-series-insights/concepts-ux-panels.md).
 
 * For an in-depth overview of your environment's time series model, see [Time series model in Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
 
-* To dive into the query APIs and the time series expression syntax, see [Azure Time Series Insights Gen2 Query APIs](/rest/api/time-series-insights/reference-query-apis.md).
+* To dive into the query APIs and the time series expression syntax, see [Azure Time Series Insights Gen2 query APIs](/rest/api/time-series-insights/reference-query-apis.md).
