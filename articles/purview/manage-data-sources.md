@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 11/25/2020
 ---
 
 # Manage data sources in Azure Purview (Preview)
@@ -23,7 +23,7 @@ In this article, you learn how to register new data sources, manage collections 
 
 ## Register a new source
 
-To register a new source,
+Use the following steps to register a new source.
 
 1. Open Purview Studio and select the **Register sources** tile.
 
@@ -61,15 +61,16 @@ You can group your data sources into collections. To create a new collection, se
 
 To add sources to a collection, select the **Edit** pencil on the source and choose a collection from the **Select a collection** drop-down menu.
 
-To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source.
+To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source. You can collapse or expand collections by clicking the circle attached to the arrow between levels.
 
 :::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in Azure Purview Studio":::
+
+You can remove sources from a hierarchy by selecting *None* for the parent. Unparented sources are grouped in a dotted box in the map view with no arrows linking them to parents.
 
 ## Next steps
 
 Learn how to register and scan various data sources:
 
-* [Register and scan Azure Files](register-scan-azure-files-storage-source.md)
-* [Register and scan azure blob storage](register-scan-azure-blob-storage-source.md)
-* [Register and scan Azure Cosmos DB](register-scan-azure-cosmos-database.md)
-* [Azure Data Explorer](register-scan-azure-data-explorer.md)
+* [Azure Data Lake Storage Gen 2](register-scan-adls-gen2.md)
+* [Power BI tenant](register-scan-power-bi-tenant.md)
+* [Azure SQL Database](register-scan-azure-sql-database.md)
