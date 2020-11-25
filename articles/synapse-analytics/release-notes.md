@@ -15,7 +15,6 @@ ms.reviewer: jrasnick
 
 This article describes limitations and issues with Azure Synapse Analytics (workspaces). For related information, see [What is Azure Synapse Analytics (workspaces)](overview-what-is.md)
 
-[!INCLUDE [preview](includes/note-preview.md)]
 
 ## Azure CLI
 
