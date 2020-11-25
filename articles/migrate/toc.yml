@@ -30,7 +30,7 @@
       href: tutorial-discover-aws.md
     - name: Discover GCP instances
       href: tutorial-discover-gcp.md
-  - name: Assess 
+  - name: Assess
     items:
     - name: Assess VMware VMs
       items:
@@ -59,7 +59,7 @@
       - name: Migrate with agent-based migration
         href: tutorial-migrate-vmware-agent.md
       - name: Migrate with agentless migration (PowerShell)
-        href: tutorial-migrate-vmware-powershell.md 
+        href: tutorial-migrate-vmware-powershell.md
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
     - name: Migrate physical servers
@@ -81,7 +81,7 @@
     - name: VMware discovery support
       href: migrate-support-matrix-vmware.md
     - name: Hyper-V discovery support
-      href: migrate-support-matrix-hyper-v.md 
+      href: migrate-support-matrix-hyper-v.md
     - name: Physical server discovery support
       href: migrate-support-matrix-physical.md
     - name: Azure Migrate appliance requirements
@@ -96,7 +96,7 @@
       href: concepts-assessment-calculation.md
     - name: Assessments overview (migrate to AVS)
       href: concepts-azure-vmware-solution-assessment-calculation.md
-    - name: Assessment best practices 
+    - name: Assessment best practices
       href: best-practices-assessment.md
   - name: Migrate
     items:
@@ -208,6 +208,10 @@
     items:
     - name: Troubleshoot replication issues in agentless VMware migration
       href: troubleshoot-changed-block-tracking-replication.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.migrate/
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework
