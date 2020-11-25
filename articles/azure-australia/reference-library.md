@@ -44,7 +44,7 @@ This resource library contains additional links and references that are relevant
 * [Azure AD Connect - User Sign-In Options](../active-directory/hybrid/plan-connect-user-signin.md)
 * [Azure AD Connect and Federation](../active-directory/hybrid/how-to-connect-fed-whatis.md)
 * [Pass-Through Authentication Documentation](../active-directory/hybrid/how-to-connect-pta.md)
-* [Deploying Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Deploying Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 * [Azure Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
 
 ## Azure Backup and Azure Site Recovery

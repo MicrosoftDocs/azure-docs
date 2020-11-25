@@ -222,11 +222,16 @@ Specify the policy settings as follows:
    ![Differential backup policy](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Incremental backups aren't currently supported.
+   >Incremental backups are now available in public preview. You can choose either a differential or an incremental as a daily backup but not both.
    >
+7. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
+    * At most, you can trigger one incremental backup per day.
+    * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
 
-7. Select **OK** to save the policy and return to the main **Backup policy** menu.
-8. Select **Log Backup** to add a transactional log backup policy,
+    ![Incremental backup policy](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Select **OK** to save the policy and return to the main **Backup policy** menu.
+9. Select **Log Backup** to add a transactional log backup policy,
    * **Log Backup** is by default set to **Enable**. This can't be disabled as SAP HANA manages all log backups.
    * We've set **2 hours** as the Backup schedule and **15 days** of retention period.
 
@@ -236,8 +241,8 @@ Specify the policy settings as follows:
    > Log backups only begin to flow after one successful full backup is completed.
    >
 
-9. Select **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finish defining the backup policy, select **OK**.
+10. Select **OK** to save the policy and return to the main **Backup policy** menu.
+11. After you finish defining the backup policy, select **OK**.
 
 You've now successfully configured backup(s) for your SAP HANA database(s).
 

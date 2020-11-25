@@ -123,7 +123,7 @@ Basic load balancer doesn't support Outbound rules.
 
 ## Limitations
 
-- Learn about Load Balancer [limits](https://aka.ms/lblimits) 
+- Learn about Load Balancer [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 - Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
 - Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
 - A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
@@ -133,12 +133,12 @@ Basic load balancer doesn't support Outbound rules.
 
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+- Learn about [Public IP Address](../virtual-network/virtual-network-public-ip-address.md)
 - Learn about [Private IP Address](../virtual-network/private-ip-addresses.md)
 - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
-- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
-- Learn more about [Load balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
-- Learn about using [Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
+- Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md).
+- Learn more about [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
+- Learn about using [Port forwarding](./tutorial-load-balancer-port-forwarding-portal.md).

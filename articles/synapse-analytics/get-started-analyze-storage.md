@@ -37,6 +37,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 
 ### Analyze data in a storage account
 
+You can analyze the data in your workspace default ADLS Gen2 account or you can link an ADLS Gen2 or Blob storage account to your workspace through "**Manage**" > "**Linked Services**" > "**New**" (The steps below will refer to the primary ADLS Gen2 account).
+
 1. In Synapse Studio, go to the **Data** hub, and then select **Linked**.
 1. Go to **Storage accounts** > **myworkspace (Primary - contosolake)**.
 1. Select **users (Primary)**. You should see the **NYCTaxi** folder. Inside you should see two folders called **PassengerCountStats_csvformat** and **PassengerCountStats_parquetformat**.
