@@ -122,13 +122,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign into vonage website as an administrator.
 
-1. Go to the **Account > Single Sign-On Settings > Settings**
+1. Go to the **Account > Single Sign-On Settings > Settings**.
 
 1. Perform the following steps in the following page.
 
     ![Single Sign-On Settings page](./media/vonage-tutorial/sso-settings.png)
 
-    a. Select **Enable single sign-on for this account**
+    a. Select **Enable single sign-on for this account**.
 
     b. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
@@ -140,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign into vonage website as an administrator.
 
-1. Go to the **Phone System > Users > Add New**
+1. Go to the **Phone System > Users > Add New**.
 
     ![add user page](./media/vonage-tutorial/add-user.png)
 
