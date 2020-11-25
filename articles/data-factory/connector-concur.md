@@ -50,8 +50,8 @@ The following properties are supported for Concur linked service:
 | type | The type property must be set to: **Concur** | Yes |
 | connectionProperties | A group of properties that defines how to connect to Concur. | Yes |
 | ***Under `connectionProperties`:*** | | |
-| authenticationType | Allowed values are `OAuth_2.0_Bearer` and `OAuth_2.0` (legecy). The OAuth 2.0 authentication option works with the old Concur API which was deprecated since Feb 2017. | Yes |
-| host | The endpoint of the Cuncur server, e.g. `implementation.concursolutions.com`.  | Yes |
+| authenticationType | Allowed values are `OAuth_2.0_Bearer` and `OAuth_2.0` (legacy). The OAuth 2.0 authentication option works with the old Concur API which was deprecated since Feb 2017. | Yes |
+| host | The endpoint of the Concur server, e.g. `implementation.concursolutions.com`.  | Yes |
 | baseUrl | The base URL of your Concur's authorization URL. | Yes for `OAuth_2.0_Bearer` authentication |
 | clientId | Application client ID supplied by Concur App Management.  | Yes |
 | clientSecret | The client secret corresponding to the client ID. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for `OAuth_2.0_Bearer` authentication |
@@ -92,7 +92,7 @@ The following properties are supported for Concur linked service:
 } 
 ```
 
-**Example (legecy):**
+**Example (legacy):**
 
 Note the following is a legacy linked service model without `connectionProperties` and using `OAuth_2.0` authentication.
 
