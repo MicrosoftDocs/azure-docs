@@ -23,7 +23,7 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
 ## Pre-requisites
 
 - An Azure account with a valid subscription
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot).
+- [Azure CLI](/cli/azure/) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](/cli/azure/azure-cli-reference-for-iot).
 - An **IoT Hub** of SKU either F1, S1, S2 or S3.
 - Have an **IoT Edge device with version 1.2 or above**. Since IoT Edge MQTT broker is currently in public preview, set the following environment variables to true on the edgeHub container to enable the MQTT broker:
 
@@ -60,11 +60,11 @@ To enable TLS, If a client connects on port 8883 (MQTTS) to the MQTT broker, a T
 
 For a MQTT client to authenticate itself, it first needs to send a CONNECT packet to the MQTT broker to initiate a connection in its name. This packet provides three pieces of authentication information: a `client identifier`, a `username` and `password`:
 
--	The `client identifier` field is the name of the device or module name in IoT Hub. It uses the following syntax:
+- The `client identifier` field is the name of the device or module name in IoT Hub. It uses the following syntax:
 
-    - For a device: `<device_name>`
+  - For a device: `<device_name>`
 
-    - For a module: `<device_name>/<module_name>`
+  - For a module: `<device_name>/<module_name>`
 
    In order to connect to the MQTT broker, a device or a module must be registered in IoT Hub.
 
@@ -72,14 +72,14 @@ For a MQTT client to authenticate itself, it first needs to send a CONNECT packe
 
 - The `username` field is derived from the device or module name, and the IoTHub name the device belongs to using the following syntax:
 
-    - For a device: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
+  - For a device: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
 
-    - For a module: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
+  - For a module: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
 
 - The `password` field of the CONNECT packet depends on the authentication mode:
 
-    - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token.
-    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+  - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token.
+  - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
 
 Modules deployed by IoT Edge use [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) and can call the local [IoT Edge workload API](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) to programmatically get a SAS token even when offline.
 
@@ -159,6 +159,7 @@ Below is an example of an authorization policy that explicitly does not allow "r
 ```
 
 A couple of things to keep in mind when writing your authorization policy:
+
 - It requires `$edgeHub` twin schema version 1.2
 - By default, all operations are denied.
 - Authorization statements are evaluated in the order than they appear in the JSON definition. It starts by looking at `identities` and then select the first allow or deny statements that match the request. In case of conflicts between allow and deny statements, the deny statement wins.
@@ -169,6 +170,7 @@ A couple of things to keep in mind when writing your authorization policy:
     - `{{iot:this_device_id}}` represents the identity of the IoT Edge device running the authorization policy. For example `myIoTEdgeDevice`.
 
 Authorization for IoT hub topics are handled slightly differently than user-defined topics. Here are the key points to remember:
+
 - Azure IoT devices or modules need an explicit authorization rule to connect to IoT Edge hub MQTT broker. A default connect authorization policy is provided below.
 - Azure IoT devices or modules can access their own IoT hub topics by default without any explicit authorization rule. However, authorizations stem from parent/child relationships in that case and these relationships must be set. IoT Edge modules are automatically set as children of their IoT Edge device but devices need to explicitly be set as children of their IoT Edge gateway.
 - Azure IoT devices or modules can access the topics, including IoT hub topics, of other devices or modules providing that appropriate explicit authorization rules are defined.
