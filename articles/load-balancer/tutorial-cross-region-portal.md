@@ -104,7 +104,7 @@ In this section, you'll create a health probe to create the load-balancing rule:
 
 * Named **myHealthProbe**.
 * Protocol **TCP**.
-* Internal of **15** seconds.
+* Interval of **5** seconds.
 * Unhealthy threshold of **two** failures.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
