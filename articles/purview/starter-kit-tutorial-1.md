@@ -1,85 +1,61 @@
 ---
-title: 'Tutorial: Run the starter kit and scan data'
-description: This tutorial describes how to run the starter kit to set up a data estate, and then to scan data from data sources into your Azure Purview catalog. 
+title: 'Tutorial: Scan data with Azure Purview (Preview)'
+description: In this tutorial, you run a starter kit to set up a data estate, and then scan data from data sources into your Azure Purview catalog. 
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 09/23/2020
+ms.date: 11/24/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
-# Tutorial: Run the starter kit and scan data
+# Tutorial: Scan data with Azure Purview (Preview)
 
-The starter kit in this tutorial gives you a quick tour of how Azure Purview works and what it can do. To make it easy for you to experiment and explore, the starter kit client-side code follows these steps to create a simulated *data estate*, which is the state of all the data that a company owns:
+In this *six-part tutorial series*, you'll learn the fundamentals of how to manage data governance across a data estate using Azure Purview (Preview). The data estate you create in this part of the tutorial is used for the rest of the series.
 
-* Creates an Azure Blob storage account.
-* Populates the account with test data.
-* Creates an Azure Data Lake Storage Gen2 account.
-* Creates an Azure Data Factory instance.
-* Associates the Azure Data Factory instance to Azure Purview.
-* Sets up and triggers a copy activity pipeline between the Azure Blob storage and Azure Data Lake Storage Gen2 accounts.
-* Pushes the associated lineage from Azure Data Factory to Azure Purview.
+In part 1 of this tutorial series, you will:
 
-After the starter kit creates this infrastructure, it walks you through setting up scans on the Azure Blob storage and Azure Data Lake Storage Gen2 accounts. This environment is then reused throughout the next tutorials in the series.
-
-:::image type="content" source="./media/starter-kit-tutorial-1/azure-resources-created-by-starter-kit.png" alt-text="Diagram showing the Azure resources created by the starter kit." border="true":::
-
-In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
-> * Run the starter kit script to set up an evironment to use to complete this tutorial and the next tutorials in the series.
-> * Scan data into the catalog.
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+> * Create a data of with various Azure data resources.
+> * Scan data into a catalog.
 
 ## Prerequisites
 
-* [Prepare your Windows machine by running a series of scripts](#prepare-your-machine-to-run-the-starter-kit). These scripts work only on Windows.
+* An Azure subscription. If you don't have an Azure subscription, create a [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An [Azure Purview account](create-catalog-portal.md).
+* [The starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) that will deploy your data estate.
 
-* [Create an Azure Purview account](create-catalog-portal.md).
+> [!NOTE]
+> The starter kit only available for Windows.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## What the starter kit client software does
+## Create a data estate
 
-When you run the starter kit script, it does the following steps on your behalf:
+In this section, you run the starter kit scripts to create a simulated data estate. A data estate is a portfolio of all the data a company owns. The starter kit script performs the following actions:
 
-1. Creates an Azure Data Factory account in your subscription named _&lt;YourResourceGroupName&gt;_**adcfactory**.
+* Creates an Azure Blob storage account and populates the account with data.
+* Creates an Azure Data Lake Storage Gen2 account.
+* Creates an Azure Data Factory instance and associates the instance to Azure Purview.
+* Sets up and triggers a copy activity pipeline between the Azure Blob storage and Azure Data Lake Storage Gen2 accounts.
+* Pushes the associated lineage from Azure Data Factory to Azure Purview.
 
-1. Associates the newly created Azure Data Factory account to the Azure Purview account whose name you passed in.
-
-1. Creates an Azure Blob storage account in your subscription named _&lt;YourResourceGroupName&gt;_**adcblob**.
-
-1. Populates the new Azure Blob storage account with simulated .tsv, .csv, .ssv, and .json data inside a folder structure with the form *yyyy/mm/dd/foo*.csv.
-
-1. Creates an Azure Data Lake Storage Gen2 account in your subscription named _&lt;YourResourceGroupName&gt;_**adcadls**.
-
-1. Triggers an Azure Data Factory copy activity in your Azure Data Factory account to copy data from the Azure Blob storage account to the Azure Data Lake Storage Gen2 account.
-
-1. Pushes the lineage associated with the copy activity into the catalog.
-
-## Prepare your machine to run the starter kit
+### Prepare to run the starter kit
 
 Follow these steps to set up the starter kit client software on your Windows machine:
 
-1. Download to your computer the .zip file that contains the starter kit. Extract its contents to the location of your choice.
+1. [Download the starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
-1. In the PowerShell window, enter the following command, replacing *&lt;PathtoStarterKit&gt;* with the folder path of the extracted starter kit files.
+1. In the PowerShell window, enter the following command, replacing `<path-to-starter-kit>` with the folder path of the extracted starter kit files.
 
    ```powershell
-   dir -Path <PathtoStarterKit> -Recurse | Unblock-File
-   ```
-
-   For example:
-
-   ```powershell
-   dir -Path C:\CatalogStarterKit\Starterkit -Recurse | Unblock-File```
+   dir -Path <path-to-starter-kit> -Recurse | Unblock-File
    ```
 
 1. Enter the following command to install the Azure cmdlets.
@@ -90,114 +66,97 @@ Follow these steps to set up the starter kit client software on your Windows mac
 
 1. If you see the warning prompt, *NuGet provider is required to continue*, enter **Y**, and then press Enter.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/nuget-warning.png" alt-text="Screenshot showing an example of a NuGet warning." border="true":::
 1. If you see the warning prompt, *Untrusted repository*, enter **A**, and then press Enter.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/untrusted-repository-warning.png" alt-text="Screenshot showing an example of an untrusted repository warning." border="true":::
-
-It might take up to a minute for PowerShell to install the required modules. When it's finished, you can run the catalog scripts described in the next section.
-
-## Run the starter kit script
+It might take up to a minute for PowerShell to install the required modules.
 
 ### Collect data needed to run the scripts
 
 Before you run the PowerShell scripts to bootstrap the catalog, get the values of the following arguments to use in the scripts:
 
-* TenantID:
+* TenantID
    1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
-   1. In the **Manage** section in the left pane, select **Properties**, and then select the copy icon for **Tenant ID** to save the value.
+   1. In the **Manage** section of the left navigation pane, select **Properties**. Then select the copy icon for **Tenant ID** to save the value to your clipboard. Paste the value in a text editor for later use.
 
-* SubscriptionID:
-   1. In the Azure portal, search for and select the name of the Azure Purview instance that you created. 
+* SubscriptionID
+   1. In the Azure portal, search for and select the name of the Azure Purview instance that you created as a prerequisite.
    1. Select the **Overview** section and save the GUID for the **Subscription ID**.
 
    > [!NOTE]
-   > Make sure you're using the same subscription as the one in which you created the catalog. This is the same subscription that was placed in the allow list.
-  
-* PathtoStarterKit: The Windows file folder path where you downloaded and extracted the starter kit's .zip file.
+   > Make sure you're using the same subscription as the one in which you created the Azure Purview Account. This is the same subscription that was placed in the allow list.
+
 * CatalogName: The name of the Azure Purview account that you created in [Create an Azure Purview account](create-catalog-portal.md).
-* NewResourceGroupName: The new resource group name to use. Resource group names must be unique with your subscription, all lowercase, and made up of only A-Z and 0-9 characters.
 
-### Verify the user running the script has permissions to call Azure Purview
+### Verify permissions
 
-Follow these steps to add the user running the script to the Azure Purview account that was created in [Create a Purview account](create-catalog-portal.md). If you created the Azure Purview account yourself, you're automatically given access, and can skip this section.
+Follow these steps to add the user running the script to the Azure Purview account that was created as a prerequisite. Users need both *Azure Purview Data Curator* and *Azure Purview Data Source Administrator* roles. 
 
-1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+If you created the Azure Purview account yourself, you're automatically given access and can skip this section.
 
-1. Select the Azure Purview account you want to modify.
+1. Go to the Purview accounts page in the Azure portal and select the Azure Purview account you want to modify.
 
-1. On the **Purview account** page, select the tab **Access control (IAM)**
+1. On the account's page, select the **Access control (IAM)** tab and **+ Add**.
 
-1. Click "+ Add"
+1. Select **Add role assignment**.
 
-1. Select "Add role assignment"
-
-1. For the Role type in "Azure Purview Data Curator Role"
+1. Enter **Azure Purview Data Curator Role** for the *Role*.
  
-1. For "Assign access to" leave the default, "User, group, or service principal"
+1. Use the default value for *Assign access to*. The default value should be **User, group, or service principal**.
 
-1. For "Select" enter the name of the user running the script
+1. Enter the name of the user running the script in **Select**.
 
-1. Click on "Save"
+1. Select **Save**.
 
-Now repeat the instructions again but this time put the user into the role "Azure Purview Data Source Administrator Role".
+1. Repeat the previous steps with the *Role* set to **Azure Purview Data Source Administrator Role**.
 
-Please see [Catalog Permissions](catalog-permissions.md) for more information.
+For more information, see [Catalog Permissions](catalog-permissions.md).
 
 ### Run the client-side setup scripts
 
-After the catalog configuration is complete, run the following scripts in the PowerShell window to create the assets,  replacing the placeholders with the [values you previously collected](#collect-data-needed-to-run-the-scripts):
+After the catalog configuration is complete, run the following scripts in the PowerShell window to create the assets, replacing the placeholders with the values you previously collected.
 
-1. **Go to the starter kit folder**.
-
-   Enter the following command and press Enter. Replace *&lt;PathtoStarterKit&gt;* with the folder path of the extracted file.
+1. Use the following command to navigate to the starter kit directory. Replace `path-to-starter-kit` with the folder path of the extracted file.
 
    ```powershell
-   cd <PathtoStarterKit>
+   cd <path-to-starter-kit>
    ```
 
-1. **Set the execution policy for the local computer**.
-
-   Enter the following command to make sure you can run the PowerShell script:
+1. The following command sets the execution policy for the local computer. Enter **A** for *Yes to All* when you are prompted to change the execution policy.
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
-1. **Connect to Azure**.
-
-   Enter the following command, replacing the *&lt;TenantID&gt;* and *&lt;SubscriptionID&gt;* placeholders, and then press Enter. Be sure to connect to the same subscription as the one you created earlier for your catalog.
+1. Connect to Azure using the following command. Replace the `TenantID` and `SubscriptionID` placeholders.
 
    ```powershell
-   .\\RunStarterKit.ps1 -ConnectToAzure -TenantId <TenantID>
+   .\RunStarterKit.ps1 -ConnectToAzure -TenantId <TenantID> `
    -SubscriptionId <SubscriptionID>
    ```
 
-   After you enter the command, you might be requested to sign in using your Azure Active Directory credentials.
+   When you run the command, a pop-up window may appear for you to sign in using your Azure Active Directory credentials.
 
-1. **Ingest data**.
-
-   Enter the following command, replacing the *&lt;CatalogName&gt;*, *&lt;TenantID&gt;*, *&lt;SubscriptionID&gt;*, and *&lt;NewResourceGroupName&gt;* placeholders. This command runs the starter kit.
+1. Use the following command to run the starter kit. Replace the `CatalogName`, `TenantID`, `SubscriptionID`, and `NewResourceGroupName` placeholders. For `NewResourceGroupName`, use a unique name for the resource group that will contain the data estate.
 
    ```powershell
-   .\\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId
-   <TenantID> -SubscriptionId <SubscriptionID> -ResourceGroup
+   .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId `
+   <TenantID> -SubscriptionId <SubscriptionID> -CatalogResourceGroup `
    <NewResourceGroupName>
    ```
 
 It can take up to 10 minutes for the environment to be set up. During this time, you might see various pop-up windows, which you can ignore. Don't close the **BlobDataCreator.exe** window; it automatically closes when it finishes.
 
-When you see the message *Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b*, wait for another instance of **BlobDataCreator.exe** to start and finish running.
+When you see the message `Executing Copy pipeline xxxxxxxxxx-487e-4fc4-9628-92dd8c2c732b`, wait for another instance of **BlobDataCreator.exe** to start and finish running.
 
 After the process has finished, a resource group with the name you supplied is created. The Azure Data Factory, Azure Blob storage, and Azure Data Lake Storage Gen2 accounts are all contained in this resource group. The resource group is contained in the subscription you specified.
 
 ## Scan data into the catalog
 
-Scanning is a process by which the catalog connects directly to a data source on a user-specified schedule. The catalog reflects a company's data estate through scanning, lineage, the portal, and the API. Goals include examining what's inside, extracting schema, and attempting to understand semantics. In this section, you set up a scan of the content you generated with the starter kit.
+Scanning is a process by which the catalog connects directly to a data source on a user-specified schedule. The catalog reflects a company's data estate through scanning, lineage, the portal, and the API. Goals include examining what's inside, extracting schemas, and attempting to understand semantics. In this section, you set up a scan of the data sources you generated with the starter kit.
 
 The starter kit script that you ran created two data sources, Azure Blob storage and Azure Data Lake Storage Gen2. You can scan these data sources into the catalog one at a time.
 
-To scan the Azure Blob storage data source:
+### Scan the Azure Blob storage data source
 
 1. Select **Management Center** on your catalog's webpage, and then select **Data sources**.
 
@@ -209,27 +168,33 @@ To scan the Azure Blob storage data source:
 1. Select **Azure Blob Storage** > **Continue**.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-blob-storage.png" alt-text="Screenshot showing Azure Blob Storage selected for a new data source." border="true":::
-1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Blob storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcblob**. Select **Finish**.
+
+1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Blob storage account that you previously created with the starter kit. The account has the name `<YourResourceGroupName>adcblob`. Select **Finish**.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob storage data source." border="true":::
+
 1. On the **Data sources** page, select **Set up scan** in the entry for the new data source you registered.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/select-setup-scan.png" alt-text="Screenshot showing how to select a scan setup from a data source." border="true":::
+
 1. On the **Set up a scan** page, enter a scan name, and then select **Account Key** from the **Authentication method** drop-down list.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/set-up-a-scan.png" alt-text="Screenshot showing the page to set up a scan for a data source" border="true":::
-1. To give the scanners permissions to scan, you need the storage account key:
-   1. In the [Azure portal](https://portal.azure.com), search for and select the name of the Azure Blob storage account that you created as part of running the script.
-   1. Select **Access keys** under **Settings**, and then copy the value of key1 from this page.
+
+1. To give the scanners permissions to scan, you need the storage account key.
+   1. In the [Azure portal](https://portal.azure.com), search for and select the name of your Azure Blob storage account, `<YourResourceGroupName>adcblob`.
+   1. Select **Access keys** under **Settings**, and then copy the value of *key1*.
 
       :::image type="content" source="./media/starter-kit-tutorial-1/key1-settings.png" alt-text="Screenshot showing the settings for key1 on the storage account page." border="true":::
-   1. On the **Set up a scan** page, paste the key1 value to **Storage account key**, and then select **Continue**.
-1. Set the scan to run once. On the **Set a scan trigger** page, select **Once**, and then select **Continue**.
+
+   1. On the **Set up a scan** page, paste the *key1* value to **Storage account key**, and select **Continue**.
+
+1. On the **Set a scan trigger** page, select **Once**, and then select **Continue**.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/set-a-scan-trigger.png" alt-text="Screenshot show how to set a scan trigger.to scan once." border="true":::
 1. On the **Review your scan** page, select **Save and Run** to complete setting up the scan.
 
-To scan the Azure Data Lake Storage Gen2 data source:
+### Scan the Azure Data Lake Storage Gen2 data source
 
 1. From the **Data sources** page, select **New**.
 
@@ -239,20 +204,25 @@ To scan the Azure Data Lake Storage Gen2 data source:
 
    :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-data-lake-storage-gen2.png" alt-text="Screenshot showing the Azure Data Lake Storage Gen2 data source selected." border="true":::
 
-1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Data Lake Storage Gen2 storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcadls**. Select **Finish**.
+1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of your Azure Data Lake Storage Gen2 storage account `<YourResourceGroupName>adcadls`. Select **Finish**.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-data-lake-storage.png" alt-text="Screenshot showing the settings to register an Azure Data Lake Storage Gen2 data source." border="true":::
+
 1. On the **Data sources** page, select **Set up scan** in the entry for the new data source you registered.
+
 1. On the **Set up a scan** page, enter a scan name, and then select **Account Key** from the **Authentication method** drop-down list.
+
 1. Obtain the key the same way you did for the Azure Blob data source, and then select **Continue**.
+
 1. Set the scan to run once. On the **Set a scan trigger** page, select **Once**, and then select **Continue**.
+
 1. On the **Review your scan** page, select **Save and Run** to complete setting up the scan.
 
-To verify that your scans have succeeded:
+### Verify scans
 
 1. Select **Management Center** > **Data sources**, and then select the data source.
 
-   If the data source scan that you selected has finished, its **Last scan status** state is **Successfully Completed**. Otherwise, if the scan hasn't finished, it can be in the **Scan Queued** or the **Scan in-progress** state.
+   If the data source scan that you selected has finished, its **Last scan status** state is **Successfully Completed**. If the scan hasn't finished, it can be in the **Scan Queued** or the **Scan in-progress** state.
 
    :::image type="content" source="./media/starter-kit-tutorial-1/data-source-scan-status.png" alt-text="Screenshot showing the scan status screen for the sample data source." border="true":::
 
@@ -260,12 +230,12 @@ To verify that your scans have succeeded:
 
    :::image type="content" source="./media/starter-kit-tutorial-1/scan-run-history.png" alt-text="Screenshot showing a successful scan run screen." border="true":::
 
-## Scanning data into the catalog using custom classification
+## Scan data using custom classifications
 
 First, create a new classification. Perform the following steps:
 
 1. On the left menu select **Management Center**.
-1. Under **Metadata management** select **Classifications**. 
+1. Under **Metadata management** select **Classifications**.
 1. On the **Classifications** screen, select **+ New**.
 1. On the **New Classification** screen, enter the following values:
     - Name: `HR.EMPLOYEE_ID`
