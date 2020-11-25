@@ -24,7 +24,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create an Azure Storage account
 > * Create an Azure Functions project
-> * Add form processing code
+> * Extract layout data from uploaded forms
+> * Upload layout data to Azure Storage
 
 ## Prerequisites
 
