@@ -19803,6 +19803,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/release-notes.md",
+      "redirect_url": "/azure/synapse-analytics/overview-what-is",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
       "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
       "redirect_document_id": false

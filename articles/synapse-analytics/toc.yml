@@ -9,8 +9,6 @@
     displayName: overview
   - name: Terminology 
     href: overview-terminology.md
-  - name: Release notes
-    href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
@@ -125,15 +123,6 @@
           displayname: access, control
         - name: Synapse workspace managed Identity
           href: ./security/synapse-workspace-managed-identity.md
-    - name: Tools integration (AI, ETL, BI)
-      items:
-      - name: Troubleshoot Synapse Studio
-        href: troubleshoot/troubleshoot-synapse-studio.md
-      - name: Troubleshoot Synapse Studio connectivity issues
-        href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-        displayname: powershell
-      - name: Troubleshoot connectivity between Synapse Studio and storage
-        href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
   - name: How-to guides
     items:
     - name: Secure
@@ -156,6 +145,19 @@
           href: ./data-integration/linked-service.md
         - name: Connect to Synapse workspace from restricted network
           href: security/how-to-connect-to-workspace-from-restricted-network.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot Synapse Studio
+        href: troubleshoot/troubleshoot-synapse-studio.md
+      - name: Troubleshoot Synapse Studio connectivity issues
+        href: troubleshoot/troubleshoot-synapse-studio-powershell.md
+        displayname: powershell
+      - name: Troubleshoot connectivity between Synapse Studio and storage
+        href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
+      - name: Troubleshoot workspaces created by SDK
+        href: troubleshoot/workspaces-created-by-sdk.md
+      - name: Troubleshoot reading UTF-8 text
+        href: troubleshoot/reading-utf8-text.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -489,7 +491,7 @@
         items:
         - name: Add an Azure Stream Analytics job
           href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Tool to connect to Synapse workspaces
+    - name: Tools to connect to Synapse workspaces
       items:
       - name: Overview
         href: sql/connect-overview.md
