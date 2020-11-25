@@ -58,7 +58,7 @@ Its Local Traffic Manager (LTM) allows secure publishing of services through rev
 
 The integration is based on a standard federation trust between the APM and Azure AD, common to most SHA use cases that includes the [SSL-VPN scenario](f5-aad-password-less-vpn.md). Security Assertion Markup Language (SAML), OAuth and Open ID Connect (OIDC) resources are no exception either, as they too can be secured for remote access. There could also be scenarios where a BIG-IP becomes a choke point for Zero Trust access to all services, including SaaS apps.
 
-A BIG-IP’s ability to integrate with Azure AD is what enables the protocol transitioning required to secure legacy or non-Azure AD-integrated services with modern controls such as [Password-less authentication](https://www.microsoft.com/security/business/identity/passwordless)and [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview). In this scenario, a BIG-IP continues to fulfill its role as a reverse proxy, while handing off pre-authentication and authorization to Azure AD, on a per service basis.
+A BIG-IP’s ability to integrate with Azure AD is what enables the protocol transitioning required to secure legacy or non-Azure AD-integrated services with modern controls such as [Password-less authentication](https://www.microsoft.com/security/business/identity/passwordless) and [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview). In this scenario, a BIG-IP continues to fulfill its role as a reverse proxy, while handing off pre-authentication and authorization to Azure AD, on a per service basis.
 
 Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange between a user, a BIG-IP, and Azure AD, in a service provider initiated flow. Steps 5-6 show subsequent APM session enrichment and SSO to individual backend services.
 
@@ -94,37 +94,38 @@ Several options exist for logging events either locally, or remotely through a S
 - Detailed overview of your organization, potentially across multiple clouds, and on-premises locations, including BIG-IP infrastructure
 
 - Single control plane providing combined view of all signals, avoiding reliance on complex, and disparate tools
+
 ![The image shows monitoring flow](media/f5-aad-integration/azure-sentinel.png)
 
 ## Prerequisites
 
 Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
 
-1. An F5 BIG-IP instance running on either of the following platforms:
+- An F5 BIG-IP instance running on either of the following platforms:
 
- - Physical appliance
+  - Physical appliance
 
- - Hypervisor Virtual Edition such as Microsoft Hyper-V, VMware ESXi, Linux KVM, and Citrix Hypervisor
+  - Hypervisor Virtual Edition such as Microsoft Hyper-V, VMware ESXi, Linux KVM, and Citrix Hypervisor
 
- - Cloud Virtual Edition such as Azure, VMware, KVM, Community Xen, MS Hyper-V, AWS, OpenStack, and Google Cloud
+  - Cloud Virtual Edition such as Azure, VMware, KVM, Community Xen, MS Hyper-V, AWS, OpenStack, and Google Cloud
 
-The actual location of a BIG-IP instance can be either on-premises or any supported cloud platform including Azure, provided it has connectivity to the Internet, resources being published, and any other required services such as Active Directory.  
+    The actual location of a BIG-IP instance can be either on-premises or any supported cloud platform including Azure, provided it has connectivity to the Internet, resources being published, and any other required services such as Active Directory.  
 
-2. An active F5 BIG-IP APM license, through one of the following options:
+- An active F5 BIG-IP APM license, through one of the following options:
 
- - F5 BIG-IP® Best bundle (or)
+   - F5 BIG-IP® Best bundle (or)
 
- - F5 BIG-IP Access Policy Manager™ standalone license
+   - F5 BIG-IP Access Policy Manager™ standalone license
 
- - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+   - F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
 
- - A 90-day BIG-IP Access Policy Manager™ (APM) [trial license](https://www.f5.com/trial/big-ip-trial.php)
+   - A 90-day BIG-IP Access Policy Manager™ (APM) [trial license](https://www.f5.com/trial/big-ip-trial.php)
 
-3. Azure AD licensing through either of the following options:
+- Azure AD licensing through either of the following options:
 
- - An Azure AD [free subscription](https://docs.microsoft.com/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) provides the minimum core requirements for implementing SHA with password-less authentication
+   - An Azure AD [free subscription](https://docs.microsoft.com/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) provides the minimum core requirements for implementing SHA with password-less authentication
 
- - A [Premium subscription](https://azure.microsoft.com/pricing/details/active-directory/) provides all additional value adds outlined in the preface, including [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks), and [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+   - A [Premium subscription](https://azure.microsoft.com/pricing/details/active-directory/) provides all additional value adds outlined in the preface, including [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks), and [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
 
 No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://www.f5.com/services/resources/glossary) is also a good place to start building BIG-IP knowledge.
 
@@ -140,6 +141,16 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
 
+## Additional resources
+
+- [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
+
+- [Azure Active Directory secure hybrid access](https://azure.microsoft.com//services/active-directory/sso/secure-hybrid-access/)
+
+- [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
+
+- [Getting started with Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)
+
 ## Next steps
 
 Consider running an SHA Proof of concept (POC) using your existing BIG-IP infrastructure, or by deploying a trial instance. [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md) takes approximately 30 minutes, at which point you'll have:
@@ -153,14 +164,5 @@ At the same time, you should identify one or two applications that can be target
 Our recommendation is to start with an application that isn’t yet published via a BIG-IP, so as to avoid potential disruption to production services. The guidelines mentioned in this article will help you get acquainted with the general procedure for creating the various BIG-IP configuration objects and setting up SHA. Once complete you should be able to do the same with any other new services, plus also have enough knowledge to convert existing BIG-IP published services over to SHA with minimal effort.
 
 The below interactive guide walks through the high-level procedure for implementing SHA and seeing the end-user experience.
+
 [![The image shows interactive guide cover](media/f5-aad-integration/interactive-guide.png)](https://aka.ms/Secure-Hybrid-Access-F5-Interactive-Guide)
-
-## Additional resources
-
-- [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
-
-- [Azure Active Directory secure hybrid access](https://azure.microsoft.com//services/active-directory/sso/secure-hybrid-access/)
-
-- [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
-
-- [Getting started with Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/?&OCID=AID2100131_SEM_XfknpgAAAHoVMTvh:20200922160358:s&msclkid=5e0e022409fc1c94dab85d4e6f4710e3&ef_id=XfknpgAAAHoVMTvh:20200922160358:s&dclid=CJnX6vHU_esCFUq-ZAod1iQF6A)

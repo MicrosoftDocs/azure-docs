@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial for Azure Active Directory Single Sign-on integration with F5 BIG-IP for Password-less VPN
+# Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN
 
 In this tutorial, learn how to integrate F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
 
@@ -79,15 +79,16 @@ Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP
 
 3. On the **Setup single sign-on with SAML** menu, select the pen icon for **Basic SAML Configuration** to provide the following details:
 
-   - Replace the pre-defined **Identifier URL** with the URL for your BIG-IP published service. For example, `https://ssl-vpn.contoso.com` 
+   - Replace the pre-defined **Identifier URL** with the URL for your BIG-IP published service. For example, `https://ssl-vpn.contoso.com`
 
-   - Do the same with the **Reply URL** text box, including the SAML endpoint path. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/post/acs` 
+   - Do the same with the **Reply URL** text box, including the SAML endpoint path. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/post/acs`
 
    - In this configuration alone the application would operate in an IDP initiated mode, where Azure AD issues the user with a SAML assertion before redirecting to the BIG-IP SAML service. For apps that don’t support IDP initiated mode, specify the **Sign-on URL** for the BIG-IP SAML service. For example, `https://ssl-vpn.contoso.com`.
 
    - For the Logout Url enter the BIG-IP APM Single logout (SLO) endpoint pre-pended by the host header of the service being published. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
 
-Providing an SLO URL ensures a user session is terminated at both ends, the BIG-IP and Azure AD, after the user signs out. BIG-IP APM also provides an [option](https://support.f5.com/csp/article/K12056) for terminating all sessions when calling a specific application URL.
+   Providing an SLO URL ensures a user session is terminated at both ends, the BIG-IP and Azure AD, after the user signs out. BIG-IP APM also provides an [option](https://support.f5.com/csp/article/K12056) for terminating all sessions when calling a specific application URL.
+
 ![Image shows basic saml configuration](media/f5-sso-vpn/basic-saml-configuration.png).
 
 >[!NOTE]
@@ -133,13 +134,14 @@ The following section creates the BIG-IP SAML service provider and corresponding
 
 ![Image shows creating new SAML SP service](media/f5-sso-vpn/create-new-saml-sp.png)
 
-SP **Name** settings are only required if the entity ID isn't an exact match of the hostname portion of the published URL, or if it isn’t in regular hostname-based URL format. Provide the external scheme and hostname of the application being published if entity ID is `urn:ssl-vpn:contosoonline`.
+   SP **Name** settings are only required if the entity ID isn't an exact match of the hostname portion of the published URL, or if it isn’t in regular hostname-based URL format. Provide the external scheme and hostname of the application being published if entity ID is `urn:ssl-vpn:contosoonline`.
 
 3. Scroll down to select the new **SAML SP object** and select **Bind/UnBind IDP Connectors**.
 
 ![Image shows creating federation with local SP service](media/f5-sso-vpn/federation-local-sp-service.png)
 
 4. Select **Create New IDP Connector** and from the drop-down menu select **From Metadata**
+
 ![Image shows create new IDP connector](media/f5-sso-vpn/create-new-idp-connector.png)
 
 5. Browse to the federation metadata XML file you downloaded earlier and provide an **Identity Provider Name** for the APM object that will represent the external SAML IDP
@@ -192,7 +194,7 @@ A Network access list provisions the service with IP and DNS settings from the V
 
 ![Image shows contoso vpn pool](media/f5-sso-vpn/contoso-vpn-pool.png)
 
-The Client Settings options can be used to enforce restrictions on how the client traffic is routed when a VPN is established.
+   The Client Settings options can be used to enforce restrictions on how the client traffic is routed when a VPN is established.
 
 4. Select **Finished** and go to the DNS/Hosts tab to add the  settings:
 
@@ -223,9 +225,11 @@ With the VPN objects configured, an access policy is required to enable the serv
 2. Provide a profile name and for the profile type select **All**, for example, Contoso_network_access
 
 3. Scroll down to add at least one language to the **Accepted Languages** list and select **Finished**
+
 ![Image shows general properties](media/f5-sso-vpn/general-properties.png)
 
 4. Select **Edit** on the Per-Session Policy field of the new access profile, for the visual policy editor to launch in a separate browser tab.
+
 ![Image shows per-session policy](media/f5-sso-vpn/per-session-policy.png)
 
 5. Select the **+** sign and in the pop-up select **Authentication** > **SAML Auth** > **Add Item**.
@@ -253,6 +257,7 @@ With the VPN objects configured, an access policy is required to enable the serv
 12. Select **Update** followed by **Save**.
 
 13. Select the link in the upper Deny box to change the Successful branch to **Allow** then **Save**.
+
 ![Image shows new visual policy editor](media/f5-sso-vpn/vizual-policy-editor.png)
 
 14. Commit those settings by selecting **Apply Access Policy** and close the visual policy editor tab.
@@ -270,6 +275,7 @@ With all the settings in place, the APM now requires a front-end virtual server 
 3. Provide the virtual server with an unused **IP Destination Address** that has routing in place to receive client traffic
 
 4. Set the Service Port to **443 HTTPS** and ensure the state shows **Enabled**
+
 ![Image shows new virtual server](media/f5-sso-vpn/new-virtual-server.png)
 
 5. Set the **HTTP Profile** to http and add the SSL Profile (Client) for the public SSL certificate you provisioned as part of the pre-requisites.
@@ -284,18 +290,7 @@ With all the settings in place, the APM now requires a front-end virtual server 
 
 8.	Your SSL-VPN service is now published and accessible via SHA, either directly via its URL or through Microsoft’s application portals.
 
-## Next steps
-
-Open a browser on a remote Windows client and browse to the url of the **BIG-IP VPN service**. After authenticating to Azure AD, you'll see the BIG-IP webtop portal and VPN launcher.
-
-![Image shows vpn launcher](media/f5-sso-vpn/vpn-launcher.png)
-
-Selecting the VPN tile will install the BIG-IP Edge client and establish a VPN connection  configured for SHA.
-The F5 VPN application should also be visible as a target resource in Azure AD Conditional Access. See our [guidance](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) for building Conditional Access policies and also enabling users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
-
 ## Additional resources
-
-- [BIG-IP advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
@@ -304,3 +299,12 @@ The F5 VPN application should also be visible as a target resource in Azure AD C
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
 - [Five steps to full application integration with Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad)
+
+## Next steps
+
+Open a browser on a remote Windows client and browse to the url of the **BIG-IP VPN service**. After authenticating to Azure AD, you'll see the BIG-IP webtop portal and VPN launcher.
+
+![Image shows vpn launcher](media/f5-sso-vpn/vpn-launcher.png)
+
+Selecting the VPN tile will install the BIG-IP Edge client and establish a VPN connection  configured for SHA.
+The F5 VPN application should also be visible as a target resource in Azure AD Conditional Access. See our [guidance](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) for building Conditional Access policies and also enabling users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).

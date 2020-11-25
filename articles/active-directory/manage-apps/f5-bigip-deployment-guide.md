@@ -72,49 +72,49 @@ Complete the following tasks to deploy BIG-IP VE from the [Azure Marketplace](ht
 
 7. Step through the **Basics** menu and use the following settings
 
-|  Project details     |  Value     |
-|:-------|:--------|
-|Subscription|Target subscription for the BIG-IP VM deployment|
-|Resource group | Existing Azure Resource Group the BIG-IP VM will be deployed into or create one. Should be the same resource group of your DC and IIS VMs|
-| **Instance details**|  |
-|VM Name| Example BIG-IP-VM |
-|Region | Target Azure geo for BIG-IP-VM |
-|Availability options| Only enable if using VM in production|
-|Image| F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)|
-|Azure Spot instance| No but feel free to enable if appropriate |
-|Size| Minimum specification should be 2 vCPUs and 8-Gb memory|
-|**Administrator account**|  |
-|Authentication type|Select password for now. You can switch to a key pair later |
-|Username|The identity that will be created as a BIG-IP local account for accessing its management interfaces. Username is CASE sensitive.|
-|Password|Secure admin access with a strong password|
-|**Inbound port rules**|  |
-|Public inbound ports|None|
+ |  Project details     |  Value     |
+ |:-------|:--------|
+ |Subscription|Target subscription for the BIG-IP VM deployment|
+ |Resource group | Existing Azure Resource Group the BIG-IP VM will be deployed into or create one. Should be the same resource group of your DC and IIS VMs|
+ | **Instance details**|  |
+ |VM Name| Example BIG-IP-VM |
+ |Region | Target Azure geo for BIG-IP-VM |
+ |Availability options| Only enable if using VM in production|
+ |Image| F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)|
+ |Azure Spot instance| No but feel free to enable if appropriate |
+ |Size| Minimum specification should be 2 vCPUs and 8-Gb memory|
+ |**Administrator account**|  |
+ |Authentication type|Select password for now. You can switch to a key pair later |
+ |Username|The identity that will be created as a BIG-IP local account for accessing its management interfaces. Username is CASE sensitive.|
+ |Password|Secure admin access with a strong password|
+ |**Inbound port rules**|  |
+ |Public inbound ports|None|
 
 8. Select **Next: Disks** leaving all the defaults and select **Next: Networking**.
 
 9. On the **Networking** menu, complete these settings.
 
-|Network interface|      Value |
-|:--------------|:----------------|
-|Virtual network|Same Azure VNet used by your DC and IIS VMs, or create one|
-|Subnet| Same Azure internal subnet as your DC and IIS VMs, or create one|
-|Public IP |  None|
-|NIC Network Security Group| Select None if the Azure subnet you selected in the previous steps  is already associated with a Network security group (NSG); otherwise select Basic|
-|Accelerate Networking| Off |
-|**Load balancing**|     |
-|Load balance VM| No|
+ |Network interface|      Value |
+ |:--------------|:----------------|
+ |Virtual network|Same Azure VNet used by your DC and IIS VMs, or create one|
+ |Subnet| Same Azure internal subnet as your DC and IIS VMs, or create one|
+ |Public IP |  None|
+ |NIC Network Security Group| Select None if the Azure subnet you selected in the previous steps  is already associated with a Network security group (NSG); otherwise select Basic|
+ |Accelerate Networking| Off |
+ |**Load balancing**|     |
+ |Load balance VM| No|
 
 10. Select **Next: Management** and complete these settings.
 
-|Monitoring|    Value |
-|:---------|:-----|
-|Detailed monitoring| Off|
-|Boot diagnostics|Enable with custom storage account. Allows connecting to the BIG-IP Secure Shell (SSH) interface via the Serial Console option in the Azure portal. Select any available Azure storage account|
-|**Identity**|  |
-|System assigned managed identity|Off|
-|Azure Active Directory|BIG-IP doesn’t currently support this option|
-|**Autoshutdown**|    |
-|Enable Auto shutdown| If testing, consider setting the BIG-IP-VM to shut-down daily|
+ |Monitoring|    Value |
+ |:---------|:-----|
+ |Detailed monitoring| Off|
+ |Boot diagnostics|Enable with custom storage account. Allows connecting to the BIG-IP Secure Shell (SSH) interface via the Serial Console option in the Azure portal. Select any available Azure storage account|
+ |**Identity**|  |
+ |System assigned managed identity|Off|
+ |Azure Active Directory|BIG-IP doesn’t currently support this option|
+ |**Autoshutdown**|    |
+ |Enable Auto shutdown| If testing, consider setting the BIG-IP-VM to shut-down daily|
 
 11. Select **Next: Advanced** leaving all the defaults and select **Next: Tags**.
 
@@ -208,13 +208,13 @@ The following steps assume the DNS zone of the public domain used for your SHA s
 
 6. Use the following details to create the first DNS alias record:
 
-| Field | Value |
-|:-------|:-----------|
-|Subscription| Same subscription as the BIG-IP-VM|
-|DNS zone| DNS zone that is authoritative for the verified domain suffix your published websites will use, for example, www.contoso.com |
-|Name | The hostname you specify will resolve to the public IP that is associated with the selected secondary IP. Make sure to define the correct DNS to IP mappings. See last image in Networking configs section, for example, intranet.contoso.com > 13.77.148.215|
-| TTL | 1 |
-|TTL units | Hours |
+ | Field | Value |
+ |:-------|:-----------|
+ |Subscription| Same subscription as the BIG-IP-VM|
+ |DNS zone| DNS zone that is authoritative for the verified domain suffix your published websites will use, for example, www.contoso.com |
+ |Name | The hostname you specify will resolve to the public IP that is associated with the selected secondary IP. Make sure to define the correct DNS to IP mappings. See last image in Networking configs section, for example, intranet.contoso.com > 13.77.148.215|
+ | TTL | 1 |
+ |TTL units | Hours |
 
 7. Select **Create** for Azure to save those settings to public DNS.
 
@@ -222,9 +222,9 @@ The following steps assume the DNS zone of the public domain used for your SHA s
 
 9. Repeat steps 1 through 6 to create additional DNS records for every service you plan to publish using BIG-IP’s Guided Configuration.
 
-With DNS records in place, you can use any of the online tools such as [DNS checker](https://dnschecker.org/) to verify that a created record has successfully propagated across all global public DNS servers.
+  With DNS records in place, you can use any of the online tools such as [DNS checker](https://dnschecker.org/) to verify that a created record has successfully propagated across all global public DNS servers.
 
-If you manage your DNS domain namespace using an external provider like [GoDaddy](https://www.godaddy.com/), then you'll need to create records using their own DNS management facility.
+  If you manage your DNS domain namespace using an external provider like [GoDaddy](https://www.godaddy.com/), then you'll need to create records using their own DNS management facility.
 
 >[!NOTE]
 >You can also use a PC’s local hosts file if testing and frequently switching DNS records. The localhosts file on a Windows PC can be accessed by pressing Win + R on the keyboard and submitting the word **drivers** in the run box. Just be mindful that a localhost record will only provide DNS resolution for the local PC, not other clients.
@@ -237,16 +237,16 @@ By default, Azure VNets and associated subnets are private networks that are una
 
 2. Select **Add** inbound rule to enter the following NSG rule properties:
 
-|     Field   |   Value        |
-|:------------|:------------|
-|Source| Any|
-|Source port ranges| *|
-|Destination IP addresses|Comma-separated list of all BIG-IP-VM secondary private IPs|
-|Destination ports| 80,443|
-|Protocol| TCP |
-|Action| Allow|
-|Priority|Lowest available value between 100 - 4096|
-|Name | A descriptive name, for example: `BIG-IP-VM_Web_Services_80_443`|
+ |     Field   |   Value        |
+ |:------------|:------------|
+ |Source| Any|
+ |Source port ranges| *|
+ |Destination IP addresses|Comma-separated list of all BIG-IP-VM secondary private IPs|
+ |Destination ports| 80,443|
+ |Protocol| TCP |
+ |Action| Allow|
+ |Priority|Lowest available value between 100 - 4096|
+ |Name | A descriptive name, for example: `BIG-IP-VM_Web_Services_80_443`|
 
 3. Select **Add** to commit the changes, and close the **Networking** menu.
 
@@ -397,7 +397,7 @@ If updating the main TMOS is not possible, then consider at least upgrading the 
 
 2. On the **Guided Configuration** page, select **Upgrade Guided Configuration**
 
-![The image shows how to update big-ip](./media/f5ve-deployment-plan/update-bigip.png)
+![The image shows how to update big-ip](./media/f5ve-deployment-plan/update-big-ip.png)
 
 3. On the **Upgrade Guided Configuration** dialog, **Choose File** to upload the downloaded use case pack and select **Upload and Install**
 
