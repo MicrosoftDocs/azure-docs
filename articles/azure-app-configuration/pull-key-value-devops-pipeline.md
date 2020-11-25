@@ -91,7 +91,7 @@ The following parameters are used by the Azure App Configuration task:
 
 ## Use key-values in subsequent tasks
 
-The key-values that are fetched from App Configuration are set as pipeline variables, which are accessible as environment variables. The key of the environment variable is the key of the key-value that is retrieved from Azure App Configuration.
+The key-values that are fetched from App Configuration are set as pipeline variables, which are accessible as environment variables. The key of the environment variable is the key of the key-value that is retrieved from App Configuration after trimming the prefix, if specified.
 
 For example, if a subsequent task runs a PowerShell script, it could consume a key-value with the key 'myBuildSetting' like this:
 ```powershell
