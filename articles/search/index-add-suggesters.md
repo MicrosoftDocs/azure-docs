@@ -14,7 +14,9 @@ ms.custom: devx-track-csharp
 
 # Create a suggester to enable autocomplete and suggested results in a query
 
-In Azure Cognitive Search, "search-as-you-type" is enabled through a *suggester*. A suggester is an internal data structure that consists of a name and a list of fields. The fields in a suggester undergo additional tokenization, with prefix combinations to support matches on partial terms. For example, if the City field is included in a suggester, prefix combinations for "sea", "seat", "seatt", and "seattl" would be created for the term "Seattle". Prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
+In Azure Cognitive Search, "search-as-you-type" is enabled through a *suggester*. A suggester is an internal data structure that consists of a fields collection. The fields undergo additional tokenization, generating prefix sequences to support matches on partial terms.
+
+For example, if a suggester includes a City field, resulting prefix combinations of "sea", "seat", "seatt", and "seattl" would be created for the term "Seattle". Prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
 
 ## Typeahead experiences in Cognitive Search
 
