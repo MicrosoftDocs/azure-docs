@@ -37,8 +37,8 @@ You can assign a role to a user, group, service principal, or managed identity. 
 For an Azure AD user, get the user principal name, such as *patlong\@contoso.com* or the user object ID. To get the object ID, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
-Get-AzADUser -StartsWith <nameInQuotes>
-(Get-AzADUser -DisplayName <nameInQuotes>).id
+Get-AzADUser -StartsWith <userName>
+(Get-AzADUser -DisplayName <userName>).id
 ```
 
 **Group**
@@ -46,8 +46,8 @@ Get-AzADUser -StartsWith <nameInQuotes>
 For an Azure AD group, you need the group object ID. To get the object ID, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
-Get-AzADGroup -SearchString <groupNameInQuotes>
-(Get-AzADGroup -DisplayName <groupNameInQuotes>).id
+Get-AzADGroup -SearchString <groupName>
+(Get-AzADGroup -DisplayName <groupName>).id
 ```
 
 **Service principal**
@@ -55,8 +55,8 @@ Get-AzADGroup -SearchString <groupNameInQuotes>
 For an Azure AD service principal (identity used by an application), you need the service principal object ID. To get the object ID, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
-Get-AzADServicePrincipal -SearchString <serviceNameInQuotes>
-(Get-AzADServicePrincipal -DisplayName <serviceNameInQuotes>).id
+Get-AzADServicePrincipal -SearchString <principalName>
+(Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
 
 **Managed identity**
@@ -64,8 +64,8 @@ Get-AzADServicePrincipal -SearchString <serviceNameInQuotes>
 For a system-assigned or a user-assigned managed identity, you need the object ID. To get the object ID, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
 ```azurepowershell
-Get-AzADServicePrincipal -SearchString <serviceNameInQuotes>
-(Get-AzADServicePrincipal -DisplayName <serviceNameInQuotes>).id
+Get-AzADServicePrincipal -SearchString <principalName>
+(Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
     
 ### Step 2: Find the appropriate role
@@ -249,7 +249,7 @@ CanDelegate        : False
 Alternately, you can specify the fully qualified resource group with the `-Scope` parameter:
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com -RoleDefinitionName "Virtual Machine Contributor" -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com -RoleDefinitionName "Virtual Machine Contributor" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -274,7 +274,7 @@ Even if a role is renamed, the role ID does not change. If you are using scripts
 The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -310,7 +310,7 @@ CanDelegate        : False
 Assigns the [Reader](built-in-roles.md#reader) role to the *annm\@example.com* user at a subscription scope.
 
 ```Example
-PS C:\> New-AzRoleAssignment -SignInName annm@example.com -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
+PS C:\> New-AzRoleAssignment -SignInName annm@example.com -RoleDefinitionName "Reader" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
@@ -328,7 +328,7 @@ CanDelegate        : False
 Assigns the [Billing Reader](built-in-roles.md#billing-reader) role to the *alain\@example.com* user at a management group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Billing Reader" -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Billing Reader" -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 
 RoleAssignmentId   : /providers/Microsoft.Management/managementGroups/marketing-group/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
 Scope              : /providers/Microsoft.Management/managementGroups/marketing-group
@@ -354,13 +354,13 @@ PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com -RoleDefinitionN
 Removes the [Reader](built-in-roles.md#reader) role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
 
 ```azurepowershell
-PS C:\> Remove-AzRoleAssignment -ObjectId "22222222-2222-2222-2222-222222222222" -RoleDefinitionName "Reader" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
+PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 -RoleDefinitionName "Reader" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 Removes the [Billing Reader](built-in-roles.md#billing-reader) role from the *alain\@example.com* user at the management group scope.
 
 ```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName "alain@example.com" -RoleDefinitionName "Billing Reader" -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
+PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Billing Reader" -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
 If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
