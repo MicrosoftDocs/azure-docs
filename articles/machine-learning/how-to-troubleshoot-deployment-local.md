@@ -15,7 +15,7 @@ ms.custom: devx-track-python, deploy, contperfq2
 
 # Troubleshoot model deployment locally
 
-Learn how to troubleshoot and solve, or work around, common Azure Machine Learning Docker web service deployment errors.
+Learn how to troubleshoot and solve, or work around, common Azure Machine Learning Docker web service deployment errors locally.
 
 ## Prerequisites
 

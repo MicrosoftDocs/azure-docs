@@ -15,7 +15,7 @@ ms.custom: contperfq4, devx-track-python, deploy, contperfq2
 
 # Troubleshoot model deployment
 
-Learn how to troubleshoot and solve, or work around, common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
+Learn how to troubleshoot and solve, or work around, common remote Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
 ## Prerequisites
 
