@@ -12,7 +12,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Code free machine learning model training in Azure Synapse with AutoML (Preview)
+# Tutorial: Code free machine learning model training in Azure Synapse with AutoML
 
 Learn how to easily enrich your data in Spark tables with new machine learning models that you train using [AutoML in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  A user in Synapse can simply select a Spark table in the Azure Synapse workspace to use as a training dataset for building machine learning models in a code free experience.
 
@@ -124,4 +124,4 @@ After the run from the notebook has been submitted successfully, there will be a
 
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md).
 - [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

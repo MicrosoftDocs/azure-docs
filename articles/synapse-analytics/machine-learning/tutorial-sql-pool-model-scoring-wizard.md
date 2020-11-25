@@ -145,4 +145,4 @@ Before running all cells in the notebook, check if the compute instance is runni
 ## Next steps
 
 - [Quickstart: Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md)
-- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

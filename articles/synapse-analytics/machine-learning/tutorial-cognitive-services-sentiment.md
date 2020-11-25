@@ -12,7 +12,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Sentiment analysis with Cognitive Services (Preview)
+# Tutorial: Sentiment analysis with Cognitive Services
 
 In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) capabilities to perform sentiment analysis. A user in Azure Synapse can simply select a table containing a text column to enrich with sentiments. These sentiments can be positive, negative, mixed or neutral and a probability will also be returned.
 
@@ -101,4 +101,4 @@ You can now **Run All** cells to enrich your data with sentiments. The sentiment
 ## Next steps
 - [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md)
-- [Machine Learning capabilities in Azure Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Machine Learning capabilities in Azure Azure Synapse Analytics](what-is-machine-learning.md)

@@ -75,4 +75,4 @@ You are now ready to continue with one of the tutorials for using the Azure Cogn
 - [Tutorial: Sentiment analysis with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md).
-- [Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)](what-is-machine-learning.md)
+- [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
