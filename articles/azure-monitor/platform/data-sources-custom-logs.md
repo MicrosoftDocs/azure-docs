@@ -26,6 +26,7 @@ The log files to be collected must match the following criteria.
 
 - The log file must not allow circular logging or log rotation, where the file is overwritten with new entries.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
+- For Linux, time zone converesion is not supported for time stamps in the logs.
 
 >[!NOTE]
 > If there are duplicate entries in the log file, Azure Monitor will collect them. However, the query results will be inconsistent where the filter results show more events than the result count. It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
