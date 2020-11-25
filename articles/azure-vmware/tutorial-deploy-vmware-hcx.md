@@ -11,6 +11,9 @@ This article shows you how to deploy and configure the on-premises VMware HCX Co
 
 VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on. The add-on is currently in preview. 
 
+>[!Note]
+>Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on prem Connector and Cloud Manager, the licensing again limits this to 3 for Advanced and 10 for Enterprise Edition.
+
 >[!NOTE]
 >VMware HCX Enterprise is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt-out of the service. There is no simple downgrade path from VMware HCX Enterprise to VMware HCX Advanced. If you decide to downgrade, you'll have to redeploy, incurring downtime.
 

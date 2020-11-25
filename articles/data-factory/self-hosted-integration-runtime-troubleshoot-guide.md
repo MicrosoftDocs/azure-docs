@@ -2,7 +2,7 @@
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
@@ -316,7 +316,7 @@ If the error shows as above *UnauthorizedAccessException*, follow below instruct
         1. Clean uninstall the current Self-hosted IR.
         1. Install the Self-hosted IR bits.
         1. Follow below instructions to change the service account: 
-            1. Go to selfhosted IR's installation folder, switch to the folder: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Go to Self-hosted IR's installation folder, switch to the folder: *Microsoft Integration Runtime\4.0\Shared*.
             1. Start a command line using elevated privilege. Replace *\<user>* and *\<password>* with your own username and password and then run below command:
                        
                 ```
@@ -730,7 +730,7 @@ Two possible reasons for this issue:
 - The Root CA of ADF service server certificate is not trusted on the machine where the SHIR is installed. 
 - You are using proxy in your environment and the server certificate of ADF service is replaced by the proxy, while the replaced server certificate is not trusted by the machine where the SHIR is installed.
 
-#### Solution
+#### Resolution
 
 - For reason 1, make sure the ADF server certificate and its certificate chain is trusted by the machine where the SHIR is installed.
 - For reason 2, either trust the replaced root CA on SHIR machine, or configure the proxy not to replace ADF server certificate.
@@ -743,6 +743,7 @@ We are rolling out a new SSL certificate, which is signed from DigiCert, please 
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 If not, download it from [here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## Self-hosted IR sharing
 
