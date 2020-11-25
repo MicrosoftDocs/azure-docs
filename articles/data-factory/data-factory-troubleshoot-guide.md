@@ -1001,9 +1001,9 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 1. Go to: **File** > **Save** > **All Sessions**.
 
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
-## Web Hook Actvity
+## Webhook activity
 
-###  Web Hook Failed with error code
+###  Webhook failed with error code
 
 - **Message**: `Operation on Webhook fialed because error message is set in callback request body.`
 
@@ -1016,7 +1016,7 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 ## General
 
 
-### Pipeline Activity stuck issue
+### Pipeline activity stuck issue
 
 When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
 
