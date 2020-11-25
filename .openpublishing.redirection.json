@@ -31,11 +31,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-wan/security-baseline.md",
-      "redirect_url": "/azure/virtual-wan/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/digital-twins/concepts-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
@@ -49746,11 +49741,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/core/tutorial-connect-device.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-device-nodejs",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/iot-central/retail/architecture-connected-logistics-pnp.md",
       "redirect_url": "/azure/iot-central/retail/architecture-connected-logistics",
       "redirect_document_id": true
@@ -49925,14 +49915,26 @@
       "redirect_url": "/azure/iot-central/core/howto-export-data",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/iot-central/retail/tutorial-video-analytics-create-app.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-create-app-yolo-v3",
       "redirect_document_id": true
     },
-
-
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-device-java.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-device-nodejs.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-device-python.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-device",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
@@ -54391,6 +54393,11 @@
     {
       "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-launch.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-system-integration",
       "redirect_document_id": true
     },
     {
