@@ -11,7 +11,7 @@ ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Tutorial: Explore and Analyze data lakes with serverless SQL pool (preview)
+# Tutorial: Explore and Analyze data lakes with serverless SQL pool
 
 In this tutorial, you learn how to perform exploratory data analysis. You'll combine different Azure Open Datasets using serverless SQL pool. You'll then visualize the results in Synapse Studio for Azure Synapse Analytics.
 
