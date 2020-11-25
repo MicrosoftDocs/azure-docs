@@ -33,9 +33,9 @@ In this tutorial, you learn how to:
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your Form Recognizer key and endpoint. After it deploys, click **Go to resource**.
   * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* A local PDF document to analyze. You can use this sample document.
-* [Python 3.x](https://www.python.org/).
-* Azure Storage Explorer installed.
+* A local PDF document to analyze. You can download this [sample document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) to use.
+* [Python 3.x](https://www.python.org/) installed.
+* [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) installed.
 * [Azure Functions Core Tools](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#azure-functions-core-tools) installed.
 * Visual Studio Code with the following extensions installed:
   * [Azure Functions extension](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
@@ -56,7 +56,7 @@ Select the Create Function button (lightning icon) to start a workflow for build
 ![VSCode create function button](./media/tutorial-azure-function/vs-code-create-function.png)
 
 
-You'll be prompted to configure a number of parameters:
+You'll be prompted to configure a number of settings:
 * In the **Select a language** prompt, select Python.
 * In the **Select a template** prompt, Select Azure Blob Storage trigger. Then give the default trigger a name.
 * In the **Select setting** prompt, opt to create new local app settings.
@@ -65,7 +65,7 @@ You'll be prompted to configure a number of parameters:
 
 ![VSCode create prompt example](./media/tutorial-azure-function/vs-code-prompt.png)
 
-When you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This function will be triggered when a file is uploaded to the **Test** storage container, but it won't do anything.
+When you've completed these steps, VSCode will add a new Azure Function project with a *\_\_init\_\_.py* Python script. This script will be triggered when a file is uploaded to the **Test** storage container, but it won't do anything.
 
 ## Test the function
 
@@ -80,7 +80,7 @@ Stop the script before continuing.
 
 ## Add form processing code
 
-Next, you'll add your own code to the Python script to call the Form Recognizer service and parse the uploaded documents using the Form Recognizer [layout API](concept-layout.md).
+Next, you'll add your own code to the Python script to call the Form Recognizer service and parse the uploaded documents using the Form Recognizer [Layout API](concept-layout.md).
 
 In VSCode, navigate to the function's *requirements.txt* file. This defines the dependencies for your script. Add the following Python packages to the file:
 
@@ -119,8 +119,6 @@ def main(myblob: func.InputStream):
 ```
 
 The following code block calls the Form Recognizer [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API on the uploaded document. You need to fill in your endpoint and key values. 
-
-
 
 ```Python
 # This is the call to the Form Recognizer endpoint
@@ -182,7 +180,11 @@ Then add the following code to connect to the Azure Storage **Output** container
     container_client=blob_service_client.get_container_client("output")
 ```
 
-The following code parses the returned Form Recognizer response, constructs a .csv file, and uploads it to the **Output** container. You will likely need to edit this code to match the structure of your own form documents.
+The following code parses the returned Form Recognizer response, constructs a .csv file, and uploads it to the **Output** container. 
+
+
+> [!IMPORTANT]
+> You will likely need to edit this code to match the structure of your own form documents.
 
 ```Python
 # The code below is how I extract the json format into tabular data 
@@ -243,4 +245,4 @@ In this tutorial, you learned how to use an Azure Function written in Python to 
 > [Microsoft Power BI](https://powerbi.microsoft.com/en-us/integrations/azure-table-storage/)
 
 * [What is Form Recognizer?](../../overview.md)
-* Learn more about the [Layout API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
+* Learn more about the [Layout API](concept-layout.md)
