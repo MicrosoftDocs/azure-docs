@@ -1,19 +1,18 @@
 ---
-title: Sources and scans
+title: Supported data sources and file types
 description: This article provides conceptual details about supported data sources and file types in Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/24/2020
 ---
-
-# Supported data sources in Azure Purview
+# Supported data sources and file types in Azure Purview
 
 This article discusses supported data sources and file types in Purview.
 
-## Supported sources
+## Supported data sources
 
 Azure Purview supports the following sources:
 
@@ -34,39 +33,38 @@ Azure Purview supports the following sources:
 > Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
 
 ## File types supported for scanning
-Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
-Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
-We also support custom file extensions and custom parsers.
 
-### Sampling within a file
-For all structured file formats (AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML)
-- Scanner samples 128 rows in each column or 1 MB, whichever is lower.
-For document file formats (DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT)
-- Scanner samples 20 MB of each file.
-- If a file > 20MB, then it is not subject to a deep scan (subject to classification), we capture only basic meta data like file name, FQDN, etc.
+Scanning the following file types is supported:
 
-* CosmosDB collection sampling *
+- Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
+- Purview also supports custom file extensions and custom parsers.
+
+## Sampling within a file
+
+For all structured file formats, Purview samples files in the following way:
+
+- Purview scanner samples 128 rows in each column or 1 MB, whichever is lower.
+- For document file formats, the Purview scanner samples 20 MB of each file.
+- If a file larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Purview captures only basic meta data like file name and FQDN.
 
 ## Resource set file sampling
-If we detect a folder or partition file group to be considered a resource set (it matched with a system resource set policy or a customer defined resource set policy), then we subject each folder to sampling
-### Delimited files (CSV, PSV, SSV, TSV)
-1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 
-### Data Lake file types (Parquet, Avro, Orc)
-1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
+A folder or group of partition files is detected as a *resource set* in Purview, if it matches with a system resource set policy or a customer defined resource set policy. If a resource set is detected, then Purview will sample each folder that it contains.
 
-### Other structured file types (JSON, XML, TXT)
-1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
+Some other file types have additional scanning requirements:
 
-### SQL objects and CosmosDB entities
-Each file is L3 scanned.
-
-### Document file types
- Each file is L3 scanned. Resource set patterns don't apply to these file types.
+- **Delimited files (CSV, PSV, SSV, TSV)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
+- **Data Lake file types (Parquet, Avro, Orc)** - 1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a *resource set*
+- **Other structured file types (JSON, XML, TXT)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
+- **SQL objects and CosmosDB entities** - Each file is L3 scanned.
+- **Document file types** - Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
 ## Classification
-All 105 system classification rules apply to Structured file formats supported. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection)
+
+All 105 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection)
 
 ## Next steps
 
-* [Data Catalog client overview](catalog-client-overview.md)
+- [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md)
+- [Use the Purview portal to scan Azure data sources](portal-scan-azure-data-sources.md)
