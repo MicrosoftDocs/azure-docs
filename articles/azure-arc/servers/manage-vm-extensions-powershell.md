@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure PowerShell
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using Azure PowerShell.
-ms.date: 11/06/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
 ---
 
@@ -51,14 +51,14 @@ The following example enables the Key Vault VM extension (preview) on an Arc ena
 # Build settings
     $settings = @{
       secretsManagementSettings = @{
-       observedCertificates = @{
+       observedCertificates = @(
         "observedCert1"
-       }
+       )
       certificateStoreLocation = "myMachineName" # For Linux use "/var/lib/waagent/Microsoft.Azure.KeyVault.Store/"
       certificateStore = "myCertificateStoreName"
       pollingIntervalInS = "pollingInterval"
       }
-    authenticationLocationSettings = @{
+    authenticationSettings = @{
      msiEndpoint = "http://localhost:40342/metadata/identity"
      }
     }
