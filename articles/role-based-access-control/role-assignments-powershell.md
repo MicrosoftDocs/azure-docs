@@ -129,41 +129,59 @@ To add a role assignment, use the [New-AzRoleAssignment](/powershell/module/az.r
 **Resource scope**
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName <roleName> -Scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-Scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
 ```
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionId <roleId> -ResourceName <resourceName> -ResourceType <resourceType> -ResourceGroupName <resourceGroupName>
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionId <roleId> `
+-ResourceName <resourceName> `
+-ResourceType <resourceType> `
+-ResourceGroupName <resourceGroupName>
 ```
 
 **Resource group scope**
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <emailOrUserprincipalname> -RoleDefinitionName <roleName> -ResourceGroupName <resourceGroupName>
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName <roleName> `
+-ResourceGroupName <resourceGroupName>
 ```
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName <roleName> -ResourceGroupName <resourceGroupName>
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-ResourceGroupName <resourceGroupName>
 ```
 
 **Subscription scope** 
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <emailOrUserprincipalname> -RoleDefinitionName <roleName> -Scope /subscriptions/<subscriptionId>
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName <roleName> `
+-Scope /subscriptions/<subscriptionId>
 ```
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName <roleName> -Scope /subscriptions/<subscriptionId>
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-Scope /subscriptions/<subscriptionId>
 ```
 
 **Management group scope** 
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <emailOrUserprincipalname> -RoleDefinitionName <roleName> -Scope /providers/Microsoft.Management/managementGroups/<groupName>
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName <roleName> `
+-Scope /providers/Microsoft.Management/managementGroups/<groupName>
 ``` 
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName <roleName> -Scope /providers/Microsoft.Management/managementGroups/<groupName>
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-Scope /providers/Microsoft.Management/managementGroups/<groupName>
 ``` 
     
 ## Add role assignment examples
@@ -173,7 +191,9 @@ New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName <roleName> -Scope 
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a storage account named *storage12345*.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 -RoleDefinitionName "Storage Blob Data Contributor" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
+PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 `
+-RoleDefinitionName "Storage Blob Data Contributor" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/providers/Microsoft.Authorization/roleAssignments/cccccccc-cccc-cccc-cccc-cccccccccccc
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345
@@ -191,7 +211,9 @@ CanDelegate        : False
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a blob container named *blob-container-01*.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 -RoleDefinitionName "Storage Blob Data Contributor" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
+PS C:\> New-AzRoleAssignment -ObjectId 55555555-5555-5555-5555-555555555555 `
+-RoleDefinitionName "Storage Blob Data Contributor" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/storage12345/blobServices/default/containers/blob-container-01/providers/Microsoft.Authorization/roleAssignm
                      ents/dddddddd-dddd-dddd-dddd-dddddddddddd
@@ -207,16 +229,20 @@ CanDelegate        : False
 
 #### Add role assignment for a group in a specific virtual network resource scope
 
-Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a resource scope for a virtual network named *pharma-sales-project-network*.
+Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *Pharma Sales Admins* group with ID aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa at a resource scope for a virtual network named *pharma-sales-project-network*.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa -RoleDefinitionName "Virtual Machine Contributor" -ResourceName RobertVirtualNetwork -ResourceType Microsoft.Network/virtualNetworks -ResourceGroupName MyVirtualNetworkResourceGroup
+PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceName pharma-sales-project-network `
+-ResourceType Microsoft.Network/virtualNetworks `
+-ResourceGroupName MyVirtualNetworkResourceGroup
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
-                     /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork/providers/Microsoft.Authorizat
+                     /providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network/providers/Microsoft.Authorizat
                      ion/roleAssignments/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
-                     /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork
+                     /providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 DisplayName        : Pharma Sales Admins
 SignInName         :
 RoleDefinitionName : Virtual Machine Contributor
@@ -231,8 +257,9 @@ CanDelegate        : False
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
-
+PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceGroupName pharma-sales
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/pr
                      oviders/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
@@ -249,7 +276,9 @@ CanDelegate        : False
 Alternately, you can specify the fully qualified resource group with the `-Scope` parameter:
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com -RoleDefinitionName "Virtual Machine Contributor" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
+PS C:\> New-AzRoleAssignment -SignInName patlong@contoso.com `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -274,7 +303,9 @@ Even if a role is renamed, the role ID does not change. If you are using scripts
 The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
+PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 `
+-RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -292,7 +323,9 @@ CanDelegate        : False
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID 77777777-7777-7777-7777-777777777777 at the *pharma-sales* resource group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
+PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceGroupName pharma-sales
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -310,7 +343,9 @@ CanDelegate        : False
 Assigns the [Reader](built-in-roles.md#reader) role to the *annm\@example.com* user at a subscription scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -SignInName annm@example.com -RoleDefinitionName "Reader" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
+PS C:\> New-AzRoleAssignment -SignInName annm@example.com `
+-RoleDefinitionName "Reader" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
@@ -328,7 +363,9 @@ CanDelegate        : False
 Assigns the [Billing Reader](built-in-roles.md#billing-reader) role to the *alain\@example.com* user at a management group scope.
 
 ```azurepowershell
-PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Billing Reader" -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
+PS C:\> New-AzRoleAssignment -SignInName alain@example.com `
+-RoleDefinitionName "Billing Reader" `
+-Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 
 RoleAssignmentId   : /providers/Microsoft.Management/managementGroups/marketing-group/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
 Scope              : /providers/Microsoft.Management/managementGroups/marketing-group
@@ -348,19 +385,25 @@ In Azure RBAC, to remove access, you remove a role assignment by using [Remove-A
 The following example removes the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role assignment from the *patlong\@contoso.com* user on the *pharma-sales* resource group:
 
 ```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
+PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com `
+-RoleDefinitionName "Virtual Machine Contributor" `
+-ResourceGroupName pharma-sales
 ```
 
 Removes the [Reader](built-in-roles.md#reader) role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
 
 ```azurepowershell
-PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 -RoleDefinitionName "Reader" -Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
+PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 `
+-RoleDefinitionName "Reader" `
+-Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 Removes the [Billing Reader](built-in-roles.md#billing-reader) role from the *alain\@example.com* user at the management group scope.
 
 ```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Billing Reader" -Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
+PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
+-RoleDefinitionName "Billing Reader" `
+-Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
 If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
