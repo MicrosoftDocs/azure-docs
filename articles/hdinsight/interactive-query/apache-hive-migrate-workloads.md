@@ -31,7 +31,7 @@ HDInsight 3.6 by default does not support ACID tables. If ACID tables are presen
 
 * If the cluster uses a custom Hive metastore, create a copy of it. Options include [export/import](https://docs.microsoft.com/azure/azure-sql/database/database-export) and [point-in-time restore](https://docs.microsoft.com/azure/azure-sql/database/recovery-using-backups#point-in-time-restore).
 
-* If the cluster uses a default Hive metastore, follow this [guide](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#default-metastore) to export metadata to a custom metastore. Then, create a copy of the custom metastore for upgrade.
+* If the cluster uses a default Hive metastore, follow this [guide](https://docs.microsoft.com/azure/hdinsight/hive-default-metastore-export-import) to export metadata to a custom metastore. Then, create a copy of the custom metastore for upgrade.
 
 ### 3. Upgrade the metastore schema
 
