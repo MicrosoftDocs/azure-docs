@@ -244,5 +244,5 @@ In this tutorial, you learned how to use an Azure Function written in Python to 
 > [!div class="nextstepaction"]
 > [Microsoft Power BI](https://powerbi.microsoft.com/en-us/integrations/azure-table-storage/)
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](overview.md)
 * Learn more about the [Layout API](concept-layout.md)
