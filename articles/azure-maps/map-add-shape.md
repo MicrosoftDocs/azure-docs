@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen, devx-track-javascript
+ms.custom: codepen, devx-track-js
 ---
 
 # Add a polygon layer to the map
 
-This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles are transformed into polygons when rendered on the map. All feature geometries can easily be updated when wrapped with the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) class.
+This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles are transformed into polygons when rendered on the map. All feature geometries can easily be updated when wrapped with the [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) class.
 
 ## Use a polygon layer 
 
-When a polygon layer is connected to a data source and loaded on the map, it renders the area with `Polygon` and `MultiPolygon` features. To create a polygon, add it to a data source, and render it with a polygon layer using the [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer) class.
+When a polygon layer is connected to a data source and loaded on the map, it renders the area with `Polygon` and `MultiPolygon` features. To create a polygon, add it to a data source, and render it with a polygon layer using the [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer) class.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -111,7 +111,7 @@ The Azure Maps Web SDK converts these `Point` features into `Polygon` features. 
 
 ## Make a geometry easy to update
 
-A `Shape` class wraps a [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry) or [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) and makes it easy to update and maintain these features. To instantiate a shape variable, pass a geometry or a set of properties to the shape constructor.
+A `Shape` class wraps a [Geometry](/javascript/api/azure-maps-control/atlas.data.geometry) or [Feature](/javascript/api/azure-maps-control/atlas.data.feature) and makes it easy to update and maintain these features. To instantiate a shape variable, pass a geometry or a set of properties to the shape constructor.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -133,10 +133,10 @@ The following code sample shows how to wrap a circle GeoJSON object with a shape
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
+> [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
 
 > [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)

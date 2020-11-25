@@ -2,10 +2,8 @@
 title: Access Kubernetes resources from the Azure portal (Preview)
 description: Learn how to interact with Kubernetes resources to manage an Azure Kubernetes Service (AKS) cluster from the Azure portal.
 services: container-service
-author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
-ms.author: lahugh
+ms.date: 09/21/2020
 ---
 
 # Access Kubernetes resources from the Azure portal (Preview)
@@ -15,7 +13,7 @@ The Azure portal includes a Kubernetes resource viewer (preview) for easy access
 The Kubernetes resource view from the Azure portal replaces the [AKS dashboard add-on][kubernetes-dashboard], which is set for deprecation.
 
 >[!NOTE]
->The capabilty is currently not supported on [private Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/aks/private-clusters).
+>The capabilty is currently not supported on [private Azure Kubernetes Service clusters](./private-clusters.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -69,6 +67,9 @@ This section addresses common problems and troubleshooting steps.
 ### Unauthorized access
 
 To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you're either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
+
+>[!NOTE]
+> The kubernetes resource view in the Azure Portal is only supported by [managed-AAD enabled clusters](managed-aad.md) or non-AAD enabled clusters. If you are using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the kubernetes API, in addition to the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
 
 ### Enable resource view
 

@@ -4035,12 +4035,13 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string whose characters you want |
 | <*startIndex*> | Yes | Integer | A positive number equal to or greater than 0 that you want to use as the starting position or index value |
-| <*length*> | Yes | Integer | A positive number of characters that you want in the substring |
+| <*length*> | No | Integer | A positive number of characters that you want in the substring |
 |||||
 
 > [!NOTE]
 > Make sure that the sum from adding the *startIndex* and *length* parameter values is less than the length of the string that you provide for the *text* parameter.
-> Otherwise, you get an error, unlike similar functions in other languages where the result is the substring from the *startIndex* to the end of the string.
+> Otherwise, you get an error, unlike similar functions in other languages where the result is the substring from the *startIndex* to the end of the string. 
+> The *length* parameter is optional and if not provided, the **substring()** function takes all the characters beginning from *startIndex* to the end of the string.
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
@@ -4903,7 +4904,21 @@ xpath('<xml>', '<xpath>')
 
 Suppose that you have this `'items'` XML string: 
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 This example passes in the XPath expression, `'/produce/item/name'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
 
@@ -4935,7 +4950,21 @@ Here is the result: `Honeycrisp`
 
 In this example, suppose your `items` XML string also contains the attributes, `expired='true'` and `expired='false'`:
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 This example passes in the XPath expression, `'//name[@expired]'`, to find all the `name` elements that have the `expired` attribute:
 
@@ -4947,7 +4976,21 @@ Here is the result: `[ Gala, Honeycrisp ]`
 
 In this example, suppose your `items` XML string contains only this attribute, `expired = 'true'`:
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 This example passes in the XPath expression, `'//name[@expired = 'true']'`, to find all the `name` elements that have the attribute, `expired = 'true'`:
 
@@ -4962,7 +5005,21 @@ In this example, suppose your `items` XML string also contains these attributes:
 * `expired='true' price='12'`
 * `expired='false' price='40'`
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true' price='12'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false' price='40'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35`:
 
@@ -4974,7 +5031,21 @@ Here is the result: `Honeycrisp`
 
 In this example, suppose your `items` XML string is the same as in Example 1:
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 This example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
 
@@ -4986,7 +5057,9 @@ Here is the result: `30`
 
 In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="http://contoso.com"`:
 
-`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+```xml
+<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+```
 
 These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
 

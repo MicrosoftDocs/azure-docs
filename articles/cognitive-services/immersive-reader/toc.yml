@@ -16,7 +16,7 @@
     href: tutorial-multiple-resources.md
 - name: How-To
   items:
-  - name: Create Immersive Reader resource
+  - name: Create an Immersive Reader resource
     href: how-to-create-immersive-reader.md
   - name: Set the cookie policy
     href: how-to/set-cookie-policy.md
@@ -24,7 +24,7 @@
     href: how-to/display-math.md
   - name: Launch the Immersive Reader with HTML content
     href: how-to-launch-with-html.md
-  - name: Customize Immersive Reader button
+  - name: Customize the Immersive Reader button
     href: how-to-customize-launch-button.md
   - name: Cache the authentication token
     href: how-to-cache-token.md
@@ -38,8 +38,12 @@
   items:
   - name: JavaScript SDK
     href: reference.md
+  - name: Release notes
+    href: release-notes.md
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Language support

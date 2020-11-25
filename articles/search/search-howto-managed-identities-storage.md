@@ -26,7 +26,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 ### 1 - Turn on system-assigned managed identity
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in role-based access control (RBAC) assignments that allow access to data during indexing.
+When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
 
@@ -61,7 +61,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 ### 3 - Create the data source
 
-The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) support the managed identity connection string. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support the managed identity connection string. Below is an example of how to create a data source to index data from a storage account using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 When indexing from a storage account, the data source must have the following required properties:
 
@@ -139,6 +139,10 @@ This indexer will run every two hours (schedule interval is set to "PT2H"). To r
 For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+
+## Accessing secure data in storage accounts
+
+Azure storage accounts can be further secured using firewalls and virtual networks. If you want to index content from a blob storage account or Data Lake Gen2 storage account that is secured using a firewall or virtual network, follow the instructions for [Accessing data in storage accounts securely via trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
 
 ## See also
 

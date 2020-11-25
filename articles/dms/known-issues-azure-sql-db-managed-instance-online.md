@@ -9,7 +9,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
 
@@ -26,7 +26,7 @@ Known issues and limitations that are associated with online migrations from SQL
 
     Azure Database Migration Service uses the backup and restore method to migrate your on-premises databases to SQL Managed Instance. Azure Database Migration Service only supports backups created using checksum.
 
-    [Enable or Disable Backup Checksums During Backup or Restore (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
+    [Enable or Disable Backup Checksums During Backup or Restore (SQL Server)](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
     > [!NOTE]
     > If you take the database backups with compression, the checksum is a default behavior unless explicitly disabled.

@@ -73,17 +73,12 @@ An event has the following top-level data:
 |Title  |Description  |
 |---------|---------|
 | [Monitoring Key Vault events with Azure Event Grid](../key-vault/general/event-grid-overview.md) | Overview of integrating Key Vault with Event Grid. |
-| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/general/event-grid-tutorial.md) | Learn how to set up Event Grid notifications for Key Vault. |
+| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/general/event-grid-logicapps.md) | Learn how to set up Event Grid notifications for Key Vault. |
 
 
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
 * For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* To learn more about Key Vault integration with Event Grid, see [Monitoring Key Vault with Azure Event Grid](../key-vault/general/event-grid-overview.md).
-* For a tutorial on Key Vault integration with Event Grid, see [Receive and respond to key vault notifications with Azure Event Grid](../key-vault/general/event-grid-tutorial.md).
-* To get additional guidance for Key Vault and Azure Automation, see:
-    - [What is Azure Key Vault?](../key-vault/general/overview.md)
-    - [Monitoring Key Vault with Azure Event Grid](../key-vault/general/event-grid-overview.md)
-    - [Receive and respond to key vault notifications with Azure Event Grid](../key-vault/general/event-grid-tutorial.md)
-    - [Azure Automation overview](../automation/index.yml)
+* For more information about Key VAult, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+

@@ -158,7 +158,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
     sudo yum install microsoft-hyper-v
     ```
 
-    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://www.microsoft.com/download/details.aspx?id=51612) to install the RPM onto your VM.
+    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://www.microsoft.com/download/details.aspx?id=55106) to install the RPM onto your VM.
 
 12. Install the Azure Linux Agent and dependencies. Start and enable waagent service:
 

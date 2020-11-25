@@ -14,6 +14,9 @@ ms.date: 09/22/2020
 
 # Set up an indexer connection to a data source using a managed identity
 
+> [!IMPORTANT] 
+> Setting up a connection to a data source using a managed identity is not supported with the Free Azure Cognitive Search tier.
+
 An [indexer](search-indexer-overview.md) in Azure Cognitive Search is a crawler that provides a way to pull data from your data source into Azure Cognitive Search. An indexer obtains a data source connection from the data source object that you create. The data source object usually includes credentials for the target data source. For example, the data source object could include an Azure Storage account key if you want to index data from a blob storage container.
 
 In many cases providing credentials directly in the data source object is not a problem, but there are some challenges that can come up:
@@ -24,7 +27,7 @@ These concerns can be resolved by setting up your connection using a managed ide
 
 ## Using managed identities
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) is a feature that provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this feature in Azure Cognitive Search to create a data source object with a connection string that does not include any credentials. Instead, your search service will be granted access to the data source through role-based access control (RBAC).
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) is a feature that provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this feature in Azure Cognitive Search to create a data source object with a connection string that does not include any credentials. Instead, your search service will be granted access to the data source through Azure role-based access control (Azure RBAC).
 
 When setting up a data source using a managed identity, you can change your data source credentials and your indexers will still be able to connect to the data source. You can also create data source objects in your code without having to include an account key or use Key Vault to retrieve an account key.
 

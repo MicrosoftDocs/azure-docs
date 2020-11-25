@@ -1,9 +1,11 @@
 ---
 title: "Quickstart: Use SDK to create and manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-sixteen
 ---
 

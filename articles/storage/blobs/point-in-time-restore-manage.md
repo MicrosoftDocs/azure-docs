@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -25,7 +25,7 @@ To learn more about point-in-time restore, see [Point-in-time restore for block 
 
 Before you enable and configure point-in-time restore, enable its prerequisites for the storage account: soft delete, change feed, and blob versioning. For more information about enabling each of these features, see these articles:
 
-- [Enable soft delete for blobs](soft-delete-enable.md)
+- [Enable soft delete for blobs](./soft-delete-blob-enable.md)
 - [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Enable and manage blob versioning](versioning-enable.md)
 
@@ -50,9 +50,7 @@ The following image shows a storage account configured for point-in-time restore
 
 To configure point-in-time restore with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.6.0 or later. Then call the Enable-AzStorageBlobRestorePolicy command to enable point-in-time restore for the storage account.
 
-The following example enables soft delete and sets the soft-delete retention period, enables change feed, and then enables point-in-time restore. Before running the example, use the Azure portal or an Azure Resource Manager template to also enable blob versioning.
-
-When running the example, remember to replace the values in angle brackets with your own values:
+The following example enables soft delete and sets the soft-delete retention period, enables change feed and versioning, and then enables point-in-time restore.    When running the example, remember to replace the values in angle brackets with your own values:
 
 ```powershell
 # Sign in to your Azure account.
@@ -67,10 +65,11 @@ Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
 
-# Enable change feed.
+# Enable change feed and versioning.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
 # Enable point-in-time restore with a retention period of 7 days.
 # The retention period for point-in-time restore must be at least
@@ -245,6 +244,6 @@ To run the restore operation synchronously and block on execution until it is co
 ## Next steps
 
 - [Point-in-time restore for block blobs](point-in-time-restore-overview.md)
-- [Soft delete](soft-delete-overview.md)
+- [Soft delete](./soft-delete-blob-overview.md)
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)

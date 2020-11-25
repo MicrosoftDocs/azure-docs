@@ -54,7 +54,7 @@ At this point, you have a simple environment where any check-in to your source c
 
 ## Next steps
 
-- Explore [Synapse SQL pool MPP architecture](massively-parallel-processing-mpp-architecture.md)
+- Explore [Synapse SQL pool architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a SQL pool](create-data-warehouse-portal.md)
 - [Load sample data](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore [Videos](sql-data-warehouse-videos.md)

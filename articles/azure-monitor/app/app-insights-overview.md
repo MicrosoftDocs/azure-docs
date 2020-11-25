@@ -118,6 +118,7 @@ Get started at development time with:
 * [Java](./java-get-started.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
+* [JavaScript](./javascript.md)
 
 
 ## Support and feedback

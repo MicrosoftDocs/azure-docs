@@ -3,14 +3,14 @@ title: Collaborate with others - LUIS
 titleSuffix: Azure Cognitive Services
 description: An app owner can add contributors to the authoring resource. These contributors can modify the model, train, and publish the app.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: diberry
+
 ---
 
 # Add contributors to your app
@@ -63,7 +63,7 @@ If you add contributors/collaborators to a LUIS app, you are specifying the exac
 
 ### Azure Active Directory resources
 
-If you use [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) in your organization, Language Understanding (LUIS) needs permission to the information about your users' access when they want to use LUIS. The resources that LUIS requires are minimal.
+If you use [Azure Active Directory](../../active-directory/index.yml) (Azure AD) in your organization, Language Understanding (LUIS) needs permission to the information about your users' access when they want to use LUIS. The resources that LUIS requires are minimal.
 
 You see the detailed description when you attempt to sign up with an account that has admin consent or does not require admin consent, such as administrator consent:
 
@@ -84,7 +84,7 @@ The tenant admin should work directly with the user who needs access granted to 
 
 If the tenant admin only wants certain users to use LUIS, there are a couple of possible solutions:
 * Giving the "admin consent" (consent to all users of the Azure AD), but then set to "Yes" the "User assignment required" under Enterprise Application Properties, and finally assign/add only the wanted users to the Application. With this method, the Administrator is still providing "admin consent" to the App, however, it's possible to control the users that can access it.
-* A second solution, is by using the [Azure AD identity and access management API in Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user.
+* A second solution, is by using the [Azure AD identity and access management API in Microsoft Graph](/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user.
 
 Learn more about Azure active directory users and consent:
 * [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) to a set of users

@@ -42,11 +42,11 @@ When the graph is hidden, you can move between transformations within a stream b
 
 To quickly find a transformation in your graph, click on the **Search** icon above the zoom setting.
 
-![Search](media/data-flow/search-1.png "Search graph")
+![Screenshot shows the Search button.](media/data-flow/search-1.png "Search graph")
 
 You can search by transformation name or description to locate a transformation.
 
-![Search](media/data-flow/search-2.png "Search graph")
+![Screenshot shows the search text box.](media/data-flow/search-2.png "Search graph")
 
 ## Hide reference nodes
 

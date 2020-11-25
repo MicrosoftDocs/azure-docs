@@ -1,6 +1,6 @@
 ---
-title: Capacity limits - Azure Synapse Analytics (formerly SQL DW) 
-description: Maximum values allowed for various components of Synapse SQL pool in Azure Synapse.
+title: Capacity limits for dedicated SQL pool
+description: Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -13,15 +13,15 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Azure Synapse Analytics (formerly SQL DW) capacity limits
+# Capacity limits for dedicated SQL pool in Azure Synapse Analytics
 
-Maximum values allowed for various components of Azure Synapse.
+Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
 
 ## Workload management
 
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU for a single SQL pool (data warehouse) unit | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU for a single dedicated SQL pool (data warehouse) unit | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Default DTU per server |54,000<br></br>By default, each SQL server (for example, myserver.database.windows.net) has a DTU Quota of 54,000, which allows up to DW5000c. This quota is simply a safety limit. You can increase your quota by [creating a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed, or multiply 9.5 by the total cDWU needed. For example:<br></br>DW6000 x 7.5 = 45,000 DTUs<br></br>DW5000c x 9.5 = 47,500 DTUs.<br></br>You can view your current DTU consumption from the SQL server option in the portal. Both paused and unpaused databases count toward the DTU quota. |
 | Database connection |Maximum Concurrent open sessions |1024<br/><br/>The number of concurrent open sessions will vary based on the selected DWU. DWU600c and above support a maximum of 1024 open sessions. DWU500c and below, support a maximum concurrent open session limit of 512. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
@@ -56,8 +56,8 @@ Maximum values allowed for various components of Azure Synapse.
 
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
-||||
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/> |
+|Polybase Loads|Total number of files|1,000,000<br/><br/>Polybase loads can not exceed more than 1M files. You may experience the following error: **Operation failed as split count exceeding upper bound of 1000000**.|
 
 ## Queries
 

@@ -15,7 +15,7 @@ ms.date: 03/11/2019
 ms.author: apimpm
 ---
 # API Management transformation policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ##  <a name="TransformationPolicies"></a> Transformation policies
 
@@ -729,4 +729,4 @@ For more information, see the following topics:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy samples](./policy-reference.md)

@@ -1,10 +1,10 @@
 ---
 title: Overview of Azure Defender and the available plans
-description: Learn about Azure Defender's plans, protections, and alerts. Then proceed to enable Azure Defender on your subscriptions. 
+description: Learn about Azure Defender's plans, protections, and alerts. Then enable Azure Defender on your subscriptions for advanced security. 
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
-ms.topic: conceptual
+ms.date: 9/30/2020
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
@@ -14,14 +14,11 @@ manager: rkarlin
 
 Azure Security Center's features cover the two broad pillars of cloud security:
 
-- **Cloud security posture management (CSPM)**
-- **Cloud workload protection (CWP)**
+- **Cloud security posture management (CSPM)** - Security Center is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these CSPM features to strengthen your hybrid cloud posture and track compliance with the built-in policies.
 
-The CSPM features of Security Center, such as secure score, detection of security misconfigurations in your Windows and Linux Azure machines, are all part of the free Security Center experience available to all Azure users. Use these CSPM features to strengthen your posture and ensure regulatory compliance.
+- **Cloud workload protection (CWP)** - Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features as described on this page. In addition to the built-in policies, when you've enabled any Azure Defender plan, you can add custom policies and initiatives. You can add regulatory standards - such as NIST and Azure CIS - as well as the Azure Security Benchmark for a truly customized view of your compliance.
 
-**Azure Defender** is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent, protection of your Azure and hybrid workloads.
-
-This is the Azure Defender dashboard in Azure Security Center:
+The Azure Defender dashboard in Security Center provides visibility and control of the CWP features for your environment:
 
 :::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
@@ -35,13 +32,14 @@ When you enable Azure Defender from the **Pricing and settings** area of Azure S
 - [Azure Defender for App Service](defender-for-app-service-introduction.md)
 - [Azure Defender for Storage](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [Azure Defender for IoT](defender-for-iot-introduction.md)
 - [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender for container registries](defender-for-container-registries-introduction.md)
 - [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 
+> [!TIP]
+> Azure Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Azure Defender for IoT (Preview)](../defender-for-iot/overview.md). 
 
 ## Hybrid cloud protection
 
@@ -49,20 +47,21 @@ As well as defending your Azure environment, you can add Azure Defender capabili
 
 - Protect your non-Azure servers
 - Protect your virtual machines in other clouds (such as AWS and GCP)
-- Protect your IoT devices
 
-You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​
+You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​.
 
-Deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender to extend protection to on-premises and multi-cloud virtual machines and SQL databases. Azure Arc for servers is a free service, but services that are used on Arc enabled servers, for example Azure Defender, will be charged as per the pricing for that service.
+To extend protection to virtual machines and SQL databases that are in other clouds or on-premises, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Azure Defender. Azure Arc for servers is a free service, but services that are used on Arc enabled servers, for example Azure Defender, will be charged as per the pricing for that service. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
-[Learn more about Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview).
+> [!TIP]
+> The native connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+
 
 
 ## Azure Defender alerts 
 
 When Azure Defender detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.
 
-Whether an alert is generated by Security Center, or received by Security Center from an integrated  security product, you can export it. To export your alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Exporting alerts to a SIEM](continuous-export.md).
+Whether an alert is generated by Security Center, or received by Security Center from an integrated  security product, you can export it. To export your alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 > [!NOTE]
 > Alerts from different sources might take different amounts of time to appear. For example, alerts that require analysis of network traffic might take longer to appear than alerts related to suspicious processes running on virtual machines.

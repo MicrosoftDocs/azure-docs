@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Azure Defender for Kuberne
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
@@ -40,14 +40,14 @@ Security Center provides threat protection at different levels:
 
 - **Host level (provided by Azure Defender for servers)** - Using the same Log Analytics agent that Security Center uses on other VMs, Azure Defender monitors your Linux AKS nodes for suspicious activities such as web shell detection and connection with known suspicious IP addresses. The agent also monitors for container-specific analytics such as privileged container creation, suspicious access to API servers, and Secure Shell (SSH) servers running inside a Docker container.
 
-    For a list of the AKS host level alerts, see the [Reference table of alerts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost).
+    For a list of the AKS host level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-containerhost).
 
     >[!IMPORTANT]
     > If you choose not to install the agents on your hosts, you will only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 - **AKS cluster level (provided by Azure Defender for Kubernetes)** - At the cluster level, the threat protection is based on analyzing Kubernetes' audit logs. To enable this **agentless** monitoring, enable Azure Defender. To generate alerts at this level, Security Center monitors your AKS-managed services using the logs retrieved by AKS. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
 
-    For a list of the AKS cluster level alerts, see the [Reference table of alerts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster).
+    For a list of the AKS cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-akscluster).
 
     >[!NOTE]
     > Security Center generates security alerts for Azure Kubernetes Service actions and deployments occurring after the Kubernetes option is enabled on the subscription settings. 
@@ -86,6 +86,23 @@ We recommend deploying both, for the most complete protection possible.
 If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 
+### Does AKS allow me to install custom VM extensions on my AKS nodes?
+
+For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent. 
+
+AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
+
+
+
+### If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?
+
+For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
+
+If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
+
+[Learn more about the Azure Monitor for containers agent](../azure-monitor/insights/container-insights-manage-agent.md).
+
+
 ## Next steps
 
 In this article, you learned about Security Center's Kubernetes protection including Azure Defender for Kubernetes. 
@@ -93,5 +110,5 @@ In this article, you learned about Security Center's Kubernetes protection inclu
 For related material, see the following articles: 
 
 - [Enable Azure Defender](security-center-pricing.md)
-- [Export alerts to a Azure Sentinel or a third-party SIEM](continuous-export.md)
+- [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md)
 - [Reference table of alerts](alerts-reference.md)

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
 ---
 # Cross-region replication of Azure NetApp Files volumes
@@ -40,6 +40,7 @@ Azure NetApp Files volume replication is currently available in the following fi
 * Japan East and Japan West
 * UK South and Germany West Central
 * Southeast Asia and Australia East
+* Central India and South India
 
 ## Service-level objectives
 
@@ -105,10 +106,11 @@ Regular Azure NetApp Files storage capacity charge for Month 2 applies to the de
 
 ## Next steps
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
-* [Create replication peering](cross-region-replication-create-peering.md)
+* [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
+* [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 
 

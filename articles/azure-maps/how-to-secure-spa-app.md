@@ -1,7 +1,7 @@
 ---
 title: How to secure a single page application with non-interactive sign-in
 titleSuffix: Azure Maps
-description: How to configure a single page application with non-interactive Azure AD Role based access control and Azure Maps Web SDK.
+description: How to configure a single page application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # How to secure a single page application with non-interactive sign-in
@@ -25,15 +25,15 @@ The following guide pertains to an application using Azure Active Directory (Azu
 
 Create a secured web service application which is responsible for authentication to Azure AD. 
 
-1. Create a function in the Azure portal. For more information, see [Create Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
+1. Create a function in the Azure portal. For more information, see [Create Azure Function](../azure-functions/functions-create-first-azure-function.md).
 
-2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients to the allowed origins of your web application. See [Add CORS functionality](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
+2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients to the allowed origins of your web application. See [Add CORS functionality](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-3. [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) on the Azure function to enable creation of a service principal to authenticate to Azure AD.  
+3. [Add a system-assigned identity](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) on the Azure function to enable creation of a service principal to authenticate to Azure AD.  
 
-4. Grant role based access for the system-assigned identity to the Azure Maps account. See [Grant role based access](#grant-role-based-access) for details.
+4. Grant role-based access for the system-assigned identity to the Azure Maps account. See [Grant role-based access](#grant-role-based-access) for details.
 
-5. Write code for the Azure function to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. See [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+5. Write code for the Azure function to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. See [Obtain tokens for Azure resources](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
     A sample REST protocol example:
 
@@ -59,8 +59,8 @@ Create a secured web service application which is responsible for authentication
 
 6. Configure security for the Azure function HttpTrigger
 
-   * [Create a function access key](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
-   * [Secure HTTP endpoint](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) for the Azure function in production.
+   * [Create a function access key](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
+   * [Secure HTTP endpoint](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) for the Azure function in production.
    
 7. Configure web application Azure Maps Web SDK. 
 
@@ -106,16 +106,16 @@ You grant *Azure role-based access control (Azure RBAC)* access by assigning the
 
 2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Function App**. Select the principal by name. Then select **Save**.
 
-   * See details on [Add or remove role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+   * See details on [Add or remove role assignments](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
-> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.
+> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](../role-based-access-control/custom-roles.md) to the custom role definition. This will enable the least privilege necessary for the application to access Azure Maps.
 
 ## Next steps
 
 Further understanding of Single Page Application Scenario:
 > [!div class="nextstepaction"]
-> [Single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Single-page application](../active-directory/develop/scenario-spa-overview.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]

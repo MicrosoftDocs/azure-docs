@@ -67,7 +67,7 @@ You don't need to specify the cluster location explicitly: The cluster is in the
 Azure HDInsight currently provides the following cluster types, each with a set of components to provide certain functionalities.
 
 > [!IMPORTANT]  
-> HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types.
+> HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../virtual-network/index.yml) can connect the required cluster types.
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -171,7 +171,7 @@ For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can ch
 
 The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 
-For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure.md).
+For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ### TLS
 
@@ -179,7 +179,7 @@ For more information, see [Transport Layer Security](./transport-layer-security.
 
 ### Virtual network
 
-If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
+If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](../virtual-network/index.yml) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
 For more information on using an Azure virtual network with HDInsight, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
@@ -230,7 +230,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 If you're just trying out HDInsight, we recommend you use one Worker node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
-> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the limit.
+> The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](../azure-portal/supportability/how-to-create-azure-support-request.md) to increase the limit.
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Configuration + pricing** tab. In the portal, you can also see the cost associated with the different node sizes.
 
@@ -238,15 +238,15 @@ When you use the Azure portal to configure the cluster, the node size is availab
 
 When you deploy clusters, choose compute resources based on the solution you plan to deploy. The following VMs are used for HDInsight clusters:
 
-* A and D1-4 series VMs: [General-purpose Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* D11-14 series VM: [Memory-optimized Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* A and D1-4 series VMs: [General-purpose Linux VM sizes](../virtual-machines/sizes-general.md)
+* D11-14 series VM: [Memory-optimized Linux VM sizes](../virtual-machines/sizes-memory.md)
 
 To find out what value you should use to specify a VM size while creating a cluster using the different SDKs or while using Azure PowerShell, see [VM sizes to use for HDInsight clusters](../cloud-services/cloud-services-sizes-specs.md#size-tables). From this linked article, use the value in the **Size** column of the tables.
 
 > [!IMPORTANT]  
 > If you need more than 32 Worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
 
-For more information, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
+For more information, see [Sizes for virtual machines](../virtual-machines/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ### Add application
 

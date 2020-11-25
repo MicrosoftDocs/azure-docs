@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Deploy server-rendered Nuxt.js websites on Azure Static Web Apps Preview

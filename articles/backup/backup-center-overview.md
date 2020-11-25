@@ -2,7 +2,7 @@
 title: Overview of Backup Center
 description: This article provides an overview of Backup Center for Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/30/2020
 ---
 
 # Overview of Backup Center
@@ -11,9 +11,9 @@ Backup Center provides a **single unified management experience** in Azure for e
 
 Some of the key benefits of Backup Center include:
 
-* **Single pane of glass to manage backups** – Backup Center is designed to function well across a large and distributed Azure environment. You can use Backup Center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) tenants.
+* **Single pane of glass to manage backups** – Backup Center is designed to function well across a large and distributed Azure environment. You can use Backup Center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](../lighthouse/overview.md) tenants.
 * **Datasource-centric management** – Backup Center provides views and filters that are centered on the datasources that you're backing up (for example, VMs and databases). This allows a resource owner or a backup admin to monitor and operate backups of items without needing to focus on which vault an item is backed up to. A key feature of this design is the ability to filter views by datasource-specific properties, such as datasource subscription, datasource resource group, and datasource tags. For example, if your organization follows a practice of assigning different tags to VMs belonging to different departments, you can use Backup Center to filter backup information based on the tags of the underlying VMs being backed up without needing to focus on the tag of the vault.
-* **Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center uses the [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) experience to help you govern your backups. It also leverages [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) and [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) to help you view detailed reports on backups. So you don't need to learn any new principles to use the varied features that Backup Center offers.
+* **Connected experiences** – Backup Center provides native integrations to existing Azure services that enable management at scale. For example, Backup Center uses the [Azure Policy](../governance/policy/overview.md) experience to help you govern your backups. It also leverages [Azure workbooks](../azure-monitor/platform/workbooks-overview.md) and [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) to help you view detailed reports on backups. So you don't need to learn any new principles to use the varied features that Backup Center offers.
 
 ## Supported scenarios
 
@@ -34,7 +34,11 @@ In the **Jobs** tile, you get a summarized view of all backup and restore relate
 
 In the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
 
-Follow the steps below to understand the different capabilities that Backup Center provides, and how you can use these capabilities to manage your backup estate efficiently.
+Watch the following video to understand the capabilities of Backup Center:
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Follow the [next steps](#next-steps) to understand the different capabilities that Backup Center provides, and how you can use these capabilities to manage your backup estate efficiently.
 
 ## Next steps
 

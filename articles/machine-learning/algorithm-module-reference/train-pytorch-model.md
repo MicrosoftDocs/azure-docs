@@ -1,7 +1,7 @@
 ---
 title: "Train Pytorch Model"
 titleSuffix: Azure Machine Learning
-description: Learn how to train pytorch model from scratch or finetune it.
+description: Use the Train Pytorch Models module in Azure Machine Learning designer to train models from scratch, or fine-tune existing models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
+ms.date: 09/26/2020
 ---
 
 # Train Pytorch Model
@@ -45,7 +45,7 @@ This article describes how to use the **Train Pytorch Model** module in Azure Ma
 
 8.  For **Patience**, specify how many epochs to early stop training if validation loss does not decrease consecutively. by default 3.
 
-9.  Submit the pipeline. If your dataset has larger size, it will take a while.
+9.  Submit the pipeline. If your dataset has larger size, it will take a while and GPU compute are recommended.
 
 ## Results
 

@@ -1,21 +1,24 @@
 ---
-title: Collect and analyze Windows Event logs in Azure Monitor | Microsoft Docs
+title: Collect Windows event log data sources with Log Analytics agent in Azure Monitor
 description: Describes how to configure the collection of Windows Event logs by Azure Monitor and details of the records they create.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
+ms.date: 10/21/2020
 
 ---
 
-# Windows event log data sources in Azure Monitor
-Windows Event logs are one of the most common [data sources](agent-data-sources.md) for collecting data using Windows agents since many applications write to the Windows event log.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
+# Collect Windows event log data sources with Log Analytics agent
+Windows Event logs are one of the most common [data sources](agent-data-sources.md) for Log Analytics agents on Windows virtual machines since many applications write to the Windows event log.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
+
+> [!IMPORTANT]
+> This article covers collecting Windows events with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Windows Events](media/data-sources-windows-events/overview.png)     
 
 ## Configuring Windows Event logs
-Configure Windows Event logs from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources).
+Configure Windows Event logs from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
 
 Azure Monitor only collects events from the Windows event logs that are specified in the settings.  You can add an event log by typing in the name of the log and clicking **+**.  For each log, only the events with the selected severities are collected.  Check the severities for the particular log that you want to collect.  You cannot provide any additional criteria to filter events.
 

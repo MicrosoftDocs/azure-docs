@@ -10,7 +10,7 @@ ms.date: 03/14/2019
 
 # Common alert schema definitions
 
-This article describes the [common alert schema definitions](https://aka.ms/commonAlertSchemaDocs) for Azure Monitor, including those for webhooks, Azure Logic Apps, Azure Functions, and Azure Automation runbooks. 
+This article describes the [common alert schema definitions](./alerts-common-schema.md) for Azure Monitor, including those for webhooks, Azure Logic Apps, Azure Functions, and Azure Automation runbooks. 
 
 Any alert instance describes the resource that was affected and the cause of the alert. These instances are described in the common schema in the following sections:
 * **Essentials**: A set of standardized fields, common across all alert types, which describe what resource the alert is on, along with additional common alert metadata (for example, severity or description). 
@@ -537,5 +537,5 @@ Any alert instance describes the resource that was affected and the cause of the
 
 ## Next steps
 
-- Learn more about the [common alert schema](https://aka.ms/commonAlertSchemaDocs).
-- Learn [how to create a logic app that uses the common alert schema to handle all your alerts](./alerts-common-schema-integrations.md). 
+- Learn more about the [common alert schema](./alerts-common-schema.md).
+- Learn [how to create a logic app that uses the common alert schema to handle all your alerts](./alerts-common-schema-integrations.md).

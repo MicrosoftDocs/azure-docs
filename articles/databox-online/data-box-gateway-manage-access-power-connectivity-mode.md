@@ -49,7 +49,7 @@ The reset workflow does not require the user to recall the old password and is u
  
 2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Click **Reset**.
 
-    ![Reset password](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Reset password 2](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## Manage resource access
 
@@ -115,7 +115,7 @@ To change device mode, follow these steps:
  
 4. To run the device in disconnected mode, disable **Azure portal management**. Now the device can only be managed via the local web UI.
 
-    ![Connectivity mode](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Connectivity mode 2](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
 ## Manage power
 

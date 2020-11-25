@@ -73,7 +73,7 @@ In Maya, the process of instancing is simple.
 1. In the **Duplicate Special Options** dialog box, for **Geometry type** select the **Instance** option. 
 1. Select **Duplicate Special**.
 
-   ![Instancing](media/instancing.jpg)
+   ![Screenshot shows a Maya window with the Duplicate Special Options dialog box open and the Duplicate Special selected.](media/instancing.jpg)
 
 This action creates an instance of your object. You can move, rotate, or scale it independently of its parent and of other instances of that parent. 
 

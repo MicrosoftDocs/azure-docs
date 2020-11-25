@@ -49,8 +49,8 @@
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
       - name: Users, groups, and roles
-        tocHref: /azure/active-directory/users-groups-roles/
-        topicHref: /azure/active-directory/users-groups-roles/
+        tocHref: /azure/active-directory/roles/groups-concept
+        topicHref: /azure/active-directory/roles/groups-concept
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
@@ -103,8 +103,8 @@
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
   - name: Azure Automanage
-    tocHref: /azure/automanage/
-    topicHref: /azure/automanage/
+    tocHref: https://azure.microsoft.com/services/azure-automanage/
+    topicHref: https://azure.microsoft.com/services/azure-automanage/
   - name: Static Web Apps
     tocHref: /azure/static-web-apps/
     topicHref: /azure/static-web-apps/
@@ -127,12 +127,6 @@
       - name: Arc enabled servers
         tocHref: /azure/azure-arc/servers/
         topicHref: /azure/azure-arc/servers/
-  - name: ASC for IoT
-    tocHref: /azure/asc-for-iot/
-    topicHref: /azure/asc-for-iot/
-  - name: Attestation
-    tocHref: /azure/attestation/
-    topicHref: /azure/attestation/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -392,7 +386,7 @@
       topicHref: /azure/cognitive-services/LUIS/
     - name: Linguistic Analysis
       tocHref: /azure/cognitive-services/linguisticanalysisapi/
-      topicHref: /azure/cognitive-services/linguisticanalysisapi/home
+      topicHref: https://www.programmableweb.com/api/microsoft-cognitive-services-linguistic-analysis
     - name: QnA Maker
       tocHref: /azure/cognitive-services/qnamaker/
       topicHref: /azure/cognitive-services/qnamaker/home
@@ -416,7 +410,7 @@
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
-      topicHref: /azure/cognitive-services/web-language-model/home
+      topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/qnamaker/overview/overview
@@ -585,25 +579,6 @@
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
-  - name: Key Vault
-    tocHref: /azure/key-vault/
-    topicHref: /azure/key-vault
-    items:
-      - name: General
-        tocHref: /azure/key-vault/general/
-        topicHref: /azure/key-vault/general/
-      - name: Certificates
-        tocHref: /azure/key-vault/certificates/
-        topicHref: /azure/key-vault/certificates/
-      - name: Keys
-        tocHref: /azure/key-vault/keys/
-        topicHref: /azure/key-vault/keys/
-      - name: Secrets
-        tocHref: /azure/key-vault/secrets/
-        topicHref: /azure/key-vault/secrets/
-      - name: Managed HSM
-        tocHref: /azure/key-vault/managed-hsm/
-        topicHref: /azure/key-vault/managed-hsm/
   - name: Azure Kinect DK
     tocHref: /azure/kinect-dk/
     topicHref: /azure/kinect-dk/
@@ -629,12 +604,9 @@
     - name: Data Science Virtual Machine
       tocHref: /azure/machine-learning/data-science-virtual-machine
       topicHref: /azure/machine-learning/data-science-virtual-machine/
-  - name: Marketplace Consumer
-    tocHref: /azure/marketplace-consumer/
+  - name: Commercial marketplace
+    tocHref: /azure/marketplace
     topicHref: /azure/marketplace/
-  - name: Marketplace Publishing
-    tocHref: /azure/marketplace-publishing/
-    topicHref: /azure/marketplace/marketplace-publishers-guide
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
@@ -714,6 +686,9 @@
       - name: Firewall Manager
         tocHref: /azure/firewall-manager/
         topicHref: /azure/firewall-manager/
+      - name: DDoS Protection Standard
+        tocHref: /azure/ddos-protection/
+        topicHref: /azure/ddos-protection/
       - name: Front Door Service
         tocHref: /azure/frontdoor/
         topicHref: /azure/frontdoor/
@@ -805,12 +780,37 @@
       - name: Benchmarks
         tocHref: /azure/security/benchmarks/
         topicHref: /azure/security/benchmarks/
-  - name: Security Center
-    tocHref: /azure/security-center/
-    topicHref: /azure/security-center/
-  - name: Azure Sentinel
-    tocHref: /azure/sentinel/
-    topicHref: /azure/sentinel/
+      - name: Key Vault
+        tocHref: /azure/key-vault/
+        topicHref: /azure/key-vault
+        items:
+          - name: General
+            tocHref: /azure/key-vault/general/
+            topicHref: /azure/key-vault/general/
+          - name: Certificates
+            tocHref: /azure/key-vault/certificates/
+            topicHref: /azure/key-vault/certificates/
+          - name: Keys
+            tocHref: /azure/key-vault/keys/
+            topicHref: /azure/key-vault/keys/
+          - name: Secrets
+            tocHref: /azure/key-vault/secrets/
+            topicHref: /azure/key-vault/secrets/
+          - name: Managed HSM
+            tocHref: /azure/key-vault/managed-hsm/
+            topicHref: /azure/key-vault/managed-hsm/
+      - name: Security Center
+        tocHref: /azure/security-center/
+        topicHref: /azure/security-center/
+      - name: Azure Sentinel
+        tocHref: /azure/sentinel/
+        topicHref: /azure/sentinel/
+      - name: Defender for IoT
+        tocHref: /azure/defender-for-iot/
+        topicHref: /azure/defender-for-iot/
+      - name: Attestation
+        tocHref: /azure/attestation/
+        topicHref: /azure/attestation/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/

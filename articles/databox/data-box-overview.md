@@ -86,12 +86,12 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the device. The Data Box device has a usable storage capacity of 80 TB. 
 
-    ![Front and back plane of Data Box](media/data-box-overview/data-box-combined3.png)
+    ![Front and back plane of Data Box](media/data-box-overview/data-box-combined.png)
 
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
 
-    ![The Data Box service in Azure portal](media/data-box-overview/data-box-service1.png)
+    ![The Data Box service in Azure portal](media/data-box-overview/data-box-service.png)
 
     For more information, go to [Use the Data Box service to administer your Data Box device](data-box-portal-ui-admin.md).
 
@@ -140,7 +140,7 @@ Data Box can transfer data based on the region in which service is deployed, cou
 
 - **Service availability** - When using Data Box for import or export orders, to get information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). The export feature on Data Box is currently in preview. 
 
-    For import orders, Data Box can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). 
+    For import orders, Data Box can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md). 
 
 - **Destination storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.
 
@@ -150,7 +150,3 @@ Data Box can transfer data based on the region in which service is deployed, cou
 - Review the [Data Box system requirements](data-box-system-requirements.md).
 - Understand the [Data Box limits](data-box-limits.md).
 - Quickly deploy [Azure Data Box](data-box-quickstart-portal.md) in Azure portal.
-
-
-
-

@@ -49,13 +49,13 @@ landingContent:
         links:
           - text: Safelist the Azure portal URLs
             url: azure-portal-safelist-urls.md
-          - text: Role-based access control for dashboards
+          - text: Azure role-based access control for dashboards
             url: azure-portal-dashboard-share-access.md
       - linkListType: learn
         links:
           - text: Manage resources in Azure
             url: /learn/paths/manage-resources-in-azure/
-          - text: Secure your Azure resources with role-based access control (RBAC)   
+          - text: Secure your Azure resources with Azure role-based access control (Azure RBAC)   
             url: /learn//modules/secure-azure-resources-with-rbac/ 
   
   # Card 

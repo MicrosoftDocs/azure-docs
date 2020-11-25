@@ -81,7 +81,7 @@ To download an older HDP version sandbox, see the links under **Older Versions**
 
 ## Next steps
 
-* [Learn how to use Visual Studio with the Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Learn how to use Visual Studio with the Hortonworks Sandbox](./apache-hadoop-visual-studio-tools-get-started.md)
 
 * [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 

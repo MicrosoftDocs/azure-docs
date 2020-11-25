@@ -28,6 +28,7 @@ If you're looking for information about an error code and that information isn't
 | DeploymentNameLengthLimitExceeded | The deployment names are limited to 64 characters.  | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
 | DeploymentQuotaExceeded | If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. | [Resolve error when deployment count exceeds 800](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
 | DnsRecordInUse | The DNS record name must be unique. Enter a different name. | |
 | ImageNotFound | Check VM image settings. |  |
 | InUseSubnetCannotBeDeleted | You might get this error when trying to update a resource, and the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -43,6 +44,7 @@ If you're looking for information about an error code and that information isn't
 | InvalidSubscriptionRegistrationState | Register your subscription with the resource provider. | [Resolve registration](error-register-resource-provider.md) |
 | InvalidTemplate | Check your template syntax for errors. | [Resolve invalid template](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Check if your account belongs to the same tenant as the resource group that you're deploying to. | |
 | LinkedInvalidPropertyId | The resource ID for a resource isn't resolving correctly. Check that you provide all required values for the resource ID, including subscription ID, resource group name, resource type, parent resource name (if needed), and resource name. | |
 | LocationRequired | Provide a location for the resource. | [Set location](resource-location.md) |

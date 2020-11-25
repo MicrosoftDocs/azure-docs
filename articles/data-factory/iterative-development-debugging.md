@@ -1,7 +1,7 @@
 ---
 title: Iterative development and debugging in Azure Data Factory 
 description: Learn how to develop and debug Data Factory pipelines iteratively in the ADF UX
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -74,11 +74,14 @@ You can monitor active data flow debug sessions across a factory in the **Monito
  
 ### Debugging a pipeline with a data flow activity
 
-When running a debug run with a data flow, you have two options on which compute to use. You can either use an existing debug cluster or spin up a new just-in-time cluster for your data flows.
+When executing a debug pipeline run with a data flow, you have two options on which compute to use. You can either use an existing debug cluster or spin up a new just-in-time cluster for your data flows.
 
-Using an existing debug session will greatly reduce the data flow start up time as the cluster is already running, but is not recommended for complex or parallel workloads as it may fail when multiple jobs run at once. 
+Using an existing debug session will greatly reduce the data flow start up time as the cluster is already running, but is not recommended for complex or parallel workloads as it may fail when multiple jobs are run at once.
 
-Using the activity runtime will create a new cluster using the settings specified in each data flow activity's integration runtime. This allows each job to be isolated and should be used for complex workloads or performance testing.
+Using the activity runtime will create a new cluster using the settings specified in each data flow activity's integration runtime. This allows each job to be isolated and should be used for complex workloads or performance testing. You can also control the TTL in the Azure IR so that the cluster resources used for debugging will still be available for that time period to serve additional job requests.
+
+> [!NOTE]
+> If you have a pipeline with data flows executing in parallel, choose "Use Activity Runtime" so that Data Factory can use the Integration Runtime that you've selected in your data flow activity. This will allow the data flows to execute on multiple clusters and can accommodate your parallel data flow executions.
 
 ![Running a pipeline with a dataflow](media/iterative-development-debugging/iterative-development-dataflow.png)
 

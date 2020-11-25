@@ -57,15 +57,15 @@ To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub reso
     |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
     |Name     |Enter a name for your IoT Hub resource.         |
 
-    ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+    ![Get started with compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
 4. Select **Create**. The IoT Hub resource creation takes several minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. 
 
-    ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+    ![Get started with compute 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
 5. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
     
-    ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+    ![Get started with compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
     > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Azure Stack Edge Pro device, the IoT Hub gets created but is not shown in the compute configuration. 

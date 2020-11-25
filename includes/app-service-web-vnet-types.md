@@ -2,7 +2,7 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
 ---
 
@@ -18,7 +18,7 @@ VNet Integration gives your app access to resources in your VNet, but it doesn't
 
 The VNet Integration features:
 
-* Require a Standard, Premium, PremiumV2, or Elastic Premium pricing plan.
+* Require a Standard, Premium, PremiumV2, PremiumV3, or Elastic Premium pricing plan.
 * Support TCP and UDP.
 * Work with Azure App Service apps and function apps.
 
@@ -33,5 +33,5 @@ Gateway-required VNet Integration provides access to resources only in the targe
 Regardless of the version used, VNet Integration gives your app access to resources in your VNet, but it doesn't grant inbound private access to your app from the VNet. Private site access refers to making your app accessible only from a private network, such as from within an Azure VNet. VNet Integration is only for making outbound calls from your app into your VNet.
 
 <!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

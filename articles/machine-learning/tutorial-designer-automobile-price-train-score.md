@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Predict car prices with the designer'
 titleSuffix: Azure Machine Learning
-description: Learn how to train, score, and deploy a machine learning model by using a drag-and-drop interface. This tutorial is part one of a two-part series on predicting automobile prices by using linear regression.
+description: Train machine learning model to predict automobile prices using linear regression. This tutorial is part one of a two-part series.
 
 author: peterclu
 ms.author: peterlu
@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
 ---
 
@@ -71,7 +71,7 @@ You can set a **Default compute target** for the entire pipeline, which will tel
     If you already have an available compute target, you can select it to run this pipeline.
 
     > [!NOTE]
-    > The designer can only run training experiments on Azure Machine Learning Compute and Azure Machine Learning compute instances but other compute targets won't be shown.
+    > The designer can only run training experiments on Azure Machine Learning Compute but other compute targets won't be shown.
 
 1. Enter a name for the compute resource.
 

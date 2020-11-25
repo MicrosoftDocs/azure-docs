@@ -1,28 +1,33 @@
 ---
-title: How to install and run containers for using Anomaly Detector API
+title: Install and run Docker containers for the Anomaly Detector API
 titleSuffix: Azure Cognitive Services
-description: Learn how to install and use container for using the Anomaly Detector API's advanced algorithms.
+description: Use the Anomaly Detector API's algorithms to find anomalies in your data, on-premises using a Docker container.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.author: aahi
+ms.date: 09/28/2020
+ms.author: mbullwin
+ms.custom: cog-serv-seo-aug-2020
+keywords: on-premises, Docker, container, streaming, algorithms
 ---
 
-# Install and run Anomaly Detector containers 
+# Install and run Docker containers for the Anomaly Detector API 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-The Anomaly Detector has the following container feature functionality:
+Containers enable you to use the Anomaly Detector API your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run an Anomaly Detector container.
 
-| Function | Features |
-|--|--|
-| Anomaly detector | <li> Detects anomalies as they occur in real-time. <li> Detects anomalies throughout your data set as a batch. <li> Detects trend change points in your data set as a batch.<li> Infers the expected normal range of your data. <li> Supports anomaly detection sensitivity adjustment to better fit your data. |
+Anomaly Detector offers a single Docker container for using the API on-premises. Use the container to:
+* Use the Anomaly Detector's algorithms on your data
+* Monitor streaming data, and detect anomalies as they occur in real-time.
+* Detect anomalies throughout your data set as a batch. 
+* Detect trend change points in your data set as a batch.
+* Adjust the anomaly detection algorithm's sensitivity to better fit your data.
 
-For detailed information about the APIs, please see:
+For detailed information about the API, please see:
 * [Learn more about Anomaly Detector API service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
@@ -43,7 +48,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-<!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
+<!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### Container requirements and recommendations
 

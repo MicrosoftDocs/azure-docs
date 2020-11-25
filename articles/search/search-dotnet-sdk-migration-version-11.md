@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
 ---
 
@@ -35,7 +35,7 @@ Version 11 consolidates multiple packages and libraries into one. Post-migration
 
 + [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-+ [API reference for the client library](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [API reference for the client library](/dotnet/api/overview/azure/search.documents-readme)
 
 ## Client differences
 
@@ -166,6 +166,24 @@ The following steps get you started on a code migration by walking through the f
 
 1. Add new client references for indexer-related objects. If you are using indexers, datasources, or skillsets, change the client references to [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
 
+1. Revisit collections. In the new SDK, all lists are read-only to avoid downstream issues if the list happens to contain null values. The code change is to add items to a list. For example, instead of assigning strings to a Select property, you would add them as follows:
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
+
 1. Update client references for queries and data import. Instances of [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) should be changed to [SearchClient](/dotnet/api/azure.search.documents.searchclient). To avoid name confusion, make sure you catch all instances before proceeding to the next step.
 
 1. Update client references for index, indexer, synonym map, and analyzer objects. Instances of [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) should be changed to [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
@@ -192,4 +210,4 @@ In terms of service version updates, where code changes in version 11 relate to 
 
 + [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Samples on GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
-+ [Azure.Search.Document API reference](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [Azure.Search.Document API reference](/dotnet/api/overview/azure/search.documents-readme)

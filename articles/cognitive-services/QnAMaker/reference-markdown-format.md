@@ -1,6 +1,8 @@
 ---
 title: Markdown format - QnA Maker
 description: Following is the list of markdown formats that you can use in QnA Maker's answer text.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ---

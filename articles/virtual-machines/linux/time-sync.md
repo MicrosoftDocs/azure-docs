@@ -136,7 +136,7 @@ On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [c
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-For more information about Ubuntu and NTP, see [Time Synchronization](https://help.ubuntu.com/lts/serverguide/NTP.html).
+For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
 
 For more information about Red Hat and NTP, see [Configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 

@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate ExpenseIn with Azure Active Dire
 * Enable your users to be automatically signed-in to ExpenseIn with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
 * ExpenseIn supports **SP and IDP** initiated SSO.
-* Once you configure ExpenseIn you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure ExpenseIn you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## Adding ExpenseIn from the gallery
@@ -131,11 +131,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
 
-	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config01.png)
+	 ![Screenshot that shows the "Admin" tab and the "Single Sign-On - Providers" page and "Add Provider" selected.](./media/expenseIn-tutorial/config01.png)
 
 1. On the **New Identity Provider** pop-up, Perform the following steps:
 
-    ![ExpenseIn configuration](./media/expenseIn-tutorial/config02.png)
+    ![Screenshot that shows the "Edit Identity Provider" pop-up with values entered.](./media/expenseIn-tutorial/config02.png)
 
 	a. In the **Provider Name** text box, type the name; for example, Azure.
 
@@ -159,7 +159,7 @@ To enable Azure AD users to sign in to ExpenseIn, they must be provisioned into 
 
 2. Click on **Admin** on the top of the page then navigate to **Users** and click **New User**.
 
-	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config03.png)
+	 ![Screenshot that shows the "Admin" tab and the "Manage Users" page with "New User" selected.](./media/expenseIn-tutorial/config03.png)
 
 3. On the **Details** pop-up, perform the following steps:
 
@@ -175,18 +175,18 @@ To enable Azure AD users to sign in to ExpenseIn, they must be provisioned into 
 
 ## Test SSO
 
-When you select the ExpenseIn tile in the Access Panel, you should be automatically signed in to the ExpenseIn for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the ExpenseIn tile in the Access Panel, you should be automatically signed in to the ExpenseIn for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try ExpenseIn with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect ExpenseIn with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect ExpenseIn with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -27,15 +27,15 @@ An HLI SKU must be provisioned before going through the reserved capacity purcha
 - You can't have a shared reservation scope for HANA reserved capacity. You can't split, merge, or update reservation scope.
 - You can purchase a single HLI at a time using the reserved capacity API calls. Make additional API calls to buy additional quantities.
 
-You can purchase reserved capacity in the Azure portal or by using the [REST API](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+You can purchase reserved capacity in the Azure portal or by using the [REST API](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ## Buy a HANA Large Instance reservation
 
-Use the following information to buy an HLI reservation with the [Reservation Order REST APIs](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Use the following information to buy an HLI reservation with the [Reservation Order REST APIs](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ### Get the reservation order and price
 
-First, get the reservation order and price for the provisioned HANA large instance SKU by using the [Calculate Price](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/calculate) API.
+First, get the reservation order and price for the provisioned HANA large instance SKU by using the [Calculate Price](/rest/api/reserved-vm-instances/reservationorder/calculate) API.
 
 The following example uses [armclient](https://github.com/projectkudu/ARMClient) to make REST API calls with PowerShell. Here's what the reservation order and Calculate Price API request and request body should resemble:
 
@@ -217,7 +217,7 @@ The following information explains the meaning of various reservation fields.
   HLI SKU name. It looks like `SAP_HANA_On_Azure_<SKUname>`.
 
   **Location**
-   Available HLI regions. See [SKUs for SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) for available regions. To get location string format, use the [get locations API call](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations#locationlistresult).
+   Available HLI regions. See [SKUs for SAP HANA on Azure (Large Instances)](../../virtual-machines/workloads/sap/hana-available-skus.md) for available regions. To get location string format, use the [get locations API call](/rest/api/resources/subscriptions/listlocations#locationlistresult).
 
   **Reserved Resource type**
    `SapHana`
@@ -250,5 +250,5 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## Next steps
 
-- Learn about [How to call Azure REST APIs with Postman and cURL](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
-- See [SKUs for SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) for the available SKU list and regions.
+- Learn about [How to call Azure REST APIs with Postman and cURL](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
+- See [SKUs for SAP HANA on Azure (Large Instances)](../../virtual-machines/workloads/sap/hana-available-skus.md) for the available SKU list and regions.

@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
+ms.date: 10/12/2020
 ---
 
 # Troubleshoot copy activity performance
@@ -35,7 +35,7 @@ As a reference, currently the performance tuning tips provide suggestions for th
 | Data store specific   | Loading data into **Azure Synpase Analytics (formerly SQL DW)**: suggest using PolyBase or COPY statement if it's not used. |
 | &nbsp;                | Copying data from/to **Azure SQL Database**: when DTU is under high utilization, suggest upgrading to higher tier. |
 | &nbsp;                | Copying data from/to **Azure Cosmos DB**: when RU is under high utilization, suggest upgrading to larger RU. |
-|                       | Copying data from **SAP Table**: when copying large amount of data, suggest to leverage SAP connector's partition option to enable parallel load and increase the max partition number. |
+|                       | Copying data from **SAP Table**: when copying large amount of data, suggest leveraging SAP connector's partition option to enable parallel load and increase the max partition number. |
 | &nbsp;                | Ingesting data from **Amazon Redshift**: suggest using UNLOAD if it's not used. |
 | Data store throttling | If a number of read/write operations are throttled by the data store during copy, suggest checking and increase the allowed request rate for the data store, or reduce the concurrent workload. |
 | Integration  runtime  | If you use a **Self-hosted Integration Runtime (IR)** and copy activity waits long in the queue until the IR has available resource to execute, suggest scaling out/up your IR. |
@@ -69,7 +69,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3 and Azure Blob. Prefix filter is a data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 
@@ -123,7 +123,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3 and Azure Blob. Prefix filter is a data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 
@@ -173,11 +173,11 @@ Here is performance monitoring and tuning references for some of the supported d
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the Database Transaction Unit (DTU) percentage.
+* Azure SQL Database: You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and check the Database Transaction Unit (DTU) percentage.
 * Azure Synapse Analytics (formerly SQL Data Warehouse): Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx).
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx).
+* SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
+* On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
 ## Next steps
 See the other copy activity articles:

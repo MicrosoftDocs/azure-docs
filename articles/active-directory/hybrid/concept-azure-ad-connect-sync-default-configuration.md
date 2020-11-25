@@ -156,7 +156,7 @@ You can also see that this sync rule is used for password sync. If a user is in 
 #### Scoping filter
 The Scoping Filter section is used to configure when a Synchronization Rule should apply. Since the name of the Synchronization Rule you are looking at indicates it should only be applied for enabled users, the scope is configured so the AD attribute **userAccountControl** must not have the bit 2 set. When the sync engine finds a user in AD, it applies this sync rule when **userAccountControl** is set to the decimal value 512 (enabled normal user). It does not apply the rule when the user has **userAccountControl** set to 514 (disabled normal user).
 
-![Scoping tab in Sync rule editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Screenshot that shows the "Scoping filter" section of the "Edit inbound synchronization rule" window.](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 The scoping filter has Groups and Clauses that can be nested. All clauses inside a group must be satisfied for a Synchronization Rule to apply. When multiple groups are defined, then at least one group must be satisfied for the rule to apply. That is, a logical OR is evaluated between groups and a logical AND is evaluated inside a group. An example of this configuration can be found in the outbound Synchronization Rule **Out to AAD – Group Join**. There are several synchronization filter groups, for example one for security groups (`securityEnabled EQUAL True`) and one for distribution groups (`securityEnabled EQUAL False`).
 

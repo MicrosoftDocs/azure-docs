@@ -13,6 +13,9 @@ ms.custom:  [amqp, mqtt]
 
 # What is OPC Publisher?
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 OPC Publisher is a reference implementation that demonstrates how to:
 
 - Connect to existing OPC UA servers.

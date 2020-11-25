@@ -111,7 +111,7 @@ On your Windows client that you are using to connect to the device, take the fol
     ``` 
     You can get the device IP from the **Network** and the device friendly name from the **Device** page in the local web UI. The following screenshot of the hosts file shows the entry:
 
-    ![Windows Explorer hosts file](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-2.png)
+    ![Windows Explorer hosts file 2](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-2.png)
 
 ### Connect to an SMB share
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Azure Maps'
-description: Route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks.
+description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -15,14 +15,14 @@ ms.custom: mvc, devx-track-python
 
 Azure Maps is a portfolio of geospatial service APIs that are natively integrated into Azure. These APIs enable developers, enterprises, and ISVs to develop location-aware apps, IoT, mobility, logistics, and asset tracking solutions. 
 
-The Azure Maps REST APIs can be called from languages such as Python and R to enable geospatial data analysis and machine learning scenarios. Azure Maps offers a robust set of [routing APIs](https://docs.microsoft.com/rest/api/maps/route) that allow users to calculate routes between several data points. The calculations are based on various conditions, such as vehicle type or reachable area. 
+The Azure Maps REST APIs can be called from languages such as Python and R to enable geospatial data analysis and machine learning scenarios. Azure Maps offers a robust set of [routing APIs](/rest/api/maps/route) that allow users to calculate routes between several data points. The calculations are based on various conditions, such as vehicle type or reachable area. 
 
 In this tutorial, you walk help a driver whose electric vehicle battery is low. The driver needs to find the closest possible charging station from the vehicle's location.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> *	Create and run a Jupyter Notebook file on [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) in the cloud.
+> *	Create and run a Jupyter Notebook file on [Azure Notebooks](../notebooks/index.yml) in the cloud.
 > *	Call Azure Maps REST APIs in Python.
 > *	Search for a reachable range based on the electric vehicle's consumption model.
 > *	Search for electric vehicle charging stations within the reachable range, or isochrone.
@@ -44,7 +44,7 @@ For more information on authentication in Azure Maps, see [manage authentication
 
 To follow along with this tutorial, you need to create an Azure Notebooks project and download and run the Jupyter Notebook file. The Jupyter Notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure Notebooks project and upload the Jupyter Notebook document to it, do the following steps:
 
-1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
+1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](../notebooks/quickstart-sign-in-azure-notebooks.md).
 1. At the top of your public profile page, select **My Projects**.
 
     ![The My Projects button](./media/tutorial-ev-routing/myproject.png)
@@ -103,7 +103,7 @@ from IPython.display import Image, display
 
 A package delivery company has some electric vehicles in its fleet. During the day, electric vehicles need to be recharged without having to return to the warehouse. Every time the remaining charge drops to less than an hour, you search for a set of charging stations that are within a reachable range. Essentially, you search for a charging station when the battery is low on charge. And, you get the boundary information for that range of charging stations. 
 
-Because the company prefers to use routes that require a balance of economy and speed, the requested routeType is *eco*. The following script calls the [Get Route Range API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) of the Azure Maps routing service. It uses parameters for the vehicle's consumption model. The script then parses the response to create a polygon object of the geojson format, which represents the car's maximum reachable range.
+Because the company prefers to use routes that require a balance of economy and speed, the requested routeType is *eco*. The following script calls the [Get Route Range API](/rest/api/maps/route/getrouterange) of the Azure Maps routing service. It uses parameters for the vehicle's consumption model. The script then parses the response to create a polygon object of the geojson format, which represents the car's maximum reachable range.
 
 To determine the boundaries for the electric vehicle's reachable range, run the script in the following cell:
 
@@ -151,7 +151,7 @@ boundsData = {
 
 After you've determined the reachable range (isochrone) for the electric vehicle, you can search for charging stations within that range. 
 
-The following script calls the Azure Maps [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). It searches for charging stations for electric vehicle, within the boundaries of the car's maximum reachable range. Then, the script parses the response to an array of reachable locations.
+The following script calls the Azure Maps [Post Search Inside Geometry API](/rest/api/maps/search/postsearchinsidegeometry). It searches for charging stations for electric vehicle, within the boundaries of the car's maximum reachable range. Then, the script parses the response to an array of reachable locations.
 
 To search for electric vehicle charging stations within the reachable range, run the following script:
 
@@ -168,7 +168,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## Upload the reachable range and charging points to Azure Maps Data Service
 
-On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data Service. Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
+On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data Service. Use the [Data Upload API](/rest/api/maps/data/uploadpreview). 
 
 To upload the boundary and charging point data to Azure Maps Data Service, run the following two cells:
 
@@ -234,7 +234,7 @@ poiUdid = getPoiUdid["udid"]
 
 ## Render the charging stations and reachable range on a map
 
-After you've uploaded the data to the data service, call the Azure Maps [Get Map Image service](https://docs.microsoft.com/rest/api/maps/render/getmapimage). This service is used to render the charging points and maximum reachable boundary on the static map image by running the following script:
+After you've uploaded the data to the data service, call the Azure Maps [Get Map Image service](/rest/api/maps/render/getmapimage). This service is used to render the charging points and maximum reachable boundary on the static map image by running the following script:
 
 ```python
 # Get boundaries for the bounding box.
@@ -278,7 +278,7 @@ display(Image(poiRangeMap))
 
 First, you want to determine all the potential charging stations within the reachable range. Then, you want to know which of them can be reached in a minimum amount of time. 
 
-The following script calls the Azure Maps [Matrix Routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix). It returns the specified vehicle location, the travel time, and the distance to each charging station. The script in the next cell parses the response to locate the closest reachable charging station with respect to time.
+The following script calls the Azure Maps [Matrix Routing API](/rest/api/maps/route/postroutematrix). It returns the specified vehicle location, the travel time, and the distance to each charging station. The script in the next cell parses the response to locate the closest reachable charging station with respect to time.
 
 To find the closest reachable charging station that can be reached in the least amount of time, run the script in the following cell:
 
@@ -309,7 +309,7 @@ closestChargeLoc = ",".join(str(i) for i in minDistLoc)
 
 ## Calculate the route to the closest charging station
 
-Now that you've found the closest charging station, you can call the [Get Route Directions API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) to request the detailed route from the electric vehicle's current location to the charging station.
+Now that you've found the closest charging station, you can call the [Get Route Directions API](/rest/api/maps/route/getroutedirections) to request the detailed route from the electric vehicle's current location to the charging station.
 
 To get the route to the charging station and to parse the response to create a geojson object that represents the route, run the script in the following cell:
 
@@ -331,7 +331,7 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data Service. To do so, use the Azure Maps [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Then, call the rendering service, [Get Map Image API](https://docs.microsoft.com/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
+To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data Service. To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data/uploadpreview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 
@@ -386,18 +386,17 @@ In this tutorial, you learned how to call Azure Maps REST APIs directly and visu
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
 
-* [Get Route Range](https://docs.microsoft.com/rest/api/maps/route/getrouterange)
-* [Post Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
-* [Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
-* [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
-* [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
-
-For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+* [Get Route Range](/rest/api/maps/route/getrouterange)
+* [Post Search Inside Geometry](/rest/api/maps/search/postsearchinsidegeometry)
+* [Data Upload](/rest/api/maps/data/uploadpreview)
+* [Render - Get Map Image](/rest/api/maps/render/getmapimage)
+* [Post Route Matrix](/rest/api/maps/route/postroutematrix)
+* [Get Route Directions](/rest/api/maps/route/getroutedirections)
+* [Azure Maps REST APIs](./consumption-model.md)
 
 ## Next steps
 
 To learn more about Azure Notebooks, see
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)
+> [Azure Notebooks](../notebooks/index.yml)

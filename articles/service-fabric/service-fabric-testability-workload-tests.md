@@ -1,11 +1,9 @@
 ---
 title: Simulate faults in Azure Service Fabric apps 
 description: Learn about how to harden your Azure Service Fabric services against graceful and ungraceful failures.
-author: anmolah
 
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
 ms.custom: devx-track-csharp
 ---
 # Simulate failures during service workloads

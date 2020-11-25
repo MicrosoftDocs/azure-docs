@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 ---
 

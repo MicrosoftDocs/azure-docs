@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
 ms.subservice: development
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen

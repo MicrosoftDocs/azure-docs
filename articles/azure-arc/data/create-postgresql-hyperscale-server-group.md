@@ -125,7 +125,7 @@ For example:
 ]
 ```
 
-You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
+You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
 If you are using an Azure VM to test, follow the instructions below:
 
@@ -133,7 +133,7 @@ If you are using an Azure VM to test, follow the instructions below:
 
 When you are using an Azure virtual machine, then the endpoint IP address will not show the _public_ IP address. To locate the public IP address, use the following command:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -143,7 +143,7 @@ You may also need to expose the port of the PostgreSQL Hyperscale server group t
 
 To set a rule you will need to know the name of your NSG. You determine the NSG using the command below:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -151,7 +151,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 
 Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'azdata arc postgres server list' command above.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -164,7 +164,7 @@ Open Azure Data Studio and connect to your instance with the external endpoint I
 
 Remember, if you are using an Azure VM you will need the _public_ IP address which is accessible via the following command:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

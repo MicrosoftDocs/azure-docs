@@ -18,6 +18,13 @@ ms.service: azure-communication-services
 
 Azure Communication Services allows you to easily add real-time multimedia voice, video, and telephony-over-IP communications features to your applications. The Communication Services client libraries also allow you to add chat and SMS functionality to your communications solutions.
 
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+
+<br>
+<br>
+
 You can use Communication Services for voice, video, text, and data communication in a variety of scenarios:
 
 - Browser-to-browser, browser-to-app, and app-to-app communication
@@ -67,9 +74,9 @@ The following resources will help you learn about the Azure Communication Servic
 
 There are two other Microsoft communication products you may consider leveraging that are not directly interoperable with Communication Services at this time:
 
- - [Microsoft Graph Cloud Communication APIs](https://docs.microsoft.com/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Azure Active Directory users with M365 licenses. This is ideal for applications tied to Azure Active Directory or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](https://docs.microsoft.com/microsoftteams/platform/?view=msteams-client-js-latest&preserve-view=true)
+ - [Microsoft Graph Cloud Communication APIs](/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Azure Active Directory users with M365 licenses. This is ideal for applications tied to Azure Active Directory or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
- - [Azure PlayFab Party](https://docs.microsoft.com/gaming/playfab/features/multiplayer/networking/) simplifies adding low-latency chat and data communication to games. While you can power gaming chat and networking systems with Communication Services, PlayFab is a tailored option and free on Xbox.
+ - [Azure PlayFab Party](/gaming/playfab/features/multiplayer/networking/) simplifies adding low-latency chat and data communication to games. While you can power gaming chat and networking systems with Communication Services, PlayFab is a tailored option and free on Xbox.
 
 
 ## Next Steps

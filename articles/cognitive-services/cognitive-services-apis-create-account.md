@@ -1,20 +1,22 @@
 ---
-title: Create a Cognitive Services resource in the Azure portal
+title: "Create a Cognitive Services resource in the Azure portal"
 titleSuffix: Azure Cognitive Services
 description: Get started with Azure Cognitive Services by creating and subscribing to a resource in the Azure portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
+keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ---
 
-# Create a Cognitive Services resource using the Azure portal
+# Quickstart: Create a Cognitive Services resource using the Azure portal
 
 Use this quickstart to start using Azure Cognitive Services. After creating a Cognitive Service resource in the Azure portal, you'll get an endpoint and a key for authenticating your applications.
+
+Azure Cognitive Services are cloud-based services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
@@ -56,6 +58,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Bing Entity Search](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
     | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Bing Spell Check](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Bing Autosuggest](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+
     ***
 
 3. On the **Create** page, provide the following information:
@@ -70,7 +73,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
-    ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+    ![Multi-service resource resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
     Click **Create**.
 
@@ -84,7 +87,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Resource group** | The Azure resource group that will contain your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
 
-    ![Single resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
+    ![Single-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
     Click **Create**.
 
@@ -115,7 +118,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## See also
 
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](Welcome.md)
+* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Create a new resource using the Azure Management client library](.\cognitive-services-apis-create-account-client-library.md)
 * [Natural language support](language-support.md)
 * [Docker container support](cognitive-services-container-support.md)

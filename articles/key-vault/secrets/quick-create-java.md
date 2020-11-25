@@ -2,7 +2,7 @@
 title: Quickstart -  Azure Key Vault client library for Java
 description: Provides format and content criteria for writing Quickstarts for Azure SDK client libraries.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
@@ -11,17 +11,9 @@ ms.topic: quickstart
 
 ---
 
-# Quickstart: Azure Key Vault client library for Java
+# Quickstart: Azure Key Vault secret client library for Java
 
-Get started with the Azure Key Vault client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
-
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for Java to:
-
-- Increase security and control over keys and passwords.
-- Create and import encryption keys in minutes.
-- Reduce latency with cloud scale and global redundancy.
-- Simplify and automate tasks for TLS/SSL certificates.
-- Use FIPS 140-2 Level 2 validated HSMs.
+Get started with the Azure Key Vault secret client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
 
 Additional resources:
 
@@ -33,13 +25,30 @@ Additional resources:
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org)
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) and [Apache Maven](https://maven.apache.org) in a Linux terminal window.
+This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) and [Apache Maven](https://maven.apache.org) in a Linux terminal window.
 
 ## Setting up
+
+This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/java/api/overview/azure/identity-readme)
+
+### Sign in to Azure
+
+1. Run the `login` command.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
+
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
+    authorization code displayed in your terminal.
+
+2. Sign in with your account credentials in the browser.
 
 ### Create new Java console app
 
@@ -105,21 +114,35 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### Create a service principal
+#### Grant access to your key vault
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+Create an access policy for your key vault that grants secret permission to your user account
 
-#### Give the service principal access to your key vault
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+```
 
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+#### Set environment variables
 
-#### Set environmental variables
+This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME=<your-key-vault-name>
+```
+
+macOS or Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## Object model
 
-The Azure Key Vault client library for Java allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
+The Azure Key Vault secret client library for Java allows you to manage secrets. The [Code examples](#code-examples) section shows how to create a client, set a secret, retrieve a secret, and delete a secret.
 
 The entire console app is [below](#sample-code).
 
@@ -139,7 +162,9 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 
 ### Authenticate and create a client
 
-Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`.
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/java/api/overview/azure/identity-readme). 
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -159,7 +184,7 @@ Now that your application is authenticated, you can put a secret into your keyva
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
+You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -183,7 +208,7 @@ Finally, let's delete the secret from your key vault with the `secretClient.begi
 secretClient.beginDeleteSecret(secretName);
 ```
 
-You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
+You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -268,4 +293,5 @@ In this quickstart you created a key vault, stored a secret, and retrieved that 
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
+- How to [Secure access to a key vault](../general/secure-your-key-vault.md)
 - Review [Azure Key Vault best practices](../general/best-practices.md)

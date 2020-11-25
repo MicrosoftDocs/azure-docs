@@ -6,10 +6,10 @@ ms.service: sql-managed-instance
 ms.subservice: performance
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Managed Instance using the Azure portal
@@ -140,5 +140,5 @@ To view, suspend, activate, modify and delete existing alerts:
 * Learn about Azure Monitor alerting system, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 * Learn more about metric alerts, see [Understand how metric alerts work in Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
 * Learn about configuring a webhook in alerts, see [Call a webhook with a classic metric alert](../../azure-monitor/platform/alerts-webhooks.md)
-* Learn about configuring and managing alerts using PowerShell, see [Action rules](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)
-* Learn about configuring and managing alerts using API, see [Azure Monitor REST API reference](https://docs.microsoft.com/rest/api/monitor/) 
+* Learn about configuring and managing alerts using PowerShell, see [Action rules](/powershell/module/az.monitor/add-azmetricalertrulev2)
+* Learn about configuring and managing alerts using API, see [Azure Monitor REST API reference](/rest/api/monitor/)

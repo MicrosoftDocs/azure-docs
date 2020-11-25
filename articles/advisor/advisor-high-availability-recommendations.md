@@ -2,7 +2,7 @@
 title: Improve reliability of your application with Advisor
 description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 09/27/2020
 
 ---
 
@@ -40,7 +40,7 @@ If a Traffic Manager profile is configured for geographic routing, traffic is ro
 
 ## Use soft delete on your Azure storage account to save and recover data after accidental overwrite or deletion
 
-Enable [soft delete](../storage/blobs/soft-delete-overview.md) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
+Enable [soft delete](../storage/blobs/soft-delete-blob-overview.md) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
 
 ## Configure your VPN gateway to active-active for connection resiliency
 
@@ -77,23 +77,23 @@ Azure Monitor log alert rules run queries at specified frequency and fire alerts
 
 ## Configure Consistent indexing mode on your Azure Cosmos DB collection
 
-Configuring Azure Cosmos DB containers with Lazy indexing mode might affect the freshness of query results. Advisor detects containers configured this way and recommends switching to Consistent mode. [Learn more about indexing policies in Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+Configuring Azure Cosmos DB containers with Lazy indexing mode might affect the freshness of query results. Advisor detects containers configured this way and recommends switching to Consistent mode. [Learn more about indexing policies in Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## Configure your Azure Cosmos DB containers with a partition key
 
-Azure Advisor identifies Azure Cosmos DB non-partitioned collections that are approaching their provisioned storage quota. It recommends that you migrate these collections to new collections with a partition key definition so that they can be automatically scaled out by the service. [Learn more about choosing a partition key.](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor identifies Azure Cosmos DB non-partitioned collections that are approaching their provisioned storage quota. It recommends that you migrate these collections to new collections with a partition key definition so that they can be automatically scaled out by the service. [Learn more about choosing a partition key.](../cosmos-db/partitioning-overview.md)
 
 ## Upgrade your Azure Cosmos DB .NET SDK to the latest version from NuGet
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the .NET SDK. It recommends that you upgrade to the latest version from NuGet for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the .NET SDK. It recommends that you upgrade to the latest version from NuGet for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB .NET SDK.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Java SDK. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Java SDK. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Java SDK.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## Upgrade your Azure Cosmos DB Spark connector to the latest version from Maven
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](../cosmos-db/spark-connector.md)
 
 ## Consider moving to Kafka 2.1 on HDInsight 4.0
 
@@ -106,6 +106,12 @@ Starting July 1, 2020, you won't be able to create new Spark clusters by using S
 ## Enable virtual machine replication
 Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](../site-recovery/azure-to-azure-quickstart.md)
 
+## Upgrade to the latest version of the Azure Connected Machine agent
+The [Azure Connected Machine agent](../azure-arc/servers/manage-agent.md) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation will suggest you to upgrade your agent to the latest version for the best Azure Arc experience.
+
+## Do not override hostname to ensure website integrity
+Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.* [Learn more about custom domain](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
+
 ## How to access high availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
@@ -117,6 +123,7 @@ Virtual machines that don't have replication enabled to another region aren't re
 For more information about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor cost recommendations](advisor-cost-recommendations.md)
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)

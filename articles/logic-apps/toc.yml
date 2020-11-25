@@ -69,6 +69,8 @@
       href: export-from-microsoft-flow-logic-app-template.md
     - name: Create stateful or stateless workflows in Visual Studio Code
       href: create-stateful-stateless-workflows-visual-studio-code.md
+    - name: Call logic apps from Power Automate and Power Apps
+      href: call-from-power-automate-power-apps.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
@@ -99,7 +101,7 @@
       href: logic-apps-batch-process-send-receive-messages.md
     - name: Send messages in order - sequential convoy
       href: send-related-messages-sequential-convoy.md
-    - name: Author JSON definitions
+    - name: Author workflow definitions in JSON
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
@@ -107,6 +109,8 @@
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
+    - name: Handle long-running stored procedures for SQL connector
+      href: handle-long-running-stored-procedures-sql-connector.md
     - name: Handle throttling problems or 429 errors
       href: handle-throttling-problems-429-errors.md
     - name: Develop custom connectors
@@ -143,6 +147,7 @@
     items: 
     - name: Create integration account
       href: logic-apps-enterprise-integration-create-integration-account.md
+      displayName: Azure CLI, az logic integration-account create, integration-account
     - name: Trading partners
       href: logic-apps-enterprise-integration-partners.md
     - name: Agreements

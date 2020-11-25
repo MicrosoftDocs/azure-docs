@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration
@@ -21,7 +21,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 - To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
+- A **general-purpose v2** storage account. see [Create a storage account](../common/storage-account-create.md).
 
 - Choose a tab to view any SDK-specific prerequisites.
 
@@ -87,7 +87,7 @@ To use query acceleration, you must first register the query acceleration featur
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
 
@@ -323,7 +323,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### [.NET](#tab/dotnet)
 
-The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream) object.
+The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](/dotnet/api/system.io.stream) object.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

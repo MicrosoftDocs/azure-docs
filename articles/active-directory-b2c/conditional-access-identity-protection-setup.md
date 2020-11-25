@@ -23,7 +23,7 @@ Identity Protection provides ongoing risk detection for your Azure AD B2C tenant
 ## Prerequisites
 
 - Your Azure AD B2C tenant must be [linked to an Azure AD subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
-- Azure AD B2C Premium P2 is required to use sign-in and user risk-based Conditional Access. If necessary, [change your Azure AD B2C pricing tier to Premium P2](https://aka.ms/exid-pricing-tier). 
+- Azure AD B2C Premium P2 is required to use sign-in and user risk-based Conditional Access. If necessary, [change your Azure AD B2C pricing tier to Premium P2](./billing.md). 
 - To manage Identity Protection and Conditional Access in your B2C tenant, you'll need an account that is assigned the Global Administrator role or the Security administrator role.
 - To use these features in your tenant, you first need to switch to the Azure AD B2C Premium P2 pricing tier.
 
@@ -38,10 +38,12 @@ The following risk detections are currently supported for Azure AD B2C:
 |Risk detection type  |Description  |
 |---------|---------|
 | Atypical travel     | Sign in from an atypical location based on the user's recent sign-ins.        |
-|Anonymous IP address     | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs)        |
+|Anonymous IP address     | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs).        |
+|Malware linked IP address     | Sign in from a malware linked IP address.         |
 |Unfamiliar sign-in properties     | Sign in with properties we've not seen recently for the given user.        |
-|Malware linked IP address     | Sign in from a malware linked IP address         |
-|Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern        |
+|Admin confirmed user compromised    | An admin has indicated that a user was compromised.             |
+|Password spray     | Sign in through a password spray attack.      |
+|Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
 
 ## View risk events for your Azure AD B2C tenant
 

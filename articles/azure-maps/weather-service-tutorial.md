@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) | Microsoft Azure Maps'
-description: This tutorial shows you how to join sensor data with weather forecast data from Microsoft Azure Maps Weather Service using Azure Notebooks(Python).
+description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather Service using Azure Notebooks(Python).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/29/2020
@@ -18,11 +18,11 @@ Wind power is one alternative energy source for fossil fuels to combat against c
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Work with data files in [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) in the cloud.
+> * Work with data files in [Azure Notebooks](../notebooks/index.yml) in the cloud.
 > *	Load demo data from file.
 > *	Call Azure Maps REST APIs in Python.
 > * Render location data on the map.
-> *	Enrich the demo data with Azure Maps [Daily Forecast](https://aka.ms/AzureMapsWeatherDailyForecast) weather data.
+> *	Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview) weather data.
 > * Plot forecast data in graphs.
 
 
@@ -36,7 +36,7 @@ To complete this tutorial, you first need to:
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
-To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
+To get familiar with Azure notebooks and to know how to get started, follow the instructions [Create an Azure Notebook](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
 > [!Note]
 > The Jupyter notebook file for this project can be downloaded from the [Weather Maps Jupyter notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
@@ -63,7 +63,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## Request daily forecast data
 
-In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](https://aka.ms/AzureMapsWeatherDailyForecast) of the Azure Maps weather service. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
+In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview) of the Azure Maps weather service. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
 
 ```python
@@ -102,7 +102,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-The script below renders the turbine locations on the map by calling the Azure Maps [Get Map Image service](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
+The script below renders the turbine locations on the map by calling the Azure Maps [Get Map Image service](/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -177,17 +177,20 @@ The graphs below visualize the forecast data. For the change of wind speed, see 
 
 ![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-In this tutorial, you learned how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
+In this tutorial you learned, how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
+
+To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks](./tutorial-ev-routing.md).
 
 To explore the Azure Maps APIs that are used in this tutorial, see:
 
-* [Daily Forecast](https://aka.ms/AzureMapsWeatherDailyForecast)
-* [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Daily Forecast](/rest/api/maps/weather/getdailyforecastpreview)
+* [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 
-For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
-
-To learn more about Azure Notebooks, see [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](./consumption-model.md).
 
 ## Next steps
 
-To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
+To learn more about Azure Notebooks, see
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](../notebooks/index.yml)

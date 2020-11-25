@@ -72,7 +72,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
 4. Select **Accept** when prompted.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Screenshot shows dialog box with the message Permissions requested Accept for your organization and additional information.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 5. Under your Azure AD, in **Enterprise applications**, you should now see **Azure VPN** listed.
 

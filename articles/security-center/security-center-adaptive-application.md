@@ -9,7 +9,7 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
@@ -48,7 +48,7 @@ By defining lists of known-safe applications, and generating alerts when anythin
 |----|:----|
 |Release state:|Generally available (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
-|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
+|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
@@ -81,7 +81,7 @@ Select the recommendation, or open the adaptive application controls page to vie
     - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
-      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
+      - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
 
       > [!TIP]
       > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with Azure Defender, will appear under the **No recommendation** tab.
@@ -131,7 +131,7 @@ To edit the rules for a group of machines:
 
       ![Add a custom rule](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. If you're defining a known safe path, change the **Rule type** to 'Path'. You can include wildcards in the path.
+   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
    
       > [!TIP]
       > Some scenarios for which wildcards in a path might be useful:
@@ -145,6 +145,23 @@ To edit the rules for a group of machines:
 
 1. To apply the changes, select **Save**.
 
+
+## Review and edit a group's settings
+
+1. To view the details and settings of your group, select **Group settings**
+
+    This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > The **Enforce** option, in the file type protection mode settings, is greyed out in **all** scenarios. No enforcement options are available at this time. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="The enforce mode for file protection is permanently grayed out. No enforcement options are available.":::
+
+1. Optionally, modify the group's name or file type protection modes.
+
+1. Select **Apply** and **Save**.
 
 
 
@@ -203,7 +220,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programatically, use our REST API. 
 
-The full API documentation is [here](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+The full API documentation is [here](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 
@@ -225,4 +242,4 @@ Some of the functions that are available from the REST API:
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:
 
 * [Understanding just-in-time (JIT) VM access](just-in-time-explained.md)
-* [Securing your Azure Kubernetes clusters](azure-kubernetes-service-integration.md)
+* [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)

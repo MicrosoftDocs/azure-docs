@@ -3,7 +3,7 @@ title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: references_regions 
+ms.custom: references_regions , devx-track-azurecli
 ---
  
 # Selective disk backup and restore for Azure virtual machines
@@ -54,7 +54,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 If the VM isn't in the same resource group as the vault, then **ResourceGroup** refers to the resource group where the vault was created. Instead of the VM name, provide the VM ID as indicated below.
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
 ### Modify protection for already backed up VMs with Azure CLI
@@ -78,7 +78,7 @@ az backup protection update-for-vm --resource-group {resourcegroup} --vault-name
 ### Restore disks with Azure CLI
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### Restore only OS disk with Azure CLI
@@ -187,7 +187,11 @@ Ensure you're using Azure PowerShell version 3.7.0 or higher.
 ### Enable backup with PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -DiskListSetting "Include"/"Exclude" -DisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### Backup only OS disk during configure backup with PowerShell
@@ -207,7 +211,11 @@ You need to pass the above obtained **$item** object to the **–Item** paramete
 ### Modify protection for already backed up VMs with PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Include"/"Exclude" -DisksList[Strings]   -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### Backup only OS disk during modify protection with PowerShell
@@ -219,7 +227,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ### Reset disk exclusion setting with PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Reset" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
 ### Restore selective disks with PowerShell
@@ -235,6 +243,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## Using the Azure portal
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Using the Azure portal, you can view the included and excluded disks from the VM backup details pane and the backup job details pane.  During restore, when you select the recovery point to restore from, you can view the backed-up disks in that recovery point.
 

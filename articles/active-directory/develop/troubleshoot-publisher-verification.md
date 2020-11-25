@@ -28,7 +28,7 @@ If you are unable to complete the process or are experiencing unexpected behavio
 ## Common Issues
 Below are some common issues that may occur during the process. 
 
-- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t who the primary contact for the account is** 
+- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is** 
     1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Sign in with a user account in the org's primary Azure AD tenant 
     1. If an MPN account already exists, this will be recognized and you will be added to the account 
@@ -54,8 +54,8 @@ Below are some common issues that may occur during the process.
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 
-    Please ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and required for the user you are signing in with and for this scenario. For example, MFA could be:
-    - Always required for the user you are are signing in with
+    Please ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you are signing in with and for this scenario. For example, MFA could be:
+    - Always required for the user you are signing in with
     - [Required for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Required for the type of administrator](../conditional-access/howto-conditional-access-policy-admin-mfa.md) you are signing in with.
 
@@ -146,31 +146,45 @@ The following is a list of the potential error codes you may receive, either whe
 
 ### MPNAccountNotFoundOrNoAccess	 
 
-The MPN ID you provided (<MPNID>) does not exist, or you do not have access to it. Provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) does not exist, or you do not have access to it. Provide a valid MPN ID and try again.
+    
+Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Partner Center- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information. Can also be caused by the tenant the app is registered in not being added to the MPN account, or an invalid MPN ID.
 
 ### MPNGlobalAccountNotFound	 
 
-The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again.
+    
+Most commonly caused when an MPN ID is provided that corresponds to a Partner Location Account (PLA). Only Partner Global Accounts are supported. See [Partner Center account structure](/partner-center/account-structure) for more details.
 
 ### MPNAccountInvalid	 
 
-The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again.
+    
+Most commonly caused by the wrong MPN ID being provided.
 
 ### MPNAccountNotVetted	 
 
 The MPN ID (<MPNID>) you provided has not completed the vetting process. Complete this process in Partner Center and try again. 
+    
+Most commonly caused by when the MPN account has not completed the [verification](/partner-center/verification-responses) process.
 
 ### NoPublisherIdOnAssociatedMPNAccount	 
 
 The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
+   
+Most commonly caused by the wrong MPN ID being provided.
 
 ### MPNIdDoesNotMatchAssociatedMPNAccount	 
 
-The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again.
+    
+Most commonly caused by the wrong MPN ID being provided.
 
 ### ApplicationNotFound	 
 
-The target application (<AppId>) cannot be found. Provide a valid application ID and try again. 
+The target application (<AppId>) cannot be found. Provide a valid application ID and try again.
+    
+Most commonly caused when verification is being performed via Graph API, and the id of the application provided is incorrect. Note- the id of the application must be provided, not the AppId/ClientId.
 
 ### B2CTenantNotAllowed	 
 
@@ -184,13 +198,19 @@ This capability is not supported in an email verified tenant.
 
 The target application (\<AppId\>) must have a Publisher Domain set. Set a Publisher Domain and try again.
 
+Occurs when a [Publisher Domain](howto-configure-publisher-domain.md) is not configured on the app.
+
 ### PublisherDomainMismatch	 
 
 The target application's Publisher Domain (<publisherDomain>) does not match the domain used to perform email verification in Partner Center (<pcDomain>). Ensure these domains match and try again. 
+    
+Occurs when neither the app's [Publisher Domain](howto-configure-publisher-domain.md) nor one of the [custom domains](../fundamentals/add-custom-domain.md) added to the Azure AD tenant match the domain used to perform email verification in Partner Center.
 
 ### NotAuthorizedToVerifyPublisher	 
 
 You are not authorized to set the verified publisher property on application (<AppId>) 
+  
+Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Azure AD- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
 
 ### MPNIdWasNotProvided	 
 
@@ -198,7 +218,13 @@ The MPN ID was not provided in the request body or the request content type was 
 
 ### MSANotSupported	 
 
-This feature is not supported for Microsoft consumer accounts. Only applications registered in Azure AD by an Azure AD user are supported. 
+This feature is not supported for Microsoft consumer accounts. Only applications registered in Azure AD by an Azure AD user are supported.
+
+### InteractionRequired
+
+Occurs when multi-factor authentication has not been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information. Note: MFA must be performed in the same session when attempting to add a verified publisher. If MFA is enabled but not required to be performed in the session, the request will fail.   
+
+The error message displayed will be: "Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to proceed."
 
 ## Next steps
 
@@ -212,4 +238,4 @@ If you have reviewed all of the previous information and are still receiving an 
 - TenantId where app is registered
 - MPN ID
 - REST request being made 
-- Error code and message being returned 
+- Error code and message being returned

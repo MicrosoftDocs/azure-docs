@@ -28,14 +28,14 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
     Leave `label` and `Description` undefined for now.
 
-7. Select **Apply** to save the new feature flag.
+8. Select **Apply** to save the new feature flag.
 
 ## Create a Functions app
 
@@ -146,7 +146,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664).
+In this quickstart, you created a feature flag and used it with an Azure Functions app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 - Learn more about [feature management](./concept-feature-management.md).
 - [Manage feature flags](./manage-feature-flags.md).

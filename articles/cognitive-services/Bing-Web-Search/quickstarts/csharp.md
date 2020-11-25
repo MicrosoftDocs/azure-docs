@@ -8,13 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: "seodec2018, devx-track-csharp"
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
 ---
 
 # Quickstart: Search the web using the Bing Web Search REST API and C#
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
 
 Use this quickstart to make your first call to the Bing Web Search API. This C# application sends a search request to the API, and shows the JSON response. Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
@@ -25,14 +30,14 @@ This example program in this quickstart uses only .NET Core classes.
 Here are a few things that you'll need before running this quickstart:
 
 * Windows: [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](https://www.mono-project.com/)  
-* A subscription key
+* Linux/macOS: [Visual Studio Code](https://code.visualstudio.com/) and [.NET Core](https://dotnet.microsoft.com/download)
+* [A free Azure subscription](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and declare dependencies
 
-Create a new project in Visual Studio or Mono. Use the following code to import the required namespaces and types:
+Create a console project in Visual Studio or VS Code. Use the following code to import the required namespaces and types:
 
 ```csharp
 using System;

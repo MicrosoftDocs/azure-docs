@@ -35,11 +35,11 @@ The Activity log provides insight into the operations on each Azure resource in 
 1. At the top of the menu for your resource, select **Activity log**.
 2. The current filter is set to events related to your resource. If you don't see any events, try changing the **Timespan** to increase the time scope.
 
-    ![Activity log](media/quick-monitor-azure-resource/activity-log-resource.png)
+    ![Screenshot of a resource Activity Log in Azure portal showing a list of operations for the resource generated using the default filter criteria.](media/quick-monitor-azure-resource/activity-log-resource.png)
 
 4. If you want to see events from other resources in your subscription, either change criteria in the filter or even remove filter properties.
 
-    ![Activity log](media/quick-monitor-azure-resource/activity-log-all.png)
+    ![Screenshot of a resource Activity Log in Azure portal showing a list of operations for the resource generated using modified filter criteria.](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
@@ -49,15 +49,15 @@ Metrics are numerical values that describe some aspect of your resource at a par
 1. Under the **Monitoring** section of your resource's menu, select **Metrics**. This opens metrics explorer with the scope set to your resource.
 2. Click **Add metric** to add a metric to the chart.
    
-   ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![Screenshot of the metrics explorer in Azure portal showing the metrics for a resource. The Metric dropdown is open for adding new metrics.](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. Select a **Metric** from the dropdown list and then an **Aggregation**. This defines how the collected values will be sampled over each time interval.
 
-    ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![Screenshot of the metrics explorer in Azure portal showing the metrics for a resource. The Aggregation dropdown is open and Avg is selected.](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. Click **Add metric** to add additional metric and aggregation combinations to the chart.
 
-    ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![Screenshot of the metrics explorer in Azure portal showing the metrics for a resource.](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 
@@ -65,5 +65,5 @@ Metrics are numerical values that describe some aspect of your resource at a par
 In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Continue to the next quickstart which shows you how to collect the Activity log into a Log Analytics workspace where they can be analyzed using [log queries](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Send Azure Activity log to Log Analytics workspace]()
+> [Send Azure Activity log to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-activity-log-portal)
 

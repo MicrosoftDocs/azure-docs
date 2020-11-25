@@ -16,7 +16,7 @@ This article shows you how to render shapes on a map using Azure Maps Android SD
 
 ## Prerequisites
 
-To complete the process in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
+To complete the process in this article, you need to install [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) to load a map.
 
 
 ## Add a line to the map

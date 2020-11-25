@@ -70,7 +70,7 @@ Now, we will show you how to switch over to password hash synchronization. Befor
 
 1. Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign in with a user account that was created in our new tenant.  You will need to sign in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign in on-premises.</br>
-   ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Screenshot that shows a successful message when testing the sign in. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## Switch back to federation
 Now, we will show you how to switch back to federation.  To do this, do the following:
@@ -87,7 +87,7 @@ Now, we will show you how to switch back to federation.  To do this, do the foll
 10. Once configuration is complete, click **Next**.
 ![Configure](media/tutorial-phs-backup/backup4.png)</br>
 11. On the **Verify federation connectivity** screen, click **Verify**.  You may need to configure DNS records (add A and AAAA records) for this to complete successfully.
-![Verify](media/tutorial-phs-backup/backup5.png)</br>
+![Screenshot that shows the Verify federation connectivity screen and the Verify button.](media/tutorial-phs-backup/backup5.png)</br>
 12. Click **Exit**.
 
 ## Reset the AD FS and Azure trust

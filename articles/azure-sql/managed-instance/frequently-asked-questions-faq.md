@@ -76,7 +76,7 @@ For new and preview features, see [Release notes](../database/doc-changes-update
 
 **How can I provision SQL Managed Instance?**
 
-You can provision an instance from [Azure portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+You can provision an instance from [Azure portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) and [ARM templates](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Can I provision Managed Instances in an existing subscription?**
 
@@ -88,7 +88,7 @@ This is a current limitation on underlying component that verifies subnet name a
 
 **How can I scale my managed instance?**
 
-You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) or [ARM templates](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) or [ARM templates](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Can I move my Managed Instance from one region to another?**
 
@@ -96,7 +96,7 @@ Yes, you can. For instructions, see [Move resources across regions](../database/
 
 **How can I delete my Managed Instance?**
 
-You can delete Managed Instances via Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) or [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+You can delete Managed Instances via Azure portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) or [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
 
 **How much time does it take to create or update an instance, or to restore a database?**
 
@@ -129,9 +129,9 @@ Managed instance offers the same performance levels per compute and storage size
 
 One option is to [export a database to BACPAC](../database/database-export.md) and then [import the BACPAC file](../database/database-import.md). This is the recommended approach if your database is smaller than 100 GB.
 
-[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
+[Transactional replication](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) can be used if all tables in the database have *primary* keys and there are no In-memory OLTP objects in the database.
 
-Native COPY_ONLY backups taken from managed instance cannot be restored to SQL Server because managed instance has a higher database version compared to SQL Server. For more details, see [Copy-only backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
+Native COPY_ONLY backups taken from managed instance cannot be restored to SQL Server because managed instance has a higher database version compared to SQL Server. For more details, see [Copy-only backup](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
 **How can I migrate my SQL Server instance to SQL Managed Instance?**
 
@@ -174,15 +174,15 @@ If your workload consists of lots of small transactions, consider [switching the
 
 **What are the options for monitoring and alerting for my managed instance?**
 
-For all possible options to monitor and alert on SQL Managed Instance consumption and performance, see [Azure SQL Managed Instance monitoring options blog post](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). For the real-time performance monitoring for SQL MI, see [Real-time performance monitoring for Azure SQL DB Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+For all possible options to monitor and alert on SQL Managed Instance consumption and performance, see [Azure SQL Managed Instance monitoring options blog post](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). For the real-time performance monitoring for SQL MI, see [Real-time performance monitoring for Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
 
 **Can I use SQL Profiler for performance tracking?**
 
-Yes, SQL Profiler is supported or SQL Managed Instance. For more details, see [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+Yes, SQL Profiler is supported or SQL Managed Instance. For more details, see [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15).
 
 **Are Database Advisor and Query Performance Insight supported for Managed Instance databases?**
 
-No, they are not supported. You can use [DMVs](../database/monitoring-with-dmvs.md) and [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) together with [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) and [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) to monitor your databases.
+No, they are not supported. You can use [DMVs](../database/monitoring-with-dmvs.md) and [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) together with [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) and [XEvents](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) to monitor your databases.
 
 **Can I create metric alerts on SQL Managed Instance?**
 
@@ -222,11 +222,11 @@ To track when automated backups have been performed on Managed Instance, see [Ho
 
 **Is on-demand backup supported?**
 
-Yes, you can create a copy-only full backup in their Azure Blob Storage, but it will only be restorable in Managed Instance. For details, see [Copy-only backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). However, copy-only backup is impossible if the database is encrypted by service-managed TDE since the certificate used for encryption is inaccessible. In such case, use point-in-time-restore feature to move the database to another SQL Managed Instance, or switch to customer-managed key.
+Yes, you can create a copy-only full backup in their Azure Blob Storage, but it will only be restorable in Managed Instance. For details, see [Copy-only backup](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15). However, copy-only backup is impossible if the database is encrypted by service-managed TDE since the certificate used for encryption is inaccessible. In such case, use point-in-time-restore feature to move the database to another SQL Managed Instance, or switch to customer-managed key.
 
 **Is native restore (from .bak files) to Managed Instance supported?**
 
-Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
 
 ## Business continuity
 
@@ -248,7 +248,7 @@ This is to ensure uninterrupted flow of management traffic in order to fulfill a
 
 **Can I get the source IP ranges that are used for the inbound management traffic?**
 
-Yes. You could analyze traffic coming through your networks security group by [configuring Network Watcher flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
+Yes. You could analyze traffic coming through your networks security group by [configuring Network Watcher flow logs](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
 
 **Can I set NSG to control access to the data endpoint (port 1433)?**
 
@@ -267,7 +267,7 @@ Yes. The simplest way to achieve this is to add 0/0 rule to a UDR associated wit
  
 **How many IP addresses do I need for a Managed Instance?**
 
-Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). To determine VNet subnet size for SQL Managed Instance, see [Determine required subnet size and range for Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). To determine VNet subnet size for SQL Managed Instance, see [Determine required subnet size and range for Managed Instance](./vnet-subnet-determine-size.md). 
 
 **What if there are not enough IP addresses for performing instance update operation?**
 
@@ -279,7 +279,7 @@ No. You can use either an empty subnet or a subnet that already contains Managed
 
 **Can I change the subnet address range?**
 
-Not if there are Managed Instances inside. This is an Azure networking infrastructure limitation. You are only allowed to [add additional address space to an empty subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+Not if there are Managed Instances inside. This is an Azure networking infrastructure limitation. You are only allowed to [add additional address space to an empty subnet](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings). 
 
 **Can I move my managed instance to another subnet?**
 
@@ -287,7 +287,7 @@ No. This is a current Managed Instance design limitation. However, you can provi
 
 **Do I need an empty virtual network to create a Managed Instance?**
 
-This is not required. You can either [Create a virtual network for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) or [Configure an existing virtual network for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+This is not required. You can either [Create a virtual network for Azure SQL Managed Instance](./virtual-network-subnet-create-arm-template.md) or [Configure an existing virtual network for Azure SQL Managed Instance](./vnet-existing-add-subnet.md).
 
 **Can I place a Managed Instance with other services in a subnet?**
 
@@ -310,13 +310,13 @@ For this reason, we strongly discourage relying on immutability of the IP addres
 
 **Does Managed Instance have a public endpoint?**
 
-Yes. Managed Instance has a public endpoint that is by default used only for Service Management, but a customer may enable it for data access as well. For more details, see [Use SQL Managed Instance with public endpoints](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). To configure public endpoint, go to [Configure public endpoint in SQL Managed Instance](public-endpoint-configure.md).
+Yes. Managed Instance has a public endpoint that is by default used only for Service Management, but a customer may enable it for data access as well. For more details, see [Use SQL Managed Instance with public endpoints](./public-endpoint-overview.md). To configure public endpoint, go to [Configure public endpoint in SQL Managed Instance](public-endpoint-configure.md).
 
 **How does Managed Instance control access to the public endpoint?**
 
 Managed Instance controls access to the public endpoint at both the network and application level.
 
-Management and deployment services connect to a managed instance by using a [management endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) that maps to an external load balancer. Traffic is routed to the nodes only if it's received on a predefined set of ports that only the managed instance's management components use. A built-in firewall on the nodes is set up to allow traffic only from Microsoft IP ranges. Certificates mutually authenticate all communication between management components and the management plane. For more details, see [Connectivity architecture for SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+Management and deployment services connect to a managed instance by using a [management endpoint](./connectivity-architecture-overview.md#management-endpoint) that maps to an external load balancer. Traffic is routed to the nodes only if it's received on a predefined set of ports that only the managed instance's management components use. A built-in firewall on the nodes is set up to allow traffic only from Microsoft IP ranges. Certificates mutually authenticate all communication between management components and the management plane. For more details, see [Connectivity architecture for SQL Managed Instance](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
 
 **Could I use the public endpoint to access the data in Managed Instance databases?**
 
@@ -328,9 +328,12 @@ No, this option is not available.  For private data endpoint, Managed Instance u
 
 **What is the recommended way to connect Managed Instances placed in different regions?**
 
-Express Route circuit peering is the preferred way to do that. This is not to be mixed with the cross-region virtual network peering that is not supported due to internal load balancer related [constraint](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+Express Route circuit peering is the preferred way to do that. Global virtual network peering is supported with the limitation described in the note below.  
 
-If Express Route circuit peering is not possible, the only other option is to create Site-to-Site VPN connection ([Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+> [!IMPORTANT]
+> [On 9/22/2020 we announced global virtual network peering for newly created virtual clusters](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). That means that global virtual network peering is supported for SQL Managed Instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL Managed Instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
+
+If Express Route circuit peering and global virtual network peering is not possible, the only other option is to create Site-to-Site VPN connection ([Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## Mitigate data exfiltration risks  
 
@@ -338,19 +341,19 @@ If Express Route circuit peering is not possible, the only other option is to cr
 
 To mitigate any data exfiltration risks, customers are recommended to apply a set of security settings and controls:
 
-- Turn on [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) on all databases.
+- Turn on [Transparent Data Encryption (TDE)](../database/transparent-data-encryption-tde-overview.md) on all databases.
 - Turn off Common Language Runtime (CLR). This is recommended on-premises as well.
 - Use Azure Active Directory (Azure AD) authentication only.
 - Access the instance with a low-privileged DBA account.
 - Configure JIT jumpbox access for the sysadmin account.
-- Turn on [SQL auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
-- Turn on [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) from the [Azure Defender for SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) suite.
+- Turn on [SQL auditing](/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
+- Turn on [Threat Detection](../database/threat-detection-configure.md) from the [Azure Defender for SQL](../database/azure-defender-for-sql.md) suite.
 
 ## DNS
 
 **Can I configure a custom DNS for SQL Managed Instance?**
 
-Yes. See [How to configure a Custom DNS for Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+Yes. See [How to configure a Custom DNS for Azure SQL Managed Instance](./custom-dns-configure.md).
 
 **Can I do DNS refresh?**
 
@@ -369,22 +372,22 @@ As a workaround, downgrade SQL Managed Instance to 4 vCores and upgrade it again
 
 Time zone configuration can be set when a managed instance is provisioned for the first time. Changing the time zone of an existing managed instance isn't supported. For details, see [Time zone limitations](timezones-overview.md#limitations).
 
-Workarounds include creating a new managed instance with the proper time zone and then either performing a manual backup and restore, or what we recommend, performing a [cross-instance point-in-time restore](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
+Workarounds include creating a new managed instance with the proper time zone and then either performing a manual backup and restore, or what we recommend, performing a [cross-instance point-in-time restore](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance).
 
 
 ## Security and database encryption
 
 **Is the sysadmin server role available for SQL Managed Instance?**
 
-Yes, customers can create logins that are members of the sysadmin role.  Customers who assume the sysadmin privilege are also assuming responsibility for operating the instance, which can negatively impact the SLA commitment. To add login to sysadmin server role, see [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication).
+Yes, customers can create logins that are members of the sysadmin role.  Customers who assume the sysadmin privilege are also assuming responsibility for operating the instance, which can negatively impact the SLA commitment. To add login to sysadmin server role, see [Azure AD authentication](./aad-security-configure-tutorial.md#azure-ad-authentication).
 
 **Is Transparent Data Encryption supported for SQL Managed Instance?**
 
-Yes, Transparent Data Encryption is supported for SQL Managed Instance. For details, see [Transparent Data Encryption for SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal).
+Yes, Transparent Data Encryption is supported for SQL Managed Instance. For details, see [Transparent Data Encryption for SQL Managed Instance](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal).
 
 **Can I leverage the “bring your own key” model for TDE?**
 
-Yes, Azure Key Vault for BYOK scenario is available for Azure SQL Managed Instance. For details, see [Transparent Data Encryption with customer-managed key](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Yes, Azure Key Vault for BYOK scenario is available for Azure SQL Managed Instance. For details, see [Transparent Data Encryption with customer-managed key](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
 
 **Can I migrate an encrypted SQL Server database?**
 
@@ -400,8 +403,8 @@ You can rotate TDE protector for Managed Instance using Azure Cloud Shell. For i
 
 Yes, you don't need to decrypt your database to restore it to SQL Managed Instance. You do need to provide a certificate/key used as the encryption key protector on the source system to SQL Managed Instance to be able to read data from the encrypted backup file. There are two possible ways to do it:
 
-- *Upload certificate-protector to SQL Managed Instance*. It can be done using PowerShell only. The [sample script](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) describes the whole process.
-- *Upload asymmetric key-protector to Azure Key Vault and point SQL Managed Instance to it*. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses Key Vault integration to store the encryption key. If you don't want to use the key as an encryption key protector, and just want to make the key available for SQL Managed Instance to restore encrypted database(s), follow instructions for [setting up BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption), and don’t check the checkbox **Make the selected key the default TDE protector**.
+- *Upload certificate-protector to SQL Managed Instance*. It can be done using PowerShell only. The [sample script](./tde-certificate-migrate.md) describes the whole process.
+- *Upload asymmetric key-protector to Azure Key Vault and point SQL Managed Instance to it*. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses Key Vault integration to store the encryption key. If you don't want to use the key as an encryption key protector, and just want to make the key available for SQL Managed Instance to restore encrypted database(s), follow instructions for [setting up BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption), and don’t check the checkbox **Make the selected key the default TDE protector**.
 
 Once you make the encryption protector available to SQL Managed Instance, you can proceed with the standard database restore procedure.
 
@@ -414,17 +417,17 @@ SQL Managed Instance offers [vCore-based purchasing model](sql-managed-instance-
 **What cost benefits are available for SQL Managed Instance?**
 
 You can save costs with the Azure SQL benefits in the following ways:
--	Maximize existing investments in on-premises licenses and save up to 55 percent with [Azure Hybrid Benefit](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
--	Commit to a reservation for compute resources and save up to 33 percent with [Reserved Instance Benefit](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Combine this with Azure Hybrid benefit for savings up to 82 percent. 
+-	Maximize existing investments in on-premises licenses and save up to 55 percent with [Azure Hybrid Benefit](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-	Commit to a reservation for compute resources and save up to 33 percent with [Reserved Instance Benefit](../database/reserved-capacity-overview.md). Combine this with Azure Hybrid benefit for savings up to 82 percent. 
 -	Save up to 55 percent versus list prices with [Azure Dev/Test Pricing Benefit](https://azure.microsoft.com/pricing/dev-test/) that offers discounted rates for your ongoing development and testing workloads.
 
 **Who is eligible for Reserved Instance benefit?**
 
-To be eligible for reserved Instance benefit, your subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For more information about reservations, see [Reserved Instance Benefit](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+To be eligible for reserved Instance benefit, your subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For more information about reservations, see [Reserved Instance Benefit](../database/reserved-capacity-overview.md). 
 
 **Is it possible to cancel, exchange or refund reservations?**
 
-You can cancel, exchange or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+You can cancel, exchange or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Billing for Managed Instance and backup storage
 
@@ -434,7 +437,7 @@ To explore Managed Instance pricing options, see [Pricing page](https://azure.mi
 
 **How can I track billing cost for my managed instance?**
 
-You can do so using the [Azure Cost Management solution](https://docs.microsoft.com/azure/cost-management-billing/). Navigate to **Subscriptions** in the [Azure portal](https://portal.azure.com) and select **Cost Analysis**. 
+You can do so using the [Azure Cost Management solution](../../cost-management-billing/index.yml). Navigate to **Subscriptions** in the [Azure portal](https://portal.azure.com) and select **Cost Analysis**. 
 
 Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`.
 
@@ -444,7 +447,7 @@ You get the equal amount of free backup storage space as the reserved data stora
 
 **How can I monitor billing cost for my backup storage consumption?**
 
-You can monitor cost for backup storage via Azure portal. For instructions, see [Monitor costs for automated backups](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+You can monitor cost for backup storage via Azure portal. For instructions, see [Monitor costs for automated backups](../database/automated-backups-overview.md?tabs=managed-instance#monitor-costs). 
 
 **How can I optimize my backup storage costs on the managed instance?**
 
@@ -504,9 +507,13 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 ## Service updates
 
+**What is the Root CA change for Azure SQL Database & SQL Managed Instance?**
+
+See [Certificate rotation for Azure SQL Database & SQL Managed Instance](../updates/ssl-root-certificate-expiring.md). 
+
 **What is a planned maintenance event for SQL Managed Instance?**
 
-See [Plan for Azure maintenance events in SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+See [Plan for Azure maintenance events in SQL Managed Instance](../database/planned-maintenance.md). 
 
 
 ## Azure feedback and support
@@ -517,5 +524,4 @@ You can vote for a new Managed Instance feature or put a new improvement idea on
 
 **How can I create Azure support request?**
 
-To learn how to create Azure support request, see [How to create Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
-
+To learn how to create Azure support request, see [How to create Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).

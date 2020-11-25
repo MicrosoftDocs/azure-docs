@@ -3,13 +3,13 @@ title: Configure your Metrics Advisor instance using the web portal
 titleSuffix: Azure Cognitive Services
 description: How to configure your Metrics Advisor instance and fine-tune the anomaly detection results.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # How to: Configure metrics and fine tune detecting configuration
@@ -95,8 +95,8 @@ Use the following steps to use this mode:
     
     **Direction** is only valid if you're using the **out of the range** mode:
     
-    * **Up** configures detection to only detect anomalies when (current data point) - (comparison data point) > **+** threshold%.
-    * **Down** configures detection to only detect anomalies when (current data point) - (comparing data point) < **-** threshold%.
+    * **Up** configures detection to only detect anomalies when (current data point) - (comparison data point) > **+** threshold percentage.
+    * **Down** configures detection to only detect anomalies when (current data point) - (comparing data point) < **-** threshold percentage.
  
 **Hard threshold**
 

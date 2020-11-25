@@ -17,7 +17,7 @@ You can create an Azure Database for PostgreSQL server in one of three different
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
-| vCores | 1, 2 | 4, 8, 16, 32, 64 | 4, 8, 16, 32, 48, 64 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Memory per vCore | Variable | 4 GB | 6.75 to 8 GB |
 | Storage size | 32 GB to 16 TB | 32 GB to 16 TB | 32 GB to 16 TB |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |

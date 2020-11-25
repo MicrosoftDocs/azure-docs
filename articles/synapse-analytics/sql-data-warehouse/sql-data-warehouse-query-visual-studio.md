@@ -14,6 +14,7 @@ ms.custom: seo-lt-2019
 ---
 
 # Connect to Azure Synapse Analytics with Visual Studio and SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
@@ -23,16 +24,16 @@ ms.custom: seo-lt-2019
 > 
 > 
 
-Use Visual Studio to query a SQL pool within Azure Synapse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
+Use Visual Studio to query a dedicated SQL pool within Azure Synapse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
 ## Prerequisites
 To use this tutorial, you need:
 
-* An existing SQL pool. To create one, see [Create a SQL pool](create-data-warehouse-portal.md).
+* An existing dedicated SQL pool. To create one, see [Create a dedicated SQL pool](create-data-warehouse-portal.md).
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have SSDT for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md).
-* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](../sql/connect-overview.md).
+* The fully qualified SQL server name. To find this information, see [Connect to a dedicated SQL pool](../sql/connect-overview.md).
 
-## 1. Connect to your SQL pool
+## 1. Connect to your dedicated SQL pool
 1. Open Visual Studio 2019.
 2. Open SQL Server Object Explorer by selecting **View** > **SQL Server Object Explorer**.
    
@@ -74,4 +75,4 @@ Now that a connection has been established to your database, let's write a query
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](sql-data-warehouse-authentication.md).
+To configure your environment for Azure Active Directory authentication, see [Authenticate to dedicated SQL pool](sql-data-warehouse-authentication.md).

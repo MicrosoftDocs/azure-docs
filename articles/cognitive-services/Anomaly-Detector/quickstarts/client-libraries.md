@@ -3,17 +3,17 @@ title: 'Quickstart: Anomaly detection using the Anomaly Detector client library'
 titleSuffix: Azure Cognitive Services
 description: The Anomaly Detector API offers client libraries to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
-zone_pivot_groups: programming-languages-set-seventeen
+zone_pivot_groups: ad-quickstart-one
 
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.author: aahi
+ms.author: mbullwin
 keywords: anomaly detection, algorithms
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 ---
 
 # Quickstart: Use the Anomaly Detector client library

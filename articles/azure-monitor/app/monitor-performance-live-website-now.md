@@ -126,7 +126,7 @@ To fix update your web.config:
 </dependentAssembly>
 ```
 
-We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+We are tracking this issue [here](https://github.com/MohanGsk/ApplicationInsights-Home).
 
 
 ### Application diagnostic messages

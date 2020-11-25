@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a Unity Android app'
 description: In this quickstart, you learn how to build an Android app with Unity using Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 07/31/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -53,9 +53,11 @@ To complete this quickstart, make sure you have:
 
 Select your device in **Run Device** and then select **Build And Run**. You'll be asked to save an `.apk` file, which you can pick any name for.
 
-Once the app starts, you should see a screen that looks like this:
+In the app, select **BasicDemo** using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
 
-![App screen](./media/get-started-unity-android/demo-app-screen.png)
+![Screenshot 1](./media/get-started-unity-android/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-android/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 Follow the instructions in the app to place and recall an anchor.
 

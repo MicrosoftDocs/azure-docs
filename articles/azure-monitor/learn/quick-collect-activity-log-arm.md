@@ -3,7 +3,7 @@ title: Send Azure Activity log to Log Analytics workspace using Azure Resource M
 description: Use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
@@ -34,12 +34,13 @@ The following template creates an empty Log Analytics workspace. Save this templ
   "parameters": {
     "workspaceName": {
       "type": "string",
-        "metadata": {
-          "description": "Name of the workspace."
-        }
+      "metadata": {
+        "description": "Name of the workspace."
+      }
     },
     "sku": {
       "type": "string",
+      "defaultValue": "pergb2018",
       "allowedValues": [
         "pergb2018",
         "Free",
@@ -48,7 +49,6 @@ The following template creates an empty Log Analytics workspace. Save this templ
         "Standard",
         "Premium"
       ],
-      "defaultValue": "pergb2018",
       "metadata": {
         "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
@@ -105,7 +105,7 @@ The following template creates an empty Log Analytics workspace. Save this templ
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "properties": {

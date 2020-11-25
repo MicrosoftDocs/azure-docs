@@ -45,7 +45,7 @@ To enable the RDP port in an NSG, follow these steps:
 
 If you specify the source IP address, this setting allows traffic only from a specific IP address or range of IP addresses to connect to the VM. Make sure that the computer you are using to start the RDP session is within the range.
 
-For more information about NSGs, see [network security group](../../virtual-network/security-overview.md).
+For more information about NSGs, see [network security group](../../virtual-network/network-security-groups-overview.md).
 
 > [!NOTE]
 > RDP port 3389 is exposed to the Internet. Therefore, we recommend that you use this port only for recommended for testing. For production environments, we recommend that you use a VPN or private connection.
@@ -53,6 +53,3 @@ For more information about NSGs, see [network security group](../../virtual-netw
 ## Next steps
 
 If the RDP port is already enabled in NSG, see [Troubleshoot an RDP general error in Azure VM](./troubleshoot-rdp-general-error.md).
-
-
-

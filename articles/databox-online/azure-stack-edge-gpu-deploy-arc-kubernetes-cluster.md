@@ -64,11 +64,11 @@ Before you enable Azure Arc on the Kubernetes cluster, you will need to enable a
 
 1. Select a resource provider and from the top of the command bar, select **Register**. Registration  takes several minutes. 
 
-    ![Register Kubernetes resource providers](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
+    ![Register Kubernetes resource providers 2](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
 
 1. Refresh the UI until you see that the resource provider is registered. Repeat the process for both resource providers.
     
-    ![Register Kubernetes resource providers](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
+    ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
 You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
 

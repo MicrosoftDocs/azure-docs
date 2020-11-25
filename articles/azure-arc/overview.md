@@ -1,7 +1,7 @@
 ---
 title: Azure Arc overview
 description: Learn about what Azure Arc is and how it helps customers enable management and governance of their hybrid resources with other Azure services and features.
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.topic: overview
 ---
 
@@ -29,7 +29,7 @@ Key features of Azure Arc include:
 
 * Configure [Azure VM extensions](./servers/manage-vm-extensions.md) to use Azure management services to monitor, secure, and update your servers.
 
-* Manage and govern Kubernetes clusters at scale. 
+* Manage and govern Kubernetes clusters at scale.
 
 * Use GitOps-based configuration as code management to deploy applications and configuration across one or more clusters directly from source control, such as GitHub.
 
@@ -45,7 +45,17 @@ The following are pricing details for the features available today with Azure Ar
 
 ### Arc enabled servers
 
-In the current preview phase, Azure Arc enabled servers is offered at no additional cost.
+Azure Arc control plane functionality is offered at no additional cost. This includes:
+
+* Resource organization through Azure management groups and tags.
+
+* Searching and indexing through Azure Resource Graph.
+
+* Access and security through Azure RBAC and subscriptions.
+
+* Environments and automation through templates and extensions.
+
+* Update management
 
 Any Azure service that is used on Arc enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see [Azure pricing page](https://azure.microsoft.com/pricing/).
 

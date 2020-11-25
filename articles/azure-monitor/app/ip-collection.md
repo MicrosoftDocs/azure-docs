@@ -2,8 +2,8 @@
 title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.custom: devx-track-javascript
+ms.date: 09/23/2020
+ms.custom: devx-track-js
 ---
 
 # Geolocation and IP address handling
@@ -57,9 +57,7 @@ To enable IP collection and storage, the `DisableIpMasking` property of the Appl
 
 If you only need to modify the behavior for a single Application Insights resource, use the Azure portal. 
 
-1. Go your Application Insights resource > **Settings** > **Export Template** 
-
-    ![Export Template](media/ip-collection/export-template.png)
+1. Go your Application Insights resource > **Automation** > **Export Template** 
 
 2. Select **Deploy**
 

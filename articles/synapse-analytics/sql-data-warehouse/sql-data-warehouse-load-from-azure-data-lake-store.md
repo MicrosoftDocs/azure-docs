@@ -79,7 +79,7 @@ FROM 'https://storageaccount.blob.core.windows.net/container/directory/'
 WITH 
 (
    --CREDENTIAL: Specifies the authentication method and credential access your storage account
-   CREDENTIAL (IDENTITY = '', SECRET = '')
+   CREDENTIAL = (IDENTITY = '', SECRET = ''),
    --FILE_TYPE: Specifies the file type in your storage account location
    FILE_TYPE = 'CSV',
    --FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text (CSV) file

@@ -9,6 +9,7 @@ ms.date: 05/10/2020
 ---
 
 # Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 With autoscale provisioned throughput, Azure Cosmos DB will automatically manage and scale the RU/s of your database or container based on usage. This article answers commonly asked questions about autoscale.
 
@@ -32,14 +33,14 @@ Use [Azure Monitor metrics](how-to-choose-offer.md#measure-and-monitor-your-usag
 Each hour, you will be billed for the highest throughput `T` the system scaled to within the hour. If your resource had no requests during the hour or did not scale beyond `0.1 * Tmax`, you will be billed for the minimum of `0.1 * Tmax`. Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
 ### How does autoscale show up on my bill?
-In single-master accounts, the autoscale rate per 100 RU/s is 1.5x the rate of standard (manual) provisioned throughput. On your bill, you will see the existing standard provisioned throughput meter. The quantity of this meter will be multiplied by 1.5. For example, if the highest RU/s the system scaled to within an hour was 6000 RU/s, you'd be billed 60 * 1.5 = 90 units of the meter for that hour.
+In single write region accounts, the autoscale rate per 100 RU/s is 1.5x the rate of standard (manual) provisioned throughput. On your bill, you will see the existing standard provisioned throughput meter. The quantity of this meter will be multiplied by 1.5. For example, if the highest RU/s the system scaled to within an hour was 6000 RU/s, you'd be billed 60 * 1.5 = 90 units of the meter for that hour.
 
-In multi-master accounts, the autoscale rate per 100 RU/s is the same as the rate for standard (manual) provisioned multi-master throughput. On your bill, you will see the existing multi-master meter. Since the rates are the same, if you use autoscale, you'll see the same quantity as with standard throughput.
+In accounts with multiple write regions, the autoscale rate per 100 RU/s is the same as the rate for standard (manual) provisioned multiple write region throughput. On your bill, you will see the existing multiple write regions meter. Since the rates are the same, if you use autoscale, you'll see the same quantity as with standard throughput.
 
 ### Does autoscale work with reserved capacity?
-Yes. When you purchase single-master reserved capacity, the reservation discount for autoscale resources is applied to your meter usage at a ratio of 1.5 * the [ratio of the specific region](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Yes. When you purchase reserved capacity for accounts with multiple write regions, the reservation discount for autoscale resources is applied to your meter usage at a ratio of 1.5 * the [ratio of the specific region](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-Multi-master reserved capacity works the same for autoscale and standard (manual) provisioned throughput. See [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
+Multi-write region reserved capacity works the same for autoscale and standard (manual) provisioned throughput. See [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 
 ### Does autoscale work with free tier?
 Yes. In free tier, you can use autoscale throughput on a container. Support for autoscale shared throughput databases with custom max RU/s is not yet available. See how [free tier billing works with autoscale](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -47,7 +48,7 @@ Yes. In free tier, you can use autoscale throughput on a container. Support for 
 ### Is autoscale supported for all APIs?
 Yes, autoscale is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
 
-### Is autoscale supported for multi-master accounts?
+### Is autoscale supported for multi-region write accounts?
 Yes. The max RU/s are available in each region that is added to the Azure Cosmos DB account. 
 
 ### How do I enable autoscale on new databases or containers?
@@ -122,7 +123,7 @@ For example, suppose you have an autoscale container with 400 – 4000 RU/s:
 The billable RU/s is still 1000 RU/s. Regardless of when the TTLs occur, they will not affect the autoscale scaling logic.
 
 ### What is the mapping between the max RU/s and physical partitions?
-When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partition-data.md#physical-partitions) can support up to 10,000 RU/s and 50 GB of storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partitioning-overview.md#physical-partitions) can support up to 10,000 RU/s and 50 GB of storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 The max RU/s of the database or container is divided evenly across all physical partitions. So, the total throughput any single physical partition can scale to is: Max RU/s of database or container / # physical partitions. 
 
@@ -144,5 +145,5 @@ For example, if you select the 20,000 RU/s max throughput option and have 200 GB
 
 * Learn how to [enable autoscale on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Learn more about [logical and physical partitions](partition-data.md).
+* Learn more about [logical and physical partitions](partitioning-overview.md).
                         

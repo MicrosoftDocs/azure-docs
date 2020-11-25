@@ -6,7 +6,6 @@ documentationcenter: ''
 author: lisaguthrie
 manager: maiye
 editor: ''
-
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
@@ -14,7 +13,7 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/21/2019
+ms.date: 10/19/2020
 ms.author: lcozzens
 
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -27,7 +26,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
@@ -35,7 +34,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -67,6 +66,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Then display a message if the `Beta` feature flag is enabled.
@@ -96,6 +96,8 @@ The .NET Feature Management libraries extend the framework with feature flag sup
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 

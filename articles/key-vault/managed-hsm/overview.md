@@ -5,6 +5,7 @@ services: key-vault
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/15/2020
@@ -30,12 +31,12 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 - **Centralized key management**: Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
 - **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
-- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity family of HSMs.
+- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity HSM adapters.
 - **Monitor and audit**: fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 
 ### Integrated with Azure and Microsoft PaaS/SaaS services 
 
-- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](../../storage/common/encryption-customer-managed-keys.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md), and [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
+- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md), and [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
 
 ### Uses same API and management interfaces as Key Vault
 

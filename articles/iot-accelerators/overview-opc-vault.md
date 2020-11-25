@@ -12,6 +12,9 @@ manager: philmea
 
 # What is OPC Vault?
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 OPC Vault is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. This article describes the OPC Vault's simple use cases.
 
 ## Certificate management

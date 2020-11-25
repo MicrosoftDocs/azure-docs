@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Create a new Windows virtual machine
 
-[!INCLUDE [create-avs-jump-box-steps](includes/create-avs-jump-box-steps.md)]
+[!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## Connect to the local vCenter of your private cloud
 

@@ -4,6 +4,8 @@
   items:
   - name: About AKS
     href: intro-kubernetes.md
+  - name: Solution architectures
+    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -48,6 +50,8 @@
     href: concepts-identity.md
   - name: Security
     items:
+    - name: Security Baseline
+      href: security-baseline.md
     - name: Security for applications and clusters
       href: concepts-security.md
     - name: Security controls by Azure Policy
@@ -138,7 +142,7 @@
       href: upgrade-cluster.md
     - name: Use Uptime SLA
       href: uptime-sla.md
-    - name: Use proximity placement groups (preview)
+    - name: Use proximity placement groups
       href: reduce-latency-ppg.md
     - name: Upgrade the node image
       href: node-image-upgrade.md
@@ -150,6 +154,8 @@
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
       items:
+      - name: Use virtual nodes
+        href: virtual-nodes.md
       - name: Use the Azure CLI
         href: virtual-nodes-cli.md
       - name: Use the Azure portal
@@ -162,12 +168,12 @@
       items:
       - name: Use multiple node pools
         href: use-multiple-node-pools.md
-      - name: Use spot node pools (preview)
+      - name: Use spot node pools
         href: spot-node-pool.md
       - name: Use system node pools
         href: use-system-pools.md
     - name: Deploy AKS with Terraform
-      href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+      href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
       maintainContext: true
     - name: Use the Kubernetes resource viewer (Preview)
       href: kubernetes-portal.md
@@ -354,10 +360,10 @@
   - name: DevOps
     items:
     - name: Use Ansible to create AKS clusters
-      href: /azure/ansible/ansible-create-configure-aks
+      href: /azure/developer/ansible/aks-configure-clusters
       maintainContext: true
     - name: Jenkins continuous deployment
-      href: jenkins-continuous-deployment.md
+      href: /azure/developer/jenkins/deploy-from-github-to-aks
     - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true

@@ -1,6 +1,6 @@
 ---
-title: Alert validation (EICAR test file) in Azure Security Center | Microsoft Docs
-description: This document helps you to validate the security alerts in Azure Security Center.
+title: Alert validation in Azure Security Center | Microsoft Docs
+description: Learn how to validate that your security alerts are correctly configured in Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -8,10 +8,10 @@ manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  11/04/2019
+ms.date:  09/22/2020
 ms.author: memildin
 
 ---
@@ -21,12 +21,6 @@ This document helps you learn how to verify if your system is properly configure
 ## What are security alerts?
 Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
 For more information, see [Security alerts in Security Center](security-center-alerts-overview.md) and [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)
-
-## Alert validation
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## Validate alerts on Windows VMs <a name="validate-windows"></a>
 
@@ -57,16 +51,16 @@ After Security Center agent is installed on your computer, follow these steps fr
 
 ## Validate alerts on Kubernetes <a name="validate-kubernetes"></a>
 
-If you're using the Security Center preview feature of integrating Azure Kubernetes Service, run the following kubectl command to test that your alerts are working:
+If you've integrated Azure Kubernetes Service with Security Center, you can test that your alerts are working with the following kubectl command:
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-For more information about the integration of Azure Kubernetes Service and Azure Security Center, see [this article](azure-kubernetes-service-integration.md).
+For more information about defending your Kubernetes nodes and clusters, see [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## Next steps
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:
 
 * [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) - Learn how to manage alerts, and respond to security incidents in Security Center.
+* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
-* [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) - Learn about the different types of security alerts.
+* [Understanding security alerts in Azure Security Center](./security-center-alerts-overview.md) - Learn about the different types of security alerts.

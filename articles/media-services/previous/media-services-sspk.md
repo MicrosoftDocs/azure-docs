@@ -112,6 +112,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
+* AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A.S
 * Compal Electronics, Inc.

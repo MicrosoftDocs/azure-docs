@@ -2,17 +2,13 @@
 title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to best use Azure RBAC.
 ---
@@ -25,7 +21,9 @@ This article describes some best practices for using Azure role-based access con
 
 Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
 
-When planning your access control strategy, it's a best practice to grant users the least privilege to get their work done. The following diagram shows a suggested pattern for using Azure RBAC.
+When planning your access control strategy, it's a best practice to grant users the least privilege to get their work done. Avoid assigning broader roles at broader scopes even if it initially seems more convenient to do so. By limiting roles and scopes you limit what resources are at risk if the security principal is ever compromised.
+
+The following diagram shows a suggested pattern for using Azure RBAC.
 
 ![Azure RBAC and least privilege](./media/best-practices/rbac-least-privilege.png)
 

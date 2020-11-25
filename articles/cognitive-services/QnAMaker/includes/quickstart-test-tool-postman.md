@@ -4,10 +4,10 @@ description: include file
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
+ms.date: 11/09/2020
 ---
 
 This Postman-based quickstart walks you through getting an answer from your knowledge base.
@@ -24,6 +24,8 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 ## Set up Postman for requests
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 This quickstart uses the same settings for the Postman **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
 
 Use this procedure to configure Postman, then read each subsequent section to configure the POST body JSON.
@@ -39,6 +41,25 @@ Use this procedure to configure Postman, then read each subsequent section to co
     ||`{"question":"<Your question>"}`|The body of the POST request as a JSON object. This value will change in each following section depending on what the query is meant to do.|
 
 1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+This quickstart uses the same settings for the Postman **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
+
+Use this procedure to configure Postman, then read each subsequent section to configure the POST body JSON.
+
+1. From the knowledge base's **Settings** page, select the **Postman** tab to see the configuration used to generate an answer from the knowledge base. Copy the following information to use in Postman.
+
+    |Name|Setting|Purpose and value|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|This is the HTTP method and route for the URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|This is the host of the URL. Concatenate the Host and Post values to get the complete generateAnswer URL.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|The header value for to authorize your request. |
+    |`Content-type`|`application/json`|The header value for your content.|
+    ||`{"question":"<Your question>"}`|The body of the POST request as a JSON object. This value will change in each following section depending on what the query is meant to do.|
+
+1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
+---
 
 ## Use metadata to filter answer
 

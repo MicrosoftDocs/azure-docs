@@ -20,7 +20,7 @@ You can create a data controller using Azure Data Studio through the deployment 
 ## Prerequisites
 
 - You need access to a Kubernetes cluster and have your kubeconfig file configured to point to the Kubernetes cluster you want to deploy to.
-- You need to [install the client tools](install-client-tools.md) including **Azure Data Studio** the Azure Data Studio extensions called **Azure Arc** and **Azure Data CLI**.
+- You need to [install the client tools](install-client-tools.md) including **Azure Data Studio** the Azure Data Studio extensions called **Azure Arc** and **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]**.
 - You need to log in to Azure in Azure Data Studio.  To do this: type CTRL/Command + SHIFT + P to open the command text window and type **Azure**.  Choose **Azure: Sign in**.   In the panel, that comes up click the + icon in the top right to add an Azure account.
 
 ## Use the Deployment Wizard to create Azure Arc data controller
@@ -37,7 +37,7 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
 9. Enter a name for the data controller and for the namespace that the data controller will be created in.  
 
 > [!NOTE]
-> If the namespace already exists it will be used if the namespace does not already contain other Kubernetes objects - pods, etc.  If the namespace does not exist, an attempt to create the namespace will be made.  Creating a namespace in a Kubernetes cluster requires Kubernetes cluster administrator privileges.  If you don't have Kubernetes cluster administrator privileges, ask your Kubernetes cluster administrator to perform the first few steps in the [Create a data controller using Kubernetes-native tools](./create-data-controller-using-k8s-native-tools.md) article which are required to be performed by a Kubernetes administrator before you complete this wizard.
+> If the namespace already exists it will be used if the namespace does not already contain other Kubernetes objects - pods, etc.  If the namespace does not exist, an attempt to create the namespace will be made.  Creating a namespace in a Kubernetes cluster requires Kubernetes cluster administrator privileges.  If you don't have Kubernetes cluster administrator privileges, ask your Kubernetes cluster administrator to perform the first few steps in the [Create a data controller using Kubernetes-native tools](./create-data-controller-using-kubernetes-native-tools.md) article which are required to be performed by a Kubernetes administrator before you complete this wizard.
 
 > [!NOTE]
 > Note: the data controller and namespace name will be used to create a custom resource in the Kubernetes cluster so they must conform to [Kubernetes naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).

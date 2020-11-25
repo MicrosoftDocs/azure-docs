@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
@@ -96,7 +96,7 @@ You can now use these PowerShell cmdlets with automation scripts to programmatic
 ## See also
 To learn more about how you can use PowerShell to automate onboarding to Security Center, see the following article:
 
-* [Az.Security](https://docs.microsoft.com/powershell/module/az.security)
+* [Az.Security](/powershell/module/az.security)
 
 To learn more about Security Center, see the following article:
 

@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Spark & Hive Tools for VSCode (Spark application)
-description: Tutorial - Use the Spark & Hive Tools for VSCode to develop Spark applications, which are written in Python, and submit them to an Apache Spark pool (preview).
+description: Tutorial - Use the Spark & Hive Tools for VSCode to develop Spark applications, which are written in Python, and submit them to a serverless Apache Spark pool (preview).
 services: synapse-analytics 
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -21,7 +21,7 @@ Spark & Hive Tools can be installed on platforms that are supported by Visual St
 
 The following items are required for completing the steps in this article:
 
-- An Apache Spark pool. To create an Apache Spark pool, see [Create Apache Spark pool using Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+- A serverless Apache Spark pool. To create a serverless Apache Spark pool, see [Create Apache Spark pool using Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is required only for Linux and macOS.
 - [A PySpark interactive environment for Visual Studio Code](../../hdinsight/set-up-pyspark-interactive-environment.md).

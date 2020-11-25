@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Understand metrics for Azure Spring Cloud
@@ -105,7 +104,6 @@ The following tables show the available metrics and details.
 >| jvm.gc.pause.total.count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
 
-::: zone pivot="programming-language-csharp"
 ### Performance (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -131,7 +129,6 @@ The following tables show the available metrics and details.
 >| Active timers count               | active-timer-count               | Count | The number of timers that are currently active. An active timer is one that is registered to tick at some point in the future, and has not yet been canceled. |
 
 For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### Request
 >[!div class="mx-tdCol2BreakAll"]
@@ -142,7 +139,6 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| tomcat.global.request.total.count | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
 >| tomcat.global.request.max | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
 
-::: zone pivot="programming-language-csharp"
 ### Request (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
@@ -154,7 +150,6 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| Failed requests | failed-requests | Count | Number of failed requests. |
 
 For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
-::: zone-end
 
 ### Session
 >[!div class="mx-tdCol2BreakAll"]
@@ -171,12 +166,12 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 
 * [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
 
-* [Analyze logs and metrics with diagnostics settings](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 
 ## Next steps
 
-* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./spring-cloud-tutorial-alerts-action-groups.md)
 
-* [Quotas and Service Plans for Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Quotas and Service Plans for Azure Spring Cloud](./spring-cloud-quotas.md)

@@ -1,5 +1,5 @@
 ---
-title: Creating a Azure child DNS zones
+title: 'Tutorial: Creating a Azure child DNS zones'
 titleSuffix: Azure DNS
 description: Tutorial on how to create child DNS zones in Azure portal.
 author: jonbeck
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 * An Azure account with an active subscription.  If you do not have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Existing parent Azure DNS zone.  
 
-For the purpose of this tutorial, we will use contoso.com as the parent zone and subdomain.contoso.com as the child domain name.  Replace *contoso.com* with your parent domain name and *subdomain* with your child domain.  If you have not created your parent DNS zone, see steps to [create DNS zone using Azure portal](https://docs.microsoft.com/azure/dns/dns-getstarted-portal#create-a-dns-zone). 
+For the purpose of this tutorial, we will use contoso.com as the parent zone and subdomain.contoso.com as the child domain name.  Replace *contoso.com* with your parent domain name and *subdomain* with your child domain.  If you have not created your parent DNS zone, see steps to [create DNS zone using Azure portal](./dns-getstarted-portal.md#create-a-dns-zone). 
 
 
 ## Sign in to Azure portal

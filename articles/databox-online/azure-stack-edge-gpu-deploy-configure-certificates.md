@@ -46,11 +46,11 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
     - If you changed the device name or DNS domain, you will see that the status of certificates will show as **Not valid**. 
 
-        ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
+        ![Local web UI "Certificates" page 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
 
         Select a certificate to view the details of the status.
 
-        ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+        ![Local web UI "Certificates" page 3](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
 
         This is because the certificates do not reflect the updated device name and DNS domain (that are used in subject name and subject alternative). To successfully activate your device, choose one of the following options: 
     
@@ -103,11 +103,11 @@ Use these steps to regenerate and download the Azure Stack Edge Pro device certi
 
 4. Select the download link for a certificate and when prompted, save the certificate. 
 
-    ![Generate and download certificate 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
+    ![Generate and download certificate 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
 
 5. Repeat this process for all the certificates that you wish to download. 
     
-    ![Generate and download certificate 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
+    ![Generate and download certificate 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
     The device generated certificates are saved as DER certificates with the following name format: 
 
@@ -130,31 +130,31 @@ Follow these steps to add your own certificates including the signing chain.
 
 1. To upload certificate, on the **Certificate** page, select **+ Add certificate**.
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
+    ![Local web UI "Certificates" page 4](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
 
 2. Upload the signing chain first and select **Validate & add**.
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
+    ![Local web UI "Certificates" page 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
 3. Now you can upload other certificates. For example, you can upload the Azure Resource Manager and Blob storage endpoint certificates.
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
+    ![Local web UI "Certificates" page 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
     You can also upload the local web UI certificate. After you upload this certificate, you will be required to start your browser and clear the cache. You will then need to connect to the device local web UI.  
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
+    ![Local web UI "Certificates" page 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
     You can also upload the node certificate.
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
+    ![Local web UI "Certificates" page 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
     At any time, you can select a certificate and view the details to ensure that these match with the certificate that you uploaded.
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+    ![Local web UI "Certificates" page 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
 
     The certificate page should update to reflect the newly added certificates.
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
+    ![Local web UI "Certificates" page 10](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
 
     > [!NOTE]
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).

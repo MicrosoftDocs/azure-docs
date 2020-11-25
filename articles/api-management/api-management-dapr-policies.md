@@ -3,7 +3,7 @@ title: Azure API Management Dapr integration policies | Microsoft Docs
 description: Learn about Azure API Management policies for interacting with Dapr microservices extensions.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
 ---
@@ -20,7 +20,7 @@ This topic provides a reference for Dapr integration API Management policies. Da
 
 ## Enable Dapr support in the self-hosted gateway
 
-To turn on Dapr support in the self-hosted gateway add the [Dapr annotations](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) below to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md) replacing "app-name" with a desired name. Complete walkthrough of setting up and using API Management with Dapr is available [here](https://aka.ms/apim/dapr/walkthru).
+To turn on Dapr support in the self-hosted gateway add the [Dapr annotations](https://github.com/dapr/docs/blob/master/README.md) below to the [Kubernetes deployment template](how-to-deploy-self-hosted-gateway-kubernetes.md) replacing "app-name" with a desired name. Complete walkthrough of setting up and using API Management with Dapr is available [here](https://aka.ms/apim/dapr/walkthru).
 ```yml
 template:
     metadata:
@@ -34,9 +34,9 @@ template:
 
 ## Distributed Application Runtime (Dapr) integration policies
 
--  [Send request to a service](api-management-dapr-policies.md#invoke): Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) file.
--  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub): Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) file.
--  [Trigger output binding](api-management-dapr-policies.md#bind): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md) file.
+-  [Send request to a service](api-management-dapr-policies.md#invoke): Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.
+-  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub): Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
+-  [Trigger output binding](api-management-dapr-policies.md#bind): Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file.
 
 ## <a name="invoke"></a> Send request to a service
 
@@ -87,8 +87,8 @@ The `forward-request` policy is shown here for clarity. The policy is typically 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Must be set to "dapr"           | Yes      | N/A     |
-| dapr-app-id      | Name of the target microservice. Maps to the [appId](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
-| dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
+| dapr-app-id      | Name of the target microservice. Maps to the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
+| dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
 
 ### Usage
 
@@ -99,14 +99,14 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="pubsub"></a> Send message to Pub/Sub topic
 
-This policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` replacing template parameters and adding content specified in the policy statement.
+This policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` replacing template parameters and adding content specified in the policy statement.
 
 The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime implements the Pub/Sub semantics.
 
 ### Policy statement
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -115,7 +115,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 #### Example
 
-The following example demonstrates sending the body of the current request to the "new" [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) of the "orders" Pub/Sub [component](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters). Response received from the Dapr runtime is stored in the "dapr-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
+The following example demonstrates sending the body of the current request to the "new" [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters) of the "orders" Pub/Sub [component](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters). Response received from the Dapr runtime is stored in the "dapr-response" entry of the Variables collection in the [context](api-management-policy-expressions.md#ContextVariables) object.
 
 If Dapr runtime can't locate the target topic, for example, and responds with an error, the "on-error" section is triggered. The response received from the Dapr runtime is returned to the caller verbatim. Otherwise, default `200 OK` response is returned.
 
@@ -126,7 +126,8 @@ The "backend" section is empty and the request is not forwarded to the backend.
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+	       pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -153,7 +154,8 @@ The "backend" section is empty and the request is not forwarded to the backend.
 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
-| topic            | Target topic name               | Yes      | N/A     |
+| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. If not present, the __topic__ attribute value must be in the form of `pubsub-name/topic-name`.    | No       | None    |
+| topic            | The name of the topic. Maps to the [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr.               | Yes      | N/A     |
 | ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime | No | `false` |
 | response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
 | timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |
@@ -169,7 +171,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="bind"></a> Trigger output binding
 
-This policy instructs API Management gateway to trigger an outbound Dapr [binding](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md). The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/bindings/{{bind-name}}` replacing template parameter and adding content specified in the policy statement.
+This policy instructs API Management gateway to trigger an outbound Dapr [binding](https://github.com/dapr/docs/blob/master/README.md). The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/bindings/{{bind-name}}` replacing template parameter and adding content specified in the policy statement.
 
 The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime is responsible for invoking the external resource represented by the binding.
 
@@ -230,16 +232,16 @@ The "backend" section is empty and the request is not forwarded to the backend.
 | Element             | Description  | Required |
 |---------------------|--------------|----------|
 | invoke-dapr-binding | Root element | Yes      |
-| metadata            | Binding specific metadata in the form of key/value pairs. Maps to the [metadata](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No |
-| data            | Content of the message. Maps to the [data](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No |
+| metadata            | Binding specific metadata in the form of key/value pairs. Maps to the [metadata](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No |
+| data            | Content of the message. Maps to the [data](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No |
 
 
 ### Attributes
 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
-| name            | Target binding name. Must match the name of the bindings [defined](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) in Dapr.           | Yes      | N/A     |
-| operation       | Target operation name (binding specific). Maps to the [operation](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No | None |
+| name            | Target binding name. Must match the name of the bindings [defined](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) in Dapr.           | Yes      | N/A     |
+| operation       | Target operation name (binding specific). Maps to the [operation](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No | None |
 | ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime | No | `false` |
 | response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime | No | None |
 | timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |

@@ -89,7 +89,7 @@ Do the following steps in the Azure portal to refresh a share.
 
 1. In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
-   ![Select share](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Select share 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Click **Refresh**. 
 
@@ -119,11 +119,11 @@ Do the following steps in the Azure portal to sync your storage access key.
 1. Go to **Overview** in your resource. 
 2. From the list of shares, choose and click a share associated with the storage account that you need to sync. Click **Sync storage key**. 
 
-     ![Sync storage key 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Sync storage key](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Click **Yes** when prompted for confirmation. Exit out of the dialog once the sync is complete.
 
-     ![Sync storage key 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Sync storage key 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > You only have to do this once for a given storage account. You don't need to repeat this action for all the shares associated with the same storage account.

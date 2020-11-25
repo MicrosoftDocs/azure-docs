@@ -57,11 +57,11 @@ Two sample prediction problems are addressed in this walkthrough:
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
 1. [Create a storage account](../../storage/common/storage-account-create.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
-2. [Customize Azure HDInsight Hadoop Clusters for Data Science](customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
+2. [Customize Azure HDInsight Hadoop Clusters for Data Science](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
 
    * Link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
    * Enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from the credentials specified at cluster creation): complete the following procedures.
-3. [Create an Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
+3. [Create an Azure Machine Learning Studio (classic) workspace](../classic/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
 ## <a name="getdata"></a>Get and consume data from a public source
 The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot is shown here:
@@ -70,7 +70,7 @@ The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) da
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in an [Azure blob storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
+The data resides in an [Azure blob storage](../../storage/blobs/storage-quickstart-blobs-dotnet.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
 
 1. The data in this Azure blob storage consists of three subfolders of unzipped data.
 
@@ -348,7 +348,7 @@ This yields:
 Time taken: 448.116 seconds, Fetched: 1 row(s)
 ```
 
-Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is not feasible. In particular, a powerful, robust technique called [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) for tackling this problem efficiently is explained and demonstrated.
+Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is not feasible. In particular, a powerful, robust technique called [Learning With Counts](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) for tackling this problem efficiently is explained and demonstrated.
 
 Finally look at the number of unique values for some other categorical columns as well. The contents of [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) are:
 
@@ -466,7 +466,7 @@ With this, you are ready to use our down sampled train and test datasets for bui
 There is a final important component before moving on to Azure Machine Learning, which concerns the count table. In the next subsection, the count table is discussed in some detail.
 
 ## <a name="count"></a> A brief discussion on the count table
-As you saw, several categorical variables have a high dimensionality. In the walkthrough, a powerful technique called [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner is presented. More information on this technique is in the link provided.
+As you saw, several categorical variables have a high dimensionality. In the walkthrough, a powerful technique called [Learning With Counts](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) to encode these variables in an efficient, robust manner is presented. More information on this technique is in the link provided.
 
 >[!NOTE]
 >In this walkthrough, the focus is on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) and [feature hashing](https://en.wikipedia.org/wiki/Feature_hashing).
@@ -689,4 +689,3 @@ The default API key has been replaced with our webservice's API key. Clicking **
 For the two test examples asked about in the Python script JSON framework, you get back answers in the form "Scored Labels, Scored Probabilities". In this case, the default values have been chosen that the pre-canned code provides (0's for all numeric columns and the string "value" for all categorical columns).
 
 In conclusion, our walkthrough shows how to handle large-scale dataset using Azure Machine Learning. You started with a terabyte of data, constructed a prediction model, and deployed it as a web service in the cloud.
-

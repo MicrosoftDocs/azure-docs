@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
@@ -16,7 +16,7 @@ zone_pivot_groups: acs-plat-azp-net
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management client library. The management client library allows you to create, configure, update and delete your resource and interfaces with [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), Azure's deployment and management service. All functionality available in the client libraries is available in the Azure portal. 
+Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication services resources can be provisioned through the Azure portal or with the .NET management client library. The management client library allows you to create, configure, update and delete your resource and interfaces with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the client libraries is available in the Azure portal. 
 
 > [!WARNING]
 > Note that Communication Services availability is restricted to the US geography during public preview. Also note that communication resources cannot be transferred to a different subscription during public preview.
@@ -42,8 +42,8 @@ After navigating to your Communication Services resource, select **Keys** from t
 Communication Services client libraries use connection strings to authorize requests made to Communication Services. You have several options for storing your connection string:
 
 * An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
-* An application running in an Azure App Service can store the connection string in the [App Service application settings](https://docs.microsoft.com/azure/app-service/configure-common). Add the connection string to the **Connection Strings** section of the Application Settings tab within the portal.
-* You can store your connection string in [Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+* An application running in an Azure App Service can store the connection string in the [App Service application settings](../../app-service/configure-common.md). Add the connection string to the **Connection Strings** section of the Application Settings tab within the portal.
+* You can store your connection string in [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md).
 * If you're running your application locally, you may want to store your connection string in an environment variable.
 
 ### Store your connection string in an environment variable

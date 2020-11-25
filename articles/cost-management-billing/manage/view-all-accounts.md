@@ -22,7 +22,7 @@ Azure portal supports the following type of billing accounts:
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. You can have a maximum of 20 subscriptions in a Microsoft Customer Agreement. For more information, see [Get started with your billing account for Microsoft Customer Agreement](../understand/mca-overview.md).
 
-- **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](https://docs.microsoft.com/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. For more information, see [Get started with your billing account for Microsoft Partner Agreement](../understand/mpa-overview.md).
+- **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. For more information, see [Get started with your billing account for Microsoft Partner Agreement](../understand/mpa-overview.md).
 
 To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-account).
 
@@ -75,11 +75,11 @@ A scope is a node within a billing account that you use to view and manage billi
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for Cost Management + Billing.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. In the overview page, select **Switch scope**.
 
-   ![Screenshot that shows billing scopes](./media/view-all-accounts/overview-select-scopes.png)
+   ![Screenshot that shows billing scopes.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -87,7 +87,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 4. Select a scope to view details.
 
-   ![Screenshot that shows billing scopes](./media/view-all-accounts/list-of-scopes.png)
+   ![Screenshot that shows billing scopes, which you can select for details.](./media/view-all-accounts/list-of-scopes.png)
 
 ## Check the type of your account
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

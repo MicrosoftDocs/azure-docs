@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/29/2020
+ms.date: 09/22/2020
 ms.author: alkohli
 ---
 # Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device
@@ -57,7 +57,7 @@ The Kubernetes Dashboard is *read-only* and runs on the Kubernetes master node a
 
 Compute modules are containers that have a business logic implemented. You can use the dashboard to verify if a compute module has deployed successfully on your Azure Stack Edge Pro device.
 
-TO view the module status, follow these steps on the dashboard:
+To view the module status, follow these steps on the dashboard:
 
 1. In the left-pane of the dashboard, go to **Namespace**. Filter by the namespace where IoT Edge modules are displayed, in this case, **iotedge**.
 1. In the left-pane, go to **Workloads > Deployments**.
@@ -109,9 +109,9 @@ You could also filter by a specific namespace. In the following example, you cou
 
 ![View CPU and memory usage for Azure Arc deployments](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
 
-The Kubernetes metrics server provides autoscaling pipelines similar to that of the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+The Kubernetes metrics server provides autoscaling pipelines such as [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 
 ## Next steps
 
-Learn how to Troubleshoot Kubernetes issues <!--insert link-->.
+Learn how to [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md).
