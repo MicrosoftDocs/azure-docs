@@ -27,7 +27,7 @@ This article shows you how to use an Azure Resource Manager template (ARM templa
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Readers who are experienced with ARM templates can continue to the deployment.
+Readers who are experienced with ARM templates can continue to the [deployment section](#deploy-the-template).
 
 <!-- this section will be added when the template is merged. If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
