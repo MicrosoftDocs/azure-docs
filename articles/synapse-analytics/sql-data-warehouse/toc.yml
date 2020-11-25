@@ -1,4 +1,4 @@
-- name: Azure Synapse (SQL DW)
+- name: Azure Synapse (formerly SQL DW)
   href: index.yml
 - name: Switch to Azure Synapse (workspaces preview)
   href: ../overview-what-is.md
@@ -28,7 +28,9 @@
   expanded: true
   items:
   - name: Create and connect
-    items: 
+    items:
+    - name: Azure CLI
+      href: create-data-warehouse-azure-cli.md
     - name: Portal
       href: create-data-warehouse-portal.md
     - name: PowerShell
@@ -422,5 +424,7 @@
       href: sql-data-warehouse-partner-data-management.md
     - name: Machine learning and AI
       href: sql-data-warehouse-partner-machine-learning-ai.md
-    - name: Public Preview partners
-      href: sql-data-warehouse-partner-launch.md
+    - name: System integration
+      href: sql-data-warehouse-partner-system-integration.md
+    - name: Compatibility issues with third-party applications
+      href: sql-data-warehouse-partner-compatibility-issues.md

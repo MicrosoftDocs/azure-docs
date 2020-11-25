@@ -197,7 +197,7 @@ In this section, you'll create a load balancer rule:
 4. Leave the rest of the defaults and then select **OK**.
 
 >[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](../virtual-network/nat-overview.md)**
 
 ## Create backend servers
 
@@ -630,4 +630,4 @@ In this quickstart, you:
 
 To learn more about Azure Load Balancer, continue to..
 > [!div class="nextstepaction"]
-> [What is Azure Load Balancer?](load-balancer-overview.md) 
+> [What is Azure Load Balancer?](load-balancer-overview.md)

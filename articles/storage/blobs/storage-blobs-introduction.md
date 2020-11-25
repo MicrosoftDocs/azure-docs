@@ -70,5 +70,5 @@ A number of solutions exist for migrating existing data to Blob storage:
 
 ## Next steps
 
-- [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Scalability and performance targets for Blob storage](scalability-targets.md)

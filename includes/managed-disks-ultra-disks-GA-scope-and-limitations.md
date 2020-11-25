@@ -61,7 +61,7 @@ The following table outlines the regions ultra disks are available in, as well a
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Not every VM size is available in every supported region with ultra disks.
 - Are only available as data disks. 
-- Support 4k physical sector size by default. 512E sector size is available as a generally available offering but, you must [sign up for it](https://aka.ms/ultradisk512e). Most applications are compatible with 4k sector sizes but, some require 512 byte sector sizes. One example would be Oracle Database, which requires release 12.2 or later in order to support the 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+- Support 4k physical sector size by default. 512E sector size is available as a generally available offering (no signup required) but it is currently only available using the CLI or powershell. Most applications are compatible with 4k sector sizes but, some require 512 byte sector sizes. One example would be Oracle Database, which requires release 12.2 or later in order to support the 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 - Can only be created as empty disks.
 - Doesn't currently support disk snapshots, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
 - Doesn't currently support integration with Azure Backup or Azure Site Recovery.
