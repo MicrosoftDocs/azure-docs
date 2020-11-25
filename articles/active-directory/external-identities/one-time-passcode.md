@@ -27,7 +27,7 @@ This article describes how to enable email one-time passcode authentication for 
 > **Starting March 2021**, the email one-time passcode feature will be turned on for all existing tenants and enabled by default for new tenants. If you don't want to allow this feature to turn on automatically, you can disable it. See [Disable email one-time passcode](#disable-email-one-time-passcode) below.
 
 > [!NOTE]
-> One-time passcode users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error.
+> One-time passcode users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`will result in an error.
 
 ## User experience for one-time passcode guest users
 
@@ -65,17 +65,17 @@ You can view guest users who authenticate with one-time passcodes in the Azure p
 
 ### Example
 
-Guest user alexdoe@gmail.com is invited to Fabrikam, which does not have Google federation set up. Alex does not have a Microsoft account. They'll receive a one-time passcode for authentication.
+Guest user teri@gmail.com is invited to Fabrikam, which does not have Google federation set up. Teri does not have a Microsoft account. They'll receive a one-time passcode for authentication.
 
 ## Disable email one-time passcode
 
-Starting March 2021, the email one-time passcode feature will be turned on for all existing tenants and enabled by default for new tenants. We're enabling this feature because it provides a seamless fallback authentication method for your guest users. However, you have the option of disabling this feature if you choose not to use it. 
+Starting March 2021, the email one-time passcode feature will be turned on for all existing tenants and enabled by default for new tenants. At that time, Microsoft will no longer support the redemption of invitations by creating unmanaged ("viral" or "just-in-time") Azure AD accounts and tenants for B2B collaboration scenarios. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, you have the option of disabling this feature if you choose not to use it.
 
 > [!NOTE]
 >
 > - If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite them so they can sign in again using another authentication method.
 >
-> - If you manually enable or disable the feature, the **Automatically enable email one-time passcode for guests in March 2021** option will no longer be available to you.
+> - If you enable or disable the email one-time passcode feature in your tenant, the option to **Automatically enable email one-time passcode for guests in March 2021** will no longer be available.
 
 ### To disable the email one-time passcode feature
 
@@ -102,6 +102,6 @@ Starting March 2021, the email one-time passcode feature will be turned on for a
 
 ## Note for public preview customers
 
-If you've already opted into the public preview of email one-time passcode authentication, you won't be affected by the March 2021 date we've set for automatically enabling the one-time passcode feature. Also, because you've already opted in to email one-time passcode authentication, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**.
+If you've already opted into the public preview of email one-time passcode authentication, you won't be affected by the March 2021 date we've set for automatically enabling the one-time passcode feature so as not to disrupt any business processes you might have set up. 
 
-However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can revert to the default setting using the [email authentication method configuration](/graph/api/resources/emailauthenticationmethodconfiguration?view=graph-rest-beta) resource type in the Microsoft Graph API.
+Additionally, because you've already opted in to email one-time passcode authentication, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**. However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can revert to the default setting using the email authentication method configuration resource type in the Microsoft Graph API.
