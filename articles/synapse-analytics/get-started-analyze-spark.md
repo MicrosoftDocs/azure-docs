@@ -55,8 +55,8 @@ We have data available in a table in **SQLPOOL1**. Load it into a Spark database
 
 1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
-    - **SQLPOOL1** (dedicated SQL pool)
-    - **nyctaxi** (serverless Apache Spark pool)
+    - **SQLPOOL1 (SQL)**
+    - **nyctaxi (Spark)**
 
 ## Analyze the NYC Taxi data using Spark and notebooks
 
@@ -88,22 +88,7 @@ We have data available in a table in **SQLPOOL1**. Load it into a Spark database
 
 1. In the cell results, select **Chart** to see the data visualized.
 
-## Customize data visualization with Spark and notebooks
 
-You can control how charts render by using notebooks. The following code shows a simple example. It uses the popular libraries **matplotlib** and **seaborn**. The code renders the same kind of line chart as the SQL queries we ran earlier.
-
-```py
-%%pyspark
-import matplotlib.pyplot
-import seaborn
-
-seaborn.set(style = "whitegrid")
-df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.toPandas()
-seaborn.lineplot(x="PassengerCount", y="SumTripDistance" , data = df)
-seaborn.lineplot(x="PassengerCount", y="AvgTripDistance" , data = df)
-matplotlib.pyplot.show()
-```
 
 
 

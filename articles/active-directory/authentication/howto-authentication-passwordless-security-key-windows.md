@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 11/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,7 +26,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 
 | Device Type | Azure AD joined | Hybrid Azure AD joined |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1903 or higher | X | X |
@@ -131,7 +131,7 @@ For **hybrid Azure AD joined devices**, organizations can configure the followin
 - Setting this policy to **Enabled** allows users to sign in with security keys.
 - Setting this policy to **Disabled** or **Not Configured** stops users from signing in with security keys.
 
-This Group Policy setting requires an updated version of the `credentialprovider.admx` Group Policy template. This new template is available with the next version of Windows Server and with Windows 10 20H1. This setting can be managed with a device running one of these newer versions of Windows or centrally by following the guidance in the support topic, [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+This Group Policy setting requires an updated version of the `CredentialProviders.admx` Group Policy template. This new template is available with the next version of Windows Server and with Windows 10 20H1. This setting can be managed with a device running one of these newer versions of Windows or centrally by following the guidance in the support topic, [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## Sign in with FIDO2 security key
 
@@ -161,4 +161,4 @@ If you'd like to share feedback or encounter issues while previewing this featur
 
 [Learn more about device registration](../devices/overview.md)
 
-[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

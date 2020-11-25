@@ -4,6 +4,7 @@ description: Learn more about Azure VM extensions
 services: virtual-machines
 author: amjads1
 ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020

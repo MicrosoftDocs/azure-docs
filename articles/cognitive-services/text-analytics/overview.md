@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
@@ -42,9 +42,18 @@ Language detection can [detect the language an input text is written in](how-tos
 
 Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, quantities, Well-known entities are also recognized and linked to more information on the web.
 
-## Use containers
+## Deploy on premises using Docker containers
 
-[Use the Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) as an on-premises solution for mining text and using the API. These Docker containers enable you to extract key phrases, detect language, and analyze sentiment closer to your data.
+[Use Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to deploy API features on-premises. These docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Text Analytics offers the following containers:
+
+* sentiment analysis
+* key phrase extraction (preview)
+* language detection (preview)
+* Text Analytics for health (preview)
+
+## Asynchronous operations
+
+The `/analyze` endpoint enables you to use select features of the Text Analytics API [asynchronously](how-tos/text-analytics-how-to-call-api.md), such as NER and key phrase extraction.
 
 ## Typical workflow
 

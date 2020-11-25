@@ -1,6 +1,6 @@
 ---
 title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
-description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (RBAC), and roles and bindings.
+description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (Kubernetes RBAC), and roles and bindings.
 services: container-service
 ms.topic: conceptual
 ms.date: 07/07/2020
@@ -11,11 +11,11 @@ ms.author: jpalma
 
 # Access and identity options for Azure Kubernetes Service (AKS)
 
-There are different ways to authenticate, control access/authorize and secure Kubernetes clusters. Using Kubernetes role-based access control (RBAC), you can grant users, groups, and service accounts access to only the resources they need. With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure by using Azure Active Directory and Azure RBAC. These approaches help you secure your cluster access and provide only the minimum required permissions to developers and operators.
+There are different ways to authenticate, control access/authorize and secure Kubernetes clusters. Using Kubernetes role-based access control (Kubernetes RBAC), you can grant users, groups, and service accounts access to only the resources they need. With Azure Kubernetes Service (AKS), you can further enhance the security and permissions structure by using Azure Active Directory and Azure RBAC. These approaches help you secure your cluster access and provide only the minimum required permissions to developers and operators.
 
 This article introduces the core concepts that help you authenticate and assign permissions in AKS:
 
-- [Kubernetes role-based access control (RBAC)](#kubernetes-role-based-access-control-rbac)
+- [Kubernetes role-based access control (Kubernetes RBAC)](#kubernetes-role-based-access-control-kubernetes-rbac)
   - [Roles and ClusterRoles](#roles-and-clusterroles)
   - [RoleBindings and ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
   - [Kubernetes service accounts](#kubernetes-service-accounts)
@@ -25,11 +25,11 @@ This article introduces the core concepts that help you authenticate and assign 
   - [Azure RBAC for Kubernetes Authorization (Preview)](#azure-rbac-for-kubernetes-authorization-preview)
 
 
-## Kubernetes role-based access control (RBAC)
+## Kubernetes role-based access control (Kubernetes RBAC)
 
-To provide granular filtering of the actions that users can do, Kubernetes uses role-based access control (RBAC). This control mechanism lets you assign users, or groups of users, permission to do things like create or modify resources, or view logs from running application workloads. These permissions can be scoped to a single namespace, or granted across the entire AKS cluster. With Kubernetes RBAC, you create *roles* to define permissions, and then assign those roles to users with *role bindings*.
+To provide granular filtering of the actions that users can do, Kubernetes uses Kubernetes role-based access control (Kubernetes RBAC). This control mechanism lets you assign users, or groups of users, permission to do things like create or modify resources, or view logs from running application workloads. These permissions can be scoped to a single namespace, or granted across the entire AKS cluster. With Kubernetes RBAC, you create *roles* to define permissions, and then assign those roles to users with *role bindings*.
 
-For more information, see [Using RBAC authorization][kubernetes-rbac].
+For more information, see [Using Kubernetes RBAC authorization][kubernetes-rbac].
 
 
 ### Roles and ClusterRoles
@@ -42,7 +42,7 @@ A ClusterRole works in the same way to grant permissions to resources, but can b
 
 ### RoleBindings and ClusterRoleBindings
 
-Once roles are defined to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster [integrates with Azure Active Directory](#azure-active-directory-integration), bindings are how those Azure AD users are granted permissions to perform actions within the cluster, see how in [Control access to cluster resources using role-based access control and Azure Active Directory identities](azure-ad-rbac.md).
+Once roles are defined to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster [integrates with Azure Active Directory](#azure-active-directory-integration), bindings are how those Azure AD users are granted permissions to perform actions within the cluster, see how in [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities](azure-ad-rbac.md).
 
 Role bindings are used to assign roles for a given namespace. This approach lets you logically segregate a single AKS cluster, with users only able to access the application resources in their assigned namespace. If you need to bind roles across the entire cluster, or to cluster resources outside a given namespace, you can instead use *ClusterRoleBindings*.
 
@@ -103,7 +103,7 @@ For more information, see [What is Azure role-based access control (Azure RBAC)?
 
 There are two levels of access needed to fully operate an AKS cluster: 
 1. [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). This process allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
-2. Access to the Kubernetes API. This access is controlled either by [Kubernetes RBAC](#kubernetes-role-based-access-control-rbac) (traditionally) or by [integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview)
+2. Access to the Kubernetes API. This access is controlled either by [Kubernetes RBAC](#kubernetes-role-based-access-control-kubernetes-rbac) (traditionally) or by [integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### Azure RBAC to authorize access to the AKS resource
 

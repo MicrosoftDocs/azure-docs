@@ -16,6 +16,8 @@ Azure Container Registry (ACR) is a managed, private Docker registry service tha
 
 To protect all the Azure Resource Manager based registries in your subscription, enable **Azure Defender for container registries** at the subscription level. Security Center will then scan images that are pushed to the registry, imported into the registry, or any images pulled within the last 30 days. This feature is charged per image.
 
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
+
 ## What are the benefits of Azure Defender for container registries?
 
 Security Center identifies Azure Resource Manager based ACR registries in your subscription and seamlessly provides Azure-native vulnerability assessment and management for your registry's images.
