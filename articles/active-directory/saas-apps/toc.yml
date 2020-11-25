@@ -1390,6 +1390,8 @@
         href: resource-central-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
+      - name: RetrieverMediaDatabase
+        href: retrievermediadatabase-tutorial.md
       - name: Reviewsnap
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
