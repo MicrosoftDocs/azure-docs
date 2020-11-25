@@ -5,7 +5,7 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 11/25/2020
 ms.author: lle
 ms.reviewer: craigg
 ---
@@ -79,6 +79,52 @@ https://docs.microsoft.com/azure/data-factory/data-factory-private-link
 Try to enable the public network access with user interface.
 
 ![Enable public network access](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+
+### Unexpected network response from REST connector
+
+#### Symptoms
+
+Endpoint sometimes receives unexpected response (400, 401, 403, 500, etc.) from REST connector.
+
+#### Cause
+
+The REST source connector works in below sequence:
+
+1. Construct an HTTP request with below parameters from linked service/dataset/copy source:
+
+    - URL (base URL + relative URL)
+    - HTTP method
+    - HTTP headers (optional)
+    - HTTP body (optional)
+
+1. Send the HTTP request to the specified URL
+
+1. Receive the response from the endpoint
+
+The issue is most likely caused by mistakes in specified parameter.
+
+#### Resolution
+
+You can use tools such as **curl** (Windows 10 built-in command), **Postman**, or **fiddler** to check whether that is the case.
+
+Below are the steps to troubleshoot with **curl**:
+
+1. Use Win+R and enter "cmd" to open command console.
+ 
+1. Run following command in the cmd window:
+
+    ```
+    curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+    ```
+    > [!IMPORTANT] 
+    > Please be noticed that always include the **"Accept"** and **"User-Agent"** headers.
+
+1. If the command returns the same unexpected response, please fix above parameters with curl until it returns the expected response.
+
+1. If only ADF REST connector returns unexpected response, you can create an IcM ticket to PG for further troubleshooting.
+
+1. For more advanced usage of curl, please use 'curl --help'
 
 ## Next steps
 
