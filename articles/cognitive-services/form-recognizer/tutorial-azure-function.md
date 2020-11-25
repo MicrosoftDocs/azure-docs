@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Tutorial: Use an Azure Function to process stored documents
 
-You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
+You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
 
 > [!div class="mx-imgBorder"]
 > ![azure service workflow diagram](./media/tutorial-azure-function/workflow-diagram.png)
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your Form Recognizer key and endpoint. After it deploys, click **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A local PDF document to analyze. You can download this [sample document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf) to use.
 * [Python 3.x](https://www.python.org/) installed.
@@ -118,7 +118,7 @@ def main(myblob: func.InputStream):
     f"Blob Size: {myblob.length} bytes")
 ```
 
-The following code block calls the Form Recognizer [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API on the uploaded document. You need to fill in your endpoint and key values. 
+The following code block calls the Form Recognizer [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values. 
 
 ```Python
 # This is the call to the Form Recognizer endpoint
@@ -150,7 +150,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the [Cognitive Services security](../cognitive-services-security.md) article.
 
 Next, add code to query the service and get the returned data. 
 
@@ -233,7 +233,7 @@ The following code parses the returned Form Recognizer response, constructs a .c
 
 ## Run the function
 
-Press F5 to run the function again. Use Azure Storage Explorer to upload a sample PDF form to the **Test** storage container. This should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **Output** container.
+Press F5 to run the function again. Use Azure Storage Explorer to upload a sample PDF form to the **Test** storage container. This action should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **Output** container.
 
 You can connect this container to Power BI to create rich visualizations of the data it contains.
 
