@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Tutorial: Use an Azure Function to process stored documents
 
-You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as .csv file in Azure. You can then display the data using PowerBI (not covered here).
+You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
 
 ![azure service workflow diagram](./media/tutorial-azure-function/workflow-diagram.png)
 
@@ -34,9 +34,9 @@ In this tutorial, you learn how to:
 * A local PDF document to analyze. You can use this sample document.
 * [Python 3.x](https://www.python.org/).
 * Azure Storage Explorer installed.
-* [Azure Functions Core Tools](https://docs.microsoft.com/da-dk/azure/developer/python/tutorial-vs-code-serverless-python-01#azure-functions-core-tools) installed.
+* [Azure Functions Core Tools](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#azure-functions-core-tools) installed.
 * Visual Studio Code with the following extensions installed:
-  * [Azure Functions extension](https://docs.microsoft.com/da-dk/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
+  * [Azure Functions extension](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
   * [Python extension](https://code.visualstudio.com/docs/python/python-tutorial#_install-visual-studio-code-and-the-python-extension)
 
 ## Create an Azure Storage account
@@ -150,7 +150,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
 
 Next, add code to query the service and get the returned data. 
 
@@ -231,10 +231,14 @@ The following code parses the returned Form Recognizer response, constructs a .c
 
 Press F5 to run the function again. Use Azure Storage Explorer to upload a sample PDF form to the **Test** storage container. This should trigger the script to run, and you should then see the resulting .csv file (displayed as a table) in the **Output** container.
 
-You can connect this container to PowerBI to create rich visualizations of the data it contains.
+You can connect this container to Power BI to create rich visualizations of the data it contains.
 
 ## Next steps
 
-In this tutorial you learned how to use an Azure Function written in Python to automatically process uploaded PDF documents and output their contents in a more data-friendly format. Next, learn how to use PowerBI to display the data.
+In this tutorial, you learned how to use an Azure Function written in Python to automatically process uploaded PDF documents and output their contents in a more data-friendly format. Next, learn how to use Power BI to display the data.
 
-* [Display Azure Table contents in PowerBI](tbd)
+> [!div class="nextstepaction"]
+> [Microsoft Power BI](https://powerbi.microsoft.com/en-us/integrations/azure-table-storage/)
+
+* [What is Form Recognizer?](../../overview.md)
+* Learn more about the [Layout API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
