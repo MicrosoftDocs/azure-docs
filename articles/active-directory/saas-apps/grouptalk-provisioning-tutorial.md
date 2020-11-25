@@ -45,9 +45,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure GroupTalk to support provisioning with Azure AD
 
-1. Reach out to GroupTalk Support at support@grouptalk.com with the **Tenant name** and **id** you would like to integrate with  Azure AD.
+1. Reach out to GroupTalk Support at support@grouptalk.com with the **Tenant name** and **ID** you would like to integrate with  Azure AD.
 2. When you've been notified that the necessary setup for your Azure AD integration is ready, login to GroupTalk Admin and navigate to your Organization view. 
-3. An Azure AD Integration configuration item should be visible. Click on it to verify the **Tenant name** and **id**  to obtain a **JWT (Secret Token)**. 
+3. An Azure AD Integration configuration item should be visible. Click on it to verify the **Tenant name** and **ID**  to obtain a **JWT (Secret Token)**. 
 4. The GroupTalk Tenant URL is `https://api.grouptalk.com/api/scim/`. The **Tenant URL** and the **Secret Token** retrieved in the previous step will be entered in the Provisioning tab of your GroupTalk application in the Azure portal. 
 
 ## Step 3. Add GroupTalk from the Azure AD application gallery
@@ -60,7 +60,7 @@ Add **GroupTalk** from the Azure AD application gallery to start managing provis
 	![GroupTalk](media/grouptalk-provisioning-tutorial/login.png)
 
 3. Login with your AD Administrative account, and accept the GroupTalk application's access rights. You will get an error message after this is done indicating the user isn't present. This is expected since your user isn't provisioned to GroupTalk yet but you have now added GroupTalk to your tenant.
-4. Go back to the Azure Portal and verify that **GroupTalk** is now added to your Enterprise Applications.
+4. Go back to the Azure portal and verify that **GroupTalk** is now added to your Enterprise Applications.
 
 Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
