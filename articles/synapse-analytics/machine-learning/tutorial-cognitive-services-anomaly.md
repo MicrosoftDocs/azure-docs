@@ -12,7 +12,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Anomaly detection with Cognitive Services
+# Tutorial: Anomaly detection with Cognitive Services (Preview)
 
 In this tutorial, you will learn how to easily enrich your data in Azure Synapse with [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). We will be using the [Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2147493) to perform anomaly detection. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
 
