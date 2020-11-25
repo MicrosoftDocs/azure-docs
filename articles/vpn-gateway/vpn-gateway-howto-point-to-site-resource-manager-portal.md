@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about Point-to-Site VPN, see [About Point-to-Site VPN](point-to-site-about.md).
 
-:::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Connect from a computer to an Azure VNet - point-to-site connection diagram":::
+:::image type="content" source="./media\vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="Connect from a computer to an Azure VNet - point-to-site connection diagram":::
 
 For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md). To create this configuration using the Azure PowerShell, see [Configure a point-to-site VPN using Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
@@ -145,7 +145,7 @@ The VPN client configuration files contain settings to configure devices to conn
 
 From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then select **Connect**.
 
-Check [Install - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) for detailed instructions. If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. Basic SKU is not supported for Mac clients.
+Check [Install - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) for detailed instructions. If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. Basic SKU is not supported for Mac clients.
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Mac VPN client connection" border="false":::
 
@@ -203,7 +203,7 @@ The common practice is to use the root certificate to manage access at team or o
 
 You can revoke a client certificate by adding the thumbprint to the revocation list.
 
-1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Retrieve the client certificate thumbprint. For more information, see [How to retrieve the Thumbprint of a Certificate](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Copy the information to a text editor and remove all spaces so that it is a continuous string.
 1. Navigate to the virtual network gateway **Point-to-site-configuration** page. This is the same page that you used to [upload a trusted root certificate](#uploadfile).
 1. In the **Revoked certificates** section, input a friendly name for the certificate (it doesn't have to be the certificate CN).
@@ -216,6 +216,6 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
 
 For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

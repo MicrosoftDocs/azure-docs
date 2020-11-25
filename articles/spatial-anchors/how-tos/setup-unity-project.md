@@ -1,12 +1,12 @@
 ---
 title: Install Azure Spatial Anchors for Unity
 description: Configure a Unity project to use Azure Spatial Anchors
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ---

@@ -127,7 +127,7 @@ In April 2020, we've added these 31 new apps with Federation support to the app 
 
 [SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [Float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT Procurement Suite](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO for Jira](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), [Meraki Dashboard](../saas-apps/meraki-dashboard-tutorial.md), [Microsoft 365 Mover](https://app.mover.io/login), [Speaker Engage](https://speakerengage.com/login.php), [Honestly](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/), [AlertMedia](../saas-apps/alertmedia-tutorial.md), [gr8 People](../saas-apps/gr8-people-tutorial.md), [Pendo](../saas-apps/pendo-tutorial.md), [HighGround](../saas-apps/highground-tutorial.md), [Harmony](../saas-apps/harmony-tutorial.md), [Timetabling Solutions](../saas-apps/timetabling-solutions-tutorial.md), [SynchroNet CLICK](../saas-apps/synchronet-click-tutorial.md), [empower](https://www.made-in-office.com/en/), [Fortes Change Cloud](../saas-apps/fortes-change-cloud-tutorial.md), [Litmus](../saas-apps/litmus-tutorial.md), [GroupTalk](https://recorder.grouptalk.com/), [Frontify](../saas-apps/frontify-tutorial.md), [MongoDB Cloud](../saas-apps/mongodb-cloud-tutorial.md), [TickitLMS Learn](../saas-apps/tickitlms-learn-tutorial.md), [COCO](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [Nitro Productivity Suite](../saas-apps/nitro-productivity-suite-tutorial.md) , [Trend Micro Web Security(TMWS)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -186,7 +186,7 @@ Delta query for administrative units is available for public preview! You can no
 
 **Product capability:** Developer Experience
 
-These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
+These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure AD MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
 
 - Read, add, update, and remove a user’s authentication phones
 - Reset a user’s password
@@ -212,7 +212,7 @@ Using administrative units, a central administrator could:
 - Assign a role with administrative permissions over only Azure AD users in an administrative unit
 - Populate the administrative units with users and groups as needed
 
-For more information, see [Administrative units management in Azure Active Directory (preview)](../users-groups-roles/directory-administrative-units.md).
+For more information, see [Administrative units management in Azure Active Directory (preview)](../roles/administrative-units.md).
 
 ---
 
@@ -283,7 +283,7 @@ For more information, check out the following:
 
 **Product capability:**
 
-My Staff enables Firstline Managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks, such as resetting passwords or changing phone numbers, to a Firstline Manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks, with no helpdesk or IT staff required. For more information, see the [Manage your users with My Staff (preview)](../users-groups-roles/my-staff-configure.md) and [Delegate user management with My Staff (preview)](../user-help/my-staff-team-manager.md).
+My Staff enables Firstline Managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks, such as resetting passwords or changing phone numbers, to a Firstline Manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks, with no helpdesk or IT staff required. For more information, see the [Manage your users with My Staff (preview)](../roles/my-staff-configure.md) and [Delegate user management with My Staff (preview)](../user-help/my-staff-team-manager.md).
 
 ---
 
@@ -448,7 +448,7 @@ In March 2020, we've added these 51 new apps with Federation support to the app 
 
 [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho One China](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [Profit.co SAML App](../saas-apps/profitco-saml-app-tutorial.md), [iPoint Service Provider](../saas-apps/ipoint-service-provider-tutorial.md), [contexxt.ai SPHERE](https://contexxt-sphere.com/login), [Wisdom By Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), [Flare Digital Signage](https://spark-dev.pixelnebula.com/login), [Logz.io - Cloud Observability for Engineers](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [SpectrumU](../saas-apps/spectrumu-tutorial.md), [BizzContact](https://bizzcontact.app/), [Elqano SSO](../saas-apps/elqano-sso-tutorial.md), [MarketSignShare](http://www.signshare.com/), [CrossKnowledge Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md), [Netvision Compas](../saas-apps/netvision-compas-tutorial.md), [FCM HUB](../saas-apps/fcm-hub-tutorial.md), [RIB A/S Byggeweb Mobile](https://apps.apple.com/us/app/docia/id529058757), [GoLinks](../saas-apps/golinks-tutorial.md), [Datadog](../saas-apps/datadog-tutorial.md), [Zscaler B2B User Portal](../saas-apps/zscaler-b2b-user-portal-tutorial.md), [LIFT](../saas-apps/lift-tutorial.md), [Planview Enterprise One](../saas-apps/planview-enterprise-one-tutorial.md), [WatchTeams](https://www.devfinition.com/), [Aster](https://demo.asterapp.io/login), [Skills Workflow](../saas-apps/skills-workflow-tutorial.md), [Node Insight](https://admin.nodeinsight.com/AADLogin.aspx), [IP Platform](../saas-apps/ip-platform-tutorial.md), [InVision](../saas-apps/invision-tutorial.md), [Pipedrive](../saas-apps/pipedrive-tutorial.md), [Showcase Workshop](https://app.showcaseworkshop.com/), [Greenlight Integration Platform](../saas-apps/greenlight-integration-platform-tutorial.md), [Greenlight Compliant Access Management](../saas-apps/greenlight-compliant-access-management-tutorial.md), [Grok Learning](../saas-apps/grok-learning-tutorial.md), [Miradore Online](https://login.online.miradore.com/), [Khoros Care](../saas-apps/khoros-care-tutorial.md), [AskYourTeam](../saas-apps/askyourteam-tutorial.md), [TruNarrative](../saas-apps/trunarrative-tutorial.md), [Smartwaiver](https://www.smartwaiver.com/m/user/sw_login.php?wms_login), [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md), [insuiteX](https://www.insuite.jp/), [sybo](https://www.systexsoftware.com.tw/), [Britive](../saas-apps/britive-tutorial.md), [WhosOffice](../saas-apps/whosoffice-tutorial.md), [E-days](../saas-apps/e-days-tutorial.md), [Kollective SDN](https://portal.kollective.app/login), [Witivio](https://app.witivio.com/), [Playvox](https://my.playvox.com/login), [Korn Ferry 360](../saas-apps/korn-ferry-360-tutorial.md), [Campus Café](../saas-apps/campus-cafe-tutorial.md), [Catchpoint](../saas-apps/catchpoint-tutorial.md), [Code42](../saas-apps/code42-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -629,7 +629,7 @@ In February 2020, we've added these 31 new apps with Federation support to the a
  [TeamViewer](../saas-apps/teamviewer-tutorial.md)
 
  
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
  
@@ -740,7 +740,7 @@ In January 2020, we've added these 33 new apps with Federation support to the ap
 
 [JOSA](../saas-apps/josa-tutorial.md), [Fastly Edge Cloud](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [Upshotly](../saas-apps/upshotly-tutorial.md), [LeaveBot](https://leavebot.io/#home), [DataCamp](../saas-apps/datacamp-tutorial.md), [TripActions](../saas-apps/tripactions-tutorial.md), [SmartWork](https://www.intumit.com/english/SmartWork.html), [Dotcom-Monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE](../saas-apps/ssogen-tutorial.md), [Hosted MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu Property Management Platform](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), [Upwork Enterprise](../saas-apps/upwork-enterprise-tutorial.md), [Talentsoft](../saas-apps/talentsoft-tutorial.md), [SmartDB for Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient Conduct Manager Software](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), [PortalTalk 365](https://www.portaltalk.com/), [CoreView](https://portal.coreview.com/), [Squelch Cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), [ PrinterLogic SaaS](../saas-apps/printerlogic-saas-tutorial.md), [Taskize Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai](https://app.sandwai.com/), [EZRentOut](../saas-apps/ezrentout-tutorial.md), [AssetSonar](../saas-apps/assetsonar-tutorial.md), [Akari Virtual Assistant](https://akari.io/akari-virtual-assistant/)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -962,7 +962,7 @@ In November 2019, we've added these 21 new apps with Federation support to the a
 
 [Airtable](../saas-apps/airtable-tutorial.md), [Hootsuite](../saas-apps/hootsuite-tutorial.md), [Blue Access for Members (BAM)](../saas-apps/blue-access-for-members-tutorial.md), [Bitly](../saas-apps/bitly-tutorial.md), [Riva](../saas-apps/riva-tutorial.md), [ResLife Portal](https://app.reslifecloud.com/hub5_signin/microsoft_azuread/?g=44BBB1F90915236A97502FF4BE2952CB&c=5&uid=0&ht=2&ref=), [NegometrixPortal Single Sign On (SSO)](../saas-apps/negometrixportal-tutorial.md), [TeamsChamp](https://login.microsoftonline.com/551f45da-b68e-4498-a7f5-a6e1efaeb41c/adminconsent?client_id=ca9bbfa4-1316-4c0f-a9ee-1248ac27f8ab&redirect_uri=https://admin.teamschamp.com/api/adminconsent&state=6883c143-cb59-42ee-a53a-bdb5faabf279), [Motus](../saas-apps/motus-tutorial.md), [MyAryaka](../saas-apps/myaryaka-tutorial.md), [BlueMail](https://loginself1.bluemail.me/), [Beedle](https://teams-web.beedle.co/#/), [Visma](../saas-apps/visma-tutorial.md), [OneDesk](../saas-apps/onedesk-tutorial.md), [Foko Retail](../saas-apps/foko-retail-tutorial.md), [Qmarkets Idea & Innovation Management](../saas-apps/qmarkets-idea-innovation-management-tutorial.md), [Netskope User Authentication](../saas-apps/netskope-user-authentication-tutorial.md), [uniFLOW Online](../saas-apps/uniflow-online-tutorial.md), [Claromentis](../saas-apps/claromentis-tutorial.md), [Jisc Student Voter Registration](../saas-apps/jisc-student-voter-registration-tutorial.md), [e4enable](https://portal.e4enable.com/)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1145,7 +1145,7 @@ In October 2019, we've added these 35 new apps with Federation support to the ap
 
 [In Case of Crisis – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://www.salestim.com/), [Learnster](../saas-apps/learnster-tutorial.md), [Dynatrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](../saas-apps/freshworks-tutorial.md), [eCornell](../saas-apps/ecornell-tutorial.md), [ShipHazmat](../saas-apps/shiphazmat-tutorial.md), [Netskope Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [Contentful](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US](https://www.hirevue.com/), [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org](../saas-apps/visitorg-tutorial.md), [Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1264,7 +1264,7 @@ In September 2019, we've added these 29 new apps with Federation support to the 
 
 [ScheduleLook](https://schedulelook.bbsonlineservices.net/), [MS Azure SSO Access for Ethidex Compliance Office&trade; - Single  sign-on](../saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md), [iServer Portal](../saas-apps/iserver-portal-tutorial.md), [SKYSITE](../saas-apps/skysite-tutorial.md), [Concur Travel and Expense](../saas-apps/concur-travel-and-expense-tutorial.md), [WorkBoard](../saas-apps/workboard-tutorial.md), `https://apps.yeeflow.com/`, [ARC Facilities](../saas-apps/arc-facilities-tutorial.md), [Luware Stratus Team](https://stratus.emea.luware.cloud/login), [Wide Ideas](https://wideideas.online/wideideas/), [Prisma Cloud](../saas-apps/prisma-cloud-tutorial.md), [JDLT Client Hub](https://clients.jdlt.co.uk/login), [RENRAKU](../saas-apps/renraku-tutorial.md), [SealPath Secure Browser](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive), [Prisma Cloud](../saas-apps/prisma-cloud-tutorial.md), `https://app.penneo.com/`, `https://app.testhtm.com/settings/email-integration`, [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](../saas-apps/whitesource-tutorial.md), [Hosted Heritage Online SSO](../saas-apps/hosted-heritage-online-sso-tutorial.md), [IDC](../saas-apps/idc-tutorial.md), [CakeHR](../saas-apps/cakehr-tutorial.md), [BIS](../saas-apps/bis-tutorial.md), [Coo Kai Team Build](https://ms-contacts.coo-kai.jp/), [Sonarqube](../saas-apps/sonarqube-tutorial.md), [Adobe Identity Management](../saas-apps/tutorial-list.md), [Discovery Benefits SSO](../saas-apps/discovery-benefits-sso-tutorial.md), [Amelio](https://app.amelio.co/), `https://itask.yipinapp.com/`
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1346,7 +1346,7 @@ If you're an existing customer, who activated MFA Server prior to July 1, 2019, 
 
 - Fixed other minor bugs.
 
-Starting July 1, 2019, Microsoft stopped offering MFA Server for new deployments. New customers who require multi-factor authentication should use cloud-based Azure Multi-Factor Authentication. For more information, see [Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+Starting July 1, 2019, Microsoft stopped offering MFA Server for new deployments. New customers who require multi-factor authentication should use cloud-based Azure AD Multi-Factor Authentication. For more information, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1461,7 +1461,7 @@ In August 2019, we've added these 26 new apps with Federation support to the app
 
 [Civic Platform](../saas-apps/civic-platform-tutorial.md), [Amazon Business](../saas-apps/amazon-business-tutorial.md), [ProNovos Ops Manager](../saas-apps/pronovos-ops-manager-tutorial.md), [Cognidox](../saas-apps/cognidox-tutorial.md), [Viareport's Inativ Portal (Europe)](../saas-apps/viareports-inativ-portal-europe-tutorial.md), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](../saas-apps/robin-tutorial.md), [Academy Attendance](../saas-apps/academy-attendance-tutorial.md), [Priority Matrix](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint Backup](../saas-apps/carbonite-endpoint-backup-tutorial.md), [CPQSync by Cincom](../saas-apps/cpqsync-by-cincom-tutorial.md), [Chargebee](../saas-apps/chargebee-tutorial.md), [deliver.media&trade; Portal](https://portal.deliver.media), [Frontline Education](../saas-apps/frontline-education-tutorial.md), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](../saas-apps/blink-tutorial.md), [Vocoli](../saas-apps/vocoli-tutorial.md), [ProNovos Analytics](../saas-apps/pronovos-analytics-tutorial.md), [Sigstr](../saas-apps/sigstr-tutorial.md), [Darwinbox](../saas-apps/darwinbox-tutorial.md), [Watch by Colors](../saas-apps/watch-by-colors-tutorial.md), [Harness](../saas-apps/harness-tutorial.md), [EAB Navigate Strategic Care](../saas-apps/eab-navigate-strategic-care-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1638,7 +1638,7 @@ In July 2019, we've added these 18 new apps with Federation support to the app g
 
 [Ungerboeck Software](../saas-apps/ungerboeck-software-tutorial.md), [Bright Pattern Omnichannel Contact Center](../saas-apps/bright-pattern-omnichannel-contact-center-tutorial.md), [Clever Nelly](../saas-apps/clever-nelly-tutorial.md), [AcquireIO](../saas-apps/acquireio-tutorial.md), [Looop](https://www.looop.co/schedule-a-demo/), [productboard](../saas-apps/productboard-tutorial.md), [MS Azure SSO Access for Ethidex Compliance Office&trade;](../saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md), [Hype](../saas-apps/hype-tutorial.md), [Abstract](../saas-apps/abstract-tutorial.md), [Ascentis](../saas-apps/ascentis-tutorial.md), [Flipsnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](../saas-apps/wandera-tutorial.md), [TwineSocial](https://twinesocial.com/), [Kallidus](../saas-apps/kallidus-tutorial.md), [HyperAnna](../saas-apps/hyperanna-tutorial.md), [PharmID WasteWitness](https://pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), [JFrog Artifactory](../saas-apps/jfrog-artifactory-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1696,7 +1696,7 @@ For more information, see [Enable Security Audits for Azure AD Domain Services (
 **Service category:** Self Service Password Reset
 **Product capability:** Monitoring & Reporting
 
-The new Authentication methods usage & insights reports can help you to understand how features like Azure Multi-Factor Authentication and self-service password reset are being registered and used in your organization, including the number of registered users for each feature, how often self-service password reset is used to reset passwords, and by which method the reset happens.
+The new Authentication methods usage & insights reports can help you to understand how features like Azure AD Multi-Factor Authentication and self-service password reset are being registered and used in your organization, including the number of registered users for each feature, how often self-service password reset is used to reset passwords, and by which method the reset happens.
 
 For more information, see [Authentication methods usage & insights (preview)](../authentication/howto-authentication-methods-usage-insights.md).
 
@@ -1844,7 +1844,7 @@ In June 2019, we've added these 22 new apps with Federation support to the app g
 
 [Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Azure VPN Client](https://portal.azure.com/), [ExpenseIn](../saas-apps/expensein-tutorial.md), [Helper Helper](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz In-Car Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-tutorial.md), [CyberArk SAML Authentication](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible Edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise OS](https://proptimise.co.uk/software/), [Vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager for Oracle Retail Merchandising, Oracle Access Manager for Oracle E-Business Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -1898,9 +1898,9 @@ For more information about setting up your company branding, see [Add branding t
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who want to require multi-factor authentication in their organization must now use cloud-based Azure Multi-Factor Authentication. Customers who activated MFA Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
+As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who want to require multi-factor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated MFA Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
 
-For more information, see [Getting started with the Azure Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure Multi-Factor Authentication, see [Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+For more information, see [Getting started with the Azure Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -2014,7 +2014,7 @@ In May 2019, we've added these 21 new apps with Federation support to the app ga
 
 [Freedcamp](../saas-apps/freedcamp-tutorial.md), [Real Links](../saas-apps/real-links-tutorial.md), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [Simple Sign](../saas-apps/simple-sign-tutorial.md), [Braze](../saas-apps/braze-tutorial.md), [Displayr](../saas-apps/displayr-tutorial.md), [Templafy](../saas-apps/templafy-tutorial.md), [Marketo Sales Engage](https://toutapp.com/login), [ACLP](../saas-apps/aclp-tutorial.md), [OutSystems](../saas-apps/outsystems-tutorial.md), [Meta4 Global HR](../saas-apps/meta4-global-hr-tutorial.md), [Quantum Workplace](../saas-apps/quantum-workplace-tutorial.md), [Cobalt](../saas-apps/cobalt-tutorial.md), [webMethods API Cloud](../saas-apps/webmethods-integration-cloud-tutorial.md), [RedFlag](https://pocketstop.com/redflag/), [Whatfix](../saas-apps/whatfix-tutorial.md), [Control](../saas-apps/control-tutorial.md), [JOBHUB](../saas-apps/jobhub-tutorial.md), [NEOGOV](../saas-apps/neogov-tutorial.md), [Foodee](../saas-apps/foodee-tutorial.md), [MyVR](../saas-apps/myvr-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2162,7 +2162,7 @@ In April 2019, we've added these 21 new apps with Federation support to the app 
 
 [SAP Fiori](../saas-apps/sap-fiori-tutorial.md), [HRworks Single Sign-On](../saas-apps/hrworks-single-sign-on-tutorial.md), [Percolate](../saas-apps/percolate-tutorial.md), [MobiControl](../saas-apps/mobicontrol-tutorial.md), [Citrix NetScaler](../saas-apps/citrix-netscaler-tutorial.md), [Shibumi](../saas-apps/shibumi-tutorial.md), [Benchling](../saas-apps/benchling-tutorial.md), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](../saas-apps/pagedna-tutorial.md), [EduBrite LMS](../saas-apps/edubrite-lms-tutorial.md), [RStudio Connect](../saas-apps/rstudio-connect-tutorial.md), [AMMS](../saas-apps/amms-tutorial.md), [Mitel Connect](../saas-apps/mitel-connect-tutorial.md), [Alibaba Cloud (Role-based SSO)](../saas-apps/alibaba-cloud-service-role-based-sso-tutorial.md), [Certent Equity Management](../saas-apps/certent-equity-management-tutorial.md), [Sectigo Certificate Manager](../saas-apps/sectigo-certificate-manager-tutorial.md), [GreenOrbit](../saas-apps/greenorbit-tutorial.md), [Workgrid](../saas-apps/workgrid-tutorial.md), [monday.com](../saas-apps/mondaycom-tutorial.md), [SurveyMonkey Enterprise](../saas-apps/surveymonkey-enterprise-tutorial.md), [Indiggo](https://indiggolead.com/)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2270,7 +2270,7 @@ In March 2019, we've added these 14 new apps with Federation support to the app 
 
 [ISEC7 Mobile Exchange Delegate](https://www.isec7.com/english/), [MediusFlow](https://office365.cloudapp.mediusflow.com/), [ePlatform](../saas-apps/eplatform-tutorial.md), [Fulcrum](../saas-apps/fulcrum-tutorial.md), [ExcelityGlobal](../saas-apps/excelityglobal-tutorial.md), [Explanation-Based Auditing System](../saas-apps/explanation-based-auditing-system-tutorial.md), [Lean](../saas-apps/lean-tutorial.md), [Powerschool Performance Matters](../saas-apps/powerschool-performance-matters-tutorial.md), [Cinode](https://cinode.com/), [Iris Intranet](../saas-apps/iris-intranet-tutorial.md), [Empactis](../saas-apps/empactis-tutorial.md), [SmartDraw](../saas-apps/smartdraw-tutorial.md), [Confirmit Horizons](../saas-apps/confirmit-horizons-tutorial.md), [TAS](../saas-apps/tas-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2430,7 +2430,7 @@ In February 2019, we've added these 27 new apps with Federation support to the a
 
 [Euromonitor Passport](../saas-apps/euromonitor-passport-tutorial.md), [MindTickle](../saas-apps/mindtickle-tutorial.md), [FAT FINGER](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7), [AirStack](../saas-apps/airstack-tutorial.md), [Oracle Fusion ERP](../saas-apps/oracle-fusion-erp-tutorial.md), [IDrive](../saas-apps/idrive-tutorial.md), [Skyward Qmlativ](../saas-apps/skyward-qmlativ-tutorial.md), [Brightidea](../saas-apps/brightidea-tutorial.md), [AlertOps](../saas-apps/alertops-tutorial.md), [Soloinsight-CloudGate SSO](../saas-apps/soloinsight-cloudgate-sso-tutorial.md), Permission Click, [Brandfolder](../saas-apps/brandfolder-tutorial.md), [StoregateSmartFile](../saas-apps/smartfile-tutorial.md), [Pexip](../saas-apps/pexip-tutorial.md), [Stormboard](../saas-apps/stormboard-tutorial.md), [Seismic](../saas-apps/seismic-tutorial.md), [Share A Dream](https://www.shareadream.org/how-it-works), [Bugsnag](../saas-apps/bugsnag-tutorial.md), [webMethods Integration Cloud](../saas-apps/webmethods-integration-cloud-tutorial.md), [Knowledge Anywhere LMS](../saas-apps/knowledge-anywhere-lms-tutorial.md), [OU Campus](../saas-apps/ou-campus-tutorial.md), [Periscope Data](../saas-apps/periscope-data-tutorial.md), [Netop Portal](../saas-apps/netop-portal-tutorial.md), [smartvid.io](../saas-apps/smartvid.io-tutorial.md), [PureCloud by Genesys](../saas-apps/purecloud-by-genesys-tutorial.md), [ClickUp Productivity Platform](../saas-apps/clickup-productivity-platform-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2552,7 +2552,7 @@ In January 2019, we've added these 35 new apps with Federation support to the ap
 
 [Firstbird](../saas-apps/firstbird-tutorial.md), [Folloze](../saas-apps/folloze-tutorial.md), [Talent Palette](../saas-apps/talent-palette-tutorial.md), [Infor CloudSuite](../saas-apps/infor-cloud-suite-tutorial.md), [Cisco Umbrella](../saas-apps/cisco-umbrella-tutorial.md), [Zscaler Internet Access Administrator](../saas-apps/zscaler-internet-access-administrator-tutorial.md), [Expiration Reminder](../saas-apps/expiration-reminder-tutorial.md), [InstaVR Viewer](../saas-apps/instavr-viewer-tutorial.md), [CorpTax](../saas-apps/corptax-tutorial.md), [Verb](https://app.verb.net/login), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](../saas-apps/pavaso-digital-close-tutorial.md), [GoodPractice Toolkit](../saas-apps/goodpractice-toolkit-tutorial.md), [Cloud Service PICCO](../saas-apps/cloud-service-picco-tutorial.md), [AuditBoard](../saas-apps/auditboard-tutorial.md), [iProva](../saas-apps/iprova-tutorial.md), [Workable](../saas-apps/workable-tutorial.md), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](../saas-apps/gtnexus-sso-module-tutorial.md), [CBRE ServiceInsight](../saas-apps/cbre-serviceinsight-tutorial.md), [Deskradar](../saas-apps/deskradar-tutorial.md), [Coralogixv](../saas-apps/coralogix-tutorial.md), [Signagelive](../saas-apps/signagelive-tutorial.md), [ARES for Enterprise](../saas-apps/ares-for-enterprise-tutorial.md), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](../saas-apps/idid-manager-tutorial.md), [HighGear](../saas-apps/highgear-tutorial.md), [Visitly](../saas-apps/visitly-tutorial.md), [Korn Ferry ALP](../saas-apps/korn-ferry-alp-tutorial.md), [Acadia](../saas-apps/acadia-tutorial.md), [Adoddle cSaas Platform](../saas-apps/adoddle-csaas-platform-tutorial.md)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2803,7 +2803,7 @@ In November 2018, we've added these 26 new apps with Federation support to the a
 
 [CoreStack](https://cloud.corestack.io/site/login), [HubSpot](../saas-apps/hubspot-tutorial.md), [GetThere](../saas-apps/getthere-tutorial.md), [Gra-Pe](../saas-apps/grape-tutorial.md), [eHour](https://getehour.com/try-now), [Consent2Go](../saas-apps/consent2go-tutorial.md), [Appinux](../saas-apps/appinux-tutorial.md), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](../saas-apps/useall-tutorial.md), [Infinite Campus](../saas-apps/infinitecampus-tutorial.md), [Alaya](https://alayagood.com), [HeyBuddy](../saas-apps/heybuddy-tutorial.md), [Wrike SAML](../saas-apps/wrike-tutorial.md), [Drift](../saas-apps/drift-tutorial.md), [Zenegy for Business Central 365](https://accounting.zenegy.com/), [Everbridge Member Portal](../saas-apps/everbridge-tutorial.md), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](../saas-apps/ivanti-service-manager-tutorial.md), [Peakon](../saas-apps/peakon-tutorial.md), [Allbound SSO](../saas-apps/allbound-sso-tutorial.md), [Plex Apps - Classic Test](https://test.plexonline.com/signon), [Plex Apps – Classic](https://www.plexonline.com/signon), [Plex Apps - UX Test](https://test.cloud.plex.com/sso), [Plex Apps – UX](https://cloud.plex.com/sso), [Plex Apps – IAM](https://accounts.plex.com/), [CRAFTS - Childcare Records, Attendance, & Financial Tracking System](https://getcrafts.ca/craftsregistration)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -2829,7 +2829,7 @@ In October 2018, we've added these 14 new apps with Federation support to the ap
 
 [My Award Points](../saas-apps/myawardpoints-tutorial.md), [Vibe HCM](../saas-apps/vibehcm-tutorial.md), ambyint, [MyWorkDrive](../saas-apps/myworkdrive-tutorial.md), [BorrowBox](../saas-apps/borrowbox-tutorial.md), Dialpad, [ON24 Virtual Environment](../saas-apps/on24-tutorial.md), [RingCentral](../saas-apps/ringcentral-tutorial.md), [Zscaler Three](../saas-apps/zscaler-three-tutorial.md), [Phraseanet](../saas-apps/phraseanet-tutorial.md), [Appraisd](../saas-apps/appraisd-tutorial.md), [Workspot Control](../saas-apps/workspotcontrol-tutorial.md), [Shuccho Navi](../saas-apps/shucchonavi-tutorial.md), [Glassfrog](../saas-apps/glassfrog-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3004,7 +3004,7 @@ In September 2018, we've added these 16 new apps with Federation support to the 
 
 [Uberflip](../saas-apps/uberflip-tutorial.md), [Comeet Recruiting Software](../saas-apps/comeetrecruitingsoftware-tutorial.md), [Workteam](../saas-apps/workteam-tutorial.md), [ArcGIS Enterprise](../saas-apps/arcgisenterprise-tutorial.md), [Nuclino](../saas-apps/nuclino-tutorial.md), [JDA Cloud](../saas-apps/jdacloud-tutorial.md), [Snowflake](../saas-apps/snowflake-tutorial.md), NavigoCloud, [Figma](../saas-apps/figma-tutorial.md), join.me, [ZephyrSSO](../saas-apps/zephyrsso-tutorial.md), [Silverback](../saas-apps/silverback-tutorial.md), Riverbed Xirrus EasyPass, [Rackspace SSO](../saas-apps/rackspacesso-tutorial.md), Enlyft SSO for Azure, SurveyMonkey, [Convene](../saas-apps/convene-tutorial.md), [dmarcian](../saas-apps/dmarcian-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3140,7 +3140,7 @@ In August 2018, we've added these 16 new apps with Federation support to the app
 
 [Hornbill](../saas-apps/hornbill-tutorial.md), [Bridgeline Unbound](../saas-apps/bridgelineunbound-tutorial.md), [Sauce Labs - Mobile and Web Testing](../saas-apps/saucelabs-mobileandwebtesting-tutorial.md), [Meta Networks Connector](../saas-apps/metanetworksconnector-tutorial.md), [Way We Do](../saas-apps/waywedo-tutorial.md), [Spotinst](../saas-apps/spotinst-tutorial.md), [ProMaster (by Inlogik)](../saas-apps/promaster-tutorial.md), SchoolBooking, [4me](../saas-apps/4me-tutorial.md), [Dossier](../saas-apps/dossier-tutorial.md), [N2F - Expense reports](../saas-apps/n2f-expensereports-tutorial.md), [Comm100 Live Chat](../saas-apps/comm100livechat-tutorial.md), [SafeConnect](../saas-apps/safeconnect-tutorial.md), [ZenQMS](../saas-apps/zenqms-tutorial.md), [eLuminate](../saas-apps/eluminate-tutorial.md), [Dovetale](../saas-apps/dovetale-tutorial.md).
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3240,7 +3240,7 @@ In July 2018, we've added these 16 new apps with Federation support to the app g
 
 [Innovation Hub](../saas-apps/innovationhub-tutorial.md), [Leapsome](../saas-apps/leapsome-tutorial.md), [Certain Admin SSO](../saas-apps/certainadminsso-tutorial.md), PSUC Staging, [iPass SmartConnect](../saas-apps/ipasssmartconnect-tutorial.md), [Screencast-O-Matic](../saas-apps/screencast-tutorial.md), PowerSchool Unified Classroom, [Eli Onboarding](../saas-apps/elionboarding-tutorial.md), [Bomgar Remote Support](../saas-apps/bomgarremotesupport-tutorial.md), [Nimblex](../saas-apps/nimblex-tutorial.md), [Imagineer WebVision](../saas-apps/imagineerwebvision-tutorial.md), [Insight4GRC](../saas-apps/insight4grc-tutorial.md), [SecureW2 JoinNow Connector](../saas-apps/securejoinnow-tutorial.md), [Kanbanize](../saas-apps/kanbanize-tutorial.md), [SmartLPA](../saas-apps/smartlpa-tutorial.md), [Skills Base](../saas-apps/skillsbase-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3442,7 +3442,7 @@ In June 2018, we've added these 15 new apps with Federation support to the app g
 
 [Skytap](../saas-apps/skytap-tutorial.md), [Settling music](../saas-apps/settlingmusic-tutorial.md), [SAML 1.1 Token enabled LOB App](../saas-apps/saml-tutorial.md), [Supermood](../saas-apps/supermood-tutorial.md), [Autotask](../saas-apps/autotaskendpointbackup-tutorial.md), [Endpoint Backup](../saas-apps/autotaskendpointbackup-tutorial.md), [Skyhigh Networks](../saas-apps/skyhighnetworks-tutorial.md), Smartway2, [TonicDM](../saas-apps/tonicdm-tutorial.md), [Moconavi](../saas-apps/moconavi-tutorial.md), [Zoho One](../saas-apps/zohoone-tutorial.md), [SharePoint on-premises](../saas-apps/sharepoint-on-premises-tutorial.md), [ForeSee CX Suite](../saas-apps/foreseecxsuite-tutorial.md), [Vidyard](../saas-apps/vidyard-tutorial.md), [ChronicX](../saas-apps/chronicx-tutorial.md)
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3488,13 +3488,13 @@ For more information, see [Azure Active Directory Terms of use feature](../condi
 
 ---
 
-### New and comprehensive guidance about deploying Azure Multi-Factor Authentication
+### New and comprehensive guidance about deploying Azure AD Multi-Factor Authentication
 
 **Type:** New feature
 **Service category:** Other
 **Product capability:** Identity Security & Protection
 
-We've released new step-by-step guidance about how to deploy Azure Multi-Factor Authentication (MFA) in your organization.
+We've released new step-by-step guidance about how to deploy Azure AD Multi-Factor Authentication (MFA) in your organization.
 
 To view the MFA deployment guide, go to the [Identity Deployment Guides](./active-directory-deployment-plans.md) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -3650,7 +3650,7 @@ In May 2018, we've added these 18 new apps with Federation support to our app ga
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3733,7 +3733,7 @@ When configuring SAML-based SSO applications, you're able to test the integratio
 For more information, see:
 
 - [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/view-applications-portal.md)
-- [How to debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [How to debug SAML-based single sign-on to applications in Azure Active Directory](../manage-apps/debug-saml-sso-issues.md)
 
 ---
 
@@ -3821,7 +3821,7 @@ Criterion HCM, [FiscalNote](../saas-apps/fiscalnote-tutorial.md), [Secret Server
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -3988,7 +3988,7 @@ In March 2018, we've added these 15 new apps with Federation support to our app 
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -4310,7 +4310,7 @@ In January 2018, the following new apps with federation support were added in th
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -4489,7 +4489,7 @@ CybSafe, [FactSet](../saas-apps/factset-tutorial.md), [IMAGE WORKS](../saas-apps
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](../saas-apps/tutorial-list.md).
 
-For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md).
+For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ---
 
@@ -4677,17 +4677,17 @@ For more information, see:
 
 ---
 
-### Network Policy Server extension for Azure Multi-Factor Authentication
+### Network Policy Server extension for Azure AD Multi-Factor Authentication
 
 **Type:** New feature
 **Service category:**  Multi-factor authentication
 **Product capability:** User authentication
 
-The Network Policy Server extension for Azure Multi-Factor Authentication adds cloud-based Multi-Factor Authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers.
+The Network Policy Server extension for Azure AD Multi-Factor Authentication adds cloud-based Multi-Factor Authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers.
 
-This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Multi-Factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
+This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Multi-Factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
 
-For more information, see [Integrate your existing Network Policy Server infrastructure with Azure Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
+For more information, see [Integrate your existing Network Policy Server infrastructure with Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
 
 ---
 

@@ -129,7 +129,7 @@ Once the function is altered, click “Save” again and use the same name, alia
 
 #### Additional information
 
-Learn more about [saved queries](../azure-monitor/log-query/saved-queries.md) (the query time parsers implementation) in Log Analytics.
+Learn more about [saved queries](../azure-monitor/log-query/example-queries.md) (the query time parsers implementation) in Log Analytics.
 
 
 ## Next steps

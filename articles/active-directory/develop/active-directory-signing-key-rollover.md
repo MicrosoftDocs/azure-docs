@@ -146,7 +146,7 @@ If you created a web API application in Visual Studio 2013 using the Web API tem
 
 If you manually configured authentication, follow the instructions below to learn how to configure your web API to automatically update its key information.
 
-The following code snippet demonstrates how to get the latest keys from the federation metadata document, and then use the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) to validate the token. The code snippet assumes that you will use your own caching mechanism for persisting the key to validate future tokens from Microsoft identity platform, whether it be in a database, configuration file, or elsewhere.
+The following code snippet demonstrates how to get the latest keys from the federation metadata document, and then use the [JWT Token Handler](/previous-versions/dotnet/framework/security/json-web-token-handler) to validate the token. The code snippet assumes that you will use your own caching mechanism for persisting the key to validate future tokens from Microsoft identity platform, whether it be in a database, configuration file, or elsewhere.
 
 ```
 using System;
@@ -237,7 +237,7 @@ namespace JWTValidation
 ```
 
 ### <a name="vs2012"></a>Web applications protecting resources and created with Visual Studio 2012
-If your application was built in Visual Studio 2012, you probably used the Identity and Access Tool to configure your application. It’s also likely that you are using the [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). The VINR is responsible for maintaining information about trusted identity providers (Microsoft identity platform) and the keys used to validate tokens issued by them. The VINR also makes it easy to automatically update the key information stored in a Web.config file by downloading the latest federation metadata document associated with your directory, checking if the configuration is out of date with the latest document, and updating the application to use the new key as necessary.
+If your application was built in Visual Studio 2012, you probably used the Identity and Access Tool to configure your application. It’s also likely that you are using the [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). The VINR is responsible for maintaining information about trusted identity providers (Microsoft identity platform) and the keys used to validate tokens issued by them. The VINR also makes it easy to automatically update the key information stored in a Web.config file by downloading the latest federation metadata document associated with your directory, checking if the configuration is out of date with the latest document, and updating the application to use the new key as necessary.
 
 If you created your application using any of the code samples or walkthrough documentation provided by Microsoft, the key rollover logic is already included in your project. You will notice that the code below already exists in your project. If your application does not already have this logic, follow the steps below to add it and to verify that it’s working correctly.
 
@@ -286,14 +286,14 @@ Follow the steps below to verify that the key rollover logic is working.
 If you built an application on WIF v1.0, there is no provided mechanism to automatically refresh your application’s configuration to use a new key.
 
 * *Easiest way* Use the FedUtil tooling included in the WIF SDK, which can retrieve the latest metadata document and update your configuration.
-* Update your application to .NET 4.5, which includes the newest version of WIF located in the System namespace. You can then use the [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) to perform automatic updates of the application’s configuration.
+* Update your application to .NET 4.5, which includes the newest version of WIF located in the System namespace. You can then use the [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) to perform automatic updates of the application’s configuration.
 * Perform a manual rollover as per the instructions at the end of this guidance document.
 
 Instructions to use the FedUtil to update your configuration:
 
 1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/en-us/download/details.aspx?id=4451) if you have not yet installed it.
 2. In Visual Studio, open the solution, and then right-click the applicable project and select **Update federation metadata**. If this option is not available, FedUtil and/or the WIF v1.0 SDK has not been installed.
-3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](https://msdn.microsoft.com/library/ee517272.aspx).
+3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10)).
 4. Click **Finish** to complete the update process.
 
 ### <a name="other"></a>Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols

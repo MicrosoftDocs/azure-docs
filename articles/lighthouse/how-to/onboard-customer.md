@@ -281,6 +281,11 @@ In the customer's tenant:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### Azure CLI

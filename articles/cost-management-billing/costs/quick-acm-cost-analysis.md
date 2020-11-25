@@ -3,7 +3,7 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -76,12 +76,13 @@ Accumulated cost | How much have I spent so far this month? Will I stay within m
 Daily cost | Have there been any increases in the costs per day for the last 30 days?
 Cost by service | How has my monthly usage vary over the past three invoices?
 Cost by resource | Which resources cost the most so far this month?
+Invoice details | What charges did I have on my last invoice?
 
 ![View selector showing an example selection for this month](./media/quick-acm-cost-analysis/view-selector.png)
 
 However, there are many cases where you need deeper analysis. Customization starts at the top of the page, with the date selection.
 
-Cost analysis shows data for the current month by default. Use the date selector to switch to common date ranges quickly. Examples include the last seven days, the last month, the current year, or a custom date range. Pay-as-you-go subscriptions also include date ranges based on your billing period, which isn't bound to the calendar month, like the current billing period or last invoice. Use the **<PREVIOUS** and **NEXT>** links at the top of the menu to jump to the previous or next period, respectively. For example, **<PREVIOUS** will switch from the **Last 7 days** to **8-14 days ago** or **15-21 days ago**.
+Cost analysis shows data for the current month by default. Use the date selector to switch to common date ranges quickly. Examples include the last seven days, the last month, the current year, or a custom date range. Pay-as-you-go subscriptions also include date ranges based on your billing period, which isn't bound to the calendar month, like the current billing period or last invoice. Use the **<PREVIOUS** and **NEXT>** links at the top of the menu to jump to the previous or next period, respectively. For example, **<PREVIOUS** will switch from the **Last 7 days** to **8-14 days ago** or **15-21 days ago**. When selecting a custom date range, keep in mind that you can select up to a full year (e.g. January 1-December 31).
 
 ![Date selector showing an example selection for this month](./media/quick-acm-cost-analysis/date-selector.png)
 
@@ -150,9 +151,58 @@ To share a link to cost analysis, select **Share** at the top of the blade. A cu
 
 ## Download usage data
 
+### [Portal](#tab/azure-portal)
+
 There are times when you need to download the data for further analysis, merge it with your own data, or integrate it into your own systems. Cost Management offers a few different options. As a starting point, if you need an ad hoc high-level summary, like what you get within cost analysis, build the view you need. Then download it by selecting **Export** and selecting **Download data to CSV** or **Download data to Excel**. The Excel download provides additional context on the view you used to generate the download, like scope, query configuration, total, and date generated.
 
 If you need the full, unaggregated dataset, download it from the billing account. Then, from the list of services in the portal's left navigation pane, go to **Cost Management + Billing**. Select your billing account, if applicable. Go to **Usage + charges**, and then select the **Download** icon for the desired billing period.
+
+### [Azure CLI](#tab/azure-cli)
+
+Start by preparing your environment for the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+After you sign in, use the [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) command to query month-to-date usage information for your subscription:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+You can also narrow the query by using the **--dataset-filter** parameter or other parameters:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
+   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+```
+
+The **--dataset-filter** parameter takes a JSON string or `@json-file`.
+
+You also have the option of using the [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
+
+1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. Create a storage account to receive the exports or use an existing storage account. To create an account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
+   ```
+
+---
 
 ## Clean up resources
 

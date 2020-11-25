@@ -21,7 +21,7 @@ Currently, you can create newer metric alerts only in the Azure portal, [REST AP
 ## Metrics and Dimensions Supported
 Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](./metrics-charts.md).
 
-Here's the full list of Azure monitor metric sources supported by the newer alerts:
+Here's the full list of Azure Monitor metric sources supported by the newer alerts:
 
 |Resource type  |Dimensions Supported |Multi-resource alerts| Metrics Available|
 |---------|---------|-----|----------|

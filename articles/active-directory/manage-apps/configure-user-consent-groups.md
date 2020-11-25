@@ -16,7 +16,7 @@ ms.custom: contperfq2
 
 # Configure group owner consent to apps accessing group data
 
-Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) to learn more.
+Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more.
 
 ## Manage group owner consent to apps
 
@@ -37,9 +37,9 @@ In this example, all group owners are allowed to consent to apps accessing their
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own.
+You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), to enable or disable group owners' ability to consent to applications accessing your organization's data for the groups they own.
 
-1. Make sure you're using the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module. This step is important if you have installed both the [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module and the [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) module).
+1. Make sure you're using the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module. This step is important if you have installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) module).
 
     ```powershell
     Remove-Module AzureAD
@@ -116,7 +116,7 @@ To learn more:
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 * [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
 * [Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

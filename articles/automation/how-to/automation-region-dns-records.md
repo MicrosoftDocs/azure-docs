@@ -3,7 +3,7 @@ title: Azure Datacenter DNS records used by Azure Automation | Microsoft Docs
 description: This article provides the DNS records required by Azure Automation features when restricting communication to a specific Azure region hosting that Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
 ---
 
@@ -84,6 +84,9 @@ Replace `<accountId>` in the DNS record with GUID representing your Automation A
 ![Automation account primary key page](./media/automation-region-dns-records/automation-account-keys.png)
 
 Copy the value after *accounts/* from the **URL** field - `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
+> [!NOTE]
+> All of the Webhook and agentservice DNS records have been updated to the new style DNS records to support Private Link. For JRDS DNS records, both old and new style DNS records are supported. If you are not using Private Link, you will see the old style DNS records, while those using Private Link will see new style of DNS records.
 
 We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the JSON file from the Microsoft Download Center for the following cloud environments:
 

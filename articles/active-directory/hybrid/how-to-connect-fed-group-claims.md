@@ -141,8 +141,9 @@ Valid values are:
 |----------|-------------|
 | **"All"** | Emits security groups, distribution lists and roles |
 | **"SecurityGroup"** | Emits security groups the user is a member of in the groups claim |
-| **"DirectoryRole** | If the user is assigned directory roles, they are emitted as a 'wids' claim (groups claim won't be emitted) |
-| **"ApplicationGroup** | Emits only the groups that are explicitly assigned to the application and the user is a member of |
+| **"DirectoryRole"** | If the user is assigned directory roles, they are emitted as a 'wids' claim (groups claim won't be emitted) |
+| **"ApplicationGroup"** | Emits only the groups that are explicitly assigned to the application and the user is a member of |
+| **"None"** | No Groups are returned.(Its not case-sensetive so none works as well and it can be set directly in the application manifest.) |
 
    For example:
 

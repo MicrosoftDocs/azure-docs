@@ -80,9 +80,9 @@ Configure the Azure WAF to run in Prevention mode after baselining the network t
 
 Apply rules and rule groups to Azure Web Application Firewall (WAF) policies based on the applied tag metadata.
 
-- [WAF policy on Application Gateway](https://docs.microsoft.com/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [WAF policy on Application Gateway](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
 
-- [WAF policy on Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [WAF policy on Front Door](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -96,7 +96,7 @@ Use any of the built-in Azure Policy definitions related to tagging, such as "Re
 
 Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a Virtual Network](../virtual-network/quick-create-portal.md)
 
@@ -110,7 +110,7 @@ Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources 
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Web Application Firewall (WAF) deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -140,7 +140,7 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 
 - [Diagnostic logs for Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 
-- [Connect data from Microsoft web application firewall to Azure Sentinel](/azure/sentinel/connect-microsoft-waf)
+- [Connect data from Microsoft web application firewall to Azure Sentinel](../sentinel/connect-azure-waf.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -177,7 +177,7 @@ Azure WAF instances are integrated with Security Center to send alerts and healt
 
 Azure Sentinel has a built-in WAF - firewall events workbook, which provides an overview of the security events on the WAF. These include events, matched and blocked rules, and everything else that gets logged in the firewall logs.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor) 
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/index.yml) 
 
 - [How to enable diagnostic settings for Azure Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 
@@ -191,9 +191,9 @@ Azure Sentinel has a built-in WAF - firewall events workbook, which provides an 
 
 **Guidance**: Enable Azure Activity Log diagnostic settings, as well as the diagnostic settings for your Azure WAF, and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data. Create alerts for anomalous activity based on WAF metrics. For example, if blocked number of requests exceeding 'X,' do 'Y'.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-- [How to create alerts within Azure](/azure/azure-monitor/learn/tutorial-response)
+- [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -219,9 +219,9 @@ Azure WAF provides centralized protection of your web applications from common e
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles are query-able and must be explicitly assigned. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -270,7 +270,7 @@ It is a good practice to create standard operating procedures around the use of 
 
 **Guidance**: Use Azure Active Directory (Azure AD) security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -303,7 +303,7 @@ Create logical groupings of IP address ranges or countries and regions with name
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. Use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Review user access on a regular basis to ensure only active users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -317,7 +317,7 @@ Create logical groupings of IP address ranges or countries and regions with name
 
 Streamline this process by creating Diagnostic Settings for Azure Active Directory (Azure AD) user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. Configure desired Alerts within the Log Analytics workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -327,7 +327,7 @@ Streamline this process by creating Diagnostic Settings for Azure Active Directo
 
 **Guidance**: Use Azure Active Directory's (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. Ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -344,7 +344,7 @@ Streamline this process by creating Diagnostic Settings for Azure Active Directo
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure Web Application Firewall (WAF) and related resources that store or process sensitive information.
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -356,11 +356,11 @@ Streamline this process by creating Diagnostic Settings for Azure Active Directo
 
 Control access to Azure resources with Azure role-based access control (Azure RBAC).
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -393,7 +393,7 @@ Follow Security Center recommendations for encryption at rest and encryption in 
 
 - [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [How to configure customer managed encryption keys](/azure/storage/common/storage-encryption-keys-portal)
+- [How to configure customer managed encryption keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -428,7 +428,7 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -440,7 +440,7 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 **Guidance**: Use tags on Azure Web Application Firewall (WAF) policies. Tags can be associated with resources and applied logically to organize access to these resources in a customer subscription. 
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -450,11 +450,11 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure WAF and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -501,7 +501,7 @@ Use Azure Resource Graph to query or discover Azure Web Application Firewall (WA
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -540,7 +540,7 @@ Use Azure Resource Graph to query or discover Azure Web Application Firewall (WA
 **Guidance**: Define and implement standard security configurations for network settings related to your Azure Web Application Firewall (WAF) deployments.
 Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Application Gateways, Virtual Networks, network security groups and use built-in policy definitions.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -570,7 +570,7 @@ Use Azure Resource Manager templates to maintain the security configuration of y
 
 Grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD), if integrated with Azure DevOps, or Active Directory, if integrated with Team Foundation Server (TFS).
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -584,7 +584,7 @@ Grant or deny permissions to specific users, built-in security groups, or groups
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy documentation](/azure/governance/policy)
+- [Azure Policy documentation](../governance/policy/index.yml)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -598,7 +598,7 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy documentation](/azure/governance/policy)
+- [Azure Policy documentation](../governance/policy/index.yml)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -633,7 +633,7 @@ Azure Application Gateway supports integration with Key Vault for server certifi
 
 **Guidance**: Ensure that soft delete is enabled for Azure Key Vault. Soft delete allows recovery of deleted key vaults and vault objects such as keys, secrets, and certificates.
 
-- [How to use Azure Key Vault's Soft Delete](/azure/key-vault/key-vault-soft-delete-powershell)
+- [How to use Azure Key Vault's Soft Delete](../key-vault/general/key-vault-recovery.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -724,5 +724,5 @@ Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are no
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

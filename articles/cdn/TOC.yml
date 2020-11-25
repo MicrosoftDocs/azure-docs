@@ -35,6 +35,10 @@
     href: https://azure.microsoft.com/resources/samples/?service=cdn
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery

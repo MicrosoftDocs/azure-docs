@@ -31,7 +31,7 @@ This tutorial describes the steps you need to perform in both ServiceNow and Azu
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
 * A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
 * A user account in ServiceNow with the admin role
@@ -51,13 +51,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![ServiceNow admin role](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. Check to make sure that the following settings are **disabled** in ServiceNow:
-
-   1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
-   2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
-     
-   > [!IMPORTANT]
-   > If these setting are *enabled*, the provisioning engine will fail to communicate with ServiceNow.
 
 ## Step 3. Add ServiceNow from the Azure AD application gallery
 

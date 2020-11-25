@@ -6,12 +6,12 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
 
-This article provides steps for troubleshooting common Azure IoT Connector for FHIR* error messages and conditions.  
+This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* error messages and conditions.  
 
 You'll also learn how to create copies of the Azure IoT Connector for FHIR conversion mappings JSON (for example: Device and FHIR).  
 
@@ -185,6 +185,4 @@ Check out frequently asked questions about the Azure IoT Connector for FHIR.
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR FAQs](fhir-faq.md)
 
-*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
-
-FHIR is the registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.
