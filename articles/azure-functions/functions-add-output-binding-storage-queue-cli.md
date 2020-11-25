@@ -13,8 +13,6 @@ In this article, you integrate an Azure Storage queue with the function and stor
 
 ## Configure your local environment
 
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line][previous-quickstart]. If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
-
 ::: zone pivot="programming-language-csharp"  
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end  

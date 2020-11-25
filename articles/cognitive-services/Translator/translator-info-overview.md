@@ -16,17 +16,17 @@ keywords: translator, text translation, machine translation, translation service
 
 # What is the Translator service?
 
-Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [more than 70 languages](languages.md), and can be used on any hardware platform with any operating system for text translation.
+Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [more than 70 languages](./language-support.md), and can be used on any hardware platform with any operating system for text translation.
 
 ## About Microsoft Translator
 
 Translator powers a number of Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows, which allows their content to reach a global audience.
 
-Speech translation, powered by Translator, is also available through the [Azure Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service. 
+Speech translation, powered by Translator, is also available through the [Azure Speech service](../speech-service/index.yml). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service. 
 
 ## Language support
 
-Translator provides multi-language support for text translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically with the [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
+Translator provides multi-language support for text translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically with the [REST API](./reference/v3-0-languages.md).  
 
 ## Microsoft Translator Neural Machine Translation
 
@@ -48,7 +48,7 @@ Learn more about [Custom Translator](customization.md).
 
 ## Next steps
 
-- [Sign up](translator-text-how-to-signup.md) for an access key.
+- [Sign up](./translator-how-to-signup.md) for an access key.
 - Try our [Quickstart](quickstart-translator.md) to quickly call the Translator service.
-- [API reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) provides the technical documentation for the APIs.
+- [API reference](./reference/v3-0-reference.md) provides the technical documentation for the APIs.
 - [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
