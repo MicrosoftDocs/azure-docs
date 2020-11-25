@@ -101,17 +101,13 @@ The dead-letter is provided as a container URL with a [SAS token](/azure/storage
 
 Follow the steps below to set up these storage resources in your Azure account, to prepare to set up the endpoint connection in the next section.
 
-In order to create an endpoint with dead-lettering enabled, you must have:
-- Storage account
-    - Follow [this article](/azure/storage/common/storage-account-create?tabs=azure-portal) to create a storage account and save the storage account name to use it later.
-- Container
-    - Create a container using [this article](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and save the container name to use it later, when setting up the connection between the container and the endpoint.
-- SAS token
-    - Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
-    - In the storage account page, choose _Shared access signature_ link in the left navigation bar to select the right permissions to generate SAS token.
-    - For _Allowed services_ and _Allowed resource types_, select the settings that you'd like. You'll need to select at least one box in each category. For Allowed permissions, choose **Write** (you can also select other permissions if you want).
-    - Set the remaining settings however you'd like.
-    - Then, select the _Generate SAS and connection string_ button to generate the SAS token. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values and use the copy to clipboard icon to copy the **SAS token** value. Save it to use later.
+1. Follow [this article](/azure/storage/common/storage-account-create?tabs=azure-portal) to create a storage account and save the storage account name to use it later.
+2. Create a container using [this article](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) and save the container name to use it later, when setting up the connection between the container and the endpoint.
+3. Next, create a SAS token for your storage account. Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
+4. In the storage account page, choose _Shared access signature_ link in the left navigation bar to select the right permissions to generate SAS token.
+5. For _Allowed services_ and _Allowed resource types_, select the settings that you'd like. You'll need to select at least one box in each category. For Allowed permissions, choose **Write** (you can also select other permissions if you want).
+Set the remaining settings however you'd like.
+6. Then, select the _Generate SAS and connection string_ button to generate the SAS token. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values and use the copy to clipboard icon to copy the **SAS token** value. Save it to use later.
 
 :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Storage account page in the Azure portal showing all the setting selection to generate a SAS token." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
 
