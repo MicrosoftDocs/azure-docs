@@ -36,13 +36,11 @@ A workspace can contain any number of **Linked service**, essentially connection
 
 ## Apache Spark for Synapse
 
-To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
+To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace. When you start using a Spark pool, the workspaces creates a **spark session** to handle the resources assosociated with that session. 
 
-* **Apache Spark pool** - 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  
-* **Spark application** - It consists of a driver process and a set of executor processes. A Spark application runs on a serverless Spark pool.            
-* **Spark session**- Unified entry point of a spark application. It provides a way to interact with Spark's various functionalities and with a lesser number of constructs. To run a notebook, a session needs to be created. A session can be configured to run on a specific number of executors of a specific size. The default configuration for a notebook session is to run on 2 medium-sized executors.
-* **Notebook** -  Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL.
-* **Spark job definition** - Interface to submit a Spark job by with assembly jar containing the code and its dependencies.
+There are two ways within Synapse to use Spark:
+* **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
+* **Spark job definitions** for running batch Spark jobs using jar files.
 
 Version support:
 * Spark 2.4

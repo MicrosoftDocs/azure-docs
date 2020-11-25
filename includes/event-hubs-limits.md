@@ -13,7 +13,7 @@ ms.custom: "include file"
 
 The following tables provide quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-## Common limits for all tiers
+### Common limits for all tiers
 The following limits are common across all tiers. 
 
 | Limit |  Notes | Value |
@@ -29,7 +29,7 @@ The following limits are common across all tiers.
 | Number of virtual network (VNet) and IP Config rules | - | 128 | 
 
 
-## Basic vs. standard tiers
+### Basic vs. standard tiers
 The following table shows limits that may be different for basic and standard tiers. 
 
 | Limit | Notes | Basic | Standard |
@@ -40,7 +40,7 @@ The following table shows limits that may be different for basic and standard ti
 | Maximum retention period of event data | &nbsp; |1 day |1-7 days |
 | Maximum throughput units |Exceeding this limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 | 20 | 
 
-## Dedicated tier vs. standard tier
+### Dedicated tier vs. standard tier
 The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity and limits for customers with demanding workloads. 
 
 Refer to this [document](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) on how to create dedicated Event Hubs cluster using Azure portal.
@@ -59,11 +59,11 @@ Refer to this [document](../articles/event-hubs/event-hubs-dedicated-cluster-cre
 | Capture | Pay per hour | Included |
 
 
-## Schema registry limitations
+### Schema registry limitations
 
-### Limits that are the same for **standard** and **dedicated** tiers 
+#### Limits that are the same for standard and dedicated tiers 
 | Feature | Limit | 
-|---|---|--|
+|---|---|
 | Maximum length of a schema group name | 50 |  
 | Maximum length of a schema name | 100 |    
 | Size in bytes per schema | 1 MB |   
@@ -72,10 +72,10 @@ Refer to this [document](../articles/event-hubs/event-hubs-dedicated-cluster-cre
 | Size in bytes per group property value | 1024 | 
 
 
-### Limits that are different for **standard** and **dedicated** tiers 
+#### Limits that are different for standard and dedicated tiers 
 
 | Limit | Standard | Dedicated | 
-|---|---|--|---|
+|---|---|--|
 | Size of the schema registry (namespace) in mega bytes | 25 |  1024 |
 | Number of schema groups in a schema registry or namespace | 1 - excluding the default group | 1000 |
 | Number of schema versions across all schema groups | 25 | 10000 |
