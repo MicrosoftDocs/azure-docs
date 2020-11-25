@@ -16,7 +16,8 @@ ms.author: pafarley
 
 You can use Form Recognizer as part of an automated data processing pipeline built with Azure Functions. This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents and saves that data as .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).
 
-![azure service workflow diagram](./media/tutorial-azure-function/workflow-diagram.png)
+> [!div class="mx-imgBorder"]
+> ![azure service workflow diagram](./media/tutorial-azure-function/workflow-diagram.png)
 
 In this tutorial, you learn how to:
 
