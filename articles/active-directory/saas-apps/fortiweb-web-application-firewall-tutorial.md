@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f.	In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
-    g. Next to **Metadata**, click **Choose File** and select the **Federation Metadata XML** file downloaded earlier.
+    g. Next to **Metadata**, click **Choose File** and select the **Federation Metadata XML** file which you have downloaded from the Azure portal.
 
     h.	Click **OK**.
 
