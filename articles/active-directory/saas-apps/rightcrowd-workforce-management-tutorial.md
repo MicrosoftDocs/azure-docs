@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `http://<SUBDOMAIN>.rightcrowdcustomerdomain.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [RightCrowd Workforce Management support team](mailto:rcsup@microsoft.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [RightCrowd Workforce Management support team](mailto:info@rightcrowd.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Save**.
 
@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure RightCrowd Workforce Management SSO
 
-To configure single sign-on on **RightCrowd Workforce Management** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [RightCrowd Workforce Management support team](mailto:rcsup@microsoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **RightCrowd Workforce Management** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [RightCrowd Workforce Management support team](mailto:info@rightcrowd.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create RightCrowd Workforce Management test user
 
