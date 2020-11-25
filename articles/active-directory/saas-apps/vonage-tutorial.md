@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. In the **Sign-in URL** textbox, paste the **Login URL** value which you have copied from the Azure portal. 
 
-    d. Upload the downloaded **Certificate(Base64)** into the **Upload Certificate**.
+    d. Upload the **Certificate(Base64)** file which you have downloaded from the Azure portal into the **Upload Certificate**.
 
 ### Create vonage test user
 
