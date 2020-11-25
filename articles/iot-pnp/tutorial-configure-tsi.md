@@ -11,14 +11,14 @@ services: iot-pnp
 # As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
 
-# Preview tutorial: Create and configure a Time Series Insights Gen2 environment to store, visualize, and analyze IoT Plug and Play device telemetry
+# Preview tutorial: Create and configure a Time Series Insights Gen2 environment
 
 In this tutorial, you learn how to create and configure an [Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/overview-what-is-tsi) environment to integrate with your IoT Plug and Play solution. Use Time Series Insights to collect, process, store, query, and visualize time series data at the scale of Internet of Things (IoT).
 
 First, you provision a Time Series Insights environment and connect your IoT hub as a streaming event source. Then you work through model synchronization to author your [time series model](../time-series-insights/concepts-model-overview.md). You use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files that you used for the temperature controller and thermostat devices.
 
 > [!NOTE]
-> The integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights time series model might change. 
+> This integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights time series model might change. 
 
 ## Prerequisites
 
@@ -36,10 +36,10 @@ To avoid the requirement to install the Azure CLI locally, you can use Azure Clo
 
 ## Prepare your event source
 
-The IoT hub you created previously is your Time Series Insights environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources).
+The IoT hub you created previously will be your Time Series Insights environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources).
 
 > [!IMPORTANT]
-> Disable any existing IoT Hub routes. There's a known issue with using an IoT hub as a Time Series Insights event source with [routing](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configured. Temporarily disable any routing endpoints. When your IoT hub is connected to Time Series Insights, you can enable routing endpoints again.
+> Disable any existing IoT Hub routes. There's a known issue with using an IoT hub with [routing](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configured. Temporarily disable any routing endpoints. When your IoT hub is connected to Time Series Insights, you can enable routing endpoints again.
 
 On your IoT hub, create a unique consumer group for Time Series Insights to consume. In the following example, replace `my-pnp-hub` with the name of the IoT hub you used previously.
 
@@ -51,9 +51,9 @@ az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group
 
 When you provision your Time Series Insights environment, you need to select a *time series ID*. It's important to select the appropriate time series ID. This property is immutable and can't be changed after it's set. A time series ID is like a database partition key. The time series ID acts as the primary key for your time series model. For more information, see [Best practices for choosing a time series ID](../time-series-insights/how-to-select-tsid.md).
 
-As an IoT Plug and Play user, for your time series ID, specify a _composite key_ that consists of `iothub-connection-device-id` and `dt-subject`. IoT Hub adds these system properties that contain your IoT Plug and Play device ID and your device component names, respectively.
+As an IoT Plug and Play user, for your time series ID, specify a _composite key_ that consists of `iothub-connection-device-id` and `dt-subject`. The IoT hub adds these system properties that contain your IoT Plug and Play device ID and your device component names, respectively.
 
-Even if your IoT Plug and Play device models don't currently use components, you should include `dt-subject` as part of a composite key so that you can use the components in the future. Because your time series ID is immutable, Microsoft recommends enabling this option in case you need it in the future.
+Even if your IoT Plug and Play device models don't currently use components, you should include `dt-subject` as part of a composite key so that you can use components in the future. Because your time series ID is immutable, Microsoft recommends enabling this option in case you need it in the future.
 
 > [!NOTE]
 > The examples in this article are for the multiple-component `TemperatureController` device. But the concepts are the same for the no-component `Thermostat` device.
@@ -64,9 +64,9 @@ This section describes how to provision your Azure Time Series Insights Gen2 env
 
 Run the following command to:
 
-* Create an Azure storage account for your environment's [cold store](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store). This account is designed for long-term retention and analytics for historical data.
+* Create an Azure storage account for your environment's [cold storage](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store). This account is designed for long-term retention and analytics for historical data.
   * In your code, replace `mytsicoldstore` with a unique name for your cold storage account.
-* Create an Azure Time Series Insights Gen2 environment. In the environment, warm storage should have a retention period of seven days. Cold storage should have infinite retention.
+* Create an Azure Time Series Insights Gen2 environment. The environment will be created with warm storage that has a retention period of seven days. The cold storage account will be attached for infinite data retention.
   * In your code, replace `my-tsi-env` with a unique name for your Time Series Insights environment.
   * In your code, replace `my-pnp-resourcegroup` with the name of the resource group you used during set-up.
   * Your time series ID property is `iothub-connection-device-id, dt-subject`.
@@ -84,7 +84,7 @@ Connect your IoT Hub event source. Replace `my-pnp-resourcegroup`, `my-pnp-hub`,
 ```azurecli-interactive
 rg=my-pnp-resourcegroup
 iothub=my-pnp-hub
-env=my-Time Series Insights-env
+env=my-tsi-env
 es_resource_id=$(az iot hub create -g $rg -n $iothub --query id --output tsv)
 shared_access_key=$(az iot hub policy list -g $rg --hub-name $iothub --query "[?keyName=='service'].primaryKey" --output tsv)
 az timeseriesinsights event-source iothub create -g $rg --environment-name $env -n iot-hub-event-source --consumer-group-name tsi-consumer-group  --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id
@@ -122,7 +122,7 @@ The following details outline the simplest method to synchronize your device DTD
 * Your digital twin model identifier becomes your type ID.
 * The type name can be either the model name or the display name.
 * The model description becomes the type's description.
-* At least one type variable is created for each telemetry with a numeric schema.
+* Your DTDL telemetry will be translated into type variables.
   * Only numeric data types can be used for variables, but if a value is sent as another type that can be converted, `"0"` for example, you can use a [conversion](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions) function such as `toDouble`.
 * The variable name can be either the telemetry name or the display name.
 * When you define the time series expression variable, refer to the telemetry's name on the wire and to the telemetry's data type.
@@ -189,7 +189,7 @@ You see the newly defined **Temperature Controller** type.
 
 ### Create a hierarchy
 
-Create a hierarchy to organize the tags under their `TemperatureController` parent. The following simple example has a single level, but IoT solutions commonly have many levels of nesting. Tags are contextualized within their physical and semantic position within an organization.
+Create a hierarchy to organize the tags under their `TemperatureController` parent. The following simple example has a single level, but IoT solutions commonly have many levels of nesting to contextualize tags within their physical and semantic position within an organization.
 
 Select **Hierarchies** and then select **Add hierarchy**. For the name, enter *Device Fleet*. Create one level called *Device Name*. Then select **Save**.
 
