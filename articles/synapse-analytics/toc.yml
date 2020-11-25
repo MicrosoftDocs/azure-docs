@@ -191,6 +191,8 @@
       href: sql/best-practices-sql-pool.md
   - name: Quickstarts
     items:
+    - name: Use serverless SQL pool
+      href: quickstart-sql-on-demand.md
     - name: Create a dedicated SQL pool using Synapse Studio
       href: quickstart-create-sql-pool-studio.md
     - name: Create a dedicated SQL pool using Azure portal
@@ -222,8 +224,6 @@
           href: ./sql-data-warehouse/quickstart-configure-workload-isolation-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: T-SQL
           href: ./sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Use serverless SQL pool
-      href: quickstart-sql-on-demand.md
   - name: Tutorials
     items:
     - name: Use serverless SQL pool to analyze data
