@@ -33,7 +33,7 @@ In the Synapse Studio authoring canvas, select the **Synapse Live** drop-down me
 
 ![Configure the code repository settings from authoring](media/configure-repo-1.png)
 
-### Configuration method 2: Management hub
+### Configuration method 2: Manage hub
 
 Go to the management hub of Synapse Studio. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Configure**.
 
@@ -193,7 +193,7 @@ Only grant git repository permission to Synapse workspace artifact authors.
 -   **Synapse live mode**. After publishing in git mode,  all changes will be reflected in Synapse live mode. In Synapse live mode, publishing is disabled. And you can view, run artifacts in live mode if you have been granted the right permission. 
 -   **Edit artifacts in Studio**. Synapse studio is the only place you can enable workspace source control and sync changes to git automatically. Any change via SDK, PowerShell, will not be synced to git. We recommend you always edit artifact in Studio when git is enabled.
 
-## Troubleshooting Git integration
+## Troubleshooting git integration
 
 ### Access to git mode 
 
@@ -213,6 +213,11 @@ If the publish branch is out of sync with the collaboration branch and contains 
 
 1. Create a pull request to merge the changes to the collaboration branch 
 
+## Unsupported features
+
+- Synapse Studio doesn't allow cherry-picking of commits or selective publishing of resources. 
+- Synapse Studio doesn't support customize commit message.
+- By design, delete action in Studio will be committed to git directly
 
 ## Next steps
 
