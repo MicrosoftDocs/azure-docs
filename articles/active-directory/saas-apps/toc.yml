@@ -2019,6 +2019,8 @@
         href: github-ae-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: GroupTalk
+        href: grouptalk-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
       - name: Hootsuite
@@ -2081,6 +2083,8 @@
         href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: PaperCut Cloud Print Management
+        href: papercut-cloud-print-management-provisioning-tutorial.md        
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Playvox
