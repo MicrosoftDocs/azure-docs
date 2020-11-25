@@ -1246,7 +1246,7 @@
         href: panorays-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md
-        name: PaperCut Cloud Print Management
+      - name: PaperCut Cloud Print Management
         href: papercut-cloud-print-management-provisioning-tutorial.md
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
