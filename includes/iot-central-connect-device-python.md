@@ -1,40 +1,16 @@
 ---
-title: Tutorial - Connect a generic Python client app to Azure IoT Central | Microsoft Docs
-description: This tutorial shows you how, as a device developer, to connect a device running a Python client app to your Azure IoT Central application. You modify the automatically generated device template by adding views that let an operator interact with a connected device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/03/2020
-ms.topic: tutorial
-ms.service: iot-central
-services: iot-central
-ms.custom: [devx-track-python, device-developer]
-
-# As a device developer, I want to try out using Python device code that uses the Azure IoT Python SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using commands.
+ms.service: iot-pnp
+ms.topic: include
+ms.date: 11/24/2020
 ---
-
-# Tutorial: Create and connect a client application to your Azure IoT Central application (Python)
-
-[!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
-
-*This article applies to solution builders and device developers.*
-
-This tutorial shows you how, as a device developer, to connect a Python client application to your Azure IoT Central application. The Python application simulates the behavior of a thermostat device. When the application connects to IoT Central, it sends the model ID of the thermostat device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add customizations and views to the device template to enable an operator to interact with a device.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create and run the Python device code and see it connect to your IoT Central application.
-> * View the simulated telemetry sent from the device.
-> * Add custom views to a device template.
-> * Publish the device template.
-> * Use a view to manage device properties.
-> * Call a command to control the device.
 
 ## Prerequisites
 
 To complete the steps in this article, you need the following:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
+* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
 * A development machine with [Python](https://www.python.org/) version 3.7 or later installed. You can run `python --version` at the command line to check your version. Python is available for a wide variety of operating systems. The instructions in this tutorial assume you're running the **python** command at the Windows command prompt.
 * A local copy of the [Microsoft Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/master.zip). Then unzip the file to a suitable location on your local machine.
 
@@ -223,13 +199,13 @@ async def send_telemetry_from_thermostat(device_client, telemetry_msg):
 
 ## Get connection information
 
-[!INCLUDE [iot-central-connection-configuration](../../../includes/iot-central-connection-configuration.md)]
+[!INCLUDE [iot-central-connection-configuration](iot-central-connection-configuration.md)]
 
 ## Run the code
 
 To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-python/azure-iot-device/samples/pnp* folder that contains the *simple_thermostat.py* sample file.
 
-[!INCLUDE [iot-central-connection-environment](../../../includes/iot-central-connection-environment.md)]
+[!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 
 Install the required packages:
 
@@ -257,7 +233,7 @@ Sent message
 Sent message
 ```
 
-[!INCLUDE [iot-central-monitor-thermostat](../../../includes/iot-central-monitor-thermostat.md)]
+[!INCLUDE [iot-central-monitor-thermostat](iot-central-monitor-thermostat.md)]
 
 You can see how the device responds to commands and property updates:
 
@@ -275,20 +251,3 @@ Will return the max, min and average temperature from the specified time 2020-10
 Done generating
 {"avgTemp": 31.5, "endTime": "2020-10-16T10:07:41.580722", "maxTemp": 49, "minTemp": 12, "startTime": "2020-10-16T10:06:21.580632"}
 ```
-
-## View raw data
-
-[!INCLUDE [iot-central-monitor-thermostat-raw-data](../../../includes/iot-central-monitor-thermostat-raw-data.md)]
-
-## Next steps
-
-If you'd prefer to continue through the set of IoT Central tutorials and learn more about building an IoT Central solution, see:
-
-> [!div class="nextstepaction"]
-> [Create a gateway device template](./tutorial-define-gateway-device-type.md)
-
-As a device developer, now that you've learned the basics of how to create a device using Python, some suggested next steps are to:
-
-* Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
-* Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
-* Read [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md) to learn more about the data the device exchanges with IoT Central.
