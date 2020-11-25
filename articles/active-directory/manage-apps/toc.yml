@@ -193,7 +193,7 @@
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
       - name: Secure legacy apps 
-        itesm:
+        items:
         - name: Secure hybrid access with Azure AD 
           href: secure-hybrid-access.md
         - name: F5 and Azure AD integration
