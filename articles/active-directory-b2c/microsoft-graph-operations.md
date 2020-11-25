@@ -31,12 +31,12 @@ For more information about managing Azure AD B2C user accounts with the Microsof
 
 ## User phone number management
 
-- [Add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
-- [Get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
-- [Update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
-- [Delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+- [Add](/graph/api/authentication-post-phonemethods)
+- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Update](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Delete](/graph/api/phoneauthenticationmethod-delete)
 
-For more information about managing user's sign-in phone number with the Microsoft Graph API, see [B2C Authentication Methods](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
+For more information about managing user's sign-in phone number with the Microsoft Graph API, see [B2C Authentication Methods](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## Identity providers (user flow)
 

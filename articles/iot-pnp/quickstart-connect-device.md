@@ -32,7 +32,7 @@ zone_pivot_groups: programming-languages-set-twenty-six
 
 :::zone pivot="programming-language-ansi-c"
 
-[!INCLUDE [iot-pnp-connect-device-csharp](../../includes/iot-pnp-connect-device-c.md)]
+[!INCLUDE [iot-pnp-connect-device-c](../../includes/iot-pnp-connect-device-c.md)]
 
 :::zone-end
 
