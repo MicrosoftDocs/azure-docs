@@ -34,25 +34,17 @@ A workspace can contain any number of **Linked service**, essentially connection
 
 ## Apache Spark for Synapse
 
-To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
+To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace. When you start using a Spark pool, the workspaces creates a **spark session** to handle the resources assosociated with that session. 
 
-* **Apache Spark pool** - 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  
-* **Spark application** - It consists of a driver process and a set of executor processes. A Spark application runs on a serverless Spark pool.            
-* **Spark session**- Unified entry point of a spark application. It provides a way to interact with Spark's various functionalities and with a lesser number of constructs. To run a notebook, a session needs to be created. A session can be configured to run on a specific number of executors of a specific size. The default configuration for a notebook session is to run on 2 medium-sized executors.
-* **Notebook** -  Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL.
-* **Spark job definition** - Interface to submit a Spark job by with assembly jar containing the code and its dependencies.
-
-Version support:
-* Spark 2.4
-* Python 3.6.1
-* Scala 2.11.12
-* .NET for Apache Spark 1.0
-* Delta Lake 0.3.  
+There are two ways within Synapse to use Spark:
+* **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
+* **Spark job definitions** for running batch Spark jobs using jar files.
 
 ## Pipelines
 
-* **Data Integration** - Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.
-* **Data Flow** - Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion.
+Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
+
+* **Data Flows** provide a no-codine experience for doing data transformation that uses Synapse Spark under-the-covers.
 * **Pipeline** - Logical grouping of activities that perform a task together.
 * **Activity** - Defines actions to perform on data such as copying data, running a Notebook or a SQL script.
 * **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)

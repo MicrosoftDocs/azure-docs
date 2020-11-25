@@ -143,7 +143,7 @@ In the example below, if the unstructured_data_path=`https://mystorageaccount.df
 
 The WITH clause allows you to specify columns that you want to read from files.
 
-- For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. 
+- For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. If HEADER_ROW = TRUE is used, then column binding is done by column name instead of ordinal position.
     > [!TIP]
     > You can omit WITH clause for CSV files also. Data types will be automatically inferred from file content. You can use HEADER_ROW argument to specify existence of header row in which case column names will be read from header row. For details check [automatic schema discovery](#automatic-schema-discovery).
     
@@ -227,7 +227,7 @@ CSV parser version 2.0 specifics:
 
 HEADER_ROW = { TRUE | FALSE }
 
-Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument.
+Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument. If TRUE and schema is specified using WITH, binding of column names will be done by column name, not ordinal positions.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 
