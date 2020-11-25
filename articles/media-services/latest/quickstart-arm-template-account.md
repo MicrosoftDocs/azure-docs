@@ -55,7 +55,7 @@ The syntax for the JSON code fence is:
     "mediaServiceName": {
       "type": "string",
       "metadata": {
-        "description": "inhenkelARM2"
+        "description": "Name of the Media Services account. A Media Services account name is unique in a given region, all lowercase letters or numbers with no spaces."
       }
     }
   },
@@ -111,7 +111,6 @@ The syntax for the JSON code fence is:
 }
 
 ```
-
 
 Three Azure resource types are defined in the template:
 
@@ -260,22 +259,19 @@ In the Azure portal, confirm that your resources have been created.
 ![quickstart resources created](./media/quickstart-arm-template-account/quickstart-arm-template-resources.png)
 
 ## Clean up resources
-The Clean up resources section includes a paragraph that explains how to delete unneeded resources. Include at least one method that shows how to clean up resources. Use a portal screenshot, or interactive code fences for Azure CLI (azurecli-interactive) or Azure PowerShell (azurepowershell-interactive).
 
-See Examples.
+If you aren't planning to use the resources you just created, you can delete the resource group.
 
-Sixth H2: Next steps
-Make the next steps similar to other quickstarts and use a blue button to link to the next article for your service. Or direct readers to Tutorial: Create and deploy your first ARM template to follow the process of creating a template.
+```azurecli-interactive
 
-markdown
+az group delete --name {name of the resource group}
 
-Copy
-> [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
-To include additional links for more information about the service, it's acceptable to use a paragraph and bullet points.
-
-
+```
 
 ## Next steps
 
-> [Azure Media Services overview](media-services-overview.md)
+To learn more about using an ARM template by following the process of creating a template with parameters, variables and more, try
+
+> [!div class="nextstepaction"]
+> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+ try the tutorial [Create and deploy your first ARM template](https://review.docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
