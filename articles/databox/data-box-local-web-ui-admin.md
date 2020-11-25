@@ -19,6 +19,7 @@ The local web UI for the Data Box and for Data Box Heavy is used for initial con
 This article includes the following tutorials:
 
 - Generate a Support package
+- Erase local data from your device
 - Shut down or restart your device
 - Download bill of material (BOM) or manifest files
 - View available capacity of the device
@@ -28,7 +29,9 @@ This article includes the following tutorials:
 
 ## Generate Support package
 
-If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. To generate a Support package, take the following steps:
+If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. 
+
+To generate a Support package, take the following steps:
 
 1. In the local web UI, go to **Contact Support** and select **Create Support package**.
 
@@ -46,9 +49,30 @@ If you experience any device issues, you can create a Support package from the s
 
     ![Create Support package 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
+
+## Erase local data from your device
+
+You can use the local web UI to erase local data from your device before returning it to the Azure Datacenter.
+
+> [!IMPORTANT] 
+> A data erase can't be reversed. Before you erase local data from your device, be sure to back up the files.
+
+To erase local data from your device, perform these steps:
+
+1. In the local web UI, go to **Data erase**.
+2. Enter the device password, and select **Erase data**.
+
+    ![Data erase option for a device](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. At the confirmation prompt, select **Yes** to continue.
+
+   Be sure to back up your local data before you erase it from the device. A data erase can't be reversed.
+
+    ![Data erase confirmation prompt](media/data-box-local-web-ui-admin/erase-local-data-2.png)
+
 ## Shut down or restart your device
 
-You can shut down or restart your device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. Doing so minimizes any possibility of data corruption. Ensure that data copy isn't in progress when you shut down the device.
+You can shut down or restart your device using the local web UI. We recommend that before you restart, you take the shares offline on the host and then the device. Doing so minimizes any possibility of data corruption. Ensure that data copy isn't in progress when you shut down the device.
 
 To shut down your device, take the following steps.
 
