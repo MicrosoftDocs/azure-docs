@@ -20,7 +20,7 @@ Data Share Lineage is aimed to provide detailed information for root cause analy
 
 Data officers can see a list of all datasets that are bi-directionally shared with their partner organizations. They can search and discover the datasets by organization name and see a complete view of all outgoing and incoming shares.
 
-### Scenarios 2: Root cause analysis - upstream dependency on datasets coming into organization (consumer view of incoming shares)
+### Scenario 2: Root cause analysis - upstream dependency on datasets coming into organization (consumer view of incoming shares)
 
 A report has incorrect information because of upstream data issues from an external Data Share account. The data engineers can understand upstream failures, be informed about the reasons, and further contact the owner of the share to fix the issues causing their data discrepancy.
 
@@ -39,7 +39,7 @@ To connect your Azure Data Share and Azure Purview account, do the following:
     1. In the Purview portal, you can go to **Management Center** and connect your Azure Data Share under the **External connections** section.
     1. Select **+ New** on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. Run a snapshot job after connecting your Data Share to Purview account, so that the Data Share assets and lineage information is visible in Purview.
 
-    :::image type="content" source="media/how-to-link-azure-data-share/connect-to-data-share.png" alt-text="Management center to link Azure Data Share":::
+       :::image type="content" source="media/how-to-link-azure-data-share/connect-to-data-share.png" alt-text="Management center to link Azure Data Share":::
 
 1. Execute your snapshot in Azure Data Share.
 
@@ -51,7 +51,7 @@ To connect your Azure Data Share and Azure Purview account, do the following:
 
     - In the home page of Purview account, select **Browse by asset type** and select the **Azure Data Share** tile. You can search for an account name, share name, share snapshot, or partner organization. Otherwise apply filters on the Search result page for account name, share type (sent vs received shares).
 
-    :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-search-result-page.png" alt-text="Azure Data share in Search result page":::
+       :::image type="content" source="media/how-to-link-azure-data-share/azure-data-share-search-result-page.png" alt-text="Azure Data share in Search result page":::
 
     >[!Important]
     >For Data Share assets to show in Purview, a snapshot job must be run after you connect your Data Share to Purview.
