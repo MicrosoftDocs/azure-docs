@@ -34,7 +34,7 @@ For more information, see [Use the portal to scan Azure data sources (preview)](
 
 ## Use Purview Scan Insights
 
-In Azure Purview, you can register and scan source types. You can view the scan status over time in Scan Insights. It tells you how many scans failed, succeeded or get canceled within a certain time period.
+In Azure Purview, you can register and scan source types. You can view the scan status over time in Scan Insights. It tells you how many scans failed, succeeded, or get canceled within a certain time period.
 
 **To view Scan Insights:**
 
@@ -42,30 +42,26 @@ In Azure Purview, you can register and scan source types. You can view the scan 
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/scan-insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
+1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/scan-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Scans** to display the Purview **Scan insights** report.
+1. In the **Insights** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: area, select **Scans** to display the Purview **Scan insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report":::
+### View Scan Insights
+View high-level KPIs to show count of scans by status
+ 
+The high-level KPIs show total scans run within a period. The time period is defaulted at last 30 days. However, you can select last seven days time period as well. Based on the time filter, the KPI values reflect the count of scans appropriately.
 
-   The **Scan Insights** page displays the following areas:
-- **High level KPI's to show count of scans by status**
-- 
-- The high level KPIs show total scans run within a period. The time period is defaulted at last 30 days. However, you can select last 7 days time period as well. Based on the time filter, the KPI values reflect the count of scans appropriately.
+A trend graph to show count of successful, failed, and canceled
 
-- **A trend graph to show count of successful, failed and canceled** 
+Based on the time filter value selected, you can see the distribution of successful, failed, and canceled scans by week or by the day in the graph.
 
-Based on the time filter value selected, you can see the distribution of successful, failed and canceled scans by week or by the day in the graph.
+   :::image type="content" source="./media/scan-insights/scan-insights.png" alt-text="View Scan Insights":::
 
 ## Next steps
 
 Learn more about Azure Purview insight reports
-> [!div class="nextstepaction"]
-> [Glossary Insights](./glossary-insights.md)
-
-> [!div class="nextstepaction"]
-> [Scan Insights](scan-insights.md)
+- Asset Insights to be added after merge
