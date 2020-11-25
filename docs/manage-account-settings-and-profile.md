@@ -1,10 +1,10 @@
 ---
-title: Manage your Office Store account in Partner Center
+title: Manage your Microsoft 365 App Store account in Partner Center
 description: After you create a Partner Center account, you can manage your account and offers using the Partner Center dashboard.
 localization_priority: Normal
 ---
 
-# Manage your Office Store account in Partner Center 
+# Manage your Microsoft 365 App Store account in Partner Center 
 
 After you [create a Partner Center account](./open-a-developer-account.md), you can manage your account and offers using the [Partner Center dashboard](https://partner.microsoft.com/dashboard/overview). In this article, we'll describe how to manage your Partner Center account. 
 
@@ -16,17 +16,18 @@ If you have not already done so, you (or your organization's administrator) shou
 - Set up your company’s financial details, including tax exemptions if appropriate
 - Create user accounts for anyone who will use your business account in Partner Center
 
-To access your account settings in Partner Center, select the gear icon (near the upper right corner of the dashboard) and then select **Account settings**. 
+To access your account settings in Partner Center, select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**.
 
-On the **Organization profile** -> **Legal** -> **Developer** tab, you can view your:
-- Account details, including account type and account status
+On the **Account settings** page, you can view your:
+
+- Account details, include account type and account status
 - Publisher IDs, including Seller ID, User ID, and Azure AD tenants
 - Contact info, including Publisher display name, Seller contact name, email, phone, and address
 - Financial details, including payout account, tax profile, and payout hold status
 
 ### Account details
 
-In the Account details section, you can see basic info, like your **Account type** (Company or Individual) and the **Account status** of your account. During the account verification process, these settings will display each step required, including email verification, employment verification, and business verification. You can also update your email here and resend the verification if needed. 
+In the Account details section, you can see basic info, like your **Account type** (Company or Individual) and the **Account status** of your account. During the account verification process, these settings will display each step required, including email verification, employment verification, and business verification. You can also update your email here and resend the verification if needed.
 
 ### Publisher IDs
 
@@ -38,7 +39,7 @@ In the Contact info section, you can see your **Publisher display name**, **Sell
 
 ### Financial details
 
-In the Financial details section, you can provide or update your financial information if you publish paid apps or services. 
+In the Financial details section, you can provide or update your financial information if you publish apps or services which require payment.
 
 If you only plan to list free offers, you don't need to set up a payout account or fill out any tax forms. If you change your mind later, and decide you do want to sell through Microsoft, you can set up your payout account and fill out tax forms at that time. 
 
@@ -247,7 +248,7 @@ Your company's users can be assigned the following roles and permissions for the
 
 ## Manage tenants
 
-An Azure Active Directory (AD) tenant, also referred to as your work account, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you. 
+An Azure Active Directory (AD) tenant, also referred to as your work account, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Microsoft 365, an Azure AD tenant was established for you. 
 
 You can set up multiple tenants to use with Partner Center. Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account.  
 

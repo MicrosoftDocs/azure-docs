@@ -1,12 +1,12 @@
 ---
 title: Partner Center migration FAQ
-description: Microsoft is rolling out a modern management experience for the Office Store program in Partner Center. This article provides answers to frequently asked questions about the migration.
+description: Microsoft is migrating to a modern management experience for the Office Store program in Partner Center. This article provides answers to frequently asked questions about the migration.
 localization_priority: Normal
 ---
 
 # Partner Center migration FAQ
 
-Microsoft is rolling out a modern management experience for the Office Store program in Partner Center. Office Add-ins (including Outlook add-ins), SharePoint add-ins, Teams apps, and Power BI visuals will be migrated to Partner Center. This article provides answers to frequently asked questions about the migration.
+Microsoft is rolling out a modern management experience for the Microsoft 365 App Store program in Partner Center. Microsoft 365 Add-ins (including Outlook add-ins), SharePoint add-ins, Teams apps, and Power BI visuals will be migrated to Partner Center. This article provides answers to frequently asked questions about the migration.
 
 ## Pre-migration FAQ
 
@@ -35,7 +35,7 @@ We will also move client IDs and associated secrets for which the secrets have n
 
 All other products will not be migrated. These are legacy products that are no longer supported in Seller Dashboard.
 
-### How can I get started as an Office solutions developer?
+### How can I get started as a Microsoft 365 app developer?
 
 To get started, [open a developer account](open-a-developer-account.md) in Partner Center. For details about how to build Office solutions, see the following:
 
@@ -55,7 +55,7 @@ The validation process is on a new architecture in Partner Center. All the produ
 
 ### Why don’t my paid products show any pricing or trial information in Partner Center?
 
-Per the [moving from paid to free add-ins](moving-from-paid-to-free-addins.md) initiative, Partner Center does not support pricing configuration management.  The Office catalog will retain pricing and trial information from Seller Dashboard and will display it while the Office team works with you to move your solutions from paid to free. In the interim, to update pricing and trial configurations, contact [support](https://support.microsoft.com/supportforbusiness/productselection?sapId=48c74321-b2fa-010b-d0c2-1f8afea90a52). 
+Partner Center does not support pricing configuration management.  The Office catalog will retain pricing and trial information from Seller Dashboard and will display it while the Office team works with you to move your solutions from paid to free. In the interim, to update pricing and trial configurations, contact [support](https://support.microsoft.com/supportforbusiness/productselection?sapId=48c74321-b2fa-010b-d0c2-1f8afea90a52). 
 
 ### If I didn’t opt out of any markets on Seller Dashboard, why are my products only available in a subset of markets in Partner Center?
 

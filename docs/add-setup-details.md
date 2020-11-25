@@ -1,25 +1,25 @@
 ---
-title: Add setup details for your Office solution
-description: On the Product setup page, you can indicate whether you want your solution to be available in the Apple Store (for some Office Add-ins), provide authorization information, indicate that additional service purchase is required, and add lead management details.
+title: Add setup details for your Microsoft 365 solution
+description: Learn how to add details for Microsoft 365 app or Office add-in. 
 localization_priority: Normal
 ---
 
-# Add setup details for your Office solution
+# Add setup details for your Microsoft 365 solution
 
-On the Product setup page, you can indicate whether you want your solution to be available in the Apple Store (for some Office Add-ins), provide authorization information, indicate that additional service purchase is required, and add lead management details.
+On the Product setup page, you can indicate whether you want your app to be available in the Apple Store (for some Microsoft 365 Add-ins), provide authorization information, indicate that additional service purchase is required, and add lead management details.
 
 ## Setup details
 
 ### Apple Store availability
 
-If you want your Word, Excel, Outlook, or PowerPoint add-in to be available in the Apple Store, select the iOS check box. Currently, only Outlook add-ins can be made available for Android. 
+If you want your Word, Excel, Outlook, or PowerPoint add-in to be available in the Apple Store, select the iOS check box. Currently, only Outlook add-ins can be made available for Android.
 
 > [!NOTE]
-> To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. After you add your ID in Account settings, remember to refresh the **Add-in setup** page.
+> To make your app available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. After you add your ID in Account settings, remember to refresh the **Add-in setup** page.
 
 ### Authorization
 
-If your add-in requires Azure Active Directory (Azure AD), you must check the box in the Authorization section and specify your target Office 365 plan. Your add-in requires Azure AD if it targets a specific national cloud, or if it uses single sign-on (SSO) or Microsoft Graph. 
+If your app requires Azure Active Directory (Azure AD), you must check the box in the Authorization section and specify your target Office 365 plan. Your app requires Azure AD if it targets a specific national cloud, or if it uses single sign-on (SSO) or Microsoft Graph.
 
 When you select the check box, you must select one of the following target plans:
 - Office 365 or Office 365 Education
@@ -28,10 +28,10 @@ When you select the check box, you must select one of the following target plans
 - Office 365 U.S. Government
 
 > [!Note]
-> Add-ins that require Azure AD might be subject to additional validation requirements during the certification process.
+> Apps that require Azure AD might be subject to additional validation requirements during the certification process.
 
 ### Associated service purchase 
-If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **My product requires purchase of a service or offers additional in-app purchases** check box. 
+If your app requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **My product requires purchase of a service or offers additional in-app purchases** check box. 
 
 If your product offers in-app purchases, select the **My product requires purchase of a service or offers additional in-app purchases** check box.
 
@@ -39,17 +39,16 @@ If your product offers in-app purchases, select the **My product requires purcha
 > If your Power BI visual includes in-app purchases, be sure to provide a license key or token in the **Notes for certification** box on the **Review and publish** page, so that the validation team can validate the in-app purchase features. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
 
 ### Power BI certification
-Certified Power BI visuals are visuals in the Marketplace that meet certain specified code requirements that the Microsoft Power BI team has tested and approved. To request certification, select the Request Power BI certification check box.
+Certified Power BI visuals are visuals in the Marketplace that [meet certain specified code requirements that the Microsoft Power BI team has tested and approved](https://docs.microsoft.com/legal/marketplace/certification-policies#1180-power-bi-visuals). To request certification, select the Request Power BI certification check box.
 We recommend that you submit and publish your Power BI visual before you request certification, because the certification process can take time. When you request certification, be sure to provide all required certification information in the Notes for certification box on the Review and publish page.
-
 
 ## Lead management
 
-To get information about users who acquire your add-in, you can submit lead configuration details for your customer relationship management (CRM) system in Partner Center. 
+To get information about users who acquire your app, you can submit lead configuration details for your customer relationship management (CRM) system in Partner Center. 
 
-You can use leads to follow up with customers directly to ensure that they have a successful experience with your solution. 
+You can use leads to follow up with customers directly to ensure that they have a successful experience with your solution.
 
-For customers who acquire your add-in via Microsoft AppSource, the following details are sent to your lead management system:
+For customers who acquire your app via Microsoft AppSource, the following details are sent to your lead management system:
 
 - First Name
 - Last Name
@@ -184,7 +183,7 @@ After you have enter the connection details in Partner Center, select **Save**.
 If you get an error message, make sure that your details are correct or try again later. 
 
 > [!NOTE]
-> If your add-in is already in Microsoft AppSource, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
+> If your app is already in Microsoft AppSource, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
 
 To edit your lead management details, on **Add-in setup** page, choose **Edit**.
 
