@@ -139,7 +139,7 @@ For convenience, create a variable that stores the path to the template file. Th
 
 ```azurecli-interactive
 
-templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide the path to the template file}"
 
 ```
 
