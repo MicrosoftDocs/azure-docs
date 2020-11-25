@@ -14,17 +14,20 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-In this quickstart, you'll analyze a remotely stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) method, you can extract visual features based on image content.
+In this quickstart, you'll learn how to call the Computer Vision REST API to do a number of tasks. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) method, you can extract visual features based on image content.
+
+In this quickstart, you generate a thumbnail from an image using the Computer Vision REST API. You specify the desired height and width, which can differ in aspect ration from the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates around that region.
+
 
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* [cURL](https://curl.haxx.se/)
+* [cURL](https://curl.haxx.se/) installed
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
   * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Create and run the sample command
+## Analyze an image
 
 To create and run the sample, do the following steps:
 
@@ -41,7 +44,7 @@ To create and run the sample, do the following steps:
 curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 
-## Examine the response
+### Examine the response
 
 A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
@@ -114,7 +117,7 @@ In this quickstart, you'll extract printed text with optical character recogniti
   * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Create and run the sample command
+## Read printed text with OCR
 
 To create and run the sample, do the following steps:
 
@@ -131,7 +134,7 @@ To create and run the sample, do the following steps:
 curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/ocr?language=unk&detectOrientation=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
 ```
 
-## Examine the response
+### Examine the response
 
 A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
@@ -234,19 +237,7 @@ A successful response is returned in JSON. The sample application parses and dis
 }
 ```
 
-# Quickstart: Generate a thumbnail using the Computer Vision REST API and cURL
-
-In this quickstart, you generate a thumbnail from an image using the Computer Vision REST API. You specify the desired height and width, which can differ in aspect ration from the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates around that region.
-
-## Prerequisites
-
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* [cURL](https://curl.haxx.se/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
-  * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-
-## Create and run the sample command
+## Generate a thumbnail
 
 To create and run the sample, do the following steps:
 
@@ -265,7 +256,7 @@ To create and run the sample, do the following steps:
     curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
-## Examine the response
+### Examine the response
 
 A successful response writes the thumbnail image to the file specified in `<thumbnailFile>`. If the request fails, the response contains an error code and a message to help determine what went wrong. If the request seems to succeed but the created thumbnail is not a valid image file, it might be that your subscription key is not valid.
 
