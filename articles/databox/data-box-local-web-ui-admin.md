@@ -64,7 +64,7 @@ To erase local data from your device, perform these steps:
 
     ![Data erase option for a device](media/data-box-local-web-ui-admin/erase-local-data-1.png)
 
-3. At the confirmation prompt, select **Yes** to continue.
+3. At the confirmation prompt, select **Yes** to continue. A data erase can take as long as 50 minutes.
 
    Be sure to back up your local data before you erase it from the device. A data erase can't be reversed.
 
