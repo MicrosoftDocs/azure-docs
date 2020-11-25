@@ -1246,8 +1246,6 @@
         href: panorays-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md
-      - name: PaperCut Cloud Print Management
-        href: papercut-cloud-print-management-provisioning-tutorial.md
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
@@ -2083,6 +2081,8 @@
         href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
+      - name: PaperCut Cloud Print Management
+        href: papercut-cloud-print-management-provisioning-tutorial.md        
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Playvox
