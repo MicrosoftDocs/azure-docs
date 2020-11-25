@@ -14,7 +14,7 @@ ms.date: 11/24/2020
 
 This how-to guide describes how to access, view, and filter Purview Classification insight reports for your data.
 
-Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB, SQL Server
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (formerly SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server
 
 In this how-to guide, you'll learn how to:
 
@@ -29,11 +29,9 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- [Extended Microsoft 365 sensitivity labels to assets in Azure Purview](create-sensitivity-label.md), and created or selected the labels you want to apply to your content.
+- Set up and completed a scan on the test data in each data source 
 
-- Set up and completed a scan on the test data in each data source
-
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) and [Automatically label your content in Azure Purview](create-sensitivity-label.md).
+For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md).
 
 ## Use Purview classification insights
 
@@ -59,10 +57,10 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
    |---------|---------|
    |**Overview of sources with classifications**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique classifications found in your data <br>- The number of classified sources found <br>- The number of classified files found <br>- The number of classified tables found         |
    |**Top sources with classified data (last 30 days)**     |Shows the trend, over the past 30 days, of the number of sources found with classified data.            |
-   |**Top classification categories by sources**     |Shows the number of sources by classification category, such as **Financial** or **Government**.      |
+   |**Top classification categories by sources**     |Shows the number of sources found by classification category, such as **Financial** or **Government**.      |
    |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national identification numbers.         |
-   |**Top classifications for tables**     | Shows the top classifications applied to database tables and/or column assets in your data, such as personal identifying information. |   
-   |  **Classification activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected timeframe. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
+   |**Top classifications for tables**     | Shows the top classifications applied to tables in your data, such as personal identifying information. |   
+   |  **Classification activity** <br>(files and tables) |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected timeframe. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |
 
 ## Classification insights drilldown
@@ -86,7 +84,7 @@ Do any of the following to learn more:
 |**Sort the grid** |Select a column header to sort the grid by that column. | 
 |**Edit columns**     |  To display more or fewer columns in your grid, select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order.   |
 |**Drill down further**     | To drill down to a specific classification, select a name in the **Classification** column to view the **Classification by source** report. <br><br>This report displays data for the selected classification, including the source name, source type, subscription ID, and the numbers of classified files and tables.      |
-|**Browse assets**     |  To browse through the assets found with a specific classification or source, select one or more classifications or sources, depending on the report you're viewing, and then select **Browse assets** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: above the filters. <br><br>The search results display all of the classified assets found for the selected filter.  For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).       |
+|**Browse assets**     |  To browse through the assets found with a specific classification or source, select a classification or source, depending on the report you're viewing, and then select **Browse assets** :::image type="icon" source="media/insights/ico-browse-assets.png" border="false"::: above the filters. <br><br>The search results display all of the classified assets found for the selected filter.  For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).       |
 | | |
 
 ## Next steps

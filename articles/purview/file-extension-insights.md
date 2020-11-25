@@ -14,7 +14,7 @@ ms.date: 11/24/2020
 
 This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data.
 
-Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB, SQL Server
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
@@ -69,7 +69,9 @@ The grid shows details for each file extension found, including:
 - **File count**. The number of files with the specified extension.
 - **Content scanning**. Whether or not the file extension is supported for scanning for sensitive data.
 - **Subscriptions**. The number of subscriptions where the specified extension was found.
-- **Sources**. The number of sources where the specified extension was found.
+- **Sources**. The number of sources found with the specified file extension.
+
+
 
 Use the filters above the grid to filter the data shown:
 

@@ -70,10 +70,10 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     |Option  |Description  |
     |---------|---------|
-    |**Overview of sources with classifications**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
+    |**Overview of sources with classifications**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique classifications found</br>- The number of sources found with classified data</br>- The number of files and tables found with classifications        |
     |**Top sources with classified data (last 30 days)**  |Use the **Top sources with classified data (last 30 days)** graph to view the trend, over the past 30 days, of the number of sources found with classified data. |
-    | **Top classification categories by sources** |Use the **Top classification categories by sources** graph to view the number of sources that contain top classification categories. |
-    |**Top classifications**     |  Use the **Top classifications** graphs for files and tables to view the most commonly used classifications in your content, such as credit card numbers or national identification numbers.       |
+    | **Top classification categories by sources** |Use the **Top classification categories by sources** graph to view the top classifications found in the data sources.  |
+    |**Top classifications** <br>(for files or tables)     |  Use the **Top classifications** graphs for files and tables to view the most commonly found classifications in your content, such as credit card numbers or national identification numbers.       |
     |**Classification activity** | Use the **Classified data** graphs to view the number of classified files found for files and tables over time, and adjust the time selector above the graphs to view data for different time periods. |
     | | |
 
@@ -91,15 +91,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View Sensitivity labeling insights
 
-1. On the left, select **Sensitivity labels** to view insights about the sensitivity labels found in your content.
+1. On the left, select **Sensitivity labels** to view insights about the sensitivity labels applied on your content.
 
     |Option  |Description  |
     |---------|---------|
-    |**Overview of sources with classifications**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique classifications found</br>- The number of sources classified </br>- The numbers of classified files and classified tables        |
-    |**Top sources with labeled data (last 30 days)**  |Use the **Top sources with labeled data (last 30 days)** graph to view the trend, over the past 30 days, of the number of sources found with labeled data. |
+    |**Overview of sources with sensitivity labels**     | Use the tiles at the top of the page to view overall statistics, including: </br>- The number of subscriptions scanned </br>- The number of unique labels</br>- The number of sources with sensitivity labels applied</br>- The number of files and tables with sensitivity labels applied       |
+    |**Top sources with labeled data (last 30 days)**  |Use the **Top sources with labeled data (last 30 days)** graph to view the trend, over the past 30 days, of the number of sources with sensitivity labels applied. |
     | **Top labels applied across sources** |Use the **Top labels applied across sources** graph to view the sources that have top labels applied. |
     |**Top labels applied**     |  Use the **Top labels applied** graphs for files and tables to view the most commonly used labels in your content.       |
-    |**Labeling activity** | Use the **Labeled data** graphs to view the number of labeled files found for files and tables over time, and adjust the time selector above the graphs to view data for different time periods. |
+    |**Labeling activity** <br>(files and tables) | Use the **Labeled data** graphs to view the number of files and tables labeled over time, and adjust the time selector above the graphs to view data for different time periods. |
     | | |
             
 1. Inside the graphs, click **View more** to drill down further.
@@ -116,7 +116,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View File extension insights
 
-1. On the left, select **File extensions** to view insights about the file types (extensions) found in your content.
+1. On the left, select **File extensions** to view insights about the file types (extensions) found in your content, over a maximum of the last 30 days.
 
     |Option  |Description  |
     |---------|---------|

@@ -17,9 +17,19 @@ This article describes how to create Microsoft Information Protection (MIP) sens
 
 To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. 
 
-When your data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies. Applying sensitivity labels can help you keep your data secured and protected.
+When your data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies. 
 
-MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). Sensitivity labels enable you to classify and protect your organization's data, while ensuring that user productivity and collaboration can continue to flow. 
+Applying sensitivity labels enable you to state how sensitive certain data is in your organization. For example, a specific project name might be highly confidential within your organization, while that same term is not confidential to other organizations. 
+
+### Sensitivity labels in Azure Purview
+
+In Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
+
+Purview uses the same classifications, also known as sensitive information types, as Microsoft 365.  MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). This enables you to extend your existing sensitivity labels across your Azure Purview assets.
+
+> [!NOTE]
+> While classifications are matched directly (a social security number has a classification of **Social Security Number**), sensitivity labels are applied when one or more classifications and scenarios are found together. 
+> 
 
 Sensitivity labels in Azure Purview can be used to:
 
@@ -51,8 +61,8 @@ Sensitivity labels are supported in Azure Purview for the following data types:
 
 |Data type  |Sources  |
 |---------|---------|
-|Automatic labeling for files     |     - Azure Blob Storage </br>- Azure Files  </br>- Azure Data Lake Storage Gen 1 and Gen 2  |
-|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse    |
+|Automatic labeling for files     |     - Azure Blob Storage  </br>- Azure Data Lake Storage Gen 1 and Gen 2  |
+|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB   |
 | | |
 
 ## How to create sensitivity labels in Microsoft 365
@@ -68,7 +78,7 @@ For more information, see:
 
 MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
 
-If you do not already have the required license, you can get one from the [Microsoft 365 E5 sales page](https://www.microsoft.com/microsoft-365/enterprise/e5).
+If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/enterprise/e5).
 
 ### Extending sensitivity labels to Azure Purview
 
@@ -84,7 +94,7 @@ To apply MIP sensitivity labels to Azure assets in Azure Purview, you must expli
 > [!IMPORTANT]
 > Your consent enables Microsoft to share the label name and custom sensitive information type name to *both* Azure Purview and Azure Security Center (ASC). Microsoft uses the label information from Azure Purview to enrich your recommendations and alerts in ASC. 
 >
-> Consenting here applies to sharing this data with both services. There is currently no choice to share labeling information with Azure Purview only.
+> Consenting in Microsoft 365 compliance center applies to sharing this data with both services. There is currently no choice to share labeling information with Azure Purview only.
 
 **To extend sensitivity labels to Purview:**
 
@@ -182,7 +192,6 @@ For more information on how to set up scans on various assets in Azure Purview, 
 |---------|---------|
 |**Azure Blob Storage**     |[Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
-|**Azure Files**   |[Register and scan Azure Files](register-scan-azure-files-storage-source.md)         |
 |**Azure SQL Databases**|[Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
 |**Storage accounts behind firewalls**     |[Scan Storage Accounts behind a Firewall in Azure Purview](scan-sqlresource-firewall.md)         |
 | | |
