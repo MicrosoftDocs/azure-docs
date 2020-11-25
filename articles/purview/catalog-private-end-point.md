@@ -153,4 +153,4 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 ## Next steps
 
-[Bring new data sources under management](bring-new-data-sources-under-management.md)
+[Bring new data sources under management](manage-data-sources.md)

@@ -31,17 +31,16 @@ The following list summarizes the features of **Home**. Each number in the list 
     - Glossary terms
 1. Three [Quick access](#quick-access) buttons take you to other pages.
 
-    - [Browse by asset type](#browse-by-asset-type).
+    - [Browse by asset type](#browse-assets).
     - [Asset insights](#asset-insights).
     - [Manage your data](#manage-your-data).
 
-1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-by-asset-type).
+1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-assets).
 1. The **My items** tab is a list of data assets owned by the logged-on user.
-1. **Glossary terms** is a searchable dictionary of the organization's key business terms. For more information, see [Glossary terms](#glossary-terms).
+1. **Glossary terms** are a searchable dictionary of the organization's key business terms. For more information, see [Glossary terms](#glossary-terms).
 1. **FAQ/Documentation** is a list of frequently asked questions (FAQs), and documents.
-1. **Managed data sources by asset count** is an array of tiles, each of which is a count of assets whose asset type is one of a system-defined set of related types. For more information, see [Managed data sources by asset count](#managed-data-sources-by-asset-count).
+1. **Managed data sources** by asset count are an array of tiles, each of which is a count of assets whose asset type is one of a system-defined set of related types. For more information, see [Managed data sources by asset count](#managed-data-sources-by-asset-count).
 1. **Top classifications** is a bar graph of asset counts by classification for the most-used classifications. For more information about classifications, see [Classifications](#classifications).
-1. **Pinned assets** is a list of buttons, each of which links to the details page for an asset. The user controls which assets appear in this list. For more information, see [Pin and unpin data assets](#pin-and-unpin-data-assets).
 
 ## Search the catalog for assets
 
@@ -49,10 +48,7 @@ The steps to conduct an asset search are:
 
 1. [Open the asset search dialog](#open-the-asset-search-dialog) by selecting **Search catalog**.
 1. [Enter search terms](#enter-search-terms) to find assets with characteristics that match the terms.
-1. [Set quick filters](#set-quick-filters) to narrow the search.
 1. [Start the search](#start-the-search) and go to the search results.
-
-It doesn't matter whether you set quick filters before or after you enter search terms.
 
 If there are no search terms and no filters, the search results include all assets.
 
@@ -62,7 +58,7 @@ Open the asset search dialog by selecting **Search catalog**.
 
 :::image type="content" source="./media/catalog-client-overview/search-catalog.png" alt-text="Below 'Search catalog' there's a left pane with search filters, and a right pane with recent searches." border="true":::
 
-The search dialog shows quick filters, search history, and a list of recently accessed assets.
+The search dialog shows search history, and a list of recently accessed assets.
 
 :::image type="content" source="./media/catalog-client-overview/asset-search-dialog.png" alt-text="The search list is in the right pane, below 'Search catalog'." border="true":::
 
@@ -89,71 +85,15 @@ Azure Purview supports the following types of search criteria.
 - **hive NOT database**: Find documents that contain **hive**, but not **database**.
 - **hiv**: Find documents that contain a word that begins with **hiv**. For example, **hiv**, **hive**, **hivbar** (* is a wild card that matches any number of characters).
 
-### Set quick filters
-
-The search results list is based on the search terms you enter into **Search catalog**, and on the values you select for the quick filters.
-
-A quick filter limits the search results list to assets that have a selected value of a characteristic. The filter has a drop-down list and a text box. The drop-down list shows values of the characteristic that are in the *current* search results. Next to each value in the list is a count of the number of assets in the current search results that have that value. If you select a value from the list, the search results will be restricted to assets that have that value. You can only select one value.
-
-The current search results used in forming the drop-down list are determined by:
-
-- The search terms that are entered in **Search catalog**. 
-- The values that are selected in the quick filters.
-
-Here is an example of the "Asset type" quick filter.
-
-:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
-
-You can enter text in the text box to restrict the values in the drop-down list to values that match or partially match the text. For examples of using the text box, see [Search quick filter: filter by asset type](#search-quick-filter-filter-by-asset-type), and [Search quick filter: filter by classification](#search-quick-filter-filter-by-classification).
-
-#### Search quick filter: filter by asset type
-
-To filter by asset type, use the **Asset type** quick filter. The drop-down list shows the asset types found in the current search results, as determined by the search terms and the quick filters. For each type, the number of assets of that type is shown.
-
-:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
-
-Select an asset type to restrict the search results to assets of that type. You can only select one type.
-
-To show only asset types whose names match a string, enter the string in the text box. For example, to show only asset types with **sql** in their names, enter **sql**.
-
-:::image type="content" source="./media/catalog-client-overview/filter-asset-types.png" alt-text="The Quick Filters pane has sql for 'Asset type'. The list of assets that contain sql shows three entries." border="true":::
-
-Select an asset type to restrict the search results to assets of that type. You can select only one type.
-
-#### Search quick filter: filter by classification
-
-To filter by asset classification, use the **Classification** quick filter. The drop-down list shows the classifications that have been assigned to one or more assets in the current search results, as determined by the search terms and the quick filters. For each classification, the number of assets assigned that classification is shown.
-
-:::image type="content" source="./media/catalog-client-overview/classification-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
-
-Select a classification to restrict the search results to assets assigned that classification. You can only select one classification.
-
-To show only classifications whose names match a string, enter the string in the text box. For example, to show only classifications with **number** in their names, enter **number**.
-
-:::image type="content" source="./media/catalog-client-overview/filter-classifications.png" alt-text="In the Quick Filters pane, Classification is 'bank', and the classifications listed all contain that value." border="true":::
-
-Select a classification to restrict the search results to assets that have been assigned that classification. You can't select more than one classification.
-
-#### Search quick Filter: filter by contacts
-
-A *contact* is a person that's assigned to an asset as an owner or expert. When you view asset details, contacts are shown on the **Contacts** tab.
-
-There are two ways to search for assets that have a particular contact assigned to them.
-
-1. Enter all or part of the contact name in **Search catalog** and do a search. The search results will include assets that have contacts whose names match your search terms.
-1. Select the contact of interest in the **Contact** quick filter and do a search.
-
-:::image type="content" source="./media/catalog-client-overview/contact-quick-filter.png" alt-text="The value of Person in the Quick Filters pane is 'darren'. There are three suggestions in the Suggestions pane." border="true":::
-
 ## Search example
 
-Let's consider a hypothetical example to see how the search terms and quick filters interact to determine the search results. In particular, we'll monitor the count of asset type **Azure Blob Storage**.
+Let's consider a hypothetical example to see how the search terms and filters interact to determine the search results. In particular, we'll monitor the count of asset type **Azure Blob Storage**.
 
-- We do the first search with no search terms entered and no values selected in the quick filters. The search finds all assets in the catalog. The search results list and the **Asset type** quick filter reveal:
+- We do the first search with **"\*"** as a search term. The search finds all assets in the catalog. The search results list and the **Asset type** filter reveal:
 
-    - The search results list has 164,230 assets, which is all the assets in the catalog.
+    - The search results list has 164,230 assets, which are all the assets in the catalog.
     - The **Asset type** drop-down list has 43 entries. These are all the asset types in the catalog. Since every asset is of one and only one type, the sum of counts of the 43 asset types is 164,230.
-    - The **Azure Blob Storage** asset type is the first entry in the drop-down list of the **Asset type** quick filter. The values are ordered by count, largest first, so **Azure Blob Storage** is the most common asset type. Its count is 118,174.
+    - The values are ordered by count, largest first, so **Azure Blob Storage** is the most common asset type. Its count is 118,174.
 
 - We now enter **parquet** into **Search catalog** and do another search. The search results include only assets with characteristics that match **parquet**. This reduces all the counts, as follows:
 
@@ -161,7 +101,7 @@ Let's consider a hypothetical example to see how the search terms and quick filt
     - The **Asset type** drop-down list has 15 entries. Every one of the 493 assets is of one of these 15 types, and the sum of the counts of the 15 types is 493.
     - There are 456 assets of type **Azure Blob Storage**. The other 37 (493 minus 456) assets are of one of the other 14 types.
 
-- We now look at the drop-down list of a different quick filter, **Classification**:
+- We now look at the drop-down list of a different filter, **Classification**:
 
     - There are 12 classifications for the 493 assets in the search results list. The counts for the 493 assets don't sum to 493, since any number of classifications can be assigned to an asset.
     - The **Person's Name** classification is assigned to 36 assets, more than any other classification.
@@ -172,9 +112,9 @@ We can conclude that there's no asset whose type is **Azure Blob Storage** that 
 
 ## Start the search
 
-When you search, the search terms you enter in **Search catalog** are matched against the asset characteristics. These characteristics include name, type, classification, and contacts. The assets with matching characteristics appear in the search results list unless excluded by a quick filter.
+When you search, the search terms you enter in **Search catalog** are matched against the asset characteristics. These characteristics include name, type, classification, and contacts. The assets with matching characteristics appear in the search results list.
 
-After you've entered the search terms and set the quick filters, start the search in one of these ways:
+After you've entered the search terms, start the search in one of these ways:
 
 - To search based on the terms you entered, select the search icon (:::image type="icon" source="./media/catalog-client-overview/search-icon.png":::), press **Enter**, or select **View search results**.
 - To search using terms from a previous search, select them from **Your recent searches**.
@@ -254,27 +194,9 @@ Select **Search assets** to launch a search box like the one that you get from *
 
 :::image type="content" source="./media/catalog-client-overview/search-assets-dialog.png" alt-text="Screenshot showing an expanded Search assets box.":::
 
-## Pin and unpin data assets
-
-You can pin an asset to the **Home** page to access it later.
-
-To pin an asset:
-
-- From the **Overview** tab of the asset details page, select **Pin**.
-
-    :::image type="content" source="./media/catalog-client-overview/pin-an-asset.png" alt-text="Screenshot of the accounts_parquet asset details page with the Pin button highlighted.":::
-
-    The asset is added to the **Pinned assets** section on the **Home** page.
-
-    :::image type="content" source="./media/catalog-client-overview/select-in-pinned-assets.png" alt-text="The 'Pinned assets' section of **Home** is highlighted. Two assets are listed, including accounts_parquet." border="true":::
-
-- To unpin an asset, select **Unpin** from the **Overview** tab of its asset details page.
-
-    :::image type="content" source="./media/catalog-client-overview/unpin-an-asset.png" alt-text="Screenshot showing the Supplier_Contact asset details page with the Unpin button highlighted.":::
-
 ## Managed data sources by asset count
 
-The **Managed data sources by asset count** section of **Home** is an array of tiles, each one representing a set of related asset types.
+The **Managed data sources by asset count** section of Home are an array of tiles, each one representing a set of related asset types.
 
 :::image type="content" source="./media/catalog-client-overview/managed-data-sources-by-asset-count.png" alt-text="Screenshot showing the Managed data sources by asset count section of the Home page.":::
 
@@ -286,20 +208,20 @@ Selecting a tile produces another array of tiles, which is a breakdown of the se
 
 ## Quick access
 
-### Browse by asset type
+### Browse assets
 
-To browse to assets by type, select **Browse by asset type** on **Home**.
+To browse assets by type, select **Browse assets** on **Home**.
 
-:::image type="content" source="./media/catalog-client-overview/get-to-browse-by-asset-type.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/get-to-browse-by-asset-type.png" alt-text="Screenshot to Browse assets" border="true":::
 
-The **Browse asset types** page appears, which shows icons of the asset types and, for each type, the count of assets of the type.
+The **Browse asset types** page appears, which shows icons of the asset types and, for each type, the count of assets for the type.
 
-:::image type="content" source="./media/catalog-client-overview/browse-by-asset-type.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/browse-by-asset-type.png" alt-text="Screenshot showing asset type count" border="true":::
 
 To see a search results list with assets of a particular type, select the asset type icon.
 
 > [!Note]
-> The search results list generated in this way is the same as is generated from **Search** if there are no key terms and the asset type is selected in the **Asset type** quick filter.
+> The search results list generated in this way is the same as is generated from **Search**.
 
 :::image type="content" source="./media/catalog-client-overview/search-results-browse-by-asset-type.png" alt-text="Screenshot showing the search results when an asset type icon is selected.":::
 
@@ -307,21 +229,21 @@ To see a search results list with assets of a particular type, select the asset 
 
 To see counts and graphs of the data in your catalog, select **View Insights** on **Home**.
 
-:::image type="content" source="./media/catalog-client-overview/get-to-view-insights.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/get-to-view-insights.png" alt-text="Screenshot with Insights in Home page" border="true":::
 
 The **Asset insights** screen appears. The **Insights** navigation pane on the left lets (highlighted) give you the choice of four categories of insights.
 
-:::image type="content" source="./media/catalog-client-overview/asset-insights.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/asset-insights.png" alt-text="Screenshot with Insights in the left navigation" border="true":::
 
 ### Manage Your data
 
 To manage your data sources, select **Manage Your Data** on **Home**.
 
-:::image type="content" source="./media/catalog-client-overview/get-to-manage-your-data.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/get-to-manage-your-data.png" alt-text="Screenshot to register sources" border="true":::
 
 Use the left navigation pane to select any of the many options for managing your data:
 
-:::image type="content" source="./media/catalog-client-overview/manage-your-data.png" alt-text="Screenshot" border="true":::
+:::image type="content" source="./media/catalog-client-overview/manage-your-data.png" alt-text="Screenshot listing the sources" border="true":::
 
 >[!Note]
 > Selecting **Manage your data** gets you to the same display as selecting **Management Center** from the left navigation pane of **Home**.
@@ -341,11 +263,11 @@ The numbers in the asset detail screenshot correspond to the numbers in the foll
     - **Overview** shows metadata.
     - **Schema** shows schema information for some asset types (structured files and tables).
     - **Lineage** shows lineage information.
-    - **Contacts** shows the contacts (owners and experts).
+    - **Contacts** show the contacts (owners and experts).
     - **Related** shows related assets.
 1. **Description** is a description written by the user, or applied by the API.
 1. **Classifications** show the classifications assigned to the asset.
-1. **Properties** shows technical metadata for the asset as reported by the scanner. One property that's always shown is **qualifiedName**, which is the URI for the asset in the data source.
+1. **Properties** show technical metadata for the asset as reported by the scanner. One property that's always shown is **qualifiedName**, which is the URI for the asset in the data source.
 1. **Last updated** shows the date and time of the most recent update, and the user that did the update.
 1. **Hierarchy** shows the asset in the context of its ancestor hierarchy. Select an ancestor asset hyperlink for more information.
 1. **Glossary terms** show glossary terms that are pertinent to the asset. Each term is a hyperlink to additional information.
@@ -446,7 +368,7 @@ To filter the lineage by column or data asset, enter a name in the **Search for 
 
 - A schema.
 - 15 columns.
-- Four Azure Data Factory (ADF) copy processes.
+- Four Azure Data Factory copy processes.
 
 You can do the following tasks when you view related assets:
 
@@ -454,9 +376,9 @@ You can do the following tasks when you view related assets:
 
     :::image type="content" source="./media/catalog-client-overview/columns-pop-up.png" alt-text="Screenshot showing the columns of a related asset.":::
 
-- Select the **inputToProcesses** node to see the ADF copy processes in a pop-up window.
+- Select the **inputToProcesses** node to see the Data Factory copy processes in a pop-up window.
 
-    :::image type="content" source="./media/catalog-client-overview/copy-processes-pop-up.png" alt-text="Screenshot showing the ADF copy processes of the inputToProcesses node.":::
+    :::image type="content" source="./media/catalog-client-overview/copy-processes-pop-up.png" alt-text="Screenshot showing the Data Factory copy processes of the inputToProcesses node.":::
 
 - Drag the graph to reposition it.
 - Use the mouse wheel to change the zoom level.
@@ -640,7 +562,7 @@ On the **Glossary terms** page, delete one or more terms in these ways:
 
 Azure Purview has both control plane and data plane permissions. Control plane permissions control the ability to create and delete Azure Purview accounts. Data Plane permissions control who is allowed to access the information in the account, call APIs, configure scanning, etc. 
 
-### Azure control plane managed permissions
+### Azure control plane-managed permissions
 
 To create a catalog in the first place, one must have resource creation permissions in the resource group that the catalog is to be created in. This is managed via the Access control (IAM) section of the resource group the catalog is to be created in. One needs to be in the contributor or owner roles to create a new catalog instance.
 
@@ -648,9 +570,9 @@ Once a catalog has been created, it can be deleted by anyone who is in the owner
 
 For general information on how to add someone to a contributor or owner role on a resource group, see [Role Based Access Control Assignment Portal](../role-based-access-control/role-assignments-portal.md).
 
-### Azure data plane managed permissions
+### Azure data plane-managed permissions
 
-With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. Please see [Catalog Permissions](./catalog-permissions.md) for more information.
+With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. See [Catalog Permissions](./catalog-permissions.md) for more information.
 
 ## Classifications
 
@@ -707,73 +629,7 @@ To delete a custom classification:
    > [!WARNING]
    > You can't delete a custom classification if it's being used to describe assets. Remove it from the assets first, and then delete it.
 
-## Connect to Azure Data Factory
 
-This section explains how to connect Azure Data Factory (ADF) to import data lineage into the catalog. The lineage is generated by ADF Copy and Data Flow activities. ADF must authenticate itself to the catalog by using an identity that the catalog recognizes.
-
-### View connections
-
-More than one ADF at a time can connect to a catalog and push lineage information.
-
-To show the list of ADFs connected to your catalog:
-
-- Select **Management Center** on the left navigation pane
-
-- From the left pane, select **Data factory connection**.
-
-    The data factory connection list appears.
-
-    :::image type="content" source="./media/catalog-client-overview/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list.":::
-
-    The **Status** values are:
-
-    - **Connected**: The data factory is connected to the data catalog.
-    - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
-    - **Cannot access**: The user doesn't have access to the data factory, so the connection status is unknown.
-
-### New data factory connection
-
-To create a data factory connection:
-
-- From the **Data factory connection** page, select **New**.
-
-- Select one or more data factories from the list, which you can filter by subscription name.
-
-   :::image type="content" source="./media/catalog-client-overview/data-factories.png" alt-text="Screenshot showing how to select data factories to connect to.":::
-
-    Some options might be disabled if:
-
-    - The data factory is already connected to the current catalog.
-    - The data factory doesn't have managed identity.
-
-    By default, you can't view more than 49 data factories.
-
-- If you want to show all the data factories, append this feature flag after the catalog URL: `?feature.dataFactoryLimit=unlimited`.
-
-    For example:
-    `https://adc.azure.com/catalog/<mycatalog>/management/dataFactoryConnection/connectionsList?feature.dataFactoryLimit=unlimited`
-
-- Select **OK**.
-
-- If any of the selected data factories are already connected to other catalogs, you're asked to confirm to disconnect from them.
-
-    :::image type="content" source="./media/catalog-client-overview/continue-connection-confirm.png" alt-text="Screenshot showing the confirmation screen when a data factory is already connected.":::
-
-- Make one of the following choices:
-    - Select **Cancel** to stay connected to the other catalog.
-    - Select **Continue** to disconnect from the other catalog and connect to the current catalog.
-
-    If you select **Continue**, the system notifies you after the connections have been established.
-
-### Remove data factory connections
-
-To remove a data factory connection:
-
-- Select the check box next to one or more data factory connections.
-
-    :::image type="content" source="./media/catalog-client-overview/data-factory-connection.png" alt-text="Screenshot showing how to select data factories to delete.":::
-
-- Select **Remove** to remove the selected data factory connections, and then select **Remove** to confirm.
 
 ## Next steps
 

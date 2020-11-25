@@ -47,6 +47,8 @@ Data sources, such as the following, provide the data for scans:
 
 To create a scan you must first register a data source in your catalog. A data source is only registered once.
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
 ### View data sources
 
 Select **Management Center** in the left navigation pane.

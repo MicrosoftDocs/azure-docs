@@ -5,15 +5,13 @@ items:
   items:
   - name: What is Azure Purview?
     href: overview.md
-  - name: Deployment best practices
-    href: deployment-best-practices.md
-  - name: Azure Purview limits
-    href: how-to-manage-quotas.md 
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Purview account
+  - name: Create a Purview account - Portal
     href: create-catalog-portal.md
+  - name: Create a Purview account - Azure PowerShell/Azure CLI
+    href: create-catalog-powershell.md
   - name: Use Purview Studio
     href: use-purview-studio.md
 - name: Tutorials
@@ -41,19 +39,21 @@ items:
 #- name: Samples
 - name: Concepts
   items:
+  - name: Deployment best practices
+    href: deployment-best-practices.md
+  - name: Azure Purview limits
+    href: how-to-manage-quotas.md 
   - name: Catalog client overview
     href: catalog-client-overview.md
-  - name: Catalog lineage user guide
-    href: catalog-lineage-user-guide.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding Resource sets
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
-  - name: Data lineage
+  - name: Lineage
     href: data-lineage.md
-  - name: Supported data sources
+  - name: Supported data sources and file types
     href: sources-and-scans.md
   - name: Catalog permissions
     href: catalog-permissions.md
@@ -65,55 +65,51 @@ items:
   items:
   - name: Register & scan
     items:
-    - name: Bring new data sources under management
-      href: bring-new-data-sources-under-management.md
-    - name: Purview connectors overview
-      href: purview-connector-overview.md
-    - name: Azure Files
-      href: register-scan-azure-files-storage-source.md
-      displayName: Register and scan Azure files
-    - name: Azure Blob Storage
-      href: register-scan-azure-blob-storage-source.md
-      displayName: Register and scan azure blob storage
-    - name: Azure Cosmos DB
-      href: register-scan-azure-cosmos-database.md
-      displayName: Register and scan Azure Cosmos DB
-    - name: Azure Data Explorer
-      href: register-scan-azure-data-explorer.md
-      displayName: Register and scan Azure Data Explorer Kusto
-    - name: Azure Data Lake Storage Gen 1
-      href: register-scan-adls-gen1.md
-      displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
-    - name: Azure Data Lake Storage Gen 2
-      href: register-scan-adls-gen2.md
-      displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
-    - name: Use PowerShell to register and scan Power BI
-      href: powershell-register-scan-power-bi.md
-    - name: Azure Files
-      href: register-scan-azure-files-storage-source.md
-      displayName: Register and scan Azure files
-    - name: Azure SQL DB with a firewall
-      href: scan-sqlresource-firewall.md
-      displayName: Register and scan Azure SQL DB with a firewall
-    - name: Azure SQL Database
-      href: register-scan-azure-sql-database.md
-      displayName: Register and scan Azure SQL DB
-    - name: Azure SQL Database Managed Instance
-      href: register-scan-azure-sql-database-managed-instance.md
-      displayName: Register and scan Azure SQL DB Managed Instance
-    - name: Register and scan a Power BI tenant
-      href: register-scan-power-bi-tenant.md
-    - name: Use PowerShell cmdlets to scan on-premises data sources
-      href: powershell-cmdlets-scan-on-premises-data-sources.md
-    - name: Use PowerShell to register and scan Power BI
-      href: powershell-register-scan-power-bi.md
-    - name: Use PowerShell cmdlets to scan Azure data sources
-      href: powershell-cmdlets-scan-azure-data-sources.md
+    - name: Sources
+      items:
+      - name: Manage data sources
+        href: manage-data-sources.md
+      - name: Purview connectors overview
+        href: purview-connector-overview.md
+      - name: Azure Blob Storage
+        href: register-scan-azure-blob-storage-source.md
+        displayName: Register and scan azure blob storage
+      - name: Azure Cosmos DB
+        href: register-scan-azure-cosmos-database.md
+        displayName: Register and scan Azure Cosmos DB
+      - name: Azure Data Explorer
+        href: register-scan-azure-data-explorer.md
+        displayName: Register and scan Azure Data Explorer Kusto
+      - name: Azure Data Lake Storage Gen 1
+        href: register-scan-adls-gen1.md
+        displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+      - name: Azure Data Lake Storage Gen 2
+        href: register-scan-adls-gen2.md
+        displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
+      - name: Azure Files
+        href: register-scan-azure-files-storage-source.md
+        displayName: Register and scan Azure files
+      - name: Azure SQL DB with a firewall
+        href: scan-sqlresource-firewall.md
+        displayName: Register and scan Azure SQL DB with a firewall
+      - name: Azure SQL Database
+        href: register-scan-azure-sql-database.md
+        displayName: Register and scan Azure SQL DB
+      - name: Azure SQL Database Managed Instance
+        href: register-scan-azure-sql-database-managed-instance.md
+        displayName: Register and scan Azure SQL DB Managed Instance
+      - name: Register and scan a Power BI tenant - Portal
+        href: register-scan-power-bi-tenant.md
+      - name: Register and scan a Power BI tenant - PowerShell
+        href: powershell-register-scan-power-bi.md
+      - name: Use PowerShell cmdlets to scan on-premises data sources
+        href: powershell-cmdlets-scan-on-premises-data-sources.md
+      - name: Use PowerShell cmdlets to scan Azure data sources
+        href: powershell-cmdlets-scan-azure-data-sources.md
+      - name: Register and scan Azure Synapse Analytics
+        href: register-scan-azure-synapse-analytics.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
-      displayName: Register and scan Azure Synapse Analytics
-    - name: Register and scan Azure Synapse Analytics
-      href: register-scan-azure-synapse-analytics.md
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
   - name: Business glossary
@@ -126,16 +122,12 @@ items:
     items: 
     - name: Use classifications
       href: use-classifications.md
-    - name: Create a custom classification
-      href: create-a-custom-classification.md
-    - name: Create a custom classification rule
-      href: create-custom-classification-rule.md
+    - name: Create custom classification & classification rule
+      href: create-a-custom-classification-and-classification-rule.md
     - name: Apply classifications
       href: apply-classifications.md
     - name: Automatically label your content
       href: create-sensitivity-label.md
-    - name: Custom classification & classification rule
-      href: create-a-custom-classification-and-classification-rule.md
   - name: Search & browse
     items:
     - name: Browse Data Catalog
@@ -144,6 +136,10 @@ items:
       href: how-to-search-catalog.md  
   - name: Lineage 
     items:
+    - name: Lineage user guide
+      href: catalog-lineage-user-guide.md
+    - name: Azure Data Factory
+      href: catalog-lineage-user-guide.md
     - name: Azure Data Share
       href: how-to-link-azure-data-share.md
   - name: Security

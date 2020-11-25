@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 ---
 
 # Automatically label your content in Azure Purview
@@ -17,9 +17,19 @@ This article describes how to create Microsoft Information Protection (MIP) sens
 
 To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. 
 
-When your data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies. Applying sensitivity labels can help you keep your data secured and protected.
+When your data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies. 
 
-MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). Sensitivity labels enable you to classify and protect your organization's data, while ensuring that user productivity and collaboration can continue to flow. 
+Applying sensitivity labels enable you to state how sensitive certain data is in your organization. For example, a specific project name might be highly confidential within your organization, while that same term is not confidential to other organizations. 
+
+### Sensitivity labels in Azure Purview
+
+In Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
+
+Purview uses the same classifications, also known as sensitive information types, as Microsoft 365.  MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). This enables you to extend your existing sensitivity labels across your Azure Purview assets.
+
+> [!NOTE]
+> While classifications are matched directly (a social security number has a classification of **Social Security Number**), sensitivity labels are applied when one or more classifications and scenarios are found together. 
+> 
 
 Sensitivity labels in Azure Purview can be used to:
 
@@ -51,8 +61,8 @@ Sensitivity labels are supported in Azure Purview for the following data types:
 
 |Data type  |Sources  |
 |---------|---------|
-|Automatic labeling for files     |     - Azure Blob Storage </br>- Azure Files  </br>- Azure Data Lake Storage Gen 1 and Gen 2  |
-|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse    |
+|Automatic labeling for files     |     - Azure Blob Storage  </br>- Azure Data Lake Storage Gen 1 and Gen 2  |
+|Automatic labeling for database columns     |  - SQL server </br>- Azure SQL database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br>- Azure Cosmos DB   |
 | | |
 
 ## How to create sensitivity labels in Microsoft 365
@@ -68,7 +78,7 @@ For more information, see:
 
 MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
 
-If you do not already have the required license, you can get one from the [Microsoft 365 E5 sales page](https://www.microsoft.com/microsoft-365/enterprise/e5).
+If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/enterprise/e5).
 
 ### Extending sensitivity labels to Azure Purview
 
@@ -84,7 +94,7 @@ To apply MIP sensitivity labels to Azure assets in Azure Purview, you must expli
 > [!IMPORTANT]
 > Your consent enables Microsoft to share the label name and custom sensitive information type name to *both* Azure Purview and Azure Security Center (ASC). Microsoft uses the label information from Azure Purview to enrich your recommendations and alerts in ASC. 
 >
-> Consenting here applies to sharing this data with both services. There is currently no choice to share labeling information with Azure Purview only.
+> Consenting in Microsoft 365 compliance center applies to sharing this data with both services. There is currently no choice to share labeling information with Azure Purview only.
 
 **To extend sensitivity labels to Purview:**
 
@@ -92,7 +102,7 @@ In Microsoft 365, navigate to the **Information Protection** page. In the **Exte
 
 For example:
 
-:::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png" alt-text="Select **Turn on** to extend sensitivity labels to Purview":::
+:::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="Select **Turn on** to extend sensitivity labels to Purview" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
 Once you extend labeling to assets in Azure Purview, you can select the labels that you want to make available in Purview. For more information, see [Creating new sensitivity labels or modifying existing labels](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### Creating new sensitivity labels or modifying existing labels
@@ -101,11 +111,11 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**. 
 
-    :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and Compliance Center":::
+    :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
 1. Name the label. Then, under **Define the scope for this label**, select **Files and emails** and **Azure Purview assets**.
     
-    :::image type="content" source="media/create-sensitivity-label/create-label-scope.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center":::
+    :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 
 1. Follow the rest of the prompts in the wizard for your label settings. 
 
@@ -124,7 +134,7 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
     Then select **Edit label** to open the **Edit sensitivity label** wizard again, with all of the settings you'd defined when you created the label.
 
-    :::image type="content" source="media/create-sensitivity-label/edit-sensitivity-label-full.png" alt-text="Edit an existing sensitivity label":::
+    :::image type="content" source="media/create-sensitivity-label/edit-sensitivity-label-full-small.png" alt-text="Edit an existing sensitivity label" lightbox="media/create-sensitivity-label/edit-sensitivity-label-full.png":::
 
 1. When you're done creating all of your labels, make sure to view your label order, and reorder them as needed. 
 
@@ -150,7 +160,7 @@ On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office
 
 For example:
 
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files.png" alt-text="Define autolabeling rules for files in the Microsoft 365 Security and Compliance Center":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Define autolabeling rules for files in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
 
 When the sensitivity label is applied, the user will see a notification in their Office app. For example:
 
@@ -170,7 +180,7 @@ Under the **Azure Purview assets (preview)** option:
 
 For example:
         
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
 ## Scan your content to apply labels automatically
 
@@ -182,7 +192,6 @@ For more information on how to set up scans on various assets in Azure Purview, 
 |---------|---------|
 |**Azure Blob Storage**     |[Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
-|**Azure Files**   |[Register and scan Azure Files](register-scan-azure-files-storage-source.md)         |
 |**Azure SQL Databases**|[Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
 |**Storage accounts behind firewalls**     |[Scan Storage Accounts behind a Firewall in Azure Purview](scan-sqlresource-firewall.md)         |
 | | |
@@ -195,26 +204,11 @@ Once you've defined autolabeling rules for your labels in Microsoft 365 and scan
 
 In the Azure Purview Catalog, use the **Label** filtering options to show files with specific labels only. For example: 
 
-:::image type="content" source="media/create-sensitivity-label/filter-search-results.png" alt-text="Search for assets by label":::
+:::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Search for assets by label" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-For sample images of labeled assets in Purview, see:
+For example:
 
-- [Labeled file in Azure Blob Storage](#labeled-file-in-azure-blob-storage)
-- [Labeled file in Azure files](#labeled-file-in-azure-files)
-- [Labeled database column in an Azure SQL database](#labeled-database-column-in-an-azure-sql-database)
-
-#### Labeled file in Azure Blob Storage
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage.png" alt-text="View a sensitivity label on a file in your Azure Blob Storage":::
-
-#### Labeled file in Azure files
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-azure.png" alt-text="View a sensitivity label on a file in your Azure file storage":::
-
-#### Labeled database column in an Azure SQL database
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-sql.png" alt-text="View a sensitivity label on an SQL table":::
-
+:::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="View a sensitivity label on a file in your Azure Blob Storage" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 
 ## View Insight reports for the classifications and sensitivity labels
 

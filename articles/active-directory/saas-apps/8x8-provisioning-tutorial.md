@@ -29,7 +29,7 @@ This tutorial describes the steps you need to perform in both 8x8 Configuration 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An 8x8 X series subscription of any level.
 * An 8x8 user account with administrator permission in [Configuration Manager](https://vo-cm.8x8.com).
 * [Single Sign-On with Azure AD](./8x8virtualoffice-tutorial.md) has already been configured.
