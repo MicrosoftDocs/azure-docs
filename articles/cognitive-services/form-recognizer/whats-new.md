@@ -43,8 +43,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
   ![FOTT example](./media/ui-preview.jpg)
   
-- **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adujst the lables if necessary and train to improve the model.
-- **Auto Label Documets** - Automitcally labels additional documents based on previous labeld documents in the project. 
+- **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
+- **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
 
 ## August 2020
 
