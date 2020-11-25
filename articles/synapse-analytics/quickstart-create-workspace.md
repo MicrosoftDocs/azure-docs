@@ -28,6 +28,9 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
+> [!NOTE]
+> After creating your Azure Synapse workspace, you will not be able to move the workspace to another Azure Active Directory tenant. If you do so through subscription migration or other actions, you may lose access to the artifacts within the workspace.  
+
 ## Open Synapse Studio
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
