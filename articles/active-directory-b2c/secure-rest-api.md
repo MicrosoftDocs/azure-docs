@@ -398,8 +398,7 @@ After creating the necessary key, configure your REST API technical profile meta
     </CryptographicKeys>
     ```
 
->Note:
->The **Id** of the cryptographic key defines the HTTP header. In this example, the API key is sent as **x-functions-key**.
+The **Id** of the cryptographic key defines the HTTP header. In this example, the API key is sent as **x-functions-key**.
 
 The following is an example of a RESTful technical profile configured to call an Azure Function with API key authentication:
 
