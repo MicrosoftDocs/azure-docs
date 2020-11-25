@@ -408,7 +408,7 @@ Unique customizations that commonly need to be manually recreated or updated for
 - Recreate custom dashboards and workbooks. 
 - Recreate or update the scope of any custom log/metric alerts. 
 - Recreate availability alerts.
-- Recreate any custom Role-Based Access Control (RBAC) settings that are required for your users to access the new resource. 
+- Recreate any custom Azure role-based access control (Azure RBAC) settings that are required for your users to access the new resource. 
 - Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
 - Any integration that relies on API keys such as [release annotations](/azure/azure-monitor/app/annotations), [live metrics secure control channel](app/live-stream.md#secure-the-control-channel) etc. You will need to generate new API keys and update the associated integration. 
 - Continuous export in classic resources would need to be configured again.
@@ -676,9 +676,9 @@ The ContainerInventory table contains information about both stopped and running
 
 If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../azure-resource-manager/templates/error-register-resource-provider.md).
 
-### Is there support for RBAC enabled AKS clusters?
+### Is there support for Kubernetes RBAC enabled AKS clusters?
 
-The Container Monitoring solution doesn't support RBAC, but it is supported with Azure Monitor for Containers. The solution details page may not show the right information in the blades that show data for these clusters.
+The Container Monitoring solution doesn't support Kubernetes RBAC, but it is supported with Azure Monitor for Containers. The solution details page may not show the right information in the blades that show data for these clusters.
 
 ### How do I enable log collection for containers in the kube-system namespace through Helm?
 

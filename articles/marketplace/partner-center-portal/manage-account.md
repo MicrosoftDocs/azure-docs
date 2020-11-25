@@ -29,17 +29,19 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 ## Access your account settings
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account to:
-- Check your company's account verification status
-- Confirm your Symantec ID, Seller ID, Microsoft Partner Network (MPN) ID, Publisher ID, and contact information, including the company approver and seller contact
-- Create user accounts for anyone who will use your business account in Partner Center
 
-### Open developer settings
+- Check your company's account verification status.
+- Confirm your Symantec ID, Seller ID, Microsoft Partner Network (MPN) ID, Publisher ID, and contact information, including the company approver and seller contact.
+- Create user accounts for anyone who will use your business account in Partner Center.
 
-In your [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center, select **Settings** (gear icon) in the top-right corner, then **Developer settings**.
+### Open Account settings
+
+In your [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center, select **Settings** (gear icon) in the top-right corner, then **Account settings**.
 
 ![Account settings menu in Partner Center](./media/dashboard-developer-settings.png)
 
 In **Account settings** you can view your:
+
 - **Account details**: Account type and Account status
 - **Publisher IDs**: Seller ID, User ID, Publisher ID, Azure AD tenants, and so on
 - **Contact info**: Publisher display name, seller contact name, email, phone, and address

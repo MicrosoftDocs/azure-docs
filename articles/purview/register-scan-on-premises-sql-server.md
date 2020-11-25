@@ -5,7 +5,7 @@ author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/18/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
@@ -94,44 +94,9 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 
-## Creating and running a scan
-
-1. Navigate to the management center. Select *Data sources* under the Sources and scanning section select the SQL server data source.
-
-2. Select + New scan. Select the IR and authentication method as connection string. Database name is optional, if you do not provide a name, the whole server will be scanned. Fill in the user name and password.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/setup-scan.png" alt-text="setup scan.":::
-
-3. If you plan to scan the entire server, we do not provide scope functionality. If you did however provide a database name, then you can scope your scan to specific tables.
-
-4. Choose your scan trigger. You can set up a schedule or ran the scan once.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/trigger.png" alt-text="trigger.":::
-
-5. The select a scan rule set for your scan. You can choose between the system default, the existing custom ones or create a new one inline.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/srs.png" alt-text="SRS.":::
-
-6. Review your scan and select on Save and run.
-
-## Viewing your scans and scan runs
-
-1. Navigate to the management center. Select *Data sources* under the Sources and scanning section select on the SQL server data source.
-
-2. Select the scan whose results you are interested to view.
-
-3. You can view all the scan runs along with metrics and status for each scan run.
-
-## Manage your scans
-
-1. Navigate to the management center. Select *Data sources* under the Sources and scanning section select the SQL server data source.
-
-2. Select the scan you would like to manage. You can edit the scan by clicking on the edit.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/edit-scan.png" alt-text="edit scan":::
-
-3. You can delete your scan by clicking on delete.
+[!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 ## Next steps
 
-[How scans detect deleted assets](concept-detect-deleted-assets.md)
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
