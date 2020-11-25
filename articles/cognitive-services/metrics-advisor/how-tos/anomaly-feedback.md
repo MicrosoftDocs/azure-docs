@@ -94,7 +94,7 @@ As previously described, the feedback modal allows you to reselect or remove dim
 
 There are two ways to view feedback history. You can select the feedback history button from the left panel, and will see a feedback list modal. It lists all the feedback you've given before either for single series or dimension filters.
 
-:::image type="content" source="../media/feedback/feedback-history.png" alt-text="Feedback list menu`":::
+:::image type="content" source="../media/feedback/feedback-history-options.png" alt-text="Feedback list menu`":::
 
 Another way to view feedback history is from a series. You will see several buttons on the upper right corner of each series. Select the show feedback button, and the line will switch from showing anomaly points to showing feedback entries. The green flag represents a change point, and the blue points are other feedback points. You could also select them, and will get a feedback list modal that lists the details of the feedback given for this point.
 
