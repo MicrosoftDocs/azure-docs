@@ -56,8 +56,11 @@ The steps below are necessary whether you're setting up a continuous export to L
 1. From Security Center's sidebar, select **Pricing & settings**.
 1. Select the specific subscription for which you want to configure the data export.
 1. From the sidebar of the settings page for that subscription, select **Continuous Export**.
-    [![Export options in Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox)
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center":::
+
     Here you see the export options. There's a tab for each available export target. 
+
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
 1. Optionally, if your selection includes one of these four recommendations, you can include the vulnerability assessment findings together with them:
     - Vulnerability Assessment findings on your SQL databases should be remediated
