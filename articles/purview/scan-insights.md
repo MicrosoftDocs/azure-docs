@@ -19,9 +19,6 @@ In this how-to guide, you'll learn how to:
 > - Go to Insights from your Purview account
 > - Get a bird's eye view of your scans
 
-> [!NOTE]
-> If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
-
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
