@@ -138,7 +138,6 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     ```rust
     use std::collections::HashMap;
     use std::env;
-    use std::net::{IpAddr, Ipv4Addr, SocketAddr};
     use warp::{http::Response, Filter};
 
     #[tokio::main]
@@ -157,9 +156,8 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
             Ok(val) => val.parse().expect("Custom Handler port is not a number!"),
             Err(_) => 3000,
         };
-        let socket = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)), port);
 
-        warp::serve(example1).run(socket).await
+        warp::serve(example1).run(([127, 0, 0, 1], port)).await
     }
     ```
 
