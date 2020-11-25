@@ -65,7 +65,7 @@ In Azure Purview, you can register and scan source types. Once the scanning is c
  
 6. Click on a specific source for which you'd like to see top folders with asset count. 
 
-   :::image type="content" source="./media/asset-insights/select-data-source.png" alt-text="View KPIs and graph in Asset Insights":::
+   :::image type="content" source="./media/asset-insights/select-data-source.png" alt-text="Select source type":::
  
 7. Click on the total assets against the top folder within the source type you selected above.
 
@@ -91,7 +91,7 @@ Click on the path to see the asset list
 
 The second graph in File-based source types is ***Files not associated with a resource set***. If you expect that all files should roll up into a resource set, this graph can help you understand where the roll up has not happened. This can be an indication of the wrong file-pattern in the folder and you may want to fix it. Follow the same steps as in other graphs to view more details on the files.
 
-   :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="View list of assets":::  
+   :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="View file based assets":::  
 
 ## Next steps
 
