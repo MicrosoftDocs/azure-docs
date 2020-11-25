@@ -33,7 +33,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* FortiWeb Web Application Firewall supports **SP** initiated SSO
+* FortiWeb Web Application Firewall supports **SP** initiated SSO.
 
 ## Adding FortiWeb Web Application Firewall from the gallery
 
@@ -72,24 +72,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<WEBSITE_FQDN>`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<WEBSITE_FQDN>`
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<WEBSITE_FQDN>/<FWNAME>/saml.sso/SAML2/POST`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https:// <WEBSITE_FQDN>/<FWNAME>/saml.sso/SAML2/POST`
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<WEBSITE_FQDN>`
 
     d. In the **Logout URL** text box, type a URL using the following pattern:
-    `https:// <WEBSITE_FQDN>/<FWNAME>/saml.sso/SLO/POST`
+    `https://<WEBSITE_FQDN>/<FWNAME>/saml.sso/SLO/POST`
 
 	> [!NOTE]
     > `<WEBSITE_FQDN>` is the FQDN or the public IP address assigned to the published web site and
-    > `<FWNAME>` is a name identifier that will be used later when supplying configuration to FortiWeb
-
-    > [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier, Reply URL and Logout URL. Contact [FortiWeb Web Application Firewall Client support team](mailto:support@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > `<FWNAME>` is a name identifier that will be used later when supplying configuration to FortiWeb.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -122,124 +119,116 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FortiWeb Web Application Firewall SSO
 
-1.	Navigate to `https://<address>:8443`
+1.	Navigate to `https://<address>:8443` where `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM.
 
-    here `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM
-
-2.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment
+2.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment.
 
 1. Perform the following steps in the following page.
 
     ![SAML server page](./media/fortiweb-web-application-firewall-tutorial/configure-sso.png)
 
-    a.	In the left-hand menu, click **User**
+    a.	In the left-hand menu, click **User**.
 
-    b.	Under User, click **Remote Server**
+    b.	Under User, click **Remote Server**.
 
-    c.	Click **SAML Server**
+    c.	Click **SAML Server**.
 
-    d.	Click **Create New**
+    d.	Click **Create New**.
 
-    e.	In the **Name** field, provide the valid name for name identifier.
+    e.	In the **Name** field, provide the value for `<fwName>` used in the Configure Azure AD section.
 
     f.	In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
     g. Next to **Metadata**, click **Choose File** and select the **Federation Metadata XML** file downloaded earlier.
 
-    h.	Click **OK**
+    h.	Click **OK**.
 
 ### Create a Site Publishing Rule
 
-1.	Navigate to `https://<address>:8443`
+1.	Navigate to `https://<address>:8443` where `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM.
 
-    here `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM
-
-1.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment
+1.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment.
 1. Perform the following steps in the following page.
 
     ![Site Publishing Rule](./media/fortiweb-web-application-firewall-tutorial/site-publish-rule.png)
 
-    a.	In the left-hand menu, click **Application Delivery**
+    a.	In the left-hand menu, click **Application Delivery**.
     
-    b.	Under **Application Delivery**, click **Site Publish**
+    b.	Under **Application Delivery**, click **Site Publish**.
     
-    c.	Under **Site Publish**, click **Site Publish**
+    c.	Under **Site Publish**, click **Site Publish**.
     
-    d.	Click **Site Publish Rule**
+    d.	Click **Site Publish Rule**.
     
-    e.	Click **Create New**
+    e.	Click **Create New**.
     
-    f.	Provide a name for the site publishing rule
+    f.	Provide a name for the site publishing rule.
     
-    g.	Next to **Published Site Type**, click **Regular Expression**
+    g.	Next to **Published Site Type**, click **Regular Expression**.
     
-    i.	Next to **Published Site**, provide a string that will match the host header of the web site you are publishing
+    i.	Next to **Published Site**, provide a string that will match the host header of the web site you are publishing.
     
-    j.	Next to **Path**, provide a /
+    j.	Next to **Path**, provide a /.
     
-    k.	Next to **Client Authentication Method**, select **SAML Authentication**
+    k.	Next to **Client Authentication Method**, select **SAML Authentication**.
     
-    l.	In the **SAML Server** drop-down, select the SAML Server you created earlier
+    l.	In the **SAML Server** drop-down, select the SAML Server you created earlier.
     
-    m.	Click **OK**
+    m.	Click **OK**.
 
 
 ### Create a Site Publishing Policy
 
-1.	Navigate to `https://<address>:8443`
+1.	Navigate to `https://<address>:8443` where `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM.
 
-    here `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM
-
-2.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment
+2.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment.
 
 1. Perform the following steps in the following page.
 
     ![Site Publishing Policy](./media/fortiweb-web-application-firewall-tutorial/site-publish-policy.png)
 
-    a.	In the left-hand menu, click **Application Delivery**
+    a.	In the left-hand menu, click **Application Delivery**.
 
-    b.	Under **Application Delivery**, click **Site Publish**
+    b.	Under **Application Delivery**, click **Site Publish**.
 
-    c.	Under **Site Publish**, click **Site Publish**
+    c.	Under **Site Publish**, click **Site Publish**.
 
-    d.	Click **Site Publish Policy**
+    d.	Click **Site Publish Policy**.
 
-    e.	Click **Create New**
+    e.	Click **Create New**.
 
-    f.	Provide a name for the Site Publishing Policy
+    f.	Provide a name for the Site Publishing Policy.
 
-    g.	Click **OK**
+    g.	Click **OK**.
 
-    h.	Click **Create New**
+    h.	Click **Create New**.
 
-    i.	In the **Rule** drop-down, select the site publishing rule you created earlier
+    i.	In the **Rule** drop-down, select the site publishing rule you created earlier.
 
-    j.	Click **OK**
+    j.	Click **OK**.
 
 ### Create and assign a Web Protection Profile
 
-1.	Navigate to `https://<address>:8443`
+1.	Navigate to `https://<address>:8443` where `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM.
 
-    here `<address>` is the FQDN or the public IP address assigned to the FortiWeb VM
-
-2.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment
-3.	In the left-hand menu, click **Policy**
-4.	Under **Policy**, click **Web Protection Profile**
-5.	Click **Inline Standard Protection** and click **Clone**
-6.	Provide a name for the new web protection profile and click **OK**
-7.	Select the new web protection profile and click **Edit**
-8.	Next to **Site Publish**, select the site publishing policy you created earlier
-9.	Click **OK**
+2.	Sign-in using the administrator credentials provided during the FortiWeb VM deployment.
+3.	In the left-hand menu, click **Policy**.
+4.	Under **Policy**, click **Web Protection Profile**.
+5.	Click **Inline Standard Protection** and click **Clone**.
+6.	Provide a name for the new web protection profile and click **OK**.
+7.	Select the new web protection profile and click **Edit**.
+8.	Next to **Site Publish**, select the site publishing policy you created earlier.
+9.	Click **OK**.
  
     ![site publish](./media/fortiweb-web-application-firewall-tutorial/web-protection.png)
 
-10.	In the left-hand menu, click **Policy**
-11.	Under **Policy**, click **Server Policy**
-12.	Select the server policy used to publish the web site for which you wish to use Azure Active Directory for authentication
-13.	Click **Edit**
-14.	In the **Web Protection Profile** drop-down, select the web protection profile that you just created
-15.	Click **OK**
-16.	Attempt to access the external URL to which FortiWeb publishes the web site. You should be redirected to Azure Active Directory for authentication
+10.	In the left-hand menu, click **Policy**.
+11.	Under **Policy**, click **Server Policy**.
+12.	Select the server policy used to publish the web site for which you wish to use Azure Active Directory for authentication.
+13.	Click **Edit**.
+14.	In the **Web Protection Profile** drop-down, select the web protection profile that you just created.
+15.	Click **OK**.
+16.	Attempt to access the external URL to which FortiWeb publishes the web site. You should be redirected to Azure Active Directory for authentication.
 
 
 ### Create FortiWeb Web Application Firewall test user
