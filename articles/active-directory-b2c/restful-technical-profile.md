@@ -112,7 +112,7 @@ The technical profile also returns claims, that aren't returned by the identity 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ServiceUrl | Yes | The URL of the REST API endpoint. |
-| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: `None`, `Basic`, `Bearer`, or `ClientCertificate`. The `None` value indicates that the REST API is anonymous. The `Basic` value indicates that the REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. The `ClientCertificate` (recommended) value indicates that the REST API restricts access by using client certificate authentication. Only services that have the appropriate certificates, for example Azure AD B2C, can access your API. The `Bearer` value indicates that the REST API restricts access using client OAuth2 Bearer token. The `ApiKeyHeader` value indicates that the REST API is secured with API key HTTP header, such as *x-functions-key*.  |
+| AuthenticationType | Yes | The type of authentication being performed by the RESTful claims provider. Possible values: `None`, `Basic`, `Bearer`,  `ClientCertificate`, or `ApiKeyHeader`. <br /><ul><li>The `None` value indicates that the REST API is anonymous. </li><li>The `Basic` value indicates that the REST API is secured with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. </li><li>The `ClientCertificate` (recommended) value indicates that the REST API restricts access by using client certificate authentication. Only services that have the appropriate certificates, for example Azure AD B2C, can access your API. </li><li>The `Bearer` value indicates that the REST API restricts access using client OAuth2 Bearer token. </li><li>The `ApiKeyHeader` value indicates that the REST API is secured with API key HTTP header, such as *x-functions-key*. </li></ul> |
 | AllowInsecureAuthInProduction| No| Indicates whether the `AuthenticationType` can be set to `none` in production environment (`DeploymentMode` of the [TrustFrameworkPolicy](trustframeworkpolicy.md) is set to `Production`, or not specified). Possible values: true, or false (default). |
 | SendClaimsIn | No | Specifies how the input claims are sent to the RESTful claims provider. Possible values: `Body` (default), `Form`, `Header`, `Url` or `QueryString`. The `Body` value is the input claim that is sent in the request body in JSON format. The `Form` value is the input claim that is sent in the request body in an ampersand '&' separated key value format. The `Header` value is the input claim that is sent in the request header. The `Url` value is the input claim that is sent in the URL, for example, https://{claim1}.example.com/{claim2}/{claim3}?{claim4}={claim5}. The `QueryString` value is the input claim that is sent in the request query string. The HTTP verbs invoked by each are as follows:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | No | Not currently used, can be ignored. |
@@ -232,7 +232,7 @@ If the type of authentication is set to `ApiKeyHeader`, the **CryptographicKeys*
     <Item Key="SendClaimsIn">Body</Item>
   </Metadata>
   <CryptographicKeys>
-    <Key Id="x-functions-key" StorageReferenceId="B2C_1A_IdentityRestApiKey" />
+    <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
   </CryptographicKeys>
 </TechnicalProfile>
 ```
