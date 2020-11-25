@@ -11,7 +11,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -40,6 +40,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
 - **Revision**: There are two different stamp revisions for HANA Large Instance stamps. These differ in architecture and proximity to Azure virtual machine hosts
 	- "Revision 3" (Rev 3): is the original design that got deployed from mid of the year 2016
 	- "Revision 4" (Rev 4): is a new design that can provide closer proximity to Azure virtual machine hosts and with that lower network latency between Azure VMs and HANA Large Instance units 
+	- "Revision 4.2" (Rev 4.2): on existing Revision 4 DCs, resources are rebranded to BareMetal Infrastructure.  Customers can access their resources as BareMetal instances from the Azure portal. 
 
 A variety of additional resources are available on how to deploy an SAP workload in the cloud. If you plan to execute a deployment of SAP HANA in Azure, you need to be experienced with and aware of the principles of Azure IaaS and the deployment of SAP workloads on Azure IaaS. Before you continue, see [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information. 
 
