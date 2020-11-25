@@ -21,9 +21,9 @@ ms.custom: subject-armqs
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-## Introduction
-
 This article shows you how to use an Azure Resource Manager template (ARM template) to create a media services account.
+
+## Introduction
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -33,6 +33,7 @@ Readers who are experienced with ARM templates can continue to the [deployment s
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/<template's URI>)
 -->
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
