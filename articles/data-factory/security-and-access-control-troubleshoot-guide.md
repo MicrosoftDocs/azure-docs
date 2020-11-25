@@ -102,7 +102,7 @@ The REST source connector works in below sequence:
 
 1. Receive the response from the endpoint
 
-The issue is most likely caused by mistakes in specified parameter.
+The issue is most likely caused by some mistakes in one or more specified parameters.
 
 #### Resolution
 
@@ -118,7 +118,7 @@ Below are the steps to troubleshoot with **curl**:
     curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
     ```
     > [!IMPORTANT] 
-    > Please be noticed that always include the **"Accept"** and **"User-Agent"** headers.
+    > Please be noticed that **"Accept"** and **"User-Agent"** headers should always be included.
 
 1. If the command returns the same unexpected response, please fix above parameters with curl until it returns the expected response.
 
