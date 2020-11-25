@@ -124,7 +124,7 @@ When you deploy passwordless authentication, you should first enable one or more
 
 Groups can be synced from an on-premises directory, or from Azure AD. Once you're happy with the results of your pilot, you can switch on the passwordless authentication for all users.
 
-See [Best practices for a pilot](https://aka.ms/deploymentplans) on the deployment plans page.
+See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md) on the deployment plans page.
 
 ## Plan passwordless authentication with the Microsoft Authenticator app
 

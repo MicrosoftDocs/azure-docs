@@ -50,8 +50,29 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         static string queueName = "<QUEUE NAME>";
     ```
 
-    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.     
-2. Add a method named `SendMessageAsync` that sends one message to the queue. 
+    Enter your connection string for the namespace as the `ServiceBusConnectionString` variable. Enter your queue name.
+
+1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesAsync()` method that you will add in the next step to send messages to the queue. 
+
+    ```csharp
+    public static async Task Main(string[] args)
+    {    
+        const int numberOfMessages = 10;
+        queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
+
+        Console.WriteLine("======================================================");
+        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
+        Console.WriteLine("======================================================");
+
+        // Send messages.
+        await SendMessagesAsync(numberOfMessages);
+
+        Console.ReadKey();
+
+        await queueClient.CloseAsync();
+    }
+    ```
+1. Directly after the `Main()` method, add the following `SendMessagesAsync()` method that does the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
 
     ```csharp
         static async Task SendMessageAsync()
