@@ -74,6 +74,12 @@
       href: pause-and-resume-compute-powershell.md
 - name: Concepts
   items:
+  - name: Synapse workspace experience
+    items:
+    - name: Overview
+      href: workspace-connected-experience.md
+    - name: Supported regions
+      href: workspace-connected-regions.md
   - name: Security
     items:
     - name: Overview
@@ -272,6 +278,10 @@
       href: sql-data-warehouse-overview-integrate.md    
 - name: How-to guides
   items:
+  - name: Synapse workspace experience
+    items:
+    - name: Create a Synapse workspace
+      href: workspace-connected-create.md
   - name: Secure
     items:
     - name: Configure Azure AD auth
