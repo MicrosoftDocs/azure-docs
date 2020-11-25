@@ -202,7 +202,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Resolution**: Rerun the copy activity after several minutes.
 			      
 
-## Azure Synapse Analytics (formerly SQL Data Warehouse)/Azure SQL Database/SQL Server
+## Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### Error code:  SqlFailedToConnect
 

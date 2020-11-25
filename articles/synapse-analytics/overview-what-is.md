@@ -47,7 +47,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 
 ### Built-in data integration via pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Synapse Analytics.
+Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 
 * Ingest data from 90+ data sources
 * Code-Free ETL with Data flow activities

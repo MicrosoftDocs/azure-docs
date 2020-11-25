@@ -250,8 +250,8 @@ The data is read as a data frame:
 ![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### Azure Synapse Analytics (formerly SQL DW) and databases
-Azure Synapse Analytics (formerly SQL DW) is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
+### Azure Synapse Analytics and databases
+Azure Synapse Analytics is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
 You can provision Azure Synapse Analytics by following the instructions in [this article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
 

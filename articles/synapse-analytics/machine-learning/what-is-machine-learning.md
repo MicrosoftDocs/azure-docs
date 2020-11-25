@@ -13,9 +13,7 @@ author: nelgson
 ms.author: negust
 ---
 
-# Machine Learning capabilities in Azure Synapse Analytics (workspaces preview)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# Machine Learning capabilities in Azure Synapse Analytics
 
 Azure Synapse Analytics offers various machine learning capabilities. This article provides an overview of how you can apply Machine Learning in the context of Azure Synapse.
 

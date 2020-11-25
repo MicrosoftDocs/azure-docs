@@ -60,7 +60,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the Synapse SQL instance. 
 
-Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in Synapse Analytics workspace. Only one Azure AD administrator (a user or group) can be configured at any time.
+Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in Azure Synapse Analytics workspace. Only one Azure AD administrator (a user or group) can be configured at any time.
 
 ![admin structure](./media/aad-authentication/3-admin-structure.png)
 

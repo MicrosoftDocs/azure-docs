@@ -186,6 +186,8 @@
     href: ../../logic-apps/security-baseline.md
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
+  - name: Power BI baseline
+    href: /power-bi/fundamentals/security-baseline
   - name: Security Center baseline
     href: ../../security-center/security-baseline.md
   - name: Service Bus baseline
@@ -196,7 +198,7 @@
     href: ../../site-recovery/security-baseline.md
   - name: Stream Analytics baseline
     href: ../../stream-analytics/security-baseline.md
-  - name: Synapse Analytics security baseline
+  - name: Azure Synapse Analytics security baseline
     href: ../../synapse-analytics/security-baseline.md
   - name: Virtual Machine Scale Sets security baseline
     href: ../../virtual-machine-scale-sets/security-baseline.md
@@ -206,5 +208,9 @@
     href: ../../virtual-machines/windows/security-baseline.md
   - name: Virtual Network security baseline
     href: ../../virtual-network/security-baseline.md
+  - name: Virtual Network NAT security baseline
+    href: ../../virtual-network/nat-security-baseline.md
+  - name: Virtual WAN security baseline
+    href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
