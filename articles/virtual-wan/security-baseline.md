@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Virtual WAN
 
-This security baseline applies guidance from the [Azure Security Benchmark version 2.0](https://docs.microsoft.com/azure/security/benchmarks/overview) to Microsoft Azure Virtual
+This security baseline applies guidance from the [Azure Security Benchmark version 2.0](../security/benchmarks/overview.md) to Microsoft Azure Virtual
 WAN. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Virtual
 WAN. **Controls** not applicable to Virtual
 WAN have been excluded.
@@ -31,13 +31,13 @@ WAN security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBen
 
 **Guidance**: Microsoft Azure Virtual WAN provides custom routing capabilities and offers encryption for your ExpressRoute traffic. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks. Encrypting your ExpressRoute traffic with Virtual WAN provides an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public internet or using public IP addresses. 
 
-- [ExpressRoute traffic encryption](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about#encryption)
+- [ExpressRoute traffic encryption](virtual-wan-about.md#encryption)
 
-- [Use Private Link in Virtual WAN](https://docs.microsoft.com/azure/virtual-wan/howto-private-link)
+- [Use Private Link in Virtual WAN](howto-private-link.md)
 
-- [Custom routing scenarios](https://docs.microsoft.com/azure/virtual-wan/scenario-any-to-any)
+- [Custom routing scenarios](scenario-any-to-any.md)
 
-- [Custom route table documentation](https://docs.microsoft.com/azure/virtual-wan/how-to-virtual-hub-routing)
+- [Custom route table documentation](how-to-virtual-hub-routing.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -47,11 +47,11 @@ WAN security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBen
 
 **Guidance**: Microsoft Azure ExpressRoute offers private connectivity to Azure Virtual WAN. As the ExpressRoute connections do not go over the public internet, ExpressRoute offers more reliability, faster speeds and lower latencies than typical internet connections. You can also use a virtual private network to connect to Azure through either Site-to-site (S2S) VPN or Point-to-site (P2S) VPN.
 
-- [ExpressRoute in Virtual WAN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-expressroute-portal)
+- [ExpressRoute in Virtual WAN](virtual-wan-expressroute-portal.md)
 
-- [Site to Site VPN overview](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal)
+- [Site to Site VPN overview](virtual-wan-site-to-site-portal.md)
 
-- [Point to Site VPN overview](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-point-to-site-portal)
+- [Point to Site VPN overview](virtual-wan-point-to-site-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -65,11 +65,11 @@ Use Azure Firewall to protect applications and services against potentially mali
 
 Choose Azure-provided DDoS Protection to protect your assets against attacks on your Azure Virtual Networks. Use Azure Security Center to detect misconfigurations risks related to your network-related resources.
 
-- [Azure Firewall Documentation](https://docs.microsoft.com/azure/firewall)
+- [Azure Firewall Documentation](/azure/firewall)
 
-- [Manage Azure DDoS Protection Standard using the Azure portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection) 
+- [Manage Azure DDoS Protection Standard using the Azure portal](/azure/virtual-network/manage-ddos-protection) 
 
-- [Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-network)
+- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
 
 **Azure Security Center monitoring**: Yes
 
@@ -79,7 +79,7 @@ Choose Azure-provided DDoS Protection to protect your assets against attacks on 
 
 **Guidance**: Virtual WAN is a Microsoft-managed service. It does not offer native intrusion detection or intrusion prevention capabilities. However, there are security capabilities provided to Virtual WAN through Azure Firewall to enable a unified point of policy control. You can create an Azure Firewall policy and link the policy to a Virtual WAN hub to allow the existing Virtual WAN hub to function as a secured virtual hub, with the required Azure Firewall resources deployed.
 
-- [Configure Azure Firewall in a Virtual WAN hub](https://docs.microsoft.com/azure/virtual-wan/howto-firewall)
+- [Configure Azure Firewall in a Virtual WAN hub](howto-firewall.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -89,11 +89,11 @@ Choose Azure-provided DDoS Protection to protect your assets against attacks on 
 
 **Guidance**: Simplify network security rules by leveraging Virtual Network service tags to define network access controls on network security groups or Azure Firewall. Service tags can be used in place of specific IP addresses when creating security rules. By specifying the service tag name in the source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [Understand and use service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Understand and use service tags](../virtual-network/service-tags-overview.md)
 
-- [Understand and use application security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+- [Understand and use application security groups](/azure/virtual-network/security-overview#application-security-groups)
 
-- [Azure Firewall Documentation](https://docs.microsoft.com/azure/firewall/)
+- [Azure Firewall Documentation](/azure/firewall/)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -103,9 +103,9 @@ Choose Azure-provided DDoS Protection to protect your assets against attacks on 
 
 **Guidance**: Secure DNS capabilities are provided to Virtual WAN with Azure Firewall. Configure Azure Firewall to act as a DNS proxy which becomes an intermediary for DNS requests from client virtual machines to a DNS server. For custom DNS server configurations, enable DNS proxy to avoid a DNS resolution mismatch, and enable fully qualified domain name filtering in the network rules. 
 
-- [Azure Firewall Documentation](https://docs.microsoft.com/azure/firewall/)
+- [Azure Firewall Documentation](/azure/firewall/)
 
-- [Azure Firewall DNS Settings](https://docs.microsoft.com/azure/firewall/dns-settings)
+- [Azure Firewall DNS Settings](/azure/firewall/dns-settings)
 
 - [Use Azure Firewall as a DNS Forwarder with Private Link](https://github.com/adstuart/azure-privatelink-dns-azurefirewall)
 
@@ -130,13 +130,13 @@ Azure AD also supports external identities, which allow users without a Microsof
 
 Review information on using Azure AD in Point-to-Site VPN scenarios at the referenced links.
 
-- [Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/azure/virtual-wan/openvpn-azure-ad-tenant-multi-app)
+- [Create an Azure Active Directory (AD) tenant for P2S OpenVPN protocol connections](openvpn-azure-ad-tenant-multi-app.md)
 
-- [Configure Azure Active Directory authentication for User VPN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-point-to-site-azure-ad)
+- [Configure Azure Active Directory authentication for User VPN](virtual-wan-point-to-site-azure-ad.md)
 
-- [Tenancy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/single-and-multi-tenant-apps) 
+- [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md) 
 
-- [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -156,7 +156,7 @@ Azure AD recommends the following for strong authentication controls:
 
 Ensure the highest level of the strong authentication method are used for administrator and privileged users, followed by a roll-out of a strong authentication policy to other users.
 
-- [How to enable MFA in P2S VPN for Virtual WAN](https://docs.microsoft.com/azure/virtual-wan/openvpn-azure-ad-mfa)
+- [How to enable MFA in P2S VPN for Virtual WAN](openvpn-azure-ad-mfa.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -168,9 +168,9 @@ Ensure the highest level of the strong authentication method are used for admini
 
 Note that Azure AD authentication is only available for gateways using OpenVPN protocol and clients running Windows.
 
-- [What is Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access](../active-directory/conditional-access/overview.md)
 
-- [Configure Azure Active Directory authentication for User VPN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-point-to-site-azure-ad)
+- [Configure Azure Active Directory authentication for User VPN](virtual-wan-point-to-site-azure-ad.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -202,11 +202,11 @@ Also restrict access to the management, identity, and security systems that have
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
-- [Azure Components and Reference model](https://docs.microsoft.com/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
+- [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
 
-- [Management Group Access](https://docs.microsoft.com/azure/governance/management-groups/overview#management-group-access) 
+- [Management Group Access](../governance/management-groups/overview.md#management-group-access) 
 
-- [Azure subscription administrators](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator)
+- [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -220,11 +220,11 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 **Guidance**: Use Point-to-site VPN, Site-to-site VPN and Encrypted Express Route with Virtual WAN for your connectivity requirements. VPN encryption protects data in transit from 'out of band' attacks (such as, traffic capture) to ensure that attackers cannot read or modify the data. 
 
-- [Point-to-site VPN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-point-to-site-portal)
+- [Point-to-site VPN](virtual-wan-point-to-site-portal.md)
 
-- [Site-to-site VPN](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal)
+- [Site-to-site VPN](virtual-wan-site-to-site-portal.md)
 
-- [Encrypted ExpressRoute](https://docs.microsoft.com/azure/virtual-wan/vpn-over-expressroute)
+- [Encrypted ExpressRoute](vpn-over-expressroute.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -244,9 +244,9 @@ Security Reader permissions can be applied broadly to an entire tenant (root man
 
 Note: Additional permissions might be required to get visibility into workloads and services. 
 
-- [Overview of Security Reader Role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader)
+- [Overview of Security Reader Role](../role-based-access-control/built-in-roles.md#security-reader)
 
-- [Overview of Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/overview)
+- [Overview of Azure Management Groups](../governance/management-groups/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -258,7 +258,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 - [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-- [Azure Security Center asset inventory management](https://docs.microsoft.com/azure/security-center/asset-inventory)
+- [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -269,7 +269,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 **Guidance**: Use Azure Monitor to create rules to trigger alerts when a non-approved service is detected. Virtual WAN brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor. 
  
 
-- [Virtual WAN Logs and Metrics](https://docs.microsoft.com/azure/virtual-wan/logs-metrics)
+- [Virtual WAN Logs and Metrics](logs-metrics.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -279,7 +279,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Use Azure Conditional Access to limit users ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -300,11 +300,11 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 Use Azure Security Center to create alerts on certain suspicious activities such as excessive number of failed authentication attempts including deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, use Threat Protection module from Security Center to collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
 
-- [Audit activity reports in the Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) 
+- [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [Enable Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Configure Azure Firewall in a Virtual WAN hub](https://docs.microsoft.com/azure/virtual-wan/howto-firewall)
+- [Configure Azure Firewall in a Virtual WAN hub](howto-firewall.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -321,11 +321,11 @@ Use Azure Security Center to create alerts on certain suspicious activities such
 
 Use Azure Security Center to create alerts on certain suspicious activities such as excessive number of failed authentication attempts including deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, use Threat Protection module from Security Center to collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
 
-- [Audit activity reports in the Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) 
+- [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-- [Enable Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Configure Azure Firewall in a Virtual WAN hub](https://docs.microsoft.com/azure/virtual-wan/howto-firewall)
+- [Configure Azure Firewall in a Virtual WAN hub](howto-firewall.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -339,9 +339,9 @@ Use Azure Security Center to create alerts on certain suspicious activities such
 A variety of diagnostic logs are also available for Virtual WAN, and can be configured for the Virtual WAN resource with Azure portal.  You can choose to send to Log Analytics, stream to an event hub, or to simply archive to a storage account. 
  
 
-- [Virtual WAN Logs and Metrics](https://docs.microsoft.com/azure/virtual-wan/logs-metrics)
+- [Virtual WAN Logs and Metrics](logs-metrics.md)
 
-- [Azure Firewall logs and metrics](https://docs.microsoft.com/azure/firewall/logs-and-metrics)
+- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -353,11 +353,11 @@ A variety of diagnostic logs are also available for Virtual WAN, and can be conf
 
 Enable Azure resource logs for Virtual WAN. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) 
+- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
 
-- [Understand Azure Security Center data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+- [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -371,13 +371,13 @@ Enable Azure resource logs for Virtual WAN. You can use Azure Security Center an
 A variety of diagnostic logs are also available for Virtual WAN, and can be configured for the Virtual WAN resource with Azure portal. Send to Log Analytics, stream to an event hub, or to simply archive to a storage account. In addition, enable and onboard data to Azure Sentinel or a third-party Security Information and Event Management solution. 
  
 
-- [Virtual WAN Logs and Metrics](https://docs.microsoft.com/azure/virtual-wan/logs-metrics)
+- [Virtual WAN Logs and Metrics](logs-metrics.md)
 
-- [Azure Firewall logs and metrics](https://docs.microsoft.com/azure/firewall/logs-and-metrics)
+- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics)
 
 Azure Virtual WAN security is provided through Azure Firewall. 
 
-- [Azure Firewall Documentation](https://docs.microsoft.com/azure/firewall/overview)
+- [Azure Firewall Documentation](/azure/firewall/overview)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -387,11 +387,11 @@ Azure Virtual WAN security is provided through Azure Firewall.
 
 **Guidance**: Configure your log retention according to your compliance, regulation, and business requirements. In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
-- [Azure Security Center alerts and recommendations export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Azure Security Center alerts and recommendations export](../security-center/continuous-export.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -405,9 +405,9 @@ Azure Virtual WAN security is provided through Azure Firewall.
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
-- [Implement security across the enterprise environment](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Incident response reference guide](https://docs.microsoft.com/microsoft-365/downloads/IR-Reference-Guide.pdf)
+- [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -417,7 +417,7 @@ Azure Virtual WAN security is provided through Azure Firewall.
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
-- [How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -433,9 +433,9 @@ Azure Security Center provides high quality alerts across many Azure assets. You
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-- [How to configure export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [How to configure export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -459,13 +459,13 @@ The data sources for investigation include the centralized logging sources that 
 
 Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine's disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk)
+- [Snapshot a Windows machine's disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
-- [Snapshot a Linux machine's disk](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk)
+- [Snapshot a Linux machine's disk](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
+- [Investigate incidents with Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -479,9 +479,9 @@ Azure Security Center assigns a severity to each alert to help you prioritize wh
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -492,11 +492,11 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-- [Configure workflow automation in Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Configure workflow automation in Security Center](../security-center/workflow-automation.md)
 
-- [Set up automated threat responses in Azure Security Center](https://docs.microsoft.com/azure/security-center/tutorial-security-incident#triage-security-alerts)
+- [Set up automated threat responses in Azure Security Center](../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-- [Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
+- [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -511,7 +511,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-- [Penetration testing in Azure](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)
+- [Penetration testing in Azure](../security/fundamentals/pen-testing.md)
 
 - [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
@@ -529,11 +529,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 **Guidance**: Customers are not explicitly allowed to configure Endpoint Detection and Response settings. However, the Virtual Machines used in the Azure Virtual WAN offering do use these capabilities. Learn more about these general capabilities at the referenced links. 
 
-- [Microsoft Defender Advanced Threat Protection Overview](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+- [Microsoft Defender Advanced Threat Protection Overview](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
 
-- [Microsoft Defender ATP service for Windows servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
+- [Microsoft Defender ATP service for Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
 
-- [Microsoft Defender ATP service for non-Windows servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
+- [Microsoft Defender ATP service for non-Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
 **Azure Security Center monitoring**: Yes
 
@@ -568,13 +568,13 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
-- [Azure Security Fundamentals - Azure Data security, encryption, and storage](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview)
+- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - Asset management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Azure Security Benchmark - Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -588,11 +588,11 @@ Carefully balance the need for security separation with the need to enable daily
 
 Ensure that the segmentation strategy is implemented consistently across control types including network security, identity and access models, and application permission/access models, and human process controls.
 
-- [Guidance on segmentation strategy in Azure (video)](https://docs.microsoft.com/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+- [Guidance on segmentation strategy in Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Guidance on segmentation strategy in Azure (document)](https://docs.microsoft.com/security/compass/governance#enterprise-segmentation-strategy)
+- [Guidance on segmentation strategy in Azure (document)](/security/compass/governance#enterprise-segmentation-strategy)
 
-- [Align network segmentation with enterprise segmentation strategy](https://docs.microsoft.com/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+- [Align network segmentation with enterprise segmentation strategy](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -602,7 +602,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -612,11 +612,11 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
-- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
+- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
-- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
+- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](/azure/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)
 
-- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -641,13 +641,13 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
 For more information, see the following references:
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
-- [Azure network security overview](https://docs.microsoft.com/azure/security/fundamentals/network-overview)
+- [Azure network security overview](../security/fundamentals/network-overview.md)
 
-- [Enterprise network architecture strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -671,13 +671,13 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Azure Security Benchmark - Privileged access](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
-- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure identity management security overview](https://docs.microsoft.com/azure/security/fundamentals/identity-management-overview)
+- [Azure identity management security overview](../security/fundamentals/identity-management-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -705,15 +705,15 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
-- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Azure Adoption Framework, logging, and reporting decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
+- [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
-- [Azure enterprise scale, management, and monitoring](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Azure enterprise scale, management, and monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
 **Azure Security Center monitoring**: Not applicable
 
