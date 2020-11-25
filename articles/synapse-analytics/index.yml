@@ -40,10 +40,11 @@ landingContent:
             url: ./sql/overview-architecture.md
       - linkListType: quickstart
         links:
-          - text: Create dedicated SQL pool using Synapse Studio
-            url: quickstart-create-sql-pool-studio.md
           - text: Use serverless SQL pool
             url: quickstart-sql-on-demand.md
+          - text: Create adedicated SQL pool using Synapse Studio
+            url: quickstart-create-sql-pool-studio.md
+
 
   - title: Get started with Azure Synapse Analytics
     linkLists:
@@ -101,6 +102,10 @@ landingContent:
         links:
           - text: Machine Learning in Azure Synapse
             url: ./machine-learning/what-is-machine-learning.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new Azure Machine Learning linked service
+            url: ./machine-learning/quickstart-integrate-azure-machine-learning.md      
       - linkListType: tutorial
         links:
           - text: Model scoring wizard for SQL pools
@@ -120,19 +125,19 @@ landingContent:
           - text: Load data to SQL pool 
             url: quickstart-copy-activity-load-sql-pool.md
 
-  # Card (optional)
-  - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is dedicated SQL pool (formerly SQL DW)?
-            url: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
-      - linkListType: architecture
-        links:
-          - text: Dedicated SQL pool (formerly SQL DW) architecture
-            url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
-          - text: Reference Architecture
-            url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+  # # Card (optional)
+  # - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+  #   linkLists:
+  #     - linkListType: overview
+  #       links:
+  #         - text: What is dedicated SQL pool (formerly SQL DW)?
+  #           url: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
+  #     - linkListType: architecture
+  #       links:
+  #         - text: Dedicated SQL pool (formerly SQL DW) architecture
+  #           url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
+  #         - text: Reference Architecture
+  #           url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
 
 
