@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial for Azure Active Directory Single Sign-on integration with F5 BIG-IP for Password-less VPN
 
-In this tutorial, learn how to integrate F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory for Secure Hybrid Access (SHA).
+In this tutorial, learn how to integrate F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
 
 Integrating a BIG-IP SSL-VPN with Azure AD provides [many key benefits](f5-aad-integration.md), including:
 
@@ -40,7 +40,7 @@ In this scenario, the BIG-IP APM instance of the SSL-VPN service will be configu
 
 Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need:
 
-- An Azure AD free subscription or above
+- An Azure AD [free subscription](https://azure.microsoft.com/trial/get-started-active-directory/) or above
 
 - User identities should be [synchronized from their on-premises directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) to Azure AD.
 
@@ -52,7 +52,7 @@ Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need
 
 - The BIG-IP should be provisioned with the necessary SSL certificates for publishing services over HTTPS.
 
-Familiarizing yourself with [F5 BIG-IP terminology](https://docs.microsoft.com/azure/sentinel/overview) will also help understand the various components that are referenced throughout the tutorials.
+Familiarizing yourself with [F5 BIG-IP terminology](https://support.f5.com/kb/products/big-ip_apm.html) will also help understand the various components that are referenced throughout the tutorial.
 
 >[!NOTE]
 >Azure is constantly evolving so don’t be surprised if you find any nuances between the instructions in this guide and what you see in the Azure portal. Screenshots are from BIG-IP v15, however, remain relatively similar from v13.1.
