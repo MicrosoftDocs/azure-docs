@@ -25,8 +25,6 @@ ms.service: azure
 
    - **Localize** text for alerts, events, and protocol parameters
 
-- **Proprietary ICS threat intelligence & vulnerability research:** The Section 52 Threat Intelligence team are world-class domain experts that track ICS-specific zero-days, campaigns, and adversaries as well as reverse-engineer malware. This intelligence adds contextual information to enrich our platform analytics and supports our managed services for incident response and breach investigation.
-
 - **Analytics & Self-Learning Engines:** Engines identify security issues via continuous monitoring and five different analytics engines that incorporate self-learning to eliminate the need for updating signatures or defining rules. The engines leverage ICS-specific behavioral analytics and data science to continuously analyze OT network traffic for anomalies. The five engines are:
 
    - **Protocol violation detection engine**: Identifies the use of packet structures and field values that violate ICS protocol specifications

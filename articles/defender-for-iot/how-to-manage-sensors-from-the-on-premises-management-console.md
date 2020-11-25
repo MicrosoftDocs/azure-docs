@@ -19,8 +19,6 @@ This section describes how to manage sensors from the management console, includ
 
 - Update Sensor Version
 
-- Update Threat Intelligence Packages
-
 ## Push configurations
 
 You can define various system settings and automatically apply them to sensors connected to the management console. This saves time and helps ensure streamlined settings across your enterprise sensors.

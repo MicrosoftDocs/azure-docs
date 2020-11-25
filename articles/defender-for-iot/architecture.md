@@ -91,13 +91,25 @@ In addition to multi-tenancy, monitoring, data analysis, and centralized sensor 
 
 The management console can be deployed for high-availability configuration, which provides a backup console that periodically receives backups of all configuration files required for recovery. If the master console fails, the local site management appliances will automatically fail over to synchronize with the backup console to maintain availability without interruption.
 
+Tightly integrated with your SOC workflows and run books, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
+
+- Holistic - reduce complexity with a single unified platform for asset management, risk and vulnerability management, as well as threat monitoring with incident response.
+
+- Aggregation and correlation – display, aggregate and analyze data and alerts collected from all sites.
+
+- Control all sensors – configure and monitor all sensors from a single location.
+
+   ![Azure Defender for IoT Site Management view](media/updates/image2.png)
+
+
 #### Azure portal
 
 The Defender for IoT portal in Azure is used to help you:
-·	Purchase solution appliances
-·	Install and update software
-·	Onboard sensors to Azure
-·	Update Threat Intelligence packages
+
+- Purchase solution appliances
+- Install and update software
+- Onboard sensors to Azure
+- Update Threat Intelligence packages
 
 ## Embedded security agent: Built-in mode
 

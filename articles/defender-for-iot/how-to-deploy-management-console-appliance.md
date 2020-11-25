@@ -1,5 +1,5 @@
 ---
-title: Deploy management console in Azure Defender for IoT
+title: Log in and activate 
 description: Learn about how to deploy the management console in Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -16,40 +16,19 @@ ms.date: 10/14/2020
 ms.author: rkarlin
 ---
 
-# Deploy the management console
-This article describes how to deploy the Azure Defender for IoT on-premises management console.
+# Log in and activate
 
-## The on-premises management console
+This article describes how to deploy and activate the Azure Defender for IoT on-premises management console.
 
-The on-premises management console provides a consolidated view of all network assets and delivers a real-time view of key IoT and OT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and run books, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
+Verify that you have installed the software on a certified appliance.
 
-- Holistic - reduce complexity with a single unified platform for asset management, risk and vulnerability management, as well as threat monitoring with incident response.
+**To log in to the manaegment console:**
 
-- Aggregation and correlation – display, aggregate and analyze data and alerts collected from all sites.
+1.
 
-- Control all sensors – configure and monitor all sensors from a single location.
+**To activate the manaegment console:**
 
-   ![Azure Defender for IoT Site Management view](media/updates/image2.png)
-
-## Deploy the on-premises management console appliance
-
-This process requires acquiring your own hardware and installing software. The solution runs on certified appliances. Refer to the [Azure Defender for IoT hardware specifications guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) as a reference when purchasing your certified appliance.
-
-Refer to the [Azure Defender for IoT Installation Guide](https://aka.ms/AzureDefenderforIoTInstallSensorISO) for details about downloading the ISO image and installing the sensor software.
-
-**To deploy the on-premises management console:**
-
-1. Navigate to Microsoft Azure Defender for IoT.
-
-2. Select **on-premises management console**.
-
-   ![Azure Defender for IoT On-Premises Management Console view](media/updates/image15.png)
-
-3. Select version 3.1 from the **Select Version** menu.
-
-4. Select **Download** and save the file.
-
-5. After the software is installed, carry out network setup tasks. Refer to the [Azure Defender for IoT Network Setup Guide](https://aka.ms/AzureDefenderForIoTNetworkSetup) for details.
+1.
 
 ## Next steps
 

@@ -9,7 +9,21 @@ ms.topic: how-to
 ms.service: azure
 ---
 
-#
+## Activate the on-premises management console
+
+Verify that you have the username and password required for the on-premises management console. After login, TBD
+
+
+**To log in:**
+
+1. Open a web browser and enter the on-premises management console IP address you received during the system installation.
+
+1. Enter the username and password you received by your administrator and select LOGIN. 
+
+After login, the on-premises management console opens in the Enterprise View.  
+## Upload the activation file
+
+TBD
 
 ## Connect sensors to the on-premises management console
 
