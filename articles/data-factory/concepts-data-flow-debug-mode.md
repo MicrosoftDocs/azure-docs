@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
+ms.date: 09/11/2020
 ---
 
 # Mapping data flow Debug Mode
@@ -28,6 +28,11 @@ When Debug mode is on, you'll interactively build your data flow with an active 
 
 In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. Use the "Debug" button on the pipeline panel to test your data flow in a pipeline.
 
+![View data flow debug sessions](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Every debug session that a user starts from their ADF browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions per factory.
+
 ## Cluster status
 
 The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then you'll have to wait 5-7 minutes for the cluster to spin up. The indicator will spin until its ready.
@@ -36,13 +41,15 @@ When you are finished with your debugging, turn the Debug switch off so that you
 
 ## Debug settings
 
-Once you turn on debug mode, you can edit how a data flow previews data. Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the row limit or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for a SQL DW source. 
+Once you turn on debug mode, you can edit how a data flow previews data. Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the row limit or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for an Azure Synapse Analytics source. 
 
 ![Debug settings](media/data-flow/debug-settings.png "Debug settings")
 
 If you have parameters in your Data Flow or any of its referenced datasets, you can specify what values to use during debugging by selecting the **Parameters** tab.
 
 ![Debug settings parameters](media/data-flow/debug-settings2.png "Debug settings parameters")
+
+The default IR used for debug mode in ADF data flows is a small 4-core single worker node with a 4-core single driver node. This works fine with smaller samples of data when testing your data flow logic. If you expand the row limits in your debug settings during data preview or set a higher number of sampled rows in your source during pipeline debug, then you may wish to consider setting a larger compute environment in a new Azure Integration Runtime. Then you can restart your debug session using the larger compute environment.
 
 ## Data preview
 
@@ -55,6 +62,8 @@ With debug on, the Data Preview tab will light-up on the bottom panel. Without d
 
 When running in Debug Mode in Data Flow, your data will not be written to the Sink transform. A Debug session is intended to serve as a test harness for your transformations. Sinks are not required during debug and are ignored in your data flow. If you wish to test writing the data in your Sink, execute the Data Flow from an Azure Data Factory Pipeline and use the Debug execution from a pipeline.
 
+Data Preview is a snapshot of your transformed data using row limits and data sampling from data frames in Spark memory. Therefore, the sink drivers are not utilized or tested in this scenario.
+
 ### Testing join conditions
 
 When unit testing Joins, Exists, or Lookup transformations, make sure that you use a small set of known data for your test. You can use the Debug Settings option above to set a temporary file to use for your testing. This is needed because when limiting or sampling rows from a large dataset, you cannot predict which rows and which keys will be read into the flow for testing. The result is non-deterministic, meaning that your join conditions may fail.
@@ -63,15 +72,15 @@ When unit testing Joins, Exists, or Lookup transformations, make sure that you u
 
 Once you see the data preview, you can generate a quick transformation to typecast, remove, or do a modification on a column. Click on the column header and then select one of the options from the data preview toolbar.
 
-![Quick actions](media/data-flow/quick-actions1.png "Quick actions")
+![Screenshot shows the data preview toolbar with options: Typecast, Modify, Statistics, and Remove.](media/data-flow/quick-actions1.png "Quick actions")
 
 Once you select a modification, the data preview will immediately refresh. Click **Confirm** in the top-right corner to generate a new transformation.
 
-![Quick actions](media/data-flow/quick-actions2.png "Quick actions")
+![Screenshot shows the Confirm button.](media/data-flow/quick-actions2.png "Quick actions")
 
 **Typecast** and **Modify** will generate a Derived Column transformation and **Remove** will generate a Select transformation.
 
-![Quick actions](media/data-flow/quick-actions3.png "Quick actions")
+![Screenshot shows Derived Column’s Settings.](media/data-flow/quick-actions3.png "Quick actions")
 
 > [!NOTE]
 > If you edit your Data Flow, you need to re-fetch the data preview before adding a quick transformation.

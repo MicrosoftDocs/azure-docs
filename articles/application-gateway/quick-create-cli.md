@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
@@ -19,14 +19,11 @@ The application gateway directs application web traffic to specific resources in
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or the [Azure portal](quick-create-portal.md).
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli) (if you run Azure CLI locally).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create resource group
 

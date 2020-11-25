@@ -20,7 +20,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 * An Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/) installed.
+* The PowerShell [Az Module](/powershell/azure/) installed.
 
 ## Run a MapReduce job
 

@@ -1,9 +1,9 @@
 ---
-title: Weather Services concepts | Microsoft Azure Maps
-description: In this article, you will learn about the concepts that apply to Microsoft Azure Maps Weather Services.
+title: Weather Services concepts in Microsoft Azure Maps
+description: Learn about the concepts that apply to Microsoft Azure Maps Weather Services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Weather services in Azure Maps
 
-This article introduces concepts that apply to the [Azure Maps Weather Services](https://aka.ms/AzureMapsWeatherService). We recommend going through this article before starting out with the weather APIs. 
+This article introduces concepts that apply to the [Azure Maps Weather Services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
@@ -95,7 +95,7 @@ Some of the Weather service APIs return the `iconCode` in the response. The `ico
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
@@ -467,3 +467,171 @@ Detailed color palette for infrared satellite tiles is shown below.
 |307.57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## Index IDs and Index Groups IDs
+
+[Get Daily Indices API](/rest/api/maps/weather) allows users to
+restrict returned results to specific index types or index
+groups.
+
+Below is a table of available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
+
+  Index Name |  ID  | Value Range
+  -------------------------- |---|-----
+  Arthritis Pain             |21 | [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Asthma                     |23|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Beach & Pool               |10| [Poor-Excellent 1](#poor-excellent-1)
+  Bicycling                  |4| [Poor-Excellent 1](#poor-excellent-1)
+  Common Cold                |25|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Composting                 |38| [Poor-Excellent 1](#poor-excellent-1)
+  Construction               |14| [Poor-Excellent 1](#poor-excellent-1)
+  COPD                       |44|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Dog Walking Comfort        |43| [Poor-Excellent 1](#poor-excellent-1)
+  Driving                    |40|  [Poor-Excellent 2](#poor-excellent-2)
+  Dust & Dander              |18| [Low-Extreme 1](#low-extreme-1)
+  Field Readiness            |32| [Poor-Excellent 1](#poor-excellent-1)
+  Fishing                    |13| [Poor-Excellent 1](#poor-excellent-1)
+  Flight Delays              |-3|  [Very Unlikely-Very Likely 2](#very-unlikely-very-likely-2)
+  Flu                        |26|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Flying Travel Index        |31| [Excellent-Poor](#excellent-poor)
+  Fuel Economy               |37| [Poor-Excellent 1](#poor-excellent-1)
+  Golf Weather               |5| [Poor-Excellent 1](#poor-excellent-1)
+  Grass Growing              |33| [Poor-Excellent 1](#poor-excellent-1)
+  Hair Frizz                 |42| [Unlikely-Emergency](#unlikely-emergency)
+  Healthy Heart Fitness      |16| [Poor-Excellent 1](#poor-excellent-1)
+  Hiking                     |3| [Poor-Excellent 1](#poor-excellent-1)
+  Home Energy Efficiency     |36| [Poor-Excellent 1](#poor-excellent-1)
+  Hunting                    | 20| [Poor-Excellent 1](#poor-excellent-1)
+  Indoor Activity            | -2| [Poor-Excellent 1](#poor-excellent-1)
+  Jogging                    |2| [Poor-Excellent 1](#poor-excellent-1)
+  Kite Flying                |9| [Poor-Excellent 1](#poor-excellent-1)
+  Lawn Mowing                |28| [Poor-Excellent 1](#poor-excellent-1)
+  Migraine Headache          |27|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Morning School Bus         |35| [Poor-Excellent 1](#poor-excellent-1)
+  Mosquito Activity          |17|[Low-Extreme 1](#low-extreme-1)
+  Outdoor Activity           |29| [Poor-Excellent 1](#poor-excellent-1)
+  Outdoor Barbecue           |24| [Poor-Excellent 1](#poor-excellent-1)
+  Outdoor Concert            |8| [Poor-Excellent 1](#poor-excellent-1)
+  Running                    |1|  [Poor-Excellent 1](#poor-excellent-1)
+  Tennis                     |6| [Poor-Excellent 1](#poor-excellent-1)
+  Thirst                     |41| [Low-Extreme 2](#low-extreme-2)
+  Sailing                    |11| [Poor-Excellent 1](#poor-excellent-1)
+  Shopping                   |39| [Poor-Excellent 1](#poor-excellent-1)
+  Sinus Headache             |30|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
+  Skateboarding              | 7| [Poor-Excellent 1](#poor-excellent-1)
+  Ski Weather                | 15| [Poor-Excellent 1](#poor-excellent-1)
+  Snow Days                  | 19| [Very Unlikely-Very Likely](#very-unlikely-very-likely)
+  Soil Moisture              | 34| [Poor-Excellent 1](#poor-excellent-1)
+  Stargazing                 | 12| [Poor-Excellent 1](#poor-excellent-1)
+
+Below is the list of available Index groups (indexGroupId):
+
+  ID   | Group Name | Indices in this group |
+  -------- | ------------------|------
+  1       |All | All
+  2       |Aches and Pains | Arthritis Pain (21) </br> Migraine Headache (27) </br> Sinus Headache (30)
+  3       |Respiratory | Asthma (23) </br> Common Cold (25) </br> Flu Forecast (26)
+  4       |Gardening | Field Readiness (32) </br> Lawn Mowing (28) </br> Soil Moisture (34)</br>
+  5       |Environmental | Compositing (38) </br> Home Energy Efficiency (36) </br> Fuel Economy (37)
+  6       |Outdoor Living | Outdoor Barbecue (24) </br> Mosquito Activity (17)
+  7       |Beach and Marine | Beach & Pool (10) </br> Fishing (13) </br> Sailing (11)
+  8       |Sportsman | Fishing (13) </br> Hunting (20) </br> Outdoor Activity (29)</br>
+  9       |Farming |  Field Readiness (32) </br>  Soil Moisture (34)
+  10      |Health | Arthritis Pain (21) </br> Asthma (23) </br> Common Cold (25) </br> Dust & Dander (18) </br> Flu (26) </br> Healthy Heart Fitness (16) </br> Migraine Headache (27)
+  11      |Outdoor | Outdoor Barbecue (24) </br> Beach & Pool (10) </br> Bicycling (4) </br> Outdoor Concert (8) </br>  Field Readiness (32) </br> Fishing (13) </br> Golf Weather (5) </br> Hiking (3) </br> Hunting (20) </br> Jogging (2) </br> Kite Flying (9) </br> Mosquito Activity (17)</br> Lawn Mowing (28) </br> Outdoor Activity (29) </br> Running (1) </br> Sailing (11) </br> Skateboarding (7) </br> Ski Weather (15) </br>  Soil Moisture (34)</br> Stargazing (12) </br> Tennis (6)
+  12      |Sporting | Bicycling (4) </br> Golf Weather (5) </br> Hiking (3) </br>  Jogging (2) </br> Running (1) </br> Skateboarding (7) </br> Ski Weather (15) </br>Tennis (6)
+  13      |Home | Home Energy Efficiency (36) </br> Fuel Economy (37) </br> Indoor Activity (-2)
+
+## Daily index range sets
+
+[Get Daily Indices API](/rest/api/maps/weather) returns the ranged value and its associated category name for each index ID. Range sets are not the same for all indices. The tables below show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+
+### Poor-Excellent 1
+
+  | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Poor              |  0 |                2.99
+  Fair              |  3  |               4.99
+  Good              |  5  |              6.99
+  Very Good         |  7  |               8.99
+  Excellent         |  9  |               10
+
+### Poor-Excellent 2
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Poor           |0              |  3
+  Fair           |3.01           |  6
+  Good           |6.01           |  7.5
+  Very Good      |7.51           |  8.99
+  Excellent      |9              |  10
+
+### Excellent-Poor
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Excellent      |     0.00        |    1.00
+  Very Good        |   1.01          |  3.00
+  Good             |   3.01          |  5.00
+  Fair             |   5.01          |  7.00
+  Poor             |   7.01          |  10.00
+
+### Low-Extreme 1
+
+   | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Low                |  0         |        1.99
+  Moderate           |  2         |        3.99
+  High               |  4         |        5.99
+  Very High          |  6         |        7.99
+  Extreme            |  8         |        10
+
+### Low-Extreme 2
+
+   | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Low                |  0            |      2.99
+  Moderate           |  3            |      4.99
+  High               |  5            |      6.99
+  Very High          |  7            |      8.99
+  Extreme            |  9            |      10
+
+### Very Unlikely-Very Likely
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Very Unlikely      | 0     |           1.99
+  Unlikely           | 2     |           3.99
+  Possibly           | 4     |           5.99
+  Likely             | 6     |           7.99
+  Very Likely        | 8     |           10
+
+### Very Unlikely-Very Likely 2
+
+ | Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Very Unlikely      |  0.00     |         1.00
+  Unlikely           |  1.01     |         3.00
+  Possibly           |  3.01     |         5.00
+  Likely             |  5.01     |         7.00
+  Very Likely        |  7.01     |         10.00
+
+### Unlikely-Emergency
+
+| Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Unlikely         |  0     |          2.99
+  Watch            |  3     |          4.99
+  Advisory         |  5     |          6.99
+  Warning          |  7     |          8.99
+  Emergency        |  9     |          10
+
+### Beneficial-At Extreme Risk
+
+| Category Name | Begin Range | End Range |
+  ----------------|--------------|------------
+  Beneficial        |    0        |        1.99
+  Neutral           |    2        |        3.99
+  At Risk           |    4        |        5.99
+  At High Risk      |    6        |        7.99
+  At Extreme Risk   |    8        |        10

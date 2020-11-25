@@ -25,9 +25,13 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the Data Box device and contain data that needs to be protected.
 - **Cloud storage** – The location in the Azure cloud where data is stored. This is typically the storage account linked to the Azure Data Box resource that you created.
 
-The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure. This flow is for an import order for your Data Box.
+The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure and the various security features in place as the data flows through the solution. This flow is for an import order for your Data Box.
 
-![Data Box security](media/data-box-security/data-box-security-2.png)
+![Data Box import security](media/data-box-security/data-box-security-import.png)
+
+The following diagram is for the export order for your Data Box.
+
+![Data Box export security](media/data-box-security/data-box-security-export.png)
 
 As the data flows through this solution, events are logged and logs are generated. For more information, go to:
 
@@ -54,7 +58,7 @@ The Data Box device is protected by the following features:
 The data that flows in and out of Data Box is protected by the following features:
 
 - AES 256-bit encryption for Data-at-rest.
-- Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy it from your data servers.
+- Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy to it from your data servers.
 - Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
 
 ### Data Box service protection

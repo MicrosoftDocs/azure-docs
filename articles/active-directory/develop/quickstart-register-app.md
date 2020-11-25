@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperfq1
+ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
 # Customer intent: As an enterprise developer or software-as-a-service (SaaS) provider, I want to
 # know how to register my application with the Microsoft identity platform so that the security
@@ -31,7 +31,7 @@ Each application you want the Microsoft identity platform to perform identity an
 
 ## Register an application
 
-Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the the Microsoft identity platform, and not the other way around.
+Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around.
 
 Follow these steps to create the app registration:
 
@@ -64,7 +64,7 @@ Your application's code, or more typically an authentication library used in you
 
 A redirect URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
-In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response`.
+In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response` or `http://localhost/auth-response`.
 
 You add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
 

@@ -50,7 +50,7 @@ The following table lists the default page content provided by Azure AD B2C. Dow
 
 ## Hosting the page content
 
-When using your own HTML and CSS files to customize the UI, host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](/azure/app-service/), web servers, CDNs, AWS S3, or file sharing systems.
+When using your own HTML and CSS files to customize the UI, host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services](../articles/app-service/index.yml), web servers, CDNs, AWS S3, or file sharing systems.
 
 ## Guidelines for using custom page content
 
@@ -161,7 +161,7 @@ Validate that you're ready by performing the following steps:
 
 1. Repeat the configure CORS step. For **Allowed origins**, enter `https://www.test-cors.org`
 1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
-1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
     The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.

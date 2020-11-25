@@ -59,11 +59,11 @@ To unlock admin access to your tenant, you should create emergency access accoun
 
 Incorporate the following access controls in your existing Conditional Access policies for organization:
 
-1. Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic). The following PowerShell script will help you identify in advance, which additional methods your users should register: [Script for Azure MFA authentication method analysis](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic). The following PowerShell script will help you identify in advance, which additional methods your users should register: [Script for Azure AD MFA authentication method analysis](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Deploy Windows Hello for Business on Windows 10 devices to satisfy MFA requirements directly from device sign-in.
 3. Use trusted devices via [Azure AD Hybrid Join](../devices/overview.md) or [Microsoft Intune Managed devices](/intune/planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
 4. Use Azure AD identity protection risk-based policies that prevent access when the user or sign-in is at risk in place of fixed MFA policies.
-5. If you are protecting VPN access using Azure MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
+5. If you are protecting VPN access using Azure AD MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 
 >[!NOTE]
 > Risk-based policies require [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
@@ -106,7 +106,7 @@ Alternatively, your organization can also create contingency policies. To create
 
 #### Microsoft recommendations
 
-A contingency Conditional Access policy is a **backup policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. In order to minimize unexpected disruption when a contingency policy is enabled, the policy should remain in report-only mode when not in use. Administrators can monitor the potential impact of their contingency policies using the Conditional Access Insights workbook. When your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
+A contingency Conditional Access policy is a **backup policy** that omits Azure AD MFA, third-party MFA, risk-based or device-based controls. In order to minimize unexpected disruption when a contingency policy is enabled, the policy should remain in report-only mode when not in use. Administrators can monitor the potential impact of their contingency policies using the Conditional Access Insights workbook. When your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
 
 >[!IMPORTANT]
 > Disabling policies that enforce security on your users, even temporarily, will reduce your security posture while the contingency plan is in place.
@@ -132,7 +132,7 @@ This naming standard for the contingency policies will be as follows:
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
+The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure AD MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
 
 **Example A - Contingency CA policies to restore Access to mission-critical Collaboration Apps:**
 
@@ -202,7 +202,7 @@ Order of activation:
 
 ### Contingencies for user lockout from on-prem resources (NPS extension)
 
-If you are protecting VPN access using Azure MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
+If you are protecting VPN access using Azure AD MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 
 If you have deployed Azure AD MFA NPS extension to protect on-prem resources, such as VPN and Remote Desktop Gateway, with MFA - you should consider in advance if you are ready to disable MFA in a case of emergency.
 
@@ -274,12 +274,12 @@ Undo the changes you made as part of the activated contingency plan once the ser
  > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
 
 >[!NOTE]
- > Configuring [trusted IPs](./howto-mfa-mfasettings.md) for Azure MFA is only available with [Azure AD Premium licenses](./concept-mfa-licensing.md).
+ > Configuring [trusted IPs](./howto-mfa-mfasettings.md) for Azure AD MFA is only available with [Azure AD Premium licenses](./concept-mfa-licensing.md).
 
 ## Learn more
 
 * [Azure AD Authentication Documentation](./howto-mfaserver-iis.md)
-* [Manage emergency-access administrative accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
 * [Configure named locations in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)

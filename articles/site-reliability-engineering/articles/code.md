@@ -3,10 +3,10 @@ title: "FAQ: SRE and Coding | Microsoft Docs"
 titleSuffix: Azure
 description: "FAQ: Understanding the relationship between SRE and coding"
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: dnb
 
 ---

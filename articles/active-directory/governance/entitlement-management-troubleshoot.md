@@ -73,7 +73,7 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ### View a request's delivery errors
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -101,7 +101,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 - If the error wasn't fixed during the trials window, the request status may be **Delivery failed** or **partially delivered**. You can then use the **reprocess** button. You'll have seven days to reprocess the request.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -119,7 +119,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 You can only cancel a pending request that has not yet been delivered or whose delivery has failed.The **cancel** button would be grayed out otherwise.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -144,7 +144,7 @@ You can only cancel a pending request that has not yet been delivered or whose d
     | P1 | Specific users and groups in your directory OR Specific connected organizations |
     | P2 | All members in your directory (excluding guests) |
     | P3 | All users in your directory (including guests) OR Specific connected organizations |
-    | P4 | All connected organizations OR All users (all connected organizations + any new external users) |
+    | P4 | All configured connected organizations OR All users (all connected organizations + any new external users) |
     
     If any policy is in a higher priority category, the lower priority categories are ignored. For an example of how multiple policies with same priority are displayed to the requestor, see [Select a policy](entitlement-management-request-access.md#select-a-policy).
 

@@ -1,6 +1,7 @@
 ---
-title: Remove app registered with the Microsoft identity platform | Azure
-description: Learn how to remove an application registered with the Microsoft identity platform.
+title: "Quickstart: Remove a registered app from the Microsoft identity platform | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you learn how to remove an application registered with the Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -27,22 +28,19 @@ In this quickstart, you'll learn how to:
 
 ## Prerequisites
 
-You must have a tenant that has applications registered to it. To learn how to add and register apps, see [Register an application with the Microsoft identity platform](quickstart-register-app.md).
+* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
 
 ## Remove an application authored by you or your organization
 
 Applications that you or your organization have registered are represented by both an application object and service principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](./app-objects-and-service-principals.md).
 
-### To remove an application
+To delete an application, you need to be listed as an owner of the application or have admin privileges.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-2. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-3. In the left-hand navigation pane, select the **Azure Active Directory** service, then select **App registrations**. Find and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
-4. From the **Overview** page, select **Delete**.
-5. Select **Yes** to confirm that you want to delete the app.
-
-   > [!NOTE]
-   > To delete an application, you need to be listed as an owner of the application or have admin privileges.
+1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service, then select **App registrations**. Find and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
+1. From the **Overview** page, select **Delete**.
+1. Select **Yes** to confirm that you want to delete the app.
 
 ## Remove an application authored by another organization
 
@@ -52,9 +50,7 @@ In order to remove an application’s access to your directory (after having gra
 
 ## Next steps
 
-Learn about these other related app management quickstarts:
+Learn more about application and service principal objects in the Microsoft identity platform:
 
-* [Register an application with the Microsoft identity platform](quickstart-register-app.md)
-* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
-* [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
-* [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)

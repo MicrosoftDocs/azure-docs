@@ -43,7 +43,7 @@ With Resource Manager, you can:
 
 * Define the dependencies between resources so they're deployed in the correct order.
 
-* Apply access control to all services because Role-Based Access Control (RBAC) is natively integrated into the management platform.
+* Apply access control to all services because Azure role-based access control (Azure RBAC) is natively integrated into the management platform.
 
 * Apply tags to resources to logically organize all the resources in your subscription.
 
@@ -77,7 +77,7 @@ There are some important factors to consider when defining your resource group:
 
    If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
-* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [RBAC roles](../../role-based-access-control/role-assignments-portal.md), or [resource locks](lock-resources.md).
+* A resource group can be used to scope access control for administrative actions. To manage a resource group, you can assign [Azure Policies](../../governance/policy/overview.md), [Azure roles](../../role-based-access-control/role-assignments-portal.md), or [resource locks](lock-resources.md).
 
 * You can [apply tags](tag-resources.md) to a resource group. The resources in the resource group don't inherit those tags.
 

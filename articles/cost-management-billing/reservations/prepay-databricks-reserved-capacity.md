@@ -58,7 +58,7 @@ You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#bla
 You can make the following types of changes to a reservation after purchase:
 
 - Update reservation scope
-- Role-based access
+- Azure role-based access control (Azure RBAC)
 
 You can't split or merge the Databricks commit unit pre-purchase. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 

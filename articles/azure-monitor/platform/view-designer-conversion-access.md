@@ -18,7 +18,7 @@ View designer users may be familiar with having an overview tile to represent a 
 
 You can take advantage of the high level of customization features provided with Azure dashboards, which allows auto refresh, moving, sizing, and additional filtering for your pinned items and visualizations. 
 
-![Dashboard](media/view-designer-conversion-access/dashboard.png)
+![Screenshot shows a customized Azure dashboard titled Workspace Summary.](media/view-designer-conversion-access/dashboard.png)
 
 Create a new Azure dashboard or select an existing dashboard to begin pinning workbooks items.
 

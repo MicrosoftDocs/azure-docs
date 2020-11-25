@@ -11,9 +11,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ---
 
@@ -39,7 +39,7 @@ At a high level, the flow is as follows:
    * The device contacts the back-end requesting the secure payload.
    * The app can show the payload as a notification on the device.
 
-It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the notification should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
+It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the notification, should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
 
 This Secure Push tutorial shows how to send a push notification securely. The tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial, so you should complete the steps in that tutorial first.
 
@@ -115,8 +115,8 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 
     This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
-4. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
-5. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
+4. Now handle the incoming notification and use the method above to retrieve the content to display. First, enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
+5. Then click the **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** box.
 
     ![Screenshot of XCode, with the app project selected and the Capabilities tab open. The Remote notifications check box is selected.][IOS1]
 

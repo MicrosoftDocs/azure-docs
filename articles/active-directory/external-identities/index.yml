@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: External Identities documentation
-summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities brings additional capabilities for interacting and connecting with users outside your organization.
+summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
 
 metadata: 
    title: External Identities documentation
-   description: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities brings additional capabilities for interacting and connecting with users outside your organization.
+   description: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
    ms.service: active-directory
    ms.subservice: B2B
    ms.workload: identity
@@ -22,77 +22,63 @@ landingContent:
         links:
           - text: Compare External Identities solutions
             url: compare-with-b2c.md
-          - text: What is B2B guest user access?
+          - text: What is Azure AD B2B collaboration?
             url: what-is-b2b.md
-  - title: Self-service sign-up (Preview)
+          - text: What is Azure AD B2C (business-to-consumer) identity?
+            url: ../../active-directory-b2c/overview.md
+  - title: Collaborate with users outside your org (B2B collaboration)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand the B2B guest user
+            url: user-properties.md
+          - text: How a B2B guest redeems an invitation
+            url: redemption-experience.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure your external collaboration settings
+            url: delegate-invitations.md
+          - text: Set up direct federation (preview)
+            url: direct-federation.md
+          - text: Set up One-time passcodes (preview)
+            url: one-time-passcode.md
+          - text: Add and invite guest users
+            url: add-users-administrator.md
+          - text: Leave an organization as a guest user
+            url: leave-the-organization.md
+  - title: Scale apps to consumers and customers (Azure AD B2C)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure AD B2C
+            url: ../../active-directory-b2c/overview.md
+          - text: Technical and feature overview
+            url: ../../active-directory-b2c/technical-overview.md
+          - text: See all Azure AD B2C documentation
+            url: ../../active-directory-b2c/index.yml
+      - linkListType: concept
+        links:
+          - text: Azure AD B2C user flows
+            url: ../../active-directory-b2c/user-flow-overview.md
+          - text: Azure AD B2C custom policies
+            url: ../../active-directory-b2c/custom-policy-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create user flows in Azure AD B2C
+            url: ../../active-directory-b2c/tutorial-create-user-flows.md
+  - title: Self-service sign-up flows for B2B guest users (preview)
     linkLists:
       - linkListType: overview
         links:
           - text: What is self-service sign-up?
             url: self-service-sign-up-overview.md
+      - linkListType: sample
+        links:
+          - text: API connector code samples for user flows
+            url: code-samples-self-service-sign-up.md
       - linkListType: how-to-guide
         links:
           - text: Add a self-service sign-up user flow
             url: self-service-sign-up-user-flow.md
           - text: Define custom attributes for user flows
             url: user-flow-add-custom-attributes.md
-  - title: Invite B2B guest users
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: How a B2B guest redeems an invitation
-            url: redemption-experience.md
-      - linkListType: quickstart
-        links:
-          - text: Add a guest user to your directory
-            url: b2b-quickstart-add-guest-users-portal.md
-          - text: Add a guest user with PowerShell
-            url: b2b-quickstart-invite-powershell.md
-      - linkListType: how-to-guide
-        links:
-          - text: How admins invite guests
-            url: add-users-administrator.md
-          - text: How your users invite guests
-            url: add-users-information-worker.md
-  - title: Customize B2B collaboration
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Enable B2B collaboration
-            url: delegate-invitations.md
-      - linkListType: deploy
-        links:
-          - text: Set up direct federation (preview)
-            url: direct-federation.md
-          - text: Set up Google federation
-            url: google-federation.md
-          - text: Set up One-time passcode authentication (preview)
-            url: one-time-passcode.md
-      - linkListType: tutorial
-        links:
-          - text: Enforce multi-factor authentication
-            url: b2b-tutorial-require-mfa.md
-      - linkListType: reference
-        links:
-          - text: B2B collaboration code and PowerShell samples
-            url: code-samples.md
-  - title: Manage your guest users
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Understand the B2B guest user
-            url: user-properties.md
-          - text: Dynamic groups and B2B guests
-            url: use-dynamic-groups.md
-      - linkListType: how-to-guide
-        links:
-          - text: Audit and report on B2B guest users
-            url: auditing-and-reporting.md
-          - text: Grant permissions to B2B guests
-            url: add-guest-to-role.md
-          - text: Allow or block organizations
-            url: allow-deny-list.md
-      - linkListType: deploy
-        links:
-          - text: Configure SaaS apps for B2B collaboration
-            url: configure-saas-apps.md

@@ -70,7 +70,7 @@ To back up Azure VMs, Azure Backup installs an extension on the VM agent running
 
 ## Back up from the Recovery Services vault
 
-Follow the instructions in this article to enable backup for Azure VMs by setting up an Azure Backup Recovery Services vault, and enabling backup in the vault.
+Follow the instructions in [this article](backup-azure-arm-vms-prepare.md) to enable backup for Azure VMs by setting up an Azure Backup Recovery Services vault, and enabling backup in the vault.
 
 ## Next steps
 

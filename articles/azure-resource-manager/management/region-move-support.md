@@ -358,9 +358,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | availabilitysets | No | 
+> | availabilitysets | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move availability sets. | 
 > | diskencryptionsets | No | 
-> | disks | No | 
+> | disks | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs and related disks. | 
 > | galleries | No | 
 > | galleries / images | No | 
 > | galleries / images / versions | No | 
@@ -372,7 +372,7 @@ Jump to a resource provider namespace:
 > | sharedvmimages | No | 
 > | sharedvmimages / versions | No | 
 > | snapshots | No | 
-> | virtualmachines | Yes | 
+> | virtualmachines | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. | 
 > | virtualmachines / extensions | No | 
 > | virtualmachinescalesets | No | 
 
@@ -691,7 +691,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | No. [Learn more](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 
@@ -903,13 +903,13 @@ Jump to a resource provider namespace:
 > | expressrouteports | No | 
 > | frontdoors | No | 
 > | frontdoorwebapplicationfirewallpolicies | No | 
-> | loadbalancers | Yes <br/><br/> You can export the existing configuration as a template, and deploy the template in the new region. Learn how to move an [external](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) or [internal](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) load balancer. |
+> | loadbalancers | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move internal and external load balancers. |
 > | localnetworkgateways |  No | 
 > | natgateways |  No | 
 > | networkintentpolicies |  No | 
-> | networkinterfaces | Yes | 
+> | networkinterfaces | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. | 
 > | networkprofiles | No | 
-> | networksecuritygroups | Yes | 
+> | networksecuritygroups | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NGSs). | 
 > | networkwatchers |  No |  
 > | networkwatchers / connectionmonitors |  No | 
 > | networkwatchers / lenses |  No | 
@@ -919,7 +919,7 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks |  No |  
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
-> | publicipaddresses | Yes<br/><br/> You can export the existing public IP address configuration as a template, and deploy the template in the new region. [Learn more](../../virtual-network/move-across-regions-publicip-portal.md) about moving a public IP address. |
+> | publicipaddresses | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP addresses. |
 > | publicipprefixes | No | 
 > | routefilters | No | 
 > | routetables |  No | 
@@ -1129,11 +1129,11 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | instancepools | No | 
-> | managedinstances | Yes | 
+> | managedinstances | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving managed instances across regions. | 
 > | managedinstances / databases | Yes | 
 > | servers | Yes | 
-> | servers / databases | Yes | 
-> | servers / elasticpools | Yes | 
+> | servers / databases | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL databases.  | 
+> | servers / elasticpools | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  | 
 > | virtualclusters | Yes | 
 
 ## Microsoft.SqlVirtualMachine

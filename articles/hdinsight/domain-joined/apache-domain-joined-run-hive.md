@@ -16,8 +16,8 @@ Learn how to configure Apache Ranger policies for Apache Hive. In this article, 
 
 ## Prerequisites
 
-* A HDInsight cluster with Enterprise Security Package. See [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
-* A workstation with Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
+* A HDInsight cluster with Enterprise Security Package. See [Configure HDInsight clusters with ESP](./apache-domain-joined-configure-using-azure-adds.md).
+* A workstation with Microsoft 365 apps for enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 ## Connect to Apache Ranger Admin UI
 **To connect to Ranger Admin UI**
@@ -153,7 +153,7 @@ To test the second policy (read-hivesampletable-devicemake), you created in the 
 
 ## Next steps
 
-* For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
+* For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * For managing a HDInsight cluster with ESP, see [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md).
 * For running Hive queries using SSH on HDInsight clusters with ESP, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * For Connecting Hive using Hive JDBC, see [Connect to Apache Hive on Azure HDInsight using the Hive JDBC driver](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)

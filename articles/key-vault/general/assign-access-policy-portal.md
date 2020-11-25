@@ -21,7 +21,7 @@ A Key Vault access policy determines whether a given service principal, namely a
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-For more information on creating groups in Azure Active Directory through the Azure portal, see [Create a basic group and add members](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+For more information on creating groups in Azure Active Directory through the Azure portal, see [Create a basic group and add members](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
 ## Assign an access policy
 
@@ -39,7 +39,7 @@ For more information on creating groups in Azure Active Directory through the Az
 
 	![Selecting the service principal for the access policy](../media/authentication/assign-policy-portal-03.png)
 
-    If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on managed identity and service principals, see [Key Vault authentication - app identity and service principals](authentication.md#app-identity-and-service-principals).)
+    If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on managed identity and service principals, see [Key Vault authentication - app identity and service principals](authentication.md#app-identity-and-security-principals).)
  
 1.	Back in the **Add access policy** pane, select **Add** to save the access policy.
 

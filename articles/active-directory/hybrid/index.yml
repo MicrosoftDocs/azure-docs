@@ -7,7 +7,7 @@ summary:  Microsoft’s identity solutions span on-premises and cloud-based capa
 
 metadata:
   author: billmath
-  description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.
+  description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD.
   manager: daveba
   ms.author: billmath
   ms.collection: na

@@ -77,7 +77,7 @@ StorSimple offers these benefits:
 
 Although StorSimple presents two main deployment scenarios (primary backup target and secondary backup target), fundamentally, it's a plain, block storage device. StorSimple does all the compression and deduplication. It seamlessly sends and retrieves data between the cloud and the application and file system.
 
-For more information about StorSimple, see [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md). Also, you can review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
+For more information about StorSimple, see [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md). Also, you can review the [technical StorSimple 8000 series specifications](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Using a StorSimple device as a backup target is supported only for StorSimple 8000 Update 3 and later versions.
@@ -168,7 +168,7 @@ For the solution to perform optimally, we recommend that you follow these networ
 
 ### Deploy StorSimple
 
-For step-by-step StorSimple deployment guidance, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
+For step-by-step StorSimple deployment guidance, see [Deploy your on-premises StorSimple device](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### Deploy Veeam
 
@@ -183,7 +183,7 @@ In this section, we demonstrate some configuration examples. The following examp
 | StorSimple deployment tasks  | Additional comments |
 |---|---|
 | Deploy your on-premises StorSimple device. | Supported versions: Update 3 and later versions. |
-| Turn on the backup target. | Use these commands to turn on or turn off backup target mode, and to get status. For more information, see [Connect remotely to a StorSimple device](storsimple-remote-connect.md).</br> To turn on backup mode: `Set-HCSBackupApplianceMode -enable`. </br> To turn off backup mode: `Set-HCSBackupApplianceMode -disable`. </br> To get the current state of backup mode settings: `Get-HCSBackupApplianceMode`. |
+| Turn on the backup target. | Use these commands to turn on or turn off backup target mode, and to get status. For more information, see [Connect remotely to a StorSimple device](./storsimple-8000-remote-connect.md).</br> To turn on backup mode: `Set-HCSBackupApplianceMode -enable`. </br> To turn off backup mode: `Set-HCSBackupApplianceMode -disable`. </br> To get the current state of backup mode settings: `Get-HCSBackupApplianceMode`. |
 | Create a common volume container for your volume that stores the backup data. All data in a volume container is deduplicated. | StorSimple volume containers define deduplication domains.  |
 | Create StorSimple volumes. | Create volumes with sizes as close to the anticipated usage as possible, because volume size affects cloud snapshot duration time. For information about how to size a volume, read about [retention policies](#retention-policies).</br> </br> Use StorSimple tiered volumes, and select the **Use this volume for less frequently accessed archival data** check box. </br> Using only locally pinned volumes is not supported. |
 | Create a unique StorSimple backup policy for all the backup target volumes. | A StorSimple backup policy defines the volume consistency group. |
@@ -209,16 +209,16 @@ Set up your solution according to the guidelines in the following few sections.
 - Disable Windows Server defragmentation on the StorSimple volumes.
 - Disable Windows Server indexing on the StorSimple volumes.
 - Run an antivirus scan at the source host (not against the StorSimple volumes).
-- Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
+- Turn off the default [Windows Server maintenance](/windows/win32/w8cookbook/automatic-maintenance) in Task Manager. Do this in one of the following ways:
   - Turn off the Maintenance configurator in Windows Task Scheduler.
-  - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
+  - Download [PsExec](/sysinternals/downloads/psexec) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### StorSimple best practices
 
--   Be sure that the StorSimple device is updated to [Update 3 or later](storsimple-install-update-3.md).
+-   Be sure that the StorSimple device is updated to [Update 3 or later](./index.yml).
 -   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and the backup server.
 -   Be sure that your StorSimple device is a dedicated backup target. Mixed workloads are not supported because they affect your RTO and RPO.
 
@@ -270,7 +270,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 1.  In the Veeam Backup and Replication console, in **Repository Tools**, go to **Backup Infrastructure**. Right-click **Backup Repositories**, and then select **Add Backup Repository**.
 
-    ![Veeam management console, backup repository page](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Screenshot that shows the Veeam  management console and highlights the Add Backup Repository option.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  In the **New Backup Repository** dialog box, enter a name and description for the repository. Select **Next**.
 
@@ -291,7 +291,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 6.  In the **New Backup Repository** dialog box, select the **Enable vPower NFS service on the mount server (recommended)** check box. Select **Next**.
 
-    ![Veeam management console, backup repository page](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Screenshot that shows the Veeam management console where you can add a new backup repository.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Review the settings, and then select **Next**.
 
@@ -332,11 +332,11 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 
 2.  In the **New Backup Job** dialog box, enter a name and description for the daily backup job.
 
-    ![Veeam management console, new backup job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Screenshot of the Veeam management console where you add the name and description.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Select a virtual machine to back up to.
 
-    ![Veeam management console, new backup job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Screenshot that shows the Veeam management console where you select the virtual machine.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Select the values you want for **Backup proxy** and **Backup repository**. Select a value for **Restore points to keep on disk** according to the RPO and RTO definitions for your environment on locally attached storage. Select **Advanced**.
 
@@ -344,7 +344,7 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 
 5. In the **Advanced Settings** dialog box, on the **Backup** tab, select **Incremental**. Be sure that the **Create synthetic full backups periodically** check box is cleared. Select the **Create active full backups periodically** check box. Under **Active full backup**, select the **Weekly on selected days** check box for Saturday.
 
-    ![Veeam management console, new backup job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Screenshot thats shows the Veeam management console, specifically the new backup job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. On the **Storage** tab, make sure that the **Enable inline data deduplication** check box is cleared. Select the **Exclude swap file blocks** check box, and select the **Exclude deleted file blocks** check box. Set **Compression level** to **None**. For balanced performance and deduplication, set **Storage optimization** to **LAN target**. Select **OK**.
 
@@ -406,11 +406,11 @@ GFS rotation weekly, monthly, and yearly schedule
 1.  In the Veeam Backup and Replication console, select **Backup
 & Replication**. Right-click **Backup**, and then select **VMware** or **Hyper-V**, depending on your environment.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Screenshot that shows the Veeam management console with the VMware and Hyper-V options that you can select.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  In the **New Backup Copy Job** dialog box, enter a name and description for the job.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Screenshot that shows the Veeam management console where you enter the name and description for the job.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Select the VMs you want to process. Select from backups, and then select the daily backup that you created earlier.
 
@@ -420,13 +420,13 @@ GFS rotation weekly, monthly, and yearly schedule
 
 5.  Select your backup repository, and set a value for **Restore points to keep**. Be sure to select the **Keep the following restore points for archival purposes** check box. Define the backup frequency, and then select **Advanced**.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Screenshot that show where you define the backup frequency.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Specify the following advanced settings:
 
     * On the **Maintenance** tab, turn off storage level corruption guard.
 
-    ![Veeam management console, new backup copy job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Screenshot that shows the Maintenance tab on the Veeam management console.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * On the **Storage** tab, be sure that deduplication and compression are turned off.
 
@@ -500,7 +500,7 @@ A disaster can be caused by a variety of factors. The following table lists comm
 
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
-| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
+| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](./storsimple-8000-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
 | Veeam server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html).  | You must rebuild or restore the Veeam server at the disaster recovery site. Restore the database to the most recent point. If the restored Veeam database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore Veeam. | Restore StorSimple first, and then restore Veeam. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
@@ -509,12 +509,12 @@ A disaster can be caused by a variety of factors. The following table lists comm
 
 The following documents were referenced for this article:
 
-- [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Set up shadow copies for shared folders](https://technet.microsoft.com/library/cc771893.aspx)
+- [StorSimple multipath I/O setup](./storsimple-8000-configure-mpio-windows-server.md)
+- [Storage scenarios: Thin provisioning](/windows-hardware/drivers/storage/thin-provisioning)
+- [Using GPT drives](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Set up shadow copies for shared folders](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## Next steps
 
-- Learn more about how to [restore from a backup set](storsimple-restore-from-backup-set-u2.md).
-- Learn more about how to perform [device failover and disaster recovery](storsimple-device-failover-disaster-recovery.md).
+- Learn more about how to [restore from a backup set](./storsimple-8000-restore-from-backup-set-u2.md).
+- Learn more about how to perform [device failover and disaster recovery](./storsimple-8000-device-failover-disaster-recovery.md).

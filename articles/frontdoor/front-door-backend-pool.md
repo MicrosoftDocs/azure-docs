@@ -9,17 +9,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
 ---
 
 # Backends and backend pools in Azure Front Door
-This article describes concepts about how to map your app deployment with Azure Front Door. It also explains the different terms in Front Door configuration around app backends.
+This article describes concepts about how to map your web application deployment with Azure Front Door. It also explains the different terminologies used in the Front Door configuration around the application backends.
 
 ## Backends
-A backend is equal to an app's deployment instance in a region. Front Door supports both Azure and non-Azure backends, so the region isn't only restricted to Azure regions. Also, it can be your on-premises datacenter or an app instance in another cloud.
+A backend refers to a web application deployment in a region. Front Door supports both Azure and non-Azure resources in the backend pool. The application can either be in your on-premises datacenter or located in another cloud provider.
 
-Front Door backends refer to the host name or public IP of your app, which can serve client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint of your app backend. When you add a backend in a Front Door backend pool, you must also add the following:
+Front Door backends refers to the host name or public IP of your application that serves your client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint for your application backend. When you add a backend to a Front Door backend pool, you must also add the following:
 
 - **Backend host type**. The type of resource you want to add. Front Door supports autodiscovery of your app backends from app service, cloud service, or storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 
@@ -36,13 +36,13 @@ Front Door backends refer to the host name or public IP of your app, which can s
 
 ### <a name = "hostheader"></a>Backend host header
 
-Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI and has the host and port.
+Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI that has the host header and port.
 
 For example, a request made for `www.contoso.com` will have the host header www.contoso.com. If you use Azure portal to configure your backend, the default value for this field is the host name of the backend. If your backend is contoso-westus.azurewebsites.net, in the Azure portal, the autopopulated value for the backend host header will be contoso-westus.azurewebsites.net. However, if you use Azure Resource Manager templates or another method without explicitly setting this field, Front Door will send the incoming host name as the value for the host header. If the request was made for www\.contoso.com, and your backend is contoso-westus.azurewebsites.net that has an empty header field, Front Door will set the host header as www\.contoso.com.
 
 Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will use a different hostname such as www.contoso.net.
 
-If your backend requires the host header to match the backend host name, make sure that the backend host header includes the host name backend.
+If your backend requires the host header to match the backend host name, make sure that the backend host header includes the host name of the backend.
 
 #### Configuring the backend host header for the backend
 
@@ -66,7 +66,7 @@ Front Door sends periodic HTTP/HTTPS probe requests to each of your configured b
 
 - **Protocol**: Defines whether to send the health probe requests from Front Door to your backends with HTTP or HTTPS protocol.
 
-- **Method**:The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
+- **Method**: The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
     > [!NOTE]
     > For lower load and cost on your backends, Front Door recommends using HEAD requests for health probes.
 

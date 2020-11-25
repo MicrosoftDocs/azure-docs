@@ -56,6 +56,8 @@
           href: publish-jekyll.md
     - name: Deploy from a framework
       items:
+        - name: Blazor
+          href: deploy-blazor.md
         - name: Next.js
           href: deploy-nextjs.md
         - name: Nuxt.js

@@ -2,13 +2,13 @@
 title: Azure Stack Edge & Azure Data Box Gateway 2007 release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Stack Edge and Data Box Gateway running 2007 release.
 services: databox
-author: twooley
+author: alkohli
  
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 07/14/2020
-ms.author: twooley
+ms.author: alkohli
 ---
 
 # Azure Stack Edge and Azure Data Box Gateway 2007 release notes

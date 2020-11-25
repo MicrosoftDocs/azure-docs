@@ -37,7 +37,7 @@ Editing templates is done from the **Developer portal** while being logged in as
 
 To access the developer portal templates, click the customize icon on the left to display the customization menu, and click **Templates**.
 
-![Developer portal templates][api-management-customize-menu]
+![Screenshot that highlights the customize icon to display the customization menu.][api-management-customize-menu]
 
 The templates list displays several categories of templates covering the different pages in the developer portal. Each template is different, but the steps to edit them and publish the changes are the same. To edit a template, click the name of the template.
 
@@ -141,7 +141,7 @@ Saved templates can be published either individually, or all together. To publis
 
 Click **Yes** to confirm and make the template live on the developer portal.
 
-![Confirm publish][api-management-publish-template-confirm]
+![Screenshot that shows where you select Yes to make the template live.][api-management-publish-template-confirm]
 
 To publish all currently unpublished template versions, click **Publish** in the templates list. Unpublished templates are designated by an asterisk following the template name. In this example, the **Product list** and **Product** templates are being published.
 
@@ -156,11 +156,11 @@ Newly published templates are effective immediately in the developer portal.
 ## To revert a template to the previous version
 To revert a template to the previous published version, click revert in the template editor.
 
-![Revert template][api-management-revert-template]
+![Screenshot that highlights the icon you use to revert a template.][api-management-revert-template]
 
 Click **Yes** to confirm.
 
-![Confirm][api-management-revert-template-confirm]
+![Screenshot that shows where you select Yes to confirm the changes.][api-management-revert-template-confirm]
 
 The previously published version of a template is live in the developer portal once the revert operation is complete.
 

@@ -65,6 +65,55 @@ In this command, you specify both the source (language to translate **from**), a
 > [!NOTE]
 > See the [language and locale article](language-support.md) for a list of all supported languages with their corresponding locale codes.
 
+### Configuration files in the datastore
+
+Speech CLI's behavior can rely on settings in configuration files, which you can refer to within Speech CLI calls using a @ symbol.
+Speech CLI saves a new setting in a new `./spx/data` subdirectory it creates in the current working directory.
+When seeking a configuration value, Speech CLI looks in your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary.
+Previously, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each command line call.
+You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
+
+This section shows use of a configuration file in the local datastore to store and fetch command settings using `spx config`, and store output from Speech CLI using the `--output` option.
+
+The following example clears the `@my.defaults` configuration file,
+adds key-value pairs for **key** and **region** in the file, and uses the configuration
+in a call to `spx recognize`.
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+You can also write dynamic content to a configuration file. For example, the following command creates a custom speech model and stores the URL
+of the new model in a configuration file. The next command waits until the model at that URL is ready for use before returning.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+The following example writes two URLs to the `@my.datasets.txt` configuration file.
+In this scenario, `--output` can include an optional **add** keyword to create a configuration file or append to the existing one.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+For more details about datastore files, including use of default configuration files (`@spx.default`, `@default.config`, and `@*.default.config` for command-specific default settings), enter this command:
+
+```shell
+spx help advanced setup
+```
+
 ## Batch operations
 
 The commands in the previous section are great for quickly seeing how the Speech service works. However, when assessing whether or not your use-cases can be met, you likely need to perform batch operations against a range of input you already have, to see how the service handles a variety of scenarios. This section shows how to:
@@ -90,6 +139,18 @@ audio.input.id    recognizer.session.started.sessionid    recognizer.recognized.
 sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
 sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
 ```
+
+## Synthesize speech to a file
+
+Run the following command to change the output from your speaker to a `.wav` file.
+
+```bash
+spx synthesize --text "The speech synthesizer greets you!" --audio output greetings.wav
+```
+
+The Speech CLI will produce natural language in English into the `greetings.wav` audio file.
+In Windows, you can play the audio file by entering `start greetings.wav`.
+
 
 ## Batch text-to-speech synthesis
 
@@ -131,4 +192,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## Next steps
 
-* Complete the [speech recognition](./quickstarts/speech-to-text-from-microphone.md) or [speech synthesis](./quickstarts/text-to-speech.md) quickstarts using the SDK.
+* Complete the [speech recognition](get-started-speech-to-text.md?pivots=programmer-tool-spx) or [speech synthesis](get-started-text-to-speech.md?pivots=programmer-tool-spx) quickstarts using Speech CLI.

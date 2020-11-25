@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/20/2020
 ---
 
@@ -29,7 +29,7 @@ Azure Database Migration Service doesn't support connecting to multi-tenant cont
 
 ## PostgreSQL versions supported as a target database
 
-Azure Database Migration Service supports migrations to Azure Database for PostgreSQL-Single server version 9.5, 9.6, 10 and 11. See the article [Supported PostgreSQL database versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) for current information on version support in Azure Database for PostgreSQL-Single server.
+Azure Database Migration Service supports migrations to Azure Database for PostgreSQL-Single server version 9.5, 9.6, 10 and 11. See the article [Supported PostgreSQL database versions](../postgresql/concepts-supported-versions.md) for current information on version support in Azure Database for PostgreSQL-Single server.
 
 ## Datatype limitations
 

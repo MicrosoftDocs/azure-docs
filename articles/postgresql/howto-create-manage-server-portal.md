@@ -1,8 +1,8 @@
 ---
 title: Manage Azure Database for PostgreSQL - Azure portal
 description: Learn how to manage an Azure Database for PostgreSQL server from the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/20/2019
@@ -32,7 +32,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Select **General Purpose** or **Memory Optimized**, depending on what you are scaling to.
 
-   ![Screenshot of Azure portal to choose Basic, General Purpose, or Memory Optimized tier in Azure Database for PostgreSQL](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Screenshot of Azure portal to choose Basic, General Purpose, or Memory Optimized tier in Azure Database for PostgreSQL":::
 
    > [!NOTE]
    > Changing tiers causes a server restart.
@@ -45,7 +45,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Change the **vCore** setting by moving the slider to your desired value.
 
-   ![Screenshot of Azure portal to choose vCore option in Azure Database for PostgreSQL](./media/howto-create-manage-server-portal/scaling-compute.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot of Azure portal to choose vCore option in Azure Database for PostgreSQL":::
 
    > [!NOTE]
    > Scaling vCores causes a server restart.
@@ -58,7 +58,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Change the **Storage** setting by moving the slider up to your desired value.
 
-   ![Screenshot of Azure portal to choose Storage scale in Azure Database for PostgreSQL](./media/howto-create-manage-server-portal/scaling-storage.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot of Azure portal to choose Storage scale in Azure Database for PostgreSQL":::
 
    > [!NOTE]
    > Storage cannot be scaled down.
@@ -71,11 +71,11 @@ You can change the administrator role's password using the Azure portal.
 
 1. Select your server in the Azure portal. In the **Overview** window select **Reset password**.
 
-   ![Screenshot of Azure portal to reset the password in Azure Database for PostgreSQL](./media/howto-create-manage-server-portal/overview-reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot of Azure portal to reset the password in Azure Database for PostgreSQL":::
 
 2. Enter a new password and confirm the password. The textbox will prompt you about password complexity requirements.
 
-   ![Screenshot of Azure portal to reset your password and save in Azure Database for PostgreSQL](./media/howto-create-manage-server-portal/reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot of Azure portal to reset your password and save in Azure Database for PostgreSQL":::
 
 3. Select **OK** to save the new password.
 
@@ -85,11 +85,11 @@ You can delete your server if you no longer need it.
 
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 
-   ![Screenshot of Azure portal to Delete the server in Azure Database for PostgreSQL](./media/howto-create-manage-server-portal/overview-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot of Azure portal to Delete the server in Azure Database for PostgreSQL":::
 
 2. Type the name of the server into the input box to confirm that this is the server you want to delete.
 
-   ![Screenshot of Azure portal to confirm the server delete in Azure Database for PostgreSQL](./media/howto-create-manage-server-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot of Azure portal to confirm the server delete in Azure Database for PostgreSQL":::
 
    > [!NOTE]
    > Deleting a server is irreversible.

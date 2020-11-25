@@ -1,12 +1,12 @@
 ---
 title: Repairing an Azure Import/Export import job - v1 | Microsoft Docs
 description: Learn how to repair an import job that was created and run using the Azure Import/Export service.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
 ---
 
@@ -95,6 +95,6 @@ After making the necessary files available to the tool, or updating the path map
 ## Next steps
  
 * [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
-* [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Preparing hard drives for an import job](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Repairing an export job](./storage-import-export-tool-repairing-an-export-job-v1.md)

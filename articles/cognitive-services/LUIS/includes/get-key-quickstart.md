@@ -2,12 +2,12 @@
 title: Get key for quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2020
-ms.author: diberry
+
 ---
 
 Keys and endpoints are provided in the LUIS portal in the **Manage Section** on the **Azure Resources** page.

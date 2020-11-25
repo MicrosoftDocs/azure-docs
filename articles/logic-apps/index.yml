@@ -143,6 +143,8 @@ landingContent:
             url: logic-apps-create-azure-resource-manager-templates.md
           - text: Deploy logic app templates
             url: logic-apps-deploy-azure-resource-manager-templates.md
+          - text: Call logic apps from Power Automate and Power Apps
+            url: call-from-power-automate-power-apps.md
       - linkListType: learn
         links:
           - text: Create and deploy with Resource Manager templates

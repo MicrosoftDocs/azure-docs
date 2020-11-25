@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions
 description: FAQs about the Azure Spatial Anchors service.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 05/18/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
 #Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.
@@ -124,4 +124,4 @@ Get started with [development here](index.yml).
 
 **Q: What ports and protocols does Azure Spatial Anchors use?**
 
-**A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), which communicates using HTTPS over port 443.
+**A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](../active-directory/index.yml), which communicates using HTTPS over port 443.

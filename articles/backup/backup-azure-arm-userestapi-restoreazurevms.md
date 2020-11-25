@@ -117,7 +117,7 @@ After selecting the [relevant restore point](#select-recovery-point), proceed to
 ***All restore operations on the backup item are performed with the same *POST* API. Only the request body changes with the restore scenarios.***
 
 > [!IMPORTANT]
-> All details about various restore options and their dependencies are mentioned [here](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options). Please review before proceeding to triggering these operations.
+> All details about various restore options and their dependencies are mentioned [here](./backup-azure-arm-restore-vms.md#restore-options). Please review before proceeding to triggering these operations.
 
 Triggering restore operations is a *POST* request. To know more about the API, refer to the ["trigger restore" REST API](/rest/api/backup/restores/trigger).
 
@@ -237,6 +237,30 @@ The following request body defines properties required to trigger a disk restore
     }
   }
 }
+```
+
+### Restore disks selectively
+
+If you are [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](/rest/api/backup/recoverypoints/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
 ```
 
 Once you track the response as explained [above](#responses), and the long running job is complete, the disks and the configuration of the backed up virtual machine ("VMConfig.json") will be present in the given storage account.

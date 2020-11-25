@@ -1,11 +1,8 @@
 ---
 title: Azure Service Fabric Stateful Reliable Services diagnostics 
 description: Diagnostic functionality for Stateful Reliable Services in Azure Service Fabric
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.author: dekapur
 ---
 # Diagnostic functionality for Stateful Reliable Services
 The Azure Service Fabric Stateful Reliable Services StatefulServiceBase class emits [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.

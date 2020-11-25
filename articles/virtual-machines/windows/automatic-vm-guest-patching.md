@@ -5,7 +5,7 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/09/2020
 ms.author: manayar
 
 ---
@@ -75,17 +75,20 @@ Windows VMs on Azure now support the following patch orchestration modes:
 
 **AutomaticByPlatform:**
 - This mode enables automatic VM guest patching for the Windows virtual machine and subsequent patch installation is orchestrated by Azure.
+- This mode is required for availability-first patching.
 - Setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - To use this mode, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` in the VM template.
 
 **AutomaticByOS:**
 - This mode enables Automatic Updates on the Windows virtual machine, and patches are installed on the VM through Automatic Updates.
+- This mode does not support availability-first patching.
 - This mode is set by default if no other patch mode is specified.
 - To use this mode set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` in the VM template.
 
 **Manual:**
 - This mode disables Automatic Updates on the Windows virtual machine.
+- This mode does not support availability-first patching.
 - This mode should be set when using custom patching solutions.
 - To use this mode set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
 
@@ -187,7 +190,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating or updating a VM.
 
 ```azurepowershell-interactive
-Set-AzVMOperatingSystem -VM $$VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
+Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
 ```
 
 ### Azure CLI 2.0
@@ -246,8 +249,10 @@ The patch installation results for your VM can be reviewed under the `lastPatchI
 ## On-demand patch assessment
 If automatic VM guest patching is already enabled for your VM, a periodic patch assessment is performed on the VM during the VM's off-peak hours. This process is automatic and the results of the latest assessment can be reviewed through the VM's instance view as described earlier in this document. You can also trigger an on-demand patch assessment for your VM at any time. Patch assessment can take a few minutes to complete and the status of the latest assessment is updated on the VM's instance view.
 
+Enabling the preview functionality requires a one-time opt-in for the feature *InGuestPatchVMPreview* per subscription. The feature preview for on-demand patch assessment can be enabled following the [preview enablement process](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) described earlier for automatic VM guest patching.
+
 > [!NOTE]
->On-demand patch assessment does not automatically trigger patch installed. Assessed and applicable patches for the VM will only be installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
+>On-demand patch assessment does not automatically trigger patch installation. Assessed and applicable patches for the VM will only be installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
 
 ### REST API
 ```

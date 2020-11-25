@@ -35,15 +35,20 @@ Before you migrate to Azure, we recommend that you perform a VM discovery and mi
 
 Set up an assessment as follows:
 
-1. Follow the [tutorial](./tutorial-prepare-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
+1. Follow the [tutorial](./tutorial-discover-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
 
     - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
-        - For Windows machines, allow WinRM port 5986 (HTTPS), and 5985 (HTTP). This allows remote WMI calls. If you set up the 
+        - For Windows machines, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
         - For Linux machines:
             1. Sign into each Linux  machine.
             2. Open the sshd_config file : vi /etc/ssh/sshd_config
             3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
             4. Save the file and close it. Restart the ssh service.
+    - If you are using a root user to discover your Linux VMs, ensure root login is allowed on the VMs.
+        1. Sign into each Linux machine
+        2. Open the sshd_config file : vi /etc/ssh/sshd_config
+        3. In the file, locate the **PermitRootLogin** line, and change the value to **yes**.
+        4. Save the file and close it. Restart the ssh service.
 
 2. Then, follow this [tutorial](./tutorial-assess-physical.md) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
 
@@ -360,7 +365,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:

@@ -100,7 +100,7 @@ The autostart policy lets you specify when the VMs in the current lab should be 
 
 1. On the lab's **Configuration and policies** pane, select **Autostart**.
    
-    ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![Screen capture shows the automatic start options for a virtual machine.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Select **On** to enable this policy, and **Off** to disable it.
 

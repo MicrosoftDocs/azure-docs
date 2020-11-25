@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, srbozovi, bonova
+ms.reviewer: sstein, srbozovi, bonova
 ms.date: 02/18/2019
 ---
 # Quickstart: Configure an Azure VM to connect to Azure SQL Managed Instance
@@ -104,7 +104,7 @@ The following steps show you how to connect to your newly created virtual machin
 
 1. After deployment completes, go to the virtual machine resource.
 
-    ![VM](./media/connect-vm-instance-configure/vm.png)  
+    ![Screenshot shows the Azure portal with the Overview page for a virtual machine selected and Connect highlighted.](./media/connect-vm-instance-configure/vm.png)  
 
 2. Select **Connect**.
 

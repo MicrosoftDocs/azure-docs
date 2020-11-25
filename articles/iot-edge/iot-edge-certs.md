@@ -29,7 +29,7 @@ The following figure illustrates IoT Edge's usage of certificates. There may be 
 ![Diagram of typical certificate relationships](./media/iot-edge-certs/edgeCerts-general.png)
 
 > [!NOTE]
-> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050. This limitation applies to the device CA certificate, any certificates in the trust bundle, and the device ID certificates used for X.509 provisioning methods.
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038. This limitation applies to the device CA certificate, any certificates in the trust bundle, and the device ID certificates used for X.509 provisioning methods.
 
 ### Certificate authority
 

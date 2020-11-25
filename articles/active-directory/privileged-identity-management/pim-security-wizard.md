@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -25,9 +25,9 @@ If you're starting out with Privileged Identity Management (PIM) in your Azure A
 
 Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in their assigned roles even when they don't need their privileges. Discovery and insights (preview), which replaces the former Security Wizard, shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
 
-:heavy_check_mark: **Microsoft recommends** that you keep 2 break glass accounts that are permanently assigned to the global administrator role that doesn't require multi-factor authentication when signing in. You can use these in any break glass scenario or in case no one is able to elevate into their Global Administrator role.
+:heavy_check_mark: **Microsoft recommends** that you keep two break glass accounts that are permanently assigned to the global administrator role. Make sure that these accounts don't require the same multi-factor authentication mechanism as your normal administrative accounts to sign in, as described in [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
-Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to be activated in such a role, the user will be locked out.
+Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication for a user with a Microsoft account to activate a role assignment, the user will be locked out.
 
 ## Open Discovery and insights (preview)
 
@@ -41,11 +41,11 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. Select **Reduce global administrators**.
 
-    ![Reduce global administrators - Role pane showing all members](./media/pim-security-wizard/new-preview-page.png)
+    ![Screenshot that shows the "Discovery and insights (Preview)" with the "Reduce global administrators" action selected.](./media/pim-security-wizard/new-preview-page.png)
 
 1. Review the list of Global Administrator role assignments.
 
-    ![Reduce global administrators - Role pane showing all members](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Reduce global administrators - Roles pane showing all Global Administrators](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Select **Next** to select the users or groups you want to make eligible, and then select **Make eligible** or **Remove assignment**.
 

@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -16,15 +16,15 @@ ms.reviewer: igorstan
 
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables within Synapse SQL. 
 
-Both the SQL pool and SQL on-demand (preview) resources can utilize temporary tables. SQL on-demand has limitations that are discussed at the end of this article. 
+Both the dedicated SQL pool and serverless SQL pool (preview) resources can utilize temporary tables. Serverless SQL pool has limitations that are discussed at the end of this article. 
 
 ## Temporary tables
 
 Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With Synapse SQL, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
 
-## Temporary tables in SQL pool
+## Temporary tables in dedicated SQL pool
 
-In the SQL pool resource, temporary tables offer a performance benefit because their results are written to local rather than remote storage.
+In the dedicated SQL pool resource, temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
 ### Create a temporary table
 
@@ -94,6 +94,7 @@ GROUP BY
 > 
 
 ### Drop temporary tables
+
 When a new session is created, no temporary tables should exist.  However, if you're calling the same stored procedure that creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful, use a simple pre-existence check with  `DROP`: 
 
 ```sql
@@ -112,6 +113,7 @@ DROP TABLE #stats_ddl
 ```
 
 ### Modularize code
+
 Temporary tables can be used anywhere in a user session. This capability can then be exploited to help you modularize your application code.  To demonstrate, the following stored procedure generates DDL to update all statistics in the database by statistic name:
 
 ```sql
@@ -190,7 +192,7 @@ At this stage, the only action that has occurred is the creation of a stored pro
 
 Since there isn't a `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, the created table remains and can be read outside of the stored procedure.  
 
-In contrast to other SQL Server databases, Synapse SQL allows you to use the temporary table outside of the procedure that created it.  The temporary tables created via SQL pool can be used **anywhere** inside the session. As a result, you'll have more modular and manageable code, as demonstrated in the sample below:
+In contrast to other SQL Server databases, Synapse SQL allows you to use the temporary table outside of the procedure that created it.  The temporary tables created via dedicated SQL pool can be used **anywhere** inside the session. As a result, you'll have more modular and manageable code, as demonstrated in the sample below:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -213,15 +215,15 @@ DROP TABLE #stats_ddl;
 
 ### Temporary table limitations
 
-SQL pool does have a few implementation limitations for temporary tables:
+Dedicated SQL pool does have a few implementation limitations for temporary tables:
 
 - Only session scoped temporary tables are supported.  Global Temporary Tables aren't supported.
 - Views can't be created on temporary tables.
 - Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution isn't supported. 
 
-## Temporary tables in SQL on-demand (preview)
+## Temporary tables in serverless SQL pool (preview)
 
-Temporary tables in SQL on-demand are supported but their usage is limited. They can't be used in queries which target files. 
+Temporary tables in serverless SQL pool are supported but their usage is limited. They can't be used in queries which target files. 
 
 For example, you can't join a temporary table with data from files in storage. The number of temporary tables is limited to 100, and their total size is limited to 100MB.
 

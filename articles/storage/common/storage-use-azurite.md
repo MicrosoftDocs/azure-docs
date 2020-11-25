@@ -278,7 +278,7 @@ azurite --version
 
 ### Certificate configuration (HTTPS)
 
-**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
+**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
 
 When `--cert` is provided for a PEM file, you must provide a corresponding `--key` switch.
 
@@ -551,6 +551,12 @@ Azurite is aligned with Azure Storage error handling logic, but there are differ
 Azurite supports read-access geo-redundant replication (RA-GRS). For storage resources, access the secondary location by appending `-secondary` to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in Azurite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
+
+### Table support
+
+Support for tables in Azurite is currently under development and open to contribution! For the latest progress, check the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
+
+Support for durable functions requires tables.
 
 ## Azurite is open-source
 

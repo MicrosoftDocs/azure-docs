@@ -127,10 +127,10 @@ Information about the Linux virtual machine, operating system, block devices, hi
 
     | Distribution               | Version                                         |
     |----------------------------|-------------------------------------------------|
-    | Oracle Linux Server        | 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketplace image)|
+    | Oracle Linux Server        | 6.10 [`*`], 7.3, 7.6, 7.5 |
     | CentOS                     | 6.5 [`*`], 7.6                                    |
     | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
-    | Ubuntu                     | 14.04, 16.04, 18.04                               |
+    | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
     | Debian                     | 8, 9, 10 [`*`]                                    |
     | SLES                       | 12 SP4 [`*`]                                      |
     |                            |                                                   |
@@ -215,8 +215,8 @@ Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz** file, you
 
 The **Overview** tab provides basic run details and virtual machine information. The **Findings** tab displays a summary of the recommendations from all the different sections of the PerfInsights report.
 
-![Screenshot of PerfInsights Report](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Screenshot of PerfInsights Report](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Screenshot of the Overview tab of the PerfInsights Report.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Screenshot of the Linux tab of the PerfInsights Report.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.

@@ -19,7 +19,7 @@ To increase or decrease the lab capacity (number of virtual machines in a lab), 
 2. Enter the new **number of VMs** you want in the lab. This number must be greater than or equal to the number of users registered in the lab. 
 3. Then, select **Save**. 
 
-    ![Start all button](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Screenshot that shows the "Lab capacity" window with the "Maximum machines in lab" and "Save" button selected.](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. If you increased the capacity, you can see the VM or VMs being created. If you don't see the new VM in the list, refresh the page. 
 
     ![VM being created](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)
@@ -48,6 +48,7 @@ Similarly, you can stop one or more VMs by toggling the button in the **State** 
 > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to the user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## Reset VMs
+
 To reset one or more VMs, select them in the list, and then select **Reset** on the toolbar. 
 
 ![Reset selected VMs](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
@@ -55,8 +56,6 @@ To reset one or more VMs, select them in the list, and then select **Reset** on 
 On the **Reset virtual machine(s)** dialog box, select **Reset**. 
 
 ![Reset VM dialog box](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## Set password for VMs
 A lab owner (educator) can set/reset the password for VMs at the time of creating the lab (lab creation wizard) or after creating the lab on the **Template** page. 

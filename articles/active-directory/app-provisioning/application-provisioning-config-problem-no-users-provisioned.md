@@ -19,7 +19,7 @@ ms.reviewer: arvinh
 >
 After automatic provisioning has been configured for an application (including verifying that the app credentials provided to Azure AD to connect to the app are valid), then users and/or groups are provisioned to the app. Provisioning is determined by the following things:
 
--   Which users and groups have been **assigned** to the application. Note that provisioning nested groups or Office 365 groups is not supported. For more information on assignment, see [Assign a user or group to an enterprise app in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Which users and groups have been **assigned** to the application. Note that provisioning nested groups or Microsoft 365 groups is not supported. For more information on assignment, see [Assign a user or group to an enterprise app in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Whether or not **attribute mappings** are enabled, and configured to sync valid attributes from Azure AD to the app. For more information on attribute mappings, see [Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](customize-application-attributes.md).
 -   Whether or not there is a **scoping filter** present that is filtering users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   

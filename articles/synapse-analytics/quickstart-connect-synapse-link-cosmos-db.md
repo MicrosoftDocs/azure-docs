@@ -4,14 +4,14 @@ description: How to connect an Azure Cosmos DB to a Synapse workspace with Synap
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
+ms.subservice: synapse-link
 ms.topic: quickstart
-ms.subservice: 
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Connect to Azure Synapse Link for Azure Cosmos DB
+# Quickstart: Connect to Azure Synapse Link for Azure Cosmos DB
 
 This article describes how to access an Azure Cosmos DB database from Azure Synapse Analytics studio with Synapse Link. 
 
