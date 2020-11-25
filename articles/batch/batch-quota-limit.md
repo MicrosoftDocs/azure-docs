@@ -28,11 +28,11 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 ### Cores quotas in batch service mode
 
-The enforcement of dedicated core quotas is being improved, with the changes being made available in stages and completed for all Batch accounts by the end of December 2021.
+The enforcement of dedicated core quotas is being improved, with the changes being made available in stages and completed for all Batch accounts by the end of December 2020.
 
-Core quotas exist for each VM series supported by Batch and are displayed on the **Quotas** page in the portal. Specific VM series quota limits can be updated with a support request, as detailed below.
+Core quotas exist for each VM series supported by Batch and are displayed on the **Quotas** page in the portal. VM series quota limits can be updated with a support request, as detailed below.
 
-With the existing mechanism that is being phased out, quota limits for VM series are not checked, only the total quota limit for the account is enforced. This means that it may be possible to allocate more cores for a VM series than is indicated by the VM series quota, up to the total account quota limit.
+With the existing mechanism being phased out, quota limits for VM series are not checked, only the total quota limit for the account is enforced. This means that it may be possible to allocate more cores for a VM series than is indicated by the VM series quota, up to the total account quota limit.
 
 The updated mechanism will enforce the VM series quotas, in addition to the total account quota. As part of the transition to the new mechanism, the VM series quota values may be updated to avoid allocation failures - any VM series used in recent months will have its VM series quota updated to match the total account quota. This change will not enable the use of any more capacity than was already available.
 
@@ -44,7 +44,7 @@ It is possible to determine if VM series quota enforcement has been enabled for 
 
 ### Cores quotas in user subscription mode
 
-If you created a [Batch account](accounts.md) with pool allocation mode set to **user subscription**, Batch VMs and other resources are created directly in your subscription when a pool is created or resized. The Azure Batch core quotas do not apply and the quotas in your subscription for regional compute cores, per-series compute cores, and other resources are enforced.
+If you created a [Batch account](accounts.md) with pool allocation mode set to **user subscription**, Batch VMs and other resources are created directly in your subscription when a pool is created or resized. The Azure Batch core quotas do not apply and the quotas in your subscription for regional compute cores, per-series compute cores, and other resources are used and enforced.
 
 To learn more about these quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
