@@ -42,17 +42,11 @@ There are two ways within Synapse to use Spark:
 * **Spark Notebooks** for doing data Data Science and Engineering use Scala, PySpark, C#, and SparkSQL
 * **Spark job definitions** for running batch Spark jobs using jar files.
 
-Version support:
-* Spark 2.4
-* Python 3.6.1
-* Scala 2.11.12
-* .NET for Apache Spark 1.0
-* Delta Lake 0.3.  
-
 ## Pipelines
 
-* **Data Integration** - Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.
-* **Data Flow** - Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion.
+Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
+
+* **Data Flows** provide a no-codine experience for doing data transformation that uses Synapse Spark under-the-covers.
 * **Pipeline** - Logical grouping of activities that perform a task together.
 * **Activity** - Defines actions to perform on data such as copying data, running a Notebook or a SQL script.
 * **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
