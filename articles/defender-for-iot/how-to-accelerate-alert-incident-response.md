@@ -1,6 +1,6 @@
 ---
 title: Accelerate alert incident response
-description: 
+description: Work with alert comments to improve communication between individuals and teams during the investigation of an alert event.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -35,7 +35,7 @@ The list of available options appears in each Alert. Users can select one or sev
 
 2. In the **System Setting** window, select **Alert Comments**.
 
-3. In the **Add comments** box, type the comment text. Use up to 50 characters; commas are not permissable.
+3. In the **Add comments** box, type the comment text. Use up to 50 characters; commas are not permissible.
 
 4. Select **Add**.
 
@@ -67,7 +67,7 @@ The alert group will be shown in supported partner solutions with the following 
 
 These fields should be configured in the partner solution to display the alert group name. If there is no alert associated with an alert group, the field in the partner solution will display **NA**.
 
-**Default Alert Groups**
+**Default alert groups**
 
 The following alert groups are automatically defined:
 |  |  |  |

@@ -1,11 +1,11 @@
 ---
 title: Adjust system properties
-description: 
+description: System properties control various operations and settings in the management console. Editing or modifying them could damage your on-premises management console system operation.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/12/2020
-ms.topic: article
+ms.date: 11/25/2020
+ms.topic: how-to
 ms.service: azure
 ---
 
@@ -13,9 +13,9 @@ ms.service: azure
 
 ## System properties
 
-The System Properties control various operations and settings in the management console. Editing or modifying them could damage our on-premises management console system operation. 
+The system properties control various operations and settings in the management console. Editing or modifying them could damage our on-premises management console system operation. 
 
-Consult with [support.microsoft.com](support.microsoft.com) before changing your settings. 
+Consult with support.microsoft.com before changing your settings. 
 
 To access system properties: 
 
@@ -23,4 +23,4 @@ To access system properties:
 
 2. Select **System Settings**. 
 
-3. Select **System Properties** from the General section 
+3. Select **System Properties** from the general section .

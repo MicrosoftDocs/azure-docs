@@ -1,6 +1,6 @@
 ---
 title: User roles and permissions
-description: 
+description: Provides information about user roles, and editing user profiles.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
