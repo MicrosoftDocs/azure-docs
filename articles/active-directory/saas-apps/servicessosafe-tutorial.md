@@ -61,8 +61,8 @@ To configure and test Azure AD SSO with SoSafe, perform the following steps:
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure SoSafe SSO](#configure-servicessosafe-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create SoSafe test user](#create-servicessosafe-test-user)** - to have a counterpart of B.Simon in SoSafe that is linked to the Azure AD representation of user.
+1. **[Configure SoSafe SSO](#configure-sosafe-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create SoSafe test user](#create-sosafe-test-user)** - to have a counterpart of B.Simon in SoSafe that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -159,5 +159,3 @@ You can also use Microsoft Access Panel to test the application in any mode. Whe
 ## Next steps
 
 Once you configure SoSafe you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-

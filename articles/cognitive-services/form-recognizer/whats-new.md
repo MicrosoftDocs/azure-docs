@@ -34,6 +34,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
  
   > [Learn more about Layout extraction](concept-layout.md)
 
+- **Client library update** - The [client libraries](quickstarts/client-library.md) for .NET, Python, Java, and JavaScript have entered General Availability.
 - **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 - **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 - **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -44,7 +45,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
   ![FOTT example](./media/ui-preview.jpg)
   
 - **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
-- **Auto Label Documents** - Automatically labels additional documents based on previous labeld documents in the project.
+- **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
 
 ## August 2020
 

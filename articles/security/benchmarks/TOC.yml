@@ -106,6 +106,8 @@
     href: ../../devtest-labs/security-baseline.md
   - name: Azure Firewall security baseline
     href: ../../firewall/security-baseline.md
+  - name: Azure Firewall Manager security baseline
+    href: ../../firewall-manager/security-baseline.md
   - name: Azure Front Door security baseline
     href: ../../frontdoor/security-baseline.md
   - name: Azure Functions security baseline
