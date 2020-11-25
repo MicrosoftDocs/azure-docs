@@ -129,6 +129,10 @@
           href: ./security/synapse-workspace-managed-identity.md
   - name: How-to guides
     items:
+    - name: Manage and Monitor
+      items:
+      - name: Azure Monitor metrics, alerts, and logs
+        href: monitoring/how-to-monitor-using-azure-monitor.md
     - name: Secure
       items:
       - name: Manage access control 
@@ -416,6 +420,10 @@
         href: ./backuprestore/restore-sql-pool.md
     - name: Manage and monitor
       items:
+      - name: SQL requests - Synapse Studio
+        href: monitoring/how-to-monitor-sql-requests.md
+      - name: SQL pools - Synapse Studio
+        href: monitoring/how-to-monitor-sql-pools.md
       - name: Monitor Gen2 cache
         href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Monitor your workload - DMVs
@@ -587,6 +595,10 @@
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
         href: monitoring/apache-spark-applications.md
+      - name: Apache Spark pools
+        href: monitoring/how-to-monitor-spark-pools.md
+      - name: Analyze JSON with Apache Spark
+        href: how-to-analyze-complex-schema.md
     - name: Ingest and prepare data
       items:
         - name: SQL Data Warehouse
