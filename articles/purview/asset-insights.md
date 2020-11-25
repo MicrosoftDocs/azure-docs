@@ -20,9 +20,6 @@ In this how-to guide, you'll learn how to:
 > - Get a bird's eye view of your data
 > - Drill down for more asset count details
 
-> [!NOTE]
-> If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
-
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
@@ -99,8 +96,4 @@ The second graph in File-based source types is ***Files not associated with a re
 ## Next steps
 
 Learn more about Azure Purview insight reports
-> [!div class="nextstepaction"]
-> [Glossary Insights](./glossary-insights.md)
-
-> [!div class="nextstepaction"]
-> [Scan Insights](scan-insights.md)
+- Link to Scan Insights will be added after merge
