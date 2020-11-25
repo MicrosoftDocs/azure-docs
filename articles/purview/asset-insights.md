@@ -40,54 +40,61 @@ In Azure Purview, you can register and scan source types. Once the scanning is c
 > [!NOTE]
 > After you have scanned your source types, give Asset Insights upto an hour to reflect the new assets.
 
-**To view Asset Insights:**
-
 1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
-   :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
+   :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
+1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Assets** to display the Purview **Asset insights** report.
+1. In the **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: area, select **Assets** to display the Purview **Asset insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report":::
+### View Asset Insights
 
-   The main **Asset Insights** page displays the following areas:
-- **High level KPI's to show source types, classified assets and discovered assets**
+1. The main **Asset Insights** page displays the following areas:
 
-- **Asset count per source type** 
+2. High level KPI's to show source types, classified assets and discovered assets
+ 
+3. First graph shows **assets per source type**
 
-- View your asset distribution by source type. Pick a classification or an entire classification category to see asset distribution by source type. 
-- 
-- To view more, click on **View more** that will display a tabular form of source type and asset counts. The classification filters will be carried to this page. 
-- 
-- Click on a specific source for which you'd like to see top folders with asset count. 
-- 
-- You can also click on the count in this page and will see the list of assets that is in the top file folders within the source type.
+4. View your asset distribution by source type. Pick a classification or an entire classification category to see asset distribution by source type. 
+ 
+5. To view more, click on **View more** that will display a tabular form of source type and asset counts. The classification filters will be carried to this page.
 
-- Navigate back to Insights using the bread crumbs
-- 
-- **File-based source types**
-- The next couple of graphs in Asset Insights show distribution of file based source types only. The first one is called ***Size trend (GB) of file type within source types***. This graph shows top file type size trend over the last 30 days. 
-- 
-- Pick your source type to view file type within the source. 
-- 
-- Click on ***View more*** to see the current data size, change in size, current asset count and change in asset count.
-- 
+   :::image type="content" source="./media/asset-insights/highlight-kpis.png" alt-text="View KPIs and graph in Asset Insights":::
+ 
+6. Click on a specific source for which you'd like to see top folders with asset count. 
+
+   :::image type="content" source="./media/asset-insights/select-data-source.png" alt-text="View KPIs and graph in Asset Insights":::
+ 
+7. Click on the total assets against the top folder within the source type you selected above.
+
+   :::image type="content" source="./media/asset-insights/file-path.png" alt-text="View file paths":::
+
+8. View the list of files within the folder. Navigate back to Insights using the bread crumbs.
+
+   :::image type="content" source="./media/asset-insights/list-page.png" alt-text="View list of assets":::  
+
+### File-based source types
+The next couple of graphs in Asset Insights show distribution of file based source types only. The first one is called **Size trend (GB) of file type within source types**. This graph shows top file type size trend over the last 30 days. 
+ 
+Pick your source type to view file type within the source. 
+ 
+Click on **View more** to see the current data size, change in size, current asset count and change in asset count.
+ 
 > [!NOTE]
 > If the scan has run only once in last 30 days or any catalog change like classification addition/removed happened only once in 30 days, then the change information above appears blank.
 
 See the top folders with change top asset counts when you click on source type.
 
 Click on the path to see the asset list
-- 
-- 
-- 
-- The second graph in File-based source types is ***Files not associated with a resource set***. If you expect that all files should roll up into a resource set, this graph can help you understand where the roll up has not happened. This can be an indication of the wrong file-pattern in the folder and you may want to fix it. Follow the same steps as in other graphs to view more details on the files.
+
+The second graph in File-based source types is ***Files not associated with a resource set***. If you expect that all files should roll up into a resource set, this graph can help you understand where the roll up has not happened. This can be an indication of the wrong file-pattern in the folder and you may want to fix it. Follow the same steps as in other graphs to view more details on the files.
+
+   :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="View list of assets":::  
 
 ## Next steps
 
