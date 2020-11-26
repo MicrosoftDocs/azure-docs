@@ -668,6 +668,8 @@
             href: app/javascript-react-native-plugin.md 
           - name: Angular plugin
             href: app/javascript-angular-plugin.md
+          - name: Click Analytics Auto-collection plugin
+            href: app/javascript-click-analytics-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
