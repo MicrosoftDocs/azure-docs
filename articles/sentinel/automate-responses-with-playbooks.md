@@ -42,12 +42,12 @@ Playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-
 > [!NOTE]
 > Because Azure Logic Apps are a separate resource, additional charges may apply. Visit the [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
 
-Azure Logic Apps communicates with other systems and services using connectors. The following is a brief explanation of the types of connectors in use:
+Azure Logic Apps communicates with other systems and services using connectors. The following is a brief explanation of connectors and some of their important attributes:
 
-- **Managed Connector:** A set of actions and triggers, which wrap API calls to a certain product. Azure Logic Apps offers hundreds of connectors to connect to both Microsoft and non-Microsoft services.
+- **Managed Connector:** A set of actions and triggers, which wrap around API calls to a particular product or service. Azure Logic Apps offers hundreds of connectors to communicate with both Microsoft and non-Microsoft services.
   - [List of all Logic Apps connectors and their documentation](/connectors/connector-reference/)
 
-- **Custom connector:** You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector with its own triggers and actions.
+- **Custom connector:** You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector and define its own triggers and actions.
   - [Create your own custom Logic Apps connectors](/connectors/custom-connectors/create-logic-apps-connector)
 
 - **Azure Sentinel Connector:** To create playbooks that interact with Azure Sentinel, use the Azure Sentinel connector.
@@ -59,7 +59,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
-- **Dynamic fields:** The output schema of trigger/action is parsed to dynamic fields that can be used in the actions that follow.
+- **Dynamic fields:** Temporary fields, determined by the output schema of triggers and actions and populated by their actual output, that can be used in the actions that follow.
 
 ### Permissions required
 
@@ -80,7 +80,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 - [Learn more about Azure roles in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#access-to-logic-app-operations).
 - [Learn more about Azure roles in Azure Sentinel](roles.md).
 
-## Steps for creating a security playbook
+## Steps for creating a playbook
 
 - [Define the automation scenario](#when-to-use-playbooks)
 
@@ -109,7 +109,6 @@ The analytics rule triggers a playbook with the following steps:
 
 - Add the returned data and insights as comments of the incident.
 
-<!-- This section is only available with the incident trigger.
 #### Bi-directional sync
 
 **Playbooks can be used to sync your Azure Sentinel incidents with other ticketing systems.**
@@ -118,11 +117,11 @@ For example:
 
 Create an automation rule for all incident creation, and attach a playbook that opens a ticket in ServiceNow:
 
-- When a new Azure Sentinel incident is created
+- Start when a new Azure Sentinel incident is created.
 
-- Create a new ticket in ServiceNow
+- Create a new ticket in ServiceNow.
 
-- Include in the ticket the incident name, important fields and a URL to the Sentinel incident for easy pivoting. -->
+- Include in the ticket the incident name, important fields, and a URL to the Azure Sentinel incident for easy pivoting.
 
 #### Orchestration
 
@@ -169,13 +168,13 @@ Two examples:
 
    - Set the Microsoft Defender for Endpoint policy to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
 
-## How to run a Security Playbook
+## How to run a playbook
 
-Security playbooks can be run either **manually** or **automatically**.
+Playbooks can be run either **manually** or **automatically**.
 
-Running them manually means that when you get an alert, you can choose to run a playbook on-demand as a response to the selected alert. Currently this feature is not supported for incidents.
+Running them manually means that when you get an alert, you can choose to run a playbook on-demand as a response to the selected alert. Currently this feature is supported only for alerts, not for incidents.
 
-Running them automatically means to set them as an action of an automation rule.
+Running them automatically means to set them as an automated response in an analytics rule.
 
 ### Setting automated response
 
@@ -199,13 +198,13 @@ To attach a playbook to an analytics rule:
     - When an Azure Sentinel incident is triggered
     - When an Azure Sentinel alert is triggered 
 
-Special configurations:
+#### Special configurations:
 
 - For **Microsoft incident creation** rules, you can attach only playbooks that start with **When an Azure Sentinel incident is triggered**.
 
-- For **scheduled query** rules, behavior depends on the rule setting:
+- For **scheduled query** rules, behavior depends on the rule's **event grouping** and **alert grouping** settings:
 
-  - Triggering a playbook on incident creation is relevant only if incident creation was enabled in **Incident Settings**.
+  - A playbook can be triggered by the creation of an incident only if incident creation is enabled in **Incident Settings** (such that every alert creates an incident).
 
   - If **Event Grouping** was enabled on this analytics rule (such that any event creates an alert):
     Any attached playbook that start with **When an Azure Sentinel alert is triggered** will be triggered for each alert that this rule creates.
@@ -258,14 +257,14 @@ API connections are used to connect Logic Apps to other services. Every time a n
 
 To see all the API connections, enter *API connections* in the header search box of the Azure Portal. Note the interesting columns:
 
-- Display name - every time a new connection is created, you are offered to choose the display name of the connection. 
+- Display name - the "friendly" name you give to the connection every time you create one. 
 - Status - indicates the connection status: Error, connected.
 - Resource group - API connections are created in the resource group of the playbook (Logic Apps) resource.
 
-Another way to view API connections would be to go to the Resources blade and filter it by type *API connection*. This way allows the selection and deletion of multiple connections.
+Another way to view API connections would be to go to the **All Resources** blade and filter it by type *API connection*. This way allows the selection, tagging, and deletion of multiple connections at once.
 
 In order to change the authorization of an existing connection, enter the connection resource, and select **Edit API connection**.
 
 ## Next steps
 
-- [Tutorial: Create a security playbook](tutorial-respond-threats-playbook.md)
+- [Tutorial: Use playbooks to automate threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md)
