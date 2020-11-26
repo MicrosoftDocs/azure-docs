@@ -68,7 +68,7 @@ The following rules apply:
 1. Granting permissions to your Key Vault
 1. Linking Log Analytics workspaces
 
-Customer-Managed key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) or [REST](https://docs.microsoft.com/rest/api/loganalytics/) requests.
+Customer-Managed key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
 
 ### Asynchronous operations and status check
 
@@ -103,7 +103,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ### Create cluster
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Copy and save the response since you will need the details in next steps.
@@ -209,7 +209,7 @@ You need to have 'write' permissions to both your workspace and cluster to perfo
 
 This operation is asynchronous and can a while to complete.
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## Key revocation
 
@@ -536,7 +536,9 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   1. when using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
   2. Send GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
 
-- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 when Double encryption was in the region. If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster but with Double Encryption disabled. It cannot be enabled or disabled after the cluster has been created. To create a cluster when Double Encryption isn't supported in region, add `"properties": {"isDoubleEncryptionEnabled": false}` in REST request body.
+- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for Double encryption by a GET request on the cluster and observing the `"isDoubleEncryptionEnabled"` property value - it's `true` for clusters with Double encryption enabled. 
+  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double Encryption. Add `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
+  - Double encryption setting can not be changed after the cluster has been created.
 
 - Error messages
   

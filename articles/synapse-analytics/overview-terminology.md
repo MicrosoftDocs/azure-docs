@@ -46,9 +46,9 @@ There are two ways within Synapse to use Spark:
 
 Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
 
-* **Data Flows** provide a no-codine experience for doing data transformation that uses Synapse Spark under-the-covers.
-* **Pipeline** - Logical grouping of activities that perform a task together.
-* **Activity** - Defines actions to perform on data such as copying data, running a Notebook or a SQL script.
+* **Pipeline** are logical grouping of activities that perform a task together.
+* **Activities** defines actions within a Pipeline to perform on data such as copying data, running a Notebook or a SQL script.
+* **Data Flows** are a specific kind of activity that provide a no-code experience for doing data transformation that uses Synapse Spark under-the-covers.
 * **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
 * **Integration dataset** -   Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 
