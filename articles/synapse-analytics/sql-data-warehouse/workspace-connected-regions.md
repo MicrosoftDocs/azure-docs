@@ -1,5 +1,5 @@
 ---
-title: Connected Workspaces region availability 
+title: Enable Synapse Workspace feature region availability 
 description: This document details the regions where the Synapse connected experience is not yet available.   
 services: synapse-analytics
 author: antvgski
@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 # Synapse workspace region availability for existing dedicated SQL pool (formerly SQL DW)
 
-The following table summarizes by region when the ability to create a Synapse to access and use an existing dedicated SQL pool (formerly SQL DW) will be available in a selected region. Check back to see when your region becomes available.
+The following table summarizes by region when the ability to enable Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW) will be available. Check back to see when your region becomes available.
 
 \* indicates a specific schedule for the region is currently unavailable.
 
@@ -30,5 +30,4 @@ The following table summarizes by region when the ability to create a Synapse to
 
 
 ## Next steps
-
-- [Learn more]
+Getting started with [Synapse Workspace and Studio](../get-started.md).

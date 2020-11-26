@@ -1,5 +1,5 @@
 ---
-title: Synapse workspace for dedicated SQL pool (formerly SQL DW) 
+title: Enabling Synapse workspace features on a dedicated SQL pool (formerly SQL DW) 
 description: This document describes how a customer can access and use their existing SQL DW standalone instance in the Workspace.   
 services: synapse-analytics
 author: antvgski
@@ -7,32 +7,34 @@ manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 11/11/2020
+ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ---
 
-# Synapse workspace for an existing dedicated SQL pool (formerly SQL DW)
+# Enabling Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW)
 All SQL data warehouse customers can now access and use an existing dedicated SQL pool (formerly SQL DW) instance via the Synapse Studio and Workspace, without impacting automation, connections or tooling. This article explains how an existing Azure Synapse Analytics customer can build on and expand their existing Analytics solution by taking advantage of the new feature rich capabilities now available via the Synapse workspace and Studio.   
 
 ## Experience 
 Now that Synapse workspace is GA a new capability is available in the DW Portal overview blade that allows you to create a Synapse workspace for your existing dedicated SQL pool (formerly SQL DW) instances. This new capability will allow you to connect the logical server that hosts your existing data warehouse instances to a new Synapse workspace. The connection ensures that all of the data warehouses hosted on that server are made accessible from the Workspace and Studio and can be used in conjunction with the Synapse partner services (SQL Serverless, SPARK and ADF). You can begin accessing and using your resources as soon as the provisioning steps have been completed and the connection has been established to the newly created workspace.  
 :::image type="content" source="media/workspace-connected-overview/workspace-connected-dw-portal-overview-pre-create.png" alt-text="Connected Synapse workspace":::
 
-## Using Synapse workspace and Studio to access an existing dedicated SQL pool 
-When you're using a SQL DW in a workspace then the following applies 
-- **SQL resources** All SQL resources will remain hosted on the logical server but access to those resource will then be possible via the workspace and server. 
-- **Management operations** All management functions can be initiated from the new workspace or Studio against the connected logical server.
-- **Resource move**  Initiating a resource move on a Server connected to a Synapse workspace will cause the link to be broken and you will no longer be able to access your existing dedicated SQL pool (formerly SQL DW) instances. To ensure that the connection between a dedicated SQL pool (formerly SQL DW) host logical server and the Synapse workspace is retained. it is recommended that both resources remain within the same Subscription and Resource group. 
-- **Monitoring** Monitoring of all dedicated SQL pool (formerly SQL DW) resources is via the currently currently available dedicated SQL pool (formerly SQL DW) portal. 
-- **Access controls**
-- **Network security**
-- **Studio** SQL pools in the **Data** hub **Object explorer** can be identified as Dedicated SQL pool (formerly SQL DW) instances via the **tool tip**. The tool tip will provide the standard Server  
+## Using Synapse workspace and Studio features to access and use a dedicated SQL pool (formerly SQL DW) 
+When you're using a dedicated SQL DW (formerly SQL DW) with the Synapse workspace features enabled the following applies 
+- **SQL capabilities** All SQL capabilities will remain with logical SQL server after the Synapse workspace feature has been enabled. Access to the server via the SQL resource provider will still be possible after the workspace has been enable. All management functions can be initiated via the workspace and the operation will take place on the Logical SQL Server hosting your SQL pools. No existing automation, tooling or connections will be broken or interrupted when a workspace is enabled.  
+- **Resource move**  Initiating a resource move on a Server with the Synapse workspace feature enabled will cause the link between the server and the workspace to be break and you will no longer be able to access your existing dedicated SQL pool (formerly SQL DW) instances from the workspace. To ensure that the connection is retained, it is recommended that both resources remain within the same Subscription and Resource group. 
+- **Monitoring** SQL requests submitted via the Synapse Studio in a workspace enabled dedicated SQL pool (formerly SQL DW) can be viewed in the Monitor hub. For all other monitoring activities, you can go to Azure portal dedicated SQL pool (formerly SQL DW) monitoring. 
+- **Security** and **Access controls** As stated above, all management functions for your SQL server and dedicated SQL pools (formerly SQL DW) instances will continue to reside on logical SQL server. These functions include, firewall rule management, setting the Azure AD admin of the server, and all access control for the data in you SQL Pools. The following steps must be taken to ensure that your dedicated SQL pools (formerly SQL DW) are accessible and can be used via the Synapse workspace. The enabled Synapse workspace role memberships do not give the workspace users permissions to the data in dedicated SQL pool (formerly SQL DW) instances. To ensure your users can access the dedicated SQL pool (formerly SQL DW) instances on the logic SQL server. You should continue to use your normal access management processes to add workspace users to your SQL server and grant them permissions if they do not have permissions on your server already.
 
-   
-> [!NOTE]
-> You should continue to use your normal Azure Resource Management APIs to manage your existing dedicated SQL pool (formerly SQL DW) instances. 
+    ```sql
+    CREATE USER [<workspace managed identity] FROM EXTERNAL PROVIDER 
+    GRANT CONTROL ON DATABASE:: <dedicated SQL pool name> TO [<workspace managed identity>
+    ```
+> [!NOTE] The connected workspace Synapse Studio will display the names of dedicated pools based on the permissions the user has in Azure. Objects under the pools will not be accessible if the user does not have permissions on the SQL pools. 
+
+- **Network security** If the Synapse workspace you enabled on your existing dedicated SQL pool (formerly SQL DW) is enabled for data infiltration protection. Create a managed private endpoint connection from the workspace to the logical SQL server. Approve the private endpoint connection request to allow communications between the server and workspace.
+- **Studio** SQL pools in the **Data hub** A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub. 
+- **creating a new dedicated SQL pool (formerly SQl DW)** New dedicated SQL pools can be created via the Synapse workspace and Studio after the workspace feature has been enabled and provisioning of a new pool will take place on the logical SQL server. The new resources will appear in the portal and Studio when provisioning completes.      
 
 ## Next steps
-
-- [Learn more]
+Enable [Synapse workspace features](workspace-connected-create.md) on your existing dedicated SQL pool (formerly SQL DW)
