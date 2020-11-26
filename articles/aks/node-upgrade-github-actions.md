@@ -127,18 +127,16 @@ The first step is to download and sign in to the Azure CLI.
 
 1. Click **Add Secret**.
 
-## Execute Azure Commands
-
 Now that you added the login step, your CLI will be logged to your Azure account and ready to receive new commands. You'll create the steps to execute Azure CLI commands.
 
-### Upgrade All Node Pools
+1. Go back to the *GitHub marketplace* **search page** on the right-hand side of the screen and type *"Azure CLI Action"*. And click on the first result made **by Azure**
 
-If you want to upgrade all node pools in a cluster at once, there's no need to specify the pool's name, just the AKS cluster name and resource group.
+    :::image type="content" source="media/node-upgrade-github-actions/azure-cli-action.png" alt-text="Search result for 'Azure CLI Action' with first result being shown as made by Azure":::
 
-1. Now copy the last command and add a second command to upgrade the nodes.
+1. As you did with the previous steps, click the copy button on the *GitHub marketplace result* and paste the contents of the action in the main editor, below the *Azure Login* step, you'll have a file similar to the file below.
 
     ```yml
-        name: Upgrade cluster node images
+    name: Upgrade cluster node images
 
     on:
       schedule:
@@ -162,55 +160,23 @@ If you want to upgrade all node pools in a cluster at once, there's no need to s
     > [!TIP]
     > You can decouple the `-g` and `-n` parameters from the command by adding them to secrets like you did in the previous steps. If that's the case, replace the `{resourceGroupName}` and `{aksClusterName}` placeholders by their secret counterparts `${{secrets.RESOURCE_GROUP_NAME}}` and `${{secrets.AKS_CLUSTER_NAME}}`
 
-1. Rename the file to a meaningful name by typing on the top text input next to the **Cancel** button.
+1. Rename the file to `upgrade-node-images` by typing on the top text input next to the **Cancel** button.
 1. Click **Start Commit**, add a message title, and save the workflow.
 
 After the commit, the workflow will be saved and ready for execution.
 
-### Upgrade a Single Node Pool
-
-If you want to upgrade a single node pool in a cluster, you can specify the pool's name via the `az aks nodepool` command.
-
-Specifying a node pool is useful when creating upgrades on production nodes that should take place on a different schedule than the rest of the cluster.
-
-1. Copy the last command and add a second command to upgrade the nodes in the specific node pool.
-
-    ```yml
-        name: Upgrade cluster node images
-
-    on:
-      schedule:
-        - cron: '0 3 */15 * *'
-
-    jobs:
-      upgrade-node:
-        runs-on: ubuntu-latest
-
-        steps:
-          - name: Azure Login
-            uses: Azure/login@v1.1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-          - name: Upgrade node images
-            uses: Azure/cli@v1.0.0
-            with:
-              inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
-    ```
-
-    > [!TIP]
-    > You can decouple the `-g`, `--cluster-name`, and `--name` parameters from the command by adding them to secrets like you did in the previous steps. If that's the case, replace the `{resourceGroupName}`, `{aksClusterName}`, and `{nodePoolName}` placeholders by their secret counterparts `${{secrets.RESOURCE_GROUP_NAME}}`, `${{secrets.AKS_CLUSTER_NAME}}`, and `${{secrets.NODE_POOL_NAME}}`
-
-1. Rename the file to a meaningful name by typing on the top text input next to the **Cancel** button.
-1. Click **Start Commit**, add a message title, and save the workflow.
-
-After the commit, the workflow will be saved and ready for execution.
+> [!NOTE]
+> To upgrade a single node pool instead of all node pools on the cluster, add the `--name` parameter to the `az aks nodepool upgrade` command to specify the node pool name. For example:
+> ```
+> inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
+> ```
 
 ## Running manually
 
 You can run the workflow manually, in addition to the scheduled run, by adding a new `on` trigger called `workflow_dispatch`. The finished file should look like the YAML below:
 
     ```yml
-        name: Upgrade cluster node images
+    name: Upgrade cluster node images
 
     on:
       schedule:
