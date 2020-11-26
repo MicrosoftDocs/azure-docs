@@ -82,7 +82,7 @@ It is required to get the Service Principal's application ID and secret:
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
 
-### Firewall setting
+### Firewall settings
 
 > [!NOTE]
 > If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
