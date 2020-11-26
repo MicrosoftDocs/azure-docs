@@ -65,4 +65,4 @@ After a Pay-As-You-Go subscription is exempted and the VMs have been stopped and
 
 ## Need help? Contact support
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly by using the following issue type: **Subscription Management** Problem type: **Request to enable Port 25 email flow**.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly by using the following issue type: **Technical** Service: **Virtual Network** Problem type: **Connectivity** Problem Subtype: **Cannot send mail (SMTP-Port25)**.
