@@ -34,7 +34,7 @@ For more information, see [Use the portal to scan Azure data sources (preview)](
 
 ## Use Purview File extension insights
 
-When scanning your assets, Azure Purview is able to detect the file types found in your data estate, and provide you more details about each file type. Details include how many files of each type you have, where those files are, and whether they are scannable for sensitive content.
+When scanning your assets, Azure Purview is able to detect the file types found in your data estate, and provide you more details about each file type. Details include how many files of each type you have, where those files are, and whether they are scannable for sensitive data.
 
 **To view file extension insights:**
 
@@ -58,7 +58,7 @@ When scanning your assets, Azure Purview is able to detect the file types found 
 
 ### File extension insights drilldown
 
-Once you've viewed the high-level information about the file types found in your data estate, drill down for more details about where they are located, and whether they can be scanned for sensitive content.
+Once you've viewed the high-level information about the file types found in your data estate, drill down for more details about where they are located, and whether they can be scanned for sensitive data.
 
 For example:
 
@@ -78,10 +78,10 @@ Use the filters above the grid to filter the data shown:
 |Option  |Description  |
 |---------|---------|
 |**Filter by keyword**     |    Enter text in the **Filter by keyword**  box to view filter your file types by name. For example, to view PDFs only, enter `PDF`.     |
-|**Time**        | Select to filter by a specific time span for when your content was created. <br>**Default:** 30 days  |
+|**Time**        | Select to filter by a specific time span for when your data was created. <br>**Default:** 30 days  |
 |**File extension**     |Select to filter the grid by one or more file types.        |
 |**Sources**    |Select to filter the grid by the specific data sources. |
-|**Content scanning**     |Select to choose **Supported** or **Not Supported**, to show only file types that can be further scanned for sensitive content, or files that cannot be scanned, such as **.cert** or **.jpg** files. |
+|**Content scanning**     |Select to choose **Supported** or **Not Supported**, to show only file types that can be further scanned for sensitive data, or data that cannot be scanned, such as **.cert** or **.jpg** files. |
 | | |
 
 Above the filters, select **Edit columns** :::image type="icon" source="media/insights/ico-columns.png" border="false"::: to display more or fewer columns in your grid, or to change the order. 
@@ -90,6 +90,12 @@ To sort the grid, select a column header to sort by that column.
 ## Next steps
 
 Learn more about Azure Purview insight reports
+> [!div class="nextstepaction"]
+> [Glossary insights](glossary-insights.md)
+
+> [!div class="nextstepaction"]
+> [Scan insights](scan-insights.md)
+
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
 

@@ -29,15 +29,15 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
-- [Extended Microsoft 365 sensitivity labels to assets in Azure Purview](create-sensitivity-label.md), and created or selected the labels you want to apply to your content.
+- [Extended Microsoft 365 sensitivity labels to assets in Azure Purview](create-sensitivity-label.md), and created or selected the labels you want to apply to your data.
 
 - Set up and completed a scan on the test data in each data source
 
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) and [Automatically label your content in Azure Purview](create-sensitivity-label.md).
+For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
 ## Use Purview Sensitivity labeling insights
 
-In Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
+In Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
 Sensitivity labels enable you to state how sensitive certain data is in your organization. For example, a specific project name might be highly confidential within your organization, while that same term is not confidential to other organizations. 
 
@@ -56,7 +56,7 @@ Purview uses the same classifications, also known as sensitive information types
 1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Purview **Sensitivity labeling insights** report.
 
     > [!NOTE]
-    > If this report is empty, you may not have extended your sensitivity labels to Azure Purview. For more information, see [Automatically label your content in Azure Purview](create-sensitivity-label.md).
+    > If this report is empty, you may not have extended your sensitivity labels to Azure Purview. For more information, see [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
    :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights" lightbox="media/insights/sensitivity-labeling-insights.png":::
 
@@ -96,17 +96,21 @@ Do any of the following to learn more:
 | | |
 ## Sensitivity label integration with Microsoft 365 compliance
 
-Close integration with information protection offered in Microsoft 365 means that Purview offers easy and direct ways to scan your entire data estate, receive classification and labeling of your content as well as integrated content protection based on those labels and classifications.
+Close integration with [Microsoft Information Protection](/microsoft-365/compliance/information-protection) offered in Microsoft 365 means that Purview enables direct ways to extend visibility into your data estate, and classify and label your data.
 
-For your Microsoft 365 sensitivity labels to be extended to your assets in Azure Purview, you must actively turn on Information Protection for Azure Purview.
+For your Microsoft 365 sensitivity labels to be extended to your assets in Azure Purview, you must actively turn on Information Protection for Azure Purview, in the Microsoft 365 compliance center.
 
-If the insights provided by Azure Purview indicate that you want to make changes in your sensitivity labeling settings, make the changes as needed in Microsoft 365 and run your scan again. 
-
-For more information, see [Automatically label your content in Azure Purview](create-sensitivity-label.md).
+For more information, see [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
 ## Next steps
 
 Learn more about Azure Purview insight reports
+> [!div class="nextstepaction"]
+> [Glossary insights](glossary-insights.md)
+
+> [!div class="nextstepaction"]
+> [Scan insights](scan-insights.md)
+
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
 

@@ -35,9 +35,9 @@ For more information, see [Use the portal to scan Azure data sources (preview)](
 
 ## Use Purview classification insights
 
-In Azure Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
+In Azure Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
-Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate.
+Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire data estate.
 
 **To view classification insights:**
 
@@ -90,6 +90,12 @@ Do any of the following to learn more:
 ## Next steps
 
 Learn more about Azure Purview insight reports
+> [!div class="nextstepaction"]
+> [Glossary insights](glossary-insights.md)
+
+> [!div class="nextstepaction"]
+> [Scan insights](scan-insights.md)
+
 > [!div class="nextstepaction"]
 > [Sensitivity labeling insights](./sensitivity-insights.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Automatically apply sensitivity labels to your content
-description: Learn how to create sensitivity labels and automatically apply them to your content during a scan.
+title: Automatically apply sensitivity labels to your data
+description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
 author: batamig
 ms.author: bagol
 ms.service: data-catalog
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/22/2020
 ---
 
-# Automatically label your content in Azure Purview
+# Automatically label your data in Azure Purview
 
 This article describes how to create Microsoft Information Protection (MIP) sensitivity labels, and automatically apply them to your Azure assets in Azure Purview.
 
@@ -17,13 +17,13 @@ This article describes how to create Microsoft Information Protection (MIP) sens
 
 To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. 
 
-When your data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies. 
+When your data roams, you want it to do so in a secure, protected way that meets your organization's business and compliance policies.
 
-Applying sensitivity labels enable you to state how sensitive certain data is in your organization. For example, a specific project name might be highly confidential within your organization, while that same term is not confidential to other organizations. 
+Applying sensitivity labels enables you to state how sensitive certain data is in your organization. For example, a specific project name might be highly confidential within your organization, while that same term is not confidential to other organizations. 
 
 ### Sensitivity labels in Azure Purview
 
-In Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
+In Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
 Purview uses the same classifications, also known as sensitive information types, as Microsoft 365.  MIP sensitivity labels are created in the Microsoft 365 Security and Compliance Center (SCC). This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
@@ -35,9 +35,9 @@ Sensitivity labels in Azure Purview can be used to:
 
 - **Automatically apply labels** to files and database columns
 
-- **Control** who can and cannot access your content
+- **Control** who can and cannot access your data
 
-- **Enforce protection settings**, such as encryption, on labeled content
+- **Enforce protection settings**, such as encryption, on labeled data
 
 For more information, see:
 
@@ -47,13 +47,13 @@ For more information, see:
 
 #### What are autolabeling rules?
 
-Your content is constantly growing and changing. Tracking the data that is currently unlabeled, and taking action to manually apply labels is not only cumbersome, but is also an unnecessary headache. 
+Your data is constantly growing and changing. Tracking the data that is currently unlabeled, and taking action to manually apply labels is not only cumbersome, but is also an unnecessary headache. 
 
-Autolabeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the content.
+Autolabeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data, retaining consistent sensitivity labels on your data, at scale.
 
-When you create your labels, make sure to define autolabeling rules for both files and database columns to apply your labels automatically with each content scan. 
+When you create your labels, make sure to define autolabeling rules for both [files](#define-autolabeling-rules-for-files) and [database columns](#define-autolabeling-rules-for-database-columns) to apply your labels automatically with each data scan. 
 
-After scanning your content, you can dive into your data to view the labels automatically applied, as well as view Insight reports on the classifications and labels in your content over time. 
+After scanning your data in Purview, you can view the labels automatically applied in the Purview Catalog and Insight reports.
 
 #### Supported data types for sensitivity labels in Azure Purview
 
@@ -78,7 +78,7 @@ For more information, see:
 
 MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
 
-If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/enterprise/e5).
+If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
 
 ### Extending sensitivity labels to Azure Purview
 
@@ -86,8 +86,10 @@ By default, MIP sensitivity labels are only available for assets in Microsoft 36
 
 To apply MIP sensitivity labels to Azure assets in Azure Purview, you must explicitly consent to extending the labels, and select the specific labels that you want to be available in Purview.
 
+By extending MIP’s sensitivity labels with Azure Purview, organizations can now discover, classify and get insight into sensitivity across a broader range of data sources, minimizing compliance risk.
+
 > [!NOTE]
-> Since Microsoft 365 and Azure Purview are separate services, there is a possibility that they will be deployed in different regions. Label names and custom sensitive information type names are considered to be customer content, and are kept within the same GEO location by default to protect the sensitivity of your content and to avoid GDPR laws.
+> Since Microsoft 365 and Azure Purview are separate services, there is a possibility that they will be deployed in different regions. Label names and custom sensitive information type names are considered to be customer data, and are kept within the same GEO location by default to protect the sensitivity of your data and to avoid GDPR laws.
 >
 > For this reason, labels and custom sensitive information types are not shared to Azure Purview by default, and require your consent to use them in Azure Purview.
 
@@ -147,7 +149,7 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 >
 > For more information, see [Removing and deleting labels](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) in the Microsoft 365 documentation.
 
-Continue by [scanning your content to apply labels automatically](#scan-your-content-to-apply-labels-automatically), and then:
+Continue by [scanning your data to apply labels automatically](#scan-your-data-to-apply-labels-automatically), and then:
 
 - [View labels on assets](#view-labels-on-assets)
 - [View Insight reports for the classifications and sensitivity labels](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
@@ -156,17 +158,13 @@ Continue by [scanning your content to apply labels automatically](#scan-your-con
 
 Define autolabeling rules for files in the wizard when you create or edit your label. 
 
-On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office apps,** and then define the conditions where you want your label to be automatically applied to your content.
+On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office apps,** and then define the conditions where you want your label to be automatically applied to your data.
 
 For example:
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Define autolabeling rules for files in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
-
-When the sensitivity label is applied, the user will see a notification in their Office app. For example:
-
-:::image type="content" source="media/create-sensitivity-label/sensitivity-labels-msg-doc-was-auto-labeled.png" alt-text="Sample file that was automatically labeled":::
  
-For more information, see [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) in the Microsoft 365 documentation. 
+For more information, see [Apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) in the Microsoft 365 documentation. 
 
 #### Define autolabeling rules for database columns
 
@@ -182,9 +180,9 @@ For example:
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
-## Scan your content to apply labels automatically
+## Scan your data to apply labels automatically
 
-Scan your content in Azure Purview to automatically apply the labels you've created, based on the autolabeling rules you've defined. 
+Scan your data in Azure Purview to automatically apply the labels you've created, based on the autolabeling rules you've defined. 
 
 For more information on how to set up scans on various assets in Azure Purview, see:
 
@@ -198,7 +196,7 @@ For more information on how to set up scans on various assets in Azure Purview, 
 
 ## View labels on assets
 
-Once you've defined autolabeling rules for your labels in Microsoft 365 and scanned your content in Azure Purview, labels are automatically applied to your assets. 
+Once you've defined autolabeling rules for your labels in Microsoft 365 and scanned your data in Azure Purview, labels are automatically applied to your assets. 
 
 **To view the labels applied to your assets in the Azure Purview Catalog:**
 
