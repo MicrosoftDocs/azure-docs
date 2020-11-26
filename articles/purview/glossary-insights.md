@@ -60,7 +60,7 @@ The **Glossary Insights** page displays the following areas:
 
 1. **Distribution of roles by number of users** shows distribution of roles by number of users per role in Purview.
 
-   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="View glossary insights":::
 
 ## Next steps
 
