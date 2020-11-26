@@ -127,11 +127,11 @@ The first step is to download and sign in to the Azure CLI.
       "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
     ```
-1. copy the *entire* json output (including the opening and closing braces), and paste it, you should have a form similar to the following screen.
+1. Add the entire contents from the output of the previous step where you created a new username and password.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-credential-secret.png" alt-text="Form showing AZURE_CREDENTIALS as secret title, and the output of the executed command pasted as JSON":::
 
-1. Click **Add Secret** and close the tab.
+1. Click **Add Secret**.
 
 ## Execute Azure Commands
 
