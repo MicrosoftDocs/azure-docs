@@ -45,17 +45,17 @@ Playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-
 Azure Logic Apps communicates with other systems and services using connectors. The following is a brief explanation of the types of connectors in use:
 
 - **Managed Connector:** A set of actions and triggers, which wrap API calls to a certain product. Azure Logic Apps offers hundreds of connectors to connect to both Microsoft and non-Microsoft services.
-  - [List of all Logic Apps connectors and their documentation](https://docs.microsoft.com/connectors/connector-reference/)
+  - [List of all Logic Apps connectors and their documentation](/connectors/connector-reference/)
 
 - **Custom connector:** You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector with its own triggers and actions.
-  - [Create your own custom Logic Apps connectors](https://docs.microsoft.com/connectors/custom-connectors/create-logic-apps-connector)
+  - [Create your own custom Logic Apps connectors](/connectors/custom-connectors/create-logic-apps-connector)
 
 - **Azure Sentinel Connector:** To create playbooks that interact with Azure Sentinel, use the Azure Sentinel connector.
-  - [Azure Sentinel connector documentation](https://docs.microsoft.com/connectors/azuresentinel/)
+  - [Azure Sentinel connector documentation](/connectors/azuresentinel/)
 
 - **Trigger:** A connector component that starts a playbook. It defines the schema that the playbook expects to receive when triggered. The Azure Sentinel connector currently has two triggers:
-  - [Incident trigger](https://docs.microsoft.com/connectors/azuresentinel/)
-  - [Alert trigger](https://docs.microsoft.com/connectors/azuresentinel/)
+  - [Incident trigger](/connectors/azuresentinel/#triggers)
+  - [Alert trigger](/connectors/azuresentinel/#triggers)
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
@@ -103,7 +103,7 @@ For example:
 An Azure Sentinel incident was created from an alert by an analytics rule that generates IP address entities.
 The analytics rule triggers a playbook with the following steps:
 
-- Start with [Azure Sentinel incident trigger](https://docs.microsoft.com/connectors/azuresentinel/). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities list of the incident arrives as part of the trigger's dynamic fields.
+- Start with [Azure Sentinel incident trigger](/connectors/azuresentinel/#triggers). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities list of the incident arrives as part of the trigger's dynamic fields.
 
 - For each IP address, query an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
 
@@ -135,7 +135,7 @@ The analytics rule triggers a playbook with the following steps:
 
 - Start when a new Azure Sentinel incident is created.
 
-- Send a message to your security operations channel in [Microsoft Teams](https://docs.microsoft.com/connectors/teams/) or [Slack](https://docs.microsoft.com/connectors/slack/) to make sure your security analysts are aware of the incident.
+- Send a message to your security operations channel in [Microsoft Teams](/connectors/teams/) or [Slack](/connectors/slack/) to make sure your security analysts are aware of the incident.
 
 - Send all the information in the alert by email to your senior network admin and security admin. The email message will include **Block** and **Ignore** user option buttons.
 
@@ -157,17 +157,17 @@ Two examples:
 
      - Send a Teams message to the user, confirming if they took the suspicious action.
 
-     - Check with Azure AD Identity Protection to [confirm the user's status as compromised](https://docs.microsoft.com/connectors/azureadip/#confirm-a-risky-user-as-compromised).
+     - Check with Azure AD Identity Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised).
 
    - Set the Azure AD Identity Protection policy to require the user to use MFA when next signing in.
 
-1. Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](https://docs.microsoft.com/windows/security/threat-protection/):
+1. Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
    - Start when a new Azure Sentinel incident is created.
 
    - Use the **Entities - Get Hosts** action in Azure Sentinel to parse the suspicious machines that are included in the incident entities.
 
-   - Set the Microsoft Defender for Endpoint policy to [isolate the machines](https://docs.microsoft.com/connectors/wdatp/#actions---isolate-machine) in the alert.
+   - Set the Microsoft Defender for Endpoint policy to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
 
 ## How to run a Security Playbook
 
@@ -195,7 +195,7 @@ To attach a playbook to an analytics rule:
 
 1. Select the playbooks that this analytics rule will trigger when an alert or an incident is created.
 
-    Note: The input for the playbook will fit the [playbook trigger kind](connectordocumentation):
+    Note: The input for the playbook will fit the [playbook trigger kind](/connectors/azuresentinel/#triggers):
     - When an Azure Sentinel incident is triggered
     - When an Azure Sentinel alert is triggered 
 
@@ -218,11 +218,11 @@ Special configurations:
 
 ### Run a playbook manually on an alert
 
-Manual trigger is available from Sentinel portal in the following blades:
+Manual trigger is available from the Azure Sentinel portal in the following blades:
 
-- In Incidents view, choose a specific incident, and open the alerts tab.
+- In **Incidents** view, choose a specific incident, and open the alerts tab.
 
-- In Investigation, choose a specific alert.
+- In **Investigation**, choose a specific alert.
 
 1. Click on **View Playbooks**. You will get a list of all playbooks that start with an **When an Azure Sentinel Alert is triggered** and that you have access to.
 
