@@ -288,10 +288,11 @@ When the *EXTERNAL-IP* address changes from *pending* to an actual public IP add
 wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-## Browse WordPress
+### Browse WordPress
 
 Open a web browser to the external IP address of your service.
-[IMAGE -WORDPRESS]
+
+   :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Wordpress installation success on AKS and MySQL flexible server":::
 
 >[!NOTE]
 > - Currently the WordPress site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](https://docs.microsoft.com/en-us/azure/aks/ingress-own-tls).
