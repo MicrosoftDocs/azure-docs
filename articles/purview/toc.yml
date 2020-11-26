@@ -60,7 +60,9 @@ items:
   - name: Search
     href: concept-search.md   
   - name: Business glossary
-    href: concept-business-glossary.md    
+    href: concept-business-glossary.md 
+  - name: Insights
+    href: concept-insights.md    
 - name: How-to guides
   items:
   - name: Register & scan
