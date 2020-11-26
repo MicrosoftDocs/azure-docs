@@ -1,7 +1,9 @@
 ---
 title: 'Quickstart: Deploy WordPress on AKS cluster with MySQL Flexible Server by using Azure CLI'
 description: Learn how to quickly build and deploy WordPress  on AKS with Azure Database for MySQL - Flexible Server.
-services: mysql
+ms.service: mysql
+author: mksuni
+ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
@@ -14,9 +16,9 @@ In this quickstart, you deploy a WordPress application on Azure Kubernetes Servi
 > [!NOTE]
 > This quickstart assumes a basic understanding of Kubernetes concepts , WordPress and MySQL.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -51,7 +53,7 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks?view=azure-cli-latest#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name wordpresscluster--node-count 1 --generate-ssh-keys
@@ -60,26 +62,26 @@ az aks create --resource-group wordpress-project --name wordpresscluster--node-c
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
 > [!NOTE]
-> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. For more information see [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli][az-aks-install-cli] command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name wordpresscluster
 ```
 
 > [!NOTE]
-> The above command uses the default location for the [Kubernetes configuration file][kubeconfig-file], which is `~/.kube/config`. You can specify a different location for your Kubernetes configuration file using *--file*.
+> The above command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is `~/.kube/config`. You can specify a different location for your Kubernetes configuration file using *--file*.
 
-To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
+To verify the connection to your cluster, use the [kubectl get]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -92,18 +94,18 @@ NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
-## Create a Azure Database for MySQL - Flexible Server
-Create a flexible server with the ```az mysql flexible-server create``` command. The following command creates a server using service defaults and values from your Azure CLI's local context:
+## Create an Azure Database for MySQL - Flexible Server
+Create a flexible server with the [az mysql flexible-server create](/cli/azure/mysql/flexible-server?view=azure-cli-latest)command. The following command creates a server using service defaults and values from your Azure CLI's local context:
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 ```
 
 The server created has the below attributes:
-- A new empty database , ```flexibleserverdb``` is created when the server is first provisioned. In this quickstart we will use this database.
-- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group
+- A new empty database, ```flexibleserverdb``` is created when the server is first provisioned. In this quickstart we will use this database.
+- Autogenerated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group
 - Service defaults for remaining server configurations: compute tier (Burstable), compute size/SKU (B1MS), backup retention period (7 days), and MySQL version (5.7)
-- Using public-access arguemtn allow you to create a server with public access protected by firewall rules. By providing your IP address to add the firewall rule to allow access from your client machine.
+- Using public-access argument allow you to create a server with public access protected by firewall rules. By providing your IP address to add the firewall rule to allow access from your client machine.
 - Since the command is using Local context it will create the server in the resource group ```wordpress-project``` and in the region ```eastus```.
 
 
@@ -179,7 +181,7 @@ Make sure you're in the directory ```my-wordpress-app``` in a terminal using the
 
 ```docker build --tag myblog:latest . ```
 
-Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr).
+Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
 > [!IMPORTANT]
 >If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
@@ -195,7 +197,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 
 >[!IMPORTANT]
 > - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual WordPress docker image name and tag, for example ```docker-hub-user/myblog:latest```.
-> - Update ```env``` section below with your SERVERNAME , DATABASE USERNAME , DATABASE PASSWORD of your MySQL flexible server.
+> - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your MySQL flexible server.
 
 ```yaml
 apiVersion: apps/v1
@@ -221,7 +223,7 @@ spec:
         - name: DATABASE_HOST
           value: "SERVERNAME.mysql.database.azure.com"
         - name: DATABASE_USERNAME
-          value: "YOUR-USERNAME"
+          value: "YOUR-DATABASE-USERNAME"
         - name: DATABASE_PASSWORD
           value: "YOUR-DATABASE-PASSWORD"
         - name: DATABASE_NAME
@@ -250,7 +252,7 @@ spec:
 ```
 
 ## Deploy WordPress to AKS cluster
-Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
+Deploy the application using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command and specify the name of your YAML manifest:
 
 ```console
 kubectl apply -f mywordpress.yaml
@@ -269,7 +271,7 @@ service "php-svc" created
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
+To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
 kubectl get service wordpress-blog --watch
@@ -295,47 +297,24 @@ Open a web browser to the external IP address of your service.
    :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Wordpress installation success on AKS and MySQL flexible server":::
 
 >[!NOTE]
-> - Currently the WordPress site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](https://docs.microsoft.com/en-us/azure/aks/ingress-own-tls).
-> - You can enable [HTTP routing](https://docs.microsoft.com/en-us/azure/aks/http-application-routing) for your cluster.
+> - Currently the WordPress site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
+> - You can enable [HTTP routing](../../aks/http-application-routing.md) for your cluster.
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name wordpress-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
-- Learn how to [access the Kubernetes web dashboard][kubernetes-dashboard] for your AKS cluster
-- Learn how to [scale your cluster][aks-scale]
-- Learn how to manage your [MySQL flexible server][mysql-flex-server-manage]
-- Learn how to [configure server parameters][mysql-flex-server-parameter-set] for your database server.
+- Learn how to [access the Kubernetes web dashboard](../../aks/kubernetes-dashboard.md) for your AKS cluster
+- Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
+- Learn how to manage your [MySQL flexible server](./quickstart-create-server-cli.md)
+- Learn how to [configure server parameters](./how-to-configure-server-parameters-cli.md) for your database server.
 
-<!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-
-<!-- LINKS - internal -->
-[mysql-flex-server-parameter-set]:./how-to-configure-server-parameters-cli.md
-[mysql-flex-server-manage]:./quickstart-create-server-cli.md
-[kubernetes-concepts]: ../../aks/concepts-clusters-workloads.md
-container-insights-onboard.md
-[aks-scale]: ../../aks/tutorial-kubernetes-scale.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[azure-cli-install]: /cli/azure/install-azure-cli
-[sp-delete]: ../../aks/kubernetes-service-principal.md#additional-considerations
-[azure-portal]: https://portal.azure.com
-[kubernetes-deployment]: ../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../../aks/concepts-network.md#services
-[kubernetes-dashboard]: ../../aks/kubernetes-dashboard.md
