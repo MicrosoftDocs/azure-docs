@@ -44,8 +44,6 @@ This article also assumes you have a [GitHub][github] account to create your act
 1. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, click on the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, click on the **Set up a workflow yourself** link below the description text.
 1. Change the workflow `name` and `on` tags similar to the below. GH Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to run every 15 days at 3am.
 
-    To do that, you'll change the `name` and `on` tags to the following:
-
     ```yml
     name: Upgrade cluster node images
     on:
@@ -56,8 +54,6 @@ This article also assumes you have a [GitHub][github] account to create your act
     In this schedule, we're telling the workflow to run twice a month (at every 15 days) at 3am.
 
 1. Create a new job using the below. This job is named `upgrade-node`, runs on an Ubuntu agent, and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
-
-    Edit your file to look like the following YAML:
 
     ```yml
     name: Upgrade cluster node images
@@ -71,16 +67,16 @@ This article also assumes you have a [GitHub][github] account to create your act
         runs-on: ubuntu-latest
     ```
 
-## Sign in to Azure
+## Set up the Azure CLI in the workflow
 
 In the `steps` key, you'll define all the work the workflow will execute to upgrade the nodes.
 
 The first step is to download and sign in to the Azure CLI.
 
-1. On the right-hand side of the screen, find the marketplace search bar and type **"Azure CLI"**.
-1. There should be two main results published **by Azure**. One called **Azure CLI Action** and another one called **Azure Login**.
+1. On the right-hand side of the GitHub Actions screen, find the *marketplace search bar* and type **"Azure Login"**.
+1. You'll get as a result, an Action called **Azure Login** published **by Azure**:
 
-      :::image type="content" source="media/node-upgrade-github-actions/search-results.png" alt-text="Search results showing two lines, the first action is called 'Azure CLI Action' and the second 'Azure Login'":::
+      :::image type="content" source="media/node-upgrade-github-actions/azure-login-search.png" alt-text="Search results showing two lines, the first action is called 'Azure Login' and the second 'Azure Container Registry Login'":::
 
 1. Click on **Azure Login**. Then, on the new screen that shows up, click the **copy icon** in the top right of the code sample.
 
