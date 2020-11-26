@@ -45,7 +45,7 @@ This process is better than updating Linux-based kernels manually because Linux 
 
 1. Click on the **Actions** tab at the top of the page.
 1. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, click on the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, click on the **Set up a workflow yourself** link below the description text.
-1. Setting up a new workflow will open a text editor with a basic workflow on it, the first step is to change the workflow name and trigger.
+1. Change the workflow `name` and `on` tags similar to the below. GH Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to run every 15 days at 3am.
 
     To do that, you'll change the `name` and `on` tags to the following:
 
