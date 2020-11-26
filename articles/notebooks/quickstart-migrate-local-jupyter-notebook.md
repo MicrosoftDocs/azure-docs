@@ -1,23 +1,23 @@
 ---
-title: Migrate a local Jupyter notebook to Azure Notebooks Preview
-description: Quickly transfer a Jupyter notebook to Azure Notebooks Preview from your local computer or a web URL, then share it for collaboration.
+title: Migrate a local Jupyter Notebook to Azure Notebooks Preview
+description: Quickly transfer a Jupyter Notebook to Azure Notebooks Preview from your local computer or a web URL, then share it for collaboration.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ---
 
-# Quickstart: Migrate a local Jupyter notebook in Azure Notebooks Preview
+# Quickstart: Migrate a local Jupyter Notebook in Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-In this quickstart, you migrate a Jupyter notebook from your local computer or another accessible file URL to Azure Notebooks. 
+In this quickstart, you migrate a Jupyter Notebook from your local computer or another accessible file URL to Azure Notebooks. 
 
-Jupyter notebooks on your own computer are accessible only to you. You can share your files, but recipients then have their own local copies of the notebook, and it's difficult to incorporate their changes. Even if you store notebooks in a shared online repository such as GitHub, each collaborator must have a local Jupyter installation configured like yours.
+Jupyter Notebooks on your own computer are accessible only to you. You can share your files, but recipients then have their own local copies of the notebook, and it's difficult to incorporate their changes. Even if you store notebooks in a shared online repository such as GitHub, each collaborator must have a local Jupyter installation configured like yours.
 
 By migrating your local or repository-based notebooks to Azure Notebooks, you can instantly share them with your collaborators, who need only a browser to view and run your notebooks. If they sign in to Azure Notebooks, they can also make changes.
 
 ## Prerequisites
 
-- A [Jupyter notebook](https://jupyter-notebook.readthedocs.io) on your local computer or at another accessible file URL. 
+- A [Jupyter Notebook](https://jupyter-notebook.readthedocs.io) on your local computer or at another accessible file URL. 
 
 ## Create a project on Azure Notebooks
 
@@ -60,4 +60,4 @@ This quickstart demonstrates migrating a notebook from your local computer or an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Create and run a Jupyter Notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
