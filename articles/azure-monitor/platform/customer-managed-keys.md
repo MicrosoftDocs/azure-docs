@@ -536,7 +536,9 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
   1. when using REST, copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
   2. Send GET request to cluster or workspace and observe the response. For example, unlinked workspace won't have the *clusterResourceId* under *features*.
 
-- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 when Double encryption was in the region. If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster but with Double Encryption disabled. It cannot be enabled or disabled after the cluster has been created. To create a cluster when Double Encryption isn't supported in region, add `"properties": {"isDoubleEncryptionEnabled": false}` in REST request body.
+- [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for Double encryption by a GET request on the cluster and observing the `"isDoubleEncryptionEnabled"` property value - it's `true` for clusters with Double encryption enabled. 
+  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double Encryption. Add `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
+  - Double encryption setting can not be changed after the cluster has been created.
 
 - Error messages
   
