@@ -58,7 +58,7 @@ This process is better than updating Linux-based kernels manually because Linux 
 
     GH Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to twice a month, at every 15 days at 3am.
 
-1. Next, create a new job called `upgrade-node`, this job will run on an Ubuntu agent and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
+1. Create a new job using the below. This job is named `upgrade-node`, runs on an Ubuntu agent, and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
 
     Edit your file to look like the following YAML:
 
