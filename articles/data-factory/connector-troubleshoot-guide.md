@@ -437,7 +437,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,, ColumnB'.
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA, ColumnB'.
 
 - **Recommendation**:  Check the first row, and fix the value if there is empty value.
 
@@ -446,7 +446,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
+- **Cause**: The problematic row's column count is larger than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
 
 - **Recommendation**:  Get the row count in error message, check the row's column and fix the data.
 
