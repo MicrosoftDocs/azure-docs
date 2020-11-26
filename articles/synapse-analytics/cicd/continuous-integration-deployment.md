@@ -88,11 +88,11 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
 
 Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in Synapse workspace, like dataset, SQL script, notebook, spark job definition, dataflow, pipeline,linked service, credentials and IR (Integration Runtime).  
 
-1. Search and get the extension from **Azure DevOps market place**(https://marketplace.visualstudio.com/azuredevops) 
+1. Search and get the extension from **Azure DevOps marketplace**(https://marketplace.visualstudio.com/azuredevops) 
 
      ![Get extension](media/get-extn-from-market.png)
 
-1. Select the project to install extension. 
+1. Select an organization to install extension. 
 
      ![Install extension](media/install-extension.png)
 
