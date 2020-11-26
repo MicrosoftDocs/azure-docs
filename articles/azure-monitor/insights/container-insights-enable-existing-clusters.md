@@ -16,6 +16,8 @@ You can enable monitoring of an AKS cluster that's already deployed using one of
 * Terraform
 * [From Azure Monitor](#enable-from-azure-monitor-in-the-portal) or [directly from the AKS cluster](#enable-directly-from-aks-cluster-in-the-portal) in the Azure portal
 * With the [provided Azure Resource Manager template](#enable-using-an-azure-resource-manager-template) by using the Azure PowerShell cmdlet `New-AzResourceGroupDeployment` or with Azure CLI.
+* In case of connecting an existing AKS cluster to a Log Analytics workspace on another subscription, Microsoft.ContainerService Resource Provider must be registered on the subscription where the Log Analytics workspace created. Please check [Register resource provider
+](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider)
 
 ## Sign in to the Azure portal
 
