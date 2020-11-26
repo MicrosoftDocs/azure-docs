@@ -169,7 +169,7 @@ A couple of things to keep in mind when writing your authorization policy:
     - `{{iot:module_id}}` represents the identity of the currently connected module. This variable is blank for connected devices, or a module identity like `SampleModule`.
     - `{{iot:this_device_id}}` represents the identity of the IoT Edge device running the authorization policy. For example, `myIoTEdgeDevice`.
 
-Authorization for IoT hub topics are handled slightly differently than user-defined topics. Here are the key points to remember:
+Authorizations for IoT hub topics are handled slightly differently than user-defined topics. Here are the key points to remember:
 
 - Azure IoT devices or modules need an explicit authorization rule to connect to IoT Edge hub MQTT broker. A default connect authorization policy is provided below.
 - Azure IoT devices or modules can access their own IoT hub topics by default without any explicit authorization rule. However, authorizations stem from parent/child relationships in that case and these relationships must be set. IoT Edge modules are automatically set as children of their IoT Edge device but devices need to explicitly be set as children of their IoT Edge gateway.
@@ -228,7 +228,7 @@ Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI f
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
        ```
     
-       where 3600 is the duration of SAS token in seconds (e.g. 3600 = 1 hour).
+       where 3600 is the duration of SAS token in seconds (for example, 3600 = 1 hour).
     
     - For a module:
     
@@ -236,9 +236,9 @@ Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI f
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
        ```
     
-       where 3600 is the duration of SAS token in seconds (e.g. 3600 = 1 hour).
+       where 3600 is the duration of SAS token in seconds (for example, 3600 = 1 hour).
 
-3. Copy the SAS token which is the value corresponding to the "sas" key from the output. Here is an example output from the Azure CLI command above:
+3. Copy the SAS token, which is the value corresponding to the "sas" key from the output. Here is an example output from the Azure CLI command above:
 
     ```
     {
@@ -325,7 +325,7 @@ mosquitto_sub \
 
 where `<edge_device_address>` = `localhost` in this example since the client is running on the same device as IoT Edge.
 
-Note that port 1883 (MQTT), e.g. without TLS, is used in this first example. Another example with port 8883 (MQTTS), e.g. with TLS enabled, is shown in next section.
+Note that port 1883 (MQTT), without TLS, is used in this first example. Another example with port 8883 (MQTTS), with TLS enabled, is shown in next section.
 
 The **sub_client** MQTT client is now started and is waiting for incoming messages on `test_topic`.
 
@@ -382,7 +382,7 @@ To receive twin patches, a client needs to subscribe to special IoTHub topic `$i
 
 ### Receive direct methods
 
-Receiving a direct method is very similar to receiving full twins with the addition that the client needs to confirm back that it has received the call. First the client subscribe to IoT hub special topic `$iothub/methods/POST/#`. Then once a direct method is received on this topic the client needs to extract the request identifier `rid` from the sub-topic on which the direct method is received and finally publish a confirmation message on IoT hub special topic `$iothub/methods/res/200/<request_id>`.
+Receiving a direct method is similar to receiving full twins with the addition that the client needs to confirm back that it has received the call. First the client subscribes to IoT hub special topic `$iothub/methods/POST/#`. Then once a direct method is received on this topic the client needs to extract the request identifier `rid` from the sub-topic on which the direct method is received and finally publish a confirmation message on IoT hub special topic `$iothub/methods/res/200/<request_id>`.
 
 ### Send direct methods
 
@@ -390,7 +390,7 @@ Sending a direct method is an HTTP call and thus does not go through the MQTT br
 
 ## Publish and subscribe between MQTT brokers
 
-To connect two MQTT brokers, the IoT Edge hub includes a MQTT bridge. A MQTT bridge is commonly used to connect an MQTT broker running to another MQTT broker. Only a subset of the local traffic is typically pushed to another broker.
+To connect two MQTT brokers, the IoT Edge hub includes an MQTT bridge. An MQTT bridge is commonly used to connect an MQTT broker running to another MQTT broker. Only a subset of the local traffic is typically pushed to another broker.
 
 > [!NOTE]
 > The IoT Edge hub bridge can currently only be used between nested IoT Edge devices. It cannot be used to send data to IoT hub since IoT hub is not a full-featured MQTT broker. To learn more IoT hub MQTT broker features support, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md). To learn more about nesting IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices) 
@@ -408,8 +408,8 @@ The MQTT bridge can be configured to connect an IoT Edge hub MQTT broker to mult
 - `settings` defines which topics to bridge for an endpoint. There can be multiple settings per endpoint and the following values are used to configure it:
     - `direction`: either `in` to subscribe to the remote broker's topics or `out` to publish to the remote broker's topics
     - `topic`: core topic pattern to be matched. [MQTT wildcards](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107) can be used to define this pattern. Different prefixes can be applied to this topic pattern on the local broker and remote broker.
-    - `outPrefix`: Prefix that is applied to to the `topic` pattern on the remote broker.
-    - `inPrefix`: Prefix that is applied to to the `topic` pattern on the local broker.
+    - `outPrefix`: Prefix that is applied to the `topic` pattern on the remote broker.
+    - `inPrefix`: Prefix that is applied to the `topic` pattern on the local broker.
 
 Below is an example of an IoT Edge MQTT bridge configuration that republishes all messages received on topics `alerts/#` of a parent IoT Edge device to a child IoT Edge device on the same topics, and republishes all messages sent on topics `/local/telemetry/#` of a child IoT Edge device to a parent IoT Edge device on topics `/remote/messages/#`.
 
@@ -435,7 +435,7 @@ Below is an example of an IoT Edge MQTT bridge configuration that republishes al
 }
 ```
 Other notes on the IoT Edge hub MQTT bridge:
-- The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and that IoT Edge is used in a nested configuration, e.g. with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+- The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and that IoT Edge is used in a nested configuration, for example, with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
 ## Next steps
 
