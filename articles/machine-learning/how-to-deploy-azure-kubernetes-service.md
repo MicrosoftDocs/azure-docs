@@ -15,7 +15,6 @@ ms.date: 09/01/2020
 
 # Deploy a model to an Azure Kubernetes Service cluster
 
-
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
 
 - __Fast response time__
@@ -29,7 +28,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. For information on connecting an AKS cluster to your workspace, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](./how-to-troubleshoot-deployment.md#debug-locally)
+> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](./how-to-troubleshoot-deployment-local.md)
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
