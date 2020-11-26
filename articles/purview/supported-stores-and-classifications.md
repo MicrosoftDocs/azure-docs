@@ -31,6 +31,9 @@ Azure Purview supports the following stores:
 | Cosmos DB                                 | Account Key                                    | UX/Managed Scanning PowerShell            |
 | Azure File Storage                       | Account Key                                    | UX/PowerShell
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+
 ## Defined system classifications
 
 Azure Purview defines the following system classifications. Each classification name is prefixed by MICROSOFT.

@@ -50,6 +50,7 @@ Follow these steps to set up the starter kit client software on your Windows mac
 
 1. [Download the starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
 
+
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
 1. In the PowerShell window, enter the following command, replacing `<path-to-starter-kit>` with the folder path of the extracted starter kit files.

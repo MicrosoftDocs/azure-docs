@@ -128,7 +128,7 @@ Use one of the [Azure IoT device SDKs](#languages-and-sdks) to implement the beh
 
 For more information about the role of device templates, see [What are device templates?](./concepts-device-templates.md).
 
-For some sample code, see [Create and connect a Node.js client application](./tutorial-connect-device-nodejs.md) or [Create and connect a Python client application](./tutorial-connect-device-python.md).
+For some sample code, see [Create and connect a client application](./tutorial-connect-device.md).
 
 ### Languages and SDKs
 
@@ -136,6 +136,6 @@ For more information about the supported languages and SDKs, see [Understand and
 
 ## Next steps
 
-If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md).
+If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
 
 If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Create an Azure IoT Central application](./quick-deploy-iot-central.md).

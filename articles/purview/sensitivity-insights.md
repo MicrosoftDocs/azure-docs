@@ -14,7 +14,7 @@ ms.date: 11/24/2020
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
 
-Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB, SQL Server
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance
 
 In this how-to guide, you'll learn how to:
 
@@ -39,9 +39,11 @@ For more information, see [Use the portal to scan Azure data sources (preview)](
 
 In Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
 
-Sensitivity labels are used to identify classification type categories within your organizational data, as well as the group the policies you want to apply to each category.
+Sensitivity labels enable you to state how sensitive certain data is in your organization. For example, a specific project name might be highly confidential within your organization, while that same term is not confidential to other organizations. 
 
-Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate.
+While classifications are matched directly (a social security number has a classification of **Social Security Number**), sensitivity labels are applied when one or more classifications and scenarios are found together. 
+
+Purview uses the same classifications, also known as sensitive information types, as Microsoft 365. This enables you to extend your existing sensitivity labels across your Azure Purview assets.
 
 **To view sensitivity labeling insights:**
 
@@ -53,14 +55,17 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Purview **Sensitivity labeling insights** report.
 
+    > [!NOTE]
+    > If this report is empty, you may not have extended your sensitivity labels to Azure Purview. For more information, see [Automatically label your content in Azure Purview](create-sensitivity-label.md).
+
    :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights" lightbox="media/insights/sensitivity-labeling-insights.png":::
 
    The main **Sensitivity labeling insights** page displays the following areas:
 
    |Area  |Description  |
    |---------|---------|
-   |**Overview of sources with sensitivity labels**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique sensitivity labels found in your data <br>- The number of labeled sources found <br>- The number of labeled files found <br>- The number of labeled tables found         |
-   |**Top sources with labeled data (last 30 days)**     | Shows the trend, over the past 30 days, of the number of sources found with sensitivity labels.       |
+   |**Overview of sources with sensitivity labels**     |Displays tiles that provide: <br>- The number of subscriptions found in your data. <br>- The number of unique sensitivity labels applied on your data <br>- The number of sources with sensitivity labels applied <br>- The number of files and tables found with sensitivity labels applied|
+   |**Top sources with labeled data (last 30 days)**     | Shows the trend, over the past 30 days, of the number of sources with sensitivity labels applied.       |
    |**Top labels applied across sources**     |Shows the top labels applied across all of your Purview data resources. |
    |**Top labels applied on files**     |Shows the top sensitivity labels applied to files in your data.          |
    |**Top labels applied on tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
