@@ -102,8 +102,7 @@ The first step is to download and sign in to the Azure CLI.
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository and click on **Secrets**, once there, click on **New Repository Secret** name it `AZURE_CREDENTIALS`.
-1. Run the following command on any Azure CLI logged terminal to generate a new username and password so the Action can log in using a Service Principal
+1. From the Azure CLI, run the following command to generate a new username and password.
 
     ```azurecli-interactive
     az ad sp create-for-rbac -o json
@@ -120,6 +119,8 @@ The first step is to download and sign in to the Azure CLI.
       "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
     ```
+
+1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository and click on **Secrets**, once there, click on **New Repository Secret** name it `AZURE_CREDENTIALS`.
 1. Add the entire contents from the output of the previous step where you created a new username and password.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-credential-secret.png" alt-text="Form showing AZURE_CREDENTIALS as secret title, and the output of the executed command pasted as JSON":::
