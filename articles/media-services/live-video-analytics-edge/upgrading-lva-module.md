@@ -28,7 +28,7 @@ When upgrading the Live Video Analytics on IoT Edge module, make sure you update
 ### MCR Image information
 In your deployment template, look for your Live Video Analytics on IoT Edge module under the `modules` node and update the `image` field as:
 ```
-"image": "mcr.microsoft.com/media/live-video-analytics:2",
+"image": "mcr.microsoft.com/media/live-video-analytics:2"
 ```
 > [!TIP]
 If you haven't modified the name of the Live Video Analytics on IoT Edge module, look for `lvaEdge` under the module node.
