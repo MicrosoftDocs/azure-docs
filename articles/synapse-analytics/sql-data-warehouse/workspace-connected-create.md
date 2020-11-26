@@ -33,17 +33,16 @@ The Synapse workspace features can be enabled on any existing dedicated SQL pool
 Follow these steps to create a Synapse workspace for you existing data warehouse.
 1. Select an existing dedicated SQL pool (formerly SQL DW) and open the overview page.
 2. Select **New Synapse workspace** in the top menu bar or the message immediately below.
-:::image type="content" source="media/workspace-connected-overview/workspace-connected-dw-portal-overview-pre-create-step1.png" alt-text="Create workspace button ":::
 3. After reviewing the list of data warehouses that will be made available via the new Synapse workspace on the **Create new Azure Synapse workspace** page. Select **Continue** to proceed.
-> [!NOTE]
-> All dedicated SQL pool (formerly SQL DW) instances hosted on the logical server will be available via the new workspace 
 4. On the Basics page, the existing dedicated SQL pool (the **Project** details section should be pre-populated with the same **Subscription** and **Resource group** that the logical server is deployed under. And under **Workspace details** the **Workspace** name is pre-populated with the same name and region of the SQL logical server to ensure the connection between your new Synapse workspace and the logical server can be created during provisioning process. Post provisioning this connection must be retained to ensure continued access to the dedicated SQL pool (formerly SQL DW) instances via the workspace and Studio.
-:::image type="content" source="media/workspace-connected-overview/workspace-connected-dw-portal-overview-pre-create-basics-page.png" alt-text="Basics page workspace details":::
 5. Navigate to Select Data Lake Storage Gen 2.
 6. Click **Create new** or select an existing **Data Lake Storage Gen2** before then click **Next: Networking**.
 7. Choose a **SQL administrator password** for your **Serverless instance**. Changing this password does not update or change the logical server SQL credentials. If you prefer a system defined password, leave these fields empty. This password can be change at any time within the new workspace. The admin name must be the same used on the SQL Server.
 8. Select your preferred **Networking settings** and click **Review + Create** to start workspace provisioning.
 9. Select **Goto resource** to open your new workspace.
+
+    > [!NOTE]
+    > All dedicated SQL pool (formerly SQL DW) instances hosted on the logical server will be available via the new workspace.
 
 ## Post provisioning steps
 The following steps must be completed to ensure that your existing dedicated SQL pool (formerly SQL DW) instances can be accessed via the Synapse Studio.
@@ -51,7 +50,7 @@ The following steps must be completed to ensure that your existing dedicated SQL
 2. Open **Firewalls and virtual networks** and ensure that your client IP or a predetermined IP range has access to the logical server.
 3. Open **Active Directory admin** and ensure that an AAD admin has been set on the logical server.
 4. Select one of the dedicated SQL pool (formerly SQL DW) instances hosted on the logical server. In the overview page, select **Launch Synapse Studio** or Go to the [Sign in to the Synapse Studio](https://web.azuresynapse.net) and sign in to your workspace.
-:::image type="content" source="media/workspace-connected-overview/workspace-connected-dw-portal-post-create-essentials.png" alt-text="Launch Studio in the dw portal":::
+
 5. Open the **Data hub** and expand the dedicated SQL pool in the Object explorer to ensure that you have access and can query your data warehouse.
 
 ## Next steps

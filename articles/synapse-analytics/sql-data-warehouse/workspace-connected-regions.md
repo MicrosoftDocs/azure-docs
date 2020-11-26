@@ -1,6 +1,6 @@
 ---
 title: Enable Synapse Workspace feature region availability 
-description: This document details the regions where the Synapse workspace feature isn't available yet.   
+description: This document details the regions where the Synapse workspace feature is not available.   
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -12,13 +12,12 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ---
 
-# Synapse workspace region availability for existing dedicated SQL pool (formerly SQL DW)
+# Enabling Synapse workspace features on a dedicated SQL pool (formerly SQL DW) in your region.
 
-The following table summarizes by region when the ability to enable Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW) will be available. Check back to see when your region becomes available.
+## Regions not supported 
+The following table summarizes by region where the ability to enable the Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW) is not supported. Check back to see when your region becomes available.
 
-\* indicates a specific schedule for the region is currently unavailable.
-
-| **Region** | **Synapse workspace availability** |
+| Region | Synapse workspace availability |
 |:--- |:--- |:--- |
 | China East 2 |March 31, 2021 |
 | China North 2 |March 31, 2021 |
@@ -27,7 +26,6 @@ The following table summarizes by region when the ability to enable Synapse work
 | India West |March 31, 2021 |
 | Switzerland West |March 31, 2021 |
 | UAE North |June 1, 2020 |July 1, 2020 |
-
 
 ## Next steps
 Getting started with [Synapse Workspace and Studio](../get-started.md).
