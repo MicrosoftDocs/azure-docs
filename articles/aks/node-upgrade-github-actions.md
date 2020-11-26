@@ -196,6 +196,14 @@ You can run the workflow manually, in addition to the scheduled run, by adding a
           # Code for upgrading one or more node pools
     ```
 
+## Next steps
+
+- See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
+- Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][cluster-upgrades-article].
+- Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
+- Learn more about [system node pools][system-pools]
+- To learn how to save costs using Spot instances, see [add a spot node pool to AKS][spot-pools]
+
 <!-- LINKS - external -->
 [github]: https://github.com
 [profile-repository]: https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-profile/about-your-profile
@@ -207,3 +215,5 @@ You can run the workflow manually, in addition to the scheduled run, by adding a
 [install-azure-cli]: /cli/azure/install-azure-cli
 [managed-node-upgrades-article]: node-image-upgrade.md
 [cluster-upgrades-article]: upgrade-cluster.md
+[system-pools]: use-system-pools.md
+[spot-pools]: spot-node-pool.md
