@@ -39,6 +39,7 @@ This article also assumes you have a [GitHub][github] account to create your act
 
 `cron` is a utility that allows you to run a set of commands, or job, on an automated schedule. To create job to update your AKS nodes on an automated schedule, you'll need a repository to host your actions. Usually, GitHub actions are configured in the same repository as your application, but you can use any repository. For this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username.
 
+1. Navigate to your repository on GitHub
 1. Click on the **Actions** tab at the top of the page.
 1. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, click on the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, click on the **Set up a workflow yourself** link below the description text.
 1. Change the workflow `name` and `on` tags similar to the below. GH Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to run every 15 days at 3am.
@@ -52,7 +53,7 @@ This article also assumes you have a [GitHub][github] account to create your act
         - cron: '0 3 */15 * *'
     ```
 
-    GH Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to twice a month, at every 15 days at 3am.
+    In this schedule, we're telling the workflow to run twice a month (at every 15 days) at 3am.
 
 1. Create a new job using the below. This job is named `upgrade-node`, runs on an Ubuntu agent, and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
 
