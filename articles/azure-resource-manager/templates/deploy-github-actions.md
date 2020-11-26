@@ -152,4 +152,4 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Create your first ARM template](./template-tutorial-create-first-template.md)
