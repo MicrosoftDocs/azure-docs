@@ -41,7 +41,7 @@ This process is better than updating Linux-based kernels manually because Linux 
 
 ## Create a GitHub Action based on `cron`
 
-To create an automated scheduled update, you'll need a repository to host your actions. You can use any repository, for this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username. The best practice is to put these actions inside the same repository as the application living in the cluster.
+`cron` is a utility that allows you to run a set of commands, or job, on an automated schedule. To create job to update your AKS nodes on an automated schedule, you'll need a repository to host your actions. Usually, GitHub actions are configured in the same repository as your application, but you can use any repository. For this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username.
 
 1. Click on the **Actions** tab at the top of the page.
 1. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, click on the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, click on the **Set up a workflow yourself** link below the description text.
