@@ -50,7 +50,9 @@ The diagram below depicts the high-level data flow:
 
 ## Samples
 
-Checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions for **the media graph extensions** on:
+You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp) or at high frame rates with [gRPC extension processor](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp)
+
+For advanced users, you can checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions for **the media graph extensions** on:
 
 * How to create a Docker container image of an extension service
 * How to deploy the extension service as a container along with the Live Video Analytics container
