@@ -100,6 +100,8 @@ If you already have a working App Service certificate, you can:
 
 - [Import the certificate into App Service](#import-certificate-into-app-service).
 - [Manage the certificate](#manage-app-service-certificates), such as renew, rekey, and export it.
+> [!NOTE]
+> App Service Certificates are not supported in Azure National Clouds at this time.
 
 ### Start certificate order
 

@@ -81,11 +81,11 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python SDK
-            url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py  
+            url: /python/api/overview/azure/ml/?view=azure-ml-py
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/azureml/
+            url: /rest/api/azureml/
           - text: Machine learning CLI
-            url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+            url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
 
   # Studio (classic) catchall
   - title: 'Looking for Studio (classic)'
@@ -96,4 +96,3 @@ landingContent:
             url: classic/index.yml
           - text: Studio (classic) vs studio
             url: overview-what-is-machine-learning-studio.md
-

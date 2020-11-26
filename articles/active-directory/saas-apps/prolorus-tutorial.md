@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Prolorus with Azure Active Direc
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Prolorus single sign-on (SSO) enabled subscription.
+* A Prolorus single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.prolorus.app/SAML/AssertionConsumerService`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Prolorus Client support team](mailto:infrastructure@prolorus.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact the [Prolorus Client support team](mailto:infrastructure@prolorus.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -117,11 +117,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Prolorus SSO
 
-To configure single sign-on on **Prolorus** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Prolorus support team](mailto:infrastructure@prolorus.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Prolorus** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to the [Prolorus support team](mailto:infrastructure@prolorus.com). Zipping up the certificate first before sending will ensure it does not get blocked by any e-mail systems. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Prolorus test user
 
-In this section, you create a user called Britta Simon in Prolorus. Work with [Prolorus support team](mailto:infrastructure@prolorus.com) to add the users in the Prolorus platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Prolorus. Work with the [Prolorus support team](mailto:infrastructure@prolorus.com) to add the users in the Prolorus platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -131,10 +131,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to Prolorus Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Prolorus tile in the Access Panel, this will redirect to Prolorus Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. You can use Microsoft Access Panel. When you click the Prolorus tile in the Access Panel, this will redirect to Prolorus Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Prolorus you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Prolorus you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

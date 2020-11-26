@@ -3,10 +3,11 @@ title: How to configure multi-region writes in Azure Cosmos DB
 description: Learn how to configure multi-region writes for your applications by using different SDKs in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
 ---
 
 # Configure multi-region writes in your applications that use Azure Cosmos DB
@@ -16,6 +17,22 @@ Once an account has been created with multiple write regions enabled, you must m
 
 > [!Note]
 > Cosmos accounts initially configured with single write region can be configured to multiple write regions with zero down time. To learn more see, [Configure multiple-write regions](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a id="portal"></a> Azure portal
+
+To enable multi-region writes from Azure portal, use the following steps:
+
+1. Sign-in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to your Azure Cosmos account and from the menu, open the **Replicate data globally** pane.
+
+1. Under the **Multi-region writes** option, choose **enable**. It automatically adds the existing regions to read and write regions.
+
+1. You can add additional regions by selecting the icons on the map or by selecting the **Add region** button. All the regions you add will have both read and writes enabled.
+
+1. After you update the region list, select **save** to apply the changes.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Screenshot to enable multi-region writes using Azure portal" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a id="netv2"></a>.NET SDK v2
 

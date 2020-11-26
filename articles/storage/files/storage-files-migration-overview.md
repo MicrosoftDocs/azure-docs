@@ -129,7 +129,7 @@ This section describes tools that help you plan and run migrations.
 
 #### RoboCopy from Microsoft Corporation
 
-RoboCopy is one of the tools most applicable to file migrations. It comes as part of Windows. The main [RoboCopy documentation](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) is a helpful resource for this tool's many options.
+RoboCopy is one of the tools most applicable to file migrations. It comes as part of Windows. The main [RoboCopy documentation](/windows-server/administration/windows-commands/robocopy) is a helpful resource for this tool's many options.
 
 #### TreeSize from JAM Software GmbH
 

@@ -4,6 +4,7 @@ description: This article describes database transactions and optimistic concurr
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
@@ -60,4 +61,5 @@ Learn more about database transactions and optimistic concurrency control in the
 - [Working with Azure Cosmos databases, containers and items](account-databases-containers-items.md)
 - [Consistency levels](consistency-levels.md)
 - [Conflict types and resolution policies](conflict-resolution-policies.md)
+- [Using TransactionalBatch](transactional-batch.md)
 - [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md)

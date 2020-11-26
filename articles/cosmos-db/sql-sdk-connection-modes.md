@@ -3,10 +3,11 @@ title: Azure Cosmos DB SQL SDK connectivity modes
 description: Learn about the different connectivity modes available on the Azure Cosmos DB SQL SDKs.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, contperfq2
 
 ---
 

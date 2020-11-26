@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: abnarain
 ms.reviewer: craigg
 ---
@@ -517,79 +517,30 @@ The following table applies to Azure Batch.
  
 ## HDInsight
 
-### Error code: 200
-
-- **Message**: `Unexpected error happened: '%error;'.`
-
-- **Cause**: There is an internal service issue.
-
-- **Recommendation**: Contact ADF support for further assistance.
-
-### Error code: 201
-
-- **Message**: `JobType %jobType; is not found.`
-
-- **Cause**: There is a new job type that isn't supported by ADF.
-
-- **Recommendation**: Contact ADF support team for further assistance.
-
-### Error code: 202
-
-- **Message**: `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Cause**: The error message includes the details of what went wrong.
-
-- **Recommendation**: The details of the error message should help you troubleshoot the issue. If there is no enough information, contact ADF support for further help.
-
-### Error code: 203
-
-- **Message**: `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Cause**: The error message includes the details of what went wrong.
-
-- **Recommendation**: The details of the error message should help you troubleshoot the issue. If there is no enough information, contact ADF support for further help.
-
-### Error code: 204
-
-- **Message**: `The resumption token is missing for runId '%runId;'.`
-
-- **Cause**: There is an internal service issue.
-
-- **Recommendation**: Contact ADF support for further assistance.
-
-### Error code: 205
-
-- **Message**: `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **Cause**: There was an error when creating the HDI on-demand cluster.
-
-- **Recommendation**: Contact ADF support for further assistance.
-
 ### Error code: 206
 
-- **Message**: `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Message**: `The batch ID for Spark job is invalid. Please retry your job.`
 
 - **Cause**: There was an internal problem with the service that caused this error.
 
-- **Recommendation**: This issue could be transient. Retry your job, and if the problem persists, contact the ADF support for further assistance.
+- **Recommendation**: This issue could be transient. Retry your job after sometime.
 
 ### Error code: 207
 
-- **Message**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Message**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **Cause**: There was an internal error while trying to determine the region from the primary storage account.
 
-- **Recommendation**: Try another storage. If this option isn't an acceptable solution, contact ADF support team for further assistance.
+- **Recommendation**: Try another storage. 
 
 ### Error code: 208
 
-- **Message**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Message**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
 - **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](../hdinsight/hdinsight-managed-identities.md).
 
-   If this option isn't an acceptable solution, contact ADF support team for further assistance.
 
 ### Error code: 2300
 
@@ -607,7 +558,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: The problem could be either general HDInsight connectivity or network connectivity. First confirm that the HDInsight Ambari UI is available from any browser. Then check that your credentials are still valid.
    
-   If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
+   If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again.
 
    For more information, read [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
@@ -1054,7 +1005,16 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 ## General
 
 ### Activity stuck issue
+
 When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
+
+### Payload is too large
+
+**Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896KB as mentioned in [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) section.
+
+**Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Please check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
 ## Next steps
 

@@ -79,7 +79,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 ## Next steps
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
-- [**Deployment Plan**](https://aka.ms/deploymentplans/sso) - Step-by-step deployment plan.
+- [**Deployment Plan**](../manage-apps/plan-sso-deployment.md) - Step-by-step deployment plan.
 - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
 - [**Frequently Asked Questions**](how-to-connect-sso-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.

@@ -4,6 +4,7 @@ description: Learn how to use the Azure Cosmos DB change feed pull model to read
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020

@@ -205,7 +205,7 @@ In this example, you'll learn how to reference external libraries from JAR files
     ]
 }
 ```
-If you are looking to submit remote Spark job definitions to a Synapse Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
+If you are looking to submit remote Spark job definitions to a serverless Apache Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
 
 ## Next steps
 

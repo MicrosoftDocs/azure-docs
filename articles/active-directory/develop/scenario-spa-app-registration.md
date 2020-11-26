@@ -75,7 +75,4 @@ When all your production single-page applications represented by an app registra
 
 ## Next steps
 
-Next, configure your app's code to use the app registration you created in the previous steps:.
-
-> [!div class="nextstepaction"]
-> [App's code configuration](scenario-spa-app-configuration.md)
+Next, configure your app's code to use the app registration you created in the previous steps: [App's code configuration](scenario-spa-app-configuration.md).

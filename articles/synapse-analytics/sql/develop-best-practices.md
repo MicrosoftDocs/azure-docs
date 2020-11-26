@@ -13,9 +13,10 @@ ms.reviewer: igorstan
 ---
 
 # Development best practices for Synapse SQL
+
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## SQL pool development best practices
+## Dedicated SQL pool development best practices
 
 ### Reduce cost with pause and scale
 
@@ -50,12 +51,12 @@ See the following links for additional details on how selecting a distribution c
 See also [Table overview](develop-tables-overview.md), [Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### Do not over-partition
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on dedicated SQL pool.  
 
 > [!NOTE]
-> Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
+> Often a high granularity partitioning strategy that may work well on SQL Server may not work well on dedicated SQL pool.  
 
-Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL pool partitions your data for you into 60 databases. 
+Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. Dedicated SQL pool partitions your data for you into 60 databases. 
 
 So, if you create a table with 100 partitions, the result will be 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  
 
@@ -90,7 +91,7 @@ See also [Table overview](develop-tables-overview.md), [Table data types](develo
 
 ### Optimize clustered columnstore tables
 
-Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL pool.  By default, tables in SQL pool are created as Clustered ColumnStore.  
+Clustered columnstore indexes are one of the most efficient ways you can store your data in dedicated SQL pool.  By default, tables in dedicated SQL pool are created as Clustered ColumnStore.  
 
 To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
@@ -98,7 +99,7 @@ Segment quality can be measured by number of rows in a compressed Row Group.  Se
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
-Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each SQL pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
+Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each dedicated SQL pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 
 > [!TIP]
 > For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  
@@ -111,23 +112,23 @@ When querying a columnstore table, queries will run faster if you select only th
 
 See also [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [Rebuilding columnstore indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## SQL on-demand development best practices
+## Serverless SQL pool development best practices
 
 ### General considerations
 
-SQL on-demand allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities, meaning that all files that the query targets are external to SQL on-demand. So, everything related to reading files from storage might have an impact on query performance.
+Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities, meaning that all files that the query targets are external to serverless SQL pool. So, everything related to reading files from storage might have an impact on query performance.
 
-### Colocate Azure Storage account and SQL on-demand
+### Colocate Azure Storage account and serverless SQL pool
 
-To minimize latency, colocate your Azure storage account and your SQL on-demand endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
+To minimize latency, colocate your Azure storage account and your serverless SQL pool endpoint. Storage accounts and endpoints provisioned during workspace creation are located in the same region.
 
-For optimal performance, if you access other storage accounts with SQL on-demand, make sure they are in the same region. Otherwise, there will be increased latency for the data's network transfer from the remote region to the endpoint's region.
+For optimal performance, if you access other storage accounts with serverless SQL pool, make sure they are in the same region. Otherwise, there will be increased latency for the data's network transfer from the remote region to the endpoint's region.
 
 ### Azure Storage throttling
 
-Multiple applications and services may access your storage account. When the combined IOPS or throughput generated by applications, services, and SQL on-demand workload exceed the limits of the storage account, storage throttling occurs. When storage throttling occurs, there is a substantial negative effect on query performance.
+Multiple applications and services may access your storage account. When the combined IOPS or throughput generated by applications, services, and serverless SQL pool workload exceed the limits of the storage account, storage throttling occurs. When storage throttling occurs, there is a substantial negative effect on query performance.
 
-Once throttling is detected, SQL on-demand has built-in handling of this scenario. SQL on-demand will make requests to storage at a slower pace until throttling is resolved. 
+Once throttling is detected, serverless SQL pool has built-in handling of this scenario. Serverless SQL pool will make requests to storage at a slower pace until throttling is resolved. 
 
 However, for optimal query execution, it's advised that you not stress the storage account with other workloads during query execution.
 
@@ -135,7 +136,7 @@ However, for optimal query execution, it's advised that you not stress the stora
 
 If possible, you can prepare files for better performance:
 
-- Convert CSV to Parquet – Parquet is columnar format. Since it is compressed, it has smaller file sizes than CSV files with the same data, and SQL on-demand will need less time and storage requests to read it.
+- Convert CSV to Parquet – Parquet is columnar format. Since it is compressed, it has smaller file sizes than CSV files with the same data, and serverless SQL pool will need less time and storage requests to read it.
 - If a query targets a single large file, you will benefit from splitting it to multiple smaller files.
 - Try keeping your CSV file size below 10GB.
 - It is preferred to have equally sized files for a single OPENROWSET path or an external table LOCATION.
@@ -143,17 +144,17 @@ If possible, you can prepare files for better performance:
 
 ### Use fileinfo and filepath functions to target specific partitions
 
-Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. Doing so will reduce the number of files and amount of data the query needs to read and process. 
+Data is often organized in partitions. You can instruct serverless SQL pool to query particular folders and files. Doing so will reduce the number of files and amount of data the query needs to read and process. 
 
 Consequently, you will achieve better performance. For more information, check [filename](query-data-storage.md#filename-function) and [filepath](query-data-storage.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 
-When [querying partitioned Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
+When [querying partitioned Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md) from serverless SQL pool, the query will automatically target only files needed.
 
 ### Use CETAS to enhance query performance and joins
 
-[CETAS](develop-tables-cetas.md) is one of the most important features available in SQL on-demand. CETAS is a parallel operation that creates external table metadata and exports the result of the SELECT query to a set of files in your storage account.
+[CETAS](develop-tables-cetas.md) is one of the most important features available in serverless SQL pool. CETAS is a parallel operation that creates external table metadata and exports the result of the SELECT query to a set of files in your storage account.
 
 You can use CETAS to store often used part of queries, like joined reference tables, to a  new set of files. Later on, you can join to this single external table instead of repeating common joins in multiple queries. 
 
@@ -161,7 +162,7 @@ As CETAS generates Parquet files, statistics will be automatically created when 
 
 ### Next steps
 
-If you need information not provided in this article, use the **Search for doc** function on the left side of this page to search all of the SQL pool documents.  The [Microsoft Q&A question page for SQL pool](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the SQL pool Product Group.  
+If you need information not provided in this article, use the **Search for doc** function on the left side of this page to search all of the SQL pool documents.  The [Microsoft Q&A question page for Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics product group. We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
-We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
+If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

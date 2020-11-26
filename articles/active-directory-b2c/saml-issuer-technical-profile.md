@@ -22,7 +22,7 @@ Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens
 
 ## Protocol
 
-The **Name** attribute of the **Protocol** element needs to be set to `None`. Set the **OutputTokenFormat** element to `SAML2`.
+The **Name** attribute of the **Protocol** element needs to be set to `SAML2`. Set the **OutputTokenFormat** element to `SAML2`.
 
 The following example shows a technical profile for `Saml2AssertionIssuer`:
 

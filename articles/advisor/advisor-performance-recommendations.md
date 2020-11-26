@@ -103,7 +103,7 @@ Advisor detects whether you can increase load performance and throughput by incr
 
 ## Co-locate the storage account in the same region to minimize latency when loading
 
-Advisor detects whether you're loading from a region that's different from your SQL pool. Consider loading from a storage account that's in the same region as your SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
+Advisor detects whether you're loading from a region that's different from your dedicated SQL pool. Consider loading from a storage account that's in the same region as your dedicated SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
 
 ## Use a supported Kubernetes version
 
@@ -141,7 +141,7 @@ Advisor detects Azure Cosmos DB accounts that have traffic from a region that is
 
 ## Configure your Azure Cosmos DB indexing policy by using custom included or excluded paths
 
-Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](/azure/cosmos-db/index-policy)
+Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](../cosmos-db/index-policy.md)
 
 ## Set your Azure Cosmos DB query page size (MaxItemCount) to -1 
 

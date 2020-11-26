@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create a server - Azure PowerShell - Azure Database for MySQL'
 description: This quickstart describes how to use PowerShell to create an Azure Database for MySQL server in an Azure resource group.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart

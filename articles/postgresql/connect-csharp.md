@@ -318,6 +318,16 @@ namespace Driver
 
 ```
 
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using Portal](./howto-create-manage-server-portal.md)<br/>
