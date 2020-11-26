@@ -4,8 +4,8 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/18/2020
-ms.topic: article
+ms.date: 11/25/2020
+ms.topic: how-to
 ms.service: azure
 ---
 
@@ -13,22 +13,22 @@ ms.service: azure
 
 ## Sign in and upload the activation file
 
-After completing Azure Defender for IoT sensor deployment, and the onboarding and network setup, you will be able to:
+After completing Defender for IoT sensor deployment, and the onboarding and network setup, you will be able to:
 
-- sign in to the Azure Defender for IoT sensor console.
+- sign in to the Defender for IoT sensor console.
 
 - Upload an activation file generated for your sensor.
 
 - Start working with your sensor.
 
-Your sensor was onboarded with Azure Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally managed or cloud managed sensor. This is referred to as the sensor management mode.
+Your sensor was onboarded with Azure Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected or cloud connected sensor. This is referred to as the sensor management mode.
 
-|                       |                             |
-|------- | --------|
-| **Cloud Managed Mode** | Information detected by the sensor is displayed in the sensor console. Alert information is also delivered through the IoT Hub and can be shared with other Azure services. For example, Azure Sentinel. |
-| **Locally Managed Mode** | Information detected by the sensor is displayed in the sensor's console. Detection information is also shared with the on-premise management console if the sensor is connected to it. |
+| Mode type | Description |
+|--|--|
+| **Cloud connected mode** | Information detected by the sensor is displayed in the sensor console. Alert information is also delivered through the IoT Hub and can be shared with other Azure services. For example, Azure Sentinel. |
+| **Locally connected mode** | Information detected by the sensor is displayed in the sensor's console. Detection information is also shared with the on-premise management console if the sensor is connected to it. |
 
-During the onboarding process, a locally managed or cloud managed activation file was generated for this sensor. First time sign ins need to upload the relevant activation file for this sensor. The file needs to be uploaded only once in order for it to start working.
+During the onboarding process, a locally connected or cloud connected activation file was generated for this sensor. First time sign ins need to upload the relevant activation file for this sensor. The file needs to be uploaded only once in order for it to start working.
 
 ### First time sign in and preliminary setup
 
@@ -71,10 +71,6 @@ To log in for the first time:
 5. Accept the terms and conditions.
 
 6. Select **Activate**.
-
-    See [Activation File Upload Troubleshooting](./activation-files.md) if you activation file was not validated.
-
-    See [Activation Files](./activation-files.md) for details about:
 
       - Activation expiration periods
 

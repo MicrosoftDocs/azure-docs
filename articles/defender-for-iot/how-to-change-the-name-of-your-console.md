@@ -1,11 +1,11 @@
 ---
 title: Change the name of your console
-description: This description is a filler and needs to be replaced
+description: Customize the name of your sensor.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/19/2020
-ms.topic: article
+ms.date: 11/25/2020
+ms.topic: how-to
 ms.service: azure
 ---
 
@@ -13,7 +13,7 @@ ms.service: azure
 
 ## Change the sensor name
 
-This article describes how to customize the name of your sensor. This option is available if you registered your sensor in the Azure Defender for IOT portal as a locally managed sensor.
+This article describes how to customize the name of your sensor. This option is available if you registered your sensor in the Defender for IOT portal as a locally connected sensor.
 
 The name appears in the web browser, in various console windows, and in the on-premises management console, site, and enterprise views. The default name is management console. We recommended you create unique names for your sensors.
 
@@ -21,21 +21,21 @@ To change the name:
 
 1. In the bottom of the left pane of the console, select the current sensor label.
 
-   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/label-name.png" alt-text="sensor label":::
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/label-name.png" alt-text="Sensor label name":::
 
-2. In the **Edit Sensor Name** dialog box, enter a name and select **Save**. The new name is applied.
+2. In the edit sensor name dialog box, enter a name and select **Save**. The new name is applied.
 
-## Sensor name change for cloud-managed sensors
+## Sensor name change for cloud connected sensors
 
-If your sensor was registered as a cloud-managed sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file you uploaded when signing in for the first time. If you want to change the name of the sensor, you need to upload a new activation file.
+If your sensor was registered as a cloud connected sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file you uploaded when signing in for the first time. If you want to change the name of the sensor, you need to upload a new activation file.
 
-To change the name of a cloud-managed sensor:
+To change the name of a cloud connected sensor:
 
-1. Navigate to the Azure Defender for IoT portal, **Sensor Management** page.
+1. Navigate to the Defender for IoT portal, sensor management page.
 
-2. Delete the sensor from the **Sensor Management** window.
+2. Delete the sensor from the sensor management window.
 
-3. Re-register with the new name.
+3. Reregister with the new name.
 
 ## Changing the on-premises management console name
 
@@ -45,11 +45,13 @@ You can change the on-premises management console name.
 
 1. In the bottom of the left pane, select the current name.
 
-    :::image type="content" source="media/how-to change-the-name-of-your-azure-consoles/console-name.png" alt-text="Screenshot of Central Manager Version":::
+  :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/console-name.png" alt-text="Screenshot of the on-premises management console version":::
 
-2. In the Edit management console configuration dialog box, type the new name. The name cannot be longer than 25 characters.
+2. In the edit management console configuration dialog box, type the new name. The name cannot be longer than 25 characters.
 
-    :::image type="content" source="media/how-to change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Screenshot of Editing CyberX Platform Configuration":::
+    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Screenshot of editing the Defender for IoT platform configuration":::
 
 3. Select **Save**. The new name appears.
-    :::image type="content" source="media/how-to change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Changed name of console":::
+
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Changed name of the console":::    
+

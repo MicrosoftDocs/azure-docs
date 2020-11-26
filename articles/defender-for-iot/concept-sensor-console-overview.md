@@ -1,11 +1,10 @@
 ---
 title: Sensor console overview
-description: 
+description: Use the console's features to gain visibility and insight into your network.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 11/24/2020
-ms.topic: article
 ms.service: azure
 ms.topic: conceptual
 ---
