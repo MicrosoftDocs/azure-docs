@@ -31,11 +31,11 @@ This report is meant for the data stewards who are responsible for creating and 
 ### Labeling Insights
 
 
-## Glossary vs classification vs sensitivity labels Insights
+### Glossary vs classification vs sensitivity labels Insights
 
 
 
 ## Next steps
 
-- [Tutorial on how to view Insights in Purview](starter-kit-tutorial-6.md)
+[Tutorial on how to view Insights in Purview](starter-kit-tutorial-6.md)
 
