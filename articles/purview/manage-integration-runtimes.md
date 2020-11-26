@@ -13,17 +13,6 @@ ms.date: 11/16/2020
 
 This article describes how to create and manage a self-hosted integration runtime (SHIR) to assist in scanning data sources.
 
-## Prerequisites
-
-> [!Note]
-> The features in this article require a Purview account created after 9/15/2020.
-
-### Feature Flag
-
-To create and manage an SHIR, please append the following to your URL: `?feature.ext.datasource={%22sqlServer%22:%22true%22}`. The full URL may look something like this:
-
-`https://web.babylon.azure.com/?feature.ext.datasource={%22sqlServer%22:%22true%22}`
-
 ## Create a self-hosted integration runtime
 
 1. On the home page of Purview Studio, select **Management Center** from the left navigation pane.

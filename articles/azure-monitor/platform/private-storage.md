@@ -10,7 +10,7 @@ ms.date: 09/03/2020
 
 # Using customer-managed storage accounts in Azure Monitor Log Analytics
 
-Log Analytics relies on Azure Storage in a variety of scenarios. This use is typically managed automatically. However, some cases require you to provide and manage your own storage account, also referred to as a customer-managed storage account. This document details the usage of customer-managed storage for the ingestion of WAD/LAD logs, Private Link specific scenarios, and CMK encryption. 
+Log Analytics relies on Azure Storage in a variety of scenarios. This use is typically managed automatically. However, some cases require you to provide and manage your own storage account, also referred to as a customer-managed storage account. This document details the usage of customer-managed storage for the ingestion of WAD/LAD logs, Private Link specific scenarios, and customer-managed key (CMK) encryption. 
 
 > [!NOTE]
 > We recommend that you don’t take a dependency on the contents Log Analytics uploads to customer-managed storage, given that formatting and content may change.
@@ -62,7 +62,7 @@ Azure Storage encrypts all data at rest in a storage account. By default, it enc
 The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Storage encryption and key management, see [Azure Storage encryption for data at rest](../../storage/common/storage-service-encryption.md).
 
 ##### Apply CMK to your storage accounts
-To configure your Azure Storage account to use customer-managed keys with Azure Key Vault, use the [Azure portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) or the [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
+To configure your Azure Storage account to use customer-managed keys with Azure Key Vault, use the [Azure portal](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [PowerShell](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or the [CLI](../../storage/common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## Managing linked storage accounts
 

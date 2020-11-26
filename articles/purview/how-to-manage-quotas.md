@@ -6,7 +6,7 @@ author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/12/2020
 ---
 
@@ -25,7 +25,7 @@ Azure Purview is a  cloud service for use by data users. You use Azure Purview t
 |API Calls, per account|10M APIs/ month for 4 CUs platform size. 40M APIs/month for 16 CUs platform size|10M APIs/ month for 4 CUs platform size.40M APIs/month for 16 CUs platform size|
 |Storage, per account|10 GB for 4 CUs platform size. 40 GB for 16 CUs platform size |10 GB for 4 CUs platform size. 40 GB for 16 CUs platform size |
 |Size of assets per account|100M physical assets |Contact Support|
-|Maximum size of an asset|2 MB|2 MB|
+|Maximum size of an unstructured asset|2 MB|2 MB|
 |Maximum length of an asset name and classification name|4 KB|4 KB|
 |Maximum length of asset property name and value|32 KB|32 KB|
 |Maximum length of classification attribute name and value|32 KB|32 KB|
