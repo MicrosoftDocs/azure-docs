@@ -50,25 +50,18 @@ In Azure Purview, you can create glossary terms and attach them to assets. Later
 1. In the **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area, select **Glossary** to display the Purview **Glossary insights** report.
 
 The **Glossary Insights** page displays the following areas:
-- **High level KPI's to show glossary terms and catalog users**
+1. **High level KPIs** to show glossary terms and catalog users
 
-- **Top glossary terms and count of assets** 
+2. **Top glossary terms and count of assets** shows the tops 5 glossary terms with assets attached to them. All other assets are accounted in "Other" category in the graph.
 
-- View the tops 5 glossary terms with assets attached to them. All other assets are accounted in "Other" category in the graph.
- 
-- **Glossary terms by term status**
+3. **Glossary terms by term status** shows distribution of glossary terms by status such as "Draft", "Approved", "Alert" and "Expired". 
 
-- View distribution of glossary terms by status such as "Draft", "Approved", "Alert" and "Expired". Hover or click on the slice of the graph with a status and note the count of terms with that status.
+1. Hover or click on the slice of the graph with a status and note the count of terms with that status.
 
-- **Distribution of roles by number of users**
+1. **Distribution of roles by number of users** shows distribution of roles by number of users per role in Purview.
 
-- View distribution of roles by number of users per role in Purview.
+   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="View your insights in the Azure portal":::
 
 ## Next steps
 
-Learn more about Azure Purview insight reports
-> [!div class="nextstepaction"]
-> [Asset Insights](./asset-insights.md)
-
-> [!div class="nextstepaction"]
-> [Scan Insights](scan-insights.md)
+Learn more about Azure Purview insight reports through [Asset Insights](/asset-insights.md)
