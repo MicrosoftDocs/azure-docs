@@ -86,7 +86,6 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RU/s per container | 5,000 |
 | Maximum RU/s per (logical) partition | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |

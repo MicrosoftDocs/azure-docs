@@ -44,6 +44,9 @@ On the **Register sources (Azure Blob Storage)** screen, do the following:
 
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="register sources options" border="true":::
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+
 ## Set up authentication for a scan
 
 There are four ways to set up authentication for Azure blob storage:
