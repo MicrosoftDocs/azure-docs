@@ -128,61 +128,7 @@ The first step is to download and sign in to the Azure CLI.
 
 ## Execute Azure Commands
 
-Now that you added the login step, your CLI will be logged to your Azure account and ready to receive new commands. You'll create two steps to execute Azure CLI commands in sequence.
-
-### Install preview extension
-
-1. Go back to the marketplace **search page** on the right-hand side of the screen and type *"Azure CLI Action"*. And click on the first result made **by Azure**
-
-    :::image type="content" source="media/node-upgrade-github-actions/azure-cli-action.png" alt-text="Search result for 'Azure CLI Action' with first result being shown as made by Azure":::
-
-1. As you did with the previous steps, copy the contents of the action the main editor below the last step, you'll have a file similar to the file below.
-
-    ```yml
-        name: Upgrade cluster node images
-
-    on:
-      schedule:
-        - cron: '0 3 */15 * *'
-
-    jobs:
-      upgrade-node:
-        runs-on: ubuntu-latest
-
-        steps:
-          - name: Azure Login
-            uses: Azure/login@v1.1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-          - name: Install preview plugin
-            uses: Azure/cli@v1.0.0
-            with:
-              inlineScript:
-    ```
-
-1. The first script you need to execute is the script to add the `aks-preview` plugin to the CLI.
-
-    ```yml
-        name: Upgrade cluster node images
-
-    on:
-      schedule:
-        - cron: '0 3 */15 * *'
-
-    jobs:
-      upgrade-node:
-        runs-on: ubuntu-latest
-
-        steps:
-          - name: Azure Login
-            uses: Azure/login@v1.1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-          - name: Install preview plugin
-            uses: Azure/cli@v1.0.0
-            with:
-              inlineScript: az extension add --name aks-preview
-    ```
+Now that you added the login step, your CLI will be logged to your Azure account and ready to receive new commands. You'll create the steps to execute Azure CLI commands.
 
 ### Upgrade All Node Pools
 
@@ -206,10 +152,6 @@ If you want to upgrade all node pools in a cluster at once, there's no need to s
             uses: Azure/login@v1.1
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
-          - name: Install preview plugin
-            uses: Azure/cli@v1.0.0
-            with:
-              inlineScript: az extension add --name aks-preview
           - name: Upgrade node images
             uses: Azure/cli@v1.0.0
             with:
@@ -248,10 +190,6 @@ Specifying a node pool is useful when creating upgrades on production nodes that
             uses: Azure/login@v1.1
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
-          - name: Install preview plugin
-            uses: Azure/cli@v1.0.0
-            with:
-              inlineScript: az extension add --name aks-preview
           - name: Upgrade node images
             uses: Azure/cli@v1.0.0
             with:
@@ -287,10 +225,6 @@ You can run the workflow manually, in addition to the scheduled run, by adding a
             uses: Azure/login@v1.1
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
-          - name: Install preview plugin
-            uses: Azure/cli@v1.0.0
-            with:
-              inlineScript: az extension add --name aks-preview
 
           # Code for upgrading one or more node pools
     ```
