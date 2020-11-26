@@ -102,7 +102,7 @@ The first step is to download and sign in to the Azure CLI.
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. **In a new tab** open the **Settings** tab of the repository and click on **Secrets**, once there, click on **New Repository Secret** name it `AZURE_CREDENTIALS`.
+1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository and click on **Secrets**, once there, click on **New Repository Secret** name it `AZURE_CREDENTIALS`.
 1. Run the following command on any Azure CLI logged terminal to generate a new username and password so the Action can log in using a Service Principal
 
     ```azurecli-interactive
