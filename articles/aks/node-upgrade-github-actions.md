@@ -12,7 +12,7 @@ ms.date: 11/28/2020
 
 # Apply security updates to Azure Kubernetes Service (AKS) nodes automatically using GitHub Actions
 
-Security updates are a key part of maintaining your AKS cluster secure and compliant with the latest fixes for the underlying OS. These updates include OS security fixes or kernel updates, some of these updates require a node reboot to complete the process.
+Security updates are a key part of maintaining your AKS cluster's security and compliance with the latest fixes for the underlying OS. These updates include OS security fixes or kernel updates. Some updates require a node reboot to complete the process.
 
 AKS itself doesn't automatically reboot these Linux nodes to complete the update, however, this isn't needed if you use the native Azure CLI command `az aks upgrade` with `--node-image-only`. This command will automatically apply the latest security fixes on both Windows or Linux nodes, automatically draining and cordoning these nodes so your application doesn't suffer from downtime.
 
