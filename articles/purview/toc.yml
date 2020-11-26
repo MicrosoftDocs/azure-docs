@@ -69,6 +69,9 @@ items:
       items:
       - name: Manage data sources
         href: manage-data-sources.md
+      - name: Manage Credentials
+        href: manage-credentials.md
+        displayName: Create and manage Credentials
       - name: Purview connectors overview
         href: purview-connector-overview.md
       - name: Azure Blob Storage
@@ -86,9 +89,6 @@ items:
       - name: Azure Data Lake Storage Gen 2
         href: register-scan-adls-gen2.md
         displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
-      - name: Azure Files
-        href: register-scan-azure-files-storage-source.md
-        displayName: Register and scan Azure files
       - name: Azure SQL DB with a firewall
         href: scan-sqlresource-firewall.md
         displayName: Register and scan Azure SQL DB with a firewall
@@ -148,8 +148,6 @@ items:
       href: catalog-private-end-point.md
   - name: Insights
     items:
-    - name: View asset insights
-      href: asset-insights.md 
     - name: View scan insights
       href: scan-insights.md 
     - name: View classification insights
