@@ -106,8 +106,10 @@ For more information, see [Automatically label your data in Azure Purview](creat
 
 Learn more about Azure Purview insight reports
 > [!div class="nextstepaction"]
-> [Map and discover insights](./map-discover.md)
+> [Glossary insights](glossary-insights.md)
 
+> [!div class="nextstepaction"]
+> [Scan insights](scan-insights.md)
 
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)

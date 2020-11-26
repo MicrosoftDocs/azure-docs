@@ -91,6 +91,12 @@ To sort the grid, select a column header to sort by that column.
 
 Learn more about Azure Purview insight reports
 > [!div class="nextstepaction"]
+> [Glossary insights](glossary-insights.md)
+
+> [!div class="nextstepaction"]
+> [Scan insights](scan-insights.md)
+
+> [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
 
 > [!div class="nextstepaction"]

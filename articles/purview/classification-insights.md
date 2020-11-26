@@ -91,7 +91,10 @@ Do any of the following to learn more:
 
 Learn more about Azure Purview insight reports
 > [!div class="nextstepaction"]
-> [Map and discover insights](./map-discover.md)
+> [Glossary insights](glossary-insights.md)
+
+> [!div class="nextstepaction"]
+> [Scan insights](scan-insights.md)
 
 > [!div class="nextstepaction"]
 > [Sensitivity labeling insights](./sensitivity-insights.md)

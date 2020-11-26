@@ -213,9 +213,6 @@ For example:
 Find insights on your classified and labeled data in Azure Purview using the **Classification** and **Sensitivity labeling** reports.
 
 > [!div class="nextstepaction"]
-> [Map and discover insights](./map-discover.md)
-
-> [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
 
 > [!div class="nextstepaction"]
