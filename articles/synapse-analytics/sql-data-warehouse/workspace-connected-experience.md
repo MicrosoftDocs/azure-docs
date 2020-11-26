@@ -30,7 +30,8 @@ The following information will apply when using a dedicated SQL DW (formerly SQL
     CREATE USER [<workspace managed identity] FROM EXTERNAL PROVIDER 
     GRANT CONTROL ON DATABASE:: <dedicated SQL pool name> TO [<workspace managed identity>
     ```
-> [!NOTE] The connected workspace Synapse Studio will display the names of dedicated pools based on the permissions the user has in Azure. Objects under the pools will not be accessible if the user does not have permissions on the SQL pools. 
+> [!NOTE] 
+> The connected workspace Synapse Studio will display the names of dedicated pools based on the permissions the user has in Azure. Objects under the pools will not be accessible if the user does not have permissions on the SQL pools. 
 
 - **Network security** If the Synapse workspace you enabled on your existing dedicated SQL pool (formerly SQL DW) is enabled for data infiltration protection. Create a managed private endpoint connection from the workspace to the logical SQL server. Approve the private endpoint connection request to allow communications between the server and workspace.
 - **Studio** SQL pools in the **Data hub** A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub. 
