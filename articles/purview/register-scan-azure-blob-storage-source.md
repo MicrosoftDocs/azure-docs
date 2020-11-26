@@ -15,12 +15,12 @@ This article outlines how to register an Azure Blob Storage account in Purview a
 
 ## Supported capabilities
 
-Azure Blob Storage supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications.
+Azure Blob Storage supports full and incremental scans to capture the metadata and schema. It also classifies the data automatically based on system and custom classification rules.
 
 ## Prerequisites
 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- You need to be a Catalog Admin or Data Source Admin 
+- You need to be an Azure Purview Data Source Admin
 
 ### Set up authentication for a scan
 
