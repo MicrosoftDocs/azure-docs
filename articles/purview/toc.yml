@@ -148,8 +148,8 @@ items:
       href: catalog-private-end-point.md
   - name: Insights
     items:
-    - name: Map and discover insights
-      href: map-discover.md
+    - name: View scan insights
+      href: scan-insights.md 
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
