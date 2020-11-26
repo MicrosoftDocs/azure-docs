@@ -89,7 +89,7 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 After these configuration steps, your personal repo is available when you set up Git integration in the Synapse Studio.
 
-For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Connect with GitHub 
 
