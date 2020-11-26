@@ -19,7 +19,7 @@ AKS itself doesn't automatically reboot these Linux nodes to complete the update
 > [!NOTE]
 > The main difference between `az aks upgrade` when used with the `--node-image-only` flag is that, when it's used, only the node images will be upgraded. If omitted, both the node images and the Kubernetes control plane version will be upgraded. You can check [the docs for managed upgrades on nodes][managed-node-upgrades-article] and [the docs for cluster upgrades][cluster-upgrades-article] for more in-depth information.
 
-This article shows you how you can automate the update process of AKS nodes. You'll create GitHub Actions and Azure CLI to create a cron-based update that runs automatically without human intervention.
+This article shows you how you can automate the update process of AKS nodes. You'll use GitHub Actions and Azure CLI to create an update task based on `cron` that runs automatically.
 
 ## Before you begin
 
