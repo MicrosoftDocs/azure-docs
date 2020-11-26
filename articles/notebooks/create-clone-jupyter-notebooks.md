@@ -1,5 +1,5 @@
 ---
-title: Create and clone Jupyter notebooks - Azure Notebooks Preview
+title: Create and clone Jupyter Notebooks - Azure Notebooks Preview
 description: Azure Notebooks Preview projects manage a collection of notebooks and related files, which you can create new or clone from another source.
 ms.topic: how-to
 ms.date: 02/25/2019
@@ -9,7 +9,7 @@ ms.date: 02/25/2019
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Azure Notebooks organizes your Jupyter notebooks and related files into logical groups called *projects*. You create a project first as a container, then create or clone one or more notebooks within a folder alongside other project files. (This process is demonstrated in the [tutorial](tutorial-create-run-jupyter-notebook.md).)
+Azure Notebooks organizes your Jupyter Notebooks and related files into logical groups called *projects*. You create a project first as a container, then create or clone one or more notebooks within a folder alongside other project files. (This process is demonstrated in the [tutorial](tutorial-create-run-jupyter-notebook.md).)
 
 A project also maintains metadata and other configuration settings that affect the server on which notebooks run, including custom setup steps and package installation. For more information, see [Manage and configure projects](configure-manage-azure-notebooks-projects.md).
 
@@ -101,7 +101,7 @@ You can easily import an entire public GitHub repo as a project including any da
 
 | Field | Description |
 | --- | --- |
-| GitHub repository | The name of the source repository on github.com. For example, to clone the Jupyter notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), enter "Microsoft/cognitive-services-notebooks".  |
+| GitHub repository | The name of the source repository on github.com. For example, to clone the Jupyter Notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), enter "Microsoft/cognitive-services-notebooks".  |
 | Clone recursively | GitHub repositories can contain multiple child repositories. Set this option if you want to clone the parent repository and all its children. Because it's possible for a repository to have many children, leave this option clear unless you know you need it. |
 | Project name | A friendly name for your project that Azure Notebooks uses for display purposes. |
 | Project ID | A custom identifier that becomes part of the URL you use to share a project (the form is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). This ID can use only letters, numbers, and hyphens, is limited to 30 characters, and cannot be a [reserved project ID](#reserved-project-ids). If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
