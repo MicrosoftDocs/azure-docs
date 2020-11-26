@@ -78,13 +78,15 @@ For more information, see:
 
 MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
 
-If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/enterprise/e5).
+If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
 
 ### Extending sensitivity labels to Azure Purview
 
 By default, MIP sensitivity labels are only available for assets in Microsoft 365, where you can apply them to files and emails.
 
 To apply MIP sensitivity labels to Azure assets in Azure Purview, you must explicitly consent to extending the labels, and select the specific labels that you want to be available in Purview.
+
+By extending MIP’s sensitivity labels with Azure Purview, organizations can now discover, classify and get insight into sensitivity across a broader range of data sources, minimizing compliance risk.
 
 > [!NOTE]
 > Since Microsoft 365 and Azure Purview are separate services, there is a possibility that they will be deployed in different regions. Label names and custom sensitive information type names are considered to be customer data, and are kept within the same GEO location by default to protect the sensitivity of your data and to avoid GDPR laws.
