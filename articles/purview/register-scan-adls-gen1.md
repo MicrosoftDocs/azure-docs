@@ -13,6 +13,9 @@ ms.date: 11/17/2020
 
 This article outlines how to register Azure Data Lake Storage Gen1 as data source in Azure Purview and set up a scan on it.
 
+> [!Note]
+> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/services/storage/data-lake-storage/).
+
 ## Supported capabilities
 
 The Azure Data Lake Storage Gen1 data source supports the following functionality:
@@ -24,31 +27,6 @@ The Azure Data Lake Storage Gen1 data source supports the following functionalit
 ## Prerequisites
 
 Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-
-## Register Azure Data Lake Storage Gen1 data source
-
-To register a new ADLS Gen1 account in your data catalog, do the following:
-
-1. Navigate to your Purview Data Catalog.
-1. Select **Management center** on the left navigation.
-1. Select **Data sources** under **Sources and scanning**.
-1. Select **+ New**.
-1. On **Register sources**, select **Azure Data Lake Storage Gen1**. Select **Continue**.
-
-:::image type="content" source="media/register-scan-adls-gen1/register-new-data-source.png" alt-text="register new data source" border="true":::
-
-On the **Register sources (Azure Data Lake Storage Gen1)** screen, do the following:
-
-1. Enter a **Name** that the data source will be listed with in the Catalog. 
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Data Lake Store account name** drop down box.
-   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
-1. **Finish** to register the data source.
-
-:::image type="content" source="media/register-scan-adls-gen1/register-sources.png" alt-text="register sources options" border="true":::
-
-> [!Note]
-> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
 
 ## Setting up authentication for a scan
 
@@ -129,6 +107,28 @@ To use a service principal, you must first create one following these steps:
 1. Copy the values from both the display name and the application ID.
 
 1. Add your service principal to a role on the data stores that you would like to scan. You do this step in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md).
+
+## Register Azure Data Lake Storage Gen1 data source
+
+To register a new ADLS Gen1 account in your data catalog, do the following:
+
+1. Navigate to your Purview Data Catalog.
+1. Select **Management center** on the left navigation.
+1. Select **Data sources** under **Sources and scanning**.
+1. Select **+ New**.
+1. On **Register sources**, select **Azure Data Lake Storage Gen1**. Select **Continue**.
+
+:::image type="content" source="media/register-scan-adls-gen1/register-new-data-source.png" alt-text="register new data source" border="true":::
+
+On the **Register sources (Azure Data Lake Storage Gen1)** screen, do the following:
+
+1. Enter a **Name** that the data source will be listed with in the Catalog. 
+1. Choose how you want to point to your desired storage account:
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Data Lake Store account name** drop down box.
+   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
+1. **Finish** to register the data source.
+
+:::image type="content" source="media/register-scan-adls-gen1/register-sources.png" alt-text="register sources options" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

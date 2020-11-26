@@ -25,29 +25,7 @@ The Azure Data Lake Storage Gen2 data source supports the following functionalit
 
 Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
 
-## Register Azure Data Lake Storage Gen2 data source
-
-To register a new ADLS Gen2 account in your data catalog, do the following:
-
-1. Navigate to your Purview Data Catalog.
-1. Select **Management center** on the left navigation.
-1. Select **Data sources** under **Sources and scanning**.
-1. Select **+ New**.
-1. On **Register sources**, select **Azure Data Lake Storage Gen2**. Select **Continue**.
-
-:::image type="content" source="media/register-scan-adls-gen2/register-new-data-source.png" alt-text="register new data source" border="true":::
-
-On the **Register sources (Azure Data Lake Storage Gen2)** screen, do the following:
-
-1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Data Lake Store account name** drop down box.
-   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
-1. **Finish** to register the data source.
-
-:::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="register sources options" border="true":::
-
-## Setting up authentication for a scan
+### Setting up authentication for a scan
 
 The following authentication methods are supported for Azure Data Lake Storage Gen2:
 
@@ -55,13 +33,13 @@ The following authentication methods are supported for Azure Data Lake Storage G
 - Service principal
 - Account Key
 
-### Authentication using the Data Catalog's MSI
+#### Authentication using the Data Catalog's MSI
 
 For ease and security, you may want to use the Catalog's Managed Service Identity (MSI) to authenticate with your data store.
 
 To set up a scan using the Data Catalog's Managed Identity, you must *first* give it permissions (meaning add the identity to the correct role) to whatever resources you are trying to scan. This step must be done *before* you set up your scan or your scan will fail.
 
-### Adding the catalog MSI to an Azure Data Lake Gen2 account
+#### Adding the catalog MSI to an Azure Data Lake Gen2 account
 
 You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
@@ -101,13 +79,16 @@ You can add the Catalog's MSI at the Subscription, Resource Group, or Resource l
 
 After about 15 minutes, the catalog should have the appropriate permissions to be able to scan the resource(s).
 
-### Authentication using account key
+#### Authentication using account key
 
 If you choose to use the account key for authorization, use the Azure portal to search for your data source, and select **Settings** > **Access keys**, copy the first key in the list.
 
-### Authentication using service principal
+#### Authentication using service principal
 
 To use a service principal, you must first create one, by following these steps:
+
+> [!Note]
+> You can find out more information about how to register an app via [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
 
 1. Navigate to [Azure portal](https://portal.azure.com).
 
@@ -131,6 +112,31 @@ only - Single Tenant)**.
 1. Add your service principal to a role on the data stores that you would like to scan. Do this in the Azure portal.
 
    For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md).
+
+   > [!Note]
+   > This step is important because Purview will need access to **Microsoft APIs** for **Azure Storage** with `user_impersonation` permission. Otherwise your scan will fail.
+
+## Register Azure Data Lake Storage Gen2 data source
+
+To register a new ADLS Gen2 account in your data catalog, do the following:
+
+1. Navigate to your Purview Data Catalog.
+1. Select **Management center** on the left navigation.
+1. Select **Data sources** under **Sources and scanning**.
+1. Select **+ New**.
+1. On **Register sources**, select **Azure Data Lake Storage Gen2**. Select **Continue**.
+
+:::image type="content" source="media/register-scan-adls-gen2/register-new-data-source.png" alt-text="register new data source" border="true":::
+
+On the **Register sources (Azure Data Lake Storage Gen2)** screen, do the following:
+
+1. Enter a **Name** that the data source will be listed with in the Catalog.
+1. Choose how you want to point to your desired storage account:
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Data Lake Store account name** drop down box.
+   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
+1. **Finish** to register the data source.
+
+:::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="register sources options" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
