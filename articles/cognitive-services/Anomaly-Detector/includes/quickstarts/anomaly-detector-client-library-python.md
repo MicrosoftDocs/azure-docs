@@ -18,7 +18,7 @@ Use the Anomaly Detector client library for Python to:
 * Detect the anomaly status of the latest data point in your time series
 * Detect trend change points in your data set.
 
-[Library reference documentation](https://go.microsoft.com/fwlink/?linkid=2090370) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/) | [Find the sample code on GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
+[Library reference documentation](https://go.microsoft.com/fwlink/?linkid=2090370) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/) | [Find the sample code on GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector/samples)
 
 ## Prerequisites
 
