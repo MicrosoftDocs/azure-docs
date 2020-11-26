@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to update AKS nodes using GitHub Actions
 services: container-service
 ms.topic: article
-ms.date: 11/28/2020
+ms.date: 11/27/2020
 
 
 #Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
@@ -14,10 +14,16 @@ ms.date: 11/28/2020
 
 Security updates are a key part of maintaining your AKS cluster's security and compliance with the latest fixes for the underlying OS. These updates include OS security fixes or kernel updates. Some updates require a node reboot to complete the process.
 
-AKS itself doesn't automatically reboot these Linux nodes to complete the update, however, this isn't needed if you use the native Azure CLI command `az aks upgrade` with `--node-image-only`. This command will automatically apply the latest security fixes on both Windows or Linux nodes, automatically draining and cordoning these nodes so your application doesn't suffer from downtime.
+Running `az aks upgrade` gives you a zero downtime way to apply updates. The command handles applying the latest updates to all your cluster's nodes, cordoning and draining traffic to the nodes, and restarting the nodes, then allowing traffic to the updated nodes. If you update your nodes using a different method, AKS will not automatically restart your nodes.
 
 > [!NOTE]
 > The main difference between `az aks upgrade` when used with the `--node-image-only` flag is that, when it's used, only the node images will be upgraded. If omitted, both the node images and the Kubernetes control plane version will be upgraded. You can check [the docs for managed upgrades on nodes][managed-node-upgrades-article] and [the docs for cluster upgrades][cluster-upgrades-article] for more in-depth information.
+
+All Kubernetes' nodes run in a standard Azure virtual machine (VM). These VMs can be Windows or Linux-based. The Linux-based VMs use an Ubuntu image, with the OS configured to automatically check for updates every night.
+
+When you use the `az aks upgrade` command, Azure CLI creates a surge of new nodes with the latest security and kernel updates, these nodes are initially cordoned to prevent any apps from being scheduled to them until the update is finished. After completion, Azure cordons and drains the older nodes and uncordon the new ones, effectively transferring all the scheduled applications to the new nodes.
+
+This process is better than updating Linux-based kernels manually because Linux requires a reboot when a new kernel update is installed. If you update the OS manually, you also need to reboot the VM, manually cordoning and draining all the apps.
 
 This article shows you how you can automate the update process of AKS nodes. You'll use GitHub Actions and Azure CLI to create an update task based on `cron` that runs automatically.
 
@@ -29,17 +35,7 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 This article also assumes you have a [GitHub][github] account to create your actions in.
 
-## Understand the update process
-
-To better understand the point of this article, let's first understand how Azure updates your nodes using the Azure CLI.
-
-All Kubernetes' nodes run in a standard Azure virtual machine (VM). These VMs can be Windows or Linux-based. The Linux-based VMs use an Ubuntu image, with the OS configured to automatically check for updates every night.
-
-When you use the `az aks upgrade` command, Azure CLI creates a surge of new nodes with the latest security and kernel updates, these nodes are initially cordoned to prevent any apps from being scheduled to them until the update is finished. After completion, Azure cordons and drains the older nodes and uncordon the new ones, effectively transferring all the scheduled applications to the new nodes.
-
-This process is better than updating Linux-based kernels manually because Linux requires a reboot when a new kernel update is installed. If you update the OS manually, you also need to reboot the VM, manually cordoning and draining all the apps.
-
-## Create a GitHub Action based on `cron`
+## Create a timed GitHub Action
 
 `cron` is a utility that allows you to run a set of commands, or job, on an automated schedule. To create job to update your AKS nodes on an automated schedule, you'll need a repository to host your actions. Usually, GitHub actions are configured in the same repository as your application, but you can use any repository. For this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username.
 
