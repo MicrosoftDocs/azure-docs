@@ -89,7 +89,7 @@ The first step is to download and sign in to the Azure CLI.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-login.png" alt-text="Azure Login action result pane with code sample below, red square around a copy icon highlights the click spot":::
 
-1. Paste the code sample under the `steps` key, your YAML file will be similar to the file below.
+1. Paste the following under the `steps` key:
 
     ```yml
     name: Upgrade cluster node images
