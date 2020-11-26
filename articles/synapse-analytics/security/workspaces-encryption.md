@@ -1,7 +1,7 @@
 ---
 title: Azure Synapse Analytics encryption
 description: An article that explains encryption in Azure Synapse Analytics
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
@@ -9,10 +9,10 @@ ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
 ---
-# Encryption for Azure Synapse Analytics workspaces
+# Encryption for Azure Synapse Analytics (workspaces preview)
 
 This article will describe:
-* Encryption of data at rest in Synapse Analytics workspaces.
+* Encryption of data at rest in Azure Synapse Analytics workspaces.
 * Configuration of Synapse workspaces to enable encryption with a customer managed key.
 * Managing keys used to encrypt data in workspaces.
 
@@ -24,16 +24,16 @@ The first layer of encryption for Azure services is enabled with platform-manage
 
 ## Azure Synapse encryption
 
-This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse Analytics workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA keys with 2048 and 3072 byte-sized keys.
+This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA keys with 2048 and 3072 byte-sized keys.
 
 > [!NOTE]
 > Synapse workspaces do not support the use of Elliptic-Curve Cryptography (ECC) keys for encryption.
 
 The data in the following Synapse components is encrypted with the customer-managed key configured at the workspace level:
-* SQL Pools
- * Dedicated SQL Pools
- * Serverless SQL
-* Spark pools
+* SQL pools
+ * Dedicated SQL pools
+ * Serverless SQL pools
+* Apache Spark pools
 * Azure Data Factory integration runtimes, pipelines, datasets.
 
 ## Workspace encryption configuration
@@ -47,7 +47,7 @@ Workspaces can be configured to enable double encryption with a customer-managed
 
 ### Key access and workspace activation
 
-The Synapse Analytics encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or Azure Key Vault RBAC access ([preview](../../key-vault/general/rbac-guide.md)). When granting permissions via an Azure Key Vault access policy, choose the “Application-only” option during policy creation.
+The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or Azure Key Vault RBAC access ([preview](../../key-vault/general/rbac-guide.md)). When granting permissions via an Azure Key Vault access policy, choose the “Application-only” option during policy creation.
 
  The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Note that encryption can be enabled or disabled for dedicated SQL Pools- each pool is not enabled for encryption by default.
 
