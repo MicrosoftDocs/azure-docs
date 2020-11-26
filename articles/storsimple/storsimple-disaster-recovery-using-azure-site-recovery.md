@@ -108,7 +108,7 @@ This step requires that you prepare the on-premises file server environment, cre
    1. Use the File and Storage Services role to create file shares on these volumes.
 
 #### To create and prepare an Azure Site Recovery vault
-Refer to the [Azure Site Recovery documentation](/azure/site-recovery/hyper-v-azure-tutorial) to get started with Azure Site Recovery before protecting the file server VM.
+Refer to the [Azure Site Recovery documentation](/azure/site-recovery/) to get started with Azure Site Recovery before protecting the file server VM.
 
 #### To enable protection
 1. Disconnect the iSCSI target(s) from the on-premises VMs that you want to protect through Azure Site Recovery:
