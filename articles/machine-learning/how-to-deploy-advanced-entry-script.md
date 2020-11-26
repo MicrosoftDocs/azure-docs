@@ -36,54 +36,12 @@ These types are currently supported:
 * Standard Python object
 
 To use schema generation, include the open-source `inference-schema` package version 1.1.0 or above in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). In order to generate conforming swagger automated web service consumption, scoring script run() function must have API shape of:
-* A first parameter of type "StandardPythonParameterType", named Inputs, nested containing PandasDataframeParameterTypes.
-* An optional second parameter of type "StandardPythonParameterType", named GlobalParameter, which is not nested.
-* Return a dictionary of type "StandardPythonParameterType", which maybe nested containing PandasDataFrameParameterTypes.
+* A first parameter of type "StandardPythonParameterType", named **Inputs**, nested containing PandasDataframeParameterTypes.
+* An optional second parameter of type "StandardPythonParameterType", named **GlobalParameters**, which is not nested.
+* Return a dictionary of type "StandardPythonParameterType" named **Results**, which maybe nested containing PandasDataFrameParameterTypes.
 Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
 
-
-```python
-#Example: scikit-learn and Swagger
-import json
-import numpy as np
-import os
-from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
-
-
-def init():
-    global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
-    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
-    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
-    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-
-    # If your model were stored in the same directory as your score.py, you could also use the following:
-    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
-
-    # Deserialize the model file back into a sklearn model
-    model = joblib.load(model_path)
-
-
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
-
-
-@input_schema('data', NumpyParameterType(input_sample))
-@output_schema(NumpyParameterType(output_sample))
-def run(data):
-    try:
-        result = model.predict(data)
-        # You can return any data type, as long as it is JSON serializable.
-        return result.tolist()
-    except Exception as e:
-        error = str(e)
-        return error
-```
 
 ## Power BI compatible endpoint 
 
@@ -111,23 +69,32 @@ def init():
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
-# providing 3 sample inputs for schema generation
-numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
-pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
-standard_sample_input = StandardPythonParameterType(0.0)
 
-# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
-sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+    # providing 3 sample inputs for schema generation
+    numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+    pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+    standard_sample_input = StandardPythonParameterType(0.0)
+
+    # This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+    sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
                                             'input2': pandas_sample_input, 
                                             'input3': standard_sample_input})
 
-sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
-sample_output = StandardPythonParameterType([1.0, 1.0])
+    sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
+    sample_output = StandardPythonParameterType([1.0, 1.0])
+    outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
 
-@input_schema('inputs', sample_input)
-@input_schema('global_parameters', sample_global_parameters) #this is optional
-@output_schema(sample_output)
-def run(inputs, global_parameters):
+    @input_schema('Inputs', sample_input) 
+    # 'Inputs' is case sensitive
+    
+    @input_schema('GlobalParameters', sample_global_parameters) 
+    # this is optional, 'GlobalParameters' is case sensitive
+
+    @output_schema(outputs)
+
+def run(Inputs, GlobalParameters): 
+    # the parameters here have to match those in decorator, both 'Inputs' and 
+    # 'GlobalParameters' here are case sensitive
     try:
         data = inputs['input1']
         # data will be convert to target format
