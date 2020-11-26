@@ -65,13 +65,17 @@ items:
   items:
   - name: Register & scan
     items:
+    - name: Manage Credentials
+      href: manage-credentials.md
+      displayName: Create and manage Credentials
+    - name: Create a scan rule set
+      href: create-a-scan-rule-set.md
+    - name: Manage integration runtimes
+      href: manage-integration-runtimes.md      
     - name: Sources
       items:
       - name: Manage data sources
         href: manage-data-sources.md
-      - name: Manage Credentials
-        href: manage-credentials.md
-        displayName: Create and manage Credentials
       - name: Purview connectors overview
         href: purview-connector-overview.md
       - name: Azure Blob Storage
@@ -108,10 +112,6 @@ items:
         href: powershell-cmdlets-scan-azure-data-sources.md
       - name: Register and scan Azure Synapse Analytics
         href: register-scan-azure-synapse-analytics.md
-    - name: Create a scan rule set
-      href: create-a-scan-rule-set.md
-    - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
