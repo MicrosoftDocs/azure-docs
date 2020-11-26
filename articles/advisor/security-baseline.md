@@ -553,7 +553,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
 - [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-controls-v2-incident-response)
 
