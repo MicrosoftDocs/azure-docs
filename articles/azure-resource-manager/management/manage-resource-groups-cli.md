@@ -130,7 +130,7 @@ The script displays the template on the console.  Copy the JSON, and save as a f
 
 The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 For more information, see [Single and multi-resource export to template in Azure portal](../templates/export-template-portal.md).
 

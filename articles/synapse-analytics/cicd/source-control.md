@@ -25,17 +25,17 @@ To provide source control capability, Synapse Studio allows you to associate you
 
 ## Configure Git repository in Synapse Studio 
 
-After launching your Synapse Studio, you can configure git repository in workspace. A Synapse Studio workspace can only be associated with only one git repository at a time. 
+After launching your Synapse Studio, you can configure a git repository in your workspace. A Synapse Studio workspace can be associated with only one git repository at a time. 
 
-### Configuration method 1: Authoring canvas
+### Configuration method 1: global bar
 
-In the Synapse Studio authoring canvas, select the **Synapse Live** drop-down menu, and then select **Set up code repository**.
+In the Synapse Studio global bar, select the **Synapse Live** drop-down menu, and then select **Set up code repository**.
 
 ![Configure the code repository settings from authoring](media/configure-repo-1.png)
 
 ### Configuration method 2: Manage hub
 
-Go to the management hub of Synapse Studio. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Configure**.
+Go to the Manage hub of Synapse Studio. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Configure**.
 
 ![Configure the code repository settings from management hub](media/configure-repo-2.png)
 
@@ -46,11 +46,11 @@ You can connect either Azure DevOps or GitHub git repository in your workspace.
 
 ## Connect with Azure DevOps Git 
 
-You can associate a Synapse workspace with an Azure DevOps Repository for source control, collaboration, versioning, and so on. If you don't have an Azure DevOps repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your repository resources first.
+You can associate a Synapse workspace with an Azure DevOps Repository for source control, collaboration, versioning, and so on. If you don't have an Azure DevOps repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your repository resources.
 
 ### Azure DevOps Git repository settings
 
-When connecting to your git repository, first select your repository type as Azure DevOps git, and then select one Azure AD tenant from dropdown list, and click **Continue**.
+When connecting to your git repository, first select your repository type as Azure DevOps git, and then select one Azure AD tenant from the dropdown list, and click **Continue**.
 
 ![Configure the code repository settings](media/connect-with-azuredevops-repo-selected.png)
 
@@ -89,7 +89,7 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 After these configuration steps, your personal repo is available when you set up Git integration in the Synapse Studio.
 
-For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Connect with GitHub 
 

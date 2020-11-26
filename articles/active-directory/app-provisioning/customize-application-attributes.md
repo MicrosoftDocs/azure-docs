@@ -234,7 +234,7 @@ Use the steps below to provision roles for a user to your application. Note that
    }
    ]
    ```  
-The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior). 
+The request format in the PATCH and POST differ. To ensure that POST and PATCH are sent in the same format, you can use the feature flag described [here](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior). 
 
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 

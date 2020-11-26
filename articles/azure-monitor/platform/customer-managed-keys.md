@@ -68,7 +68,7 @@ The following rules apply:
 1. Granting permissions to your Key Vault
 1. Linking Log Analytics workspaces
 
-Customer-Managed key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) or [REST](https://docs.microsoft.com/rest/api/loganalytics/) requests.
+Customer-Managed key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) or [REST](/rest/api/loganalytics/) requests.
 
 ### Asynchronous operations and status check
 
@@ -103,7 +103,7 @@ These settings can be updated in Key Vault via CLI and PowerShell:
 
 ### Create cluster
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 > [!IMPORTANT]
 > Copy and save the response since you will need the details in next steps.
@@ -209,7 +209,7 @@ You need to have 'write' permissions to both your workspace and cluster to perfo
 
 This operation is asynchronous and can a while to complete.
 
-Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#link-a-workspace-to-the-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-the-cluster).
 
 ## Key revocation
 

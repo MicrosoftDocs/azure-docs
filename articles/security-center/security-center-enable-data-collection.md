@@ -218,7 +218,7 @@ To manually install the Log Analytics agent:
 
 The following use cases specify how automatic provision works in cases when there is already an agent or extension installed. 
 
-- **Log Analytics agent is installed on the machine, but not as an extension (Direct agent)** - If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Security Center will install the Log Analytics agent extension, and may upgrade the Log Analytics agent to the latest version.
+- **Log Analytics agent is installed on the machine, but not as an extension (Direct agent)** - If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Security Center will install the Log Analytics agent extension, and might upgrade the Log Analytics agent to the latest version.
 The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Security Center (Multi-homing is supported on Windows machines).
 If the configured workspace is a user workspace (not Security Center's default workspace), then you will need to install the "security/"securityFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
 
