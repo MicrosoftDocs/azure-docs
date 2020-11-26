@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -642,6 +642,22 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Recommendation**:  Remove 'CompressionType' in payload.
 
+
+## REST
+
+### Unexpected network response from REST connector
+
+- **Symptoms**: Endpoint sometimes receives unexpected response (400 / 401 / 403 / 500) from REST connector.
+
+- **Cause**: The REST source connector uses URL and HTTP method/header/body from linked service/dataset/copy source as parameters when constructing an HTTP request. The issue is most likely caused by some mistakes in one or more specified parameters.
+
+- **Resolution**: 
+    - Use 'curl' in cmd window to check if parameter is the cause or not (**Accept** and **User-Agent** headers should always be included):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+
+    - Tools like **Postman** and **Fiddler** are recommended if 'curl' command is not working for some cases related with SSL certificate.
 
 
 ## General Copy Activity Error
