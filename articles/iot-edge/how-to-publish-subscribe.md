@@ -15,7 +15,7 @@ monikerRange: ">=iotedge-2020-11"
 
 # Publish and subscribe with Azure IoT Edge
 
-You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built-in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
+You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built-in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
 
 > [!NOTE]
 > IoT Edge MQTT broker is currently in public preview.
@@ -24,7 +24,7 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
 
 - An Azure account with a valid subscription
 - [Azure CLI](/cli/azure/) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](/cli/azure/azure-cli-reference-for-iot).
-- An **IoT Hub** of SKU either F1, S1, S2 or S3.
+- An **IoT Hub** of SKU either F1, S1, S2, or S3.
 - Have an **IoT Edge device with version 1.2 or above**. Since IoT Edge MQTT broker is currently in public preview, set the following environment variables to true on the edgeHub container to enable the MQTT broker:
 
    | Name | Value |
@@ -32,7 +32,7 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
-- **Mosquitto clients** installed on the IoT Edge device. This article uses the popular Mosquitto clients that includes [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
+- **Mosquitto clients** installed on the IoT Edge device. This article uses the popular Mosquitto clients [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
 
     ```cmd
     sudo apt-get update && sudo apt-get install mosquitto-clients
@@ -54,11 +54,11 @@ Transport Layer Security (TLS) is used to establish an encrypted communication b
 
 To disable TLS, use port 1883(MQTT) and bind the edgeHub container to port 1883.
 
-To enable TLS, If a client connects on port 8883 (MQTTS) to the MQTT broker, a TLS channel will be initiated. The broker sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the MQTT broker must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the MQTT broker with a certificate verification error. The steps to follow to install this root certificate of the broker on the client are the same as in the [transparent gateway](how-to-create-transparent-gateway.md) case and are described in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) documentation.
+To enable TLS, if a client connects on port 8883 (MQTTS) to the MQTT broker, a TLS channel will be initiated. The broker sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the MQTT broker must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the MQTT broker with a certificate verification error. The steps to follow to install this root certificate of the broker on the client are the same as in the [transparent gateway](how-to-create-transparent-gateway.md) case and are described in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) documentation.
 
 ### Authentication
 
-For a MQTT client to authenticate itself, it first needs to send a CONNECT packet to the MQTT broker to initiate a connection in its name. This packet provides three pieces of authentication information: a `client identifier`, a `username` and `password`:
+For an MQTT client to authenticate itself, it first needs to send a CONNECT packet to the MQTT broker to initiate a connection in its name. This packet provides three pieces of authentication information: a `client identifier`, a `username`, and a `password`:
 
 - The `client identifier` field is the name of the device or module name in IoT Hub. It uses the following syntax:
 
@@ -68,7 +68,7 @@ For a MQTT client to authenticate itself, it first needs to send a CONNECT packe
 
    In order to connect to the MQTT broker, a device or a module must be registered in IoT Hub.
 
-   Note that the broker will not allow connecting two clients using the same credentials. The broker will disconnect the already connected client if a second client connects using the same credentials.
+   The broker won't allow connections from multiple clients using the same credentials. The broker will disconnect the already connected client if a second client connects using the same credentials.
 
 - The `username` field is derived from the device or module name, and the IoTHub name the device belongs to using the following syntax:
 
@@ -78,22 +78,22 @@ For a MQTT client to authenticate itself, it first needs to send a CONNECT packe
 
 - The `password` field of the CONNECT packet depends on the authentication mode:
 
-  - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token.
-  - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+  - When using [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token.
+  - When using [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
 
 Modules deployed by IoT Edge use [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) and can call the local [IoT Edge workload API](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) to programmatically get a SAS token even when offline.
 
 ### Authorization
 
-Once a MQTT client is authenticated to IoT Edge hub, it needs to be authorized to connect. Once connected, it needs to be authorized to publish or subscribe on specific topics. These authorizations are granted by the IoT Edge hub based on its authorization policy. The authorization policy is a set of statements expressed as a JSON structure that is sent to the IoT Edge hub via its twin. Edit an IoT Edge hub twin to configure its authorization policy.
+Once an MQTT client is authenticated to IoT Edge hub, it needs to be authorized to connect. Once connected, it needs to be authorized to publish or subscribe on specific topics. These authorizations are granted by the IoT Edge hub based on its authorization policy. The authorization policy is a set of statements expressed as a JSON structure that is sent to the IoT Edge hub via its twin. Edit an IoT Edge hub twin to configure its authorization policy.
 
 > [!NOTE]
-> For the public preview, the editing of authorization policies of the MQTT broker is only available via Visual Studio, Visual Studio Code or Azure CLI. The Azure portal currently does not support editing the IoT Edge hub twin and its authorization policy.
+> For the public preview, the editing of authorization policies of the MQTT broker is only available via Visual Studio, Visual Studio Code, or the Azure CLI. The Azure portal currently does not support editing the IoT Edge hub twin and its authorization policy.
 
-Each authorization policy statement consists of the combination of `identities`, `allow` or `deny` effect, `operations` and `resources`:
+Each authorization policy statement consists of the combination of `identities`, `allow` or `deny` effects, `operations`, and `resources`:
 
 - `identities` describe the subject of the policy. It must map to the `client identifier` sent by clients in their CONNECT packet.
-- `allow` or `deny` effect define whether to allow or deny operations.
+- `allow` or `deny` effects define whether to allow or deny operations.
 - `operations` define the actions to authorize. `mqtt:connect`, `mqtt:publish` and `mqtt:subscribe` are the three supported actions today.
 - `resources` define the object of the policy. It can be a topic or a topic pattern defined with [MQTT wildcards](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107).
 
@@ -162,12 +162,12 @@ A couple of things to keep in mind when writing your authorization policy:
 
 - It requires `$edgeHub` twin schema version 1.2
 - By default, all operations are denied.
-- Authorization statements are evaluated in the order than they appear in the JSON definition. It starts by looking at `identities` and then select the first allow or deny statements that match the request. In case of conflicts between allow and deny statements, the deny statement wins.
-- Several variables (e.g. substitutions) can be used in the authorization policy:
-    - `{{iot:identity}}` represents the identity of the currently connected client. For example `myDevice` in case of a device, `myEdgeDevice/SampleModule` in case of a module.
-    - `{{iot:device_id}}` represents the identity of the currently connected device. For example `myDevice` in case of a device, `myEdgeDevice` in case of a module.
-    - `{{iot:module_id}}` represents the identity of the currently connected module. For example `` in case of a device, `SampleModule` in case of a module.
-    - `{{iot:this_device_id}}` represents the identity of the IoT Edge device running the authorization policy. For example `myIoTEdgeDevice`.
+- Authorization statements are evaluated in the order that they appear in the JSON definition. It starts by looking at `identities` and then select the first allow or deny statements that match the request. In case of conflicts between allow and deny statements, the deny statement wins.
+- Several variables (for example, substitutions) can be used in the authorization policy:
+    - `{{iot:identity}}` represents the identity of the currently connected client. For example, a device identity like `myDevice` or a module identity like `myEdgeDevice/SampleModule`.
+    - `{{iot:device_id}}` represents the identity of the currently connected device. For example, a device identity like `myDevice` or the device identity where a module is running like `myEdgeDevice`.
+    - `{{iot:module_id}}` represents the identity of the currently connected module. This variable is blank for connected devices, or a module identity like `SampleModule`.
+    - `{{iot:this_device_id}}` represents the identity of the IoT Edge device running the authorization policy. For example, `myIoTEdgeDevice`.
 
 Authorization for IoT hub topics are handled slightly differently than user-defined topics. Here are the key points to remember:
 
