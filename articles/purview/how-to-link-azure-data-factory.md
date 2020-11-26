@@ -17,26 +17,32 @@ This document explains the steps required for connecting an Azure Data Factory a
 Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog to push lineage information. The current limit allows you to connect up ten Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview Data Catalog, do the following:
 
 1. Select **Management Center** on the left navigation pane.
-1. Under **External connections**, select **Data Factory connection**.
-1. The Data Factory connection list appears.
+2. Under **External connections**, select **Data Factory connection**.
+3. The Data Factory connection list appears.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
 
-1. Notice the various values for connection **Status**:
+4. Notice the various values for connection **Status**:
 
     - **Connected**: The data factory is connected to the data catalog.
     - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
     - **CannotAccess**: The current user doesn't have access to the data factory, so the connection status is unknown.
+ >[!Note]
+ >In order to view the Data Factory connections, you need to be assigned any one of the Azure build-in roles:
+ >- Contributor
+ >- Owner
+ >- Reader
+ >- User Access Administrator
 
 ## Create new Data Factory connection
 
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
 1. Select **Management Center** on the left navigation pane.
-1. Under **External connections**, select **Data Factory connection**.
-1. On the **Data Factory connection** page, select **New**.
+2. Under **External connections**, select **Data Factory connection**.
+3. On the **Data Factory connection** page, select **New**.
 
-1. Select your Data Factory account from the list and select **OK**. You can also filter by subscription name to limit your list.
+4. Select your Data Factory account from the list and select **OK**. You can also filter by subscription name to limit your list.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/connect-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-data-factory.png":::
 
@@ -44,16 +50,25 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 
     A warning message will be displayed if any of the selected Data Factories are already connected to other Purview account. By selecting OK, the Data Factory connection with the other Purview account will be disconnected. No additional confirmations are required.
 
+
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
 
-## Remove Data Factory connections
+>[!Note]
+>We now support adding no more than 10 Data Factories at once. If you want to add more than 10 Data Factories at once, please file a support ticket.
 
+
+### Remove data factory connections
 To remove a data factory connection, do the following:
 
 1. On the **Data Factory connection** page, select the **Remove** button next to one or more data factory connections.
 1. Select **Confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
+
+>[!Note]
+>In order to add or remove the Data Factory connections, you need to be assigned any one of the Azure build-in roles:
+>- Owner
+>- User Access Administrator
 
 ## Configure a self-hosted IR to collect lineage from on-prem SQL
 
@@ -118,9 +133,11 @@ The integration between Data Factory and Purview supports only a subset of the d
 | Azure Blob | Yes |
 | ADLS Gen1 | Yes |
 | ADLS Gen2 | Yes |
-| Azure SQL DB/Managed Instance/DW \* | Yes |
-| On-premises SQL \* | Yes |
-| Azure Files | Yes |
+| Azure SQL Database \* | Yes |
+| Azure SQL MI \*| Yes |
+| Azure Synapse Analytics(formerly SQL DW) \* | Yes |
+| SQL Server On-prem \* | Yes |
+| Azure File Storage | Yes |
 
 *\* For SQL (Azure and on-premises) scenarios, Azure Purview doesn't support stored procedures or scripts for lineage or scanning. Lineage is limited to table and view sources only.*
 
