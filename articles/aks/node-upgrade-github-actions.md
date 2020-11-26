@@ -39,7 +39,7 @@ When you use the `az aks upgrade` command, Azure CLI creates a surge of new node
 
 This process is better than updating Linux-based kernels manually because Linux requires a reboot when a new kernel update is installed. If you update the OS manually, you also need to reboot the VM, manually cordoning and draining all the apps.
 
-## Create a timed GitHub Action
+## Create a GitHub Action based on `cron`
 
 To create an automated scheduled update, you'll need a repository to host your actions. You can use any repository, for this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username. The best practice is to put these actions inside the same repository as the application living in the cluster.
 
