@@ -118,9 +118,9 @@ In this section, you create a user called Britta Simon in ProProfs Knowledge Bas
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click on Test this application in Azure portal and you should be automatically signed in to the ProProfs Knowledge Base for which you set up the SSO
+* Click on Test this application in Azure portal and you should be automatically signed in to the ProProfs Knowledge Base for which you set up the SSO
 
-1. You can use Microsoft My Apps. When you click the ProProfs Knowledge Base tile in the My Apps, you should be automatically signed in to the ProProfs Knowledge Base for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the ProProfs Knowledge Base tile in the My Apps, you should be automatically signed in to the ProProfs Knowledge Base for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
