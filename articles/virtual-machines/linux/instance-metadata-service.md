@@ -20,7 +20,7 @@ This information includes the SKU, storage, network configurations, and upcoming
 IMDS is available for running instances of virtual machines (VMs) and VM scale sets. All APIs support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
 the attested and network endpoints support VMs created by using the classic deployment model. The attested endpoint does so only to a limited extent.
 
-IMDS is a REST Endpoint that's available at a well-known, non-routable IP address (`169.254.169.254`). You access it only from within the VM. Communication between the VM and IMDS never leaves the host.
+IMDS is a REST endpoint that's available at a well-known, non-routable IP address (`169.254.169.254`). You access it only from within the VM. Communication between the VM and IMDS never leaves the host.
 Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Security
@@ -262,7 +262,7 @@ API | Description | Version introduced
 ## Instance API
 
 Instance API exposes the important metadata for the VM instances, including the VM, network, and storage. 
-You can access the following categories through instance and compute:
+You can access the following categories through `instance/compute`:
 
 Data | Description | Version introduced
 -----|-------------|-----------------------
@@ -476,7 +476,7 @@ The cloud and the values of the Azure environment are listed here.
 
 ## Network metadata 
 
-Network metadata is part of the instance API. The following network categories are available through the instance and network endpoint.
+Network metadata is part of the instance API. The following network categories are available through the `instance/network` endpoint.
 
 Data | Description | Version introduced
 -----|-------------|-----------------------
@@ -711,7 +711,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/attested/do
 ```
 
 `Api-version` is a mandatory field. Refer to the [usage section](#usage) for supported API versions.
-`Nonce` is an optional, 10-digit string. If it's not provided, IMDS returns the current UTC timestamp in its place.
+`Nonce` is an optional, 10-digit string. If it's not provided, IMDS returns the current Coordinated Universal Time timestamp in its place.
 
 > [!NOTE]
 > Due to IMDS's caching mechanism, a previously cached `nonce` value might be returned.
