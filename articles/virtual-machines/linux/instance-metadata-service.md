@@ -17,7 +17,7 @@ ms.reviewer: azmetadatadev
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see [metadata APIs](#metadata-apis).
-IMDS is available for running instances of virtual machines (VMs) and VM scale sets. All APIs support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
+IMDS is available for running instances of virtual machines (VMs) and virtual machine scale sets. All APIs support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
 the attested and network endpoints support VMs created by using the classic deployment model. The attested endpoint does so only to a limited extent.
 
 IMDS is a REST endpoint that's available at a well-known, non-routable IP address (`169.254.169.254`). You access it only from within the VM. Communication between the VM and IMDS never leaves the host.
@@ -894,13 +894,13 @@ If you created your VM after September 2016, add a [tag](../../azure-resource-ma
 
 Retry your request. For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults). If the problem persists, create a support issue in the Azure portal for the VM.
 
-**Would this work for VM scale set instances?**
+**Would this work for virtual machine scale set instances?**
 
-Yes, IMDS is available for scale set instances.
+Yes, IMDS is available for virtual machine scale set instances.
 
-**I updated my tags in VM scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?**
+**I updated my tags in virtual machine scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?**
 
-Currently tags for scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
+Currently tags for virtual machine scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
 
 **Why is my request timed out for my call to the service?**
 
