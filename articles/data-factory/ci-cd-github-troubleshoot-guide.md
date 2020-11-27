@@ -7,16 +7,16 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
-ms.date: 11/26/2020
+ms.date: 11/27/2020
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common troubleshooting methods for CI-CD, Azure DevOps and GitHub issues in Azure Data Factory.
+This article explores common troubleshooting methods for Continuous Integration-Continuous Deployment (CI-CD), Azure DevOps and GitHub issues in Azure Data Factory.
 
-If you have questions or issues in using source control or DevOps techniques, here are a few articles you may find useful.:
+If you have questions or issues in using source control or DevOps techniques, here are a few articles you may find useful:
 
 - Refer to [Source Control in ADF](source-control.md) to learn how source control is practiced in ADF. 
 - Refer to  [CI-CD in ADF](continuous-integration-deployment.md) to learn more about how DevOps CI-CD is practiced in ADF.
@@ -153,9 +153,5 @@ For more help with troubleshooting, try the following resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-
-
- 
