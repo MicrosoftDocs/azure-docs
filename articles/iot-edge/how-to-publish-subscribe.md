@@ -278,7 +278,7 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
@@ -293,9 +293,9 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }
