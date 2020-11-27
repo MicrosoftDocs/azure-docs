@@ -76,13 +76,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. In the **Basic SAML Configuration** section, fill in values for **Identifier** and **Reply URL**.
 
    * These values my be retrieved using the New Relic **My Organization** application. To use this application, perform these steps:
-      * [Log in](https://login.newrelic.com/) to New Relic.
-      * On the top menu, select **Apps**.
-      * In the **Your apps** section, select **My Organization**.
-      * Click on **Authentication domains**.
-      * Choose the authentication domain to which you wish Azure AD SSO to connect (if you have more than one authentication domain). Most companies only have one authentication domain called **Default**. With only one authentication domain, there is no need to select.
-      * In the **Authentication** section, **Assertion consumer URL** contains the value to use for **Reply URL**.
-      * In the **Authentication** section, **Our entity ID** contains the value to use for **Identifier**.
+      1. [Log in](https://login.newrelic.com/) to New Relic.
+      1. On the top menu, select **Apps**.
+      1. In the **Your apps** section, select **My Organization**.
+      1. Click on **Authentication domains**.
+      1. Choose the authentication domain to which you wish Azure AD SSO to connect (if you have more than one authentication domain). Most companies only have one authentication domain called **Default**. With only one authentication domain, there is no need to select.
+      1. In the **Authentication** section, **Assertion consumer URL** contains the value to use for **Reply URL**.
+      1. In the **Authentication** section, **Our entity ID** contains the value to use for **Identifier**.
 
 1. In the **User Attributes & Claims** section, make sure **Unique User Identifier** is mapped to a field containing the email address being used at New Relic.
 
