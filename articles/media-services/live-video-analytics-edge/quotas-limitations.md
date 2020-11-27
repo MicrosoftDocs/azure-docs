@@ -31,7 +31,6 @@ With the preview release, there are limitations on different nodes can be connec
    * Only one RTSP source is allowed per graph topology.
 * Motion detection processor
    * Must be immediately downstream from RTSP source.
-   * There can be at most one such processor per graph topology.
    * Cannot be used downstream of a HTTP or a gRPC extension processor.
 * Signal gate processor
    * Must be immediately downstream from RTSP source.
@@ -42,8 +41,6 @@ With the preview release, there are limitations on different nodes can be connec
    * Cannot be immediately downstream of a HTTP or a gRPC extension processor, or motion detection processor
 * IoT Hub Sink
    * Cannot be immediately downstream of an IoT Hub Source.
-
-If both motion detection and filter rate processor nodes are used, they should be in the same chain of nodes leading to the RTSP source node.
 
 ## Limitations on Media Service operations at preview
 
