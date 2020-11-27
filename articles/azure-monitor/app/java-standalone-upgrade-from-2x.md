@@ -26,12 +26,12 @@ that was pointing to the 2.x agent.
 
 ## HTTP request telemetry names
  
-HTTP request telemetry names have changed.
+HTTP request telemetry names in 3.0 have changed to generally provide a better aggregated view
+in the Application Insights Portal U/X.
 
-The new name has lower cardinality, and provides better aggregation than the previous telemetry names.
-
-However, for some applications and use-cases, the previous telemetry names may be optimal,
-in which case you can configure telemetry processors in 3.0 to maintain the same behavior.
+However, for some applications, you may still prefer the aggregated view in the U/X
+that was provided by the previous telemetry names, in which case
+you can use the telemetry processors preview feature in 3.0 to return to the previous names.
 
 ### To prefix the telemetry name with the http method (`GET`, `POST`, etc):
 
