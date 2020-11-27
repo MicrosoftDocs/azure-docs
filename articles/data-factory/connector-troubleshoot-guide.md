@@ -656,8 +656,15 @@ busy to handle requests, it returns an HTTP error 503.
         ```
         curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
         ```
+      If the command returns the same unexpected response, please fix above parameters with 'curl' until it returns the expected response. 
 
-    - Tools like **Postman** and **Fiddler** are recommended if 'curl' command is not working for some cases related with SSL certificate.
+      Also you can use 'curl --help' for more advanced usage of the command.
+
+    - If only ADF REST connector returns unexpected response, please contact Microsoft support for further troubleshooting.
+    
+    - Please note that 'curl' may not be suitable to reproduce SSL certificate validation issue. In some scenarios 'curl' command was executed successfully without hitting any SSL cert validation issue. But when the same URL is executed in browser, no SSL cert is actually returned in the first place for client to establish trust with server.
+
+      Tools like **Postman** and **Fiddler** are recommended for the above case.
 
 
 ## General Copy Activity Error
