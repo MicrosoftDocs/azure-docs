@@ -24,15 +24,67 @@ that was pointing to the 2.x agent.
 > [!NOTE]
 > 3.0 does not support multiple instrumentation keys in a single JVM yet.
 
-## HTTP remote dependency telemetry names
+## HTTP request telemetry names
  
-Remote dependency telemetry names for http dependencies has changed.
+HTTP request telemetry names have changed.
 
-The reason for this is that it is in line with OpenTelemetry specification for span name,
-and in general it gives better aggregation than our previous telemetry names.
+The new name has lower cardinality, and provides better aggregation than the previous telemetry names.
 
 However, for some applications and use-cases, the previous telemetry names may be optimal,
-in which case you can configure telemetry processors to get the same behavior:
+in which case you can configure telemetry processors in 3.0 to maintain the same behavior.
+
+### To prefix the telemetry name with the http method (`GET`, `POST`, etc):
+
+```
+{
+  "preview": {
+    "processors": [
+      {
+        "type": "span",
+        "include": {
+          "matchType": "regexp",
+          "attributes": [
+            { "key": "http.method", "value": "" }
+          ],
+          "spanNames": [ "^/" ]
+        },
+        "name": {
+          "toAttributes": {
+            "rules": [ "^(?<tempName>.*)$" ]
+          }
+        }
+      },
+      {
+        "type": "span",
+        "include": {
+          "matchType": "strict",
+          "attributes": [
+            { "key": "tempName" }
+          ]
+        },
+        "name": {
+          "fromAttributes": [ "http.method", "tempName" ],
+          "separator": " "
+        }
+      },
+      {
+        "type": "attribute",
+        "include": {
+          "matchType": "strict",
+          "attributes": [
+            { "key": "tempName" }
+          ]
+        },
+        "actions": [
+          { "key": "tempName", "action": "delete" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### To set the telemetry name to the full URL path
 
 ```
 {
@@ -43,16 +95,26 @@ in which case you can configure telemetry processors to get the same behavior:
         "include": {
           "matchType": "strict",
           "attributes": [
-            {
-              "key": "http.method"
-            }
+            { "key": "http.method" },
+            { "key": "http.url" }
+          ]
+        },
+        "name": {
+          "fromAttributes": [ "http.url" ]
+        }
+      },
+      {
+        "type": "span",
+        "include": {
+          "matchType": "strict",
+          "attributes": [
+            { "key": "http.method" },
+            { "key": "http.url" }
           ]
         },
         "name": {
           "toAttributes": {
-            "rules": [
-              "^(?<tempRoute>.*)$"
-            ]
+            "rules": [ "https?://[^/]+(?<tempPath>/[^?]*)" ]
           }
         }
       },
@@ -61,17 +123,11 @@ in which case you can configure telemetry processors to get the same behavior:
         "include": {
           "matchType": "strict",
           "attributes": [
-            {
-              "key": "http.method"
-            }
+            { "key": "tempPath" }
           ]
         },
         "name": {
-          "fromAttributes": [
-            "http.method",
-            "tempRoute"
-          ],
-          "separator": " "
+          "fromAttributes": [ "tempPath" ]
         }
       },
       {
@@ -79,16 +135,11 @@ in which case you can configure telemetry processors to get the same behavior:
         "include": {
           "matchType": "strict",
           "attributes": [
-            {
-              "key": "http.method"
-            }
+            { "key": "tempPath" }
           ]
         },
         "actions": [
-          {
-            "key": "tempRoute",
-            "action": "delete"
-          }
+          { "key": "tempPath", "action": "delete" }
         ]
       }
     ]
