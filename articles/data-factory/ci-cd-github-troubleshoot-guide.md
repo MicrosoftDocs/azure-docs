@@ -16,7 +16,7 @@ ms.date: 11/27/2020
 
 This article explores common troubleshooting methods for Continuous Integration-Continuous Deployment (CI-CD), Azure DevOps and GitHub issues in Azure Data Factory.
 
-If you have questions or issues in using source control or DevOps techniques, here are a few articles you may find useful.:
+If you have questions or issues in using source control or DevOps techniques, here are a few articles you may find useful:
 
 - Refer to [Source Control in ADF](source-control.md) to learn how source control is practiced in ADF. 
 - Refer to  [CI-CD in ADF](continuous-integration-deployment.md) to learn more about how DevOps CI-CD is practiced in ADF.
