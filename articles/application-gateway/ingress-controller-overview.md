@@ -52,7 +52,7 @@ The following tables sort which scenarios are currently supported with the Helm 
 ### AKS add-on AGIC (single AKS cluster)
 |                  |1 Application Gateway |2+ Application Gateways |
 |------------------|---------|--------|
-|**1 AGIC**|Yes, this is supported |No, this is in our backlog |
+|**1 AGIC**|Yes, this is supported (Preview) |No, this is in our backlog |
 |**2+ AGICs**|No, only 1 AGIC supported/cluster |No, only 1 AGIC supported/cluster |
 
 ### Helm deployed AGIC (single AKS cluster)
