@@ -965,7 +965,7 @@ For **Problem Type**, select **Management**. For **Category**, select **Instance
 
 ## Next steps
 
-[Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+[Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
 [Scheduled events](scheduled-events.md)
 
