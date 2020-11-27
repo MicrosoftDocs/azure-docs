@@ -45,7 +45,7 @@ Monthly/yearly backup| Not supported when backing up with Azure VM extension. On
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
 Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
-Azure VMs in [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) |Availability sets are unsupported.
+Azure VMs in [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) |Virtual machine scale sets are unsupported.
 
 ## Operating system support (Windows)
 
