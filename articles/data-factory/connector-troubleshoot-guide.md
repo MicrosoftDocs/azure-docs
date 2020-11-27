@@ -662,7 +662,7 @@ busy to handle requests, it returns an HTTP error 503.
 
     - If only ADF REST connector returns unexpected response, please contact Microsoft support for further troubleshooting.
     
-    - Please note that 'curl' may not be suitable to reproduce SSL certificate validation issue. In some scenarios 'curl' command was executed successfully without hitting any SSL cert validation issue. But when the same URL is executed in browser, no SSL cert is actually returned in the first place for client to establish trust with server.
+    - Please note that 'curl' may not be suitable to reproduce SSL certificate validation issue. In some scenarios, 'curl' command was executed successfully without hitting any SSL cert validation issue. But when the same URL is executed in browser, no SSL cert is actually returned in the first place for client to establish trust with server.
 
       Tools like **Postman** and **Fiddler** are recommended for the above case.
 
