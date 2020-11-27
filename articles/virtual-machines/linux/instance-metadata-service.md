@@ -1,5 +1,5 @@
 ---
-title: Azure Instance Metadata Service 
+title: Azure Instance Metadata Service for Linux
 description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances in Linux.
 services: virtual-machines
 author: KumariSupriya
@@ -941,7 +941,7 @@ Metadata calls must be made from the primary IP address assigned to the primary 
                Subnet Mask . . . . . . . . . . . : 255.255.255.0
             ... (continues) ...
             ```
-        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up [with the Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
+        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the public and private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
