@@ -1,6 +1,6 @@
 ---
-title: Clone a Jupyter notebook from GitHub with Azure Notebooks Preview
-description: Quickly clone a Jupyter notebook from a GitHub repository and run it in your Azure Notebooks account.
+title: Clone a Jupyter Notebook from GitHub with Azure Notebooks Preview
+description: Quickly clone a Jupyter Notebook from a GitHub repository and run it in your Azure Notebooks account.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ---
@@ -9,9 +9,9 @@ ms.date: 12/04/2018
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-In this quickstart, you copy a Jupyter notebook stored in GitHub to an Azure Notebooks account. 
+In this quickstart, you copy a Jupyter Notebook stored in GitHub to an Azure Notebooks account. 
 
-GitHub repositories provide storage and version control for Jupyter notebooks. Collaborators maintain local copies of the repositories, and run the notebooks from those copies. Cloning a Jupyter notebook from GitHub into your Azure Notebooks account creates an independent copy of the notebook. Changes are stored in your Azure Notebooks account only, and don't affect the original GitHub repository. 
+GitHub repositories provide storage and version control for Jupyter Notebooks. Collaborators maintain local copies of the repositories, and run the notebooks from those copies. Cloning a Jupyter Notebook from GitHub into your Azure Notebooks account creates an independent copy of the notebook. Changes are stored in your Azure Notebooks account only, and don't affect the original GitHub repository. 
 
 Because your Azure Notebooks clone is in the cloud, you can share it with collaborators, who need not make any local copies or have Jupyter installed on their computers. You might also clone a notebook simply as a starting point for a project of your own, or to obtain data files. 
 
@@ -32,7 +32,7 @@ None.
 
 1. In the **Upload GitHub Repository** that appears, enter or set the following details, then select **Import**:
 
-   - **GitHub repository**: Microsoft/cognitive-services-notebooks (this name clones the Jupyter notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **GitHub repository**: Microsoft/cognitive-services-notebooks (this name clones the Jupyter Notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
    - **Clone recursively**: (cleared)
    - **Project name**: Cognitive Services Clone
    - **Project ID**: cognitive-services-clone
@@ -56,7 +56,7 @@ None.
 
 1. Select a notebook in the project to run it. Each notebook in the Azure Cognitive Services repository, for example, is its own self-contained Quickstart. The image below shows the result of using the BingImageSearchAPI notebook, after adding a Cognitive Services API subscription key and changing the search term "puppies" to "bunnies":
 
-    ![Running Jupyter notebook cloned from GitHub](media/quickstarts/clone-notebook-result.png)
+    ![Running Jupyter Notebook cloned from GitHub](media/quickstarts/clone-notebook-result.png)
 
 1. When you're done running the notebook, select **File** > **Close and halt** to close the notebook and its browser window.
 
@@ -69,4 +69,4 @@ None.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Create and run a Jupyter Notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
