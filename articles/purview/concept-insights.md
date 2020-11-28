@@ -20,10 +20,10 @@ Insights is one of the key pillars of Purview. The feature provides customers, a
 ### Asset Insights
 This report gives a bird's eye view of your data estate, and its distribution by source type, by classification and by file size as some of the dimensions. This report caters to different types of users who may be managing the Purview account and running scans or business users who may be interested to know how many assets exist with a certain classification within their organization's data estate. 
 
-The report users can absorb high-level information through graphs and KPIs and later deep dive into within each graph for more granular information. The report also supports an end-to-end customer experience, where customer can view count of assets with a specific classification, can breakdown the information by source types and top folders, and can also view the list of assets for further investigation.
+The report provides broad insights through graphs and KPIs and later deep dive into specific anomolies such as misplaced files. The report also supports an end-to-end customer experience, where customer can view count of assets with a specific classification, can breakdown the information by source types and top folders, and can also view the list of assets for further investigation.
 
 ### Scan Insights
-This report gives a status update on scans that have been executed in the Purview account within a time period of last seven days or last thirty days. The purpose of this report is to enable administrators to understand overall health of the scans - how many succeeded, how many failed, how many canceled. 
+The report enables administrators to understand overall health of the scans - how many succeeded, how many failed, how many canceled. This report gives a status update on scans that have been executed in the Purview account within a time period of last seven days or last thirty days.
 
 The report also allows administrators to deep dive and explore which scans failed and on what specific source types. To further enable users to investigate, the report helps them navigate into the scan history page within the "Sources" experience.
 
