@@ -498,10 +498,10 @@ Learn more about Azure Maps REST services:
 > [Best practices for routing](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
+> [Azure Maps REST Service API reference documentation](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)

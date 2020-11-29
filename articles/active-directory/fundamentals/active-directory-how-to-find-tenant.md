@@ -73,4 +73,4 @@ For more information, see the Microsoft 365 [tenant id get](https://pnp.github.i
 
 - To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](active-directory-how-subscriptions-associated-directory.md).
 
-- To learn how to find the object ID, see [Find the user object ID](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- To learn how to find the object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
