@@ -24,38 +24,78 @@ This document explains how to apply classifications to your data.
 - Set up scan on your data sources.
 
 ## Apply classifications
+In Azure Purview, you can apply system or custom classifications on a file, table, or column asset. This article describes the steps to manually apply classifications on your assets.
 
-Use the following steps to apply classifications for specific columns in your data assets:
+### Apply classification to a file asset
+Azure Purview can scan and automatically classify documentation files. For example, if you have a file named *multiple.docx* and it has a National ID number in its content, Azure Purview adds the classification **EU National Identification Number** to the file asset's detail page.
 
-1. Use the **Browse by asset type** or **Search** experience to navigate to the asset you would like to see and apply classifications on.
+In some scenarios, you might want to manually add classifications to your file asset. If you have multiple files that are grouped into a resource set, add classifications at the resource set level.
 
-1. Select the asset. The **Overview** tab of the asset will be open.
+Follow these steps to add a custom or system classification to a partition resource set:
 
-1. Select the **Schema** tab. Some columns may already have **Classifications** applied to them if the asset has been scanned and classification rules have applied on them. Select **Edit** button on the page.
+1. Search or browse the partition and navigate to the asset detail page.
 
-1. Under **Column level classification**, select **Add a classification**. Select a classification that you would like to apply against a column.
+    :::image type="content" source="./media/use-classifications/asset-detail-page.png" alt-text="Screenshot showing the asset detail page.":::
 
-1. Select **Save**.
+1. On the **Overview** tab, view the **Classifications** section to see if there are any existing classifications. Select **Edit**.
 
-Now you can see that the **Schema** tab contains new classifications added by you against the relevant columns.
+1. From the **Classifications** drop-down list, select the specific classifications you're interested in. For example, **Credit Card Number**, which is a system classification and **CustomerAccountID**, which is a custom classification.
 
-To apply classifications at the asset or schema level, do the following steps:
+    :::image type="content" source="./media/use-classifications/select-classifications.png" alt-text="Screenshot showing how to select classifications to add to an asset.":::
 
-1. Go to asset's **Overview** tab.
+1. Select **Save**
 
-1. Select **Edit** and **Classifications** field with a drop-down list will appear.
+1. On the **Overview** tab, confirm that the classifications you selected appear under the **Classifications** section.
 
-1. Select a classification from the list.
+    :::image type="content" source="./media/use-classifications/confirm-classifications.png" alt-text="Screenshot showing how to confirm classifications were added to an asset.":::
 
-1. Select the classifications you want to apply at the asset level and select **Save**.
+### Apply classification to a table asset
+
+When Azure Purview scans your data sources, it doesn't automatically assign classifications to table assets. If you want your table asset to have a classification, you must add it manually.
+
+To add a classification to a table asset:
+
+1. Find a table asset that you're interested in. For example, **Customer** table.
+
+1. Confirm that no classifications are assigned to the table. Select **Edit**
+
+    :::image type="content" source="./media/use-classifications/select-edit-from-table-asset.png" alt-text="Screenshot showing how to view and edit the classifications of a table asset.":::
+
+1. From the **Classifications** drop-down list, select one or more classifications. This example uses a custom classification named **CustomerInfo**, but you can select any classifications for this step.
+
+    :::image type="content" source="./media/use-classifications/select-classifications-in-table.png" alt-text="Screenshot showing how to select classifications to add to a table asset.":::
+
+1. Select **Save** to save the classifications.
+
+1. On the **Overview** page, verify that Azure Purview added your new classifications.
+
+    :::image type="content" source="./media/use-classifications/verify-classifications-added-to-table.png" alt-text="Screenshot showing how to verify that classifications were added to a table asset.":::
+
+### Add classification to a column asset
+
+Azure Purview automatically scans and adds classifications to all column assets. However, if you want to change the classification, you can do so at the column level.
+
+To add a classification to a column:
+
+1. Find and select the column asset, and then select **Edit** from the **Overview** tab.
+
+1. Select the **Schema** tab
+
+    :::image type="content" source="./media/use-classifications/edit-column-schema.png" alt-text="Screenshot showing how to edit the schema of a column.":::
+
+1. Identify the columns you're interested in and select **Add a classification**. This example adds a **Common Passwords** classification to the **PasswordHash** column.
+
+    :::image type="content" source="./media/use-classifications/add-classification-to-column.png" alt-text="Screenshot showing how to add a classification to a column.":::
+
+1. Select **Save**
+
+1. Select the **Schema** tab and confirm that the classification has been added to the column.
+
+    :::image type="content" source="./media/use-classifications/confirm-classification-added.png" alt-text="Screenshot showing how to confirm that a classification was added to a column schema.":::
 
 ## Impact of rescanning on existing classifications
 
-Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern.
-
-At the time of rescan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column, and must be removed manually.
+Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern. At the time of rescan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column, and must be removed manually.
 
 ## Next steps
-
-- [Create a custom classification](create-a-custom-classification-and-classification-rule.md)
-- [Create a custom classification rule](create-a-custom-classification-and-classification-rule.md)
+To learn how to create a custom classification, see [Create a custom classification](create-a-custom-classification-and-classification-rule.md).
