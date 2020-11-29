@@ -19,7 +19,7 @@
     href: tutorial-monitor-your-data.md
   - name: Investigate incidents
     href: tutorial-investigate-cases.md 
-  - name: Respond to threats
+  - name: Use playbooks to respond to threats
     href: tutorial-respond-threats-playbook.md    
 - name: Concepts
   items:
