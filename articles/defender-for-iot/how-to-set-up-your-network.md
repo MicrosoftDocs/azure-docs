@@ -11,35 +11,35 @@ ms.service: azure
 
 # About Azure Defender for IoT
 
-Azure Defender for IoT for IoT delivers continuous ICS threat monitoring and asset discovery. The platform includes the following components:
+Azure Defender for IoT delivers continuous ICS threat monitoring and asset discovery. The platform includes the following components:
 
-**Defender for IoT Sensors:** Sensors collect ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero performance impact on OT/IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory and an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide](https://aka.ms/AzureDefenderforIoTUserGuide).
+**Defender for IoT sensors:** Sensors collect ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero performance impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide](https://aka.ms/AzureDefenderforIoTUserGuide).
 
-**Defender for IoT On-Premises Management Console**: The on-premises management console provides a consolidated view of all network assets and delivers a real-time view of key OT/IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats. Read more about management capabilities in the [On-premises Management Console User Guide](https://aka.ms/DefenderForIoTManagementConsole).
+**Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network assets and delivers a real time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats. Read more about management capabilities in the [On-premises Management Console User Guide](https://aka.ms/DefenderForIoTManagementConsole).
 
-**Azure Defender for IoT for IoT Portal:** The Azure Defender for IoT for IoT App is used to help you purchase solution appliances; install and update software and update Threat Intelligence packages. Read more in the [Deployment and Onboarding Guide](https://aka.ms/AzureDefenderforIoTOverview).
+**Defender for IoT for IoT portal:** The Defender for IoT application is used to help you purchase solution appliances; install and update software and update TI packages. Read more in the [Deployment and Onboarding Guide](https://aka.ms/AzureDefenderforIoTOverview).
 
-## Document objectives
+## Document goals
 
-The purpose of this document is to provide information about solution architecture and provide guidance regarding preparation, pre-requisites and information that is needed to ensure you successfully set up your network to work with Defender for IoT appliances.
+The purpose of this document is to provide information about solution architecture and provide guidance regarding preparation, pre-requisites, and information that is needed to ensure you successfully set up your network to work with Defender for IoT appliances.
 
 ### Audience
 
-The intended audience for this document includes stakeholders experienced in operating and managing OT/IoT networks, for example automation engineers, plant managers, OT Network infrastructure service providers, Cyber Security teams, CISO, CIO.
+The intended audience for this document includes stakeholders experienced in operating and managing OT and IoT networks, for example automation engineers, plant managers, OT Network infrastructure service providers, cyber security teams, CISO, CIO.
 
 ### Other flows
 
-This document describes how to connect your sensor to the network. Network setup processes described here reflect important tasks required to get your system up and running. Additional steps are also required. It is recommended that you understand these steps and familiarize yourself with information in accompanying documents.  
+This document describes how to connect your sensor to the network. The network setup processes described here reflect important tasks required to get your system up and running. Additional steps are also required. It is recommended that you understand these steps and familiarize yourself with information in the accompanying documents.  
 
-Once you complete all steps, Azure Defender for IoT to IoT traffic will monitor network traffic and report detections via deployed sensors. Depending on how you set up your solution, detections can also be sent to the Defender for IoT Azure App and Sentinel.
+Once you complete all steps, Defender for IoT will monitor network traffic and report detections via deployed sensors. Depending on how you set up your solution, detections can also be sent to the Defender for IoT application and Sentinel.
 
 Verify that you have completed steps 1 & 2 before proceeding to step described in this document (step 3).
 
-1. Create an Azure subscription.
+1. Create a Defender for IoT subscription.
 
-2. Deploy hardware, software and onboard to sensor. Described in the Installation Guide.
+2. Deploy hardware, software, and an onboard to sensor. This is described in the installation guide.
 
-3. Perform network setup for sensor monitoring and management. Described in this document.
+3. Perform network setup for sensor monitoring and management. This is described in this article.
 
 4. Set up your sensor console to start discovering your network, for example define subnets, alert exclusion rules, connect sensors to an on-premises management console. See the [Defender for IoT Sensor User Guide](https://aka.ms/AzureDefenderforIoTUserGuide) and [On-premises Management Console User Guide](https://aka.ms/DefenderForIoTManagementConsole) for details.
 
@@ -51,45 +51,43 @@ Verify that you have completed steps 1 & 2 before proceeding to step described i
 
 - For additional documentation, visit the [Help Center](https://help.cyberx-labs.com/)
 
-## On site deployment tasks
+## On-site deployment tasks
 
 Site Deployment tasks include:
 
-- [Gather Site Information](#gather-site-information)
+- [Gather site information](#gather-site-information)
 
-- [Prepare a Configuration Workstation](#prepare-a-configuration-workstation)
+- [Prepare a configuration workstation](#prepare-a-configuration-workstation)
 
-- [Plan Rack Installation](#plan-rack-installation)
+- [Plan rack installation](#plan-rack-installation)
 
 ### Gather site information
 
 Record site information, for example:
 
-- Sensor Management Network information
+- Sensor management network information
 
-- Site Network Architecture
+- Site network architecture
 
-- Physical Environment
+- Physical environment
 
-- System Integrations
+- System integrations
 
-- Planned User Credentials
+- Planned user credentials
 
-- Configuration Workstation
+- Configuration workstation
 
-- SSL Certificates (optional).
+- SSL certificates (optional).
 
-- SMTP Authentication (Optional). To use the SMTP server with authentication, prepare the credentials required for your server.
+- SMTP authentication (Optional). To use the SMTP server with authentication, prepare the credentials required for your server.
 
-- DNS Server (Optional)Prepare your DNS server IP and Hostname.
-
-A detailed list and description of important site information is provided in [Appendix 2: Example Site Book](appendix-2-example-site-book)
+- DNS Server (Optional) Prepare your DNS server IP and Hostname.
 
 #### Successful monitoring guidelines
 
 To find the optimal place to connect the appliance in each of your production networks, it is recommended to follow the procedure below:
 
-![Diagram of production network.](media/tutorial-network-setup/image1.png)
+:::image type="content" source="media/how-to-set-up-your-network/production-network-diagram.png" alt-text="Diagram example of production network setup":::
 
 ### Prepare a configuration workstation
 
@@ -97,7 +95,7 @@ Prepare a Windows workstation, including the following:
 
 - Connectivity to the sensor management interface.
 
-- A Supported Browser
+- A supported browser
 
 - Terminal software, such as Putty.
 
@@ -117,22 +115,22 @@ The following browsers re supported for the sensors and on-premises management c
 
 Verify that your organizational security policy allows access to the following:
 
-| **Purpose**	| **Protocol** | **Transport** | **In/Out** | **Port** | **Category** |
+| **Purpose**	| **Protocol** | **Transport** | **In or out** | **Port** | **Category** |
 | ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Access to the Web console** | HTTPS | TCP | IN/OUT | 443 | Central Manager Azure Defender for IoT Platform Web Console |
-| **Access to the CLI** | SSH | TCP | IN/OUT | 22 | CLI |
-| **Connection Between the Azure Defender for IoT platform and the Central Manager** | SSL | TCP | IN/OUT | 443 | Sensor and Central Manager|
-| **Central Manager used as NTP to the Sensor** | NTP | UDP| IN to CM | 123 | Time Sync | 
-| **Sensor connected to external NTP server (if relevant)** | NTP | UDP | IN/OUT | 123 | Time Sync |
-| **The connection between Azure Defender for IoT platform/ Management platform and the mail server (if relevant)** | SMTP | TCP | OUT of sensor/mgmt | 25 | Email |
-| **Logs that send from Central Manager to Syslog server (if relevant)** | Syslog | UDP | OUT of sensor/mgmt | 514 | LEEF |
-| **DNS Server Port (if relevant)** | DNS | | IN/OUT | 53 | DNS |
-| **The connection between Azure Defender for IoT platform/ Central Manager to Active Directory (if relevant)** | LDAPS | TCP | IN/OUT | 636 <br />389 | Active Directory |
-| **Remote SNMP collectors (if relevant)** | SNMP | UDP | OUT of sensor/mgmt | 161 | Monitoring |
-| **Windows Endpoint Monitoring (if relevant)** | WMI | UDP | OUT of sensor/mgmt | 135 | Monitoring |
-| **Windows Endpoint Monitoring (if relevant)** | WMI | TCP | OUT of sensor/mgmt | 1024 and above | Monitoring |
-| **Tunnelling (if relevant)** | Tunneling | TCP | IN to CM | 9000<br />in addition to port 443<br />From the end-user to the Central Manager.<br />Port 22 from the sensor to the Central Manager | Monitoring |
-| **Outbound to the Azure IoT Hub** | HTTPS | TCP | OUT of sensor/mgmt | **URL**<br />*.azure-devices.net:443<br />Or if wildcards are not supported<br />{your iot hub name}.azure-devices.net:443 |
+| **Access to the web console** | HTTPS | TCP | In or out | 443 | Central manager Defender for IoT platform web console |
+| **Access to the CLI** | SSH | TCP | In or out | 22 | CLI |
+| **Connection between the Defender for IoT platform and the central manager** | SSL | TCP | In or out | 443 | Sensor and central manager|
+| **Central manager used as NTP to the sensor** | NTP | UDP| In to CM | 123 | Time sync | 
+| **Sensor connected to external NTP server (if relevant)** | NTP | UDP | In or out| 123 | Time sync |
+| **The connection between Defender for IoT platform and management platform and the mail server (if relevant)** | SMTP | TCP | Out of sensor management | 25 | Email |
+| **Logs that send from central manager to Syslog server (if relevant)** | Syslog | UDP | Out of sensor management| 514 | LEEF |
+| **DNS Server Port (if relevant)** | DNS | N/A | In or out| 53 | DNS |
+| **The connection between Defender for IoT platform and central manager to active directory (if relevant)** | LDAPS | TCP | In or out | 636 <br />389 | Active directory |
+| **Remote SNMP collectors (if relevant)** | SNMP | UDP | Out of sensor management| 161 | Monitoring |
+| **Windows endpoint monitoring (if relevant)** | WMI | UDP | Out of sensor management| 135 | Monitoring |
+| **Windows endpoint monitoring (if relevant)** | WMI | TCP | Out of sensor management| 1024 and above | Monitoring |
+| **Tunneling (if relevant)** | Tunneling | TCP | IN to CM | 9000<br />in addition to port 443<br />From the end-user to the central manager.<br />Port 22 from the sensor to the Central Manager | Monitoring |
+| **Outbound to the Defender for IoT hub** | HTTPS | TCP | Out of sensor management| **URL**<br />*.azure-devices.net:443<br />or if wildcards are not supported<br />{your iot hub name}.azure-devices.net:443 |
 
 ### Plan rack installation
 
@@ -140,34 +138,34 @@ This section describes how to plan your rack installation.
 
 **To plan:**
 
-1. Prepare a Monitor and a Keyboard for appliance network settings.
+1. Prepare a monitor and a keyboard for your appliance network settings.
 2. Allocate the rack space for the appliance.
 3. Make sure you have the AC power available for the appliance.
 4. Prepare the LAN cable for connecting the management to the network switch.
-5. Prepare the LAN cable(s) for connecting switch SPAN (mirror) ports and/or network taps to the Azure Defender for IoT appliance. 
-6. Configure, connect and validate SPAN port(s) in the mirrored switches as agreed in the architecture review session.
-7. Connect the configured SPAN port to a computer running Wireshark and verify port configured correc
+5. Prepare the LAN cable(s) for connecting switch SPAN (mirror) ports and or network taps to the Defender for IoT appliance. 
+6. Configure, connect, and validate SPAN port(s) in the mirrored switches as agreed in the architecture review session.
+7. Connect the configured SPAN port to a computer running Wireshark and verify the port is configured correctly.
 8. Open all the relevant firewall ports.
 
 ## About passive network monitoring
 
-The appliance receives traffic from multiple sources – either by switch Mirror ports (SPAN ports) and/or network TAPs. The Management port is connected to the business/corporate/sensor management network with connectivity to an on-premises management console and/or the Azure Portal.
+The appliance receives traffic from multiple sources – either by switch mirror ports (SPAN ports) and or network TAPs. The management port is connected to the business, corporate, or sensor management network with connectivity to an on-premises management console and or the Defender for IoT portal.
 
-![Diagram of Managed Switch with Port Mirroring.](media/tutorial-network-setup/image2.png)
+:::image type="content" source="media/how-to-set-up-your-network/switch-with-port-mirroring.png" alt-text="Diagram of Managed Switch with Port Mirroring.":::
 
 ### The Purdue Model
 
-This section descries Purdue levels.
+This article descries Purdue levels.
 
-![Diagram of the Purdue Model.](media/tutorial-network-setup/image3.png)
+:::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagram of the Purdue model.":::
 
-####  Level 0 – Cell/Area  
+####  Level 0 – cell and area  
 
 Consists of a wide variety of sensors, actuators, and devices involved in the basic manufacturing process. These devices perform the basic functions of the industrial automation and control system, such as driving a motor, measuring variables, setting an output, and performing key functions such as painting, welding, bending, etc.
 
-#### Level 1 – Process control
+#### Level 1 – process control
 
-Consists of embedded controllers that control and manipulate the manufacturing process whose key function is to interface with the Level 0 devices. In discrete manufacturing, those devices are Programmable Logic Controllers (PLCs) or Remote Telemetry Units (RTUs). In process manufacturing, the basic controller is referred to as a distributed control system (DCS).
+Consists of embedded controllers that control and manipulate the manufacturing process whose key function is to interface with the level 0 devices. In discrete manufacturing, those devices are Programmable Logic Controllers (PLCs) or Remote Telemetry Units (RTUs). In process manufacturing, the basic controller is referred to as a distributed control system (DCS).
 
 #### Level 2 – Supervisory
 
@@ -181,9 +179,9 @@ Represents the systems and functions associated with the runtime supervision and
 
 - Control room workstations
 
-These systems communicate with the PLCs and RTUs in Level 1 and in some cases interface or share data with the site or enterprise (Level 4/5) systems and applications. These systems are primarily based on standard computing equipment and operating systems (Unix or Microsoft Windows based).
+These systems communicate with the PLCs and RTUs in Level 1 and in some cases interface or share data with the site or enterprise (Level 4 and 5) systems and applications. These systems are primarily based on standard computing equipment and operating systems (Unix or Microsoft Windows based).
 
-#### Level 3/3.5 – Site level/Industrial DMZ
+#### Level 3 and 3.5 – site level and industrial DMZ
 
 The site level represents the highest level of industrial automation and control systems. The systems and applications that exist at this level manage site-wide industrial automation and control functions. Levels 0 through 3 are considered critical to site operations. The systems and functions that exist at this level may include the following:
 
@@ -193,7 +191,7 @@ The site level represents the highest level of industrial automation and control
 
 - Detailed production scheduling
 
-- Site-level operations management
+- Site level operations management
 
 - Asset and material management
 
@@ -203,9 +201,9 @@ The site level represents the highest level of industrial automation and control
 
 - Industrial domain, AD, terminal server
 
-These systems communicate with the production zone and share data with the enterprise (Levels 4/5) systems and applications.  
+These systems communicate with the production zone and share data with the enterprise (Levels 4 and 5) systems and applications.  
 
-#### Levels 4 & 5 – Business and enterprise networks
+#### Levels 4 and 5 – business and enterprise networks
 
 These levels represent the site or enterprise network where the centralized IT systems and functions exist. The services, systems, and applications at these levels are directly managed and operated by the IT organization.
 
@@ -217,41 +215,41 @@ In the following examples, different types of industrial control network topolog
 
 Traffic that goes through layer 1 and 2.
 
-### What should the Azure Defender for IoT appliance connect to?
+### What should the Defender for IoT appliance connect to?
 
-The managed switches that see the industrial communications between layer 1 and 2 (in some cases also layer 3)
+The managed switches that see the industrial communications between layer 1 and 2 (in some cases also layer 3).
 
-Below is a general abstraction of a Multi-Layer, Multi-Tenant network, with an expansive cyber-security ecosystem typically operated by a SOC/MSSP.
+Below is a general abstraction of a multi-layer, multi-tenant network, with an expansive cybersecurity ecosystem typically operated by a SOC and MSSP.
 
 Typically, NTA sensors are deployed in layers 0-3 of the OSI model.
 
-![Diagram of the OSI model.](media/tutorial-network-setup/image4.png)
+:::image type="content" source="media/how-to-set-up-your-network/osi-model.png" alt-text="Diagram of the OSI model.":::
 
-#### Example: Ring topology
+#### Example: ring topology
 
 The ring network is a network topology in which each switch or node connects to exactly two other switches, forming a single continuous pathway for the traffic.
 
-![Diagram of the Ring Topology.](media/tutorial-network-setup/image5.png)
+:::image type="content" source="media/how-to-set-up-your-network/ring-topology.PNG" alt-text="Diagram of the Ring Topology.":::
 
-#### Example linear/bus/star topology
+#### Example linear and bus and star topology
 
 In a star network, every host is connected to a central hub. In its simplest form, one central hub acts as a conduit to transmit messages. In the example below, lower switches are not monitored, traffic that remains local to these switches will not be seen. Devices may be identified based on ARP messages, but connection information will be missing.
 
-![Diagram of the Linear/Bus/Star Topology.](media/tutorial-network-setup/image6.png)
+:::image type="content" source="media/how-to-set-up-your-network/linear-bus-star-topology.PNG" alt-text="Diagram of the linear-bus-star topology.":::
 
-#### Multi-sensor deployment
+#### Multisensor deployment
 
 This section provides recommendations when deploying multiple sensors.
 
 |                   |                | **Dependency** | **Number of sensors** |
 | ----------------- | -------------- | -------------- | --------------------- |
 | The maximum distance between switches | 80 meters | Prepared Ethernet cable | More than 1 |
-| Number of OT networks | More then 1 | No physical connectivity | More than 1 |
-| Number of Switch’s | Can use RSPAN configuration | Up to 8 switches with local span close to the sensor by cabling distance | More than 1 |
+| Number of OT networks | More than 1 | No physical connectivity | More than 1 |
+| Number of switch’s | Can use RSPAN configuration | Up to 8 switches with local span close to the sensor by cabling distance | More than 1 |
 
 #### Traffic mirroring  
 
-To see only relevant information for traffic analysis, it is required to connect the Azure Defender for IoT platform to a mirroring port on a switch or a TAP, that includes only industrial ICS/SCADA traffic​. 
+To see only relevant information for traffic analysis, it is required to connect the Defender for IoT platform to a mirroring port on a switch or a TAP, that includes only industrial ICS and SCADA traffic​. 
 
 ![Diagram of Traffic mirroring.](media/tutorial-network-setup/image7.jpg)
 
@@ -259,15 +257,15 @@ Monitoring switch traffic can be accomplished with the following methods:
 
 - [Switch SPAN Port](#switch-span-port)
 
-- [Remote SPAN (RSPAN)](#remote-span-(rspan))
+- [Remote SPAN (RSPAN)](#remote span-rspan)
 
-SPAN and RSPAN are Cisco<sup>TM</sup> terminology. Other brands of switches have similar functionality but may use different terminology.
+SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but may use different terminology.
 
-- Active/Passive Aggregation TAP
+- Active and passive aggregation TAP
 
 #### Switch SPAN port
 
-Switch Port Analyzer mirrors local traffic from interface/s on the switch to interface/s on the same switch.
+Switch port analyzer mirrors local traffic from interface(s) on the switch to interface(s) on the same switch.
 
 - Verify that the relevant switch supports the port mirroring function.  
 
@@ -281,13 +279,14 @@ The following examples are for reference only and are based on a Cisco 2960 swit
 
 **SPAN port** Configuration example – Cisco 2960 (24 ports)
 
-![Diagram of SPAN port configuration terminal.](media/tutorial-network-setup/image8.png)![Diagram of SPAN port configuration mode.](media/tutorial-network-setup/image9.png)
+:::image type="content" source="media/how-to-set-up-your-network/span-port-configuration-terminal.png" alt-text="Diagram of SPAN port configuration terminal.":::
+:::image type="content" source="media/how-to-set-up-your-network/span-port-configuration-mode.png" alt-text="Diagram of SPAN port configuration mode.":::
 
 ##### Monitoring multiple VLANs
 
-Azure Defender for IoT allows monitoring VLANs configured in your network. No configuration of the Azure Defender for IoT system is required. The user needs to ensure that the switch in your network is configured to send VLAN tags to Azure Defender for IoT.
+Defender for IoT allows monitoring VLANs configured in your network. No configuration of the Defender for IoT system is required. The user needs to ensure that the switch in your network is configured to send VLAN tags to Defender for IoT.
 
-The following is an example configuration that shows the required commands that must be configured on the Cisco switch to enable monitoring VLANs in Azure Defender for IoT:
+The following is an example configuration that shows the required commands that must be configured on the Cisco switch to enable monitoring VLANs in Defender for IoT:
 
 Monitor session:
 
@@ -295,7 +294,7 @@ This command is responsible for the process of sending VLANs to the span port.
 
 - monitor session 1 source interface Gi1/2
 
-- monitor session 1 filter packet-type good Rx
+- monitor session 1 filter packet type good Rx
 
 - monitor session 1 destination interface fastEthernet1/1 encapsulation dot1q
 
@@ -311,9 +310,9 @@ Monitor Trunk Port F.E. Gi1/1: VLANs are configured on the trunk port.
 
 Remote SPAN session mirrors traffic from multiple distributed source ports into a dedicated ‘remote VLAN’.  
 
-![Diagram of Remote SPAN.](media/tutorial-network-setup/image10.png)
+:::image type="content" source="media/how-to-set-up-your-network/remote-span.png" alt-text="Diagram of Remote SPAN.":::
 
-The data in the VLAN is then delivered through <span class="underline">trunked</span> ports across multiple switches to a specific switch that contains the physical destination port that connects to the Azure Defender for IoT platform.  
+The data in the VLAN is then delivered through trunked ports across multiple switches to a specific switch that contains the physical destination port that connects to the Defender for IoT platform.  
 
 ##### More about RSPAN
 
@@ -330,15 +329,15 @@ The data in the VLAN is then delivered through <span class="underline">trunked</
 >
 > The Remote VLAN increases the bandwidth on the trunked port by the size of the mirrored session bandwidth. Verify that the switch’s trunk port supports that  
 
-![Diagram of Remote VLAN.](media/tutorial-network-setup/image11.jpg)
+:::image type="content" source="media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN.":::
 
 #### RSPAN Configuration – Examples
 
-RSPAN: Based on Cisco Catalyst 2960 (24 ports)
+RSPAN: Based on Cisco catalyst 2960 (24 ports)
 
 **Source switch configuration example:**
 
-![Screenshote of RSPAN configuration.](media/tutorial-network-setup/image12.png)
+:::image type="content" source="media/how-to-set-up-your-network/rspan-configuration.png" alt-text="Screenshote of RSPAN configuration.":::
 
 - Enter global configuration mode
 
@@ -370,17 +369,17 @@ RSPAN: Based on Cisco Catalyst 2960 (24 ports)
 
 - Save the configuration
 
-#### Active/passive aggregation TAP
+#### Active and passive aggregation TAP
 
-An active or passive aggregation TAP is installed inline to the network cable – and duplicates both RX and TX to the monitoring sensor.
+An active or passive aggregation TAP is installed inline to the network cable and duplicates both RX and TX to the monitoring sensor.
 
 The Terminal Access Point (TAP) is a hardware device that allows network traffic to flow from ports A to B, and B to A without interruption, and creates an exact copy of both sides of the traffic flow, continuously, 24/7 without compromising network integrity. Some TAPs aggregate transmit and receive traffic using switch settings if desired. If aggregation is not supported, each tap uses two sensor ports to monitor send and receive traffic.
 
-Taps are advantageous for a variety of reasons. They are hardware based and thus cannot be compromised. They pass all traffic, even damaged messages, which switches often drop. They are not processor-sensitive, so packet timing is exact, where switches handle the mirror function as a low priority task which can affect the timing of the mirrored packets. For forensic purposes, a tap is the best device.
+Taps are advantageous for a variety of reasons. They are hardware-based and thus cannot be compromised. They pass all traffic, even damaged messages, which switches often drop. They are not processor sensitive, so packet timing is exact, where switches handle the mirror function as a low-priority task that can affect the timing of the mirrored packets. For forensic purposes, a tap is the best device.
 
-Tap aggregators may also be used for port monitoring. Be aware that these devices are processor based and hence are not as intrinsically secure as hardware taps and may also not reflect exact packet timing.
+Tap aggregators may also be used for port monitoring. These devices are processor-based and hence are not as intrinsically secure as hardware taps and may also not reflect exact packet timing.
 
-![Diagram of Active/passive TAP.](media/tutorial-network-setup/image13.png)
+:::image type="content" source="media/how-to-set-up-your-network/active-passive-tap.PNG" alt-text="Diagram of active and passive tap.":::
 
 ##### Common tap models
 
@@ -408,7 +407,7 @@ These models have been tested for compatibility. Other vendors and models may al
 
 | Garland TAP | US Robotics TAP |
 | ----------- | --------------- |
-| Make sure jumpers set as follow:<br />![Screen of US Robotics.](media/tutorial-network-setup/image17.jpg) | Make sure Aggregation mode is active |
+| Make sure jumpers set as follows:<br />![Screen of US Robotics.](media/tutorial-network-setup/image17.jpg) | Make sure Aggregation mode is active |
 
 ## Deployment validation
 
@@ -458,18 +457,18 @@ Relevant information:
 
 - Is there any “serial” communication in the network? If “yes” please show me on the network diagram.
 
-- In case the Azure Defender for IoT appliance should be connected to that switch, is there physical available rack space in that cabinet?
+- In case the Defender for IoT appliance should be connected to that switch, is there physical available rack space in that cabinet?
 
 #### Additional considerations
 
-Azure Defender for IoT appliance purpose is to monitor traffic from levels 1 to 2.
+Defender for IoT appliance purpose is to monitor traffic from levels 1 to 2.
 
-For some architectures, Azure Defender for IoT appliance will also monitor layer 3 if there is the existence of OT traffic on this layer. While reviewing the site architecture, the following variables should be considered when deciding if to monitor a switch or not:
+For some architectures, Defender for IoT appliance will also monitor layer 3 if there is the existence of OT traffic on this layer. While reviewing the site architecture, the following variables should be considered when deciding if to monitor a switch or not:
 
 1. What is the cost-benefit vs. the importance of monitoring this switch?
 
 
-2. If a switch is unmanaged, will it be possible to monitor the traffic from the higher level switch?
+2. If a switch is unmanaged, will it be possible to monitor the traffic from the higher-level switch?
 
 3. If the ICS architecture is a ring topology, only one switch in this ring needs to be monitored
 
@@ -494,7 +493,7 @@ Recording a sample PCAP file (a few minutes) can be done by connecting a laptop 
 
 #### Wireshark validation
 
-- Check that there is a presence of **Unicast packets** in the recording traffic. Unicast (as shown above) is from one address to another. If most of the traffic is arp messages (Who has x.x.x.x) then the switch setup is incorrect.
+- Check that there is a presence of **Unicast packets** in the recording traffic. Unicast (as shown above) is from one address to another. If most of the traffic is arp messages (Who has x.x.x.x), then the switch setup is incorrect.
 
 - Go to **Statistics -> Protocol Hierarchy.** Verify that there is a presence of industrial OT protocols.
 
@@ -518,7 +517,7 @@ The following troubleshooting issues are covered:
 
     - Connect a monitor and a keyboard to the appliance.
 
-    - Use **support** user and password to login.
+    - Use **support** user and password to sign in.
 
     - Use the command **network list** to see the current IP address.
 
@@ -579,7 +578,7 @@ Review this list prior to site deployment.
 | 10    | Create spanning ports on switches for port monitoring or configure network taps as desired. | ☐   |  |
 | 11    | Prepare rack space for sensor/s appliances | ☐       |              |
 | 12    | Prepare a workstation for personnel | ☐          |              |
-| 13    | Provide keyboard, monitor, and mouse for the Azure Defender for IoT rack devices | ☐   |     |
+| 13    | Provide keyboard, monitor, and mouse for the Defender for IoT rack devices | ☐   |     |
 | 14    | Rack and cable the appliance(s) | ☐          |              |
 | 15    | Allocate site resources to support deployment | ☐    |              |
 | 16    | Create Active Directory groups or local users | ☐          |        |
@@ -589,20 +588,20 @@ Review this list prior to site deployment.
 
 | **Date**                   |     | **Deployment date**   |  |
 | -------------------------- | --- | --------------------- | --- |
-| **Azure Defender for IoT** |     | **Site name**         |  |
+| **Defender for IoT** |     | **Site name**         |  |
 | **Name**                   |     | **Name**              |  |
 | **Position**               |     | **Position**          |  |
 
 #### Architecture review
 
-An overview of the industrial network diagram will allow you to define the proper location for Azure Defender for IoT equipment.
+An overview of the industrial network diagram will allow you to define the proper location for Defender for IoT equipment.
 
 1.  A global network diagram of the industrial OT environment. For example:
 
 ![Diagram of industrial OT environment global network.](media/tutorial-network-setup/image24.png) 
 
 > [!NOTE]
-> Azure Defender for IoT appliance should be connected to a lower level switch that sees the traffic between the ports on the switch.  
+> Defender for IoT appliance should be connected to a lower level switch that sees the traffic between the ports on the switch.  
 
 2. Provide approximate number of assets in the networks (Optional)
 
@@ -624,7 +623,7 @@ An overview of the industrial network diagram will allow you to define the prope
     | 3  | |
     | 4  | |  
 
-5. To verify that the switches have port mirroring capability, provide the <span class="underline">Switch model numbers</span> that Azure Defender for IoT platform should connect to:
+5. To verify that the switches have port mirroring capability, provide the <span class="underline">Switch model numbers</span> that Defender for IoT platform should connect to:
 
     |    | **Switch** | **Model** | **Traffic Mirroring Support (e.g SPAN/RSPAN/None)** |
     | -- | --------------- | --------------- | --------------- |
@@ -657,7 +656,7 @@ An overview of the industrial network diagram will allow you to define the prope
  
     <Add network diagram with marked serial connection> 
 
-7. QOS, the default setting of the sensor is 1.5Mbps, please specify if you want to change it  
+7. QOS, the default setting of the sensor is 1.5 Mbps, specify if you want to change it  
 ________________ 
 
 Business Unit (BU) ________________ 
@@ -668,7 +667,7 @@ Business Unit (BU) ________________ 
 
 The sensor appliance is connected to switch SPAN port using a network adapter and connected to the customer’s corporate network for Management using an additionally dedicated network adapter.
 
-Please provide address details for sensor NIC that will be connected in the corporate network: 
+Provide address details for sensor NIC that will be connected in the corporate network: 
 
 |                 | Appliance #1 | Appliance #2 | Appliance #3 |
 | --------------- | ------------- | ------------- | ------------- |

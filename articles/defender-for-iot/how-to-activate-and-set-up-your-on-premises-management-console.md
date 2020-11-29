@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: azure
 ---
 
+# 
 ## Activate the on-premises management console
 
 Verify that you have the username and password required for the on-premises management console. After login, TBD
@@ -243,7 +244,7 @@ For each zone, you need to assign sensors that perform local traffic analysis an
 
 1. Select **Site Management**. The unassigned sensors appear in the upper left corner of the dialog box.
 
-   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassigned-sensors-view/unassigned-sensors-view.png" alt-text="Screenshot of Unassigned sensors view":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassigned-sensors-view.png" alt-text="Screenshot of Unassigned sensors view":::
 
 2. Verify that the **Connectivity** status is connected. If not, see [Make initial connection between sensors and the on-premises management console](#make-initial-connection-between-sensors-and-the-on-premises-management-console) for details about connecting. 
 
