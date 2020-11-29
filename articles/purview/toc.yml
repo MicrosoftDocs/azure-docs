@@ -122,8 +122,6 @@ items:
       href: how-to-manage-term-templates.md
   - name: Classify
     items: 
-    - name: Use classifications
-      href: use-classifications.md
     - name: Create custom classification & classification rule
       href: create-a-custom-classification-and-classification-rule.md
     - name: Apply classifications
