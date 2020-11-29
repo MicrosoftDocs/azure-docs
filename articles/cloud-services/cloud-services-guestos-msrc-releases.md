@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: yohaddad
 ---
 
@@ -24,10 +24,10 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-11 |  [4586793]  |  Latest Cumulative Update | 6.25 | Nov 10, 2020 |
+|  Rel 20-11 OOB |  [4594442]  |  Latest Cumulative Update | 6.25 | Nov 17, 2020 |
+|  Rel 20-11 OOB |  [4594441]  |  Latest Cumulative Update | 5.49 | Nov 19, 2020 |
 |  Rel 20-11 |  [4580325]  |  Flash Update | 3.91, 4.84, 5.49, 6.25 | Oct 13, 2020 |
 |  Rel 20-11 |  [4586768]  |  IE Cumulative Update | 2.104, 3.91, 4.84 | Nov 10, 2020 |
-|  Rel 20-11 |  [4586830]  |  Latest Cumulative Update | 5.49 | Nov 10, 2020 |
 |  Rel 20-11 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | 2.104 | Nov 10, 2020 |
 |  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.104 | Nov 10, 2020 |
 |  Rel 20-11 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | 4.84 | Nov 10, 2020 |
@@ -47,10 +47,10 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 20-11 |  [4494175]  |  Microcode | 5.49 | Sep 1, 2020 |
 |  Rel 20-11 |  [4494174]  |  Microcode | 6.25 | Sep 3, 2020 |
 
-[4586793]: https://support.microsoft.com/kb/4586793
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
 [4580325]: https://support.microsoft.com/kb/4580325
 [4586768]: https://support.microsoft.com/kb/4586768
-[4586830]: https://support.microsoft.com/kb/4586830
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953

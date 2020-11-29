@@ -316,7 +316,7 @@ armAuth:
 #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
 
 ################################################################################
-# Specify if the cluster is RBAC enabled or not
+# Specify if the cluster is Kubernetes RBAC enabled or not
 rbac:
     enabled: false # true/false
 

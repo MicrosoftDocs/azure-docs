@@ -490,7 +490,7 @@
     - name: Common provisioning scenarios
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+      href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
   - name: Azure portal help articles
     items:
     - name: Token lifetime defaults for a custom-developed application
@@ -539,6 +539,8 @@
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Handle ITP in Safari
       href: reference-third-party-cookies-spas.md
+    - name: Use Continuous Access Evaluation APIs
+      href: app-resilience-continuous-access-evaluation.md
   - name: Application configuration
     displayName: App configuration
     items:

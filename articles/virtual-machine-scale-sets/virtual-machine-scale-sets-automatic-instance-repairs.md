@@ -31,9 +31,9 @@ Before enabling automatic instance repairs policy, ensure that the scale set ins
 
 For instances marked as "Unhealthy", automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
 
-**Enable single placement group**
+**Maximum number of instances in the scale set**
 
-This feature is currently available only for scale sets deployed as single placement group. The property *singlePlacementGroup* should be set to *true* for your scale set to use automatic instance repairs feature. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+This feature is currently available only for scale sets that have a maximum of 200 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 200 if automatic instance repairs is enabled for the scale set.
 
 **API version**
 

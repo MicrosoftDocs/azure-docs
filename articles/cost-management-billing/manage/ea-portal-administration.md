@@ -141,7 +141,7 @@ Before performing the ownership transfer, understand these Azure role-based acce
 - When performing subscription or account ownership transfers between two organizational IDs within the same tenant, Azure RBAC policies, existing service administrator, and co-administrator roles are preserved.
 - Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
-- To avoid loss of RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Azure AD tenant** checkbox remains **unchecked**. This will retain the services, RBAC roles, and policies on the current Azure AD tenant and only transfer the billing ownership for the account.  
+- To avoid loss of Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Azure AD tenant** checkbox remains **unchecked**. This will retain the services, Azure roles, and policies on the current Azure AD tenant and only transfer the billing ownership for the account.  
     :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing unselected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 
 
@@ -277,7 +277,7 @@ The Azure EA portal helps you to administer your Azure EA costs and usage. There
 
 Each role has a different level of access and authority.
 
-For more information about user roles, see [Enterprise user roles](https://docs.microsoft.com/azure/manage/understand-ea-roles#enterprise-user-roles).
+For more information about user roles, see [Enterprise user roles](/azure/cost-management-billing/manage/understand-ea-roles#enterprise-user-roles).
 
 ## Add an Azure EA account
 

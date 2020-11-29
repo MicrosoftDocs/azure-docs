@@ -21,7 +21,7 @@ By using Azure AD My Apps, you can:
 * Discover and access all of their company’s Azure AD-connected resources, such as applications
 * Request access to new apps and groups
 * Manage access to these resources for others
-* Manage self-service password resets and Azure Multi-Factor Authentication settings
+* Manage self-service password resets and Azure AD Multi-Factor Authentication settings
 * Manage their devices
 
 It also allows administrators to manage:
@@ -49,7 +49,7 @@ Azure AD My Apps benefits businesses in the following ways:
 
 My Apps is free and requires no licenses to use at a basic level. However, the number of objects in your directory and the additional features you want to deploy can require additional licenses. Some common Azure AD scenarios that have licensing requirements include the following security features:
 
-* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * [Group-based membership](../fundamentals/active-directory-manage-groups.md)
 * [Self-service password reset](../authentication/tutorial-enable-sspr.md)
 * [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
@@ -307,4 +307,4 @@ Use the least privileged role to accomplish a required task within Azure Active 
 You can use [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
 ## Next steps
-[Plan a deployment of Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Plan a deployment of Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

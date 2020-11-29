@@ -67,7 +67,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based authentication repository that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|An identity management service that enables control over how customers sign-up, sign-in, and manage their profiles when using Azure-based applications.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services. |
-| [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
+| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
 
 ## Backup and disaster recovery
 |Service|Description|

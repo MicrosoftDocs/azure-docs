@@ -54,7 +54,7 @@ landingContent:
         - text: Integrate Power BI to analyze customer sentiment
           url: tutorials/tutorial-power-bi-key-phrases.md
         - text: Use Flask to translate text, analyze sentiment, and synthesize speech
-          url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json
+          url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json
     - linkListType: how-to-guide
       links:
         - text: Sentiment analysis

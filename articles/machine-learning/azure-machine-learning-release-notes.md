@@ -205,7 +205,7 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
     + Updated AzureML MLflow documentation and notebook samples 
     + New support for MLflow projects with AzureML backend
     + MLflow model registry support
-    + Added RBAC support for AzureML-MLflow operations 
+    + Added Azure RBAC support for AzureML-MLflow operations 
     
   + **azureml-pipeline-core**
     + Improved the documentation of the PipelineOutputFileDataset.parse_* methods.
