@@ -148,6 +148,8 @@ items:
       href: catalog-private-end-point.md
   - name: Insights
     items:
+    - name: View asset insights
+      href: asset1-insights.md       
     - name: View glossary insights
       href: glossary-insights.md 
     - name: View scan insights
