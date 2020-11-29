@@ -151,7 +151,7 @@ items:
   - name: Insights
     items:
     - name: View asset insights
-      href: asset-insights.md
+      href: asset1-insights.md       
     - name: View glossary insights
       href: glossary-insights.md 
     - name: View scan insights
