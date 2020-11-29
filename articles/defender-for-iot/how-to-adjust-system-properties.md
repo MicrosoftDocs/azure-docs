@@ -19,8 +19,8 @@ Consult with support.microsoft.com before changing your settings.
 
 To access system properties: 
 
-1. Log in to the on-premises management console or the sensor. 
+1. Sign in to the on-premises management console or the sensor. 
 
 2. Select **System Settings**. 
 
-3. Select **System Properties** from the general section .
+3. Select **System Properties** from the general section.

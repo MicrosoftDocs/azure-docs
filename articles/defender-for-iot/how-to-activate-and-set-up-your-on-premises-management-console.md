@@ -53,13 +53,13 @@ Connect specific sensors to the on-premises management console from the sensor c
 
 2. Select **Connection to Management**.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-not-connected.png" alt-text="Screenshot of on-premises management console connection status window showing unconnected":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-not-connected.png" alt-text="Screenshot of on-premises management console connection status window showing unconnected":::
 
 3. In the **Address** text box, enter the IP address of the on-premises management console to which you want to connect.
 
 4. Select **Connect**. The status changes:
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-connected.png" alt-text="Screenshot of on-premises management console connection Status Window showing Connected":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/connection-status-window-connected.png" alt-text="Screenshot of on-premises management console connection Status Window showing Connected":::
 
 ## Connect sensors using tunneling
 
@@ -132,7 +132,7 @@ You can edit your sites directly from any of the map views. When opening a site 
 
 1. From the enterprise view window, select **All Sites** > **Manage Business Units**.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/manage-business-unit-screen.png" alt-text="Screenshot showing manage business units view":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/manage-business-unit-screen.png" alt-text="Screenshot showing manage business units view":::
 
 2. Type the new business unit name and select **ADD**.
 
@@ -140,7 +140,7 @@ You can edit your sites directly from any of the map views. When opening a site 
 
 1. From the enterprise view window, select **All Regions** > **Manage Regions**.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/ manage-regions-screen.png" alt-text="Screenshot showing manage regions view":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/manage-regions-screen.png" alt-text="Screenshot showing manage regions view":::
 
 2. Type the new region name and select **ADD**.
 
@@ -150,7 +150,7 @@ You can edit your sites directly from any of the map views. When opening a site 
 
 2. Position the **+** at the location of the new site and left click on it. The create new site dialog box opens.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-site-screen.png" alt-text="Screenshot of create new site view":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-site-screen.png" alt-text="Screenshot of create new site view":::
 
 3. Define the name and the physical address for the new site and select **SAVE**. The new site appears on the site map.
 
@@ -191,7 +191,7 @@ The following table describes the site management window parameters.
 
 1.  In the site management window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name and select **Add Zone**. The **Create New Zone** dialog box appears.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-zone-screen.png" alt-text="Screeshot of create new zone view":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-zone-screen.png" alt-text="Screeshot of create new zone view":::
 
 2. Type the zone name.
 
@@ -203,7 +203,7 @@ The following table describes the site management window parameters.
 
 1. In the site management window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the zone name and select **Edit Zone**. The **Edit Zone** dialog box appears.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/zone-edit-screen.png" alt-text="Edit a zone window":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/zone-edit-screen.png" alt-text="Edit a zone window":::
 
 2. Edit the zone parameters and select **SAVE**.
 
@@ -243,7 +243,7 @@ For each zone, you need to assign sensors that perform local traffic analysis an
 
 1. Select **Site Management**. The unassigned sensors appear in the upper left corner of the dialog box.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassigned-sensors-view/.png" alt-text="Screenshot of Unassigned sensors view":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassigned-sensors-view/unassigned-sensors-view.png" alt-text="Screenshot of Unassigned sensors view":::
 
 2. Verify that the **Connectivity** status is connected. If not, see [Make initial connection between sensors and the on-premises management console](#make-initial-connection-between-sensors-and-the-on-premises-management-console) for details about connecting. 
 
@@ -251,7 +251,7 @@ For each zone, you need to assign sensors that perform local traffic analysis an
 
 4. In the **Assign sensor** dialog box, select the business unit, region, site, and the zone to assign.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-sensor-screen.png" alt-text="Screenshot of Assign sensor view":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-sensor-screen.png" alt-text="Screenshot of Assign sensor view":::
 
 5. Select **ASSIGN**.
 

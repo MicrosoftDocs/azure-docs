@@ -197,15 +197,15 @@
         href: how-to-customized-alert-rules.md
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
-    - name: Enrich asset information
+    - name: Enrich device information
       items: 
       - name: Configure DNS servers for reverse lookup resolution
         href: how-to-configure-dns-servers-for-reverse-lookup-resolution.md
-      - name: Working with asset notifications
-        href: how-to-working-with-asset-notifications.md
+      - name: Working with device notifications
+        href: how-to-working-with-device-notifications.md
       - name: Enhance port and VLAN names resolution
         href: how-to-enhance-port-and-vlan-names-resolution.md
-      - name: Import asset information
+      - name: Import device information
         href: how-to-import-device-information.md
     - name: Work with system notifications
       href: how-to-work-with-system-notifications.md

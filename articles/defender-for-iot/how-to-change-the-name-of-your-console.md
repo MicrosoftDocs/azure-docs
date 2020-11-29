@@ -45,11 +45,11 @@ You can change the on-premises management console name.
 
 1. In the bottom of the left pane, select the current name.
 
-  :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/console-name.png" alt-text="Screenshot of the on-premises management console version":::
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/console-name.png" alt-text="Screenshot of the on-premises management console version":::
 
 2. In the edit management console configuration dialog box, type the new name. The name cannot be longer than 25 characters.
 
-    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Screenshot of editing the Defender for IoT platform configuration":::
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Screenshot of editing the Defender for IoT platform configuration":::
 
 3. Select **Save**. The new name appears.
 
