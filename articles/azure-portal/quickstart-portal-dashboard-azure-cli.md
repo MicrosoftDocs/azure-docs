@@ -15,46 +15,46 @@ A dashboard in the Azure portal is a focused and organized view of your cloud re
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
-should be billed. Select a specific subscription using the [az account set](/cli/azure/account#az_account_set) command:
+If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
+Select a subscription by using the [az account set](/cli/azure/account#az_account_set) command:
 
    ```azurecli
    az account set --subscription 00000000-0000-0000-0000-000000000000
    ```
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md)
-by using the [az group create](/cli/azure/group#az_group_create)
-command:
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az_group_create) command:
 
    ```azurecli
    az group create --name myResourceGroup --location centralus
    ```
 
-A resource group is a logical container in which Azure resources are deployed and managed as
-a group.
-
+A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 ## Create a virtual machine
 
-The password must be complex. This is a new user
-name and password; it's not, for example, the account you use to sign in to Azure. For more
-information, see [username requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)
+
+
+Create a virtual machine by using the [az vm create](/cli/azure/vm#az_vm_create) command:
+
+```azurecli
+az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016datacenter --admin-username azureuser --admin-password 1StrongPassword$
+```
+
+> [!Note] The password must be complex.
+> This is a new user name and password.
+> It's not, for example, the account you use to sign in to Azure. 
+> For more information, see [username requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)
 and [password requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-Create the VM.
-
-az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016datacenter --admin-username azureuser --admin-password 1StrongPassword$
-
->[!Note] The VM deployment now starts and typically takes a few minutes to complete. After deployment
-completes, move on to the next section.
+The deployment now starts and typically takes a few minutes to complete. After deployment completes, move on to the next section.
 
 ## Download the dashboard template
 
-Since Azure dashboards are resources, they can be represented as JSON. The following code downloads
-a JSON representation of a sample dashboard. For more information, see [The structure of Azure Dashboards](./azure-portal-dashboards-structure.md).
+Since Azure dashboards are resources, they can be represented as JSON.
+The following code downloads a JSON representation of a sample dashboard.
+For more information, see [The structure of Azure Dashboards](./azure-portal-dashboards-structure.md).
 
 Download the following dashboard: 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
-
 
 Customize the downloaded template by changing the following values to your values:
 
@@ -68,16 +68,27 @@ For more information, see [Microsoft portal dashboards template reference](/azur
 
 ## Deploy the dashboard template
 
-You can use the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to deploy the
-template directly from the Azure CLI:
+You can now deploy the template from within Azure CLI.
 
-az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+1. Run the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to deploy the template:
 
-Check that the dashboard was created successfully by running the [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) command:
+   ```azurecli
+   az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+   ```
 
-az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+1. Check that the dashboard was created successfully by running the [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) command:
 
-Verify that you can see data about the VM from within the Azure portal.
+   ```azurecli
+   az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+   ```
+
+1. To see all your dashboards, use the [az portal dashboard list]
+
+   ```azurecli
+   az portal dashboard list --resource-group myResourceGroup
+   ```
+
+Verify that you can see data about the virtual machine from within the Azure portal.
 
 1. In the Azure portal, select **Dashboard**.
 
@@ -94,20 +105,20 @@ Verify that you can see data about the VM from within the Azure portal.
 
 ## Clean up resources
 
-To remove the VM and associated dashboard, delete the resource group that contains them.
+To remove the virtual machine and associated dashboard, delete the resource group that contains them.
 
 > [!CAUTION]
 > The following example deletes the specified resource group and all resources contained within it.
-> If resources outside the scope of this article exist in the specified resource group, they will
-> also be deleted.
+> If resources outside the scope of this article exist in the specified resource group, they will also be deleted.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name $resourceGroupName
+```azurecli
+az group delete --name myResourceGroup
 ```
+
+To remove only the dashboard, use the [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete) command: 
+
+az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
 
 ## Next steps
 
-For more information about the cmdlets contained in the Az.Portal PowerShell module, see:
-
-> [!div class="nextstepaction"]
-> [Microsoft Azure PowerShell: Portal Dashboard cmdlets](/powershell/module/Az.Portal/)
+For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
