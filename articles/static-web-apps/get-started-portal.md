@@ -32,9 +32,9 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Select **Static Web Apps (Preview)**
 1. Select **Create**
 
-In the _Basics_ tab, begin by configuring your new app and linking it to a GitHub repository.
+In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics tab":::
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics section":::
 
 1. Select your _Azure subscription_
 1. Select or create a new _Resource Group_
@@ -60,7 +60,7 @@ After you sign in with GitHub, enter the repository information.
     # [No Framework](#tab/vanilla-javascript)
 
     1. Select **Custom** from the _Build Presets_ dropdown
-    1. Clear the default value in the _App location_ box
+    1. Keep the the default value in the _App location_ box
     1. Clear the default value from the _Api location_ box
     1. Leave the _App artifact location_ box empty
 

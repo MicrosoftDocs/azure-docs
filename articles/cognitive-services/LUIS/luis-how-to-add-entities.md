@@ -2,14 +2,14 @@
 title: Add entities - LUIS
 description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by the client application to fullfil customer requests.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
+
 ---
 
 # Add entities to extract data
@@ -174,14 +174,14 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 1. To label with the role, select the entity label (solid line under text) in the example utterance, then select **View in entity pane** from the drop-down list.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of selecting View in entity Palette](media/add-entities/view-in-entity-pane.png)
+    > ![Screenshot shows the View in entity pane menu item selected.](media/add-entities/view-in-entity-pane.png)
 
     The entity palette opens to the right.
 
 1. Select the entity, then go to the bottom of the palette and select the role.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of selecting View in entity Palette](media/add-entities/select-role-in-entity-palette.png)
+    > ![Screenshot shows where to select the role.](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>

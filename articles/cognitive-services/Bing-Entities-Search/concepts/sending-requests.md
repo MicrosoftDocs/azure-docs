@@ -14,6 +14,11 @@ ms.author: aahi
 
 # Sending search requests to the Bing Entity Search API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries/regions, etc.
 
 ## The endpoint
@@ -30,18 +35,18 @@ We recommend that all requests originate from a server. Distributing the key as 
 
 ## Specifying query parameters and headers
 
-The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) query parameter, which contains the user's search term. The request must also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters). URL encode all query parameters.  
+The request must specify the [q](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) query parameter, which contains the user's search term. The request must also specify the [mkt](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters). URL encode all query parameters.  
   
-The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
+The request must specify the [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientid)  
--   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
+-   [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientid)  
+-   [X-MSEdge-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
+-   [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
 
 The client IP and location headers are important for returning location aware content.  
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
+For a list of all request and response headers, see [Headers](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
 
 ## The request
 
@@ -61,7 +66,7 @@ If it's your first time calling any of the Bing APIs, don't include the client I
 
 ## The response
 
-The following shows the response to the previous request. The example also shows the Bing-specific response headers. For information about the response object, see [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
+The following shows the response to the previous request. The example also shows the Bing-specific response headers. For information about the response object, see [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -130,4 +135,4 @@ BingAPIs-Market: en-US
 ## Next steps
 
 * [Searching for entities with the Bing Entity API](search-for-entities.md)
-* [Bing API Use and Display Requirements](../use-display-requirements.md)
+* [Bing API Use and Display Requirements](../../bing-web-search/use-display-requirements.md)

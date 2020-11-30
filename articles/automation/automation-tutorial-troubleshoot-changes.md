@@ -213,9 +213,9 @@ Viewing changes in the Azure portal can be helpful, but being able to be alerted
 
 18. To customize the subject of the alert email, select **Customize Actions**. 
 
-19. For **Create rule**, select **Email subject**, then choose **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of that update deployment run. The following image is an example email received wen the W3SVC service stops.
+19. For **Create rule**, select **Email subject**, then choose **Create alert rule**. The alert tells you when an update deployment succeeds, and which machines were part of that update deployment run. The following image is an example email received when the W3SVC service stops.
 
-    ![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![Screen capture shows an email notification received when the W 3 S V C services stops.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## Next steps
 
@@ -233,4 +233,4 @@ In this tutorial you learned how to:
 Continue to the overview for the Change Tracking and Inventory feature to learn more about it.
 
 > [!div class="nextstepaction"]
-> [Change Tracking and Inventory overview](./change-tracking.md)
+> [Change Tracking and Inventory overview](change-tracking/overview.md)

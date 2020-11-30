@@ -9,11 +9,14 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 # Customer intent: As a data analyst or developer, I want to quickly learn about the Azure Time Series Insights visualization Explorer.
 ---
 
 # Quickstart: Explore Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This Azure Time Series Insights Explorer quickstart helps you get started with Azure Time Series Insights in a free demonstration environment. In this quickstart, you learn how to use your web browser to visualize large volumes of IoT data and tour key features that are generally available now.
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
+ms.custom: fasttrack-new, devx-track-js
 ---
 
 # Protect SPA backend with OAuth 2.0, Azure Active Directory B2C and Azure API Management

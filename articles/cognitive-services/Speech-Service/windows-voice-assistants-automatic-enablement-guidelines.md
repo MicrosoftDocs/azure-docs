@@ -25,7 +25,7 @@ Developers creating voice assistants on Windows must include clear user interfac
 Windows users can see and control the availability of their assistant applications in **`Settings > Privacy > Voice activation`**.
 
  > [!div class="mx-imgBorder"]
- > [![privacy-app-listing](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "A Windows voice activation privacy setting entry for an assistant application")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![Screenshot shows options to control availablity of Cortana. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "A Windows voice activation privacy setting entry for an assistant application")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 To become eligible for inclusion in this list, contact Microsoft at winvoiceassistants@microsoft.com to get started. By default, users will need to explicitly enable voice activation for a new assistant in **`Settings > Privacy > Voice Activation`**, which an application can protocol link to with `ms-settings:privacy-voiceactivation`. An allowed application will appear in the list once it has run and used the `Windows.ApplicationModel.ConversationalAgent` APIs. Its voice activation settings will be modifiable once the application has obtained microphone consent from the user.
 

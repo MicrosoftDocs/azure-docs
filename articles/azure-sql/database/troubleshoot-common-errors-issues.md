@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: carlrab,vanto
+ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
 ---
 
@@ -25,13 +25,13 @@ The Azure infrastructure has the ability to dynamically reconfigure servers when
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
-| 4060 |16 |Cannot open database "%.&#x2a;ls" requested by the login. The login failed. For more information, see [Errors 4000 to 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
+| 4060 |16 |Cannot open database "%.&#x2a;ls" requested by the login. The login failed. For more information, see [Errors 4000 to 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You receive this error when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting automatically connects you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again. For more information, see [Transient errors](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).|
 | 40613 |17 |Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'.<br/><br/> This error may occur if there is already an existing dedicated administrator connection (DAC) established to the database. For more information, see [Transient errors](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
-| 49919 |16 |Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait until pending create or update requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
-| 49920 |16 |Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
+| 49919 |16 |Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) for pending operations. Wait until pending create or update requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
+| 49920 |16 |Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
 | 4221 |16 |Login to read-secondary failed due to long wait on 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. The replica is not available for login because row versions are missing for transactions that were in-flight when the replica was recycled. The issue can be resolved by rolling back or committing the active transactions on the primary replica. Occurrences of this condition can be minimized by avoiding long write transactions on the primary. |
 
 ### Steps to resolve transient connectivity issues
@@ -47,12 +47,12 @@ It is strongly recommended that your client program has retry logic so that it c
 
 For code examples of retry logic, see:
 
-- [Connect resiliently to SQL with ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net)
-- [Connect resiliently to SQL with PHP](https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Connect resiliently to SQL with ADO.NET](/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net)
+- [Connect resiliently to SQL with PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
 
 For additional information on handling transient errors in your application review [Troubleshooting transient connection errors to SQL Database](troubleshoot-common-connectivity-issues.md)
 
-A discussion of the *blocking period* for clients that use ADO.NET is available in [Connection Pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+A discussion of the *blocking period* for clients that use ADO.NET is available in [Connection Pooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 ## A network-related or instance-specific error occurred while establishing a connection to your server
 
@@ -143,7 +143,7 @@ Typically, the service administrator can use the following steps to add the logi
    > [!NOTE]
    > You can also use `sp_addrolemember` to map specific users to specific database roles.
 
-For more information, see [Managing databases and logins in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+For more information, see [Managing databases and logins in Azure SQL Database](./logins-create-manage.md).
 
 ## Connection timeout expired errors
 
@@ -180,7 +180,7 @@ To work around this issue, try one of the following methods:
   > [!NOTE]
   > This is a minimalist approach that might not resolve the issue.
 
-1. Run the following SQL query to check the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests:
+1. Run the following SQL query to check the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests:
 
    ```sql
    SELECT * FROM dm_exec_requests
@@ -189,13 +189,13 @@ To work around this issue, try one of the following methods:
 2. Determine the **input buffer** for the head blocker.
 3. Tune the head blocker query.
 
-   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
 
-For more information about dynamic management views, see [System dynamic management views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+For more information about dynamic management views, see [System dynamic management views](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-For more information about database limits, see  [SQL Database resource limits for servers](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+For more information about database limits, see  [SQL Database resource limits for servers](./resource-limits-logical-server.md).
 
 ### Error 10929: Resource ID: 1
 
@@ -207,7 +207,7 @@ For more information about database limits, see  [SQL Database resource limits f
 
 This is an engine throttling error, an indication that resource limits are being exceeded.
 
-For more information about resource limits, see [Logical SQL server resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+For more information about resource limits, see [Logical SQL server resource limits](./resource-limits-logical-server.md).
 
 ### Error 40544: The database has reached its size quota
 
@@ -237,7 +237,7 @@ The following steps can either help you work around the problem or provide you w
 
    - Perform normal database cleanup activities. For example, clean up the unwanted data by using truncate/delete, or move data out by using SQL Server Integration Services (SSIS) or the bulk copy program (bcp) utility.
    - Partition or delete data, drop indexes, or consult the documentation for possible resolutions.
-   - For database scaling, see [Scale single database resources](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) and [Scale elastic pool resources](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale).
+   - For database scaling, see [Scale single database resources](./single-database-scale.md) and [Scale elastic pool resources](./elastic-pool-scale.md).
 
 ### Error 40549: Session is terminated because you have a long-running transaction
 
@@ -254,9 +254,9 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 2. Determine the input buffer for the long-running query.
 3. Tune the query.
 
-Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
+Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
@@ -287,7 +287,7 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
 To work around this issue, try to optimize the query.
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### Table of additional resource governance error messages
 
@@ -298,7 +298,7 @@ For an in-depth troubleshooting procedure, see [Is my query running fine in the 
 | 40544 |20 |The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. For database scaling, see [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).|
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).|
 | 40550 |16 |The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).|
-| 40551 |16 |The session has been terminated because of excessive `TEMPDB` usage. Try modifying your query to reduce the temporary table space usage.<br/><br/>If you are using temporary objects, conserve space in the `TEMPDB` database by dropping temporary objects after they are no longer needed by the session. For more information on tempdb usage in SQL Database, see [Tempdb database in SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
+| 40551 |16 |The session has been terminated because of excessive `TEMPDB` usage. Try modifying your query to reduce the temporary table space usage.<br/><br/>If you are using temporary objects, conserve space in the `TEMPDB` database by dropping temporary objects after they are no longer needed by the session. For more information on tempdb usage in SQL Database, see [Tempdb database in SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 | 40552 |16 |The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).<br/><br/>If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. If you are rebuilding an index with the `ALTER INDEX` statement, try using the `REBUILD WITH ONLINE = ON` option. For information on transaction log sizes for the vCore purchasing model, see: <br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md).|
 | 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query. For database scaling, see [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).|
 
@@ -351,7 +351,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-When the exception is triggered by query issues, you'll notice a call stack that's similar to the following (note the reference to the **SqlCommand** class). In this situation, [tune your queries](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+When the exception is triggered by query issues, you'll notice a call stack that's similar to the following (note the reference to the **SqlCommand** class). In this situation, [tune your queries](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -362,28 +362,28 @@ When the exception is triggered by query issues, you'll notice a call stack that
 For additional guidance on fine-tuning performance, see the following resources:
 
 - [How to maintain Azure SQL indexes and statistics](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/How-to-maintain-Azure-SQL-Indexes-and-Statistics/ba-p/368787)
-- [Manual tune query performance in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
-- [Monitoring performance Azure SQL Database by using dynamic management views](https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-with-dmvs)
-- [Operating the Query Store in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-operate-query-store)
+- [Manual tune query performance in Azure SQL Database](./performance-guidance.md)
+- [Monitoring performance Azure SQL Database by using dynamic management views](./monitoring-with-dmvs.md)
+- [Operating the Query Store in Azure SQL Database](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 
 ## Steps to fix common connection issues
 
-1. Make sure that TCP/IP is enabled as a client protocol on the application server. For more information, see [Configure client protocols](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). On application servers where you don't have SQL tools installed, verify that TCP/IP is enabled by running **cliconfg.exe** (SQL Server Client Network utility).
+1. Make sure that TCP/IP is enabled as a client protocol on the application server. For more information, see [Configure client protocols](/sql/database-engine/configure-windows/configure-client-protocols). On application servers where you don't have SQL tools installed, verify that TCP/IP is enabled by running **cliconfg.exe** (SQL Server Client Network utility).
 2. Check the application’s connection string to make sure it's configured correctly. For example, make sure that the connection string specifies the correct port (1433) and fully qualified server name.
-See [Get connection information](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
+See [Get connection information](./connect-query-ssms.md#get-server-connection-information).
 3. Try increasing the connection timeout value. We recommend using a connection timeout of at least 30 seconds.
-4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), a UDL file, ping, or telnet. For more information, see [Troubleshooting connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
+4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server management Studio (SSMS)](./connect-query-ssms.md), a UDL file, ping, or telnet. For more information, see [Troubleshooting connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](./troubleshoot-common-connectivity-issues.md#diagnostics).
 
    > [!NOTE]
    > As a troubleshooting step, you can also test connectivity on a different client computer.
 
-5. As a best practice, make sure that the retry logic is in place. For more information about retry logic, see [Troubleshoot transient faults and connection errors to SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
+5. As a best practice, make sure that the retry logic is in place. For more information about retry logic, see [Troubleshoot transient faults and connection errors to SQL Database](./troubleshoot-common-connectivity-issues.md).
 
 If these steps don't resolve your problem, try to collect more data and then contact support. If your application is a cloud service, enable logging. This step returns a UTC time stamp of the failure. Additionally, SQL Database returns the tracing ID. [Microsoft Customer Support Services](https://azure.microsoft.com/support/options/) can use this information.
 
-For more information about how to enable logging, see [Enable diagnostics logging for apps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
+For more information about how to enable logging, see [Enable diagnostics logging for apps in Azure App Service](../../app-service/troubleshoot-diagnostic-logs.md).
 
 ## Next steps
 
-- [Azure SQL Database connectivity architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Azure SQL Database and Azure Synapse Analytics network access controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Azure SQL Database connectivity architecture](./connectivity-architecture.md)
+- [Azure SQL Database and Azure Synapse Analytics network access controls](./network-access-controls-overview.md)

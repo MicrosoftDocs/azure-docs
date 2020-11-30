@@ -57,7 +57,7 @@ If you want other applications using our silent sign-on experience, let us know 
 
 **Q: Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?**
 
-Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
+Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Microsoft 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
 
 **Q: What is the difference between the single sign-on experience provided by [Azure AD Join](../devices/overview.md) and Seamless SSO?**
 
@@ -102,6 +102,9 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
+   
+  >[!NOTE]
+   >If you are updating a forest, other than the Azure AD Connect one, make sure connectivity to the global catalog server (TCP 3268 and TCP 3269) is available.
 
    >[!IMPORTANT]
    >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.

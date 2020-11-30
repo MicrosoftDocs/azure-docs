@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Boomi with Azure Active Director
 * Enable your users to be automatically signed-in to Boomi with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Boomi supports **IDP** initiated SSO
-* Once you configure the Boomi you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the Boomi you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Boomi from the gallery
 
@@ -84,14 +84,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-	![image](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where Identifier and Reply U R L values appear.](common/idp-intiated.png)
+
+	d. Enter the **Sign-on URL**, such as `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}`.
 
 	> [!Note]
 	> You will get the **Service Provider metadata file** from the **Configure Boomi SSO** section, which is explained later in the tutorial. If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
 1. Boomi application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot shows User Attributes & Claims with default values such as Givenname user.givenname and Emailaddress User.mail.](common/default-attributes.png)
 
 1. In addition to above, Boomi application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -169,13 +171,13 @@ In order to enable Azure AD users to sign in to Boomi, they must be provisioned 
 
 1. After logging in, navigate to **User Management** and go to **Users**.
 
-	![Users](./media/boomi-tutorial/tutorial_boomi_001.png "Users")
+	![Screenshot shows the User Management page with Users selected.](./media/boomi-tutorial/tutorial_boomi_001.png "Users")
 
 1. Click **+**  icon and the **Add/Maintain User Roles** dialog opens.
 
-	![Users](./media/boomi-tutorial/tutorial_boomi_002.png "Users")
+	![Screenshot shows the + icon selected.](./media/boomi-tutorial/tutorial_boomi_002.png "Users")
 
-	![Users](./media/boomi-tutorial/tutorial_boomi_003.png "Users")
+	![Screenshot shows the Add / Maintain User Roles where you configure a user.](./media/boomi-tutorial/tutorial_boomi_003.png "Users")
 
 	a. In the **User e-mail address** textbox, type the email of user like B.Simon@contoso.com.
 
@@ -196,16 +198,16 @@ In order to enable Azure AD users to sign in to Boomi, they must be provisioned 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Boomi tile in the Access Panel, you should be automatically signed in to the Boomi for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Boomi tile in the Access Panel, you should be automatically signed in to the Boomi for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [Try Boomi with Azure AD](https://aad.portal.azure.com/)

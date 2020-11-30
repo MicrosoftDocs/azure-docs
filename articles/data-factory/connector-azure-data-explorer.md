@@ -75,9 +75,9 @@ The following properties are supported for the Azure Data Explorer linked servic
 | type | The **type** property must be set to **AzureDataExplorer**. | Yes |
 | endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
 | database | Name of database. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is known as "Authority ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
-| servicePrincipalId | Specify the application's client ID. This is known as "AAD application client ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
-| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is known as "Authority ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
+| servicePrincipalId | Specify the application's client ID. This is known as "AAD application client ID" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
+| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Linked service properties example:**
 
@@ -148,7 +148,7 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | noTruncation | Indicates whether to truncate the returned result set. By default, result is truncated after 500,000 records or 64 megabytes (MB). Truncation is strongly recommended to ensure the correct behavior of the activity. |No |
 
 >[!NOTE]
->By default, Azure Data Explorer source has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. For more information, see [Query limits](https://docs.microsoft.com/azure/kusto/concepts/querylimits).
+>By default, Azure Data Explorer source has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. For more information, see [Query limits](/azure/kusto/concepts/querylimits).
 
 **Example:**
 
@@ -191,7 +191,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink**. | Yes |
 | ingestionMappingName | Name of a pre-created [mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table. To map the columns from source to Azure Data Explorer (which applies to [all supported source stores and formats](copy-activity-overview.md#supported-data-stores-and-formats), including CSV/JSON/Avro formats), you can use the copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer mappings. | No |
-| additionalProperties | A property bag which can be used for specifying any of the ingestion properties which aren't being set already by the Azure Data Explorer Sink. Specifically, it can be useful for specifying ingestion tags. Learn more from [Azure Data Explore data ingestion doc](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | No |
+| additionalProperties | A property bag which can be used for specifying any of the ingestion properties which aren't being set already by the Azure Data Explorer Sink. Specifically, it can be useful for specifying ingestion tags. Learn more from [Azure Data Explore data ingestion doc](/azure/data-explorer/ingestion-properties). | No |
 
 **Example:**
 

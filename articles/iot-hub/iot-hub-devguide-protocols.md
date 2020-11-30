@@ -46,6 +46,8 @@ Consider the following points when you choose your protocol for device-side comm
 > [!WARNING]
 > When using HTTPS, each device should poll for cloud-to-device messages no more than once every 25 minutes. In development, each device can poll more frequently, if desired.
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 ## Port numbers
 
 Devices can communicate with IoT Hub in Azure using various protocols. Typically, the choice of protocol is driven by the specific requirements of the solution. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:

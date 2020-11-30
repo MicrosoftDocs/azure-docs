@@ -25,7 +25,7 @@ In a distributed system, services may move from one machine to another over time
 
 Service Fabric provides a discovery and resolution service called the Naming Service. The Naming Service maintains a table that maps named service instances to the endpoint addresses they listen on. All named service instances in Service Fabric have unique names represented as URIs, for example, `"fabric:/MyApplication/MyService"`. The name of the service does not change over the lifetime of the service, it's only the endpoint addresses that can change when services move. This is analogous to websites that have constant URLs but where the IP address may change. And similar to DNS on the web, which resolves website URLs to IP addresses, Service Fabric has a registrar that maps service names to their endpoint address.
 
-![service endpoints][2]
+![Diagram that shows that Service Fabric has a registrar that maps service names to their endpoint address.][2]
 
 Resolving and connecting to services involves the following steps run in a loop:
 
@@ -42,14 +42,14 @@ Since many services, especially containerized services, can have an existing URL
 
 As shown in the following diagram, the DNS service, running in the Service Fabric cluster, maps DNS names to service names which are then resolved by the Naming Service to return the endpoint addresses to connect to. The DNS name for the service is provided at the time of creation. 
 
-![service endpoints][9]
+![Diagram that shows how the DNS service, when running in the Service Fabric cluster, maps DNS names to service names which are then resolved by the Naming Service to return the endpoint addresses to connect to.][9]
 
 For more details on how to use the DNS service see [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) article.
 
 ### Reverse proxy service
 The reverse proxy addresses services in the cluster that exposes HTTP endpoints including HTTPS. The reverse proxy greatly simplifies calling other services and their methods by having a specific URI format and handles the resolve, connect, retry steps required for one service to communicate with another using the Naming Service. In other words, it hides the Naming Service from you when calling other services by making this as simple as calling a URL.
 
-![service endpoints][10]
+![Diagram that shows how the reverse proxy addresses services in the cluster that exposes HTTP endpoints including HTTPS.][10]
 
 For more details on how to use the reverse proxy service see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md) article.
 
@@ -148,7 +148,7 @@ For example, in order to accept external traffic on port **80**, the following t
     ![Open a port on a node type][4]
 3. Once the cluster has been created, configure the Azure Load Balancer in the cluster's Resource Group to forward traffic on port 80. When creating a cluster through the Azure portal, this is set up automatically for each custom endpoint port that was configured.
 
-    ![Forward traffic in the Azure Load Balancer][5]
+    ![Screenshot that highlights the Backend port field under Load balancing rules.][5]
 4. The Azure Load Balancer uses a probe to determine whether or not to send traffic to a particular node. The probe periodically checks an endpoint on each node to determine whether or not the node is responding. If the probe fails to receive a response after a configured number of times, the load balancer stops sending traffic to that node. When creating a cluster through the Azure portal, a probe is automatically set up for each custom endpoint port that was configured.
 
     ![Forward traffic in the Azure Load Balancer][8]

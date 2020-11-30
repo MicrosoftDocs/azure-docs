@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Get started with Azure CDN development
 > [!div class="op_single_selector"]

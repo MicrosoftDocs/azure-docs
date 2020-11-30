@@ -1,23 +1,23 @@
 ---
-title: Microsoft Azure Stack Edge with GPU technical specifications and compliance| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Stack Edge device with GPU
+title: Microsoft Azure Stack Edge Pro with GPU technical specifications and compliance| Microsoft Docs
+description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro device with GPU
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 ---
 
-# Technical specifications and compliance for Azure Stack Edge with GPU 
+# Technical specifications and compliance for Azure Stack Edge Pro with GPU 
 
-The hardware components of your Azure Stack Edge with an onboard Graphics Processing Unit (GPU) adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe hardware, power supply units (PSUs), storage capacity, enclosures, and environmental standards.
+The hardware components of your Azure Stack Edge Pro with an onboard Graphics Processing Unit (GPU) adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe hardware, power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 
 ## Compute and memory specifications
 
-The Azure Stack Edge device has the following specifications for compute and memory:
+The Azure Stack Edge Pro device has the following specifications for compute and memory:
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
@@ -27,7 +27,7 @@ The Azure Stack Edge device has the following specifications for compute and mem
 
 ## Compute acceleration specifications
 
-A Graphics Processing Unit (GPU) is included on every Azure Stack Edge device that enables Kubernetes, deep learning, and machine learning scenarios.
+A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro device that enables Kubernetes, deep learning, and machine learning scenarios.
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
@@ -36,7 +36,7 @@ A Graphics Processing Unit (GPU) is included on every Azure Stack Edge device th
 
 ## Power supply unit specifications
 
-The Azure Stack Edge device has two 100-240 V power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+The Azure Stack Edge Pro device has two 100-240 V power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
@@ -48,13 +48,13 @@ The Azure Stack Edge device has two 100-240 V power supply units (PSUs) with hig
 
 ## Network interface specifications
 
-Your Azure Stack Edge device has six network interfaces, PORT1- PORT6.
+Your Azure Stack Edge Pro device has six network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
 |  Network interfaces    | **2 X 1 GbE interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. <br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. <br>**4 X 25 GbE interfaces** – These data interfaces, Port 3 through Port 6, can be configured by user as DHCP (default) or static. These can also operate as 10 GbE interfaces.  | 
 
-Your Azure Stack Edge device has the following network hardware:
+Your Azure Stack Edge Pro device has the following network hardware:
 
 * **Custom Microsoft Qlogic Cavium 25G NDC adapter** - Port 1 through port 4.
 * **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
@@ -75,25 +75,25 @@ For a full list of supported cables, switches, and transceivers for these networ
 
 ## Storage specifications
 
-The Azure Stack Edge devices have five 2.5" NVMe DC P4610 SSDs, each with a capacity of 1.6 TB. The boot drive is a 240 GB SATA SSD. The total usable capacity for the device is roughly 8.28 TB. The following table lists the storage capacity of the device.
+The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a capacity of 1.6 TB. The boot drive is a 240 GB SATA SSD. The total usable capacity for the device is roughly 4.19 TB. The following table lists the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
-|    Boot SATA solid-state drives (SSD)      |    1                  |
 |    Number of NVMe SSDs                     |    5                  |
-|    Boot SSD capacity                       |    240 GB             |
 |    Single NVMe SSD capacity                |    1.6 TB             |
-|    Total capacity                          |    8.28 TB            |
-|    Total usable capacity*                  |    ~ 7.95 TB          |
+|    Boot SATA solid-state drives (SSD)      |    1                  |
+|    Boot SSD capacity                       |    240 GB             |
+|    Total capacity                          |    8.0 TB             |
+|    Total usable capacity*                  |    ~ 4.19 TB          |
 |    SAS controller                          |    HBA330 12 Gbps     |
 
 
-**Some space is reserved for internal use.*
+**After parity resiliency and reserving space for internal use.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
 
-Your Azure Stack Edge device also contains the following hardware:
+Your Azure Stack Edge Pro device also contains the following hardware:
 
 * iDRAC baseboard management
 * Performance fans
@@ -168,4 +168,4 @@ This section lists the specifications related to the enclosure environment such 
 
 ## Next steps
 
-[Deploy your Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+[Deploy your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)

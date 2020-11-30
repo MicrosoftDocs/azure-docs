@@ -43,7 +43,7 @@ Azure AD supports the following authentication methods:
    * **Pass-through authentication (PTA)** - This option is similar to password hash sync, but provides a simple password validation using on-premises software agents for organizations with strong security and compliance policies.
 * **Federated authentication** - When you choose this authentication method Azure AD will hand off the authentication process to a separate trusted authentication system, such as AD FS or a third-party federation system, to validate the user's sign-in. 
 
-For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
+For most organizations that just want to enable user sign-in to Microsoft 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
  
 For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](./choose-ad-authn.md)
 
@@ -135,12 +135,12 @@ The Azure AD sign-in page lists the UPN suffixes that are defined for on-premise
 You can click the refresh button to re-fetch the latest status of the custom domains from Azure AD.
 
 ### Selecting the attribute for the user principal name in Azure AD
-The attribute userPrincipalName is the attribute that users use when they sign in to Azure AD and Office 365. You should verify the domains (also known as UPN suffixes) that are used in Azure AD before the users are synchronized.
+The attribute userPrincipalName is the attribute that users use when they sign in to Azure AD and Microsoft 365. You should verify the domains (also known as UPN suffixes) that are used in Azure AD before the users are synchronized.
 
 We strongly recommend that you keep the default attribute userPrincipalName. If this attribute is nonroutable and can't be verified, then it's possible to select another attribute (email, for example) as the attribute that holds the sign-in ID. This is known as the Alternate ID. The Alternate ID attribute value must follow the RFC 822 standard. You can use an Alternate ID with both password SSO and federation SSO as the sign-in solution.
 
 > [!NOTE]
-> Using an Alternate ID isn't compatible with all Office 365 workloads. For more information, see [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+> Using an Alternate ID isn't compatible with all Microsoft 365 workloads. For more information, see [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
@@ -175,7 +175,7 @@ You can change the user sign-in method from federation, password hash synchroniz
 
 On the next page, you're asked to provide the credentials for Azure AD.
 
-![Connect to Azure AD](./media/plan-connect-user-signin/changeusersignin2.png)
+![Screenshot that shows where you should type the credentials for Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 On the **User sign-in** page, select the desired user sign-in.
 

@@ -209,11 +209,11 @@ Interrupt the BOOT Process and access GRUB menu
 
 Select Advanced Options for Ubuntu and press enter
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![Screenshot shows the Serial console with Advanced options for Ubuntu selected.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Select the line displaying *(recovery mode)* do not press enter but press “e”
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![Screenshot shows the Serial console with a recovery mode version selected.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Locate the line that will load the kernel and substitute the last parameter **nomodeset** with destination as **console=ttyS0**
 
@@ -225,12 +225,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Screenshot shows the Serial console with the changed value.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Press **Ctrl-x** to start and load the kernel.
 If all goes well you will see these additional Options, which can help perform other recovery options
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Screenshot shows the Serial console at the Recovery Menu, which offers additional recovery options.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## Red Hat GRUB configuration
@@ -337,11 +337,11 @@ terminal --timeout=5 serial console
 
 The last line  *terminal –-timeout=5 serial console* will further increase **GRUB** timeout by adding a prompt of 5 seconds displaying **Press any key to continue.**
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Screenshot shows a console with output.](./media/virtual-machines-serial-console/rh6-1.png)
 
 GRUB menu should appear on-screen for the configured timeout=15 without the need to press Esc. Make sure to click in the Console in the Browser to make active the menu and select the required kernel
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Screenshot shows a console with two Linux options.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## SuSE
 
@@ -405,18 +405,18 @@ You will gain access to a shell without having to enter a password. You can then
 Having access to GRUB allows you to interrupt the initialization process this interaction is useful for many recovery procedures.
 If you do not have root password and single user requires you to have a root password, you can boot the kernel replacing the init program with a bash prompt – this interrupt can be achieved by appending init=/bin/bash to the kernel boot line
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Screenshot shows a console with the updated boot line.](./media/virtual-machines-serial-console/bash1.png)
 
 Remount your / (root) file system RW using the command
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Screenshot shows a console with a re-mount action.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Now you can perform root password change or many other Linux configuration changes
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Screenshot shows a console where you can change root password and other configuration.](./media/virtual-machines-serial-console/bash3.png)
 
 Restart the VM with 
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 tags: connectors
 ---
 
@@ -163,6 +163,14 @@ Here is the same example that shows the HTTP action's JSON definition in the und
 }
 ```
 
+## Content with application/x-www-form-urlencoded type
+
+To provide form-urlencoded data in the body for an HTTP request, you have to specify that the data has the `application/x-www-form-urlencoded` content type. In the HTTP trigger or action, add the `content-type` header. Set the header value to `application/x-www-form-urlencoded`.
+
+For example, suppose you have a logic app that sends an HTTP POST request to a website, which supports the `application/x-www-form-urlencoded` type. Here's how this action might look:
+
+![Screenshot that shows an HTTP request with the 'content-type' header set to 'application/x-www-form-urlencoded'](./media/connectors-native-http/http-action-urlencoded.png)
+
 <a name="asynchronous-pattern"></a>
 
 ## Asynchronous request-response behavior
@@ -234,7 +242,7 @@ Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that
 
 If an HTTP trigger or action includes these headers, Logic Apps removes these headers from the generated request message without showing any warning or error:
 
-* `Accept-*`
+* `Accept-*` headers except for `Accept-version`
 * `Allow`
 * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
 * `Cookie`
@@ -258,4 +266,3 @@ For more information about trigger and action parameters, see these sections:
 
 * [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Connectors for Logic Apps](../connectors/apis-list.md)
-

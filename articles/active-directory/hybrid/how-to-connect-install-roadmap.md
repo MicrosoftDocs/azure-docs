@@ -119,7 +119,7 @@ If your ADFS server has not been configured to automatically update certificates
 |All AD FS articles | [Azure AD Connect and federation](how-to-connect-fed-whatis.md)|
 |Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](how-to-connect-install-multiple-domains.md)|
 |Manage AD FS farm | [AD FS management and customization with Azure AD Connect](how-to-connect-fed-management.md)|
-|Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](how-to-connect-fed-o365-certs.md)|
+|Manually updating federation certificates | [Renewing Federation Certificates for Microsoft 365 and Azure AD](how-to-connect-fed-o365-certs.md)|
 
 
 ## Get started with Azure AD Connect Health
@@ -138,12 +138,12 @@ To get started with Azure AD Connect Health, use the following steps:
 * Make sure that you [satisfy the requirements](how-to-connect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS
     * [Download Azure AD Connect Health Agent for AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
-    * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+    * [See the installation instructions](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for sync
     * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
 * Get started using Azure AD Connect Health for AD DS
     * [Download Azure AD Connect Health Agent for AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
-    * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
+    * [See the installation instructions](how-to-connect-health-agent-install.md#install-the-agent-for-azure-ad-ds).
 
 
 ## Azure AD Connect Health portal

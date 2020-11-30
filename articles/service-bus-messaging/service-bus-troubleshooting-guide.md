@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
-description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
+description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 09/16/2020
 ---
 
 # Troubleshooting guide for Azure Service Bus

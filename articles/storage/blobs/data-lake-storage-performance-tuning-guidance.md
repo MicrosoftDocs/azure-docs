@@ -22,7 +22,7 @@ Data Lake Storage Gen2 can scale to provide the necessary throughput for all ana
 
 When ingesting data from a source system to Data Lake Storage Gen2, it is important to consider that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen2 can be the bottleneck.  
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Diagram that shows the factors to consider when ingesting data from a source system to Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 It is important to ensure that the data movement is not affected by these factors.
 
@@ -42,7 +42,7 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)	| [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies	| [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 
@@ -52,7 +52,7 @@ When data is stored in Data Lake Storage Gen2, the file size, number of files, a
 
 Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size.
 
-Sometimes, data pipelines have limited control over the raw data which has lots of small files. It is recommended to have a "cooking" process that generates larger files to use for downstream applications.
+Sometimes, data pipelines have limited control over the raw data which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications.
 
 ### Organizing time series data in folders
 
@@ -102,7 +102,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Run cluster with more nodes and/or larger sized VMs.**  A larger cluster will enable you to run more YARN containers as shown in the picture below.
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Diagram that shows how a larger cluster will enable you to run more YARN containers.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **Use VMs with more network bandwidth.**  The amount of network bandwidth can be a bottleneck if there is less network bandwidth than Data Lake Storage Gen2 throughput.  Different VMs will have varying network bandwidth sizes.  Choose a VM-type that has the largest possible network bandwidth.
 
@@ -110,7 +110,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Use smaller YARN containers.**  Reduce the size of each YARN container to create more containers with the same amount of resources.
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Diagram that shows the outcome when you reduce the size of each YARN container to create more containers.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It's common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
 
@@ -120,7 +120,7 @@ Depending on your workload, there will always be a minimum YARN container size t
 
 **Use all available containers.**  Set the number of tasks to be equal or larger than the number of available containers so that all resources are utilized.
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Diagram that shows the use of all the containers.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **Failed tasks are costly.** If each task has a large amount of data to process, then failure of a task results in an expensive retry.  Therefore, it is better to create more tasks, each of which processes a small amount of data.
 

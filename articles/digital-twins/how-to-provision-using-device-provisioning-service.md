@@ -33,7 +33,7 @@ You will need the following values later in this article from when you set up yo
 * Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * Azure Event Hubs connection string **_connection string_** ([find in portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
-This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
+This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
 The device simulator is based on **Node.js**, version 10.0.x or later. [*Prepare your development environment*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
 
@@ -70,7 +70,7 @@ When a new device is provisioned using Device Provisioning Service, a new twin f
 
 Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision.md).
 
-The following Azure CLI command will create a Device Provisioning Service. You will need to specify a name, resource group, and region. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+The following Azure CLI command will create a Device Provisioning Service. You will need to specify a name, resource group, and region. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -80,7 +80,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 Next, you'll create an HTTP request-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own.
 
-This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) provisioning a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 Inside your function app project, add a new function. Also, add a new NuGet package to the project: `Microsoft.Azure.Devices.Provisioning.Service`.
 
@@ -190,7 +190,7 @@ namespace Samples.AdtIothub
             string dtId;
             string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
             AsyncPageable<string> twins = client.QueryAsync(query);
-            
+
             await foreach (string twinJson in twins)
             {
                 // Get DT ID from the Twin
@@ -215,7 +215,8 @@ namespace Samples.AdtIothub
                 { "$metadata", meta }
             };
             twinProps.Add("Temperature", 0.0);
-            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
             log.LogInformation($"Twin '{dtId}' created in DT");
 
             return dtId;
@@ -244,13 +245,6 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) in the end-to-end tutorial.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### Create Device Provisioning enrollment
 
 Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) and [*Derive unique device keys*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) sections of the Device Provisioning Services article about custom allocation policies.
@@ -259,7 +253,7 @@ While going through that flow, you will link the enrollment to the function you 
 
 ### Set up the device simulator
 
-This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). If you haven't already downloaded the sample, get it now by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
+This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). If you haven't already downloaded the sample, get it now by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
 Open a command window and navigate into the downloaded folder, and then into the *device-simulator* directory. Install the dependencies for the project using the following command:
 
@@ -448,7 +442,7 @@ Save the project, then publish the function app again. For instructions on publi
 
 Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created and the event hub. If you used the the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), the first setting will already be configured.
 
-Add the setting with this Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Add the setting with this Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -481,7 +475,7 @@ To trigger the process of retirement, you need to manually delete the device fro
 
 In the [first half of this article](#auto-provision-device-using-device-provisioning-service), you created a device in IoT Hub and a corresponding digital twin. 
 
-Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 The device will be automatically removed from Azure Digital Twins. 
 
@@ -498,7 +492,7 @@ You should see that the twin of the device cannot be found in the Azure Digital 
 
 If you no longer need the resources created in this article, follow these steps to delete them.
 
-Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; the event hubs namespace and both Azure Functions apps, including associated resources like storage.
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; the event hubs namespace and both Azure Functions apps, including associated resources like storage.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
@@ -506,12 +500,6 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 ```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
-<!-- 
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-``` -->
 
 Then, delete the project sample folder you downloaded from your local machine.
 

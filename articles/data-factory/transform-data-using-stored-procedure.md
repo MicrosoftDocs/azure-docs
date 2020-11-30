@@ -98,5 +98,5 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
 * [Spark Activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (classic) Batch Execution Activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

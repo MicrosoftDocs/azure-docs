@@ -20,7 +20,7 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 | Python | [From file][4-file], [From blob][4-blob] | [Windows, Linux, macOS][python] |
 | Swift | [iOS][swift-iOS-qck], [macOS][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
 
-[1-file]: ../../../../quickstarts/speech-to-text-from-file.md?pivots=programming-language-csharp
+[1-file]: ../../../../get-started-speech-to-text.md?pivots=programming-language-csharp
 [1-blob]: ../../../../quickstarts/from-blob.md?pivots=programming-language-csharp
 
 [dotnet]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet
@@ -29,14 +29,14 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 [unity]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity
 [xamarin]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin
 
-[2-file]: ../../../../quickstarts/speech-to-text-from-file.md?pivots=programming-language-cpp
+[2-file]: ../../../../get-started-speech-to-text.md?pivots=programming-language-cpp
 [2-blob]: ../../../../quickstarts/from-blob.md?pivots=programming-language-cpp
 
 [cpp-windows]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows
 [cpp-linux]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/linux
 [cpp-mac]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/macos
 
-[3-file]: ../../../../quickstarts/speech-to-text-from-file.md?pivots=programming-language-java
+[3-file]: ../../../../get-started-speech-to-text.md?pivots=programming-language-java
 [3-blob]: ../../../../quickstarts/from-blob.md?pivots=programming-language-java
 
 [java-android]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android
@@ -46,19 +46,19 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 [js-node]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/from-file
 [js-code]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript
 
-[obj-iOS-qck]: ~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md
-[obj-macOS-qck]: ~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-macos.md
+[obj-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/from-microphone
+[obj-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone
 
 [obj-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios
 [obj-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos
 
-[4-file]: ../../../../quickstarts/speech-to-text-from-file.md?pivots=programming-language-python
+[4-file]: ../../../../get-started-speech-to-text.md?pivots=programming-language-python
 [4-blob]: ../../../../quickstarts/from-blob.md?pivots=programming-language-python
 
 [python]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python
 
-[swift-iOS-qck]: ~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-ios.md
-[swift-macOS-qck]: ~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-macos.md
+[swift-iOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone
+[swift-macOS-qck]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone
 
 [swift-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios
 [swift-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos

@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/26/2019
 ---
 
@@ -33,7 +33,7 @@ For more information on the Connect API, see [https://kafka.apache.org/documenta
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* An Azure IoT Hub and device. For this article, consider using [Connect Raspberry Pi online simulator to Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* An Azure IoT Hub and device. For this article, consider using [Connect Raspberry Pi online simulator to Azure IoT Hub](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
 * [Scala build tool](https://www.scala-sbt.org/).
 
@@ -158,7 +158,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
         > [!IMPORTANT]  
         > The endpoint value from the portal may contain extra text that is not needed in this example. Extract the text that matches this pattern `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __From the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, use the following command:
+   * __From the [Azure CLI](/cli/azure/get-started-with-azure-cli)__, use the following command:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -180,7 +180,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
         2. Copy the __Primary key__ value.
         3. Copy the __Connection string--primary key__ value.
 
-    * __From the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, use the following command:
+    * __From the [Azure CLI](/cli/azure/get-started-with-azure-cli)__, use the following command:
 
         1. To get the primary key value, use the following command:
 

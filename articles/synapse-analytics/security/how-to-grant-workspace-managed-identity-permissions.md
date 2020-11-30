@@ -13,18 +13,18 @@ ms.reviewer: jrasnick
 
 # Grant permissions to workspace managed identity (preview)
 
-This article teaches you how to grant permissions to the managed identity in Azure synapse workspace. Permissions, in turn, allow access to SQL pools in the workspace and ADLS Gen2 storage account through the Azure portal.
+This article teaches you how to grant permissions to the managed identity in Azure synapse workspace. Permissions, in turn, allow access to dedicated SQL pools in the workspace and ADLS Gen2 storage account through the Azure portal.
 
 >[!NOTE]
 >This workspace managed identity will be referred to as managed identity through the rest of this document.
 
-## Grant managed identity permissions to the SQL pool
+## Grant managed identity permissions to the dedicated SQL pool
 
-The managed identity grants permissions to the SQL pools in the workspace. With permissions granted, you can orchestrate pipelines that perform SQL pool-related activities. When you create an Azure Synapse workspace using Azure portal, you can grant the managed identity CONTROL permissions on SQL pools.
+The managed identity grants permissions to the dedicated SQL pools in the workspace. With permissions granted, you can orchestrate pipelines that perform dedicated SQL pool-related activities. When you create an Azure Synapse workspace using Azure portal, you can grant the managed identity CONTROL permissions on dedicated SQL pools.
 
-Select **Security + networking** when you're creating your Azure Synapse workspace. Then select **Grant CONTROL to the workspace's managed identity on SQL pools**.
+Select **Security** when you're creating your Azure Synapse workspace. Then select **Allow pipelines (running as workspace's system assigned identity) to access SQL pools.**.
 
-![CONTROL permission on SQL pools](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![CONTROL permission on dedicated SQL pools](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## Grant the managed identity permissions to ADLS Gen2 storage account
 
@@ -66,7 +66,7 @@ The managed identity should have data access to the container (file system) that
 
 
 Select that same container or file system to grant the *Storage Blob Data Contributor* role to the managed identity.
-![ADLS Gen2 storage account container selection](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Screenshot that shows the container or file system that you should select.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### Step 3: Navigate to Access control
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -86,7 +86,7 @@ When Server-side encryption with service-managed keys is used, the key creation,
 
 For scenarios where the requirement is to encrypt the data at rest and control the encryption keys customers can use server-side encryption using customer-managed Keys in Key Vault. Some services may store only the root Key Encryption Key in Azure Key Vault and store the encrypted Data Encryption Key in an internal location closer to the data. In that scenario customers can bring their own keys to Key Vault (BYOK – Bring Your Own Key), or generate new ones, and use them to encrypt the desired resources. While the Resource Provider performs the encryption and decryption operations, it uses the configured key encryption key as the root key for all encryption operations.
 
-Loss of key encryption keys means loss of data. For this reason, keys should not be deleted. Keys should be backed up whenever created or rotated. [Soft-Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) should be enabled on any vault storing key encryption keys. Instead of deleting a key, set enabled to false or set the expiry date.
+Loss of key encryption keys means loss of data. For this reason, keys should not be deleted. Keys should be backed up whenever created or rotated. [Soft-Delete](../../key-vault/general/soft-delete-overview.md) should be enabled on any vault storing key encryption keys. Instead of deleting a key, set enabled to false or set the expiry date.
 
 ### Key Access
 
@@ -144,7 +144,7 @@ The Azure services that support each encryption model:
 | Azure Cognitive Search           | Yes                | Yes                | -                  |
 | Azure Cognitive Services         | Yes                | Yes                | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
-| Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
+| Azure Machine Learning Studio (classic) | Yes         | Preview, RSA 2048-bit | -               |
 | Content Moderator                | Yes                | Yes                | -                  |
 | Face                             | Yes                | Yes                | -                  |
 | Language Understanding           | Yes                | Yes                | -                  |
@@ -152,7 +152,7 @@ The Azure services that support each encryption model:
 | QnA Maker                        | Yes                | Yes                | -                  |
 | Speech Services                  | Yes                | Yes                | -                  |
 | Translator Text                  | Yes                | Yes                | -                  |
-| Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
+| Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | N/A\*              | -                  |
 | Event Hubs                       | Yes                | Yes                | -                  |

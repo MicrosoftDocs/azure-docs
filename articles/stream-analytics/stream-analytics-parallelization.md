@@ -16,7 +16,7 @@ As a prerequisite, you may want to be familiar with the notion of Streaming Unit
 A Stream Analytics job definition includes at least one streaming input, a query, and output. Inputs are where the job reads the data stream from. The query is used to transform the data input stream, and the output is where the job sends the job results to.
 
 ## Partitions in inputs and outputs
-Partitioning lets you divide data into subsets based on a [partition key](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). If your input (for example Event Hubs) is partitioned by a key, it is highly recommended to specify this partition key when adding input to your Stream Analytics job. Scaling a Stream Analytics job takes advantage of partitions in the input and output. A Stream Analytics job can consume and write different partitions in parallel, which increases throughput. 
+Partitioning lets you divide data into subsets based on a [partition key](../event-hubs/event-hubs-scalability.md#partitions). If your input (for example Event Hubs) is partitioned by a key, it is highly recommended to specify this partition key when adding input to your Stream Analytics job. Scaling a Stream Analytics job takes advantage of partitions in the input and output. A Stream Analytics job can consume and write different partitions in parallel, which increases throughput. 
 
 ### Inputs
 All Azure Stream Analytics input can take advantage of partitioning:
@@ -35,14 +35,14 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	Event Hubs (need to set the partition key explicitly)
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
-- SQL and Azure Synapse Analytics with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL and Azure Synapse Analytics with optional partitioning: see more information on the [Output to Azure SQL Database page](./stream-analytics-sql-output-perf.md).
 
 Power BI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
 For more information about partitions, see the following articles:
 
 * [Event Hubs features overview](../event-hubs/event-hubs-features.md#partitions)
-* [Data partitioning](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
+* [Data partitioning](/azure/architecture/best-practices/data-partitioning)
 
 
 ## Embarrassingly parallel jobs
@@ -273,7 +273,7 @@ The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/
 |    5K   |   18 |  P4   |
 |    10K  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
 
 #### Cosmos DB
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
@@ -309,13 +309,13 @@ Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks 
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -328,10 +328,9 @@ For further assistance, try our [Microsoft Q&A question page for Azure Stream An
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

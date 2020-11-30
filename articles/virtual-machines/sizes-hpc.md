@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: amverma
 ms.reviewer: jushiman
 ---
 
 # High performance computing VM sizes
 
-Azure H-series virtual machines (VMs) are designed to deliver leadership-class performance, MPI scalability, and cost efficiency for a variety of real-world HPC workloads.
+Azure H-series virtual machines (VMs) are designed to deliver leadership-class performance, scalability, and cost efficiency for a variety of real-world HPC workloads.
 
 [HBv2-series](hbv2-series.md) VMs are optimized for applications driven by memory bandwidth, such as fluid dynamics, finite element analysis, and reservoir simulation. HBv2 VMs feature 120 AMD EPYC 7742 processor cores, 4 GB of RAM per CPU core, and no simultaneous multithreading. Each HBv2 VM provides up to 340 GB/sec of memory bandwidth, and up to 4 teraFLOPS of FP64 compute.
 
@@ -26,22 +26,23 @@ HBv2 VMs feature 200 Gb/sec Mellanox HDR InfiniBand, while both HB and HC-series
 [H-series](h-series.md) VMs are optimized for applications driven by high CPU frequencies or large memory per core requirements. H-series VMs feature 8 or 16 Intel Xeon E5 2667 v3 processor cores, 7 or 14 GB of RAM per CPU core, and no hyperthreading. H-series features 56 Gb/sec Mellanox FDR InfiniBand in a non-blocking fat tree configuration for consistent RDMA performance. H-series VMs support Intel MPI 5.x and MS-MPI.
 
 > [!NOTE]
-> The A8 – A11 VMs are planned for retirement on 3/2021. For more information, see [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> The [A8 – A11 VMs](./sizes-previous-gen.md#a-series---compute-intensive-instances) are planned for retirement on 3/2021. For more information, see [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## RDMA-capable instances
 
-Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series](./nc-series.md) sizes designated with 'r' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure network interface available in the other VM sizes.
+Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series](./nc-series.md) sizes designated with 'r' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure Ethernet network interface available in the other VM sizes.
 
 This interface allows the RDMA-capable instances to communicate over an InfiniBand (IB) network, operating at HDR rates for HBv2, EDR rates for HB, HC, NDv2, FDR rates for H16r, H16mr, and other RDMA-capable N-series virtual machines, and QDR rates for A8 and A9 VMs. These RDMA capabilities can boost the scalability and performance of certain Message Passing Interface (MPI) applications.
 
 > [!NOTE]
 > In Azure HPC, there are two classes of VMs depending on whether they are SR-IOV enabled for InfiniBand. Currently, the SR-IOV for InfiniBand enabled VMs are: HBv2, HB, HC, NCv3 and NDv2. Rest of the InfiniBand enabled VMs are not SR-IOV enabled currently.
-> RDMA over IB is supported for all RDMA-capable VMs.
+> RDMA is only enabled over the InfiniBand (IB) network and is supported for all RDMA-capable VMs.
 > IP over IB is only supported on the SR-IOV enabled VMs.
+> RDMA is not enabled over the Ethernet network.
 
 - **Operating System** - Linux is very well supported for HPC VMs; distros such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Regarding Windows support, Windows Server 2016 and newer versions are supported on all the HPC series VMs. Windows Server 2012 R2, Windows Server 2012 are also supported on the non-SR-IOV enabled VMs (H16r, H16mr, A8 and A9). Note that [Windows Server 2012 R2 is not supported on HBv2 and other VMs with more than 64 (virtual or physical) cores](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately.
 
-- **InfiniBand and RDMA Drivers** - On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. On Linux, for both SR-IOV and non-SR-IOV enabled VMs, the CentOS-HPC VM images in the Marketplace come pre-configured with the appropriate drivers. The Ubuntu VM images can be configured with the right drivers using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). See [Configure and Optimize VMs for Linux OS](./workloads/hpc/configure.md) for more details on ready-to-use VM Linux OS images.
+- **InfiniBand and Drivers** - On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. On Linux, for both SR-IOV and non-SR-IOV enabled VMs, the CentOS-HPC VM images in the Marketplace come pre-configured with the appropriate drivers. The Ubuntu VM images can be configured with the right drivers using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). See [Configure and Optimize VMs for Linux OS](./workloads/hpc/configure.md) for more details on ready-to-use VM Linux OS images.
 
    On Linux, the [InfiniBandDriverLinux VM extension](./extensions/hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand on the SR-IOV enabled H- and N-series VMs. Learn more about enabling InfiniBand on RDMA-capable VMs at [HPC Workloads](./workloads/hpc/enable-infiniband.md).
 

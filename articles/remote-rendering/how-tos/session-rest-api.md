@@ -117,7 +117,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 There are a few commands to query or modify the parameters of existing sessions.
 
 > [!CAUTION]
-As for all REST calls, sending these commands too frequently will cause the server to throttle and return failure eventually. The status code in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+> As for all REST calls, sending these commands too frequently will cause the server to throttle and return failure eventually. The status code in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
 ### Update session parameters
 

@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/20/2020
+ms.date: 11/25/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
@@ -17,7 +17,6 @@ ms.custom: has-adal-ref
 
 This article explores common troubleshooting methods for connectors in Azure Data Factory.
   
-
 ## Azure Blob Storage
 
 ### Error code:  AzureBlobOperationFailed
@@ -170,8 +169,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: The certificate validation failed during TLS handshake.
 
-- **Resolution**: Workaround: Use staged copy to skip the TLS validation for ADLS Gen1. You need to reproduce this issue and gather netmon trace, and then engage your network team to check the local network configuration following [this article](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace).
-
+- **Resolution**: Workaround: Use staged copy to skip the TLS validation for ADLS Gen1. You need to reproduce this issue and gather netmon trace, and then engage your network team to check the local network configuration.
 
     ![Troubleshoot ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
 
@@ -212,7 +210,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
+- **Recommendation**:  Search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
@@ -225,8 +223,9 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Please refer the detail doc:  https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
-		For troubleshooting SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
+- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Refer the [detail doc](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
+
+	For troubleshooting SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 - **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
 
@@ -253,7 +252,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Could be SQL Database transient failure.
 
-- **Recommendation**:  Please retry to update linked service connection string with larger connection timeout value.
+- **Recommendation**:  Retry to update linked service connection string with larger connection timeout value.
 
 
 ### Error code:  SqlAutoCreateTableTypeMapFailed
@@ -316,7 +315,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Could be SQL Database transient failure.
 
-- **Recommendation**:  Please retry. If problem repro, contact Azure SQL support.
+- **Recommendation**:  Retry. If problem repro, contact Azure SQL support.
 
 
 ### Error code:  SqlBatchWriteTransactionFailed
@@ -329,7 +328,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If exception details intermittently tell sqlconnection broken, it could just be transient network failure or SQL Database side issue
 
-- **Recommendation**:  Please retry the activity and review SQL Database side metrics.
+- **Recommendation**:  Retry the activity and review SQL Database side metrics.
 
 
 ### Error code:  SqlBulkCopyInvalidColumnLength
@@ -347,7 +346,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: SQL connection is closed by SQL Database when high concurrent run and server terminate connection.
 
-- **Recommendation**:  Remote server closed the SQL connection. Please retry. If problem repro, contact Azure SQL support.
+- **Recommendation**:  Remote server closed the SQL connection. Retry. If problem repro, contact Azure SQL support.
 
 
 ### Error code:  SqlCreateTableFailedUnsupportedType
@@ -438,7 +437,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,, ColumnB'.
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA, ColumnB'.
 
 - **Recommendation**:  Check the first row, and fix the value if there is empty value.
 
@@ -447,9 +446,9 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-- **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
+- **Cause**: The problematic row's column count is larger than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
 
-- **Recommendation**:  Please get the row count in error message, check the row's column and fix the data.
+- **Recommendation**:  Get the row count in error message, check the row's column and fix the data.
 
 - **Cause**: If the expected column count is "1" in error message, it's possible that you specified wrong compression or format settings, which caused ADF to wrongly parse your file(s).
 
@@ -534,7 +533,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
 
-- **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, suggest to upgrade to the latest version.
+- **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, it is suggested to upgrade to the latest version.
 
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', the integration runtime doesn't have enough resource to process the file(s).
 
@@ -542,7 +541,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: When error message contains 'NullPointerReference', it possible is a transient error.
 
-- **Recommendation**:  Please retry. If the problem persists, please contact support.
+- **Recommendation**:  Retry. If the problem persists, please contact support.
 
 
 ### Error code:  ParquetInvalidFile
@@ -614,7 +613,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Data from source cannot be converted to typed defined in sink
 
-- **Recommendation**:  Please specify a correct type in mapping.sink.
+- **Recommendation**:  Specify a correct type in mapping.sink.
 
 
 ### Error code:  ParquetBridgeInvalidData
@@ -623,7 +622,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Data value over limitation
 
-- **Recommendation**:  Please retry. If issue persists, please contact us.
+- **Recommendation**:  Retry. If issue persists, please contact us.
 
 
 ### Error code:  ParquetUnsupportedInterpretation
@@ -643,6 +642,29 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Recommendation**:  Remove 'CompressionType' in payload.
 
+
+## REST
+
+### Unexpected network response from REST connector
+
+- **Symptoms**: Endpoint sometimes receives unexpected response (400 / 401 / 403 / 500) from REST connector.
+
+- **Cause**: The REST source connector uses URL and HTTP method/header/body from linked service/dataset/copy source as parameters when constructing an HTTP request. The issue is most likely caused by some mistakes in one or more specified parameters.
+
+- **Resolution**: 
+    - Use 'curl' in cmd window to check if parameter is the cause or not (**Accept** and **User-Agent** headers should always be included):
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      If the command returns the same unexpected response, please fix above parameters with 'curl' until it returns the expected response. 
+
+      Also you can use 'curl --help' for more advanced usage of the command.
+
+    - If only ADF REST connector returns unexpected response, please contact Microsoft support for further troubleshooting.
+    
+    - Please note that 'curl' may not be suitable to reproduce SSL certificate validation issue. In some scenarios, 'curl' command was executed successfully without hitting any SSL cert validation issue. But when the same URL is executed in browser, no SSL cert is actually returned in the first place for client to establish trust with server.
+
+      Tools like **Postman** and **Fiddler** are recommended for the above case.
 
 
 ## General Copy Activity Error
@@ -692,7 +714,6 @@ For more troubleshooting help, try these resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-            

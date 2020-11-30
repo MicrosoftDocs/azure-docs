@@ -76,7 +76,7 @@ If you're unable to find a suitable region or SKU, create a **Subscription manag
 
 ## Send us your suggestions
 
-We're always open to feedback and suggestions! Send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us on [Twitter](https://twitter.com/azuresupport) or the [Microsoft Q&A question page](https://docs.microsoft.com/answers/products/azure).
+We're always open to feedback and suggestions! Send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us on [Twitter](https://twitter.com/azuresupport) or the [Microsoft Q&A question page](/answers/products/azure).
 
 ## Learn more
 

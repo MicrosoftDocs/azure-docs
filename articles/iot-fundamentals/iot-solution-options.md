@@ -9,7 +9,7 @@ ms.date: 02/05/2020
 ms.author: dobett
 ---
 
-# Choose the right IoT solution
+# What is the right IoT solution for your business?
 
 To build an IoT solution for your business, you typically choose to use either the *platform services* or the *managed app platform* approach.
 

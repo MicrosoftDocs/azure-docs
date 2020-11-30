@@ -103,7 +103,7 @@ There are two changes you need to make, potentially:
 
 In various browsers, browse to `https://<your.custom.domain>` to verify that it serves up your app.
 
-![Portal navigation to Azure app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot showing an example of browsing to your custom domain with the contoso.com URL highlighted.":::
 
 Your application code can inspect the protocol via the "x-appservice-proto" header. The header will have a value of `http` or `https`. 
 

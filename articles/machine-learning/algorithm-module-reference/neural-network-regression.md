@@ -19,7 +19,7 @@ ms.date: 04/22/2020
   
 ## Module overview  
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a regression model using a customizable neural network algorithm.
   

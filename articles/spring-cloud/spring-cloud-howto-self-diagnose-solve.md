@@ -10,6 +10,9 @@ ms.custom: devx-track-java
 ---
 
 # How to self-diagnose and solve problems in Azure Spring Cloud
+
+**This article applies to:** ✔️ Java ✔️ C#
+
 Azure Spring Cloud diagnostics is an interactive experience to help you troubleshoot your app. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
 
 ## Prerequisites

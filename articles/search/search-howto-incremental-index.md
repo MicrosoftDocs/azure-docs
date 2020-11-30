@@ -15,7 +15,7 @@ ms.date: 01/06/2020
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API versions 2019-05-06-Preview and 2020-06-30-Preview](search-api-preview.md) provide this feature. There is no portal or .NET SDK support at this time.
+> [REST API preview versions](search-api-preview.md) provide this feature. There is no portal or .NET SDK support at this time.
 
 This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree need to be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
 

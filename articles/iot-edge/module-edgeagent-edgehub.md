@@ -4,7 +4,7 @@ description: Review the specific properties and their values for the edgeAgent a
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -28,7 +28,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| schemaVersion | Has to be "1.0" | Yes |
+| schemaVersion | Either "1.0" or "1.1". Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes |
 | runtime.type | Has to be "docker" | Yes |
 | runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest | Yes |
 | runtime.settings.loggingOptions | A stringified JSON containing the logging options for the IoT Edge agent container. [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/) | No |
@@ -42,6 +42,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | systemModules.edgeHub.type | Has to be "docker" | Yes |
 | systemModules.edgeHub.status | Has to be "running" | Yes |
 | systemModules.edgeHub.restartPolicy | Has to be "always" | Yes |
+| systemModules.edgeHub.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | systemModules.edgeHub.settings.image | The URI of the image of the IoT Edge hub. | Yes |
 | systemModules.edgeHub.settings<br>.createOptions | A stringified JSON containing the options for the creation of the IoT Edge hub container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeHub.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
@@ -49,6 +50,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | modules.{moduleId}.type | Has to be "docker" | Yes |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Yes |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Yes |
+| modules.{moduleId}.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
 | modules.{moduleId}.env | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}` | No |
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
@@ -102,7 +104,7 @@ The module twin for the IoT Edge hub is called `$edgeHub` and coordinates the co
 
 | Property | Description | Required in the deployment manifest |
 | -------- | ----------- | -------- |
-| schemaVersion | Has to be "1.0" | Yes |
+| schemaVersion | Either "1.0" or "1.1". Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes |
 | routes.{routeName} | A string representing an IoT Edge hub route. For more information, see [Declare routes](module-composition.md#declare-routes). | The `routes` element can be present but empty. |
 | storeAndForwardConfiguration.timeToLiveSecs | The time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. The value can be any positive integer. | Yes |
 

@@ -297,7 +297,7 @@ resource group is used for the image build. It's in the format:
 
 If the service reports a failure during the image configuration template submission:
 
-- See [Troubleshooting Azure VM Image Build (AIB) Failures](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- See [Troubleshooting Azure VM Image Build (AIB) Failures](../linux/image-builder-troubleshoot.md).
 - Delete the template using the following example before you retry.
 
 ```azurepowershell-interactive
@@ -314,7 +314,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Wait for the image build process to complete. This step could take up to an hour.
 
-If you encounter errors, review [Troubleshooting Azure VM Image Build (AIB) Failures](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+If you encounter errors, review [Troubleshooting Azure VM Image Build (AIB) Failures](../linux/image-builder-troubleshoot.md).
 
 ## Create a VM
 

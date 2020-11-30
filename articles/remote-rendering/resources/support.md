@@ -51,7 +51,7 @@ To provide feedback, share an idea or suggestion for Azure Remote Rendering, or 
 
 ## Microsoft Q&A
 
-For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), Azure’s preferred destination for community support.
+For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/topics/azure-remote-rendering.html), Azure’s preferred destination for community support.
 
 ## Next steps
 

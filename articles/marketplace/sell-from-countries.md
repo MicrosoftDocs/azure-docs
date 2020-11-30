@@ -61,7 +61,6 @@ To publish an offer to the Microsoft commercial marketplace, you must have your 
 - Central African Republic
 - Chad
 - Chile
-- China
 - Christmas Island
 - Cocos (Keeling) Islands
 - Colombia

@@ -2,23 +2,41 @@
 title: Authentication, requests and responses
 description: Learn how Azure Key Vault uses JSON-formatted requests and responses and about required authentication for using a key vault.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
+ms.date: 09/15/2020
+ms.author: ambapat
 
 ---
 
 # Authentication, requests and responses
 
+Azure Key Vault provides two types of containers to store and manage secrets for your cloud applications:
+
+|Container type|Supported object types|Data-plane endpoint|
+|--|--|--|
+| **Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li><li>Storage account keys</li></ul> | https://{vault-name}.vault.azure.net
+|**Managed HSM** |<ul><li>HSM-protected keys</li></ul> | https://{hsm-name}.managedhsm.azure.net
+
+Here are the URL suffixes used to access each type of object
+
+|Object type|URL suffix|
+|--|--|
+|Software-protected keys| /keys |
+|HSM-protected keys| /keys |
+|Secrets|/secrets|
+|Certificates| /certificates|
+|Storage account keys|/storageaccounts
+||
+
 Azure Key Vault supports JSON formatted requests and responses. Requests to the Azure Key Vault are directed to a valid Azure Key Vault URL using HTTPS with some URL parameters and JSON encoded request and response bodies.
 
-This topic covers specifics for the Azure Key Vault service. For general information on using Azure REST interfaces, including authentication/authorization and how to acquire an access token, see [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure).
+This topic covers specifics for the Azure Key Vault service. For general information on using Azure REST interfaces, including authentication/authorization and how to acquire an access token, see [Azure REST API Reference](/rest/api/azure).
 
 ## Request URL  
  Key management operations use HTTP DELETE, GET, PATCH, PUT and HTTP POST and cryptographic operations against existing key objects use HTTP POST. Clients that cannot support specific HTTP verbs may also use HTTP POST using the X-HTTP-REQUEST header to specify the intended verb; requests that do not normally require a body should include an empty body when using HTTP POST, for example when using POST instead of DELETE.  
@@ -33,7 +51,9 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 
 - To SIGN a digest using a key called TESTKEY in a Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  The authority for a request to a Key Vault is always as follows,  `https://{keyvault-name}.vault.azure.net/`  
+- The authority for a request to a Key Vault is always as follows,
+  - For vaults: `https://{keyvault-name}.vault.azure.net/`
+  - For Managed HSMs: `https://{HSM-name}.managedhsm.azure.net/`
 
   Keys are always stored under the /keys path, Secrets are always stored under the /secrets path.  
 
@@ -88,7 +108,7 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 ## Authentication  
  All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Azure Active Directory access tokens that may be obtained using OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- For more information on registering your application and authenticating to use Azure Key Vault, see [Register your client application with Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ For more information on registering your application and authenticating to use Azure Key Vault, see [Register your client application with Azure AD](/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Access tokens must be sent to the service using the HTTP Authorization header:  
 
@@ -110,5 +130,4 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: The address of the OAuth2 authorization service that may be used to obtain an access token for the request.  
 
--   resource: The name of the resource (`https://vault.azure.net`) to use in the authorization request.  
-
+-   resource: The name of the resource (`https://vault.azure.net`) to use in the authorization request.

@@ -3,13 +3,15 @@ title: User-defined functions (UDFs) in Azure Cosmos DB
 description: Learn about User-defined functions in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # User-defined functions (UDFs) in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The SQL API provides support for user-defined functions (UDFs). With scalar UDFs, you can pass in zero or many arguments and return a single argument result. The API checks each argument for being legal JSON values.  
 

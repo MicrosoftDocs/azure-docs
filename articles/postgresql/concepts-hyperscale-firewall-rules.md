@@ -18,7 +18,7 @@ To configure your firewall, you create firewall rules that specify ranges of acc
 All database access to your coordinator node is blocked by the firewall by default. To begin using your server from another computer, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify which IP address ranges from the Internet to allow. Access to the Azure portal website itself is not impacted by the firewall rules.
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your PostgreSQL Database, as shown in the following diagram:
 
-![Example flow of how the firewall works](media/concepts-hyperscale-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="media/concepts-hyperscale-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
 
 ## Connecting from the Internet and from Azure
 

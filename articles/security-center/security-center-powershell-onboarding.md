@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
@@ -24,9 +24,9 @@ Onboarding Azure Security Center using PowerShell enables you to programmaticall
 
 This article provides a sample PowerShell script that can be modified and used in your environment to roll out Security Center across your subscriptions. 
 
-In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by implementing the standard tier of Security Center, which provides advanced threat protection and detection capabilities:
+In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by enabling Azure Defender, which provides advanced threat protection and detection capabilities:
 
-1. Set the [Security Center standard level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Enable [Azure Defender](azure-defender.md). 
  
 2. Set the Log Analytics workspace to which the Log Analytics agent will send the data it collects on the VMs associated with the subscription – in this example, an existing user defined workspace (myWorkspace).
 
@@ -56,7 +56,7 @@ These steps should be performed before you run the Security Center cmdlets:
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. Optional: Set the coverage level (pricing tier) of the subscriptions (If not defined, the pricing tier is set to Free):
+1. Optional: Set the coverage level (Azure Defender on/off) of the subscriptions. If undefined, Defender is off:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
@@ -96,7 +96,7 @@ You can now use these PowerShell cmdlets with automation scripts to programmatic
 ## See also
 To learn more about how you can use PowerShell to automate onboarding to Security Center, see the following article:
 
-* [Az.Security](https://docs.microsoft.com/powershell/module/az.security)
+* [Az.Security](/powershell/module/az.security)
 
 To learn more about Security Center, see the following article:
 

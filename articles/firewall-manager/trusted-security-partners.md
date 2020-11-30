@@ -39,7 +39,7 @@ The following scenarios are supported:
 
 ## Best practices for Internet traffic filtering in secured virtual hubs
 
-Internet traffic typically includes web traffic. But it also includes traffic destined to SaaS applications like Office 365 (O365) and Azure public PaaS services like Azure Storage, Azure Sql, and so on. The following are best practice recommendations for handling traffic to these services:
+Internet traffic typically includes web traffic. But it also includes traffic destined to SaaS applications like Microsoft 365 and Azure public PaaS services like Azure Storage, Azure Sql, and so on. The following are best practice recommendations for handling traffic to these services:
 
 ### Handling Azure PaaS traffic
  
@@ -49,15 +49,15 @@ Internet traffic typically includes web traffic. But it also includes traffic de
 
 ![All scenarios for Azure Firewall Manager](media/trusted-security-partners/all-scenarios.png)
 
-## Handling Office 365 (O365) traffic
+## Handling Microsoft 365 traffic
 
-In globally distributed branch location scenarios, you should redirect Office 365 traffic directly at the branch before sending the remaining Internet traffic your Azure secured hub.
+In globally distributed branch location scenarios, you should redirect Microsoft 365 traffic directly at the branch before sending the remaining Internet traffic your Azure secured hub.
 
-For Office 365, network latency and performance are critical for successful user experience. To achieve these goals around optimal performance and user experience, customers must implement Office 365 direct and local escape before considering routing the rest of Internet traffic through Azure.
+For Microsoft 365, network latency and performance are critical for successful user experience. To achieve these goals around optimal performance and user experience, customers must implement Microsoft 365 direct and local escape before considering routing the rest of Internet traffic through Azure.
 
-[Office 365 network connectivity principles](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) call for key Office 365 network connections to be routed locally from the user branch or mobile device and directly over the Internet into nearest Microsoft network point of presence.
+[Microsoft 365 network connectivity principles](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles) call for key Microsoft 365 network connections to be routed locally from the user branch or mobile device and directly over the Internet into nearest Microsoft network point of presence.
 
-Furthermore Office 365 connections are encrypted for privacy and use efficient, proprietary protocols for performance reasons. This makes it impractical and impactful to subject those connections to traditional network level security solutions. For these reasons we strongly recommend that customers send Office 365 traffic directly from branches, before sending rest of the traffic through Azure. Microsoft has partnered with several SD-WAN solution providers, who integrate with Azure and Office 365 and make it easy for customers to enable Office 365 direct and local Internet breakout. For details  see [How do I set my O365 policies via Virtual WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
+Furthermore, Microsoft 365 connections are encrypted for privacy and use efficient, proprietary protocols for performance reasons. This makes it impractical and impactful to subject those connections to traditional network level security solutions. For these reasons we strongly recommend that customers send Microsoft 365 traffic directly from branches, before sending rest of the traffic through Azure. Microsoft has partnered with several SD-WAN solution providers, who integrate with Azure and Microsoft 365 and make it easy for customers to enable Microsoft 365 direct and local Internet breakout. For details, see [What is Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md)
 
 ## Next steps
 

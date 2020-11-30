@@ -22,7 +22,7 @@ The EventStore is a stateful Service Fabric service that maintains events from t
 * Confirm that management actions you are taking on your cluster are being processed correctly
 * Get a "snapshot" of how Service Fabric is interacting with a particular entity
 
-![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
+![Screenshot shows the EVENTS tab of the Nodes pane several events, including a NodeDown event.](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 To see a full list of events available in the EventStore, see [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
 

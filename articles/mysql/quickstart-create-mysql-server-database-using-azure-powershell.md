@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create a server - Azure PowerShell - Azure Database for MySQL'
 description: This quickstart describes how to use PowerShell to create an Azure Database for MySQL server in an Azure resource group.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
@@ -52,7 +52,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+Create an [Azure resource group](../azure-resource-manager/management/overview.md)
 using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A
 resource group is a logical container in which Azure resources are deployed and managed as a group.
 
@@ -238,7 +238,7 @@ For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https:
 1. In the **Setup New Connection** dialog box, enter the following information on the **Parameters**
    tab:
 
-   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="setup new connection":::
 
     |    **Setting**    |           **Suggested Value**           |                      **Description**                       |
     | ----------------- | --------------------------------------- | ---------------------------------------------------------- |

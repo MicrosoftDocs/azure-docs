@@ -101,7 +101,7 @@ Always join Azure Backup Server to a domain. If you need to move Azure Backup Se
 
 ### Set Storage Replication
 
-The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that's less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
+The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that's less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage), and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
 
@@ -237,7 +237,7 @@ Azure Backup Server shares code with Data Protection Manager. You'll see referen
 
     ![Provide location for installation of files](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
 6. On the **Security Settings** screen, provide a strong password for restricted local user accounts and select **Next**.
 

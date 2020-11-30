@@ -26,7 +26,7 @@ To automate installation of Self-hosted Integration Runtime on local machines (o
 ## Scripts introduction 
 
 > [!NOTE]
-> These scripts are created using the [documented command line utility](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#set-up-an-existing-self-hosted-ir-via-local-powershell) in the self-hosted integration runtime. If needed one can customize these scripts accordingly to cater to their automation needs.
+> These scripts are created using the [documented command line utility](./create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) in the self-hosted integration runtime. If needed one can customize these scripts accordingly to cater to their automation needs.
 > The scripts need to be applied per node, so make sure to run it across all nodes in case of high availability setup (2 or more nodes).
 
 * For automating setup:
