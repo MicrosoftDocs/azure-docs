@@ -21,7 +21,7 @@ Cloud Services (extended support) provides various methods to create a deploymen
 ## Register the feature for your subscription
 Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
 
-```azurepowershell
+```powershell
 Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 

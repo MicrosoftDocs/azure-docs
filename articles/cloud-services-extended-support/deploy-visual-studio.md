@@ -23,7 +23,7 @@ Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with Cloud
 ## Register the feature for your subscription
 Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
 
-```azurepowershell
+```powershell
 Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 

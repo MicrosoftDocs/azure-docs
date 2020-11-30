@@ -22,7 +22,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 ## Register the feature for your subscription
 Cloud Services (extended support) is currently in preview. Register the feature for your subscription as follows:
 
-```azurepowershell
+```powershell
 Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 

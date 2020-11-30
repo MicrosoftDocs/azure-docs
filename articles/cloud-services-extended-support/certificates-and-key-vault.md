@@ -33,14 +33,36 @@ To install certificates on your Cloud Service roles, users need to add the certi
     `<Certificate name="<your cert name>" thumbprint="<thumbprint in Key Vault" thumbprintAlgorithm="sha1" />`
 
 5.	In your template file, add the Key Vault reference. 
-
-    - `vaultId` is the Azure Resource Manager ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. 
-    - `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
     
     >[!NOTE]
     > Certificate Identifier should be in the following format: **https://<vaultEndpoint>/secrets/<secretName>/<secretVersion>**
 
-    :::image type="content" source="media/certs-and-key-vault-3.png" alt-text="Image shows adding properties to an ARM template.":::
+    ```
+    "osProfile": 
+    
+        { "secrets":  
+    
+            [  
+    
+                { "sourceVault": { 
+    
+                     "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/{keyvault-name}"  
+    
+                },  
+    
+    "vaultCertificates": [ 
+    
+            { "certificateUrl": "https://{keyvault-name}.vault.azure.net:443/secrets/ContosoCertificate/{secret-id}"  
+    
+            } 
+    
+        ] 
+    
+    } 
+    ```
+
+    - `vaultId` is the Azure Resource Manager ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. 
+    - `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
  
 
 ## Next steps
