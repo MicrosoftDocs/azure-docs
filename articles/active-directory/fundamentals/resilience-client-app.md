@@ -152,4 +152,4 @@ If you develop resource APIs, we encourage you to participate in the [Shared Sig
 - [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 - [Build resilience into daemon applications](resilience-daemon-app.md)
 - [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
-- [Build resilience in your customer identity and access management with Azure Active Directory B2C](resilience-b2c.md)
+- [Build resilience in your CIAM systems](resilience-b2c.md)
