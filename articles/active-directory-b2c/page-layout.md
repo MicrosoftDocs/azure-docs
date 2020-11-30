@@ -100,7 +100,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 ## MFA page (multifactor)
 
 **1.2.2**
-- Fixed issue appeared on iOS that verification code can not be autofilled. 
+- Fixed an issue with auto-filling the verification code when using iOS.
 - Fixed an issue with redirecting a token to the relying party from Android Webview. 
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.  
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
