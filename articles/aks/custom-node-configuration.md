@@ -179,7 +179,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --kubelet-con
 To create a new node pool that configures only the Kubelet parameters, you can follow the example below:
 
 ```azurecli
-az aks create --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
+az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --kubelet-config ./kubeletconfig.json
 ```
 
 ## Next steps
