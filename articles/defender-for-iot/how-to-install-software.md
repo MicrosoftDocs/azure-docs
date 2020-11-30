@@ -10,39 +10,15 @@ ms.service: azure
 ms.topic: how-to
 ---
 
-# About Defender for IoT
+# About the Defender for IoT Installation
 
-As enterprises implement digital transformation for greater efficiency and productivity, boards and management teams are increasingly concerned about the financial and liability risk resulting from the deployment of massive numbers of unmanaged IoT and Operational Technology (OT) devices. 
+This article describes how to install the:
 
-Adversaries targeting this expanded attack surface can cause substantial corporate impact including safety and environmental incidents, costly production downtime, and theft of sensitive intellectual property. 
+- **Defender for IoT sensor:** Defender for IoT sensors collects ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and an extensive range of reports. For example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [***Defender for IoT Sensor User Guide***](https://aka.ms/AzureDefenderforIoTUserGuide).
 
-Legacy IoT/OT devices do not support agents and are often unpatched, misconfigured, and invisible to IT teams – making them soft targets for adversaries looking to pivot deeper into corporate networks.  
+ -  **Defender for IoT on-premises management console:** The on-premises management console lets you carry out device management, risk, and vulnerability management, as well as threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
 
-Traditional network security monitoring tools developed for corporate IT networks are unable to address these environments because they lack a deep understanding of the specialized protocols, devices, and machine-to-machine (M2M) behaviors found in IoT and OT environments.
-   
-Defender for IoT is a solution that continuously discovers, monitors, and manages IoT and OT threats, risks, and vulnerabilities. It helps accelerate incident response; provides insight into operational challenges and simplifies hybrid workload protection by delivering unified IoT and OT visibility and control. 
-
-Purpose built for IoT and OT networks, Azure Defender for IoT delivers deep visibility into IoT and OT risk within minutes of being connected to the network, with zero impact on the network and network devices due to its passive, non-invasive, Network Traffic Analysis (NTA) approach. Leveraging patented, IoT and OT aware behavioral analytics to detect advanced IoT and OT threats (such as fileless malware) based on anomalous or unauthorized activity. This holistic solution addresses key use cases:
-
-  - IoT and OT device discovery and continuous threat monitoring
-
-  - IoT risk and vulnerability management
-
-  - Threat hunting and incident response
-
-  - Operational efficiency 
-
-  - Unified IT and OT security 
-
-## Components
-
-  - **Defender for IoT sensor:** Defender for IoT sensors collects ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and an extensive range of reports. For example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [***Defender for IoT Sensor User Guide***](https://aka.ms/AzureDefenderforIoTUserGuide).
-
-  - **Defender for IoT on-premises management console:** The on-premises management console lets you carry out device management, risk, and vulnerability management, as well as threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
-
-## About this guide
-
-The following information is covered in this guide:
+The following installation information is covered:
 
   - **Hardware:** Dell and HPE physical appliance details
 
@@ -50,15 +26,9 @@ The following information is covered in this guide:
 
   - **Virtual Appliances:** virtual machine details and software installation
 
-After installation, connect your sensor to your network. Refer to the [Network Setup Guide](https://aka.ms/AzureDefenderForIoTNetworkSetup).
+After installation, connect your sensor to your network.
 
-### Getting more information
-
-  - To get assistance or support, contact [support.microsoft.com](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
-
-  - For additional documentation, visit the [Help Center](https://help.cyberx-labs.com/).
-
-#About Defender for IoT appliances 
+# About Defender for IoT appliances 
 
 This article covers information about Defender for IoT sensor appliances and the appliance for the Defender for IoT on-premises management console.
 
@@ -100,9 +70,9 @@ The following virtual appliances are available:
  **Appliance Type**  | Dell R340, VM |
  **Number of Managed Sensors** | Unlimited |
 
-## Preparing for the installation
+## Prepare for the installation
 
-### Accessing the ISO installation image
+### Access the ISO installation image
 
 The installation image is accessible from the Defender for IoT portal.
 
@@ -112,19 +82,19 @@ To access the file:
 
 2. Go to the **Network sensor** or **On-premises management console** page and select a version to download.
 
-### Installing from DVD
+### Install from DVD
 
 Before the installation, ensure you have:
 
-  - a portable DVD drive with the USB connector.
+- a portable DVD drive with the USB connector.
 
-  - ISO installer image.
+- ISO installer image.
 
-To install:
+**To install:**
 
-1.  Burn the image to a DVD or prepare a disk on a key.
+1. Burn the image to a DVD or prepare a disk on a key.
 
-2.  Connect the DVD or disk on a key and configure the appliance to boot from DVD or disk on a key.
+1. Connect the DVD or disk on a key and configure the appliance to boot from DVD or disk on a key.
 
 > [!NOTE]
 > Burn the ISO image to the DVD as image. Connect a portable DVD drive into your computer and right click on the ISO Image and choose “Burn to disk”.
@@ -353,7 +323,7 @@ To manually configure:
 
 The installation process takes approximately 20 minutes. After the installation, the system is restarted several times.
 
-To install:
+**To install:**
 
 1. Verify that the version media is mounted to the appliance in one of the following ways:
 
@@ -1075,8 +1045,7 @@ For any other issues, contact [support.microsoft.com](https://support.microsoft.
 
 ### Configure a SPAN port on existing vSwitch
 
-> [!NOTE]  
-> A vSwitch does not have mirroring capabilities, but a simple workaround can be used to implement SPAN port.
+A vSwitch does not have mirroring capabilities, but a simple workaround can be used to implement SPAN port.
 
 **To configure a SPAN port:**
 

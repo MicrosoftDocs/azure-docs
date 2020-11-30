@@ -4,53 +4,37 @@ description: You can add custom alert rules based on information detected by the
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/23/2020
+ms.date: 11/29/2020
 ms.topic: article
 ms.service: azure
 ms.topic: how-to
 ---
 
-# Customized alert rules
+# Customize alert rules
 
-You can add custom alert rules based on information detected by the sensor. For example, define a rule that instructs the sensor to trigger an alert based on a Source IP, Destination IP, Command (within a protocol), or other values. When the sensor detects the traffic defined in the rule, an Alert or event is generated.
+You can add custom alert rules based on information detected by individual sensors. For example, define a rule that instructs a sensor to trigger an alert based on a Source IP, Destination IP, command (within a protocol). When the sensor detects the traffic defined in the rule, an alert or event is generated.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image267.png" alt-text="create rule":::
+The alert message indicates that a user-defined rule triggered the alert.
 
-To create a customized rule:
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="user defind rule":::
 
-1.  Select :::image type="content" source="media/how-to-work-with-alerts-sensor/image268.png" alt-text="create a customized rule":::, Or *Click here.*
+To create a custom alert rule:
 
-2. Choose Category/ Protocol.
+1. Select Custom Alerts from the Side menu of a sensor.
+1. Select the + sign to create a rule.
 
-3. Provide rule name.
+ :::image type="content" source="media/how-to-work-with-alerts-sensor/image267.png" alt-text="create rule":::
 
-4. Choose IP or MAC port and/or destination or leave empty to define “Any”.
+1. Choose Category/Protocol from the Categories section.
+1. Provide rule name.
+1. Choose IP or MAC port and/or destination or leave empty to define “Any”.
+1. Add a condition. A list of conditions and their properties is unique for each category.
+1. It possible to select more than one condition.
+1. Indicate if the rules trigger an Alarm or Event.
+1. Select Severity.
+1. Select if the rule will include a PCAP file.
+1. Save.
 
-5. Add a condition, A list of conditions and their properties is unique for each category.
+The rule is added to the Customized Alerts Rules list. where you can review basic rule parameters, the last time the rule was triggered, and more. You can also enable and disable the rule from the list.
 
-6. It possible to select more than one condition.
-
-7. Indicate if the rule trigger an Alarm or Event.
-
-8. Select Severity.
-
-9. Select if the rule will include a PCAP file.
-
-10. Save. The rule is added to the Rules list and the user has an option to:
-
-
-    - See basic rule parameters
-  
-    - See when the rule occurred last time
-  
-    - Enable/Disable rule
-  
-    - Modify/Delete rule
-  
-    - The user can Delete/Enable/Disable rule by multiple selection
-
-      :::image type="content" source="media/how-to-work-with-alerts-sensor/image269.png" alt-text="customized alert":::
-
-      If the customized alarm is triggered, the alert message indicates that a user-defined rule was created triggered the alert.
-
-      :::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="user defind rule":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image269.png" alt-text="customized alert":::
