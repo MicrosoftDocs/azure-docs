@@ -52,14 +52,14 @@ This documentation includes sections that explain how to get started and leverag
     * [Use logs metrics and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 * How-to
     * [Prepare apps](spring-cloud-tutorial-prepare-app-deployment.md): Prepare an existing Java Spring application for deployment to Azure Spring Cloud. When configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update Java Spring Cloud applications.
-    * [Manage apps](spring-cloud-howto-start-stop-delete.md):  Start, stop, and delete your Azure Spring Cloud applications. Change an application's state in Azure Spring Cloud by using either the Azure portal or the Azure CLI.
+    * [Deploy and manage apps](spring-cloud-howto-start-stop-delete.md):  Start, stop, and delete your Azure Spring Cloud applications. Change an application's state in Azure Spring Cloud by using either the Azure portal or the Azure CLI.
     * [Scale](spring-cloud-tutorial-scale-manual.md): Scale any microservice application using the Azure Spring Cloud dashboard in the Azure portal or using utoscale settings. Public IPs are available to communicate with external resources, such as databases, storage, and key vaults.
     * [Monitor apps](spring-cloud-tutorial-distributed-tracing.md): Distributed tracing tools to easily debug and monitor complex issues. Azure Spring Cloud integrates Spring Cloud Sleuth with Azure's Application Insights. This integration provides powerful distributed tracing capability from the Azure portal.
     * [Secure apps](spring-cloud-howto-enable-system-assigned-managed-identity.md): Azure resources provide an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
     * [Integration with other Azure services](spring-cloud-tutorial-bind-cosmos.md): Instead of manually configuring your Spring Boot applications, you can automatically bind selected Azure services to your applications, for example, binding your application to an Azure Cosmos DB database.
     * [Automate](spring-cloud-howto-cicd.md): Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps organize and control these key tasks. 
     * [Troubleshoot](spring-cloud-howto-self-diagnose-solve.md): Azure Spring Cloud diagnostics provide an interactive experience to help troubleshoot apps. No configuration is required. When you find issues, Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve issues.
-    * [Migrate](migrate-spring-cloud-to-azure-spring-cloud.md): How to migrate an existing Spring Cloud application or Spring Boot application to run on Azure Spring Cloud.
+    * [Migrate](https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): How to migrate an existing Spring Cloud application or Spring Boot application to run on Azure Spring Cloud.
 
 ## Next steps
 
