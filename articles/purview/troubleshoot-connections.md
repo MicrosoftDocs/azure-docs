@@ -14,7 +14,7 @@ This article describes how to troubleshoot connection errors while setting up sc
 
 ## Permission the credential on the data source
 
-If you are using a Managed Identity or Service Principal as a method of authentication for scans, you will have to allow these identities to have access to your data source.
+If you're using a managed identity or service principal as a method of authentication for scans, you'll have to allow these identities to have access to your data source.
 
 There are specific instructions for each source type:
 
@@ -37,14 +37,14 @@ Verify this by following the steps below:
 
 1. Navigate to your Key Vault.
 1. Select **Settings** > **Secrets**.
-1. Select the secret you are using to authenticate against your data source for scans.
-1. Select the version which you intend to use and verify that the password or account key is correct by clicking on **Show Secret Value**. 
+1. Select the secret you're using to authenticate against your data source for scans.
+1. Select the version that you intend to use and verify that the password or account key is correct by clicking on **Show Secret Value**. 
 
 ## Verify permissions for the Purview managed identity on your Azure Key Vault
 
 Verify that the correct permissions have been configured for the Purview managed identity to access your Azure Key Vault.
 
-To verify this, do the following:
+To verify this, do the following steps:
 
 1. Navigate to your key vault and to the **Access policies** section
 1. Verify that your Purview managed identity shows under the *Current access policies* section with **get** permissions on secrets at least
