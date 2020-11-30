@@ -66,6 +66,21 @@ The following table represents the set of supported browsers and versions which 
 
 **Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS.
 
+## Calling client - browser security model
+
+### User WebRTC over https
+WebRTC APIs, such as `getUserMedia` requires that the app calling these APIs must be served over HTTPS.
+For purpose of local development, you can use `http://localhost`.
+
+### Embeding ACS Calling SDK within iframe
+[New `Permissions Policy` (also known as `Feature policy`)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is being adopted in the industry by various browsers - it affects calling scenarios by controlling how applications can access camera and microphone through a cross origin iframe.
+If you want to use `iframe` to host part of the app from different domain, you need to add the `allow` attribute to your iframe with a correct value.
+Example: allow both camera and microphone
+```html|
+<iframe allow="camera *;microphone *"
+```
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
