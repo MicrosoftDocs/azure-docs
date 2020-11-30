@@ -93,8 +93,6 @@ Companies use deep learning to perform text analysis to detect insider trading a
 
 Artificial neural networks are formed by layers of connected nodes. Deep learning models use neural networks that have a large number of layers. 
 
-Learn how to use deep learning to [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) in Azure Machine Learning.
-
 The following sections explore most popular artificial neural network typologies.
 
 ### Feedforward neural network
@@ -114,6 +112,9 @@ Convolutional neural networks have been used in areas such as video recognition,
 ## Next steps
 
 The following articles show you more options for using open-source deep learning models in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
+
+
+- [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
