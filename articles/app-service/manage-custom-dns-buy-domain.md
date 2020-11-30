@@ -122,7 +122,7 @@ To map a custom DNS name to a web app, the web app's [App Service plan](https://
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Screenshot of the left navigation menu of the app page with Scale up (App Service plan) selected.":::
 
-1. If the App Service plan is not in the **F1** tier, close the **Scale up** page and skip to [Buy the domain](#buy-the-domain).
+1. If the App Service plan is not in the **F1** tier, close the **Scale up** page and skip to [Buy the domain](#buy-an-app-service-domain).
 
 ### Scale up the App Service plan
 
