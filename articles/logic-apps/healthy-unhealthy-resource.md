@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ---
 
 # Understand your logic app's health in Security Center
@@ -19,6 +19,7 @@ When you monitor your Logic Apps resources in [Microsoft Azure Security Center](
 
 * An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you start.
 * Existing logic apps with [diagnostic logging enabled](#enable-diagnostic-logging).
+* A Log Analytics workspace, which is required to enable logging for your logic app. If you don't have a workspace, first [create your workspace](/learn/quick-create-workspace.md).
 
 ## Enable diagnostic logging
 
