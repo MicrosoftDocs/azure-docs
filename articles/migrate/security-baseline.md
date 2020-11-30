@@ -201,7 +201,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-What is Azure role-based access control (Azure RBAC) ../role-based-access-control/overview.md 
+- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
