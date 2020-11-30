@@ -25,7 +25,7 @@ All products in Microsoft 365 can be managed with administrative roles in Azure 
 
 Microsoft 365 service | Role content | API content
 ---------------------- | ------------------ | -----------------
-Admin roles in Office 365 and Microsoft 365 business plans | [Microsoft 365 admin roles](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Not available
+Admin roles in Office 365 and Microsoft 365 business plans | [Microsoft 365 admin roles](/office365/admin/add-users/about-admin-roles?view=o365-worldwide&preserve-view=true) | Not available
 Azure Active Directory (Azure AD) and Azure AD Identity Protection| [Azure AD admin roles](permissions-reference.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0&preserve-view=true&preserve-view=true)<br>[Fetch role assignments](/graph/api/directoryrole-list?view=graph-rest-1.0&preserve-view=true)
 Exchange Online| [Exchange role-based access control](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [PowerShell for Exchange](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps&preserve-view=true)<br>[Fetch role assignments](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps&preserve-view=true)
 SharePoint Online | [Azure AD admin roles](permissions-reference.md)<br>Also [About the SharePoint admin role in Microsoft 365](/sharepoint/sharepoint-admin-role) | [Graph API](/graph/api/overview?view=graph-rest-1.0&preserve-view=true)<br>[Fetch role assignments](/graph/api/directoryrole-list?view=graph-rest-1.0&preserve-view=true)
