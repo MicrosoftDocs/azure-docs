@@ -9,10 +9,6 @@ ms.date: 11/30/2020
 ms.topic: include
 ---
 
-# Quickstart: Use cURL and REST 
-
-This quickstart will show you how to add example utterances to a Pizza app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
-
 By following this quickstart, you will perform three REST calls in sequence.
 
 - First, you will upload a batch of example utterances which will be used to train the Pizza app model, using the [REST Batch add labels](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c09) call.

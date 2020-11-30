@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Language Understanding (LUIS) SDK client libraries"
-description: Create and query a LUIS app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript.
+title: "Quickstart: Language Understanding (LUIS) SDK client libraries and REST API"
+description: Create and query a LUIS app with the LUIS SDK client libraries and REST API.
 ms.topic: quickstart
 ms.date: 11/30/2020
 ms.service: cognitive-services
@@ -9,9 +9,9 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-luis
 ---
-# Quickstart: Language Understanding (LUIS) SDK client libraries to create and query your LUIS app
+# Quickstart: Language Understanding (LUIS) SDK client libraries and REST API
 
-Create and query an Azure LUIS artificial intelligence (AI) app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript.
+Create and query an Azure LUIS artificial intelligence (AI) app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript. You can also use cURL to send requests using the REST API.
 
 Language Understanding (LUIS) enables you to apply natural language processing (NLP) to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
