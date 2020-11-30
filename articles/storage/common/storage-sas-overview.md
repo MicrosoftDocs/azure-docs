@@ -102,6 +102,9 @@ Additionally, a SAS is required to authorize access to the source object in a co
 - When you copy a file to another file that resides in a different storage account, you must use a SAS to authorize access to the source file. You can optionally use a SAS to authorize access to the destination file as well.
 - When you copy a blob to a file, or a file to a blob, you must use a SAS to authorize access to the source object, even if the source and destination objects reside within the same storage account.
 
+[!NOTE]
+Generating SAS tokens is not audit process. Any account that has privilege to generate SAS token can do that without the owner of the storage account knowing. For that the accounts that has such permission should be very few and if there's no need for SAS token you can disable them using [Azure Policy](https://docs.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal) 
+
 ## Best practices when using SAS
 
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
