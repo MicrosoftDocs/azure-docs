@@ -3,7 +3,7 @@ title: Synapse Role Based Access Control
 description: An article that explains role-based access control in Azure Synapse Analytics
 author: billgib
 ms.service: synapse-analytics 
-ms.topic: access control
+ms.topic: concepts
 ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
@@ -62,7 +62,7 @@ Current supported scopes within a workspace are: Apache Spark pool, Integration 
 
 Access to code artifacts is granted with workspace scope.  Granting access to collections of artifacts within a workspace will be supported in a later release.
 
-## Role assignments roles and computing permissions
+## Resolving role assignments to determine permissions
 
 A role assignment grants the principal the permissions defined by the role at the specified scope.
 
@@ -70,7 +70,9 @@ Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigne
 
 ## Enforcing assigned permissions
 
-In Synapse Studio, if you don't have the required permissions, specific buttons or options may be grayed out or an error will be returned.  If a button or option is disabled, hovering over the button or option shows a tooltip with the required permission.  You'll need to contact a Synapse Administrator to assign a role that grants the required permission. You can see the roles required to grant specific actions [here](https://go.microsoft.com/fwlink/?linkid=2148305).
+In Synapse Studio, specific buttons or options may be grayed out or a permissions error may be returned when attempting an action if you don't have the required permissions. 
+
+If a button or option is disabled, hovering over the button or option shows a tooltip with the required permission.  Contact a Synapse Administrator to assign a role that grants the required permission. You can see the roles that provide specific actions [here](https://go.microsoft.com/fwlink/?linkid=2148305).
 
 ## Who can assign Synapse RBAC roles?
 
