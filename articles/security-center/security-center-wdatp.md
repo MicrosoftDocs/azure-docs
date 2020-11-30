@@ -56,7 +56,7 @@ Microsoft Defender for Endpoint provides:
 
 By integrating Defender for Endpoint with Security Center, you'll benefit from the following additional capabilities:
 
-- **Automated onboarding**. Security Center automatically enables the Microsoft Defender for Endpoint sensor for all Windows servers monitored by Security Center (unless they're running Windows Server 2019).
+- **Automated onboarding**. Security Center automatically enables the Microsoft Defender for Endpoint sensor for all Windows servers monitored by Security Center. Except for those that are running Windows Server 2019, which must be onboarded via local script, Group Policy Object (GPO), or [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (formerly SCCM).
 
 - **Single pane of glass**. The Security Center console displays Microsoft Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 

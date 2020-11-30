@@ -63,4 +63,4 @@ In this quickstart, you created an IoT Central application. Here's the suggested
 
 If you're a device developer and want to dive into some code, the suggested next step is to:
 > [!div class="nextstepaction"]
-> [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md)
+> [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md)
