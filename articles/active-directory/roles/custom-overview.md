@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Overview of role-based access control in Azure Active Directory
 
-This article describes how to understand Azure Active Directory role-based access control (Azure AD RBAC). Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you will find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
+This article describes how to understand Azure Active Directory (Azure AD) role-based access control. Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you will find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
 
 - Azure AD roles control access to Azure AD resources such as users, groups, and applications using Graph API
 - Azure roles control access to Azure resources such as virtual machines or storage using Azure Resource Management

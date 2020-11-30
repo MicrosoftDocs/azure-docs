@@ -215,19 +215,19 @@ landingContent:
           - text: Computer Vision API v2.1
             url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
           - text: Python SDK
-            url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+            url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
           - text: Java SDK
-            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
           - text: Node.js SDK
-            url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
      
   - title: Help and feedback
     linkLists:
@@ -235,4 +235,3 @@ landingContent:
         links:
           - text: Support and help options
             url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-

@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
 #Customer intent: I need to migrate from Network Performance Monitor to Connection Monitor. 
 ---
 # Migrate to Connection Monitor from Network Performance Monitor
 
 You can migrate tests from Network Performance Monitor (NPM) to new, improved Connection Monitor with a single click and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
+
 
 >[!NOTE]
 > Only tests from Service Connectivity Monitor can be migrated to Connection Monitor.

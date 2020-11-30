@@ -32,11 +32,13 @@ This tutorial outlines how to integrate your SQL Server Data Tools (SSDT) databa
    ![Manage Connections](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Manage Connections")
 
 3. Connect to your project by selecting **Manage Connections**, then **Connect to a project**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
+ 
+    ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
 
 
 4. Find the project you created in step one, select **Connect**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
+ 
+    ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
 
 
 3. Clone your Azure DevOps repository from your project to your local machine.
@@ -79,7 +81,7 @@ For more information about connecting projects using Visual Studio, see the [Con
 
    ![Verify](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verify changes")
 
-4. (**Optional**) Use Schema Compare and update the changes to your target data warehouse using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your data warehouse.
+4. (**Optional**) Use Schema Compare and update the changes to your target dedicated SQL pool using SSDT to ensure the object definitions in your Azure Repo repository and local repository reflect your dedicated SQL pool.
 
 ## Next steps
 
