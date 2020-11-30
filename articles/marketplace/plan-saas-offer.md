@@ -110,12 +110,12 @@ If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business s
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
 | Yes             | Yes         | No           | Azure Marketplace and Azure portal |
-| Yes             | Yes         | Yes          | Azure Marketplace and Azure portal * |
+| Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
 | No              | No          | Yes          | Azure portal only |
 |||||
 
-&#42; The private plan of the offer will only be available via the Azure portal
+&#42; The private plan of the offer will only be available via the Azure portal.
 
 For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
 
@@ -172,7 +172,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 
     This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description).
 
-- **Getting Started Instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These instructions help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
+- **Getting Started instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These instructions help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
 - **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
 - **Privacy policy link**: The URL for your company’s privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
 - **Contact information**: You must provide the following contacts from your organization:
@@ -195,12 +195,12 @@ To help create your offer more easily, prepare some of these items ahead of time
 
 - **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels
-  - .png file
+  - PNG file type
   - Must include a caption
 - **Media - Videos** (optional): You can add up to four videos with the following requirements, that demonstrate your offer:
   - Name
   - URL: Must be hosted on YouTube or Vimeo only.
-  - Thumbnail: 1280 x 720 .png file
+  - Thumbnail: 1280 x 720 PNG file
 
 > [!Note]
 > Your offer must meet the general [commercial marketplace certification policies](/legal/marketplace/certification-policies#100-general) and the [software as a service policies](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) to be published to the commercial marketplace.
@@ -252,7 +252,7 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 
 You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
 
-- **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](cloud-solution-providers.md) for more information.
+- **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. For details, see [Cloud Solution Provider program](cloud-solution-providers.md).
 
 - **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
 
