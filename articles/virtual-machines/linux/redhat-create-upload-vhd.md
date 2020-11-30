@@ -13,7 +13,9 @@ ms.author: danis
 # Prepare a Red Hat-based virtual machine for Azure
 In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.7+ and 7.1+. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). For ways to automate building RHEL images see the [Azure Image Builder](./image-builder-overview.md).
 
-## Prepare a Red Hat-based virtual machine from Hyper-V Manager
+## Hyper-V Manager
+
+This section shows you how to prepare a [RHEL 6](#rhel-6-using-hyper-v-manager) or [RHEL 7](#rhel-7-using-hyper-v-manager) virtual machine using Hyper-V Manager.
 
 ### Prerequisites
 This section assumes that you have already obtained an ISO file from the Red Hat website and installed the RHEL image to a virtual hard disk (VHD). For more details about how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
@@ -28,7 +30,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 * Do not configure a swap partition on the operating system disk. More information about this can be found in the following steps.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. More details can be found in the steps below. See also [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
-### Prepare a RHEL 6 virtual machine from Hyper-V Manager
+### RHEL 6 using Hyper-V Manager
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -151,7 +153,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 
-### Prepare a RHEL 7 virtual machine from Hyper-V Manager
+### RHEL 7 using Hyper-V Manager
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -328,8 +330,11 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 
-## Prepare a Red Hat-based virtual machine from KVM
-### Prepare a RHEL 6 virtual machine from KVM
+## KVM
+
+This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) or [RHEL 7](rhel-7-using-kvm) distro to upload to Azure. 
+
+### RHEL 6 using KVM
 
 1. Download the KVM image of RHEL 6 from the Red Hat website.
 
@@ -530,7 +535,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     ```
 
 		
-### Prepare a RHEL 7 virtual machine from KVM
+### RHEL 7 using KVM
 
 1. Download the KVM image of RHEL 7 from the Red Hat website. This procedure uses RHEL 7 as the example.
 
@@ -718,7 +723,10 @@ Follow the steps in 'Prepare a RHEL 7 virtual machine from Hyper-V Manager', ste
     # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## Prepare a Red Hat-based virtual machine from VMware
+## VMware
+
+This section shows you how to prepare a [RHEL 6](#rhel-6-using-vmware) or [RHEL 7](#rhel-6-using-vmware)  distro from VMware.
+
 ### Prerequisites
 This section assumes that you have already installed a RHEL virtual machine in VMware. For details about how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](https://partnerweb.vmware.com/GOSIG/home.html).
 
@@ -726,7 +734,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 * Do not configure a swap partition on the operating system disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps that follow.
 * When you create the virtual hard disk, select **Store virtual disk as a single file**.
 
-### Prepare a RHEL 6 virtual machine from VMware
+### RHEL 6 using VMware
 1. In RHEL 6, NetworkManager can interfere with the Azure Linux agent. Uninstall this package by running the following command:
 
     ```console
@@ -890,7 +898,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
     # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
     ```
 
-### Prepare a RHEL 7 virtual machine from VMware
+### RHEL 7 using VMware
 1. Create or edit the `/etc/sysconfig/network` file, and add the following text:
 
     ```config
@@ -1033,8 +1041,11 @@ This section assumes that you have already installed a RHEL virtual machine in V
     # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## Prepare a Red Hat-based virtual machine from an ISO by using a kickstart file automatically
-### Prepare a RHEL 7 virtual machine from a kickstart file
+## From ISO using a kickstart file
+
+This section shows you how to prepare a RHEL 7 distro from an ISO using a kickstart file.
+
+### RHEL 7 from a kickstart file
 
 1.  Create a kickstart file that includes the following content, and save the file. For details about kickstart installation, see the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
