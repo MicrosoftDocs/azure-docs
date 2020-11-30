@@ -23,7 +23,7 @@ Deployment of applications to Azure Spring Cloud has many benefits.  You can:
 * Develop and deploy rapidly without containerization dependencies.
 * Monitor production workloads efficiently and effortlessly.
 
-Azure Spring Cloud supports both Java [Spring Boot](https://spring.io/projects/spring-boot) and ASP.NET Core [Steeltoe](https://steeltoe.io/) apps. Steeltoe support is currently offered as a public preview. Public preview offerings let you experiment with new features prior to their official release. Public preview features and services are not meant for production use. For more information, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure Spring Cloud supports both Java [Spring Boot](https://spring.io/projects/spring-boot) and ASP.NET Core [Steeltoe](https://steeltoe.io/) apps. Steeltoe support is currently offered as a public preview. Public preview offerings let you experiment with new features prior to their official release. Public preview features and services are not meant for production use. For more information, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Service overview
 
