@@ -72,7 +72,8 @@ In the portal, navigate to your Azure Communication Services resource. Inside th
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure Portal.":::
 
 > [!NOTE]
-> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.
+> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.  
+Any change on how the hub is linked will be reflected in data plane (i.e., when sending a notification) within a maximum period of ``10`` minutes. This is applicable also when the hub is linked for the first time **if** there were notifications sent before.
 
 #### Device registration 
 
