@@ -1,6 +1,6 @@
 ---
-title: Monitoring metrics and raw logs for Azure CDN from Microsoft
-description: This article describes the Azure CDN from Microsoft monitoring metrics and raw logs.
+title: Monitoring, metrics, and raw logs for Azure CDN.
+description: This article describes how to set up and use Azure CDN monitoring, metrics, and raw logs.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,7 +12,7 @@ ms.date: 11/23/2020
 ms.author: yuajia
 ---
 
-# Real-time Monitoring Metrics and Access Logs for Azure CDN from Microsoft
+# Real-time Monitoring, Metrics, and Access Logs for Azure CDN
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues. 
 
 * Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.
@@ -148,7 +148,7 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 
 | Property  | Description |
 | ------------- | ------------- |
-| BackendHostname | If request was being forwarded to a backend, this field represents the hostname of the backend. This field will be blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
+| BackendHostname | If the request is being forwarded to a backend, this field represents the hostname of the backend. This field will be blank if the request gets redirected or forwarded to a regional cache (when caching gets enabled for the routing rule). |
 | CacheStatus | For caching scenarios, this field defines the cache hit/miss at the POP |
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
@@ -168,8 +168,8 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | TimeTaken | The length of time from first byte of request into Front Door to last byte of response out, in seconds. |
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
 | UserAgent | The browser type that the client used. |
-| ErrorInfo | This field contains the specific type of error to narrow down troubleshooting area. </br> Possible values include the following: </br> **NoError**: Indicates no error was encountered. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or does not match. </br> **ClientDisconnected**: Request failure due to client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur due to malformed header, body and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address could not be resolved. </br> **OriginConnectionAborted**: The connection with the origin was terminated abnormally. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin was not established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned a too big response header. </br> **RestrictedIP**: The request was blocked due to restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin due to SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
-| TimeToFirstByte | The length of time in milliseconds from Microsoft CDN receives the request to the time the first byte was sent to client, as measured on Microsoft CDN. This doesn't measure the client side data. |
+| ErrorInfo | This field contains the specific type of error to narrow down troubleshooting area. </br> Possible values include: </br> **NoError**: Indicates no errors were found. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br> **ClientDisconnected**: Request failure because of client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address couldn't be resolved. </br> **OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin wasn't able to established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned too large of a response header. </br> **RestrictedIP**: The request was blocked because of restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
+| TimeToFirstByte | The length of time in milliseconds from when Microsoft CDN receives the request to the time the first byte gets sent to the client. The time is measured only from the Microsoft side. Client-side data isn't measured. |
 > [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like:
     ```
