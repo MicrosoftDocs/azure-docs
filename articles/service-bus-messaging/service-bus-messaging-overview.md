@@ -10,7 +10,7 @@ Microsoft Azure Service Bus is a fully managed enterprise message broker with me
 
 - Load-balancing work across competing workers
 - Safely routing and transferring data and control across service and application boundaries
-- Coordinating transactional work that requires a high-degree of reliability. 
+- Coordinating transactional work that requires a high-degree of reliability 
 
 ## Overview
 Data is transferred between different applications and services using *messages*. A message is a container decorated with metadata, and contains data. The data can be any kind of information, including structured data encoded with the common formats such as the following ones: JSON, XML, Apache Avro, Plain Text.
@@ -23,9 +23,9 @@ Some common messaging scenarios are:
 * *Topics and subscriptions*. Enable 1:*n* relationships between [publishers and subscribers](https://docs.microsoft.com/azure/architecture/patterns/publisher-subscriber), allowing subscribers to select particular messages from a published message stream.
 * *Transactions*. Allows you to do several operations, all in the scope of an atomic transaction. For example, the following operations can be done in the scope of a transaction.  
 
-    1. Obtain a message from one queue
-    2. Post results of processing to one or more different queues
-    3. Then, move the input message from the original queue. 
+    1. Obtain a message from one queue.
+    2. Post results of processing to one or more different queues.
+    3. Move the input message from the original queue. 
     
     The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) pattern in the greater solution context. 
 * *Message sessions*. Implement high-scale coordination of workflows and multiplexed transfers that require strict message ordering or message deferral.
@@ -71,8 +71,8 @@ Topics can have multiple, independent subscriptions, which attach to the topic a
 
 You can define rules on a subscription. A subscription rule has a *filter* to define a condition for the message to be copied into the subscription and an optional *action* that can modify message metadata. For more information, see [Topic filters and actions](topic-filters.md). This feature is useful in the following scenarios:
 
-- You don't want a subscription to receive all messages sent to a topic
-- You want to mark up messages with extra metadata when they pass through a subscription
+- You don't want a subscription to receive all messages sent to a topic.
+- You want to mark up messages with extra metadata when they pass through a subscription.
 
 ## Advanced features
 
@@ -90,9 +90,9 @@ The autoforwarding feature chains a queue or subscription to another queue or to
 
 All Service Bus queues and topic subscriptions have an associated dead-letter queue (DLQ). A DLQ holds messages that meet the following criteria: 
 
-- They can't be delivered successfully to any receiver
-- Timed out
-- Explicitly sidelined by the receiving application. 
+- They can't be delivered successfully to any receiver.
+- They timed out.
+- They're explicitly sidelined by the receiving application. 
 
 Messages in the dead-letter queue are annotated with the reason why they've been placed there. The dead-letter queue has a special endpoint, but otherwise acts like any regular queue. An application or tool can browse a DLQ or dequeue from it. You can also autoforward out of a dead-letter queue. For more information, see [Overview of Service Bus dead-letter queues](service-bus-dead-letter-queues.md).
 
