@@ -64,7 +64,7 @@ If you click on the downward arrow on the right side of each video, you will ope
 1. To create queries for specific clips, use the search box that says "Search in transcript, visual text, people, and labels".
 1. Select **View Insights** to customize which insights you want to see and which you don't want to see. 
 
-    :::image type="content" source="./media/video-indexer-view-edit/search-try-cognitive-services.png" alt-text="Screenshot shows searching for videos that say "Try cognitive services":::
+    :::image type="content" source="./media/video-indexer-view-edit/search-try-cognitive-services.png" alt-text="Screenshot shows searching for videos that say Try cognitive services":::
 1. Add filters to further specify details on what scenes you are looking for by selecting **Filter options**.
 
     You can add multiple filters. 
