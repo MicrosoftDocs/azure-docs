@@ -33,7 +33,7 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerservice.jpg)
 8. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
 ![Providing a description and an identifier](media/configure-authentication-provider-apple/apple_configureservice1.jpg)
-9. On the pop-up window, specify the App ID you created as the Primary App ID. Specify your application's domain in the domain section. For the return URL, use your B2C tenant's reply URL such as `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/authresp`. Then select **Add** and **Save**.
+9. On the pop-up window, specify the App ID you created as the Primary App ID. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
 ![Specifying the domain and return URL for the registration](media/configure-authentication-provider-apple/apple_configureservice2.jpg)
 10. Review the service registration information and select **Save**.
 
