@@ -579,8 +579,6 @@ namespace creating_twin_graph_from_csv
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             return client;
         }
-        
-
     }
 }
 
