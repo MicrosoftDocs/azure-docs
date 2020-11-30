@@ -4,7 +4,7 @@ description: How to create and apply custom access policies to limit client acce
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 11/25/2020
 ms.author: v-erkel
 ---
 
