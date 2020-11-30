@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 - [AWS](../saas-apps/amazon-web-service-tutorial.md)
 - [Slack](../saas-apps/slack-tutorial.md)
 
-In addition you can [integrate applications not in the gallery](../manage-apps/view-applications-portal.md), including any application that already exists in your organization, or any third-party application from a vendor who is not already part of the Azure AD gallery. You can also [add your app to the gallery](../azuread-dev/howto-app-gallery-listing.md) if it is not there.
+In addition you can [integrate applications not in the gallery](../manage-apps/view-applications-portal.md), including any application that already exists in your organization, or any third-party application from a vendor who is not already part of the Azure AD gallery. You can also [add your app to the gallery](../develop/v2-howto-app-gallery-listing.md) if it is not there.
 
 Finally, you can also integrate the apps you develop in-house. This is covered in step five of this guide.
 
@@ -42,7 +42,7 @@ Finally, you can also integrate the apps you develop in-house. This is covered i
 
 Next, discover the applications employees are frequently using, and prioritize your work for integrating them with Azure AD.
 
-You can start by using Microsoft Cloud App Security&#39;s [cloud discovery tools](/cloud-app-security/tutorial-shadow-it) to discover and manage &quot;shadow&quot; IT in your network (that is, apps not managed by the IT department). You can [use Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) to simplify and extend the discovery process.
+You can start by using Microsoft Cloud App Security's [cloud discovery tools](/cloud-app-security/tutorial-shadow-it) to discover and manage "shadow" IT in your network (that is, apps not managed by the IT department). You can [use Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) to simplify and extend the discovery process.
 
 In addition, you can use the [AD FS application activity report](../manage-apps/migrate-adfs-application-activity.md) in the Azure portal to discover all the AD FS apps in your organization, the number of unique users that have signed in to them, and compatibility for integrating them with Azure AD.
 
@@ -62,7 +62,7 @@ During your discovery process, you may have found applications that are untracke
 - Save you money by eliminating the need for on-premises user provisioning and authentication as well as licensing fees paid to other cloud identity providers for the same service.
 - Reduce the administrative overhead and enable tighter security with fewer redundancies in your identity and access management process.
 - Enable employees to get secure single sign-on access to ALL the applications they need via the [MyApps portal](../manage-apps/access-panel-collections.md).
-- Improve the intelligence of Azure AD&#39;s [identity protection](../identity-protection/overview-identity-protection.md) related services like conditional access by increasing the amount of data it gets from your app usage, and extend its benefits to the newly added apps.
+- Improve the intelligence of Azure AD's [identity protection](../identity-protection/overview-identity-protection.md) related services like conditional access by increasing the amount of data it gets from your app usage, and extend its benefits to the newly added apps.
 
 We have published guidance for managing the business process of integrating apps with Azure AD, including a [poster](https://aka.ms/AppOnePager) and [presentation](https://aka.ms/AppGuideline) you can use to make business and application owners aware and interested. You can modify those samples with your own branding and publish them to your organization through your company portal, newsletter, or other medium as you go about completing this process.
 
@@ -99,7 +99,7 @@ In addition, you can integrate application delivery controllers like F5 Big-IP A
 
 For apps that are built within your company, your developers can use the [Microsoft identity platform](../develop/index.yml) to implement authentication and authorization. Applications integrated with the platform with be [registered with Azure AD](../develop/quickstart-register-app.md) and managed just like any other app in your portfolio.
 
-Developers can use the platform for both internal-use apps and customer facing apps, and there are other benefits that come with using the platform. [Microsoft Authentication Libraries (MSAL)](../develop/msal-overview.md), which is part of the platform, allows developers to enable modern experiences like multi-factor authentication and the use of security keys to access their apps without needing to implement it themselves. Additionally, apps integrated with the Microsoft identity platform can access [Microsoft Graph](../develop/microsoft-graph-intro.md) - a unified API endpoint providing the Microsoft 365 data that describes the patterns of productivity, identity, and security in an organization. Developers can use this information to implement features that increase productivity for your users. For example, by identifying the people the user has been interacting with recently and surfacing them in the app&#39;s UI.
+Developers can use the platform for both internal-use apps and customer facing apps, and there are other benefits that come with using the platform. [Microsoft Authentication Libraries (MSAL)](../develop/msal-overview.md), which is part of the platform, allows developers to enable modern experiences like multi-factor authentication and the use of security keys to access their apps without needing to implement it themselves. Additionally, apps integrated with the Microsoft identity platform can access [Microsoft Graph](../develop/microsoft-graph-intro.md) - a unified API endpoint providing the Microsoft 365 data that describes the patterns of productivity, identity, and security in an organization. Developers can use this information to implement features that increase productivity for your users. For example, by identifying the people the user has been interacting with recently and surfacing them in the app's UI.
 
 We have a [video series](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) that provides a comprehensive introduction to the platform as well as [many code samples](../develop/sample-v2-code.md) in supported languages and platforms.
 
