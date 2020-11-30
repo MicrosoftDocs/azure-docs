@@ -48,8 +48,8 @@ Before you begin, verify that you have the following virtual networks and permis
 
 ### <a name="permissions"></a>Permissions
 
-The accounts you use to create a virtual network peering must have the necessary roles or permissions. In the example below, if you were peering two virtual networks named **Hub-RM** and **Spoke-Classic**, your account must have the following roles or permissions for each virtual network:
-    
+The accounts you use to create a virtual network peering must have the necessary roles or permissions. In the example below, if you were peering the two virtual networks named **Hub-RM** and **Spoke-Classic**, your account must have the following roles or permissions for each virtual network:
+
 |VNet|Deployment model|Role|Permissions|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
@@ -61,7 +61,7 @@ Learn more about [built-in roles](../role-based-access-control/built-in-roles.md
 
 ## <a name="Same"></a>Same deployment model
 
-In this scenario, the virtual networks are both in the Resource Manager deployment model. Use the following instructions to create or update the virtual network peerings to enable gateway transit.
+In this scenario, the virtual networks are both in the Resource Manager deployment model. Use the following steps to create or update the virtual network peerings to enable gateway transit.
 
 ### To add a peering and enable transit
 
@@ -71,11 +71,11 @@ In this scenario, the virtual networks are both in the Resource Manager deployme
    * Peering link name: Name the link. Example: **HubRMToSpokeRM**
    * Traffic to remote virtual network: **Allow**
    * Traffic forwarded from remote virtual network: **Allow**
-   * Virtual network gateway: Use this virtual network's gateway
+   * Virtual network gateway: **Use this virtual network's gateway**
 
      :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png" alt-text="Screenshot shows add peering.":::
 
-1. Continue on the same page to configure the values for the **Remote virtual network**.
+1. On the same page, continue on to configure the values for the **Remote virtual network**.
 
    * Peering link name: Name the link. Example: **SpokeRMtoHubRM**
    * Deployment model: **Resource Manager**
@@ -91,7 +91,7 @@ In this scenario, the virtual networks are both in the Resource Manager deployme
 
 ### To modify an existing peering for transit
 
-If the peering was already created, you can modify the peering.
+If the peering was already created, you can modify the peering for transit.
 
 1. Navigate to the virtual network. Select **Peerings** and select the peering that you want to modify.
 
@@ -106,7 +106,7 @@ If the peering was already created, you can modify the peering.
    :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png" alt-text="Screenshot shows modify peering gateway.":::
 1. **Save** the peering settings.
 
-### PowerShell sample
+### <a name="PS-Same"></a>PowerShell sample
 
 You can also use PowerShell to create or update the peering with the example above. Replace the variables with the names of your virtual networks and resource groups.
 
@@ -134,25 +134,28 @@ Add-AzVirtualNetworkPeering `
 
 ## <a name="Different"></a>Different deployment models
 
-For this configuration, the spoke VNet (Spoke-Classic) is in the classic deployment model. The hub VNet (Hub-RM) is in the Resource Manager deployment model. The virtual network gateway must be configured for the Resource Manager VNet, not the classic VNet. Operations are applied to the Hub-RM virtual network only.
+In this configuration, the spoke VNet **Spoke-Classic** is in the classic deployment model and the hub VNet **Hub-RM** is in the Resource Manager deployment model. The virtual network gateway must be configured for the Resource Manager VNet, not the classic VNet. When creating this configuration, you only need to configure the **Hub-RM** virtual network. You don't need to configure anything on the **Spoke-Classic** VNet.
 
-1. In the Azure portal, create or update the virtual network peering from **Hub-RM** to **Spoke-RM**. Navigate to the Hub-RM virtual network resource, select **Peerings**, then **+ Add**:
+In the Azure portal, create the virtual network peering from **Hub-RM** to **Spoke-Classic**.
 
-   * Set the **Classic** option for **Virtual network deployment model**.
-   * Select the **Spoke-Classic** virtual network in the corresponding subscription.
-   * Make sure **Allow virtual network access** is **Enabled**.
-   * Set the **Allow gateway transit** option.
-   * Select **OK**.
+1. Navigate to the **Hub-RM** virtual network, select **Peerings**, then **+ Add**.
+1. On the **Add peering** page, configure the following values:
 
-     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png" alt-text="Add peering page for Spoke-Classic":::
+   * Peering link name: Name the link. Example: **HubRMToClassic**
+   * Traffic to remote virtual network: **Allow**
+   * Traffic forwarded from remote virtual network: **Allow**
+   * Virtual network gateway: **Use this virtual network's gateway**
+   * Remote virtual network: **Classic**
 
-1. If the peering is already created, navigate to the peering resource, then enable the **Allow gateway transit** option, similar to the screenshot shown in step (1).
-1. There is no operation on the Spoke-Classic virtual network.
-1. Verify the peering status as **Connected** on the Hub-RM virtual network.
+   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-classic.png" alt-text="Add peering page for Spoke-Classic":::
 
-Once the status shows **Connected**, the spoke virtual networks can start using VNet-to-VNet or cross-premises connectivity through the VPN gateway in the hub virtual network.
+1. Verify the subscription is correct, then select the virtual network from the dropdown.
+1. Select **Add** to add the peering.
+1. Verify the peering status as **Connected** on the Hub-RM virtual network. 
 
-### PowerShell sample
+For this configuration, you do not need to configure anything on the **Spoke-Classic** virtual network. Once the status shows **Connected**, the spoke virtual network can use the connectivity through the VPN gateway in the hub virtual network.
+
+### <a name="PS-Different"></a>PowerShell sample
 
 You can also use PowerShell to create or update the peering with the example above. Replace the variables and subscription ID with the values of your virtual network and resource groups, and subscription. You only need to create virtual network peering on the hub virtual network.
 
@@ -163,7 +166,7 @@ $HubRM   = "Hub-RM"
 $hubrmvnet   = Get-AzVirtualNetwork -Name $HubRM -ResourceGroup $HubRG
 
 Add-AzVirtualNetworkPeering `
-  -Name HubRMToSpokeRM `
+  -Name HubRMToClassic `
   -VirtualNetwork $hubrmvnet `
   -RemoteVirtualNetworkId "/subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/Spoke-Classic" `
   -AllowGatewayTransit
