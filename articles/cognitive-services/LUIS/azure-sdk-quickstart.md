@@ -9,7 +9,7 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-luis
 ---
-# Quickstart: Language Understanding (LUIS) SDK client libraries and REST API
+# Quickstart: Language Understanding (LUIS) client libraries and REST API
 
 Create and query an Azure LUIS artificial intelligence (AI) app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript. You can also use cURL to send requests using the REST API.
 
