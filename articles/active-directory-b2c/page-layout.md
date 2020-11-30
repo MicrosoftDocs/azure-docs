@@ -26,7 +26,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Added support for saving passwords to iCloud Keychain.
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
 - Added disclaimers on self-asserted page.
-- Focus will be placed on the first editable field on page load.
+- Focus is now placed on the first editable field when the page loads.
 - Focus will be placed on the first error field when multiple fields are errored.
 - Focus will be placed on 'change' button once email verification code is verified.
 
