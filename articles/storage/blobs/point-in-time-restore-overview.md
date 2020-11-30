@@ -45,7 +45,7 @@ The **Restore Blob Ranges** operation returns a restore ID that uniquely identif
 
 Point-in-time restore requires that the following Azure Storage features be enabled before you can enable point-in-time restore:
 
-- [Soft delete](soft-delete-overview.md)
+- [Soft delete](./soft-delete-blob-overview.md)
 - [Change feed](storage-blob-change-feed.md)
 - [Blob versioning](versioning-overview.md)
 
@@ -88,5 +88,5 @@ For more information about pricing for point-in-time restore, see [Block blob pr
 
 - [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
-- [Enable soft delete for blobs](soft-delete-enable.md)
+- [Enable soft delete for blobs](./soft-delete-blob-enable.md)
 - [Enable and manage blob versioning](versioning-enable.md)

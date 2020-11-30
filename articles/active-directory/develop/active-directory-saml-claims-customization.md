@@ -173,5 +173,5 @@ First, Microsoft identity platform verifies if Britta's user type is `All guests
 ## Next steps
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Troubleshoot SAML-based single sign-on](../manage-apps/debug-saml-sso-issues.md)

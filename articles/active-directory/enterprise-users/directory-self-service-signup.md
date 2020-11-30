@@ -8,7 +8,6 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
 ms.date: 11/15/2020
