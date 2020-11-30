@@ -15,7 +15,7 @@ This article details the APIs that enable partners to sell their software as a s
 
 ## Managing the SaaS subscription life cycle
 
-The commercial marketplace manages the entire life cycle of a SaaS subscription after its purchase by the end customer.  It uses the landing page, Fulfillment APIs, Operations APIs, and the webhook as a mechanism to drive the actual SaaS subscription activation, usage, updates, and cancellation.  The end customer's bill is based on the state of the SaaS subscription that Microsoft maintains. 
+The commercial marketplace manages the entire life cycle of a SaaS subscription after its purchase by the end user.  It uses the landing page, Fulfillment APIs, Operations APIs, and the webhook as a mechanism to drive the actual SaaS subscription activation, usage, updates, and cancellation.  The end user's bill is based on the state of the SaaS subscription that Microsoft maintains. 
 
 ### States of a SaaS subscription
 
@@ -25,7 +25,7 @@ The following diagram shows the states of a SaaS subscription and the applicable
 
 #### Purchased but not yet activated (*PendingFulfillmentStart*)
 
-After an end customer (or CSP) purchases a SaaS offer in the commercial marketplace, the publisher should be notified of the purchase. The publisher can then create and configure a new SaaS account on the publisher side for the end customer.
+After an end user (or CSP) purchases a SaaS offer in the commercial marketplace, the publisher should be notified of the purchase. The publisher can then create and configure a new SaaS account on the publisher side for the end user.
 
 For account creation to happen:
 
@@ -166,7 +166,7 @@ This section documents the SaaS Subscription and Operations APIs.
 
 The resolve endpoint enables the publisher to exchange the purchase identification token from the commercial marketplace (referred to as *token* in [Purchased but not yet activated](#purchased-but-not-yet-activated-pendingfulfillmentstart)) to a persistent purchased SaaS subscription ID and its details.
 
-When a customer is redirected to the partner's landing page URL, the customer identification token is passed as the *token* parameter in this URL call. The partner is expected to use this token and make a request to resolve it. The Resolve API response contains the SaaS subscription ID and other details to uniquely identify the purchase. The *token* provided with the landing page URL call is usually valid for 24 hours. If the *token* that you receive has already expired, we recommend that you provide the following guidance to the end customer:
+When a customer is redirected to the partner's landing page URL, the customer identification token is passed as the *token* parameter in this URL call. The partner is expected to use this token and make a request to resolve it. The Resolve API response contains the SaaS subscription ID and other details to uniquely identify the purchase. The *token* provided with the landing page URL call is usually valid for 24 hours. If the *token* that you receive has already expired, we recommend that you provide the following guidance to the end user:
 
 "We couldn't identify this purchase. Please reopen this SaaS subscription in the Azure portal or in Microsoft 365 Admin Center and select "Configure Account" or "Manage Account" again."
 
@@ -243,7 +243,7 @@ Code: 400
 Bad request. `x-ms-marketplace-token` is missing, malformed, invalid, or expired.
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
@@ -252,7 +252,7 @@ Internal server error.  Retry the API call.  If the error persists, contact [Mic
 
 #### Activate a subscription
 
-After the SaaS account is configured for an end customer, the publisher must call the Activate Subscription API on the Microsoft side.  The customer won't be billed unless this API call is successful.
+After the SaaS account is configured for an end user, the publisher must call the Activate Subscription API on the Microsoft side.  The customer won't be billed unless this API call is successful.
 
 ##### Post`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
@@ -298,7 +298,7 @@ Bad request: validation failed.
 * The SaaS subscription is in a *Subscribed* or *Suspended* state.
 
 Code: 403 
-Forbidden. The authorization token is invalid, expired, or was not provided. The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided. The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
@@ -484,7 +484,7 @@ Returns details for a SaaS subscription based on the `subscriptionId` provided.
 ```
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
@@ -498,7 +498,7 @@ Internal server error.  Retry the API call.  If the error persists, contact [Mic
 
 This API retrieves all plans for a SaaS offer identified by the `subscriptionId` of a specific purchase of this offer.  Use this call to get a list of all private and public plans that the beneficiary of a SaaS subscription can update for the subscription.  The plans returned will be available in the same geography as the already purchased plan.
 
-This call returns a list of plans available for that customer in addition to the one already purchased.  The list can be presented to an end customer on the publisher site.  An end customer can change the subscription plan to any one of the plans in the returned list.  Changing the plan to one not in the list will fail.
+This call returns a list of plans available for that customer in addition to the one already purchased.  The list can be presented to an end user on the publisher site.  An end user can change the subscription plan to any one of the plans in the returned list.  Changing the plan to one not in the list will fail.
 
 ##### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
@@ -545,7 +545,7 @@ Response body example:
 If `subscriptionId` is not found, empty response body is returned.
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided.  The request may be attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
@@ -606,7 +606,7 @@ Bad request: validation failures.
 * The update operation for a SaaS subscription isn't included in `allowedCustomerOperations`.
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or wasn't provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or wasn't provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
@@ -620,7 +620,7 @@ Internal server error.  Retry the API call.  If the error persists, contact [Mic
 >Either the plan or quantity of seats can be changed at one time, not both.
 
 >[!Note]
->This API can be called only after getting explicit approval for the change from the end customer.
+>This API can be called only after getting explicit approval for the change from the end user.
 
 #### Change the quantity of seats on the SaaS subscription
 
@@ -691,7 +691,7 @@ Internal server error.  Retry the API call.  If the error persists, contact [Mic
 >Only a plan or quantity can be changed at one time, not both.
 
 >[!Note]
->This API can be called only after getting explicit approval from the end customer for the change.
+>This API can be called only after getting explicit approval from the end user for the change.
 
 #### Cancel a subscription
 
@@ -741,7 +741,7 @@ Code: 400
 Bad request.  Delete is not in `allowedCustomerOperations` list for this SaaS subscription.
 
 Code: 403
-Forbidden.  The authorization token is invalid, expired, or is not available. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden.  The authorization token is invalid, expired, or is not available. The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
@@ -809,7 +809,7 @@ Code: 400
 Bad request: validation failures.
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
@@ -870,7 +870,7 @@ Response body:
 ```
 
 Code: 403
-Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD App ID from the one used to create the authorization token.
+Forbidden. The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
@@ -923,7 +923,7 @@ A call to inform of completion of an operation on the partner side.  For example
 
 Code: 403
 - Forbidden.  The authorization token is not available, is invalid, or expired. The request may be attempting to access a subscription that doesn't belong to the current publisher.
-- Forbidden.  The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD App ID from the one used to create the authorization token.
+- Forbidden.  The authorization token is invalid, expired, or was not provided.  The request is attempting to access a SaaS subscription for an offer that's published with a different Azure AD app ID from the one used to create the authorization token.
 
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
@@ -960,7 +960,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 *Webhook payload examples:*
 
 ```json
-// end customer changed a quantity of purchased seats for a plan on Microsoft side
+// end user changed a quantity of purchased seats for a plan on Microsoft side
 {
   "id": "<guid>", // this is the operation ID to call with get operation API
   "activityId": "<guid>", // do not use
@@ -976,7 +976,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 ```
 
 ```json
-// end customer's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
+// end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
 {
   "id": "<guid>",
   "activityId": "<guid>",
