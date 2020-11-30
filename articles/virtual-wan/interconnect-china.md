@@ -68,12 +68,12 @@ The following list shows Internet Exchanges possible in Hong Kong:
 
 When using this connect, your next BGP hop for Microsoft Services must be Microsoft Autonomous System Number (AS#) 8075. If you use a single location or SDWAN solution, that would be the choice of connection.
 
-With the current changes regarding interconnects between China Mainland and HongKong, most of these network providers build an MPLS bridge between China Mainland and HongKong. 
-You can see that Site 2 Site VPN connections inside China are allowed and mostly stable. The same applies for the Site 2 Site connections between branches in the rest of the world. Providers now create a VPN/SDWAN Aggreation on both sides and bridge via MPLS between them. 
+With the current changes regarding interconnects between mainland China and Hong Kong, most of these network providers build an MPLS bridge between mainland China and Hong Kong. 
+You can see that site-to-site VPN connections inside China are allowed and mostly stable. The same applies for the site-to-site connections between branches in the rest of the world. Providers now create a VPN/SDWAN Aggregation on both sides and bridge via MPLS between them. 
 
 <drawing chinamplsbridge>
 
-Either way, we still recommend that you have a second and regular Internet Breakout into the Chinese Mainland. This is to split the traffic between enterprise traffic to cloud services like Microsoft 365 and Azure, and by-law regulated Internet traffic.
+Either way, we still recommend that you have a second and regular internet breakout into the Chinese mainland. This is to split the traffic between enterprise traffic to cloud services like Microsoft 365 and Azure, and by-law regulated internet traffic.
 
 A compliant network architecture within China could look like the following example:
 
