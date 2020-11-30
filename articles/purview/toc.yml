@@ -45,7 +45,7 @@ items:
     href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
     href: concept-resource-sets.md
-  - name: Data Lineage
+  - name: Data lineage
     href: concept-data-lineage.md
   - name: Supported data sources and file types
     href: sources-and-scans.md
