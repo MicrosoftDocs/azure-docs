@@ -316,7 +316,7 @@ The User/Groups selector is a rule that allows you to enforce MFA on a per-Group
 
 Specify MFA rules for a user or a group in Azure AD:
 
-1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Select **Assignments**. Add the user(s) or group(s) you want to enforce MFA on.
 
@@ -330,7 +330,7 @@ Specify MFA rules for a user or a group in Azure AD:
 
 Specify MFA rules for unregistered devices in Azure AD:
 
-1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Set the **Assignments** to **All users**.
 
@@ -346,7 +346,7 @@ When you set the For multiple controls option to Require one of the selected con
 
 Specify MFA rules based on a user's location in Azure AD:
 
-1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 1. Set the **Assignments** to **All users**.
 
@@ -384,7 +384,7 @@ AD FS 2016 has several built-in access control policies that you can choose from
 ![Azure AD built in access control](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-To implement built-in policies in Azure AD, you can use a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) and configure the access controls, or you can use the custom policy designer in AD FS 2016 to configure access control policies. The Rule Editor has an exhaustive list of Permit and Except options that can help you make all kinds of permutations.
+To implement built-in policies in Azure AD, you can use a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) and configure the access controls, or you can use the custom policy designer in AD FS 2016 to configure access control policies. The Rule Editor has an exhaustive list of Permit and Except options that can help you make all kinds of permutations.
 
 ![Azure AD access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 

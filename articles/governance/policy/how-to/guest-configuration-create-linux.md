@@ -106,6 +106,10 @@ The name of the custom configuration must be consistent everywhere. The name of 
 the content package, the configuration name in the MOF file, and the guest assignment name in the
 Azure Resource Manager template (ARM template), must be the same.
 
+PowerShell cmdlets assist in creating the package.
+No root level folder or version folder is required.
+The package format must be a .zip file. and cannot exceed a total size of 100MB when uncompressed.
+
 ### Custom Guest Configuration configuration on Linux
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
