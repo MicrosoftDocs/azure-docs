@@ -74,7 +74,8 @@ If your environment does not match these assumptions, the following things happe
 
 You can find more details in [Understanding the default configuration](concept-azure-ad-connect-sync-default-configuration.md).
 
-!!! There must be a two-way forest trust between the AD servers. Only DNS split is not supported.
+> [!IMPORTANT]
+> There must be a two-way forest trust between the AD servers. Only DNS split is not supported.
 
 ### Multiple forests, multiple sync servers to one Azure AD tenant
 ![Unsupported topology for multiple forests and multiple sync servers](./media/plan-connect-topologies/multiforestmultisyncunsupported.png)
