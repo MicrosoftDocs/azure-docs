@@ -20,9 +20,9 @@ Identity data is stored by Azure AD in a geographical location  based on the add
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
-## Microsoft Azure Multi-Factor Authentication
+## Microsoft Azure AD Multi-Factor Authentication
 
-For cloud-based Azure Multi-Factor Authentication, authentication is complete in the closest datacenter to the user. Datacenters for Azure Multi-Factor Authentication exist in North America, Europe, and Asia Pacific.
+For cloud-based Azure AD Multi-Factor Authentication, authentication is complete in the closest datacenter to the user. Datacenters for Azure AD Multi-Factor Authentication exist in North America, Europe, and Asia Pacific.
 
 * Multi-factor authentication using phone calls originate from US datacenters and are routed by global providers.
 * Multi-factor authentication using SMS is routed by global providers.
@@ -30,7 +30,7 @@ For cloud-based Azure Multi-Factor Authentication, authentication is complete in
     * Device vendor-specific services, such as Apple Push Notifications, may be outside Europe.
 * Multi-factor authentication requests using OATH codes that originate from EU datacenters are validated in the EU.
 
-For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
+For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure AD MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
 
 ## Password-based Single Sign-On for Enterprise Applications
  

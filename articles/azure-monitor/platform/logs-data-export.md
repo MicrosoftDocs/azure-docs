@@ -3,7 +3,7 @@ title: Log Analytics workspace data export in Azure Monitor (preview)
 description: Log Analytics data export allows you to continuously export data of selected tables from your Log Analytics workspace to an Azure storage account or Azure Event Hubs as it's collected. 
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
@@ -64,7 +64,7 @@ Data is sent to storage accounts every hour. The data export configuration creat
 
 The storage account blob path is *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such a case would be PT1H_#.json, where # is the incremental blob count.
 
-The storage account data format is [JSON lines](diagnostic-logs-append-blobs.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
+The storage account data format is [JSON lines](./resource-logs-blob-format.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
 
 [![Storage sample data](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
@@ -74,7 +74,7 @@ Log Analytics data export can write append blobs to immutable storage accounts w
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
 Considerations:
-1. 'Basic' event hub sku supports lower event size [limit](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
+1. 'Basic' event hub sku supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
 2. The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
 ## Prerequisites
@@ -113,7 +113,15 @@ If you have configured your Storage Account to allow access from selected networ
 ### Create or update data export rule
 A data export rule defines data to be exported for a set of tables to a single destination. You can create a rule for each destination.
 
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
+
 ```azurecli
 az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
@@ -129,6 +137,8 @@ Use the following command to create a data export rule to an event hub using CLI
 ```azurecli
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
 ```
+
+# [REST](#tab/rest)
 
 Use the following request to create a data export rule using the REST API. The request should use bearer token authorization and content type application/json.
 
@@ -189,26 +199,46 @@ Following is a sample body for the REST request for an event hub where event hub
   }
 }
 ```
+---
 
 ## View data export configuration
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following command to view the configuration of a data export rule using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export show --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# [REST](#tab/rest)
+
 Use the following request to view the configuration of a data export rule using the REST API. The request should use bearer token authorization.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## Disable an export rule
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. Use the following command to disable a data export rule using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
 ```
+
+# [REST](#tab/rest)
 
 Use the following request to disable a data export rule using the REST API. The request should use bearer token authorization.
 
@@ -230,32 +260,53 @@ Content-type: application/json
     }
 }
 ```
+---
 
 ## Delete an export rule
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following command to delete a data export rule using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export delete --resource-group resourceGroupName --workspace-name workspaceName --name ruleName
 ```
 
+# [REST](#tab/rest)
+
 Use the following request to delete a data export rule using the REST API. The request should use bearer token authorization.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+---
 
 ## View all data export rules in a workspace
+
+# [Azure portal](#tab/portal)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 Use the following command to view all data export rules in a workspace using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export list --resource-group resourceGroupName --workspace-name workspaceName
 ```
 
+# [REST](#tab/rest)
+
 Use the following request to view all data export rules in a workspace using the REST API. The request should use bearer token authorization.
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+---
 
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.

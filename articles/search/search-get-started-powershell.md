@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 08/17/2020 
+ms.date: 11/17/2020 
 ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
@@ -33,7 +33,7 @@ The following services and tools are required for this quickstart.
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-## Get a key and URL
+## Copy a key and URL
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
