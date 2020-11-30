@@ -43,8 +43,6 @@ items:
     href: deployment-best-practices.md
   - name: Azure Purview limits
     href: how-to-manage-quotas.md 
-  - name: Catalog client overview
-    href: catalog-client-overview.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding Resource sets
@@ -149,7 +147,7 @@ items:
   - name: Insights
     items:
     - name: View asset insights
-      href: asset1-insights.md       
+      href: asset-insights.md       
     - name: View glossary insights
       href: glossary-insights.md 
     - name: View scan insights

@@ -6,12 +6,12 @@ ms.author: csugunan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/30/2020
 ---
 
 # Data lineage in Azure Purview Data Catalog client
 
-This document provides an overview of lineage in Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. The data could span from landing zone(on-prem/multi-cloud) to raw, cooked zone and finally to visualization platforms.
+This document provides an overview of how data lineage is managed in the Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. The data being tracked can come from different platforms and phases of transformation, including: landing zone (on-premises or multi-cloud), to raw, cooked zone and finally to visualization platforms.
 
 ## Use Cases
 
@@ -25,7 +25,7 @@ Data catalog will connect with other data processing, storage, and analytics sys
 
 A typical data estate of a customer would involve systems doing data extraction, transformation/load (ETL/ELT systems), analytics, and visualization systems. Each of the systems captures rich static and operational metadata that describes the state and quality of the data within the systems boundary. The goal of Lineage feature in Data catalog is to extract the movement, transformation, and operational metadata from each data system at the lowest grain possible. Once the metadata is gathered, tread it carefully at different grain to help answer a broad range of technical and business questions.
 
-Following example is a typical use case of data moving across desperate systems, where data catalog would connect to each of the systems for lineage.
+The following example is a typical use case of data moving across desperate systems, where data catalog would connect to each of the systems for lineage.
 
 - Data Factory copies data from on-prem/raw zone to a landing zone in the cloud. 
 - Data processing systems like Synapse, Databricks would process and transform data from landing zone to Curated zone using notebooks.
@@ -34,7 +34,7 @@ Following example is a typical use case of data moving across desperate systems,
 
 ## Lineage granularity
 
-This section covers the details about the granularity of which the lineage information is gathered by data catalog (vary by data systems).
+This section covers the details about the granularity of which the lineage information is gathered by a data catalog. This granularity can vary based on the data systems which are being.
 
 ###	Entity level lineage: Source(s) > Process > Target(s) 
 
@@ -44,7 +44,7 @@ This section covers the details about the granularity of which the lineage infor
 
 ### Column or attribute level lineage
 
-Identify attribute(s) of a source entity that is used to create or derive attribute(s) in the target entity. The name of the source attribute could be retained or renamed in a target. Systems like ADF can do a one-one copy from on-prem to cloud. For example: `Table1/ColumnA -> Table2/ColumnA`.
+Identify attribute(s) of a source entity that is used to create or derive attribute(s) in the target entity. The name of the source attribute could be retained or renamed in a target. Systems like ADF can do a one-one copy from on-premises environment to the cloud. For example: `Table1/ColumnA -> Table2/ColumnA`.
 
 ###	Process execution status
 
@@ -52,8 +52,10 @@ To support root cause analysis and data quality scenarios, we capture the execut
 
 ## Summary
 
-Lineage is a critical feature of the Data catalog to support quality, trust, and audit scenarios. The goal of Data catalog is to build a robust framework where all the data systems within customer environment can naturally connect to the Data catalog to report lineage. Once the metadata is available, the data catalog can stitch the metadata provided by data systems to power Data governance use cases.
+Lineage is a critical feature of the Purview Data Catalog to support quality, trust, and audit scenarios. The goal of a data catalog is to build a robust framework where all the data systems within your environment can naturally connect and report lineage. Once the metadata is available, the data catalog can bring together the metadata provided by data systems to power data governance use cases.
 
 ## Next steps
 
-* [Catalog client overview](catalog-client-overview.md)
+* [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
+* [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell)
+* [Quickstart: Use Purview Studio](use-purview-studio.md)
