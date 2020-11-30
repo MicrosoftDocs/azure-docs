@@ -73,7 +73,7 @@ From the project directory:
 1. Open the *Program.cs* file in your editor
 1. Remove the `Console.WriteLine("Hello World!");` statement
 1. Add `using` directives
-1. Update the `Main` method declaration to [support async code](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
+1. Update the `Main` method declaration to [support async code](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 

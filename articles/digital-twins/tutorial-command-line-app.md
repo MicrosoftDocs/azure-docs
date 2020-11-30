@@ -172,7 +172,7 @@ You can also verify that the twins were created by running the `Query` command. 
 
 #### Modify a digital twin
 
-You can can also modify the properties of a twin you've created. Try running this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
+You can also modify the properties of a twin you've created. Try running this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
 
 ```cmd/sh
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite

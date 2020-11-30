@@ -135,15 +135,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Authentication Settings**.
 
-	![Harness configuration](./media/harness-tutorial/configure01.png)
+	![Screenshot that shows the "Continuous Security" menu with "Access Management" and "Authentication Settings" selected.](./media/harness-tutorial/configure01.png)
 
 5. On the **SSO Providers** section, click on **+ Add SSO Providers** > **SAML**.
 
-	![Harness configuration](./media/harness-tutorial/configure03.png)
+	![Screenshot that shows the "S S O Providers" with "+ Add S S O Providers - S A M L" selected.](./media/harness-tutorial/configure03.png)
 
 6. On the **SAML Provider** pop-up, perform the following steps:
 
-	![Harness configuration](./media/harness-tutorial/configure02.png)
+	![Screenshot that shows teh "S A M L Provider" pop-up with the "U R L" and "Display Name" fields highlighted, and the "Choose File" and "Submit" buttons selected.](./media/harness-tutorial/configure02.png)
 
     a. Copy the **In your SSO Provider, please enable SAML-based login, then enter the following URL** instance and paste it in Reply URL textbox in **Basic SAML Configuration** section on Azure portal.
 
@@ -163,11 +163,11 @@ To enable Azure AD users to sign in to Harness, they must be provisioned into Ha
 
 1. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Users**.
 
-    ![Harness configuration](./media/harness-tutorial/configure04.png)
+    ![Screenshot that shows the "Continuous Security" menu with "Access Management" and "Users" selected.](./media/harness-tutorial/configure04.png)
 
 1. On the right side of page, click on **+ Add User**.
 
-    ![Harness configuration](./media/harness-tutorial/configure05.png)
+    ![Screenshot that shows the "Users" page with the "+ Add User" action selected.](./media/harness-tutorial/configure05.png)
 
 1. On the **Add User** pop-up, perform the following steps:
 

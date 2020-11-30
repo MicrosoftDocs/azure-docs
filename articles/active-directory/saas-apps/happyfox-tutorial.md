@@ -128,19 +128,19 @@ To configure Azure AD single sign-on with HappyFox, perform the following steps:
 
 2. Navigate to **Manage**, click on **Integrations** tab.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/header.png) 
+	![Screenshot that shows the "Manage" page with the "Integrations" tab selected.](./media/happyfox-tutorial/header.png) 
 
 3. In the Integrations tab, click **Configure** under **SAML Integration** to open the Single Sign On Settings.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/configure.png)
+	![Screenshot that shows the "S A M L Integration" setting with the "configure" action selected.](./media/happyfox-tutorial/configure.png)
 
 4. Inside SAML configuration section, paste the **Login URL** value, which you have copied from Azure portal into **SSO Target URL** textbox.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/targeturl.png)
+	![Screenshot that shows the "S A M L Configuration" section with the "S S O Target U R L" textbox highlighted.](./media/happyfox-tutorial/targeturl.png)
 
 5. Open the certificate downloaded from Azure portal in notepad and paste its content in **IdP Signature** section.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/cert.png)
+	![Screenshot that shows the "I d P Signature" section highlighted.](./media/happyfox-tutorial/cert.png)
 
 6. Click **Save Settings** button.
 

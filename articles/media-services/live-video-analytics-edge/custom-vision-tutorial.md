@@ -51,7 +51,7 @@ Prerequisites for this tutorial are:
 
 ## Review the sample video
 
-This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv/) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck. In this tutorial, you'll use Live Video Analytics on IoT Edge to detect such toy trucks and publish associated inference events to IoT Edge Hub.
+This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck. In this tutorial, you'll use Live Video Analytics on IoT Edge to detect such toy trucks and publish associated inference events to IoT Edge Hub.
 
 ## Overview
 

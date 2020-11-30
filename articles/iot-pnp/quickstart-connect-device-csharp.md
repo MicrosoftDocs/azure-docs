@@ -15,7 +15,7 @@ services: iot-pnp
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in CSharp and is included in the Azure IoT device SDK for C#. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in C# and is included in the Azure IoT Samples for C#. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ To complete this quickstart on Windows, you need the following software installe
 
 ## Download the code
 
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C# SDK.
+In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Samples for C# repository.
 
-Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT Samples for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
+Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT Samples for c# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
 
 ```cmd
 git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git

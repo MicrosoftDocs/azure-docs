@@ -70,7 +70,7 @@ Type the commands below to create a secret in Key Vault called **ExamplePassword
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-You can now reference this password that you added to Azure Key Vault by using its URI. Use **https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword** to get the current version. 
+You can now reference this password that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword'** to get the current version. 
 
 To view the value contained in the secret as plain text:
 

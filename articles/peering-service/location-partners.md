@@ -33,7 +33,7 @@ The table in this article provides information on the Peering Service connectivi
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
-| [Liquid Telecom](https://liquidcloud.africa/365-direct) | Africa  |
+| [Liquid Telecom](https://liquidcloud.africa/) | Africa  |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |

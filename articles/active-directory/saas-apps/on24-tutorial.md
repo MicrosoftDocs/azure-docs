@@ -141,7 +141,7 @@ To configure Azure AD single sign-on with ON24 Virtual Environment SAML Connecti
 
 5.  If you wish to configure the application in **SP** initiated mode, perform the following step:
 
-    ![ON24 Virtual Environment SAML Connection Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot that shows the "Set additional U R Ls" section with the "Sign on U R L" text box highlighted.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://vshow.on24.com/vshow/<INSTANCENAME>`

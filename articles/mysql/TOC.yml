@@ -332,6 +332,9 @@
       - name: Troubleshoot connection errors
         href: howto-troubleshoot-common-connection-issues.md
         displayName: debug, connection issues, connectivity, cannot connect
+      - name: Troubleshoot common errors
+        href: howto-troubleshoot-common-errors.md
+        displayName: SUPER privilege, DBA role, Access is denied
       - name: Troubleshoot query performance
         href: howto-troubleshoot-query-performance.md
         displayName: debug, performance issues, query performance
