@@ -41,7 +41,7 @@ landingContent:
           - text: Getting started with Always Encrypted with secure enclaves in SQL Server
             url: /sql/relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves
           - text: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
-            url: database/always-encrypted-enclaves-getting-started.md
+            url: always-encrypted-enclaves-getting-started.md
           - text: Create and use indexes on enclave-enabled columns using randomized encryption 
             url: /sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption
           - text: Develop a .NET application using Always Encrypted with secure enclaves
@@ -56,11 +56,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Plan for Intel SGX enclaves and attestation in Azure SQL Database
-            url: database/always-encrypted-enclaves-plan.md
+            url: always-encrypted-enclaves-plan.md
           - text: Enable Intel SGX for your Azure SQL Database
-            url: database/always-encrypted-enclaves-enable-sgx.md
+            url: always-encrypted-enclaves-enable-sgx.md
           - text: Configure Azure Attestation for your Azure SQL logical server 
-            url: database/always-encrypted-enclaves-configure-attestation.md
+            url: always-encrypted-enclaves-configure-attestation.md
 
 
   # Card

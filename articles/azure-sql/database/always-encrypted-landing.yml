@@ -48,9 +48,9 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Configure Always Encrypted by using Azure Key Vault
-            url: database/always-encrypted-azure-key-vault-configure.md
+            url: always-encrypted-azure-key-vault-configure.md
           - text: Configure Always Encrypted by using the Windows certificate store
-            url: database/always-encrypted-certificate-store-configure.md
+            url: always-encrypted-certificate-store-configure.md
 
 
   # Card
