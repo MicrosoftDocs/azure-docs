@@ -11,7 +11,7 @@ ms.date: 10/30/2020
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
 
-## Why is Microsoft moving the publishing experience from OCP GTM to Partner Center?
+## Why is Microsoft moving the publishing experience?
 
 The commercial marketplace within Partner Center provides simplified offer publishing to co-sell through Microsoft's three channels by centralizing offer creation and management in Partner Center, where a partner is already managing their relationship with Microsoft.
 
@@ -21,11 +21,11 @@ As a Microsoft partner enrolled in the commercial marketplace, you can:
 - Ensure your offers are in the correct online store—[Microsoft AppSource](https://appsource.microsoft.com) or [Azure Marketplace](https://azure.microsoft.com)—to reach the millions of cloud customers who align with your offer capabilities.
 - Drive your own publishing experience to co-sell with the offers that align with your business goals.
 - Align your offer publishing within Partner Center, where you are already managing your Microsoft relationship and co-sell opportunities.
-- Unlock Marketplace Rewards.
+- Unlock [Marketplace Rewards](partner-center/marketplace-rewards.md).
 
 ## Process updates for participating in co-sell
 
-For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](marketplace-co-sell.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](marketplace-co-sell.md). Complete these requirements on the co-sell tab in the commercial marketplace.
+For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](marketplace-co-sell.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](marketplace-co-sell.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#cosell-tab) later in this article).
 
 ## Continue co-selling with Microsoft
 
@@ -39,7 +39,7 @@ After you've enrolled in the commercial marketplace, prepare to merge your solut
 First, review them in OCP GTM. You should have received an email with a link unique to your OCP GTM experience. Then follow these steps to publish your offers.
 
 1. Visit your company's [publisher list](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fen-us%2Fdashboard%2Faccount%2Fv3%2Fpublishers%2Flist&data=02%7C01%7Cmasmc%40microsoft.com%7Ccb7d81a3709d4ed7309f08d858d2d0f0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637357009757504832&sdata=Mepi6O54TN3%2FbkLVWFGU%2B7dSlxkhvTIIdCJ4DDTUtN0%3D&reserved=0). It includes the account owner, managers and developers who have publishing access. Learn more about [Partner Center user roles](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
-2. Ask one of the listed contacts to [add users](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fen-us%2Fdashboard%2Faccount%2Fusermanagement&data=02%7C01%7Cmasmc%40microsoft.com%7Ccb7d81a3709d4ed7309f08d858d2d0f0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637357009757504832&sdata=Qd4CPaQdpWAb8xmvbwig0GFQkTh5ihVJ8nIrVgLwtcs%3D&reserved=0) to the commercial marketplace as *managers* or *developers*.
+2. Ask one of the listed contacts to [add users](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fen-us%2Fdashboard%2Faccount%2Fusermanagement&data=02%7C01%7Cmasmc%40microsoft.com%7Ccb7d81a3709d4ed7309f08d858d2d0f0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637357009757504832&sdata=Qd4CPaQdpWAb8xmvbwig0GFQkTh5ihVJ8nIrVgLwtcs%3D&reserved=0) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 
 ## Migrate your solutions from OCP GTM to commercial marketplace
@@ -83,15 +83,15 @@ Select this option when you may have an OCP GTM solution that does not yet have 
 
 1. Select **This offer will be new to commercial marketplace** (see **Begin your migration** image [above](#beginmigration)), then **Continue**.
 <!--:::image type="content" source="media/co-sell-migrate/migration-new.png" alt-text="The second type of migration options, This offer will be new to commercial marketplace.":::-->
-2. On the Step 1 tab, select your offer type, then **Continue**.
+2. On the Step 1 tab, select your [offer type](publisher-guide-by-offer-type.md), then **Continue**.
 
     :::image type="content" source="media/co-sell-migrate/migration-new-step-1.png" alt-text="Select the offer type.":::
 
-3. On the Step 2 tab, select the publisher profile you want to host this offer on in the commercial marketplace in Partner Center and select **Create Offer**. If you do not have a publisher account, go to Partner Center to set up one and then select the publisher account.
+3. On the Step 2 tab, select the radio button for the publisher profile you want to use to host this offer and select **Create Offer**. If you do not have a publisher account, go to Partner Center to set up one and then select the publisher account.
 
     :::image type="content" source="media/co-sell-migrate/migration-new-step-2.png" alt-text="Select the publisher account.":::
 
-Your offer will be migrated into the commercial marketplace in Partner Center as a draft. Your offer must be completed and fully published to retain its co-sell status, incentives, and referral pipeline. For steps to publish in commercial marketplace in Partner Center, see [Publishing a draft offer in the commercial marketplace](#publish-a-draft-offer-in-the-commercial-marketplace) below.
+Your offer will be migrated into the commercial marketplace in Partner Center as a draft. Your offer must be completed and fully published to retain its co-sell status, incentives, and referral pipeline. For steps to publish in commercial marketplace in Partner Center, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md), or [Publishing a draft offer in the commercial marketplace](#publish-a-draft-offer-in-the-commercial-marketplace) below.
 
 ### This offer is no longer relevant
 
@@ -113,11 +113,15 @@ Select this option when some of your OCP GTM solutions are obsolete or no longer
 
 ## Publish a draft offer in the commercial marketplace
 
-If you selected that your offer is new to the commercial marketplace, your OCP GTM offer will copy over as a draft. Your offer must be fully published in the commercial marketplace in Partner Center in order to retain its co-sell status, incentives, and referral pipeline.
+If you selected that your offer is new to the commercial marketplace, your OCP GTM offer will copy over as a draft. Your offer must be republished in Partner Center in order to retain its co-sell status, incentives, and referral pipeline.
+
+For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](publisher-guide-by-offer-type.md). For a summary, read below.
 
 1. On the **Overview** page, search for your draft offer name and select it.
 
     :::image type="content" source="media/co-sell-migrate/offer-overview.png" alt-text="The offer overview page in Partner Center.":::
+
+<a name="cosell-tab"></a>
 
 2. Complete all the required information in each tab. You must complete the customer-facing and (optionally) reseller-facing offer details. The **Learn more** links and tooltips in Partner Center will guide you through the requirements and details.
 
