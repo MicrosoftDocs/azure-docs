@@ -9,7 +9,8 @@
     displayName: overview
   - name: Terminology 
     href: overview-terminology.md
-  - name: Release notes
+  - name: FAQ 
+    href: overview-faq.md
     href: release-notes.md
 - name: Quickstarts
   expanded: true
