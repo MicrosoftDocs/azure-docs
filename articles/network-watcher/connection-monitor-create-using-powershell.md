@@ -1,7 +1,7 @@
 ---
 title: Create a connection monitor - PowerShell
 titleSuffix: Azure Network Watcher
-description: Learn how to create Connection Monitor using PowerShell.
+description: Learn how to create a connection monitor using PowerShell.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -14,16 +14,16 @@ ms.date: 11/23/2020
 ms.author: vinigam
 #Customer intent: I need to create a connection monitor using PowerShell to monitor communication between one VM and another.
 ---
-# Create a connection monitor (Preview) using PowerShell
+# Create a connection monitor using PowerShell
 
-Learn how to create a connection monitor to monitor communication between your resources using PowerShell.
+Learn how to use the PowerShell Connection Monitor feature to monitor communication between your resources.
 
 
 ## Before you begin
 
-In connection monitors that you create in Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
+In connection monitors that you create in the Connection Monitor feature, you can add both on-premises machines and Azure virtual machines (VMs) as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
 
-Connection Monitor includes the following entities:
+A connection monitor includes the following entities:
 
 * **Connection monitor resource**: A region-specific Azure resource. All of the following entities are properties of a connection monitor resource.
 * **Endpoint**: A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IPs.
@@ -33,7 +33,7 @@ Connection Monitor includes the following entities:
 
 	![Diagram showing a connection monitor, defining the relationship between test groups and tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-## Steps to create with PowerShell
+## Create a connection monitor
 
 Use the following commands to create a connection monitor by using PowerShell.
 
@@ -66,7 +66,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 ## Description of properties
 
-* **ConnectionMonitorName**: Name of the Connection monitor resource
+* **ConnectionMonitorName**: Name of the connection monitor resource
 
 * **SUB**: Subscription ID of the subscription where you want to create a connection monitor
 
@@ -76,9 +76,9 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * **Endpoints**
 	* Name: Unique name for each endpoint
-	* Resource ID: For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for virtual machines. For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* Resource ID: For Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for VMs. For non-Azure endpoints, resource ID refers to the Azure Resource Manager resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* Address: Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
-	* Filter: For non-Azure endpoints, use filters to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring.
+	* Filter: For non-Azure endpoints, use filters to select agents from Log Analytics workspace that will be used for monitoring in the connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring.
 		* Type: Set as “Agent Address”.
 		* Address: Set as the FQDN of your on-premises agent.
 
@@ -90,16 +90,16 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * **Test configurations**
 	* Name: Name of the test configuration.
-	* TestFrequencySec: Specify how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in a 30-second period.
-	* Protocol: You can choose TCP, ICMP, HTTP, or HTTPS. Depending on the protocol, you can do some protocol-specific configs.
+	* TestFrequencySec: Specify how frequently sources ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Sources test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources check connectivity to the destination at least once in a 30-second period.
+	* Protocol: Choose TCP, ICMP, HTTP, or HTTPS. Depending on the protocol, you can also select the following protocol-specific configurations:
 		* preferHTTPS: Specify whether to use HTTPS over HTTP.
 		* port: Specify the destination port of your choice.
-		* disableTraceRoute: Stop sources from discovering topology and hop-by-hop RTT. This applies to test groups whose protocol is TCP or ICMP.
-		* method: Select the HTTP request method--either GET or POST. This applies to test configurations whose protocol is HTTP.
-		* path: Specify path parameters to append to URL.
-		* validStatusCodes: Choose applicable status codes. If response code does not match this list, you will get a diagnostic message.
-		* requestHeaders: Specify custom request header strings that will be passed to the destination.
-	* Success threshold: You can set thresholds on the following network parameters:
+		* disableTraceRoute: Stop sources from discovering topology and hop-by-hop RTT. This applies to test groups with TCP or ICMP.
+		* method: Select the HTTP request method (GET or POST). This applies to test configurations with HTTP.
+		* path: Specify path parameters to append to the URL.
+		* validStatusCodes: Choose applicable status codes. If the response code does not match, a diagnostic message displays.
+		* requestHeaders: Specify custom request header strings that are passed to the destination.
+	* Success threshold: Set thresholds on the following network parameters:
 		* checksFailedPercent: Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the percentage of HTTP requests that received no response.
 		* roundTripTimeMs: Set the RTT in milliseconds for how long sources can take to connect to the destination over the test configuration.
 
