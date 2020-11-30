@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Add a new starter kit part for Purview insights'
+title: 'Tutorial: Add a new starter kit part for Purview insights (preview)'
 description: This tutorial describes how to view Insights. 
 author: batamig
 ms.author: bagol

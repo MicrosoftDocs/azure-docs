@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Navigate the home page and search for an asset'
+title: 'Tutorial: Navigate the home page and search for an asset (preview)'
 description: This tutorial describes how to use features on the Azure Purview home page and search in the catalog. 
 author: hophan
 ms.author: hophan

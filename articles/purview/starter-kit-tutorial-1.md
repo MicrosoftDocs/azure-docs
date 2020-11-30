@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Scan data with Azure Purview (Preview)'
+title: 'Tutorial: Scan data with Azure Purview (preview)'
 description: In this tutorial, you run a starter kit to set up a data estate, and then scan data from data sources into your Azure Purview catalog. 
 author: viseshag
 ms.author: viseshag

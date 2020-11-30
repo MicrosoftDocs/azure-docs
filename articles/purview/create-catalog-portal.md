@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Purview account in the Azure portal'
+title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview)'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: hophan
 ms.author: hophan
@@ -80,7 +80,7 @@ If upon clicking Add you see two choices showing both marked (disabled) then thi
 1. Select **Add role assignment**.
 
 1. For the Role type in **Azure Purview Data Curator Role** or **Azure Purview Data Source Administrator Role** depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
- 
+
 1. For **Assign access to** leave the default, **User, group, or service principal**.
 
 1. For **Select** enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.

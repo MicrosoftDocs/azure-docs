@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create and import glossary terms'
+title: 'Tutorial: Create and import glossary terms (preview)'
 description: This tutorial describes how to create glossary terms, add glossary terms to an asset, and import glossary terms. 
 author: hophan
 ms.author: hophan

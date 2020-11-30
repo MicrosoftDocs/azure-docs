@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Resource sets, asset details, schemas, and classifications'
+title: 'Tutorial: Resource sets, asset details, schemas, and classifications (preview)'
 description: This tutorial describes how to use resource sets, asset details, schemas, and classifications. 
 author: viseshag
 ms.author: viseshag
