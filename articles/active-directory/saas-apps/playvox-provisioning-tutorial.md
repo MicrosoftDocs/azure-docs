@@ -33,7 +33,7 @@ This tutorial describes the steps to follow in both Playvox and Azure Active Dir
 The scenario in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. For example, an account might have the Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator role.
 * A user account in [Playvox](https://www.playvox.com) with Super Admin permissions.
 
 ## Step 1: Plan your provisioning deployment
@@ -56,25 +56,25 @@ The scenario in this tutorial assumes that you already have the following prereq
 
 4. On the API key that you created, select the **Details** icon.
 
-    ![[Partial screenshot showing the location of the Details icon, which is a magnifying glass, in the Playvox user interface.](media/playvox-provisioning-tutorial/api.png)
+    ![Partial screenshot showing the location of the Details icon, which is a magnifying glass, in the Playvox user interface.](media/playvox-provisioning-tutorial/api.png)
 
-5. Copy and save the **BASE64 KEY** value. You'll enter this value in the **Secret Token** field in the **Provisioning** tab of your Playvox application in the Azure portal.
+5. Copy and save the **BASE64 KEY** value. Later, in the Azure portal, you'll enter this value in the **Secret Token** text box in the **Provisioning** tab of your Playvox application.
 
     ![Screenshot of the Details API Key message box, with the BASE64 KEY value highlighted.](media/playvox-provisioning-tutorial/token.png)
 
 ## Step 3: Add Playvox from the Azure AD application gallery
 
-To start to manage provisioning to Playvox, add Playvox to your Azure AD tenant from the application gallery. So learn more, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal.md).
+To start to manage provisioning to Playvox, add Playvox to your Azure AD tenant from the application gallery. To learn more, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal.md).
 
 If you've previously set up Playvox for single sign-on (SSO), you can use the same application. However, we recommend that you create a separate app when testing the integration initially.
 
 ## Step 4: Define who will be in scope for provisioning
 
-You use the Azure AD provisioning service to scope who will be provisioned based on assignment to the application or based on attributes of the user or group. To scope who will be provisioned to your app based on assignment, see [Manage user assignment for an app in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) to learn how to assign users or groups to the application. To scope who will be provisioned based solely on attributes of the user or group, use a scoping filter as described in [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+You use the Azure AD provisioning service to scope who will be provisioned, based either on assignment to the application or on attributes of the user or group. To scope who will be provisioned to your app based on assignment, see [Manage user assignment for an app in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) to learn how to assign users or groups to the application. To scope who will be provisioned based solely on attributes of the user or group, use a scoping filter as described in [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 Remember these points:
 
-* When assigning users to Playvox, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If Default Access is the only role available on the application, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add other roles.
+* When assigning users to Playvox, you must select a role other than Default Access. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If Default Access is the only role available on the application, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add other roles.
 
 * Start small. Test with a small set of users or groups before rolling out to everyone. When provisioning scope is based on assigned users or groups, you can control the size of the set by assigning only one or two users or groups to the app. When provisioning scope includes all users and groups, you can specify an [attribute-based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) to limit the size of your test set.
 
@@ -84,41 +84,41 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 To configure automatic user provisioning for Playvox in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, and then select **All applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications**, and then select **All applications**.
 
-    ![Enterprise applications blade](common/enterprise-applications.png)
+    ![Partial screenshot of the Azure portal, with Enterprise applications and All applications items highlighted](common/enterprise-applications.png)
 
-2. In the applications list, select **Playvox**.
+2. In the applications list, search for and select **Playvox**.
 
-    ![The Playvox link in the Applications list](common/all-applications.png)
+    ![Partial screenshot of the applications list, with the application search box highlighted.](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-    ![Provisioning tab](common/provisioning.png)
+    ![Partial screenshot showing the Provisioning menu item.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-    ![Provisioning tab automatic](common/provisioning-automatic.png)
+    ![Partial screenshot of the Provisioning tab, showing the Automatic option selected in the Provisioning Mode drop-down list box.](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, enter your Playvox **Tenant URL** as
+5. In the **Admin Credentials** section, enter your Playvox **Tenant URL** as:
 
-    * `https://{tenant}.playvox.com/scim/v1`
+    `https://{tenant}.playvox.com/scim/v1`
 
-    Enter the **Secret Token** as retrieved earlier in Step 2. Select **Test Connection** to ensure that Azure AD can connect to Playvox. If the connection fails, make sure your Playvox account has Admin permissions and try again.
+    Enter the **Secret Token** that you copied earlier in Step 2. Then, select **Test Connection** to ensure that Azure AD can connect to Playvox. If the connection fails, make sure your Playvox account has Admin permissions and try again.
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Partial screenshot showing the Admin Credentials section, including Tenant URL and Secret Token text boxes, and with the Test Connection link highlighted.](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+6. In the **Notification Email** text box, enter the email address of a person or group who will receive the provisioning error notifications. Then, select the **Send an email notification when a failure occurs** check box.
 
-    ![Notification Email](common/provisioning-notification-email.png)
+    ![Partial screenshot showing the Notification Email text box and the email notification check box.](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Playvox**.
+8. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Playvox**.
 
-9. Review the user attributes that are synchronized from Azure AD to Playvox in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Playvox for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Playvox API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Playvox in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Playvox for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), make sure that the Playvox API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
-   |Attribute|Type|Supported for Filtering|
+   |Attribute|Type|Supported for filtering|
    |---|---|---|
    |userName|String|&check;|
    |active|Boolean|
@@ -129,33 +129,33 @@ To configure automatic user provisioning for Playvox in Azure AD:
    |name.formatted|String|
    |externalId|String|
 
-10. To configure scoping filters, refer to the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. To configure scoping filters, see the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. To enable the Azure AD provisioning service for Playvox, change the **Provisioning Status** to **On** in the **Settings** section.
 
-    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Partial screenshot  of Settings section, showing the Provisioning Status set to On.](common/provisioning-toggle-on.png)
 
-12. Define the users or groups that you'd like to provision to Playvox by choosing the values you want in **Scope**, in the **Settings** section.
+12. Still in **Settings**, define the users or groups to provision to Playvox by choosing the values you want in **Scope**.
 
-    ![Provisioning Scope](common/provisioning-scope.png)
+    ![Partial screenshot of the Settings section, showing the Scope drop-down list box.](common/provisioning-scope.png)
 
 13. When you're ready to provision, select **Save**.
 
-    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Partial screenshot showing Save and Discard options.](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer than later cycles. Later cycles occur approximately every 40 minutes, provided that the Azure AD provisioning service is running.
 
 ## Step 6: Monitor your deployment
 
-After you've configured provisioning, use the following methods to monitor your deployment:
+After you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion.
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. To learn more about quarantine states, see [Application provisioning in quarantine status](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
