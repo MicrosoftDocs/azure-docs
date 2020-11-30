@@ -2,12 +2,12 @@
 title: "Quickstart: Language Understanding (LUIS) SDK client libraries"
 description: Create and query a LUIS app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript.
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 11/30/2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: programming-languages-set-diberry-3core
+zone_pivot_groups: programming-languages-set-luis
 ---
 # Quickstart: Language Understanding (LUIS) SDK client libraries to create and query your LUIS app
 
@@ -30,9 +30,15 @@ Language Understanding (LUIS) enables you to apply natural language processing (
 [!INCLUDE [LUIS development with Python SDK](./includes/sdk-python.md)]
 ::: zone-end
 
+::: zone pivot="rest-api"
+[!INCLUDE [LUIS development with REST API](./includes/rest-api.md)]
+::: zone-end
+
 ## Clean up resources
 
 You can delete the app from the [LUIS portal](https://www.luis.ai) and delete the Azure resources from the [Azure portal](https://portal.azure.com/).
+
+If you're using the REST API, delete the `ExampleUtterances.JSON` file from the file system when you're done with the quickstart.
 
 ## Troubleshooting
 
