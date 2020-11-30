@@ -101,7 +101,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 **1.2.2**
 - Fixed issue appeared on iOS that verification code can not be autofilled. 
-- Fixed issue appeared on Android that token can't be redirect to RP from a Android Webview. 
+- Fixed an issue with redirecting a token to the relying party from Android Webview. 
 - Added a UXString `heading` in addtion to `intro` to show on page as a title, it will be hidden by default.  
 - Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
 
