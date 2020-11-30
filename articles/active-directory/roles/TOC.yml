@@ -5,7 +5,7 @@
   - name: What is Azure AD RBAC?
     href: custom-overview.md
   - name: Understand Azure AD roles
-    href: concept-understand-roles
+    href: concept-understand-roles.md
 - name: Quickstarts
   items:
   - name: Create unlimited app registrations
