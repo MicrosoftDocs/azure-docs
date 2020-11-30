@@ -41,7 +41,7 @@ This article shows how to create a project and add selected clips from the video
 ### Add videos to the project
 
 > [!NOTE]
-> Currently, projects may only contain videos indexed in the same language. Once you select a video in one language, you cannot add the videos in your account that are in a different language.
+> Currently, projects may only contain videos indexed in the same language. </br>Once you select a video in one language, you cannot add the videos in your account that are in a different language, the videos that have other languages will be grayed out/disabled.
 
 1. Add videos that you want to work with in this project by selecting **Add videos**.
 
