@@ -177,10 +177,10 @@ counter.increment();
 ### Sending custom traces and exceptions using your favorite logging framework
 
 Log4j, Logback, and java.util.logging are auto-instrumented,
-and logging performed via these logging frameworks is auto-collected.
+and logging performed via these logging frameworks is auto-collected as trace and exception telemetry.
 
 By default, logging is only collected when that logging is performed at the INFO level or above.
-You can configure this level [configurable](./java-standalone-config.md#auto-collected-logging) 
+See the [configuration options](./java-standalone-config.md#auto-collected-logging) for how to change this level.
 
 If you want to attach custom dimensions to your logs, you can use
 [Log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
