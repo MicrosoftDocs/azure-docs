@@ -3,12 +3,12 @@ title: 'Configure VPN gateway transit for virtual network peering'
 description: Configure gateway transit for virtual network peering, to seamlessly connect two Azure virtual networks into one for connectivity purposes.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/19/2020
-ms.author: yushwang
+ms.date: 11/30/2020
+ms.author: cherylmc
 
 ---
 # Configure VPN gateway transit for virtual network peering
@@ -66,46 +66,45 @@ In this scenario, the virtual networks are both in the Resource Manager deployme
 ### To add a peering and enable transit
 
 1. In the [Azure portal](https://portal.azure.com), create or update the virtual network peering from the Hub-RM. Navigate to the **Hub-RM** virtual network. Select **Peerings**, then **+ Add** to open **Add peering**.
-1. On the **Add peering** page, configure the values for **This virtaual network**.
+1. On the **Add peering** page, configure the values for **This virtual network**.
 
-   * Name: Name this peering link.
+   * Peering link name: Name the link. Example: **HubRMToSpokeRM**
    * Traffic to remote virtual network: **Allow**
    * Traffic forwarded from remote virtual network: **Allow**
    * Virtual network gateway: Use this virtual network's gateway
 
-     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/add-peering-this.png" alt-text="Screenshot shows add peering.":::
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-vnet.png" alt-text="Screenshot shows add peering.":::
 
 1. Continue on the same page to configure the values for the **Remote virtual network**.
 
-   * Peering link name:
+   * Peering link name: Name the link. Example: **SpokeRMtoHubRM**
    * Deployment model: **Resource Manager**
    * Virtual Network: **Spoke-RM**
    * Traffic to remote virtual network: **Allow**
    * Traffic forwarded from remote virtual network: **Allow**
    * Virtual network gateway: **Use the remote virtual network's gateway**
 
-     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/add-peering-remote.png" alt-text="Screenshot shows vales for remote virtual network.":::
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-remote.png" alt-text="Screenshot shows vales for remote virtual network.":::
 
 1. Select **Add** to create the peering.
 1. Verify the peering status as **Connected** on both virtual networks.
 
 ### To modify an existing peering for transit
 
-If the peering was already created, you can modify the peering by navigating to the virtual network. Select **Peerings** and select the peering that you want to modify. Then, select **Use the remote virtual network's gateway**.
+If the peering was already created, you can modify the peering.
 
-   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/use-remote.png" alt-text="Screenshot shows modify peering gateway.":::
+1. Navigate to the virtual network. Select **Peerings** and select the peering that you want to modify.
 
-1. Create or update the virtual network peering from Hub-RM to Spoke-RM from the Azure portal. Navigate to the Hub-RM virtual network resource, select **Peerings**, then **+ Add**:
+   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-modify.png" alt-text="Screenshot shows modify peering gateway.":::
 
-   * Set the **Resource Manager** option.
-   * Make sure **Allow virtual network access** is **Enabled**.
-   * Select the **Spoke-RM** virtual network in the corresponding subscription.
-   * Set the **Allow gateway transit** option.
-   * Select **OK**.
+1. Update the VNet peering.
 
-     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png" alt-text="Add peering page for Spoke-RM transit":::
+   * Traffic to remote virtual network: **Allow**
+   * Traffic forwarded to virtual network; **Allow**
+   * Virtual network gateway: **Use remote virtual network's gateway**
 
-1. If the peering is already created, navigate to the peering resource, then enable the "**Allow gateway transit**" option similar to the screenshot shown in step (3).
+   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png" alt-text="Screenshot shows modify peering gateway.":::
+1. **Save** the peering settings.
 
 ### PowerShell sample
 
