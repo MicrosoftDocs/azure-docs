@@ -24,18 +24,18 @@ highlightedContent:
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
-    - title: Build resilience into identity and access management with Azure AD
-      itemType: overview
-      url: ./fundamentals/resilience-overview.md
+    - title: Secure your remote workforce
+      itemType: get-started
+      url: /enterprise-mobility-security/remote-work/
     - title: Assign roles to users
       itemType: how-to-guide
       url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
     - title: Azure AD deployment checklist
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
-    - title: Add a subscription to your tenant
-      itemType: how-to-guide
-      url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+    - title: Build resilience into identity and access management with Azure AD
+      itemType: overview
+      url: ./fundamentals/resilience-overview.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
