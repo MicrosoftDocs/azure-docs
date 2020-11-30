@@ -13,7 +13,6 @@ ms.author: alkohli
 
 # Azure Stack Edge Mini R limits
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-k-series-sku.md)]-->
 
 Consider these limits as you deploy and operate your Azure Stack Edge Mini R solution.
 

@@ -71,8 +71,6 @@ Follow these steps to configure the network for your device.
 
 3. On the **Network** tile, select **Configure**.  
     
-    <!--![Local web UI "Network settings" tile](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-6.png)-->
-
     On your physical device, there are five network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10-Gbps network interfaces. The fifth port is the Wi-Fi port. 
 
     [![Local web UI "Network settings" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png#lightbox)    

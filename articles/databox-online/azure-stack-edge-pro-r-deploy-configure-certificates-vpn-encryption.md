@@ -143,8 +143,6 @@ Follow these steps to add your own certificates including the signing chain.
 
 1. On the **Security** tile, select **Configure** for encryption-at-rest. This is a required setting and until this is successfully configured, you can't activate the device. 
 
-    <!--![Local web UI "Encryption at rest" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-251.png)-->
-
     At the factory, once the devices are imaged, the volume level BitLocker encryption is enabled. After you receive the device, you need to configure the encryption-at-rest. The storage pool and volumes are recreated and you can provide BitLocker keys to enable encryption-at-rest and thus create a second layer of encryption for your data-at-rest.
 
 1. In the **Encryption-at-rest** pane, provide a 32 character long Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key. You can choose to automatically generate this key or enter one.

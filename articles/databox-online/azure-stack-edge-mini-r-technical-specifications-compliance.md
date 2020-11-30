@@ -58,10 +58,6 @@ The Azure Stack Edge Mini R device has the following specifications for network:
 |Network interfaces    |2 x 1 Gbe RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
 |Wi-Fi   |802.11ac         |
 
-<!--The following image shows the Azure Stack Edge Mini R device ports and interfaces:
-
-![Azure Stack Edge Mini R](media/azure-stack-edge-k-series-deploy-install/ports-front-plane.png)-->
-
 
 ## Power supply unit specifications
 
@@ -76,13 +72,6 @@ The following table shows the power supply unit specifications:
 | Voltage range selection | Auto ranging: 100-240 V AC |
 
 
-<!--The following table shows different images of the Azure Stack Edge Mini R device power supply:
-
-|Power supply unit description  |  Image  |
-|---|---|
-| Power supply |![Azure Stack Edge Mini R connected to the power supply](media/azure-stack-edge-k-series-technical-specifications-compliance/k-series-powersupply-1.png)|
-| Connected Power supply|![Standalone Azure Stack Edge Mini R power supply](media/azure-stack-edge-k-series-technical-specifications-compliance/k-series-powersupply-2.png)|
-| Power supply and specification label|![Standalone Azure Stack Edge Mini R power supply](media/azure-stack-edge-k-series-technical-specifications-compliance/k-series-powersupply-3.png)|-->
 
 ## Included battery
 
