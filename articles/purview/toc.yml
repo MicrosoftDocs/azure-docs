@@ -12,8 +12,6 @@ items:
     href: create-catalog-portal.md
   - name: Create a Purview account - Azure PowerShell/Azure CLI
     href: create-catalog-powershell.md
-  - name: Use Purview Studio
-    href: use-purview-studio.md
 - name: Tutorials
   items:
   - name: Starter kit
@@ -37,6 +35,8 @@ items:
 #- name: Samples
 - name: Concepts
   items:
+  - name: Use Purview Studio
+    href: use-purview-studio.md
   - name: Deployment best practices
     href: deployment-best-practices.md
   - name: Azure Purview limits

@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Use Purview Studio'
+title: 'Use Purview Studio'
 description: This quickstart describes how to use a purview studio. 
 author: nayenama
 ms.author: nayenama
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 11/12/2020
 
 ---
 
-# Quickstart: Use Purview Studio
+# Use Purview Studio
 
 This article gives an overview of some of the main features of Azure Purview.
 
