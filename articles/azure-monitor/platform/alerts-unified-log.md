@@ -85,7 +85,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Time period:** 15 minutes
+- **Time period / Aggregation granularity:** 15 minutes
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 
@@ -140,7 +140,7 @@ For example, you want to monitor errors for multiple virtual machines running yo
 - **Resource ID Column:** _ResourceId (Splitting by resource ID column in alert rules is only available for subscriptions and resource groups currently)
 - **Dimensions / Aggregated on:**
   - Computer = VM1, VM2 (Filtering values in alert rules definition isn't available currently for workspaces and Application Insights. Filter in the query text.)
-- **Time period:** 15 minutes
+- **Time period / Aggregation granularity:** 15 minutes
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 

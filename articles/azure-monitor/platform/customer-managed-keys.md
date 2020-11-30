@@ -565,7 +565,7 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
 
   ---
 
-  - **Check workspace link status**
+- **Check workspace link status**
   
   Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*. A linked workspace will have the *clusterResourceId* property.
 
