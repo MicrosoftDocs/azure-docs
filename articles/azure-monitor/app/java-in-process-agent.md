@@ -174,15 +174,18 @@ and use that to record metrics:
 counter.increment();
 ```
 
-### Sending custom traces and exceptions using Log4j, Logback and java.util.logging 
+### Sending custom traces and exceptions using your favorite logging framework
 
-You can send 
+Log4j, Logback, and java.util.logging are auto-instrumented,
+and logging performed via these logging frameworks is auto-collected.
 
-Application Insights Java 3.0 will only capture your logs if they meet the thresholds you have set
-in your logging configuration, and also meet the level you have set in the applicationinsights configuration
-(which defaults to INFO).
+By default, logging is only collected when that logging is performed at the INFO level or above.
+You can configure this level [configurable](./java-standalone-config.md#auto-collected-logging) 
 
-If you want to attach custom dimensions to your logs, you can use Log4j or Logback's MDC support,
+If you want to attach custom dimensions to your logs, you can use
+[Log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
+[Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html),
+or [Logback MDC](http://logback.qos.ch/manual/mdc.html),
 and Application Insights Java 3.0 will automatically capture those MDC properties as custom dimensions
 on your trace and exception telemetry.
 
