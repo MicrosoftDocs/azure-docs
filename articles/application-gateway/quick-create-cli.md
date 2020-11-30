@@ -149,6 +149,7 @@ az network application-gateway create \
   --sku Standard_v2 \
   --http-settings-cookie-based-affinity Enabled \
   --public-ip-address myAGPublicIPAddress \
+  --private-ip-address <Private IP in AG Subnet> \
   --vnet-name myVNet \
   --subnet myAGSubnet \
   --servers "$address1" "$address2"
