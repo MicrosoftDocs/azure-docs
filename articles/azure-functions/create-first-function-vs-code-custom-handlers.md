@@ -74,36 +74,35 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
 1. In *handler.go*, add the following code and save the file. This is your Go custom handler.
 
-    ```go
-    package main
+	```go
+	package main
 
-    import (
-        "fmt"
-        "log"
-        "net/http"
-        "os"
-    )
+	import (
+		"fmt"
+		"log"
+		"net/http"
+		"os"
+	)
 
-    func helloHandler(w http.ResponseWriter, r *http.Request) {
-        name := r.URL.Query().Get("name")
-        if name == "" {
-            w.Write([]byte("This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response."))
-        } else {
-            w.Write([]byte("Hello, " + name + ". This HTTP triggered function executed successfully."))
-        }
-    }
+	func helloHandler(w http.ResponseWriter, r *http.Request) {
+		message := "This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.\n"
+		name := r.URL.Query().Get("name")
+		if name != "" {
+			message = fmt.Sprintf("Hello, %s. This HTTP triggered function executed successfully.\n", name)
+		}
+		fmt.Fprint(w, message)
+	}
 
-    func main() {
-        customHandlerPort, exists := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT")
-        if !exists {
-            customHandlerPort = "8080"
-        }
-        mux := http.NewServeMux()
-        mux.HandleFunc("/api/HttpExample", helloHandler)
-        fmt.Println("Go server Listening on: ", customHandlerPort)
-        log.Fatal(http.ListenAndServe(":"+customHandlerPort, mux))
-    }
-    ```
+	func main() {
+		listenAddr := ":8080"
+		if val, ok := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); ok {
+			listenAddr = ":" + val
+		}
+		http.HandleFunc("/api/HttpExample", helloHandler)
+		log.Printf("About to listen on %s. Go to https://127.0.0.1%s/", listenAddr, listenAddr)
+		log.Fatal(http.ListenAndServe(listenAddr, nil))
+	}
+	```
 
 1. Press <kbd>Ctrl + Shift + `</kbd> or select *New Terminal* from the *Terminal* menu to open a new integrated terminal in VS Code.
 
@@ -161,7 +160,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     }
     ```
 
-1. In the integrated terminal, set the project to use the nightly channel of Cargo and compile your custom handler. An executable file named `handler` (`handler.exe` on Windows) is output in the function app root folder.
+1. Compile a binary for your custom handler. An executable file named `handler` (`handler.exe` on Windows) is output in the function app root folder.
 
     ```bash
     cargo build --release
@@ -247,7 +246,7 @@ This quickstart will deploy your application to an Azure Functions Linux Consump
     go build hello.go
     ```
 
-1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the linux binary.
+1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
 
 # [Rust](#tab/rust)
 
@@ -266,7 +265,7 @@ This quickstart will deploy your application to an Azure Functions Linux Consump
     cp target/x86_64-unknown-linux-musl/release/handler .
     ```
 
-1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the linux binary.
+1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
 
 1. To avoid publishing the contents of the *target* folder, add a line with the word `target` to the *.funcignore* file.
 
@@ -305,7 +304,7 @@ In this section, you create a function app and related resources in your Azure s
 
     + **Select a storage account**: Choose `+ Create new storage account`. This name must be globally unique within Azure. You can use the name suggested in the prompt.
 
-    + **Select an Application Insight resource**: Choose `+ Create Application Insight resource`. This name must be globally unique within Azure. You can use the name suggested in the prompt.
+    + **Select an Application Insights resource**: Choose `+ Create Application Insights resource`. This name must be globally unique within Azure. You can use the name suggested in the prompt.
 
     + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
 
