@@ -208,7 +208,7 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
 6. To exclude an IP range from a scan, select **Disable** next to the range.
 
-7. To remove a range, select :::image type="content" source="media/how-to-control-what-traffic-is-monitored/image317.png" alt-text="remove"::: next to the range.
+7. To remove a range, select :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: next to the range.
 
 8. Select **Save**. The **Edit Scan Ranges Configuration** dialog box closes, and the number of ranges appears in the **Scan Ranges** pane.
 
