@@ -10,10 +10,10 @@ ms.date: 11/23/2020
 
 # Understand your logic app's health in Security Center
 
-When your monitor your Logic Apps resources in [Microsoft Azure Security Center](../security-center/security-center-introduction.md), you can [see the health status of your Logic Apps resources](#view-logic-apps-health-status). Azure shows a Logic Apps resource as healthy if logging is enabled, and the logs' destination is properly configured. This article explains how to configure diagnostic logging and make sure all your logic apps are healthy resources.
+When you monitor your Logic Apps resources in [Microsoft Azure Security Center](../security-center/security-center-introduction.md), you can [review the health status for your Logic Apps resources](#view-logic-apps-health-status). Azure shows the health status for a Logic Apps resource after you enable logging and correctly set up the logs' destination. This article explains how to configure diagnostic logging and make sure that all your logic apps are healthy resources.
 
 > [!TIP]
-> If you want to find the current status of the Logic Apps service, see the [Azure status](https://status.azure.com/) page, which lists the status of different products and services for each available region.
+> To find the current status for the Logic Apps service, review the [Azure status page](https://status.azure.com/), which lists the status for different products and services in each available region.
 
 ## Prerequisites
 
@@ -22,10 +22,10 @@ When your monitor your Logic Apps resources in [Microsoft Azure Security Center]
 
 ## Enable diagnostic logging
 
-To view the resource health status of your logic apps, you must first [set up diagnostic logging](monitor-logic-apps-log-analytics.md). If you don't already have a Log Analytics workspace, you must [create a workspace](../azure-monitor/learn/quick-create-workspace.md) before you can use this feature. Then, you can enable logging during the creation of a logic app, or enable logging for existing logic apps.
+Before you can view the resource health status for your logic apps, you must first [set up diagnostic logging](monitor-logic-apps-log-analytics.md). If you already have a Log Analytics workspace, you can enable logging either when you create your logic app or on existing logic apps.
 
 > [!TIP]
-> Enabling diagnostic logs for Logic Apps is recommended by default. However, you control this setting for your logic apps. When you enable diagnostic logs for your logic apps, you can use the information to help analyze security incidents.
+> The default recommendation is to enable diagnostic logs for Logic Apps. However, you control this setting for your logic apps. When you enable diagnostic logs for your logic apps, you can use the information to help analyze security incidents.
 
 ### Check diagnostic logging setting
 
@@ -33,7 +33,7 @@ If you're not sure whether your logic apps have diagnostic logging enabled, you 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter and select **Security Center**.
-1. On the Security Center dashboard menu, select **Recommendations** under **General**.
+1. On the Security Center dashboard menu, under **General**, select **Recommendations**.
 1. In the table of security suggestions, find and select **Enable auditing and logging** &gt; **Diagnostic logs in Logic Apps should be enabled** in the table of security controls.
 1. On the recommendation page, expand the **Remediation steps** section and review the options. You can enable Logic Apps diagnostics by selecting the **Quick Fix!** button, or by following the manual remediation instructions.
 
@@ -43,23 +43,25 @@ After you've [enabled diagnostic logging](#enable-diagnostic-logging), you can s
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter and select **Security Center**.
-1. On the Security Center dashboard menu, select **Inventory** under **General**.
-1. On the inventory page, filter your assets list to show only Logic Apps resources. In the page menu, select **Resource types** &gt; **logic apps**. Now, the **Unhealthy Resources** counter shows the number of logic apps that Security Center considers unhealthy.
-1. Review the **Recommendations** column in the list of logic apps resources. Select a resource name or select **...** &gt; **View resource** to see details about a specific logic app's health.
-1. Follow the steps listed for your logic apps to remediate any potential resource health issues.
+1. On the Security Center dashboard menu,  under **General**, select **Inventory**.
+1. On the inventory page, filter your assets list to show only Logic Apps resources. In the page menu, select **Resource types** &gt; **logic apps**.
 
-If diagnostic logging is already enabled, there may be an issue with the destination for your logs. Review [how to fix issues with different diagnostic logging destinations](#fix-diagnostic-logging-for-logic-apps).
+   The **Unhealthy Resources** counter shows the number of logic apps that Security Center considers unhealthy.
+1.  In the list of logic apps resources, review the **Recommendations** column. To review the health details for a specific logic app, select a resource name, or select the ellipses button (**...**) &gt; **View resource**.
+1.  To remediate any potential resource health issues, follow the steps listed for your logic apps.
+
+If diagnostic logging is already enabled, there might be an issue with the destination for your logs. Review [how to fix issues with different diagnostic logging destinations](#fix-diagnostic-logging-for-logic-apps).
 
 ## Fix diagnostic logging for logic apps
 
-If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, review the appropriate destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destinations), [Azure Event Hubs](#log-analytics-and-event-hubs-destinations), or [a storage account](#storage-accounts-destinations).
+If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps-health-status), open your logic app in Code View in the Azure portal or through the Azure CLI. Then, check the destination configuration for your diagnostic logs: [Azure Log Analytics](#log-analytics-and-event-hubs-destinations), [Azure Event Hubs](#log-analytics-and-event-hubs-destinations), or [a storage account](#storage-accounts-destinations).
 
 ### Log Analytics and Event Hubs destinations
 
 If you use Log Analytics or Event Hubs as the destination for your Logic Apps diagnostic logs, check the following settings. 
 
-1. Make sure that diagnostic logs are enabled. Confirm that the diagnostic Settings field **logs.enabled** is set to **true**. 
-1. Make sure you haven't set a storage account as the destination instead. Confirm that the **storageAccountId** field is set to **false**.
+1. To confirm that you enabled diagnostic logs, check that the diagnostic settings `logs.enabled` field, is set to `true`. 
+1. To confirm that you haven't set a storage account as the destination instead, check that the `storageAccountId` field is set to `false`.
 
 For example:
 
@@ -89,9 +91,9 @@ For example:
 
 If you use a storage account as the destination for your Logic Apps diagnostic logs, check the following settings.
 
-1. Make sure you've enabled logs in the setting. Confirm that the field **logs.enabled** is set to **true**.
-1. Make sure you've enabled a retention policy for your diagnostic logs. Confirm that the field **retentionPolicy.enabled** is set to **true**.
-1. Make sure that you've set a retention time of 0-365 days. Confirm that the field **retentionPolicy.days** is set to a number between 0 and 365.
+1. To confirm that you enabled diagnostic logs, check that the diagnostics settings `logs.enabled` field, is set to `true`.
+1. To confirm that you enabled a retention policy for your diagnostic logs, check that the `retentionPolicy.enabled` field is set to `true`.
+1. To confirm you set a retention time of 0-365 days, check the `retentionPolicy.days` field is set to a number inclusively between 0 and 365.
 
 ```json
                     "allOf": [
