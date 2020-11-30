@@ -1041,7 +1041,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
     # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## From ISO using a kickstart file
+## Kickstart file
 
 This section shows you how to prepare a RHEL 7 distro from an ISO using a kickstart file.
 
