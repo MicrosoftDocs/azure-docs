@@ -1,12 +1,13 @@
 ---
 title: Parameters in templates
-description: Describes how to define parameters in an Azure Resource Manager template.
+description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.date: 11/24/2020
 ---
-# Parameters in Azure Resource Manager templates
 
-This article describes how to define and use parameters in your Azure Resource Manager template. By providing different values for parameters, you can reuse a template for different environments.
+# Parameters in ARM templates
+
+This article describes how to define and use parameters in your Azure Resource Manager template (ARM template). By providing different values for parameters, you can reuse a template for different environments.
 
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used in the template, Resource Manager replaces it with the resolved value.
 
@@ -153,9 +154,8 @@ The following examples demonstrate scenarios for using parameters.
 |[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstrates how to use template functions when defining default values for parameters. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
 |[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstrates using an object for a parameter. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
 
-
 ## Next steps
 
-* To learn about the available properties for parameters, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* To learn about the available properties for parameters, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 * To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
 * For recommendations about creating parameters, see [Best practices - parameters](template-best-practices.md#parameters).

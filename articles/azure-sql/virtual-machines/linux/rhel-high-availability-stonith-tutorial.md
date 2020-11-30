@@ -257,7 +257,7 @@ You should get results similar to the following once the command completes for e
 > [!IMPORTANT]
 > The default image that is created with the above command creates a 32GB OS disk by default. You could potentially run out of space with this default installation. You can use the following parameter added to the above `az vm create` command to create an OS disk with 128GB as an example: `--os-disk-size-gb 128`.
 >
-> You can then [configure Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) if you need to expand appropriate folder volumes to accomodate your installation.
+> You can then [configure Logical Volume Manager (LVM)](/previous-versions/azure/virtual-machines/linux/configure-lvm) if you need to expand appropriate folder volumes to accomodate your installation.
 
 ### Test connection to the created VMs
 
