@@ -346,7 +346,7 @@ Modify the values in the `graphConfig` section as described here:
 
 - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
   - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`.
-  - For endpoints in **national** cloud deployments, see [National cloud deployments](https://docs.microsoft.com/graph/deployments) in the Microsoft Graph documentation.
+  - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
 The `graphMeEndpoint` and `graphMailEndpoint` values in your *graphConfig.js* should be similar to the following if you're using the global endpoint:
 
