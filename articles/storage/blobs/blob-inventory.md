@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
+ms.custom: references_regions
 ---
 
 # Use Azure Storage blob inventory to manage blob data (preview)
