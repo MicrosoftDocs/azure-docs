@@ -27,6 +27,12 @@ Get started with the Computer Vision REST API or client libraries. The Computer 
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java SDK quickstart](../includes/quickstarts-sdk/java-sdk.md)]
@@ -36,12 +42,6 @@ Get started with the Computer Vision REST API or client libraries. The Computer 
 ::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [NodeJS SDK quickstart](../includes/quickstarts-sdk/node-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python SDK quickstart](../includes/quickstarts-sdk/python-sdk.md)]
 
 ::: zone-end
 

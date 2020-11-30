@@ -112,15 +112,9 @@ A successful response is returned in JSON. The sample application parses and dis
 
 In this quickstart, you'll extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
-## Prerequisites
+## Read printed and handwritten text
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* [cURL](https://curl.haxx.se/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
-  * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-
-## Read printed text with OCR
+Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../concept-recognizing-text.md#read-api) conceptual doc.
 
 To create and run the sample, do the following steps:
 
