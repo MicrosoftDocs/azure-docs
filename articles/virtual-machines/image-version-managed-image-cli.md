@@ -1,6 +1,6 @@
 ---
-title: Migrate from a managed image to an image version with the Azure CLI 
-description: Learn how to migrate from a managed image to an image version in a Shared Image Gallery using the Azure CLI.
+title: Clone a managed image to an image version with the Azure CLI 
+description: Learn how to clone a managed image to an image version in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -13,8 +13,8 @@ ms.custom: devx-track-azurecli
 #Need to show how to get the gallery and definition
 ---
 
-# Migrate from a managed image to an image version using the Azure CLI
-If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using [PowerShell](image-version-managed-image-powershell.md).
+# Clone a managed image to an image version using the Azure CLI
+If you have an existing managed image that you would like to clone into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using [PowerShell](image-version-managed-image-powershell.md).
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
