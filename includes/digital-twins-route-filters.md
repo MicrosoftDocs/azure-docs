@@ -16,7 +16,7 @@ ms.author: baanders
 | Data schema | DTDL model ID | `dataschema = '<model-dtmi-ID>'` | **For telemetry**: The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2` <br>**For notifications**: Data schema can be accessed in the notification body at `$body.$metadata.$model`|
 | Content type | Content type of data value | `datacontenttype = '<contentType>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
-| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [*How-to: Understand event data*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) for examples of notifications. Any property in the `data` field can be referenced using `$body`
+| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [*How-to: Understand event data*](../articles/digital-twins/how-to-interpret-event-data.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
 Note that you can add multiple filters to a request like this: 
 

@@ -54,6 +54,61 @@ landingContent:
           - text: Azure CLI
             url: ./windows/quick-create-cli.md
  
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    - title: Linux virtual machines
+      links:
+        - url: ./linux/endorsed-distros.md
+          itemType: concept
+          text: Endorsed distros
+        - url: ./linux/tutorial-manage-disks.md
+          itemType: tutorial
+          text: Create and manage disks
+        - url: ./linux/image-builder.md
+          itemType: how-to-guide
+          text: Azure Image Builder
+        - url: ./troubleshooting/linux-index.yml
+          itemType: how-to-guide
+          text: Troubleshoot Linux virtual machines
+      footerLink:
+        url: ./linux/index.yml
+        text: See more
+    # Card
+    - title: Windows virtual machines
+      links:
+        - url: ./windows/quick-create-powershell.md
+          itemType: how-to-guide
+          text: Create a VM using PowerShell
+        - url: ./windows/tutorial-manage-data-disk.md
+          itemType: tutorial
+          text: Create and manage disks
+        - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=%2fazure/virtual-machines/windows/context/windows-vm-context
+          itemType: how-to-guide
+          text: Configure managed identities
+        - url: ./troubleshooting/index.yml
+          itemType: how-to-guide
+          text: Troubleshoot Windows virtual machines
+      # footerLink (optional)
+      footerLink:
+        url: ./windows/index.yml
+        text: See more
+    # Card
+    - title: Virtual machine scale sets
+      links:
+        - url: ../virtual-machine-scale-sets/quick-create-powershell.md
+          itemType: how-to-guide
+          text: Create a scale set using PowerShell
+        - url: ../virtual-machine-scale-sets/orchestration-modes.md
+          itemType: concept
+          text: Orchestration modes
+        - url: ../virtual-machine-scale-sets/use-spot.md
+          itemType: how-to-guide
+          text: Use Spot instances
+      # footerLink (optional)
+      footerLink:
+        url: ../virtual-machine-scale-sets/index.yml
+        text: See more
 
 
   # Card

@@ -36,13 +36,13 @@ landingContent:
       - text: Azure Synapse Analytics
         url: prepay-sql-data-warehouse-charges.md
       - text: Virtual machine
-        url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+        url: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
       - text: Azure Storage
         url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
       - text: Cosmos DB
         url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: SQL Database
-        url: ../../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
+        url: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
       - text: Azure Data Explorer
         url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks
