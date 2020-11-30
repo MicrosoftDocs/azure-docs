@@ -1,22 +1,23 @@
 ---
-title: Manage access to workspaces, data, and pipelines
-description: Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace (preview).
+title: Manage access to SQL pools
+description: Learn how to manage access control to SQL pools in an Azure Synapse Analytics workspace.
 services: synapse-analytics
-author: azaricstefan
+author: billgib
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: v-stazar
+ms.date: 12/01/2020
+ms.author: billgib
 ms.reviewer: jrasnick
 ---
 
-# Manage access to workspaces, data, and pipelines
+# Manage access to SQL pools
 
-Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace (preview).
+This article describes how to manage data plane access to SQL pool databases in Azure Synapse Analytics.
 
-> [!NOTE]
-> For GA, Azure RBAC will be more developed through the introduction of Synapse-specific Azure roles
+Access control for SQL pools is controlled using SQL permissions in the database. Assigning these permissions requires scripts are run either at the workspace server level or on each SQL pool database.  
+
+Access control for other Synapse resources and code artifacts is described [here](../security/synapse-workspace-access-control-overview.md).
 
 ## Access Control for Workspace
 
@@ -92,18 +93,18 @@ Access control to the underlying data is split into three parts:
 - Data-plane access to the SQL Databases (for both SQL pools and SQL on-demand)
 - Creating a credential for SQL on-demand databases over the storage account
 
-## Access control to SQL Databases
+## Access control to SQL pools
 
 > [!TIP]
-> The below steps need to be run for **each** SQL database to grant user access to all SQL databases except in section [Server level permission](#server-level-permission) where you can assign user a sysadmin role.
+> The below steps need to be run for **each** SQL pool to grant user access to all SQL databases except in section [Server level permission](#server-level-permission) where you can assign user a sysadmin role.
 
-### SQL on-demand
+### Serverless SQL pools
 
-In this section, you can find examples on how to give user a permission to a particular database or full server permissions.
+In this section, you can find examples on how to give a user a permission to a particular database or full server permissions.
 
 #### Database level permission
 
-To grant access to a user to a **single** SQL on-demand database, follow the steps in this example:
+To grant access to a user to a **single** serverless SQL pool, follow the steps in this example:
 
 1. Create LOGIN
 
@@ -131,7 +132,7 @@ To grant access to a user to a **single** SQL on-demand database, follow the ste
     ```
 
 > [!NOTE]
-> Replace alias with alias of the user you would like to give access and domain with the company domain you are using.
+> Replace alias with alias of the user or group you would like to give access and domain with the company domain you are using.
 
 #### Server level permission
 
@@ -142,7 +143,7 @@ CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### SQL Pools
+### Dedicated SQL pools
 
 To grant access to a user to a **single** SQL Database, follow these steps:
 
