@@ -224,7 +224,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added error message and section CMK configuration for queries.
 - [Azure Monitor HTTP Data Collector API](platform/data-collector-api.md) - Added Python 3 sample.
 - [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added section on avoiding multiple data scans when using subqueries.
-- [Tutorial: Get started with Log Analytics queries](log-query/get-started-portal.md) - Added video.
+- [Tutorial: Get started with Log Analytics queries](./log-query/log-analytics-tutorial.md) - Added video.
 
 ### Platform logs
 - [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) - Added video.

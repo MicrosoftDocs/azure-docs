@@ -24,7 +24,7 @@ To import data from a [Log Analytics workspace](manage-access.md) in Azure Monit
 ## Export query
 Start by creating a [log query](../log-query/log-query-overview.md) that returns the data that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](/powerquery-m/power-query-m-language-specification) which can be used by Power BI Desktop.
 
-1. [Create the log query in Log Analytics](../log-query/get-started-portal.md) to extract the data for your dataset.
+1. [Create the log query in Log Analytics](../log-query/log-analytics-tutorial.md) to extract the data for your dataset.
 2. Select **Export** > **Power BI Query (M)**.  This exports the query to a text file called **PowerBIQuery.txt**. 
 
     ![Export log search](media/powerbi/export-analytics.png)
