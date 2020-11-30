@@ -377,10 +377,10 @@
 
     - name: Security
       items:
-        - name: Always Encrypted >
-          href: /sql/relational-databases/security/encryption/always-encrypted-database-engine
-        - name: Always Encrypted with secure enclaves >
-          href: /sql/relational-databases/security/encryption/always-encrypted-enclaves
+        - name: Always Encrypted
+          href: database/always-encrypted-landing.yml
+        - name: Always Encrypted with secure enclaves
+          href: database/always-encrypted-with-secure-enclaves-landing.yml
           items:
           - name: Configure and use Always Encrypted with secure enclaves >
             href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
