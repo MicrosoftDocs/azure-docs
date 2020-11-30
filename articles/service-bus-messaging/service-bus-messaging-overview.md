@@ -12,12 +12,8 @@ Microsoft Azure Service Bus is a fully managed enterprise message broker with me
 - Safely routing and transferring data and control across service and application boundaries
 - Coordinating transactional work that requires a high-degree of reliability. 
 
-Data is transferred between different applications and services using *messages*. A message is a container decorated with metadata, and contains data. The data can be any kind of information, including structured data encoded with the common formats such as the following ones: 
-
-- JSON
-- XML
-- Apache Avro
-- Plain text 
+## Overview
+Data is transferred between different applications and services using *messages*. A message is a container decorated with metadata, and contains data. The data can be any kind of information, including structured data encoded with the common formats such as the following ones: JSON, XML, Apache Avro, Plain Text.
 
 Some common messaging scenarios are:
 
@@ -27,9 +23,9 @@ Some common messaging scenarios are:
 * *Topics and subscriptions*. Enable 1:*n* relationships between [publishers and subscribers](https://docs.microsoft.com/azure/architecture/patterns/publisher-subscriber), allowing subscribers to select particular messages from a published message stream.
 * *Transactions*. Allows you to do several operations, all in the scope of an atomic transaction. For example, the following operations can be done in the scope of a transaction.  
 
-    - Obtain a message from one queue
-    - Post results of processing to one or more different queues
-    - Then, move the input message from the original queue. 
+    1. Obtain a message from one queue
+    2. Post results of processing to one or more different queues
+    3. Then, move the input message from the original queue. 
     
     The results become visible to downstream consumers only upon success, including the successful settlement of input message, allowing for once-only processing semantics. This transaction model is a robust foundation for the [compensating transactions](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction.md) pattern in the greater solution context. 
 * *Message sessions*. Implement high-scale coordination of workflows and multiplexed transfers that require strict message ordering or message deferral.
@@ -42,11 +38,13 @@ If you're familiar with other message brokers like Apache ActiveMQ, Service Bus 
 - Worrying about hardware failures 
 - Failing over to a reserve machine
 
+## Compliance with standards and protocols
+
 The primary wire protocol for Service Bus is [Advanced Messaging Queueing Protocol (AMQP) 1.0](service-bus-amqp-overview.md), an open ISO/IEC standard. It allows customers to write applications that work against Service Bus and on-premises brokers such as ActiveMQ or RabbitMQ. The [AMQP protocol guide](service-bus-amqp-protocol-guide.md) provides detailed information in case you want to build such an abstraction.
 
 [Service Bus Premium](service-bus-premium-messaging.md) is fully compliant with the Java/Jakarta EE [Java Message Service (JMS) 2.0](how-to-use-java-message-service-20.md) API. And, Service Bus Standard supports the JMS 1.1 subset focused on queues. JMS is a common abstraction for message brokers and integrates with many applications and frameworks, including the popular Spring framework. To switch from other brokers to Azure Service Bus, you just need to recreate the topology of queues and topics, and change the client provider dependencies and configuration. For an example, see the [ActiveMQ migration guide](migrate-jms-activemq-to-servicebus.md).
 
-## Service Bus Concepts and Terminology 
+## Concepts and terminology 
 This section discusses concepts and terminology of Service Bus.
 
 ### Namespaces
