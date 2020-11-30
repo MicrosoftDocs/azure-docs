@@ -38,9 +38,14 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
       :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Screenshot showing how to select a subscription in the Azure portal.":::
 
-   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search for the **Microsoft.Purview** resource provider. If it isn't registered, register it by selecting **Register**.
+   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search and register all three resource providers: 
+       1. **Microsoft.Purview**
+       1. **Microsoft.Storage**
+       1. **Microsoft.EventHub** 
+      
+      If they are not registered, register it by selecting **Register**.
 
-      :::image type="content" source="./media/create-catalog-portal/register-babylon-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
+      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
 
 ## Create an Azure Purview account instance
 
