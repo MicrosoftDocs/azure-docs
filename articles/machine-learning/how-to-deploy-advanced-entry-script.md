@@ -35,10 +35,11 @@ These types are currently supported:
 * `pyspark`
 * Standard Python object
 
-To use schema generation, include the open-source `inference-schema` package version 1.1.0 or above in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). In order to generate conforming swagger automated web service consumption, scoring script run() function must have API shape of:
-* A first parameter of type "StandardPythonParameterType", named **Inputs**, nested containing PandasDataframeParameterTypes.
-* An optional second parameter of type "StandardPythonParameterType", named **GlobalParameters**, which is not nested.
-* Return a dictionary of type "StandardPythonParameterType" named **Results**, which maybe nested containing PandasDataFrameParameterTypes.
+To use schema generation, include the open-source `inference-schema` package version 1.1.0 or above in your dependencies file. For more information on this package, see [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). In order to generate conforming swagger for automated web service consumption, scoring script run() function must have API shape of:
+* A first parameter of type "StandardPythonParameterType", named **Inputs** and nested.
+* An optional second parameter of type "StandardPythonParameterType", named **GlobalParameters**.
+* Return a dictionary of type "StandardPythonParameterType" named **Results** and nested.
+
 Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following scikit-learn example uses schema generation.
 
 
@@ -96,7 +97,7 @@ def run(Inputs, GlobalParameters):
     # the parameters here have to match those in decorator, both 'Inputs' and 
     # 'GlobalParameters' here are case sensitive
     try:
-        data = inputs['input1']
+        data = Inputs['input1']
         # data will be convert to target format
         assert isinstance(data, np.ndarray)
         result = model.predict(data)
@@ -116,30 +117,34 @@ Here's an example of a `score.py` that accepts binary data:
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+from PIL import Image
+import json
 
 
 def init():
     print("This is init()")
-
+    
 
 @rawhttp
 def run(request):
     print("This is run()")
-    print("Request: [{0}]".format(request))
+    
     if request.method == 'GET':
         # For this example, just return the URL for GETs.
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
-        reqBody = request.get_data(False)
+        file_bytes = request.files["image"]
+        image = Image.open(file_bytes).convert('RGB')
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
 
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
+        # For demonstration purposes, this example just returns the size of the image as the response..
+        return AMLResponse(json.dumps(image.size), 200)
     else:
         return AMLResponse("bad request", 500)
 ```
+
 
 > [!IMPORTANT]
 > The `AMLRequest` class is in the `azureml.contrib` namespace. Entities in this namespace change frequently as we work to improve the service. Anything in this namespace should be considered a preview that's not fully supported by Microsoft.
@@ -154,10 +159,13 @@ The `AMLRequest` class only allows you to access the raw posted data in the scor
 
 ```python
 import requests
-# Load image data
-data = open('example.jpg', 'rb').read()
-# Post raw data to scoring URI
-res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+
+uri = service.scoring_uri
+image_path = 'test.jpg'
+files = {'image': open(image_path, 'rb').read()}
+response = requests.post(url, files=files)
+
+print(response.json)
 ```
 
 <a id="cors"></a>
@@ -173,6 +181,7 @@ The following example sets the `Access-Control-Allow-Origin` header for the resp
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
