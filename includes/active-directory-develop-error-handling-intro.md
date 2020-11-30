@@ -28,4 +28,4 @@ When processing exceptions and errors, you can use the exception type itself and
 
 During the sign-in experience, you may encounter errors about consents, Conditional Access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
 
-See the following section that matches the language you are using for more details about error handling for your app.
+The following section provides more details about error handling for your app.
