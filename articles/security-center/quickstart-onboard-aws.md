@@ -56,7 +56,7 @@ In the screenshot below you can see AWS accounts displayed in Security Center's 
     1. Enable [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html).
     1. Verify that there is data flowing to the Security Hub.
 
-        When you first enable Security Hub, it may take several hours for data to be available.
+        When you first enable Security Hub, it might take several hours for data to be available.
 
 ### Step 2. Set up authentication for Security Center in AWS
 

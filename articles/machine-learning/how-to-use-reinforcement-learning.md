@@ -113,7 +113,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Specify a virtual network
 
-For RL jobs that use multiple compute targets, you must specify a virtual network with open ports that allow worker nodes and head nodes to communicate with each other. The virtual network can be in any resource group, but it should be in the same region as your workspace. For more information on setting up your virtual network, see the [workspace setup notebook](https://aka.ms/azure-rl-env-setup) that can found in the prerequisites section. Here, you specify the name of the virtual network in your resource group.
+For RL jobs that use multiple compute targets, you must specify a virtual network with open ports that allow worker nodes and head nodes to communicate with each other. The virtual network can be in any resource group, but it should be in the same region as your workspace. For more information on setting up your virtual network, see the workspace setup notebook that can found in the prerequisites section. Here, you specify the name of the virtual network in your resource group.
 
 ```python
 vnet = 'your_vnet'
