@@ -32,8 +32,6 @@ A resource group is a logical container in which Azure resources are deployed an
 
 ## Create a virtual machine
 
-
-
 Create a virtual machine by using the [az vm create](/cli/azure/vm#az_vm_create) command:
 
 ```azurecli
@@ -60,7 +58,7 @@ Customize the downloaded template by changing the following values to your value
 
 * `<subscriptionID>`: Your subscription
 * `<rgName>`: Resource group, for example `myResourceGroup`
-* `<vmName>`: Virual machine name, for example `SimpleWinVM`
+* `<vmName>`: Virtual machine name, for example `SimpleWinVM`
 * `<dashboardTitle>`: Dashboard title, for example `Simple VM Dashboard`
 * `<location>`: Your Azure region, for example, `centralus`
 
@@ -115,9 +113,11 @@ To remove the virtual machine and associated dashboard, delete the resource grou
 az group delete --name myResourceGroup
 ```
 
-To remove only the dashboard, use the [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete) command: 
+To remove only the dashboard, use the [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete) command:
 
+```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
+```
 
 ## Next steps
 
