@@ -75,4 +75,3 @@ Next, create a function in the new function app.
 ## Next steps
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

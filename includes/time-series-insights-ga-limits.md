@@ -39,7 +39,7 @@ S2 SKU environments support substantially more events per month and have a signi
 
 ### Property limits
 
-Gen1 property limits depend on the SKU environment that's selected. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
+Gen1 property limits depend on the SKU environment that's selected. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Azure Time Series Insights Explorer](../articles/time-series-insights/time-series-quickstart.md).
 
 | SKU | Maximum properties |
 | --- | --- |
@@ -50,9 +50,9 @@ Gen1 property limits depend on the SKU environment that's selected. Supplied eve
 
 A maximum of two event sources per instance is supported.
 
-* Learn how to [Add an event hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Configure [an IoT hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* Learn how to [Add an event hub source](../articles/time-series-insights/how-to-ingest-data-event-hub.md).
+* Configure [an IoT hub source](../articles/time-series-insights/how-to-ingest-data-iot-hub.md).
 
 ### API limits
 
-REST API limits for Azure Time Series Insights Gen1 are specified in the [REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).
+REST API limits for Azure Time Series Insights Gen1 are specified in the [REST API reference documentation](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).
