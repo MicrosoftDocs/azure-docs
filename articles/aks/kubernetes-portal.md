@@ -10,10 +10,7 @@ ms.date: 09/21/2020
 
 The Azure portal includes a Kubernetes resource viewer (preview) for easy access to the Kubernetes resources in your Azure Kubernetes Service (AKS) cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command-line tool, streamlining the experience for viewing and editing your Kubernetes resources. The resource viewer currently includes multiple resource types, such as deployments, pods, and replica sets.
 
-The Kubernetes resource view from the Azure portal replaces the [AKS dashboard add-on][kubernetes-dashboard], which is set for deprecation.
-
->[!NOTE]
->The capabilty is currently not supported on [private Azure Kubernetes Service clusters](./private-clusters.md).
+The Kubernetes resource view from the Azure portal replaces the [AKS dashboard add-on][kubernetes-dashboard], which is was deprecated.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
