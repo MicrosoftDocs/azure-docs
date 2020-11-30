@@ -193,7 +193,7 @@ In this article, you created a Spark cluster in Azure Databricks and ran a Spark
 Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Extract, transform, and load data using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - To learn how to import data from other data sources into Azure Databricks, see [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 
