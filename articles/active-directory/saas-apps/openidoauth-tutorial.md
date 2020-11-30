@@ -19,7 +19,7 @@ ms.custom: has-adal-ref
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 
-    ![The Azure Active Directory button](common/select-azuread.png))
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise applications** > **All applications**.
 
