@@ -48,7 +48,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |*.servicebus.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |Kms.core.usgovcloudapi.net|1688|Windows activation|Internet|
-|mrsglobalstugviffx.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
+|mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
@@ -64,9 +64,13 @@ The following table lists optional URLs that your Azure virtual machines can hav
 |login.windows.net|443|Sign in to Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Updates for OneDrive client software|oneclient.sfx.ms|
 |*.digicert.com|443|Certificate revocation check|None|
+|*.azure-dns.com|443|Azure DNS resolution|None|
+|*.azure-dns.net|443|Azure DNS resolution|None|
 
 >[!NOTE]
 >Windows Virtual Desktop currently doesn't have a list of IP address ranges that you can unblock to allow network traffic. We only support unblocking specific URLs at this time.
+>
+>If you're using a Next Generation Firewall (NGFW), you'll need to use a dynamic list specifically made for Azure IPs to make sure you can connect.
 >
 >For a list of safe Office-related URLs, including required Azure Active Directory-related URLs, see [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges).
 >
