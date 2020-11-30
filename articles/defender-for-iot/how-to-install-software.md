@@ -727,17 +727,11 @@ This article describes the ESXi and Hyper-V software installation.
 
 The on-premises management console VM supports the following architectures.
 
-#### 1. Enterprise
-   - **Specifications: CPU: 8, Memory: 32G RAM, HDD: 1.8 TB
-   - **Usage: Large production environments
- 
-#### 2. Small Business
-   - **Specifications: CPU: 4, Memory: 8G RAM, HDD: 500 GB
-   - **Usage: Large production environments
-
-#### 3. Office
-   - **Specifications: CPU: 4, Memory: 8G RAM, HDD: 100 GB
-   - **Usage: Small test environments   
+| Architecture | Specifications | Usage | 
+|--|--|--|
+| Enterprise <br />(Default and most common) | CPU: 8 <br />Memory: 32G RAM<br /> HDD: 1.8 TB | Large production environments | 
+| Enterprise | CPU: 4 <br /> Memory: 8G RAM<br /> HDD: 500 GB | Large production environments |
+| Enterprise | CPU: 4 <br />Memory: 8G RAM <br /> HDD: 100 GB | Small test environment | 
    
 ### Prerequisites
 
