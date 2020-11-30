@@ -21,6 +21,8 @@ In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Dir
 * Enable your users to be automatically signed-in to ServiceNow with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Jao6]
+
 ## Prerequisites
 
 To get started, you need the following items:
