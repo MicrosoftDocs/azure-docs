@@ -27,7 +27,9 @@ A shared access signature (SAS) provides secure delegated access to resources in
 Azure Storage supports three types of shared access signatures:
 
 - User delegation SAS
+
 - Service SAS
+
 - Account SAS
 
 ### User delegation SAS
@@ -59,13 +61,9 @@ For more information about the account SAS, [Create an account SAS (REST API)](/
 
 A shared access signature can take one of the following two forms:
 
-### Ad hoc SAS
+- **Ad hoc SAS**. When you create an ad hoc SAS, the start time, expiry time, and permissions are specified in the SAS URI. Any type of SAS can be an ad hoc SAS.
 
-When you create an ad hoc SAS, the start time, expiry time, and permissions are specified in the SAS URI. Any type of SAS can be an ad hoc SAS.
-
-### Service SAS with stored access policy
-
-A stored access policy is defined on a resource container, which can be a blob container, table, queue, or file share. The stored access policy can be used to manage constraints for one or more service shared access signatures. When you associate a service SAS with a stored access policy, the SAS inherits the constraints&mdash;the start time, expiry time, and permissions&mdash;defined for the stored access policy.
+- **Service SAS with stored access policy**. A stored access policy is defined on a resource container, which can be a blob container, table, queue, or file share. The stored access policy can be used to manage constraints for one or more service shared access signatures. When you associate a service SAS with a stored access policy, the SAS inherits the constraints&mdash;the start time, expiry time, and permissions&mdash;defined for the stored access policy.
 
 > [!NOTE]
 > A user delegation SAS or an account SAS must be an ad hoc SAS. Stored access policies are not supported for the user delegation SAS or the account SAS.
@@ -76,7 +74,7 @@ A shared access signature is a signed URI that points to one or more storage res
 
 ### SAS signature and authorization
 
-You can sign a SAS token with a *user delegation key* or with a storage account (Shared Key). 
+You can sign a SAS token with a user delegation key or with a storage account key (Shared Key). 
 
 #### Signing a SAS token with a user delegation key
 
@@ -120,7 +118,7 @@ A common scenario where a SAS is useful is a service where users read and write 
 
    ![Scenario diagram: Front-end proxy service](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
-1. A lightweight service authenticates the client as needed and then generates a SAS. Once the client application receives the SAS, it can access storage account resources directly. Access permissions are defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
+2. A lightweight service authenticates the client as needed and then generates a SAS. Once the client application receives the SAS, it can access storage account resources directly. Access permissions are defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
 
    ![Scenario diagram: SAS provider service](./media/storage-sas-overview/sas-storage-provider-service.png)
 
