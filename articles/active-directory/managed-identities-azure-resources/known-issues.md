@@ -130,7 +130,7 @@ In Activity log click on **Add filter** and choose **Operation** and filter by "
 
 ![Activity log](./media/known-issues/activity-log.png)
 
-For more information on [resource provider operations](../../role-based-access-control/resource-provider-operations.md#identity) documentation.
+For more information review the [resource provider operations](../../role-based-access-control/resource-provider-operations.md#identity) documentation.
 
 ## Known issues
 
