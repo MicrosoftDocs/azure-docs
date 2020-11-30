@@ -319,5 +319,5 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

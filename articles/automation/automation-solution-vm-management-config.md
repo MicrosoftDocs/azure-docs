@@ -58,7 +58,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 ### Target the start and stop actions against a subscription and resource group
 
-1. Add a `sequencestart` and a `sequencestop` tag with positive integer values to VMs that are targeted in `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` variables. The start and stop actions are performed in ascending order. To learn how to tag a VM, see [Tag a Windows virtual machine in Azure](../virtual-machines/windows/tag.md) and [Tag a Linux virtual machine in Azure](../virtual-machines/linux/tag.md).
+1. Add a `sequencestart` and a `sequencestop` tag with positive integer values to VMs that are targeted in `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` variables. The start and stop actions are performed in ascending order. To learn how to tag a VM, see [Tag a Windows virtual machine in Azure](../virtual-machines/tag-portal.md) and [Tag a Linux virtual machine in Azure](../virtual-machines/tag-cli.md).
 
 2. Modify the schedules **Sequenced-StartVM** and **Sequenced-StopVM** to the date and time that meet your requirements and enable the schedule.
 

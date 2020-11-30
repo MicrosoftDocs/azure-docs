@@ -457,6 +457,23 @@ Before and after conversion:
 
 ![After certificate change](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
+### Self-hosted Integration Runtime version 5.x
+For the upgrade to version 5.x of Azure Data Factory Self-hosted integration runtime, we require **.NET framework runtime 4.7.2** or above. 
+In download page, there will be download links for the newest 4.x version and the newest two 5.x versions. 
+
+
+For ADF V2 customers:
+- If auto-update is on and you have already upgraded your .Net framework runtime to 4.7.2 or above, then the Self-hosted integration runtime will be auto upgraded to the newest 5.x version.
+- If auto- update is on and you have not upgraded your .Net framework runtime to 4.7.2 or above, then the Self-hosted integration runtime will not be auto upgraded to the newest 5.x version. The Self-hosted integration runtime will stay in current 4.x version. You can see a warning for .Net framework runtime upgrade in the portal and Self-hosted integration runtime client.
+- If auto- update is off and you have already upgraded your .Net framework runtime to 4.7.2 or above, you can manually download the newest 5.x and install in your machine.
+- If auto- update is off and you have not upgraded your .Net framework runtime to 4.7.2 or above. When you try to manually install SHIR 5.x and register the key, you will be required to upgrade your .Net framework runtime first.
+
+
+For ADF V1 customers:
+- Self-hosted integration runtime 5.X doesn’t support ADF V1.
+- The Self-hosted integration runtime will be auto upgraded to the newest version of 4.x. And the last version of 4.x will not expire. 
+- If you try to manually install Self-hosted integration runtime 5.x and register the key, you will be told that Self-hosted integration runtime 5.x doesn’t support V1.
+
 
 ## Self-hosted IR connectivity issues
 
@@ -756,6 +773,7 @@ You may notice other data factories (on different tenants) while attempting to s
 #### Cause
 
 The Self-hosted IR cannot be shared cross tenants.
+
 
 
 ## Next steps
