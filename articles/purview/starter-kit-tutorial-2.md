@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/30/2020
 ---
 
-# Tutorial: Navigate the Azure Purview (preview) home page and search for an assett
+# Tutorial: Navigate the Azure Purview (preview) home page and search for an asset
 
 In this tutorial, you become familiar with Azure Purview by navigating the features of the home page and searching for an asset in the catalog.
 
-This is *part 2 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 1: Scan data with Azure Purview](starter-kit-tutorial-1.md)
+This article is *part 2 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 1: Scan data with Azure Purview](starter-kit-tutorial-1.md)
 
 In this tutorial, you will:
 
@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 The following steps walk you through the Azure Purview home page.
 
-1. Navigate to your Azure Purview resource in the Azure portal and and select **Open Purview Studio**. You are automatically taken to your Purview Studio's home page.
+1. Navigate to your Azure Purview resource in the Azure portal and select **Open Purview Studio**. You're automatically taken to your Purview Studio's home page.
 
    The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 200 assets in total and 113 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
 
