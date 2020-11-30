@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 11/29/2020
+ms.date: 11/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
@@ -130,7 +130,7 @@ In Activity log click on **Add filter** and choose **Operation** and filter by "
 
 ![Activity log](./media/known-issues/activity-log.png)
 
-For more information on [resource provider operations](../../resource-provider-operations.md#identity) documentation.
+For more information on [resource provider operations](../../role-based-access-control/resource-provider-operations.md#identity) documentation.
 
 ## Known issues
 
