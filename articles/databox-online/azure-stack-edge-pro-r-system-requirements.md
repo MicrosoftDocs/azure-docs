@@ -129,17 +129,10 @@ Factors you should consider include:
 To understand and refine the performance of your solution, you could use:
 
 - The compute metrics available in the Azure portal. Go to your Azure Stack Edge Pro R resource and then go to **Monitoring > Metrics**. Look at the **Edge compute - Memory usage** and **Edge compute - Percentage CPU** to understand the available resources and how are the resources getting consumed.
-- The monitoring commands available via the PowerShell interface of the device such as:
-
-    - `dkr` stats to get a live stream of container(s) resource usage statistics. The command supports CPU, memory usage, memory limit, and network IO metrics.
-    - `dkr system df` to get information regarding the amount of disk space used. 
-    - `dkr image [prune]` to clean up unused images and free up space.
-    - `dkr ps --size` to view the approximate size of a running container. 
-
-    For more information on the available commands, go to [Monitor and troubleshoot compute modules](azure-stack-edge-placeholder.md).
+- The [Monitoring commands available via the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 
 Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge Pro R before deploying in production.
 
 ## Next step
 
-- [Deploy your Azure Stack Edge Pro R](azure-stack-edge-placeholder.md)
+- [Deploy your Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md)

@@ -55,7 +55,7 @@ Only an authorized Azure Stack Edge Pro R or Azure Stack Edge Mini R device is a
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-activation-key.md)]
 
-For more information, see [Get an activation key](azure-stack-edge-placeholder.md).
+For more information, see [Get an activation key](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
 ### Protect the device via password
 
@@ -68,7 +68,7 @@ You can:
 - The local Edge user on the device has limited access to the device for initial configuration, and troubleshooting. The compute workloads running on the device, data transfer, and the storage can all be accessed from the Azure public or government portal for the resource in the cloud.
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-password-best-practices.md)]
-- Use the local web UI to [Change the password](azure-stack-edge-placeholder.md). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
+- Use the local web UI to [Change the password](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#change-device-password). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
 ### Establish trust with the device via certificates
 
