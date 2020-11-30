@@ -8,7 +8,7 @@ ms.date: 11/30/2020
 #Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
-# how to query the prediction runtime with user text
+# How to query the prediction runtime with user text
 
 To understand what a LUIS prediction endpoint returns, view a prediction result in a web browser.
 
