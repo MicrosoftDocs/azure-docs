@@ -37,8 +37,8 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
-        # - name: Assess pronunciation
-        #   href: how-to-pronunciation-assessment.md
+        - name: Assess pronunciation
+          href: how-to-pronunciation-assessment.md
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
@@ -261,7 +261,7 @@
         - name: LUIS service
           items:
             - name: LUIS developer resources
-              href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
+              href: ../luis/developer-reference-resource.md
     - name: Resources
       items:
         - name: Language support
@@ -277,7 +277,7 @@
     - name: Reference
       items:
         - name: Speaker Recognition REST API
-          href: https://docs.microsoft.com/rest/api/speakerrecognition/
+          href: /rest/api/speakerrecognition/
 - name: Custom Keyword
   items:
     - name: Custom keyword overview
@@ -495,7 +495,7 @@
       - name: Speech Studio overview
         href: https://speech.microsoft.com
       - name: Create a Custom Commands app with Speech Studio
-        href: quickstart-custom-speech-commands-create-new.md
+        href: ./quickstart-custom-commands-application.md
 - name: Deploy
   items:
     - name: Enable logging
