@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
+ms.date: 11/25/2020
 ---
 # Exceptions and error codes for the designer
 
@@ -284,11 +284,18 @@ If the model was trained using any of the specialized training modules, connect 
 
  This error occurs when a column contains too many unique values.  For example, you might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
 
+The error of unique values is greater than allowed will occur if meeting **both** following conditions:
+
+- More than 97% instances of one column are unique values, which means nearly all categories are different from each other.
+- One column has more than than 1000 unique values.
+
 **Resolution:**
 
 Open the module that generated the error, and identify the columns used as inputs. For some modules, you can right-click the dataset input and select **Visualize** to get statistics on individual columns, including the number of unique values and their distribution.
 
 For columns that you intend to use for grouping or categorization, take steps to reduce the number of unique values in columns. You can reduce in different ways, depending on the data type of the column. 
+
+Usually in this scenario, the column hitting the error is meaningless as a feature to train models. Hence, you can use [Edit Metadata](../algorithm-module-reference/edit-metadata.md) to mark that column as **Clear feature** and it will not be used during training a model. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
