@@ -55,7 +55,7 @@ Use Azure Sentinel to discover the use of legacy insecure protocols such as SSL/
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39955).
 
-**Guidance**: Use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute. To connect two or more virtual networks in Azure together, use virtual network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network.
+**Guidance**: If your migration use case involves cross network traffic, you have option to use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute. To connect two or more virtual networks in Azure together, use virtual network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network.
 
 - [What are the ExpressRoute connectivity models](../../expressroute/expressroute-connectivity-models.md) 
 
@@ -212,14 +212,14 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39943).
 
-**Guidance**: Azure Database Migration Service uses Azure Active Directory that supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
-Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
+**Guidance**: Azure Database Migration Service uses Azure Active Directory that supports strong authentication controls through multifactor authentication, and strong passwordless methods.
+Multifactor authentication - Enable Azure AD multifactor authentication and follow Azure Security Center Identity and Access Management recommendations for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
 Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
 For administrator and privileged users, ensure the highest level of the strong authentication method are used, followed by rolling out the appropriate strong authentication policy to other users.
 
-- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md) 
+- [How to enable multifactor authentication in Azure](../../active-directory/authentication/howto-mfa-getstarted.md) 
 
 - [Introduction to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md) 
 
@@ -272,7 +272,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39945).
 
-**Guidance**: Azure Database Migration Service uses Azure AD for authentication in which conditional access is available for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
+**Guidance**: Azure Database Migration Service uses Azure AD for authentication in which conditional access is available for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use multifactor authentication for login. Granular authentication session management policy can also be used for different use cases.
 
 - [Azure conditional access overview](../../active-directory/conditional-access/overview.md) 
 
@@ -341,7 +341,7 @@ If GitHub is used, you can use native secret scanning feature to identify creden
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't store or process any data that are considered as business critical by customers.
+**Guidance**: Not applicable; Azure Database Migration Service is a short live service and does not store any data within the service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -371,7 +371,7 @@ Note: Some Azure services support local users and roles which not managed throug
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39950).
 
-**Guidance**: Azure Database Migration Service uses Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
+**Guidance**: Outside of Azure Database Migration Service, as a general practice to prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
@@ -438,7 +438,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Database Migration Service doesn't store customer data.
+**Guidance**: Not applicable; Customer Lockbox is not applicable in this service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -456,7 +456,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not Applicable; Azure Database Migration Service does not provide native data classification, discovery and labelling feature.
+**Guidance**: Not Applicable; Azure Database Migration Service does not provide native data classification, discovery or labelling feature.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -484,7 +484,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not Applicable; Azure Database Migration Service does not provide this capability. Data is encrypted for the transient storage before being written to the target data platform, as well as on transit. There is no customer accessible persisted data. If Azure SQL and Azure Storage as part of your migration service, Advanced Threat Protection feature can be enabled to monitor of anomalous transfer of information.
+**Guidance**: Not Applicable; Azure Database Migration Service does not provide this capability. Data is encrypted for the transient storage before being written to the target data platform, as well as on transit. There is no customer accessible persisted data. If Azure SQL or Azure Storage is used as part of your migration service, Advanced Threat Protection feature can be enabled to monitor of anomalous transfer of information on them.
 
 - [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
@@ -499,10 +499,9 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39964).
 
-**Guidance**: Encryption is critical for traffic on external and public networks.
+**Guidance**: Azure Database Migration Service encrypts the data in transit from the sources configured by the customer to the database migration service instance by default using TLS 1.2 or later. You can choose to disable this if their source server does not support TLS 1.2 connection, although it is highly recommended not to do so. Transfer of data from database migration service instance to the target instance is always encrypted.  
 
-Use access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
-Ensure for HTTP traffic, that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater.
+Outside of the Azure Database Migration Service, you can use access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data. Ensure for HTTP traffic, that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater.
 For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of unencrypted protocol. Obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers should be disabled.
 
 At the underlying infrastructure, Azure provides data in transit encryption by default for data traffic between Azure data centers.
@@ -597,11 +596,14 @@ Azure Database Migration Service does not allow running an application or instal
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39986).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable. The Azure Database Migration Service can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact.  It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
@@ -801,11 +803,11 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39975).
 
-**Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
+**Guidance**: Ensure you have a process to create high-quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
-High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
+High-quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-Azure Security Center provides high quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
+Azure Security Center provides high-quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
@@ -1281,7 +1283,7 @@ For more information, see the following references:
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40006).
 
-**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
+**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high-quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
