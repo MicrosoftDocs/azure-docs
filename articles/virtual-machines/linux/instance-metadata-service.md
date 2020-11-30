@@ -15,21 +15,209 @@ ms.reviewer: azmetadatadev
 
 # Azure Instance Metadata Service (IMDS)
 
-The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
-This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
-Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All APIs support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
-the Attested and Network endpoints support Classic (non-ARM) VMs, and Attested does so only to a limited extent.
+The Azure Instance Metadata Service (IMDS) is a REST API that provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
+This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see the [Endpoint Categories Summary](#endpoint-categories).
+Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All endpoints support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
+the Attested category and Network portion of the Instance category support Classic (non-ARM) VMs. The Attested category does so only to a limited extent.
 
-Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
-It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+Azure's IMDS is available at a well-known non-routable IP address (`169.254.169.254`) that can only be accessed from within the VM. Communication between the VM and IMDS never leaves the Host.
+Your HTTP clients should bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-## Security
+## Security & Authentication
 
-The Instance Metadata Service endpoint is accessible only from within the running virtual machine instance on a non-routable IP address. In addition, any request with a `X-Forwarded-For` header is rejected by the service.
-Requests must also contain a `Metadata: true` header to ensure that the actual request was directly intended and not a part of unintentional redirection.
+IMDS is only accessible from within a running virtual machine instance on a non-routable IP address. VMs are limited to interacting with metadata/functionality that pertains to themselves. The API is HTTP only and never leaves the host.
+
+In order to ensure that requests are directly intended for IMDS and prevent unintended or unwanted redirection of requests, requests:
+1. **Must** contain the header `Metadata: true`
+1. Must **not** contain an `X-Forwarded-For` header
+
+Any request that does not meet **both** of these requirements will be rejected by the service.
 
 > [!IMPORTANT]
-> Instance Metadata Service is not a channel for sensitive data. The end point is open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
+> IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
+
+## Proxies
+
+IMDS is **not** intended to be used behind a proxy and doing so is unsupported. Most HTTP clients provide an option for you to disable proxies on your requests, and this functionality should be utilized when communicating with IMDS. Consult your client's documentation for details.
+
+> [!IMPORTANT]
+> Even if you don't know of any proxy configuration in your environment, **you should still override any default client proxy settings**. Proxy configurations can be automatically discovered, and failing to bypass such configurations exposes you to outrage risks should the machine's configuration be changed in the future.
+
+## Rate Limiting
+
+In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#Managed-Identity-via-IMDS) category are limited to 20 requests per second and 5 concurrent requests.
+
+## HTTP Verbs
+
+The following HTTP verbs are currently supported:
+Verb | Description
+------|------------
+`GET` | Retrieve  the requested resource
+
+## Parameters
+
+Endpoints may support required and/or optional parameters. See [Schema](#Schema) and the documentation for the specific endpoint in question for details.
+
+### Query Parameters
+
+IMDS endpoints support HTTP query string parameters. For example: 
+
+```bash
+http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
+```
+
+Specifies the parameters:
+Name | Value
+-----|-------
+api-version | 2019-06-04
+format | json
+
+Requests with duplicate query parameter names will be rejected.
+
+### Route Parameters
+
+For some endpoints that return larger json blobs, we support appending route parameters to the request endpoint to filter down to a subset of the response: 
+
+```bash
+http://169.254.169.254/metadata/<endpoint>/[<filter parameter>/...]?<query parameters>
+```
+The parameters correspond to the indexes/keys that would be used to walk down the json object were you interacting with a parsed representation.
+
+For example, `/metatadata/instance` returns the json object:
+```json
+{
+    "compute": { ... },
+    "network": {
+        "interface": [
+            {
+                "ipv4": {
+                   "ipAddress": [{
+                        "privateIpAddress": "10.144.133.132",
+                        "publicIpAddress": ""
+                    }],
+                    "subnet": [{
+                        "address": "10.144.133.128",
+                        "prefix": "26"
+                    }]
+                },
+                "ipv6": {
+                    "ipAddress": [
+                     ]
+                },
+                "macAddress": "0011AAFFBB22"
+            },
+            ...
+        ]
+    }
+}
+```
+
+If we want to filter the response down to just the compute property, we would send the request: 
+```bash
+http://169.254.169.254/metadata/instance/compute?api-version=<version>
+```
+
+Similarly, if we want to filter to a nested property or specific array element we keep appending keys: 
+```bash
+http://169.254.169.254/metadata/instance/network/interface/0?api-version=<version>
+```
+would filter to the first element from the `Network.interface` property and return:
+
+```json
+{
+    "ipv4": {
+       "ipAddress": [{
+            "privateIpAddress": "10.144.133.132",
+            "publicIpAddress": ""
+        }],
+        "subnet": [{
+            "address": "10.144.133.128",
+            "prefix": "26"
+        }]
+    },
+    "ipv6": {
+        "ipAddress": [
+         ]
+    },
+    "macAddress": "0011AAFFBB22"
+}
+```
+
+> [!NOTE]
+> When filtering to a leaf node, `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified since the default format is json.
+
+## Schema
+
+### Data format
+
+By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, endpoints that support response filtering (see [Route Parameters](#Route-Parameters)) also support the format `text`.
+
+To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+```
+
+In json responses, all primitives will be of type `string`, and missing or inapplicable values are always included but will be set to an empty string.
+
+### Versioning
+
+The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#Versions) endpoint which can be used to dynamically retrieve the available API versions.
+
+As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
+
+When no version is specified, an error is returned with a list of the newest supported versions:
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2020-10-01",
+        "2020-09-01",
+        "2020-07-15"
+    ]
+}
+```
+
+#### Supported API Versions
+<details>
+    <summary>Expand</summary>
+
+- 2017-03-01
+- 2017-04-02
+- 2017-08-01 
+- 2017-10-01
+- 2017-12-01 
+- 2018-02-01
+- 2018-04-02
+- 2018-10-01
+- 2019-02-01
+- 2019-03-11
+- 2019-04-30
+- 2019-06-01
+- 2019-06-04
+- 2019-08-01
+- 2019-08-15
+- 2019-11-01
+- 2020-06-01
+- 2020-07-15
+- 2020-09-01
+- 2020-10-01
+
+> [!NOTE]
+> Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
+</details>
+
+### Swagger
+
+A full Swagger definition for IMDS is available at: https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md
+
+## Regional Availability
+
+The service is **generally available** in all Azure Clouds.
+
+## Root Endpoint
+
+The root endpoint `http://169.254.169.254/metadata`.
 
 ## Usage
 
@@ -38,7 +226,7 @@ Requests must also contain a `Metadata: true` header to ensure that the actual r
 To access Instance Metadata Service, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and follow the samples below.
 More examples of how to query IMDS can be found at [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
 
-Below is the sample code to retrieve all metadata for an instance, to access specific data source, see [Metadata API](#metadata-apis) section. 
+Below is the sample code to retrieve all metadata for an instance, to see [Endpoint Categories](#endpoint-categories) for an overview of all available features.
 
 **Request**
 
@@ -50,6 +238,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
+
+<details>
+    <summary>Expand</summary>
 
 ```json
 {
@@ -171,97 +362,56 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
     }
 }
 ```
+</details>
 
-### Data output
+## Endpoint Categories
 
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, some APIs are able to return data in different formats if requested.
-The following table is a reference of other data formats APIs may support.
+The IMDS API contains multiple endpoint categories representing different data sources, each of which contains one or more endpoints. See each category for details.
 
-API | Default Data Format | Other Formats
---------|---------------------|--------------
-/attested | json | none
-/identity | json | none
-/instance | json | text
-/scheduledevents | json | none
+Category Root | Description | Version Introduced
+----|-------------|-----------------------
+/metadata/attested | See [Attested Data](#attested-data) | 2018-10-01
+/metadata/identity | See [Managed Identity via IMDS](#managed-identity-via-imds) | 2018-02-01
+/metadata/instance | See [Instance Metadata](#instance-metadata) | 2017-04-02
+/metadata/scheduledevents | See [Scheduled Events via IMDS](#scheduled-events-via-imds) | 2017-08-01
+/metadata/versions | See [Versions](#Versions) | N/A
 
-To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
+## Versions
 
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
-```
+### List API Versions
 
-> [!NOTE]
-> For leaf nodes in /metadata/instance the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified since the default format is json.
-
-### Versioning
-
-The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
-
-The supported API versions are: 
-- 2017-03-01
-- 2017-04-02
-- 2017-08-01 
-- 2017-10-01
-- 2017-12-01 
-- 2018-02-01
-- 2018-04-02
-- 2018-10-01
-- 2019-02-01
-- 2019-03-11
-- 2019-04-30
-- 2019-06-01
-- 2019-06-04
-- 2019-08-01
-- 2019-08-15
-- 2019-11-01
-- 2020-06-01
-- 2020-07-15
-- 2020-09-01
-- 2020-10-01
-
-> [!NOTE]
-> Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
-
-As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
-
-When no version is specified, an error is returned with a list of the newest supported versions.
-
-> [!NOTE]
-> The response is a JSON string. The following example indicates the error condition when version is not specified, the response is pretty-printed for readability.
-
-**Request**
+Returns the set of support API versions.
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
+GET /metadata/versions
 ```
 
-**Response**
+#### Parameters
+
+None
+
+#### Response
 
 ```json
 {
-    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
-    "newest-versions": [
-        "2020-10-01",
-        "2020-09-01",
-        "2020-07-15"
-    ]
+  "apiVersions": [
+    "2017-03-01",
+    "2017-04-02",
+    ...
+    "2019-11-01",
+    "2020-06-01"
+  ]
 }
 ```
 
-## Metadata APIs
+## Instance Metadata
 
-Metadata Service contains multiple APIs representing different data sources.
-
-API | Description | Version Introduced
-----|-------------|-----------------------
-/attested | See [Attested Data](#attested-data) | 2018-10-01
-/identity | See [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-/instance | See [Instance API](#instance-api) | 2017-04-02
-/scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
-
-## Instance API
+### Get VM Metadata
 
 Instance API exposes the important metadata for the VM instances, including the VM, network, and storage. 
+
+
+
 The following categories can be accessed through instance/compute:
 
 Data | Description | Version Introduced
@@ -474,7 +624,7 @@ The cloud and the values of the Azure Environment are listed below.
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-## Network Metadata 
+### Network Metadata 
 
 Network metadata is part of the instance API. The following Network categories are available through the instance/network endpoint.
 
@@ -537,7 +687,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
-## Storage Metadata
+### Storage Metadata
 
 Storage metadata is part of the instance API under instance/compute/storageProfile endpoint.
 It provides details about the storage disks associated with the VM. 
@@ -654,7 +804,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-## VM Tags
+### VM Tags
 
 VM tags are included the instance API under instance/compute/tags endpoint.
 Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
@@ -835,19 +985,15 @@ In cases where the intermediate certificate cannot be downloaded due to network 
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
 Also if you had pinned the intermediate certificates for Azure China as part of root chain authority change, the intermediate certificates will have to be updated.
 
-## Managed Identity via Metadata Service
+## Managed Identity via IMDS
 
 A system assigned managed identity can be enabled on the VM or one or more user assigned managed identities can be assigned to the VM.
 Tokens for managed identities can then be requested from Instance Metadata Service. These tokens can be used to authenticate with other Azure services such as Azure Key Vault.
 
 For detailed steps to enable this feature, see [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## Scheduled Events via Metadata Service
-You can obtain the status of the scheduled events via metadata service, then user can specify a set of action to execute upon these events.  See [Scheduled Events](scheduled-events.md) for details. 
-
-## Regional Availability
-
-The service is **generally available** in all Azure Clouds.
+## Scheduled Events via IMDS
+You can obtain the status of the scheduled events via metadata service, then user can specify a set of action to execute upon these events.  See [Scheduled Events](scheduled-events.md) for details.
 
 ## Sample Code in Different Languages
 
@@ -877,7 +1023,7 @@ HTTP Status Code | Reason
 404 Not Found | The requested element doesn't exist
 405 Method Not Allowed | Only `GET` requests are supported
 410 Gone | Retry after some time for a max of 70 seconds
-429 Too Many Requests | The API currently supports a maximum of 5 queries per second
+429 Too Many Requests | API [Rate Limits](#rate-limiting) has been exceeded
 500 Service Error     | Retry after some time
 
 ### Known issues and FAQ
