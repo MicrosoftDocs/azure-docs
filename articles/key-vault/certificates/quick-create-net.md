@@ -144,7 +144,7 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 
 ### Save a certificate
 
-In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's parameters accepts a certificate name and the certificate policy[certificate policy](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's parameters accepts a certificate name and the [certificate policy](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
 
 ```csharp
 var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
@@ -180,7 +180,7 @@ await client.PurgeDeletedCertificateAsync("myCertificate");
 
 Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
 
-1. Replace the code in *Program.cs* with the following code:
+- Replace the code in *Program.cs* with the following code:
 
     ```csharp
     using System;
