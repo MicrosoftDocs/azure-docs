@@ -189,6 +189,9 @@
       - name: Blob storage
         href: blob-output-managed-identity.md
         displayName: managed identity, identities, authenticate
+      - name: Event Hubs
+        href: event-hubs-managed-identity.md
+        displayName: managed identity, identities, authenticate
       - name: Power BI
         href: powerbi-output-managed-identity.md
         displayName: managed identity, identities, authenticate
