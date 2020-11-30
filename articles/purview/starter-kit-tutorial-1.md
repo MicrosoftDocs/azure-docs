@@ -143,7 +143,7 @@ After the catalog configuration is complete, run the following scripts in the Po
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
-   -ResourceGroup <NewResourceGroupName>
+   -ResourceGroup <NewResourceGroupName> `
    -SubscriptionId <SubscriptionID> `
    -CatalogResourceGroup <CatalogResourceGroupName>
    ```
