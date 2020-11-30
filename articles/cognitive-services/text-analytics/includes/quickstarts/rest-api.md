@@ -13,11 +13,6 @@ ms.date: 04/06/2020
 ms.author: aahi
 ---
 
-# Quickstart: Use cURL and REST to manage knowledge base
-
-This quickstart walks you calling the Text Analytics API using the REST API and cURL.
-
-
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).
@@ -626,15 +621,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/key
 
 ---
 
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Code samples
+<!--## Code samples
 
  Want to use the REST API with with a specific programming language? You can find the following code samples on GitHub.
 > * [C#](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/TextAnalyticsSentiment.cs)
@@ -644,13 +631,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > * [PHP]()
 > * [Python](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/python/Language)
 > * [Ruby]()
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Explore a solution](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
-* [Text Analytics overview](../overview.md)
-* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)
+-->
