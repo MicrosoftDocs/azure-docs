@@ -292,7 +292,7 @@ If you're testing this code on the sample app for [Tutorial: Run a Python (Djang
 
 ### [Ruby](#tab/ruby)
 
-In Ruby, you can send the HTTP post easily with [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). For example:
+In Ruby, you can send the HTTP post easily with JSONClient. For example:
 
 ```ruby
 clnt = JSONClient.new
