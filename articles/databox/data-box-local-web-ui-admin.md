@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 11/24/2020
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box and Data Box Heavy
 
-This article describes some of the configuration and management tasks performed on Data Box and Data Box Heavy devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses tasks performed using the local web UI.
+This article describes some of the configuration and management tasks performed on Data Box and Data Box Heavy devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses on tasks performed using the local web UI.
 
 The local web UI for the Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
 
@@ -30,29 +30,36 @@ This article includes the following tutorials:
 
 If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. To generate a Support package, take the following steps:
 
-1. In the local web UI, go to **Contact Support** and select **Create Support package**.
+1. In the local web UI, go to **Contact Support**. Optionally, select **Include memory dump**. Then select **Create Support package**.
+
+    A memory dump is the contents of your device's memory, saved after a system failure.
+
+    You shouldn't include a memory dump unless Support asks for one. Uploading the data is slow, and sensitive data is included. The data will be deleted from the Azure storage account after 30 days.<!--Has a 30-day delete policy been implemented or is this in discussion?-->
 
     ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. A Support package is gathered. This operation takes a few minutes.
+2. A Support package is gathered. This operation takes a few minutes.<!--Longer time estimate if a memory dump is included?-->
 
     ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Once the Support package creation is complete, select **Download Support package**.
+3. Once Support package creation is complete, select **Download Support package**.
+
+    ![Create Support package 4](data-box-custoermedia/data-box-local-web-ui-admin/create-support-package-3.png)
+
+4. The support package is downloaded to the Downloads folder. Open the folder to view the contents.
+
+    If you included a memory dump, you should store the downloaded files in a location that requires Customer Lockbox access. For more information, see [How to use Customer Lockbox](./data-box-customer-lockbox.md).  
 
     ![Create Support package 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
-4. Browse and choose the download location. Open the folder to view the contents.
-
-    ![Create Support package 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 ## Shut down or restart your device
 
-You can shut down or restart your device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. Doing so minimizes any possibility of data corruption. Ensure that data copy isn't in progress when you shut down the device.
+You can shut down or restart your device using the local web UI. We recommend that before you restart, you take the shares offline on the host and then the device. Doing so minimizes any possibility of data corruption. Ensure that data copy isn't in progress when you shut down the device.
 
 To shut down your device, take the following steps.
 
 1. In the local web UI, go to **Shut down or restart**.
+
 2. Select **Shut down**.
 
     ![Shut down Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
@@ -88,7 +95,7 @@ Before you begin, follow these steps to download BOM or manifest files for your 
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. In File Explorer, you will see that separate lists of files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
+3. In File Explorer, separate lists of files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Files for storage type and connection protocol](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -165,7 +172,7 @@ Checksums are generated for your data by default when you prepare to ship. In ce
 
 Checksum computation during prepare to ship is only done for import orders, and not for export orders. 
 
-We strongly recommend that you do not disable checksum unless the performance is severely impacted.
+We strongly recommend that you do not disable checksum unless the performance is severely affected.
 
 1. In the top-right corner of the local web UI of your device, go to **Settings**.
 
@@ -242,7 +249,7 @@ To enable transfer of ACLs for Azure files:
 
 ## Enable TLS 1.1
 
-By default, Azure Data Box uses Transport Layer Security (TLS) 1.2 for encryption as it is more secure than TSL 1.1. However, if you or your clients are using a browser to access data that does not support TLS 1.2, you may enable TLS 1.1.
+By default, Azure Data Box uses Transport Layer Security (TLS) 1.2 for encryption because it is more secure than TSL 1.1. However, if you or your clients use a browser to access data that doesn't support TLS 1.2, you may enable TLS 1.1.
 
 For more information related to TLS, see [Azure Data Box Gateway security](../databox-online/data-box-gateway-security.md).
 
