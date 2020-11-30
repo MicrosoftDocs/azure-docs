@@ -285,8 +285,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     ```
 
     If you want mount, format and create swap you can either:
-    * Pass this in as a cloud-init config everytime you create a VM
-    * Use a cloud-init directive baked into the image that will do this everytime the VM is created:
+    * Pass this in as a cloud-init config every time you create a VM
+    * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 
         ```console
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
@@ -332,7 +332,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 ## KVM
 
-This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) or [RHEL 7](rhel-7-using-kvm) distro to upload to Azure. 
+This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) or [RHEL 7](#rhel-7-using-kvm) distro to upload to Azure. 
 
 ### RHEL 6 using KVM
 
