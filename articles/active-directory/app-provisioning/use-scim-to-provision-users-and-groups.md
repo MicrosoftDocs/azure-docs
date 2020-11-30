@@ -194,33 +194,21 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
   - [Get User](#get-user) ([Request](#request-1) / [Response](#response-1))
   - [Get User by query](#get-user-by-query) ([Request](#request-2) / [Response](#response-2))
-  - [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3)
-/ [Response](#response-3))
-  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) /  [Response](#response-4))
-  - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5)
-/ [Response](#response-5)) 
-  - [Disable User](#disable-user) ([Request](#request-14) / 
-[Response](#response-14))
-  - [Delete User](#delete-user) ([Request](#request-6) / 
-[Response](#response-6))
+  - [Get User by query - Zero results](#get-user-by-query---zero-results) ([Request](#request-3) / [Response](#response-3))
+  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties) ([Request](#request-4) / [Response](#response-4))
+  - [Update User [Single-valued properties]](#update-user-single-valued-properties) ([Request](#request-5) / [Response](#response-5)) 
+  - [Disable User](#disable-user) ([Request](#request-14) / [Response](#response-14))
+  - [Delete User](#delete-user) ([Request](#request-6) / [Response](#response-6))
 
 
 [Group Operations](#group-operations)
-  - [Create Group](#create-group) (
-[Request](#request-7) / [Response](#response-7))
-  - [Get Group](#get-group) (
-[Request](#request-8) / [Response](#response-8))
+  - [Create Group](#create-group) ([Request](#request-7) / [Response](#response-7))
+  - [Get Group](#get-group) ([Request](#request-8) / [Response](#response-8))
   - [Get Group by displayName](#get-group-by-displayname) ([Request](#request-9) / [Response](#response-9))
-  - [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) /
- [Response](#response-10))
-  - [Update Group [Add Members]](#update-group-add-members) (
-[Request](#request-11) /
-[Response](#response-11))
-  - [Update Group [Remove Members]](#update-group-remove-members) (
-[Request](#request-12) /
-[Response](#response-12))
-  - [Delete Group](#delete-group) ([Request](#request-13) /
-[Response](#response-13))
+  - [Update Group [Non-member attributes]](#update-group-non-member-attributes) ([Request](#request-10) / [Response](#response-10))
+  - [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
+  - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
+  - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
 
 ### User Operations
 
