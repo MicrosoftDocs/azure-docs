@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 10/22/2020
+  ms.date: 12/01/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -24,9 +24,9 @@ highlightedContent:
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
-    - title: Secure your remote workforce
-      itemType: get-started
-      url: /enterprise-mobility-security/remote-work/
+    - title: Build resilience into IAM with Azure AD
+      itemType: overview
+      url: ./fundamentals/resilience-overview
     - title: Assign roles to users
       itemType: how-to-guide
       url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
