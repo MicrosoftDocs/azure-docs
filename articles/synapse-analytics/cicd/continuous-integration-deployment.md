@@ -90,7 +90,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
 1. Search and get the extension from **Azure DevOps marketplace**(https://marketplace.visualstudio.com/azuredevops) 
 
-     ![Get extension](media/get-extn-from-market.png)
+     ![Get extension](media/get-extension-from-market.png)
 
 1. Select an organization to install extension. 
 
@@ -100,7 +100,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
 1. Create a new task. Search for **Synapse workspace deployment**, and then select **Add**.
 
-     ![Add extension](media/add-extn-task.png)
+     ![Add extension](media/add-extension-task.png)
 
 1.  In the task, provide related git repository information of **workspace_publish** , and select resource group, region, name, and Cloud environment for the target workspace. Provide parameters and values if you need.
 
