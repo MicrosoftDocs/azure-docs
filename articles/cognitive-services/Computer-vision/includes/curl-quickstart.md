@@ -107,14 +107,9 @@ A successful response is returned in JSON. The sample application parses and dis
 }
 ```
 
-
-## Extract printed text (OCR)
-
-In this quickstart, you'll extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
-
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../concept-recognizing-text.md#read-api) conceptual doc.
+Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../concept-recognizing-text.md#read-api) conceptual doc.
 
 To create and run the sample, do the following steps:
 
