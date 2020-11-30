@@ -1,25 +1,28 @@
 ---
-title: Catalog lineage user guide
+title: Data Catalog lineage user guide
 description: This article provides an overview of the catalog lineage feature of Azure Purview.
 author: chanuengg
 ms.author: csugunan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/29/2020
 ---
+# Azure Purview Data Catalog lineage user guide
 
-# Catalog lineage user guide
+This article provides an overview of the data lineage features in Azure Purview Data Catalog.
 
-One of the platform features of Azure Purview is the ability to show the lineage between datasets created by data processes. Systems like Data Factory, Data Share, Power BI and so on capture the lineage of Data between data systems. In addition to the native integration, custom lineage reporting is also supported via Atlas hooks and REST API.
+## Background
+
+One of the platform features of Azure Purview is the ability to show the lineage between datasets created by data processes. Systems like Data Factory, Data Share, and Power BI capture the lineage of data as it moves between data systems. In addition to the native integration, custom lineage reporting is also supported via Atlas hooks and a REST API.
 
 ## Common scenarios
 
-Lineage in Azure Purview is aimed to support root cause analysis and impact analysis scenarios for data producers and data consumers.
+Lineage in Azure Purview can be used to support root cause analysis and impact analysis scenarios for data producers and data consumers.
 
 ### Root cause analysis
 
-Azure Purview can help data owners when a dataset or report has incorrect data because of upstream issues. Data owners can use Azure Purview lineage as a central platform to understand upstream process failures and be informed about the reasons for their data sources discrepancy.
+Azure Purview can help data owners when a dataset or report has incorrect data because of upstream issues. Data owners can use Azure Purview lineage as a central platform to understand upstream process failures and be informed about the reasons for discrepancies in their data sources.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/root-cause-analysis.png" alt-text="Screenshot showing root cause analysis." lightbox="./media/catalog-lineage-user-guide/root-cause-analysis.png":::
 
@@ -29,19 +32,15 @@ Data producers can use Azure Purview lineage to evaluate the downstream impact o
 
    :::image type="content" source="./media/catalog-lineage-user-guide/what-if-analysis.png" alt-text="Screenshot showing impact analysis." lightbox="./media/catalog-lineage-user-guide/what-if-analysis.png":::
 
-
 ## Get started with lineage
 
-Lineage in Purview comprises of datasets and processes. Datasets are also referred to as nodes while processes can be also called as edges:
+Lineage in Purview comprises of datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
 
-* Dataset (Node):
-   A dataset (structured or unstructured) provided as an input to a process. For example, SQL Table, Azure blob, and files (such as .csv and .xml). In the lineage section of Purview, datasets are represented by rectangular boxes.
+* **Dataset (Node)**: A dataset (structured or unstructured) provided as an input to a process. For example, a SQL Table, Azure blob, and files (such as .csv and .xml), are all considered datasets. In the lineage section of Purview, datasets are represented by rectangular boxes.
 
-* Process (Edge): 
-   An activity or transformation performed on a dataset is called as process. For example, ADF Copy activity, Data Share snapshot and so on. In the lineage section of Purview, processes are represented by round-edged boxes.
+* **Process (Edge)**: An activity or transformation performed on a dataset is called a process. For example, ADF Copy activity, Data Share snapshot and so on. In the lineage section of Purview, processes are represented by round-edged boxes.
 
-
-Follow below steps to access the lineage information for an asset in Purview:
+To access lineage information for an asset in Purview, do the following:
 
 1. In the Azure portal, go to the [Azure Purview accounts page](https://aka.ms/purviewportal).
 
@@ -54,6 +53,7 @@ Follow below steps to access the lineage information for an asset in Purview:
    :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage-from-asset.png" alt-text="Screenshot showing how to select the Lineage tab." lightbox="./media/catalog-lineage-user-guide/select-lineage-from-asset.png":::
 
 ## Asset-level lineage
+
 Azure Purview supports asset level lineage for the datasets and processes. To see the asset level lineage go to the **Lineage** tab of the current asset in the catalog. Select the current dataset asset node. By default the list of columns belonging to the data appears in the left pane.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Screenshot showing how to select View columns in the lineage page" lightbox="./media/catalog-lineage-user-guide/view-columns-from-lineage.png":::
@@ -86,20 +86,15 @@ Azure Purview supports column-level lineage for the datasets. To see column-leve
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Screenshot how to select Switch to asset in a lineage data asset." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-1. The lineage canvas could become very convoluted for popular datasets. To avoid the clutters, the default view will only show 5 levels of lineage for the asset in focus. The rest of the lineage can be expanded by clicking the bubbles in the lineage canvas. Data consumers can also hide the assets in canvas that is of no interest. To further reduce the clutters, turn off the toggle "More Lineage" at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
+1. The lineage canvas could become very complex for popular datasets. To avoid clutter, the default view will only show 5 levels of lineage for the asset in focus. The rest of the lineage can be expanded by clicking the bubbles in the lineage canvas. Data consumers can also hide the assets in the canvas that are of no interest. To further reduce the clutter, turn off the toggle **More Lineage** at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Screenshot showing how to toggle More lineage." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 
-1. Use the smart buttons in the lineage canvas to get an optimal view of the lineage. Auto layout, zoom to fit, zoom in/out, full screen, and navigation map are available for an immersive lineage experience in the catalog.
+1. Use the smart buttons in the lineage canvas to get an optimal view of the lineage. Auto layout, Zoom to fit, Zoom in/out, Full screen, and navigation map are available for an immersive lineage experience in the catalog.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Screenshot showing how to select the lineage smart buttons." lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
 
-
 ## Next steps
 
-
-> [!div class="nextstepaction"]
-> [Link to Azure Data Factory for lineage](how-to-link-azure-data-factory.md)
-
-> [!div class="nextstepaction"]
-> [Link to Azure Data Share for lineage](how-to-link-azure-data-share.md)
+* [Link to Azure Data Factory for lineage](how-to-link-azure-data-factory.md)
+* [Link to Azure Data Share for lineage](how-to-link-azure-data-share.md)

@@ -56,7 +56,7 @@ The following list summarizes the main features of **Home page**. Each number in
     - For *data curator*, the buttons are **Home**, **Glossary**, **Insights**, and **Management center**.
     - For *data reader*, the buttons are **Home**, **Glossary**, **Insights**, and **Management center**.
   
-6. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the Data Catalog](how-to-search-catalog.md) and [Browse by asset type](how-to-browse-catalog.md#launch-browse-experience).  **My items** tab is a list of data assets owned by the logged-on user.
+6. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the Data Catalog](how-to-search-catalog.md) and [Browse by asset type](how-to-browse-catalog.md#browse-experience).  **My items** tab is a list of data assets owned by the logged-on user.
 7. **Useful Links** contains links to region status, documentation, pricing, overview, and Purview status
 8. The top navigation bar contains information about release notes/updates, change purview account, notifications, help, and feedback sections.
 

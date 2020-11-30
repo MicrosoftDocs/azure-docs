@@ -34,4 +34,6 @@ Azure Purview is a  cloud service for use by data users. You use Azure Purview t
 
 ## Next steps
 
-- [Azure Purview catalog client overview](catalog-client-overview.md)
+- [Tutorial: Scan data with Azure Purview](starter-kit-tutorial-1.md)
+- [Tutorial: Navigate the home page and search for an asset](starter-kit-tutorial-2.md)
+- [Tutorial: Browse assets and view their lineage](starter-kit-tutorial-3.md)
