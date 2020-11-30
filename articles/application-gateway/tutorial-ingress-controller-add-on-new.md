@@ -29,19 +29,22 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. If using Azure CLI, you have to install the preview extension on CLI using the following command, if not already:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
- - Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
+ - Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
     ```azurecli-interactive
     az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
     ```
 
-   It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
+   It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-register) command:
     ```azurecli-interactive
     az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
     ```
 
- - When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:
+ - When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```
