@@ -23,9 +23,9 @@ The opening screen elements include:
 
 | Number | Element | Description |
 |-----|---------|-------------|
-| 1. | Side menu | Contains links to the windows available to the current user based on their role and permissions.|
+| 1. | Side menu | Contains links to the tools available to the logged in user, based on that user's role.|
 | 2. | Window name | Displays the name of the window being viewed. |
-| 3. | Alerts by severity | Displays the total number of unacknowledged alerts in each of the four categories of severity (Critical, Major, Minor, and Warnings). |
+| 3. | Alerts by severity | Displays the total number of unacknowledged alerts per category (Critical, Major, Minor, and Warnings). |
 | 4. |  Event timeline | Lists all of the alerts in chronological order, starting with the most recent alert at the top. |
 | 5. | Learning mode indicator | Displays the :::image type="content" source="media/concept-sensor-console-overview/learning-indicator-image.png" alt-text="Learning"::: indicator when in learning mode. |
 | 6. | User profile | Select the user profile icon to:<br /> - View the first and last name of the active user.  <br /> - Edit your user profile and system settings. <br /> - Access help. <br /> - Sign out of the console|.
@@ -35,10 +35,8 @@ The opening screen elements include:
 | 10. | Unacknowledged alerts list | Lists all unacknowledged alerts. |
 
 The console's main window provides a list of options available that will vary based on the user type that is signed in.
-> [!Note] 
-> See [Overview](how-to-create-and-manage-users.md) to learn more about user roles.
 
-## Access to console tools
+## Console tools
 
 Console tools are accessed from the side menu.
 
@@ -53,17 +51,17 @@ Console tools are accessed from the side menu.
 
 
 **Analysis**
-| Window | Icon | Description |
+| Window| Icon | Description |
 |---|---|---|
-| Event timeline | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | Contains a timeline with information regarding, alerts, network events (informational), user operations such, as user sign-in, and user deletion.|
-
+| Event timeline | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | Contains a timeline with information regarding, alerts, network events (informational), user operations such, as user login, and user deletion.|
 
 **Navigation**
 | Window | Icon | Description |
 |---|---|---|
 | Data mining | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Data mining tools let you generate comprehensive and granular information regarding your network's devices at various layers. |
 | Trends and statistics | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | View trends and statistics in an extensive range of widgets. |
-| Vulnerabilities | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Displays the vulnerabilities window. |
+| Risk Assessment | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Displays the vulnerabilities window. |
+
 
 
 **Admin**
@@ -76,6 +74,18 @@ Console tools are accessed from the side menu.
 
 
 **Support**
-| Window | Icon | Description |
+| Window| Icon | Description |
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact support.microsoft.com for help. |
+
+## User roles and permissions
+
+User permissions are designed to facilitate granular security roles within your organization. The following roles are available:
+
+- **Read Only** – Read Only users perform tasks such as viewing alerts and devices on the Device map. These users have access to options displayed on the **Navigation** pages.
+
+- **Security Analyst** – The security analyst has the permissions of the RO user and can also perform actions on devices, investigate and acknowledge alerts, use the investigation features. Security analysts can see the **Navigation** and **Analysis** sections.
+
+- **Administrator** – The administrator has all the permissions of the RO and the security analyst and can also manage the system configuration, create, and delete users and create notifications. Administrators can see the **Navigation, Analysis**, and **Administration** sections.
+
+See [Create and manage users](how-to-create-and-manage-users.md) for details about creating users and permission assignments.

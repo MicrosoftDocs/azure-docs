@@ -33,7 +33,7 @@ Complete the following steps to get Azure Defender for IoT up and running.
 
 ## 2. Deploy hardware, software, and onboard to sensor
 
-- Purchase sensor hardware and install software. Follow the steps outlined here, and for more information, see this article and the [Defender for IoT Hardware Guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) and the [Installation Guide](https://aka.ms/AzureDefenderforIoTInstallSensorISO).
+- Purchase sensor hardware and install software.See TBD
 
   - After you install your sensor, securely record the sensor sign-in credentials. You'll need the credentials to upload the activation file to the sensor.
 
