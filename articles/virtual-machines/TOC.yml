@@ -830,7 +830,7 @@
           href: image-version-vm-cli.md
         - name: From a Managed Disk or snapshot
           href: image-version-snapshot-cli.md
-        - name: Migrate from a managed image
+        - name: Clone a managed image
           href: image-version-managed-image-cli.md
         - name: Copy from another gallery
           href: image-version-another-gallery-cli.md
@@ -858,7 +858,7 @@
           href: image-version-vm-powershell.md
         - name: From a Managed Disk or snapshot
           href: image-version-snapshot-powershell.md
-        - name: Migrate from a managed image
+        - name: Clone a managed image
           href: image-version-managed-image-powershell.md
         - name: Copy from another gallery
           href: image-version-another-gallery-powershell.md
@@ -1273,13 +1273,13 @@
 - name: Networking
   items: 
   - name: Overview
-    href: ../network-overview.md
+    href: network-overview.md
   - name: Create virtual network
     href: ../virtual-network/quick-create-cli.md
   - name: Open ports to a VM
     items:
     - name: CLI
-      href: ./linx/nsg-quickstart.md
+      href: ./linux/nsg-quickstart.md
     - name: PowerShell
       href: ./windows/nsg-quickstart-powershell.md
     - name: Portal
