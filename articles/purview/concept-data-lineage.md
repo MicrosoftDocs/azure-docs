@@ -11,21 +11,25 @@ ms.date: 11/30/2020
 
 # Data lineage in Azure Purview Data Catalog client
 
-This document provides an overview of how data lineage is managed in the Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. The data being tracked can come from different platforms and phases of transformation, including: landing zone (on-premises or multi-cloud), to raw, cooked zone and finally to visualization platforms.
+This article provides an overview of data lineage in Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Purview can capture lineage for data in different parts of your organizations data estate, and at different levels of preparation including:
+
+- Completely raw data staged from various platforms
+- Transformed and prepared data
+- Data used by visualization platforms.
 
 ## Use Cases
 
-Data lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. It is used for different kinds of backwards-looking scenarios such as troubleshooting, tracing root cause in data pipelines and debugging. Lineage is also used for data quality analysis, auditing/compliance and “what if” scenarios often referred to as impact analysis. Lineage is represented visually to show data moving from source to destination including how the data was transformed throughout. Given the complexity of most enterprise data environments, these views can be indecipherable without doing some consolidation or masking of peripheral data points. 
+Data lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across the data estate. It is used for different kinds of backwards-looking scenarios such as troubleshooting, tracing root cause in data pipelines and debugging. Lineage is also used for data quality analysis, compliance and “what if” scenarios often referred to as impact analysis. Lineage is represented visually to show data moving from source to destination including how the data was transformed. Given the complexity of most enterprise data environments, these views can be hard to understand without doing some consolidation or masking of peripheral data points.
 
-## Lineage experience in Data Catalog
+## Lineage experience in Azure Purview Data Catalog
 
-Data catalog will connect with other data processing, storage, and analytics systems to extract bespoke lineage. The information is combined to represent a generic, scenario-specific lineage experience in the catalog.
+Purview Data Catalog will connect with other data processing, storage, and analytics systems to extract lineage information. The information is combined to represent a generic, scenario-specific lineage experience in the Catalog.
 
 :::image type="content" source="media/concept-lineage/lineage-end-end.png" alt-text="end-end lineage showing data copied from blob store all the way to Power BI dashboard":::
 
-A typical data estate of a customer would involve systems doing data extraction, transformation/load (ETL/ELT systems), analytics, and visualization systems. Each of the systems captures rich static and operational metadata that describes the state and quality of the data within the systems boundary. The goal of Lineage feature in Data catalog is to extract the movement, transformation, and operational metadata from each data system at the lowest grain possible. Once the metadata is gathered, tread it carefully at different grain to help answer a broad range of technical and business questions.
+Your data estate may include systems doing data extraction, transformation (ETL/ELT systems), analytics, and visualization systems. Each of the systems captures rich static and operational metadata that describes the state and quality of the data within the systems boundary. The goal of lineage in a data catalog is to extract the movement, transformation, and operational metadata from each data system at the lowest grain possible.
 
-The following example is a typical use case of data moving across desperate systems, where data catalog would connect to each of the systems for lineage.
+The following example is a typical use case of data moving across multiple systems, where the Data Catalog would connect to each of the systems for lineage.
 
 - Data Factory copies data from on-prem/raw zone to a landing zone in the cloud. 
 - Data processing systems like Synapse, Databricks would process and transform data from landing zone to Curated zone using notebooks.

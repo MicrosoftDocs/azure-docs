@@ -49,5 +49,6 @@ Relevance is the default sort order in the search result page. The Search releva
 
 ## Next steps
 
-- [Data lineage](data-lineage.md)
-- [Browse the data catalog in Azure Purview](how-to-browse-catalog.md)
+* [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
+* [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell)
+* [Quickstart: Use Purview Studio](use-purview-studio.md)
