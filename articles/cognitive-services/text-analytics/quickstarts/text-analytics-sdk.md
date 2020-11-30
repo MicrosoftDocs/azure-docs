@@ -76,16 +76,9 @@ If you want to use Text Analytics for health or Asynchronous operations, see the
 
 ::: zone-end
 
-::: zone pivot="programming-language-other"
+::: zone pivot="rest-api"
 
-## Additional language support
-
-If you've clicked this tab, you probably didn't see a quickstart in your favorite programming language. Don't worry, we have additional quickstarts available. Use the table to find the right sample for your programming language.
-
-| Language | Available version | 
-|----------|------------------------|
-| Ruby     | [Version 2.1](ruby-sdk.md) | 
-| Go       | [Version 2.1](go-sdk.md) | 
+[!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
 ::: zone-end
 

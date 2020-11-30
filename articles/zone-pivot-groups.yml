@@ -149,8 +149,8 @@ groups:
     title: JavaScript
   - id: programming-language-java
     title: Java
-  - id: programming-language-other
-    title: Other languages...
+  - id: rest-api
+    title: REST API
 - id: programming-languages-set-ten
 # Owner: aahill
   title: Programming languages
