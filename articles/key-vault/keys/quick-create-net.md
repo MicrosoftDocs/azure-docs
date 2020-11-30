@@ -179,7 +179,7 @@ await client.PurgeDeletedKeyAsync("myKey");
 
 Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
 
-1. Replace the code in *Program.cs* with the following code:
+- Replace the code in *Program.cs* with the following code:
 
     ```csharp
     using System;
