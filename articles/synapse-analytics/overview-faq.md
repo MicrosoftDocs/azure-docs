@@ -20,6 +20,7 @@ In this guide, you'll find the most frequently asked questions for Azure Synapse
 ## General
 
 ### Q: What RBAC roles exist and how I use them to secure a Synapse workspace?
+
 A: Azure Synapse introduces a number of roles and scopes to assign them on that will simplify securing your workspace.
 
 Synapse RBAC roles:
@@ -53,7 +54,7 @@ A: As a starting point, Azure Synapse works with the built-in cost analysis and 
 
 ### Q: Will Synapse workspace support folder organization of objects and granularity at GA?
 
-A: Synapse workspaces support user-defined folders.
+A: Synapse workspaces supports user-defined folders.
 
 ### Q: Can I link more than one Power BI workspaces to a single Azure Synapse Workspace?
 	
@@ -61,7 +62,7 @@ A: Currently, you can only link a single Power BI workspace to an Azure Synapse 
 
 ### Q: Is Synapse Link to Cosmos DB GA?
 
-A: Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL is in Public Preview.
+A: Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in Public Preview.
 
 ### Q: Does Azure Synapse workspace Support CI/CD? 
 
@@ -120,11 +121,12 @@ To satisfy this scenario, you should give each developer a serverless Spark pool
 
 ### Q: How do I include, manage, and install libraries 
 
-A:  You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal. See https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries  
+A:  You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal. See [Manage libraries for Apache Spark in Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries).
 
 ## Dedicated SQL Pools
 
 ### Q: What are the functional differences between dedicated SQL pools and serverless pools
+
 A: You can find a full list of differences at https://docs.microsoft.com/azure/synapse-analytics/sql/overview-features 
 
 ### Q: Now that Azure Synapse is GA, how do I move my dedicated SQL pools that were previously standalone into Azure Synapse? 
@@ -134,7 +136,7 @@ You can choose to enable new workspace features on your existing pools. If you d
 
 ### Q: What is the default deployment of dedicated SQL Pools now? 
 
-A: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (foremely SQL DW) in a standalone form factor. 
+A: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor. 
 
 
 ### Q: What are the functional differences between dedicated SQL pools and serverless SQL pool 
