@@ -71,7 +71,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Allow using password from iOS Keychain.
 - Focus will be placed on the first error field when multiple fields are errored.
 - Focus will be placed on the first editable field on page load.
-- Added new location for claims provider selection link `bottomUnderFormClaimsProviderSelections`.
+- Added a new location for the claims provider selection link `bottomUnderFormClaimsProviderSelections`.
 - Removed UXStrings that are no longer used.
 
 **2.1.0**
