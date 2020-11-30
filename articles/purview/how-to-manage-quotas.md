@@ -18,7 +18,7 @@ Azure Purview is a  cloud service for use by data users. You use Azure Purview t
 
 |**Resource**|  **Default Limit**  |**Maximum Limit**|
 |---|---|---|
-|Purview accounts in a region, per subscription|5|Contact Support|
+|Purview accounts in a region, per subscription|3|Contact Support|
 |Maximum vCores available for scanning, per account*|800|Contact Support|
 |Concurrent scans, per account*|25 - 50 concurrent scans at a point in time. This is based on the type of data sources scanned|Contact Support|
 |Maximum time that a scan can run for|7 days|7 days|
