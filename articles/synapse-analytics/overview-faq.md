@@ -121,13 +121,13 @@ To satisfy this scenario, you should give each developer a serverless Spark pool
 
 ### Q: How do I include, manage, and install libraries 
 
-A:  You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal. See [Manage libraries for Apache Spark in Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries).
+A:  You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal. See [Manage libraries for Apache Spark in Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
 
 ## Dedicated SQL Pools
 
 ### Q: What are the functional differences between dedicated SQL pools and serverless pools
 
-A: You can find a full list of differences at https://docs.microsoft.com/azure/synapse-analytics/sql/overview-features 
+A: You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features.md).
 
 ### Q: Now that Azure Synapse is GA, how do I move my dedicated SQL pools that were previously standalone into Azure Synapse? 
 
@@ -141,7 +141,7 @@ A: By Default, all new dedicated SQL pools will be deployed to a workspace; howe
 
 ### Q: What are the functional differences between dedicated SQL pools and serverless SQL pool 
 
-A: You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features) 
+A: You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features.md).
 
 ## Next steps
 
