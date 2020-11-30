@@ -24,7 +24,7 @@ highlightedContent:
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
-    - title: Build resilience into IAM with Azure AD
+    - title: Build resilience into identity and access management with Azure AD
       itemType: overview
       url: ./fundamentals/resilience-overview.md
     - title: Assign roles to users
