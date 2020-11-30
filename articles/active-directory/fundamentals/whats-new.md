@@ -86,7 +86,7 @@ Azure Active Directory (Azure AD) Application Proxy natively supports single sig
  
 ---
 
-### Azure AD B2C Phone Sign-up and Sign-in using Custom Policy
+### General Availability - Azure AD B2C Phone Sign-up and Sign-in using Custom Policy
 
 **Type:** New feature  
 **Service category:** B2C - Consumer Identity Management  
@@ -128,7 +128,7 @@ Tenant administrators can now use Staged Rollout to deploy Email Sign-In with Pr
  
 ---
 
-### Sign-in Diagnostic now in general availability
+### Limited Preview - Sign-in Diagnostic
 
 **Type:** New feature  
 **Service category:** Reporting  
