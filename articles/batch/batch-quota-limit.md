@@ -86,7 +86,7 @@ To view your Batch account quotas in the [Azure portal](https://portal.azure.com
 1. Select **Quotas** on the Batch account's menu.
 1. View the quotas currently applied to the Batch account.
 
-    ![Batch account quotas][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Batch account quotas":::
 
 ## Increase a quota
 
