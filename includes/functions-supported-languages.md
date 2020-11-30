@@ -6,7 +6,7 @@ author: ggailey777
 manager: cfowler
 ms.service: azure-functions
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 11/27/2020
 ms.author: glenga
 ms.custom: include file
 ---
@@ -23,4 +23,5 @@ ms.custom: include file
 
 <sup>*</sup> Supported through transpiling to JavaScript.
 
+See the language-specific developer guide article for more details about supported language versions.   
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).

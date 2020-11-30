@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Quickstart: Azure Key Vault certificate client library for .NET (SDK v4)
 
-Get started with the Azure Key Vault certificate client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for certificates. You can securely store keys, passwords, certificates, and other certificates. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library
+Get started with the Azure Key Vault certificate client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for certificates. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library
 
 Key Vault client library resources:
 
@@ -144,10 +144,10 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 
 ### Save a certificate
 
-In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's first parameter accepts a certificate name and the certificate policy[certificate policy](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's parameters accepts a certificate name and the [certificate policy](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
 
 ```csharp
-CertificateOperation operation = await client.StartCreateCertificateAsync("MyCertificate", CertificatePolicy.Default);
+var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
 var certificate = await operation.WaitForCompletionAsync();
 ```
 
@@ -167,20 +167,20 @@ var certificate = await client.GetCertificateAsync("myCertificate");
 Finally, let's delete and purge the certificate from your key vault with the [StartDeleteCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startdeletecertificateasync) and [PurgeDeletedCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.purgedeletedcertificateasync)  methods.
 
 ```csharp
-var operation = await client.StartDeleteCertificateAsync("MyCertificate");
+var operation = await client.StartDeleteCertificateAsync("myCertificate");
 
 // You only need to wait for completion if you want to purge or recover the certificate.
 await operation.WaitForCompletionAsync();
 
 var certificate = operation.Value;
-await client.PurgeDeletedCertificateAsync(certificate.Name);
+await client.PurgeDeletedCertificateAsync("myCertificate");
 ```
 
 ## Sample code
 
 Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
 
-1. Replace the code in *Program.cs* with the following code:
+- Replace the code in *Program.cs* with the following code:
 
     ```csharp
     using System;
@@ -207,7 +207,7 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
     
                 Console.WriteLine($"Retrieving your certificate from {keyVaultName}.");
                 var certificate = await client.GetCertificateAsync(certificateName);
-                Console.WriteLine($"Your certificate value is '{certificate.Value.Properties.Version}'.");
+                Console.WriteLine($"Your certificate version is '{certificate.Value.Properties.Version}'.");
     
                 Console.Write($"Deleting your certificate from {keyVaultName} ...");
                 DeleteCertificateOperation deleteOperation = await client.StartDeleteCertificateAsync(certificateName);

@@ -72,7 +72,7 @@ az appservice plan create \
 
 az appservice plan create \
 --name myAppServicePlanSouthCentralUS \
--resource-groupg myRGFDSouthCentral
+--resource-group myRGFDSouthCentral
 ```
 
 ### Create web apps
