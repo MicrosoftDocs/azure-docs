@@ -32,8 +32,6 @@ items:
       href: starter-kit-tutorial-6.md    
   - name: Use the portal to scan Azure data sources
     href: portal-scan-azure-data-sources.md
-  - name: Use the REST APIs
-    href: tutorial-using-rest-apis.md
   - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
 #- name: Samples

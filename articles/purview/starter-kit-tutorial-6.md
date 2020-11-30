@@ -8,8 +8,12 @@ ms.subservice: data-catalog-gen2
 ms.topic: tutorial
 ms.date: 11/24/2020
 ---
-
 # Tutorial: Use Catalog insights
+
+> [!IMPORTANT]
+> Azure Purview is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Catalog Insights is a collection of six reports - asset, scan, glossary, classifications, labeling, and file extensions. Catalog Insights provides value to the data consumers, data producers, and security administrators who are managing their data estate through Purview.
 
