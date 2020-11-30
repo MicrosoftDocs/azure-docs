@@ -150,9 +150,13 @@ A: No you cannot. Azure Hybrid Benefit supports conversion only on Pay-As-You-Go
 
 A: No you cannot. Azure Hybrid Benefit supports conversion only on Pay-As-You-Go images.
 
-*Q: I have uploaded my own RHEL image from on-prem (via ASR or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
+*Q: I have uploaded my own RHEL image from on-prem (via Azure Migrate, ASR or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
 
 A: No you cannot. The Azure Hybrid Benefit capability is available only to RHEL and SLES Marketplace images today. 
+
+*Q: I have uploaded my own RHEL image from on-prem (via Azure Migrate, ASR or otherwise) to Azure. Do I need to do anything to benefit from Azure Hybrid Benefit?*
+
+A: No you do not. RHEL images you upload are already considered BYOS, and you are only charged for Azure infrastructure costs. You are responsible for RHEL subscriptions costs just like you do for your on-premises environments. 
 
 *Q: Can I use Azure Hybrid Benefit on VMs deployed from Marketplace RHEL and SLES SAP images?*
 
