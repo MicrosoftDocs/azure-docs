@@ -160,7 +160,7 @@ Provider-specific how-to guides:
 * [How to configure your app to use Microsoft Account login][MSA]
 * [How to configure your app to use Twitter login][Twitter]
 * [How to configure your app to use an OpenID Connect provider for login (preview)][OIDC]
-* [How to configure your app to use an Apple provider for login (preview)][Apple]
+* [How to configure your app to use an Sign in with Apple (preview)][Apple]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

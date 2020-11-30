@@ -1,6 +1,6 @@
 ---
-title: Configure an Apple provider (Preview)
-description: Learn how to configure an Apple provider as an identity provider for your App Service or Azure Functions app.
+title: Configure Sign in with Apple (Preview)
+description: Learn how to configure Sign in with Apple as an identity provider for your App Service or Azure Functions app.
 ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
@@ -15,44 +15,37 @@ This article shows you how to configure Azure App Service or Azure Functions to 
 To complete the procedure in this topic, you must have enrolled in the Apple developer program. To enroll in the Apple developer program, go to [developer.apple.com/programs/enroll](https://developer.apple.com/programs/enroll/).
 
 > [!CAUTION]
-> Enabling an Apple provider will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as the Azure portal, Azure CLI, and Azure PowerShell. The feature relies on a new API surface which, during preview, is not yet accounted for in all management experiences.
+> Enabling Sign in with Apple will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as the Azure portal, Azure CLI, and Azure PowerShell. The feature relies on a new API surface which, during preview, is not yet accounted for in all management experiences.
 
 ## <a name="createApplication"> </a>Create an application in the Apple Developer portal
 You'll need to create an App ID and a service ID in the Apple Developer portal.
 
-1. If you don't already have an Apple Developer subscription, you'll need to register and pay for one at https://developer.apple.com.
-2. On the Apple Developer portal, go to **Certificates, Identifiers, & Profiles**.
-3. On the **Identifiers** tab, select the **(+)** button.
-![Creating a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_newapp.jpg)
-4. On the **Register a New Identifier** page, choose **App IDs** and select **Continue**. (App IDs include one or more Service IDs.)
+1. On the Apple Developer portal, go to **Certificates, Identifiers, & Profiles**.
+2. On the **Identifiers** tab, select the **(+)** button.
+3. On the **Register a New Identifier** page, choose **App IDs** and select **Continue**. (App IDs include one or more Service IDs.)
 ![Registering a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerapp.jpg)
-5. On the **Register an App ID** page, provide a description and a bundle ID, and select **Sign in with Apple** from the capabilities list. Then select **Continue**. Take note of your **App ID Prefix (Team ID)** from this step, you'll need it later.
-![Configuring a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_configureapp1.jpg)
-![Configuring a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_configureapp2.jpg)
-6. Review the app registration information and select **Register**.
-7. Again, on the **Identifiers** tab, select the **(+)** button.
-![Creating a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_newapp.jpg) 
-8. On the **Register a New Identifier** page, choose **Services IDs** and select **Continue**.
+4. On the **Register an App ID** page, provide a description and a bundle ID, and select **Sign in with Apple** from the capabilities list. Then select **Continue**. Take note of your **App ID Prefix (Team ID)** from this step, you'll need it later.
+![Configuring a new app identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_configureapp.jpg)
+5. Review the app registration information and select **Register**.
+6. Again, on the **Identifiers** tab, select the **(+)** button.
+[Creating a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_newapp.jpg) 
+7. On the **Register a New Identifier** page, choose **Services IDs** and select **Continue**.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerservice.jpg)
-9. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
+8. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_configureservice1.jpg)
-10. On the pop-up window, specify the App ID you created as the Primary App ID. Specify your application's domain in the domain section. For the return URL, use your B2C tenant's reply URL such as `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/authresp`. Then select **Add** and **Save**.
+9. On the pop-up window, specify the App ID you created as the Primary App ID. Specify your application's domain in the domain section. For the return URL, use your B2C tenant's reply URL such as `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/authresp`. Then select **Add** and **Save**.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_configureservice2.jpg)
-11. Review the service registration information and select **Save**.
+10. Review the service registration information and select **Save**.
 
 ## <a name="generateClientSecret"> </a>Generate the client secret
 Apple requires app developers to create and sign a JWT token, which is used as the client secret value in OpenID Connect flows. To generate this secret, you have to generate and download an elliptic curve private key from the Apple Developer portal and use it to sign a JWT with a specific payload.
 
 ### Creating and downloading the private key
 1. On the **Keys** tab in the Apple Developer portal, choose **Create a key** or select the **(+)** button.
-![Creating a new key in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_newkey.jpg)
 2. On the **Register a New Key** page give the key a name, check the box next to **Sign in with Apple** and select **Configure**.
-![Registering a key in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerkey.jpg)
 3. On the **Configure Key** page, link the key to the primary app ID you created previously and select **Save**.
-![Configuring a key in the Apple Developer Portal](media/configure-authentication-provider-apple//apple_configurekey.jpg)
 4. Finish creating the key by confirming the information and selecting **Continue** and then reviewing the information and selecting **Register**.
 5. On the **Download Your Key** page, download the key. It will download as a `.p8` (PKCS#8) file - you'll use the file contents to sign your client secret JWT. After finishing the process, you can come back later to revoke the key, in case you ever need to.
-![Downloading a key in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_downloadkey.jpg)
 
 ### Structuring the client secret JWT
 Apple requires the JWT token, which will be used as your client secret to have a payload structured like this example:
@@ -78,7 +71,9 @@ _Note: Apple doesn't accept client secret JWTs with an expiration date more than
 More information about generating and validating tokens can be found in [Apple's developer documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens). 
 
 ### Signing the client secret JWT
-You'll use the `.p8` file you downloaded previously to sign the client secret JWT. This file is a [PCKS#8 file](https://en.wikipedia.org/wiki/PKCS_8) that contains the private signing key in PEM format. There are many libraries that can create and sign the JWT for you. One way of doing generating the key is by running a small amount of .NET code shown below.
+You'll use the `.p8` file you downloaded previously to sign the client secret JWT. This file is a [PCKS#8 file](https://en.wikipedia.org/wiki/PKCS_8) that contains the private signing key in PEM format. There are many libraries that can create and sign the JWT for you. 
+
+One way of doing generating the client secret is by running a small amount of .NET code shown below.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;
@@ -123,7 +118,6 @@ public static string GetAppleClientSecret(string teamId, string clientId, string
 - **p8key**: The PEM format key - you can obtain the key by opening the `.p8` file in a text editor, and copying everything between `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` without line breaks
 - **keyId**: The ID of the downloaded key
 
-
 This token returned is the client secret value you will use to configure the Apple provider.
 
 > [!IMPORTANT]
@@ -156,10 +150,12 @@ This section will walk you through updating the configuration to include your ne
     a. Within the registration object, set the `clientId` to the client ID you collected
     
     b. Within the registration object, set `clientSecretSettingName` to the name of the application setting where you stored the client secret
+    
+    c. Within the login object, you may choose to set the scopes array to include a list of scopes used when authenticating with apple (i.e. "name", "email")
 
 Once this configuration has been set, you're ready to use your Apple provider for authentication in your app.
 
-An example configuration might look like the following (where the APPLE_GENERATED_CLIENT_SECRET setting points to a generated JWT):
+A complete configuration might look like the following example (where the APPLE_GENERATED_CLIENT_SECRET setting points to an application setting containing a generated JWT):
 
 ```json
 {

@@ -19,7 +19,7 @@ To get started quickly, see one of the following tutorials:
 * [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 * [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
 * [How to configure your app to login using an OpenID Connect provider (Preview)](configure-authentication-provider-openid-connect.md)
-* [How to configure your app to login using an Apple provider (Preview)](configure-authentication-provider-apple.md)
+* [How to configure your app to login using an Sign in with Apple (Preview)](configure-authentication-provider-apple.md)
 
 ## Use multiple sign-in providers
 
@@ -37,6 +37,7 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/apple">Log in with Apple</a>
 ```
 
 When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
