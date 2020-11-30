@@ -292,7 +292,7 @@ wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ### Browse WordPress
 
-Open a web browser to the external IP address of your service.
+Open a web browser to the external IP address of your service to see your WordPress installation page.
 
    :::image type="content" source="./media/tutorial-deploy-wordpress-on-aks/wordpress-aks-installed-success.png" alt-text="Wordpress installation success on AKS and MySQL flexible server":::
 
