@@ -26,7 +26,7 @@ For information about assigning access to Azure Cost Management data, see [Assig
 
 ## Local vs. Standard vs. Premium
 
-ExpressRoute has three different circuit SKU: [*Local*](./expressroute-faqs.md#expressroute-local), *Standard*, and [*Premium*](./expressroute-faqs.md#expressroute-premium). The way you're charged for your ExpressRoute usage varies between these threw SKU types. Local SKU has egress data cost included, while Standard and Premium SKU has two data plans you can select for egress data. The data plans are Metered Data and Unlimited Data. All ingress data are free of charge except when using the Global Reach add-on. It's important to understand which SKU type and data plan works best for your workload to best optimize cost and budget.
+ExpressRoute has three different circuit SKU: [*Local*](./expressroute-faqs.md#expressroute-local), *Standard*, and [*Premium*](./expressroute-faqs.md#expressroute-premium). The way you're charged for your ExpressRoute usage varies between these three SKU types. Local SKU has egress data cost included, while Standard and Premium SKU has two data plans you can select for egress data. The data plans are Metered Data and Unlimited Data. All ingress data are free of charge except when using the Global Reach add-on. It's important to understand which SKU type and data plan works best for your workload to best optimize cost and budget.
 
 ## Estimate costs
 
@@ -56,7 +56,7 @@ If you're using an ExpressRoute gateway to link a virtual network to the Express
 
 1. Select the *Region* for the gateway and then change *Type* to **ExpressRoute Gateways**.
 
-1. Select the *Gateway Type* from the drop down.
+1. Select the *Gateway Type* from the drop-down.
 
 1. Enter the *Gateway hours*. (720 hours = 30 days)
 
@@ -66,7 +66,7 @@ ExpressRoute runs on Azure infrastructure that accrues costs along with ExpressR
 
 ### Costs that typically accrue with ExpressRoute
 
-When you create an ExpressRoute circuit, you might choose to create an ExpressRoute gateway to link your virtual network to the circuit. Gateways are charged at an hourly rate in addition to the cost for the ExpressRoute circuit. See [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute) and select ExpressRoute Gateways to see rates for different gateway SKUs.
+When you create an ExpressRoute circuit, you might choose to create an ExpressRoute gateway to link your virtual network to the circuit. Gateways are charged at an hourly rate in addition to the cost for an ExpressRoute circuit. See [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute) and select ExpressRoute Gateways to see rates for different gateway SKUs.
  
 ### Costs might accrue after resource deletion
 
