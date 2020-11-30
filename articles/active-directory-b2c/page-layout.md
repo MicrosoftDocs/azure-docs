@@ -23,7 +23,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 **2.1.1**
 
 - Added a UXString `heading` in addtion to `intro` to show on page as a title. This will be hidden by default.
-- Allow saving password to iOS keychain.
+- Added support for saving passwords to iCloud Keychain.
 - Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
 - Added disclaimers on self-asserted page.
 - Focus will be placed on the first editable field on page load.
