@@ -96,7 +96,7 @@ You can define Azure AD as a claims provider by adding the **ClaimsProvider** el
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Microsoft application client ID</Item>
           </Metadata>
           <CryptographicKeys>
