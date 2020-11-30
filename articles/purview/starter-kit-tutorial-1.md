@@ -18,17 +18,17 @@ In part 1 of this tutorial series, you will:
 
 > [!div class="checklist"]
 >
-> * Create a data of with various Azure data resources.
+> * Create a data estate with various Azure data resources.
 > * Scan data into a catalog.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * An [Azure Purview account](create-catalog-portal.md).
 * [The starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) that will deploy your data estate.
 
 > [!NOTE]
-> The starter kit only available for Windows.
+> The starter kit is only available for Windows.
 
 ## Sign in to Azure
 
@@ -176,7 +176,7 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 
 ### Scan your data sources
 
-1. Select **Sources** on your catalog's webpage, and then select **Register**. Then select **Azure Blob Storage** and **Continue**.
+1. Select **Sources** on your catalog's webpage, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
 
    :::image type="content" source="media/starter-kit-tutorial-1/add-blob-storage.png" alt-text="Register blob storage resource":::
 
