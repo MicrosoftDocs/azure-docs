@@ -115,7 +115,7 @@ Set the remaining settings however you'd like.
 
 #### Configure the endpoint
 
-Dead-letter endpoints are created using ARM APIs. When creating an endpoint, use the [ARM APIs documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to fill the required request parameters. Also, add the `deadLetterSecret` to the properties object in the **body** of the request, which contains a container URL and SAS token for your storage account.
+Dead-letter endpoints are created using ARM APIs. When creating an endpoint, use the [Azure Resource Manager APIs documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to fill the required request parameters. Also, add the `deadLetterSecret` to the properties object in the **body** of the request, which contains a container URL and SAS token for your storage account.
       
 ```json
 {
