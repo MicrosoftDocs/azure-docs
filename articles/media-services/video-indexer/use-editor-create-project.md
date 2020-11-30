@@ -82,7 +82,7 @@ As you are selecting and ordering your clips, you can preview the video in the p
 > [!NOTE]
 > For Video Indexer paid accounts, rendering your project has encoding costs. Video Indexer trial accounts are limited to 5 hours of rendering.
 
-1. Once you are done, make sure that your project has been saved. You can now render this project. Click **Render**, a popup dialog comes up that tells you that Video indexer will render a file and then the download link will be send to your email. Select Proceed. 
+1. Once you are done, make sure that your project has been saved. You can now render this project. Click **Render**, a popup dialog comes up that tells you that Video indexer will render a file and then the download link will be sent to your email. Select Proceed. 
 
     :::image type="content" source="./media/video-indexer-view-edit/render-download.png" alt-text="Screenshot shows Video Indexer with the option to Render and download your project":::
     
