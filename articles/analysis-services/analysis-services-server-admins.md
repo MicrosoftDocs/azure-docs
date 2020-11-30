@@ -15,7 +15,7 @@ Server administrators must be a valid user, service principal, or security group
 
 When adding a **security group**, use `obj:groupid@tenantid`. Service principals are not supported in security groups added to the server administrator role.
 
-If server firewall is enabled, server administrator client computer IP addresses must be included in a fireall rule. To learn more, see [Configure server firewall](analysis-services-qs-firewall.md).
+If server firewall is enabled, server administrator client computer IP addresses must be included in a firewall rule. To learn more, see [Configure server firewall](analysis-services-qs-firewall.md).
 
 ## To add server administrators by using Azure portal
 
