@@ -36,6 +36,9 @@ To install certificates on your Cloud Service roles, users need to add the certi
 
     - `vaultId` is the Azure Resource Manager ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. 
     - `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
+    
+    >[!NOTE]
+    > Certificate Identifier should be in the following format: **https://<vaultEndpoint>/secrets/<secretName>/<secretVersion>**
 
     :::image type="content" source="media/certs-and-key-vault-3.png" alt-text="Image shows adding properties to an ARM template.":::
  
