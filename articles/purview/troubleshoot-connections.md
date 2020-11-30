@@ -18,9 +18,9 @@ If you are using Managed identity or Service Principal as a method of authentica
 
 Here's how to do it for each source type:
 
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md##set-up-authentication-for-a-scan)
-- [Azure Cosmos DB](register-scan-azure-cosmos-database.md##set-up-authentication-for-a-scan)
-- [Azure Data Explorer](register-scan-azure-data-explorer.md##set-up-authentication-for-a-scan)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#set-up-authentication-for-a-scan)
+- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#set-up-authentication-for-a-scan)
+- [Azure Data Explorer](register-scan-azure-data-explorer.md#set-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
@@ -45,4 +45,4 @@ Verify this by following the steps below:
 1. Navigate to your key vault and to the **Access policies** section
 1. Verify that your Purview managed identity shows under the *Current access policies* section with **get** permissions on secrets at least
 
-If you don't see your Purview managed identity listed, then follow these [steps](manage-credentials.md##grant-the-purview-managed-identity-access-to-your-azure-Key-vault) to add it. 
+If you don't see your Purview managed identity listed, then follow these [steps](manage-credentials.md#grant-the-purview-managed-identity-access-to-your-azure-Key-vault) to add it. 
