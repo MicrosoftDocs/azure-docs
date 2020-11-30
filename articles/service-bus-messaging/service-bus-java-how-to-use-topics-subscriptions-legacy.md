@@ -124,7 +124,7 @@ import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class TopicClient {
+public class MyServiceBusSubscriptionClient {
     static final Gson GSON = new Gson();
     
 	public static void main(String[] args) throws Exception, ServiceBusException {
