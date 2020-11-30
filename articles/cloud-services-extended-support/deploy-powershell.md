@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Create a Cloud Service (extended)
+# Create a Cloud Service (extended support) using Azure PowerShell
 
 This article shows how to use the `Az.CloudService` PowerShell module to deploy a Cloud Service (extended support) in Azure that has multiple roles (WebRole and WorkerRole) and RDP extension. 
 
