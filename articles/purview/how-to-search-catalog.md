@@ -72,7 +72,7 @@ The current search results used in forming the drop-down list are determined by:
 
 Here is an example of the "Asset type" quick filter.
 
-:::image type="content" source="./media/how-to-search-catalog/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/asset-type-quick-filter.png" alt-text="The asset type quick filter example." border="true":::
 
 You can enter text in the text box to restrict the values in the drop-down list to values that match or partially match the text. For examples of using the text box, see [Search quick filter: filter by asset type](#search-quick-filter-filter-by-asset-type), and [Search quick filter: filter by classification](#search-quick-filter-filter-by-classification).
 
@@ -94,7 +94,7 @@ Select an asset type to restrict the search results to assets of that type. You 
 
 To filter by asset classification, use the **Classification** quick filter. The drop-down list shows the classifications that have been assigned to one or more assets in the current search results, as determined by the search terms and the quick filters. For each classification, the number of assets assigned that classification is shown.
 
-:::image type="content" source="./media/how-to-search-catalog/classification-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/classification-quick-filter.png" alt-text="The classification quick filters is highlighted." border="true":::
 
 Select a classification to restrict the search results to assets assigned that classification. You can only select one classification.
 
