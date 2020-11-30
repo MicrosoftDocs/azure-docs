@@ -51,7 +51,7 @@ Keep in mind the following points:
 
 ## Manage settings
 
-When you create a deployment slot, the cloned configuration is editable. Some configuration properties settings are slot-specific. The following lists detail the settings that change when you swap slots.
+Some configuration properties settings accessible to a slot are slot-specific. The following lists detail the settings that change when you swap slots.
 
 **Slot-specific settings**:
 
