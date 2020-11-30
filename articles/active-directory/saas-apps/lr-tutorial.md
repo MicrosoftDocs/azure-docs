@@ -99,10 +99,9 @@ To configure Azure AD single sign-on with LoginRadius, perform the following ste
     `https://secure.loginradius.com/login`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
-    `https://LoginRadius.hub.loginradius.com/`
+    `https://lr.hub.loginradius.com/`
 
-	> [!NOTE]
-	> Open the Sign-on URL page. Click on **Single Sign-On** tab and enter **plugin name** given by the [LoginRadius support team](mailto:support@loginradius.com) then click **Sign in** button and you will be redirected to the Azure AD page for login.
+    c. In the **Reply URL (Assertion Consumer Service URL)** textbox: type the LoginRadius ACS URL `https://lr.hub.loginradius.com/saml/serviceprovider/AdfsACS.aspx` 
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -118,10 +117,43 @@ To configure Azure AD single sign-on with LoginRadius, perform the following ste
 
 	c. Logout URL
 
-### Configure LoginRadius Single Sign-On
+## Configure LoginRadius Single Sign-On
 
-To configure single sign-on on **LoginRadius** side, you need to send the downloaded **Metadata XML** and appropriate copied URLs from Azure portal to [LoginRadius support team](mailto:support@loginradius.com). They set this setting to have the SAML SSO connection set properly on both sides.
+In this section, you enable Azure AD single sign-on in the LoginRadius Admin Console.
 
+1. Log in to your LoginRadius [Admin Console](https://adminconsole.loginradius.com/login) account.
+
+2. Navigate to your **Team Management** section in the LoginRadius Admin Console from [here](https://secure.loginradius.com/account/team).
+
+3. Click on **Azure AD** under **Single Sign-On tab**.<br>![LoginRadius Team Management](https://github.com/Jitender8360/test/blob/master/actm8_44935e93588b3b38a6.22621474.png)
+4. Fill the details mentioned below in form shown in the screen:<br>![LR Azure AD configuration](https://github.com/Jitender8360/test/blob/master/AzureAd.png )<br>    
+  	a. In **ID PROVIDER LOCATION**, enter the SIGN-ON ENDPOINT which you get from Azure AD account.<br>
+	b. In **ID PROVIDER LOGOUT URL**, enter the SIGN-OUT ENDPOINT which you get from Azure AD account.<br>
+
+  	c. In **ID PROVIDER CERTIFICATE**, enter the Azure AD certificate which you get from Azure AD account. Please enter the certificate value with header and footer e.g. -----BEGIN CERTIFICATE-----`<certifciate value>`-----END CERTIFICATE-----<br>
+
+
+  	d. In **SERVICE PROVIDER CERTIFICATE** and **Server Provider Certificate Key**, please enter the Your certificate and key. 
+
+     You can create self signed certificate by running below commands on the command line ( Linux/Mac ) to get the Certificate Key and Certificate values for Service Provider.
+
+     - Command to get the certificate key for SP <br>`openssl genrsa -out lr.hub.loginradius.com.key 2048`
+
+     - Command to get the certificate for SP <br>`openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
+  	 Note: 
+  	 1. Please enter the certificate value with header and footer e.g. -----BEGIN CERTIFICATE-----`<certifciate value>`-----END CERTIFICATE-----<br>
+  	 2. Please enter the certificate key value with header and footer e.g. -----BEGIN RSA PRIVATE KEY-----`<certifciate key value>`-----END RSA PRIVATE KEY-----<br>
+5. In the **DATA MAPPING** section, select the fields (SP fields) and enter the corresponding Azure AD fields(IdP fields).
+
+	Following are some listed field names for Azure AD.
+
+	| Fields    | Profile Key                                                          |
+	| --------- | -------------------------------------------------------------------- |
+	| Email     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+	| FirstName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`    |
+	| LastName  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`      |
+
+	Note: The Email field mapping is required. FirstName and LastName field mapping are optional.
 ### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -174,13 +206,21 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create LoginRadius test user
 
-In this section, you create a user called Britta Simon in LoginRadius. Work with [LoginRadius support team](mailto:support@loginradius.com) to add the users in the LoginRadius platform. Users must be created and activated before you use single sign-on.
+1. Log in to your LoginRadius [Admin Console](https://adminconsole.loginradius.com/login) account.
+
+2. Navigate to your team management section in LoginRadius Admin Console.<br>
+![LR Admin Console](https://github.com/Jitender8360/test/blob/master/actm1_282965e93551865a078.66484261.png)
+3. Click **ADD TEAM MEMBER** in the side menu to open the form. 
+4. In the **ADD TEAM MEMBER** form, you create a user called Britta Simon in your LoginRadius Site by providing the user's details and assigning the desired permissions. To know more about the permissions based on roles, please refer to the [Role Access Permissions](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) section of the LoginRadius [Manage Team Members](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) document. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the LoginRadius tile in the Access Panel, you should be automatically signed in to the LoginRadius for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+1. Open https://accounts.loginradius.com/auth.aspx in your browser and click **Fed SSO log in**
+2. Enter your LoginRadius app name and click Login
+3. It should open a pop-up for asking you to sign into your Azure Ad account 
+4. After the authenticaiton, you pop-up will close and you will be logged into the LoginRadius Admin Console.
 
 ## Additional Resources
 
