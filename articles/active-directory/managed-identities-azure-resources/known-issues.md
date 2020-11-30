@@ -85,7 +85,7 @@ No. Managed identities do not currently support cross-directory scenarios.
 
 You can keep your users from creating user-assigned managed identities using [Azure Policy](../../governance/policy/overview.md)
 
-- Navigate to the [Azure portal](portal.azure.com) and go to **Policy**.
+- Navigate to the [Azure portal](https://portal.azure.com) and go to **Policy**.
 - Choose **Definitions**
 - Select **+ Policy definition** and enter the necessary information.
 - In the policy rule section paste
