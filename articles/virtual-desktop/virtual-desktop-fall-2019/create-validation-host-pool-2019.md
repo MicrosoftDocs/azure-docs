@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop (classic) host pool service updates - Azure
-description: How to create a validation host pool to monitor service updates before rolling out updates to production.
+description: Learn to create a validation host pool in Windows Virtual Desktop (classic) to monitor service updates before rolling out updates to production.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020

@@ -18,15 +18,33 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 ## Resource quotas
 
-A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
+A quota is a limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
 
 Also note that quotas are not guaranteed values. Quotas can vary based on changes from the Batch service or a user request to change a quota value.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## Core quotas
+
+### Cores quotas in batch service mode
+
+The enforcement of dedicated core quotas is being improved, with the changes being made available in stages and completed for all Batch accounts by the end of December 2020.
+
+Core quotas exist for each VM series supported by Batch and are displayed on the **Quotas** page in the portal. VM series quota limits can be updated with a support request, as detailed below.
+
+With the existing mechanism being phased out, quota limits for VM series are not checked, only the total quota limit for the account is enforced. This means that it may be possible to allocate more cores for a VM series than is indicated by the VM series quota, up to the total account quota limit.
+
+The updated mechanism will enforce the VM series quotas, in addition to the total account quota. As part of the transition to the new mechanism, the VM series quota values may be updated to avoid allocation failures - any VM series used in recent months will have its VM series quota updated to match the total account quota. This change will not enable the use of any more capacity than was already available.
+
+It is possible to determine if VM series quota enforcement has been enabled for a Batch account by checking:
+
+* The Batch account [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) API property.
+
+* Text on the Batch account **Quotas** page in the portal.
+
 ### Cores quotas in user subscription mode
 
-If you created a [Batch account](accounts.md) with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied.
+If you created a [Batch account](accounts.md) with pool allocation mode set to **user subscription**, Batch VMs and other resources are created directly in your subscription when a pool is created or resized. The Azure Batch core quotas do not apply and the quotas in your subscription for regional compute cores, per-series compute cores, and other resources are used and enforced.
 
 To learn more about these quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -68,7 +86,7 @@ To view your Batch account quotas in the [Azure portal](https://portal.azure.com
 1. Select **Quotas** on the Batch account's menu.
 1. View the quotas currently applied to the Batch account.
 
-    ![Batch account quotas][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Batch account quotas":::
 
 ## Increase a quota
 
@@ -120,7 +138,7 @@ Once you've submitted your support request, Azure support will contact you. Quot
 
 Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
 
-- One [network security group](../virtual-network/security-overview.md#network-security-groups)
+- One [network security group](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - One [public IP address](../virtual-network/public-ip-addresses.md)
 - One [load balancer](../load-balancer/load-balancer-overview.md)
 

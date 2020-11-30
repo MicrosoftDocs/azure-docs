@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -27,22 +27,23 @@ The following services are now currently in preview for Customer Lockbox:
 
 - API Management
 ​- Azure App Service​​
-- Azure Database for MySQL​
-- Azure Databricks
-- Azure Synapse Analytics
 - Cognitive Services
 - Container Registry
+- Azure Database for MySQL​
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
 - Azure Data Factory
 - Azure Database for PostgreSQL
-- Azure Kubernetes Service
-- Azure Data Box
+- Azure Functions
 - HDInsight
-- Functions
+- Azure Kubernetes Service
+- Azure Monitor
 - Azure Storage
 - Azure SQL DB
-- Azure Data Explorer
-- Virtual machines (now also covering access to memory dumps and managed disks)
 - Azure subscription transfers
+- Azure Synapse Analytics
+- Virtual machines (now also covering access to memory dumps and managed disks)
 
 To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
 

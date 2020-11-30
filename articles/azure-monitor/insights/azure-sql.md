@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 
 ms.reviewer: carlrab
 ---
@@ -87,11 +87,11 @@ If some metrics or logs are not streamed into Azure Monitor, the tiles in Azure 
 
 Once the Azure SQL Analytics tile for the database is selected, the monitoring dashboard is shown.
 
-![Azure SQL Analytics Overview](./media/azure-sql/azure-sql-sol-overview.png)
+![Screenshot that shows the monitoring dashboard.](./media/azure-sql/azure-sql-sol-overview.png)
 
 Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
-![Azure SQL Analytics Timeouts](./media/azure-sql/azure-sql-sol-metrics.png)
+![Screenshot that shows the drill-down report into the specific perspective.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Each perspective in this view provides summaries at the subscription, server, elastic pool, and database levels. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
@@ -227,6 +227,9 @@ AzureMetrics
 > - The output is a list of database resources that are above the storage_threshold within the time_range defined.
 
 #### Alert on Intelligent insights
+
+> [!IMPORTANT]
+> In case a database is performing well, and that no Intelligent Insights have been generated, this query will fail with an error message: Failed to resolve scalar expression named 'rootCauseAnalysis_s'. This behavior is expected for all cases where there exist no intelligent insights for the database.
 
 ```
 let alert_run_interval = 1h;

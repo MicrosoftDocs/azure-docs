@@ -213,4 +213,5 @@ Yes, Video Indexer offers a free trial that gives full service and API functiona
 
 ## Next steps
 
-[Overview](video-indexer-overview.md)
+* [Overview](video-indexer-overview.md)
+* [Stack Overflow](https://stackoverflow.com/search?q=video-indexer)

@@ -16,9 +16,9 @@ This article describes connecting to a server by using data modeling and managem
 
 ## Client libraries
 
-[Get the latest Client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
+[Get the latest Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current)
 
-All connections to a server, regardless of type, require updated AMO, ADOMD.NET, and OLEDB client libraries to connect to and interface with an Analysis Services server. For SSMS, Visual Studio, Excel 2016 and later, and Power BI, the latest client libraries are installed or updated with monthly releases. However, in some cases, it's possible an application may not have the latest. For example, when policies delay updates, or Office 365 updates are on the Deferred Channel.
+All connections to a server, regardless of type, require updated AMO, ADOMD.NET, and OLEDB client libraries to connect to and interface with an Analysis Services server. For SSMS, Visual Studio, Excel 2016 and later, and Power BI, the latest client libraries are installed or updated with monthly releases. However, in some cases, it's possible an application may not have the latest. For example, when policies delay updates, or Microsoft 365 updates are on the Deferred Channel.
 
 > [!NOTE]
 > The client libraries cannot connect to Azure Analysis Services through proxy servers that require a username and password. 
@@ -74,7 +74,7 @@ With older versions of Excel, users can connect to an Azure Analysis Services se
 
 ## Connect as a linked server from SQL Server
 
-SQL Server can connect to an Azure Analysis Services resource as a [Linked server](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) by specifying MSOLAP as the data source provider. Before configuring a linked server connection, be sure to install the latest [MSOLAP client library](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (provider). 
+SQL Server can connect to an Azure Analysis Services resource as a [Linked server](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) by specifying MSOLAP as the data source provider. Before configuring a linked server connection, be sure to install the latest [MSOLAP client library](/analysis-services/client-libraries?view=azure-analysis-services-current) (provider). 
 
 For linked server connections to Azure Analysis Services, the MSOLAP provider must be instantiated outside the SQL Server process. When configuring linked server options, make sure the **Allow inprocess** option **is not selected**.
 
@@ -95,5 +95,4 @@ Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked 
 
 [Connect with Excel](analysis-services-connect-excel.md)    
 [Connect with Power BI](analysis-services-connect-pbi.md)   
-[Manage your server](analysis-services-manage.md)   
-
+[Manage your server](analysis-services-manage.md)

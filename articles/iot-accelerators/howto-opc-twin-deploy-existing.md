@@ -12,6 +12,9 @@ manager: philmea
 
 # Deploy OPC Twin to an existing project
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 The OPC Twin module runs on IoT Edge and provides several edge services to the OPC Twin and Registry services.
 
 The OPC Twin microservice facilitates the communication between factory operators and OPC UA server devices on the factory floor via an OPC Twin IoT Edge module. The microservice exposes OPC UA services (Browse, Read, Write, and Execute) via its REST API. 
@@ -25,7 +28,7 @@ The core of the module is the Supervisor identity. The supervisor manages endpoi
 
 ## Prerequisites
 
-Make sure you have PowerShell and [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
+Make sure you have PowerShell and [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git

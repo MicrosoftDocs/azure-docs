@@ -119,7 +119,7 @@ You can create a connection between virtual networks that are in different subsc
 
 To configure a connection between a classic virtual network and a Resource Manager virtual network, see [Connect virtual networks from different deployment models by using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
 
-![Classic virtual network connection to an Azure Resource Manager virtual network](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Diagram that shows a classic virtual network connection to an Azure Resource Manager virtual network.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 To check the configuration when you connect a classic virtual network to an Azure Resource Manager virtual network, follow these instructions.
 
@@ -179,7 +179,7 @@ This scenario is supported when BGP is enabled on the site-to-site VPN between V
 
 ### Configure transit routing in an ExpressRoute connection
 
-Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365. For more information, see [ExpressRoute overview](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365. For more information, see [ExpressRoute overview](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![ExpressRoute private peering connection to Azure virtual networks](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 

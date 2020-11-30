@@ -16,8 +16,8 @@ ms.topic: conceptual
 
 An automatic device management configuration defines the configuration changes to deploy to a group of devices. This article assumes a developer in your organization has already created an automatic device management configuration. To learn about how a developer creates a configuration, see one of the following IoT Hub how-to articles:
 
-- [Configure and monitor IoT devices at scale using the Azure portal](../iot-hub/iot-hub-auto-device-config.md)
-- [Configure and monitor IoT devices at scale using the Azure CLI](../iot-hub/iot-hub-auto-device-config-cli.md)
+- [Configure and monitor IoT devices at scale using the Azure portal](../iot-hub/iot-hub-automatic-device-management.md)
+- [Configure and monitor IoT devices at scale using the Azure CLI](../iot-hub/iot-hub-automatic-device-management-cli.md)
 
 A developer creates and tests an automatic device management configuration in a development environment. When you're ready, you can import the configuration into your Remote Monitoring solution accelerator.
 

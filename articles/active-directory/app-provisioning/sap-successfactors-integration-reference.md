@@ -196,11 +196,11 @@ Worker conversion is the process of converting an existing full-time employee to
 1. Scroll down and click **Show advanced options**.
 1. Click on the link **Review your schema here** to open the schema editor. 
 
-   >![review-schema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![Screenshot shows the Review your schema here link that opens the schema editor.](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. Click on the **Download** link to save a copy of the schema before editing. 
 
-   >![download-schema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![Screenshot shows the Schema editor with Download select to save a copy of the schema.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. In the schema editor, press Ctrl-H key to open the find-replace control.
 1. In the find text box, copy, and paste the value `$.employmentNav.results[0]`
 1. In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.userNav != null)]`. Note the whitespace surrounding the `!=` operator, which is important for successful processing of the JSONPath expression. 

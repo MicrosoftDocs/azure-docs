@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Create a geofence and track devices on Azure Maps'
-description: Learn how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps spatial service.
+title: 'Tutorial: Create a geofence and track devices on a Microsoft Azure Map'
+description: Tutorial on how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -20,10 +20,10 @@ This tutorial walks you through the basics of creating and using Azure Maps geof
 Azure Maps provides a number of services to support the tracking of equipment entering and exiting the construction area. In this tutorial, you:
 
 > [!div class="checklist"]
-> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) to upload geofences as polygon coordinates to your Azure Maps account.
-> * Set up two [logic apps](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
-> * Use [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
-> * Use [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to receive notifications when a piece of equipment exits and enters the geofence areas.
+> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data/uploadpreview) to upload geofences as polygon coordinates to your Azure Maps account.
+> * Set up two [logic apps](../event-grid/handler-webhooks.md#logic-apps) that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
+> * Use [Azure Event Grid](../event-grid/overview.md) to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
+> * Use [Search Geofence Get API](/rest/api/maps/spatial/getgeofence) to receive notifications when a piece of equipment exits and enters the geofence areas.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second one can only be queried against during business hours (9:00 AM-5:00 PM in the Pacific Time zone), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data](geofence-geojson.md).
 
 >[!TIP]
->You can update your geofencing data at any time. For more information, see [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview).
+>You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data/uploadpreview).
 
 1. Open the Postman app. Near the top, select **New**. In the **Create New** window, select **Collection**. Name the collection and select **Create**.
 
@@ -181,7 +181,7 @@ For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCo
 
 ## Create workflows in Azure Logic Apps
 
-Next, you create two [logic app](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) endpoints that trigger an email notification. Here's how to create the first one:
+Next, you create two [logic app](../event-grid/handler-webhooks.md#logic-apps) endpoints that trigger an email notification. Here's how to create the first one:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -219,7 +219,7 @@ Next, you create two [logic app](https://docs.microsoft.com/azure/event-grid/han
     :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Screenshot of create a logic app send email step.":::
 
     >[!TIP]
-    > You can retrieve GeoJSON response data, such as `geometryId` or `deviceId`, in your email notifications. You can configure Logic Apps to read the data sent by Event Grid. For information on how to configure Logic Apps to consume and pass event data into email notifications, see [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
+    > You can retrieve GeoJSON response data, such as `geometryId` or `deviceId`, in your email notifications. You can configure Logic Apps to read the data sent by Event Grid. For information on how to configure Logic Apps to consume and pass event data into email notifications, see [Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 11. In the upper-left corner of Logic App Designer, select **Save**.
 
@@ -227,7 +227,7 @@ To create a second logic app to notify the manager when equipment exits the cons
 
 ## Create Azure Maps events subscriptions
 
-Azure Maps supports [three event types](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Here, you need to create two different event subscriptions: one for geofence enter events, and one for geofence exit events.
+Azure Maps supports [three event types](../event-grid/event-schema-azure-maps.md). Here, you need to create two different event subscriptions: one for geofence enter events, and one for geofence exit events.
 
 The following steps show how to create an event subscription for the geofence enter events. You can subscribe to geofence exit events by repeating the steps in a similar manner.
 
@@ -255,13 +255,13 @@ Repeat steps 1-4 for the logic app exit endpoint that you created in the previou
 
 ## Use Spatial Geofence Get API
 
-Use [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to send email notifications to the operations manager when a piece of equipment enters or exits the geofences.
+Use [Spatial Geofence Get API](/rest/api/maps/spatial/getgeofence) to send email notifications to the operations manager when a piece of equipment enters or exits the geofences.
 
 Each piece of equipment has a `deviceId`. In this tutorial,  you're tracking a single piece of equipment, with a unique ID of `device_1`.
 
 The following diagram shows the five locations of the equipment over time, beginning at the *Start* location, which is somewhere outside the geofences. For the purposes of this tutorial, the *Start* location is undefined, because you won't query the device at that location.
 
-When you query the [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) with an equipment location that indicates initial geofence entry or exit, Event Grid calls the appropriate logic app endpoint to send an email notification to the operations manager.
+When you query the [Spatial Geofence Get API](/rest/api/maps/spatial/getgeofence) with an equipment location that indicates initial geofence entry or exit, Event Grid calls the appropriate logic app endpoint to send an email notification to the operations manager.
 
 Each of the following sections makes API requests by using the five different location coordinates of the equipment.
 
@@ -424,14 +424,14 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 In the preceding GeoJSON response, the equipment has remained in the main site geofence, but has exited the subsite geofence. Notice, however, that the `userTime` value is after the `expiredTime` as defined in the geofence data. As a result, the `isEventPublished` parameter is set to `false`, and the operations manager doesn't receive an email notification.
 
-### Location 5(47.637988,-122.1338344)
+### Location 5 (47.63799, -122.134505)
 
 1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Make it *Location 5*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
 2. Select the **GET** HTTP method in the builder tab, and enter the following URL. Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Select **Send**. The following GeoJSON appears in the response window:
@@ -464,13 +464,10 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 In the preceding GeoJSON response, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true`, and the operations manager receives an email notification indicating that the equipment has exited a geofence.
 
+
+You can also [Send email notifications using Event Grid and Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) and check [Supported Events Handlers in Event Grid](../event-grid/event-handlers.md) using Azure Maps.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Send email notifications by using Event Grid and Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Supported event handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers)
+> [Handle content types in Azure Logic Apps](../logic-apps/logic-apps-content-type.md)

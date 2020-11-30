@@ -46,7 +46,7 @@ To set up the Azure function to include the custom provider RESTful request meth
 > [!NOTE]
 > If your C# project file is missing from the project directory, you can add it manually. Or it will appear after the Microsoft.Azure.WebJobs.Extensions.Storage extension is installed on the function app.
 
-Next, update the C# project file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../../azure-functions/install-update-binding-extensions-manual.md) and update the C# project file to include the following package references:
+Next, update the C# project file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../../azure-functions/functions-bindings-register.md) and update the C# project file to include the following package references:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -75,4 +75,3 @@ The following XML element is an example C# project file:
 In this tutorial, you set up an Azure function app to work as an Azure custom provider endpoint.
 
 To learn how to author a RESTful custom provider endpoint, see [Tutorial: Authoring a RESTful custom provider endpoint](./tutorial-custom-providers-function-authoring.md).
-

@@ -343,7 +343,7 @@ cd /tmp
 
 1. In **Choose the program type that you want to create** page, select **Standard Program** > **Next**.
 
-   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Screenshot of Create Package and Program wizard that shows the Standard Program option.](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 1. In **Specify information about this standard program** page, specify the following values:
 
@@ -354,7 +354,7 @@ cd /tmp
     **Program can run** | Whether or not a user is logged on | Whether or not a user is logged on
     **Other parameters** | Use default setting | Use default setting
 
-   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Screenshot that shows the information that you can specify for the standard program.](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
 1. In **Specify the requirements for this standard program**, do the following tasks:
 
@@ -373,7 +373,7 @@ cd /tmp
 1. Complete the wizard. The package then starts replicating to the specified distribution points.
 1. After the package distribution finishes, right-click the package > **Deploy**.
 
-   ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Screenshot of the Configuration Manager console that shows the Deploy menu option.](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 
 1. Select the Windows or Linux device collection you created previously.
 1. On the **Specify the content destination** page, select **Distribution Points**.

@@ -3,27 +3,18 @@ title: Connect to Windows Virtual Desktop Windows 10 or 7 - Azure
 description: How to connect to Windows Virtual Desktop using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
 ---
 # Connect with the Windows Desktop client
 
-> Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
+> Applies to: Windows 10, Windows 10 IoT Enterprise, and Windows 7
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
-You can access Windows Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client. The client doesn't support Window 8 or Windows 8.1.
-
->[!NOTE]
->The Windows client automatically defaults to Windows Virtual Desktop (classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.
-
-> [!IMPORTANT]
-> Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
-
-> [!IMPORTANT]
-> Windows Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store.
+You can access Windows Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and  Windows 7 using the Windows Desktop client. The client doesn't support Window 8 or Windows 8.1.
 
 ## Install the Windows Desktop client
 
@@ -37,6 +28,9 @@ You can install the client for the current user, which doesn't require admin rig
 
 Once installed, the client can be launched from the Start menu by searching for **Remote Desktop**.
 
+> [!IMPORTANT]
+> Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
+
 ## Subscribe to a Workspace
 
 There are two ways you can subscribe to a Workspace. The client can try to discover the resources available to you from your work or school account or you can directly specify the URL where your resources are for cases where the client is unable to find them. Once you've subscribed to a Workspace, you can launch resources with one of the following methods:
@@ -49,6 +43,9 @@ There are two ways you can subscribe to a Workspace. The client can try to disco
 1. From the main page of the client, select **Subscribe**.
 2. Sign in with your user account when prompted.
 3. The resources will appear in the Connection Center, and are grouped by workspace.
+
+>[!NOTE]
+>The Windows client automatically defaults to Windows Virtual Desktop (classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.
 
 ### Subscribe with a URL
 

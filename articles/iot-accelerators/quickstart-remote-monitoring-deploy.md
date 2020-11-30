@@ -130,7 +130,7 @@ If you plan to move on to the tutorials, leave the Remote Monitoring solution ac
 
 If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page, by selecting it, and then clicking **Delete Solution**:
 
-![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Screenshot that shows the "Provisioned solutions" page with solution accelerator highlighted.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)

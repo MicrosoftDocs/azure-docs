@@ -1,8 +1,8 @@
 ---
 title: Move Azure regions - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Move an Azure Database for PostgreSQL server from one Azure region to another using a read replica and the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
@@ -17,7 +17,7 @@ There are various scenarios for moving an existing Azure Database for PostgreSQL
 You can use an Azure Database for PostgreSQL [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. To do so, first create a read replica in the target region. Next, stop replication to the read replica server to make it a standalone server that accepts both read and write traffic. 
 
 > [!NOTE]
-> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) article. 
+> This article focuses on moving your server to a different region. If you want to move your server to a different resource group or subscription, refer to the [move](../azure-resource-manager/management/move-resource-group-and-subscription.md) article. 
 
 ## Prerequisites
 
@@ -43,11 +43,11 @@ To create a cross-region read replica server in the target region using the Azur
 1. Select **Replication** from the menu, under **SETTINGS**.
 1. Select **Add Replica**.
 1. Enter a name for the replica server.
-1. Select the location for the replica server. The default location is the same as the master server's. Verify that you've selected the target location where you want the replica to be deployed.
+1. Select the location for the replica server. The default location is the same as the primary server's. Verify that you've selected the target location where you want the replica to be deployed.
 1. Select **OK** to confirm creation of the replica. During replica creation, data is copied from the source server to the replica. Create time may last several minutes or more, in proportion to the size of the source server.
 
 >[!NOTE]
-> When you create a replica, it doesn't inherit the firewall rules and VNet service endpoints of the master server. These rules must be set up independently for the replica.
+> When you create a replica, it doesn't inherit the firewall rules and VNet service endpoints of the primary server. These rules must be set up independently for the replica.
 
 ## Move
 

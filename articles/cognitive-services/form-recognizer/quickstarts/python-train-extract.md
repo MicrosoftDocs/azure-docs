@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an standard-performance-tier Azure Storage account.
+- A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in an standard-performance-tier Azure Storage account.
 
 > [!NOTE]
 > This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
@@ -47,6 +47,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 1. Replace `<endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<Blob folder name>` with the path to the folder in blob storage where your forms are located. If your forms are at the root of your container, leave this string empty.
+1. Optionally replace `<your model name>` with the friendly name you'd like to give to your model.
 
     # [v2.0](#tab/v2-0)
     ```python
@@ -75,6 +76,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
             "prefix": prefix,
             "includeSubFolders": includeSubFolders
         },
+        "modelName":"<your model name>",
         "useLabelFile": useLabelFile
     }
     
@@ -98,7 +100,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False
@@ -307,7 +309,7 @@ This sample JSON output has been shortened for simplicity.
               }
             ]
           }, 
-		...
+        ...
         ]
       }
     ],
@@ -334,7 +336,7 @@ This sample JSON output has been shortened for simplicity.
             },
             "confidence": 1
           },
-		 ...
+         ...
         ],
         "tables": [
           {
@@ -365,7 +367,7 @@ This sample JSON output has been shortened for simplicity.
                 "isHeader": true,
                 "isFooter": false
               },
-			  ...
+              ...
             ]
           }
         ], 
@@ -434,7 +436,7 @@ This sample JSON output has been shortened for simplicity.
               }
             ]
           }, 
-		  ...
+          ...
         ] 
       }
     ],
@@ -477,7 +479,7 @@ This sample JSON output has been shortened for simplicity.
             },
             "confidence": 1
           },
-		  ...
+          ...
         ], 
         "tables": [
           {
@@ -508,7 +510,7 @@ This sample JSON output has been shortened for simplicity.
                 "isHeader": true,
                 "isFooter": false
               },
-			  ...
+              ...
             ]
           }
         ], 

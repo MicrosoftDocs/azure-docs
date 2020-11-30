@@ -13,7 +13,7 @@ ms.date: 09/02/2020
 
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
-* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
+* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/network-security-groups-overview.md) document.
 
 * **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
@@ -37,7 +37,7 @@ If you plan on using **network security groups** to control network traffic, per
 
     * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network. For __Kafka REST proxy__ enabled clusters, allow __inbound__ traffic on port __9400__ as well. This will ensure that Kafka REST proxy server is reachable.
 
-For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
+For more information on network security groups, see the [overview of network security groups](../virtual-network/network-security-groups-overview.md).
 
 ## Controlling outbound traffic from HDInsight clusters
 
@@ -53,7 +53,7 @@ To see an example of the UDR setup with Azure Firewall, see [Configure outbound 
 
 ## Required ports
 
-If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special whitelisting of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
+If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special filtering of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
 
 For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
@@ -64,6 +64,6 @@ For more information on firewall rules for virtual appliances, see the [virtual 
 * For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
 * For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
-* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 * For more information on virtual networks, see [Plan VNETs for HDInsight](./hdinsight-plan-virtual-network-deployment.md).

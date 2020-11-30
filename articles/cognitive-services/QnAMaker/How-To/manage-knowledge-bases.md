@@ -1,6 +1,8 @@
 ---
 title: Manage knowledge bases - QnA Maker
 description: QnA Maker allows you to manage your knowledge bases by providing access to the knowledge base settings and content.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
 ---
@@ -100,7 +102,7 @@ If you share your knowledge base with collaborators,](collaborate-knowledge-base
 
 ## Next steps
 
-Learn about [managing the language](language-knowledge-base.md) of all knowledge bases in a resource.
+Learn about [managing the language](../index.yml) of all knowledge bases in a resource.
 
 * Edit QnA pairs
 * Manage Azure resources used by QnA Maker

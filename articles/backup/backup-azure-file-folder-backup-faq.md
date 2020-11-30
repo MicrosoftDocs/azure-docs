@@ -28,7 +28,7 @@ Vault credentials expire after 10 days. If the credentials file expires, downloa
 
 ### What characters are allowed for the passphrase?
 
-The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
+The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### From what drives can I back up files and folders?
 
@@ -67,6 +67,10 @@ Yes. The MARS agent converts the deduplicated data to normal data when it prepar
 ### Do I need administrator permissions to install and configure the MARS agent?
 
 Yes, the installation of the MARS Agent and configuration of backups using the MARS console need the user to be a local administrator on the protected server.
+
+### What is the impact on MARS Agent backups of transferring the vault subscription to a different Azure AD directory?
+
+The change of Azure AD directory will have no impact on MARS Agent backups. 
 
 ## Manage backups
 

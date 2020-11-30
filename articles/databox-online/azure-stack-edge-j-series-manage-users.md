@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU manage users | Microsoft Docs 
-description: Describes how to use the Azure portal to manage users on your Azure Stack Edge GPU.
+title: Azure Stack Edge Pro GPU manage users | Microsoft Docs 
+description: Describes how to use the Azure portal to manage users on your Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 
@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
-# Use the Azure portal to manage users on your Azure Stack Edge
+# Use the Azure portal to manage users on your Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article describes how to manage users on your Azure Stack Edge. You can manage the Azure Stack Edge via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
+This article describes how to manage users on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
 
 In this article, you learn how to:
 
@@ -69,7 +69,7 @@ Do the following steps in the Azure portal to delete a user.
 
 2. Select a user from the list of users and then select **Delete**. When prompted, confirm the deletion.
 
-    ![Select user to delete](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
+    ![Select user to delete 2](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
 
 The list of users is updated to reflect the deleted user.
 

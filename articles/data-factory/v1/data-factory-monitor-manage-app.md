@@ -119,7 +119,7 @@ You can click an activity window to see details for it in the **Properties** win
 
 In the right pane, switch to the **Activity Window Explorer** tab to see more details.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Screenshot that shows how to access the Activity Window Explorer tab.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 You also see **resolved variables** for each run attempt for an activity in the **Attempts** section.
 
@@ -212,7 +212,7 @@ Activity windows can be in one of the following statuses:
 
 When you click an activity window in the list, you see details about it in the **Activity Windows Explorer** or the **Properties** window on the right.
 
-![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Screenshot that shows how to view details about an activity window.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### Refresh activity windows
 The details aren't automatically refreshed, so use the refresh button (the second button) on the command bar to manually refresh the activity windows list.  

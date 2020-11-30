@@ -65,26 +65,23 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
 ## Set up a nested VM with Metasploitable Image  
 The Rapid7 Metasploitable image is an image purposely configured with security vulnerabilities. You'll use this image to test and find issues. The following instructions show you how to use a pre-created Metasploitable image. However, if a newer version of the Metasploitable image is needed, see [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
 
-1. Navigate to [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Fill out the form to download the image and select the **Submit** button.
-1. Select the **Download Metasploitable Now** button.
-1. When the zip file is downloaded, extract the zip file, and remember the location.
-1. Convert the extracted vmdk file to a vhdx file so that you can use with Hyper-V. To do so, open PowerShell with administrative privileges and navigate to the folder where the vmdk file resides, and follow these instructions:
-    1. Download the [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi), and run mvmc_setup.msi file when prompted.
-    1. Import the PowerShell module.  The default location in which the module is installed is C:\Program Files\Microsoft Virtual Machine Converter\
-
-        ```powershell
-        Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
-        ```
-    1. Convert the vmdk to a vhd file that can be used by Hyper-V. This operation may take several minutes.
-    
-        ```powershell
-        ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath .\Metasploitable.vmdk -DestinationLiteralPath .\Metasploitable.vhdx -VhdType DynamicHardDisk -VhdFormat vhdx
-        ```
-    1. Copy the newly created metasploitable.vhdx to C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\. 
+1. Download the Metasploitable image.
+    1. Navigate to [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Fill out the form to download the image and select the **Submit** button.
+    2. Select the **Download Metasploitable Now** button.
+    3. When the zip file is downloaded, extract the zip file, and remember the location of the Metasploitable.vmdk file.
+1. Convert the extracted vmdk file to a vhdx file so that you can use the vhdx file with Hyper-V. There are several tools available to convert VMware images to Hyper-V images and vice versa.  We'll be using the [StarWind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter).  To download, see [StarWind V2V Converter download page](https://www.starwindsoftware.com/starwind-v2v-converter#download).
+    1. Start **StarWind V2V Converter**.
+    1. On the **Select location of image to convert** page, choose **Local file**.  Select **Next**.
+    1. On the **Source image** page, navigate to and select the Metasploitable.vmdk extracted in the previous step for the **File name** setting.  Select **Next**.
+    1. On the **Select location of destination image**, choose **Local file**.  Select **Next**.
+    1. On the **Select destination image format** page, choose **VHD/VHDX**.  Select **Next**.
+    1. On the **Select option for VHD/VHDX image format** page, choose **VHDX growable image**.  Select **Next**.
+    1. On the **Select destination file name** page, accept the default file name.  Select **Convert**.
+    1. On the **Converting** page, wait for the image to be converted.  This may take several minutes.  Select **Finish** when the conversion is completed.
 1. Create a new Hyper-V virtual machine.
     1. Open **Hyper-V Manager**.
     1. Choose **Action** -> **New** -> **Virtual Machine**.
-    1. On the **Before You Begin** page of the **New Virtual Machine Wizard**, click **Next**.
+    1. On the **Before You Begin** page of the **New Virtual Machine Wizard**, select **Next**.
     1. On the **Specify Name and Location** page, enter **Metasploitable** for the **name**, and select **Next**.
 
         ![New VM image wizard](./media/class-type-ethical-hacking/new-vm-wizard-1.png)

@@ -35,13 +35,13 @@ For more information, see [Upgrade map key to see devices on a dynamic map](http
 
 ### Where can I find information about the previous version of the Remote Monitoring solution?
 
-The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/).
 
 ### Next steps
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
 * [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
-* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
+* [Predictive Maintenance solution accelerator overview](./iot-accelerators-predictive-walkthrough.md)
 * [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
-* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)
+* [IoT security from the ground up](../iot-fundamentals/iot-security-ground-up.md)

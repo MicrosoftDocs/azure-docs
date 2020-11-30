@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.custom: project-no-code, devx-track-javascript
+ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 ---

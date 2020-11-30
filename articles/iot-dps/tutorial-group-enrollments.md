@@ -18,9 +18,9 @@ These steps show how to simulate an X.509 device on your development machine run
 Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 
-## Prepare the environment 
+## Prerequisites
 
-1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) installed on your machine.
 
 1. Download and install [Maven](https://maven.apache.org/install.html).
 

@@ -6,6 +6,8 @@ ms.date: 09/08/2020
 ms.author: trbye
 ---
 
+One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech CLI in your apps and products to perform high-quality speech-to-text conversion.
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## Speech-to-text from microphone

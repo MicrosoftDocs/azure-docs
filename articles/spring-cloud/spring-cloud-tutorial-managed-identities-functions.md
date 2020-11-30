@@ -18,9 +18,9 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 ## Prerequisites
 
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli)
 * [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-* [Install the Azure Functions Core Tools version 3.0.2009 or higher](https://docs.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools)
+* [Install the Azure Functions Core Tools version 3.0.2009 or higher](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
 
 ## Create a resource group
@@ -72,7 +72,7 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-By default Functions use key-based authentication to secure Http endpoints. Since we'll be enabling Azure AD authentication to secure access to the Functions, we want to [set the function auth level to anonymous](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger#secure-an-http-endpoint-in-production).
+By default Functions use key-based authentication to secure Http endpoints. Since we'll be enabling Azure AD authentication to secure access to the Functions, we want to [set the function auth level to anonymous](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
 
 ```json function.json
 {
@@ -86,7 +86,7 @@ By default Functions use key-based authentication to secure Http endpoints. Sinc
 }
 ```
 
-The app can now be published to the Function app instance created in the previous step.
+The app can now be published to the [Function app](#create-a-function-app) instance created in the previous step.
 
 ```console
 func azure functionapp publish <your-functionapp-name>
@@ -119,7 +119,7 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
 
 ## Build sample Spring Boot app to invoke the Function
 
-This sample will invoke the Http triggered function by first requesting an access token from the [MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) and using that token to authenticate the Function http request.
+This sample will invoke the Http triggered function by first requesting an access token from the [MSI endpoint](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) and using that token to authenticate the Function http request.
 
 1. Clone the sample project. 
 
@@ -168,6 +168,6 @@ This sample will invoke the Http triggered function by first requesting an acces
 
 ## Next steps
 
-* [How to enable system-assigned managed identity for Azure Spring Cloud application](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
+* [How to enable system-assigned managed identity for Azure Spring Cloud application](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Configure a daemon client application for service-to-service calls](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad#configure-a-daemon-client-application-for-service-to-service-calls)
+* [Configure a daemon client application for service-to-service calls](../app-service/configure-authentication-provider-aad.md#configure-a-daemon-client-application-for-service-to-service-calls)

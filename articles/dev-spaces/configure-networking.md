@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # Configure networking for Azure Dev Spaces in different network topologies
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces runs on Azure Kubernetes Service (AKS) clusters with the default networking configuration. If you want to change the networking configuration of your AKS cluster, such as putting the cluster behind a firewall, using network security groups, or using network policies, you have to incorporate additional considerations for running Azure Dev Spaces.
 
 ![Virtual network configuration](media/configure-networking/virtual-network-clusters.svg)

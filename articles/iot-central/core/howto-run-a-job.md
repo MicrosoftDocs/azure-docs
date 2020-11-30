@@ -3,9 +3,9 @@ title: Create and run jobs in your Azure IoT Central application | Microsoft Doc
 description: Azure IoT Central jobs allow for bulk device management capabilities, such as updating properties or running a command.
 ms.service: iot-central
 services: iot-central
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 09/10/2020
+author: philmea
+ms.author: philmea
+ms.date: 11/19/2020
 ms.topic: how-to
 ---
 
@@ -27,15 +27,52 @@ The following example shows you how to create and run a job to set the light thr
 
 1. Choose **Cloud property**, **Property**, or **Command** as the **Job type**:
 
-    To set up a **Property** job configuration, select a property and set its new value. To set up a **Command** job configuration, choose the command to run. A property job can set multiple properties.
+    To configure a **Property** job, select a property and set its new value. To configure a **Command** job, choose the command to run. A property job can set multiple properties.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="Screenshot that shows selections for creating a property job called Set Light Threshold":::
 
     Select **Save and exit** to add the job to the list of saved jobs on the **Jobs** page. You can later return to a job from the list of saved jobs.
 
-    Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Run** to submit the job.
+1. Select **Next** to move to the **Delivery Options** page. The **Delivery Options** page lets you set the delivery options for this job: **Batches** and **Cancellation threshold**.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Screenshot of job wizard review page":::
+    Batches let you stagger jobs for large numbers of devices. The job is divided into multiple batches and each batch contains a subset of the devices. The batches are queued and run in sequence.
+
+    The cancellation threshold lets you automatically cancel a job if the number of errors exceeds your set limit. The threshold can apply to all the devices in the job, or to individual batches.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Screenshot of job wizard delivery options page":::
+
+1. Select **Next** to move to the **Schedule** page. The **Schedule** page lets you enable a schedule to run the job in the future:
+
+    Choose a recurrence option for the schedule. You can set up a job to run:
+
+    * One-time
+    * Daily
+    * Weekly
+
+    Set a start date and time for a scheduled job. The date and time is specific to your time zone, and not to the device's local time.
+
+    To end a recurring schedule, choose:
+
+    * **On this day** to set an end date for the schedule.
+    * **After** to set the number of times to run the job.
+
+    Scheduled jobs always run on the devices in a device group, even if the device group membership changes over time.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule.png" alt-text="Screenshot of job wizard schedule options page":::
+
+1. Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Schedule** to schedule the job:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-review.png" alt-text="Screenshot of scheduled job wizard review page":::
+
+1. The job details page shows information about scheduled jobs. When the scheduled job executes, you see a list of the job instances. The scheduled job execution is also be part of the **Last 30-day** job list.
+
+    On this page, you can **Unschedule** the job or **Edit** the scheduled job. You can return to a scheduled job from the list of scheduled jobs.
+
+    :::image type="content" source="media/howto-run-a-job/job-schedule-details.png" alt-text="Screenshot of scheduled job details page":::
+
+1. In the job wizard, you can choose to not schedule a job, and run it immediately. The following screenshot shows a job without a schedule that's ready to run immediately. Select **Run** to run the job:
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-immediate.png" alt-text="Screenshot of job wizard review page":::
 
 1. A job goes through *pending*, *running*, and *completed* phases. The job execution details contain result metrics, duration details, and a device list grid.
 
@@ -46,7 +83,7 @@ The following example shows you how to create and run a job to set the light thr
 1. The job now appears in **Last 30 days** list on the **Jobs** page. This page shows currently running jobs and the history of any previously run or saved jobs.
 
     > [!NOTE]
-    > You can view up 30 days of history for your previously run jobs.
+    > You can view 30 days of history for your previously run jobs.
 
 ## Manage jobs
 
@@ -77,6 +114,7 @@ After a job is created, the **Status** column updates with the latest job status
 | Pending              | This job hasn't yet begun running on devices.         |
 | Running              | This job is currently running on devices.             |
 | Stopped              | A user has manually stopped this job.           |
+| Canceled             | This job was canceled because the threshold set on the **Delivery options** page was exceeded. |
 
 The status message is followed by an overview of the devices in the job. The following table lists the possible *device status* values:
 

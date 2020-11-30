@@ -1,6 +1,6 @@
 ---
-title: Deploy VMs on your Azure Stack Edge GPU device via Azure PowerShell
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge GPU device using Azure PowerShell.
+title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
+description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro GPU device using Azure PowerShell.
 services: databox
 author: alkohli
 
@@ -9,14 +9,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge GPU device via Azure PowerShell
+# Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge device using Azure PowerShell.
+This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell.
 
 ## VM deployment workflow
 
@@ -125,7 +125,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 A sample output is shown below.
 
@@ -190,7 +190,7 @@ If you are using *https*, then you need to install appropriate certificates on y
 
 Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to upload the VHD to the storage account that you created in earlier steps. 
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -442,11 +442,11 @@ The public IP in this case will be the same as the private IP that you passed du
 
 ## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 ### List VMs running on the device
 
-To return a list of all the VMs running on your Azure Stack Edge device, run the following command.
+To return a list of all the VMs running on your Azure Stack Edge Pro device, run the following command.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -499,7 +499,7 @@ For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](https://doc
 
 The VM size determines the amount of compute resources like CPU, GPU, and memory that are made available to the VM. Virtual machines should be created using a VM size appropriate for the workload. Even though all machines will be running on the same hardware, machine sizes have different limits for disk access, which can help you manage overall disk access across your VMs. If a workload increases, an existing virtual machine can also be resized.
 
-The following Standard Dv2 series VMs are supported for creation on Azure Stack Edge device.
+The following Standard Dv2 series VMs are supported for creation on Azure Stack Edge Pro device.
 
 ### Dv2-series
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
@@ -544,9 +544,9 @@ Extension, scale sets, availability sets, snapshots are not supported.
 
 ## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 
