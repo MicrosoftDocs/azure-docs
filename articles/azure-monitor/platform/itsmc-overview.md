@@ -142,7 +142,7 @@ Use the following procedure to create work items:
 
 7. Select a **Work Item** type.
 
-8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) in the **Template** list and enter the fixed values in the template fields.
+8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](#template-definitions) in the **Template** list and enter the fixed values in the template fields.
 
 9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. There will be one work item per configuration item. It will be updated according to the alerts that will be created.
 
@@ -327,4 +327,3 @@ If you have queries or feedback about the IT Service Management Connector, conta
 
 ## Next steps
 [Add ITSM products/services to IT Service Management Connector](./itsmc-connections.md)
-
