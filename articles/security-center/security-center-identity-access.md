@@ -47,7 +47,7 @@ There are some limitations to Security Center's identity and access protections:
 
 - Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
 - Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
-- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you may see inaccurate results in the **Manage access and permissions** control.
+- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
 
 ## Multi-factor authentication (MFA) and Azure Active Directory 
 

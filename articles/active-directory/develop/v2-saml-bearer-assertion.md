@@ -27,7 +27,7 @@ The OAuth SAML Bearer Assertion flow is only supported for users authenticating 
 ![OAuth flow](./media/v2-saml-bearer-assertion/1.png)
 
 ## Call Graph using SAML bearer assertion
-Now let us understand on how we can actually fetch SAML assertion programatically. This approach is tested with ADFS. However, this works with any identity provider that supports the return of SAML assertion programatically. The basic process is: get a SAML assertion, get an access token, and access Microsoft Graph.
+Now let us understand on how we can actually fetch SAML assertion programmatically. This approach is tested with ADFS. However, this works with any identity provider that supports the return of SAML assertion programmatically. The basic process is: get a SAML assertion, get an access token, and access Microsoft Graph.
 
 ### Prerequisites
 
