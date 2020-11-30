@@ -45,4 +45,4 @@ Verify this by following the steps below:
 1. Navigate to your key vault and to the **Access policies** section
 1. Verify that your Purview managed identity shows under the *Current access policies* section with **get** permissions on secrets at least
 
-If you don't see your Purview managed identity listed, then follow these [steps](manage-credentials.md#grant-the-purview-managed-identity-access-to-your-azure-Key-vault) to add it. 
+If you don't see your Purview managed identity listed, then follow these [steps](manage-credentials.md) to add it. 
