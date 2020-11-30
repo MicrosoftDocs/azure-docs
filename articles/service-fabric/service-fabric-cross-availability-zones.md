@@ -371,7 +371,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 * The third value is **vmssZonalUpgradeMode = Parallel**. This is a *mandatory* property to be configured in the cluster, if a nodeType with multiple AZs is added. This property defines the upgrade mode for the VMSS updates which will happen in parallel in all AZ’s at once.
       Right now this property can only be set to parallel.
 * The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
-* The cluster code version should be "7.2.444.9590" or higher.
+* The cluster code version should be "7.2.445" or higher.
 
 ```json
 {
