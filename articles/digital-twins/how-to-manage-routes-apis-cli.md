@@ -96,7 +96,7 @@ In order to create an endpoint with dead-lettering enabled, you must use the [AR
 Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
 `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
+To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md)
 
 To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-route-events.md#dead-letter-events).
 
