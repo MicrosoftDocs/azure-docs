@@ -163,7 +163,31 @@ module.exports = function(context) {
 
 # [PowerShell](#tab/powershell)
 
-TODO
+The following example demonstrates how to create a function that runs when a file is added to `source` blob storage container.
+
+The function configuration file (_function.json_) includes a binding with the `type` of `blobTrigger` and `direction` set to `in`.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
+}
+```
+
+Here's the associated code for the _run.ps1_ file.
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
+```
 
 # [Python](#tab/python)
 
