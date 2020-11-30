@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/25/2020
 ---
 
 # Azure Cosmos DB serverless (Preview)
@@ -28,8 +28,7 @@ When using Azure Cosmos DB, every database operation has a cost expressed in [Re
 
 Azure Cosmos DB serverless best fits scenarios where you expect:
 
-- **Light traffic**: Because provisioning capacity in such situations isn't required and may be cost-prohibitive
-- **Moderate burstability**: Because serverless containers can deliver up to 5,000 Request Units per second
+- **Low, intermittent and unpredictable traffic**: Because provisioning capacity in such situations isn't required and may be cost-prohibitive
 - **Moderate performance**: Because serverless containers have [specific performance characteristics](#performance)
 
 For these reasons, Azure Cosmos DB serverless should be considered for the following types of workload:
@@ -57,7 +56,6 @@ Any container that is created in a serverless account is a serverless container.
     - You can't pass any throughput when creating a serverless container and doing so returns an error.
     - You can't read or update the throughput on a serverless container and doing so returns an error.
     - You can't create a shared throughput database in a serverless account and doing so returns an error.
-- Serverless containers can deliver a maximum throughput burstability of 5,000 Request Units per second.
 - Serverless containers can store a maximum of 50 GB of data and indexes.
 
 ## Monitoring your consumption

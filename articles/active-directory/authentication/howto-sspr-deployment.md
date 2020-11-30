@@ -120,7 +120,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -322,7 +322,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 ### Troubleshoot
 
-* Refer to [Troubleshoot self-service password reset](./active-directory-passwords-troubleshoot.md) 
+* Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
 * Follow [Password management frequently asked questions](./active-directory-passwords-faq.md) 
 

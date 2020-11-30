@@ -130,7 +130,7 @@ In some cases, you may explicitly revoke access tokens. For example, when an app
 
 ```javascript  
 await identityClient.revokeTokens(identityResponse);
-console.log(`\nSuccessfully revoked all access tokens for identity with Id: ${identityResponse.communicationUserId}`);
+console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
 ## Delete an identity
@@ -139,7 +139,7 @@ Deleting an identity revokes all active access tokens and prevents you from issu
 
 ```javascript
 await identityClient.deleteUser(identityResponse);
-console.log(`\nDeleted the identity with Id: ${identityResponse.communicationUserId}`);
+console.log(`\nDeleted the identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
 ## Run the code

@@ -30,16 +30,16 @@ In this tutorial, you learn how to:
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
- - Register the *AKS-IngressApplicationGatewayAddon* feature flag using the [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command as shown in the following example; you'll only need to do this once per subscription while the add-on is still in preview:
+ - Register the *AKS-IngressApplicationGatewayAddon* feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command as shown in the following example; you'll only need to do this once per subscription while the add-on is still in preview:
      ```azurecli-interactive
      az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
      ```
-    It might take a few minutes for the status to show Registered. You can check on the registration status using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
+    It might take a few minutes for the status to show Registered. You can check on the registration status using the [az feature list](/cli/azure/feature#az-feature-register) command:
      ```azurecli-interactive
      az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
      ```
 
- - When ready, refresh the registration of the Microsoft.ContainerService resource provider using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:
+ - When ready, refresh the registration of the Microsoft.ContainerService resource provider using the [az provider register](/cli/azure/provider#az-provider-register) command:
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```
