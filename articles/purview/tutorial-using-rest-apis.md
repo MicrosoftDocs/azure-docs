@@ -85,7 +85,7 @@ To configure Azure Purview to trust your new service principal:
 
 1. Select "Add role assignment"
 
-1. For the Role type in "Azure Purview Data Curator Role"
+1. For the Role type in "Purview Data Curator Role"
 
 1. For "Assign access to" leave the default, "User, group, or service principal"
 
