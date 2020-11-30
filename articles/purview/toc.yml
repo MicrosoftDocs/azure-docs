@@ -47,8 +47,6 @@ items:
     href: concept-detect-deleted-assets.md
   - name: Understanding Resource sets
     href: concept-resource-sets.md
-  - name: Supported stores and classifications
-    href: supported-stores-and-classifications.md
   - name: Lineage
     href: concept-data-lineage.md
   - name: Supported data sources and file types
