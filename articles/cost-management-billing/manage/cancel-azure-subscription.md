@@ -68,7 +68,7 @@ If your subscription isn't a subscription with Pay-As-You-Go rates, contact supp
 
 ## Why don't I see the Cancel Subscription option on the Azure portal? 
 
-You may not have the permissions required to cancel a subscription. See [Who can cancel a subscription?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) for a description of who can cancel various types of subscriptions.
+You may not have the permissions required to cancel a subscription. See [Who can cancel a subscription?](#who-can-cancel-a-subscription) for a description of who can cancel various types of subscriptions.
 
 ## How do I delete my Azure Account?
 
@@ -80,7 +80,7 @@ You may not have the permissions required to cancel a subscription. See [Who can
 
 ## How do I cancel a Visual Studio Professional account?
 
-See the [Renewal and Cancellation](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation) article. If you have any Visual Studio Azure subscriptions, they need to be canceled and deleted as well.
+See the [Renewal and Cancellation](/visualstudio/subscriptions/faq/admin/renewal-cancellation) article. If you have any Visual Studio Azure subscriptions, they need to be canceled and deleted as well.
 
 ## Next steps
 

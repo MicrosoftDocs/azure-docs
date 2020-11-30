@@ -89,7 +89,7 @@ A one-time copy operation enables data movement from a source to a destination o
 This section explores common troubleshooting methods for Copy Wizard in Azure Data Factory.
 
 > [!NOTE] 
-> These troubleshooting tips apply to copy wizard in version 1 of Data Factory. For Data Factory v2, see troubleshooting guide at [Troubleshoot Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide).
+> These troubleshooting tips apply to copy wizard in version 1 of Data Factory. For Data Factory v2, see troubleshooting guide at [Troubleshoot Azure Data Factory](../data-factory-ux-troubleshoot-guide.md).
 
 ### Error code: Unable to validate in Copy Wizard
 
