@@ -64,4 +64,4 @@ When creating a Cloud Service (extended support) deployment using ARM templates,
 
 ## Next steps
 
-See [Frequently asked questions for Azure Cloud Services (extended support)](faq.md)
+See [Frequently asked questions about Azure Cloud Services (extended support)](faq.md)

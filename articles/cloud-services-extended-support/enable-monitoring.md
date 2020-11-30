@@ -27,4 +27,4 @@ This article explains how to enable monitoring on existing Cloud Service (extend
 6. When you have finished setting up the monitoring rules and alerts, save the changes and you will begin to see the **Alerts** and **Metrics** sections in your Cloud Services (extended support) blade to populate over time.
 
 ## Next steps
-See [Frequently asked questions related to Cloud Services (extended support)](faq.md)
+See [Frequently asked questions about Azure Cloud Services (extended support)](faq.md)
