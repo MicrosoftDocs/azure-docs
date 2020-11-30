@@ -51,7 +51,7 @@ Query languages used in Synapse SQL can have different supported features depend
 | **UPDATE statement** | Yes | No |
 | **DELETE statement** | Yes | No |
 | **MERGE statement** | No | No |
-| **[Transactions](develop-transactions.md)** | Yes | Yes, applicable ony on meta-data objects. |
+| **[Transactions](develop-transactions.md)** | Yes | Yes, applicable on meta-data objects. |
 | **[Labels](develop-label.md)** | Yes | No |
 | **Data load** | Yes. Preferred utility is [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement, but the system supports both BULK load (BCP) and [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for data loading. | No |
 | **Data export** | Yes. Using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). | Yes. Using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). |
