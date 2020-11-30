@@ -26,7 +26,7 @@ highlightedContent:
       url: ./fundamentals/whats-new.md
     - title: Build resilience into IAM with Azure AD
       itemType: overview
-      url: ./fundamentals/resilience-overview
+      url: ./fundamentals/resilience-overview.md
     - title: Assign roles to users
       itemType: how-to-guide
       url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
