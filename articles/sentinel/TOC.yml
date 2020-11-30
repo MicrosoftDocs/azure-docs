@@ -208,7 +208,7 @@
 - name: Reference (New!)
   items:
   - name: REST APIs
-    href: https://docs.microsoft.com/rest/api/securityinsights/
+    href: /rest/api/securityinsights/
   - name: Network normalization schema
     href: normalization-schema.md
 - name: Resources
@@ -218,7 +218,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
+    href: /archive/blogs/azuresecurity/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
@@ -226,4 +226,3 @@
   
 
     
-   

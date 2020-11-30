@@ -18,7 +18,7 @@ ms.author: allensu
 
 Azure Standard Load Balancer exposes the following diagnostic capabilities:
 
-* **Multi-dimensional metrics and alerts**: Provides multi-dimensional diagnostic capabilities through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
+* **Multi-dimensional metrics and alerts**: Provides multi-dimensional diagnostic capabilities through [Azure Monitor](../azure-monitor/overview.md) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
 
 * **Resource health**: The Resource Health status of your Load Balancer is available in the Resource Health page under Monitor. This automatic check informs you of the current availability of your Load Balancer resource.
 
@@ -65,7 +65,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account via the 'All Metrics' option only. 
 
 ### Configure alerts for multi-dimensional metrics ###
 
@@ -133,9 +133,9 @@ Use **Average** as the aggregation for most scenarios.
 #### How do I check my outbound connection statistics? 
 <details>
   <summary>Expand</summary>
-The SNAT connections metric describes the volume of successful and failed connections for [outbound flows](https://aka.ms/lboutbound).
+The SNAT connections metric describes the volume of successful and failed connections for [outbound flows](./load-balancer-outbound-connections.md).
 
-A failed connections volume of greater than zero indicates SNAT port exhaustion. You must investigate further to determine what may be causing these failures. SNAT port exhaustion manifests as a failure to establish an [outbound flow](https://aka.ms/lboutbound). Review the article about outbound connections to understand the scenarios and mechanisms at work, and to learn how to mitigate and design to avoid SNAT port exhaustion. 
+A failed connections volume of greater than zero indicates SNAT port exhaustion. You must investigate further to determine what may be causing these failures. SNAT port exhaustion manifests as a failure to establish an [outbound flow](./load-balancer-outbound-connections.md). Review the article about outbound connections to understand the scenarios and mechanisms at work, and to learn how to mitigate and design to avoid SNAT port exhaustion. 
 
 To get SNAT connection statistics:
 1. Select **SNAT Connections** metric type and **Sum** as aggregation. 
@@ -152,7 +152,7 @@ To get SNAT connection statistics:
   <summary>Expand</summary>
 The Used SNAT Ports metric tracks how many SNAT ports are being consumed to maintain outbound flows. This indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and does not have a public IP address. By comparing the number of SNAT ports you are using with the Allocated SNAT Ports metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
 
-If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
+If your metrics indicate risk of [outbound flow](./load-balancer-outbound-connections.md) failure, reference the article and take steps to mitigate this to ensure service health.
 
 To view SNAT port usage and allocation:
 1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
@@ -176,7 +176,7 @@ To view SNAT port usage and allocation:
 #### How do I check inbound/outbound connection attempts for my service?
 <details>
   <summary>Expand</summary>
-A SYN packets metric describes the volume of TCP SYN packets, which have arrived or were sent (for [outbound flows](https://aka.ms/lboutbound)) that are associated with a specific front end. You can use this metric to understand TCP connection attempts to your service.
+A SYN packets metric describes the volume of TCP SYN packets, which have arrived or were sent (for [outbound flows](./load-balancer-outbound-connections.md)) that are associated with a specific front end. You can use this metric to understand TCP connection attempts to your service.
 
 Use **Total** as the aggregation for most scenarios.
 
@@ -247,7 +247,7 @@ To view the health of your public Standard Load Balancer resources:
 
    *Figure: Load Balancer resource health view*
  
-Generic resource health status description are available in the [RHC documentation](https://docs.microsoft.com/azure/service-health/resource-health-overview). For specific statuses for the Azure Load Balancer are listed in the below table: 
+Generic resource health status description are available in the [RHC documentation](../service-health/resource-health-overview.md). For specific statuses for the Azure Load Balancer are listed in the below table: 
 
 | Resource health status | Description |
 | --- | --- |
@@ -258,7 +258,7 @@ Generic resource health status description are available in the [RHC documentati
 
 ## Next steps
 
-- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn more about your [Load balancer outbound connectivity](https://aka.ms/lboutbound).
-- Learn about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Learn about the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) and [how to retrieve metrics via REST API](/rest/api/monitor/metrics/list).
+- Learn more about [Standard Load Balancer](./load-balancer-overview.md).
+- Learn more about your [Load balancer outbound connectivity](./load-balancer-outbound-connections.md).
+- Learn about [Azure Monitor](../azure-monitor/overview.md).
+- Learn about the [Azure Monitor REST API](/rest/api/monitor/) and [how to retrieve metrics via REST API](/rest/api/monitor/metrics/list).

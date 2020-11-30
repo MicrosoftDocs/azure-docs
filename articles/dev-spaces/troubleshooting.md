@@ -453,7 +453,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### New pods aren't starting
 
-The Kubernetes initializer can't apply the PodSpec for new pods due to RBAC permission changes to the *cluster-admin* role in the cluster. The new pod may also have an invalid PodSpec, for example the service account associated with the pod no longer exists. To see the pods that are in a *Pending* state due to the initializer issue, use the `kubectl get pods` command:
+The Kubernetes initializer can't apply the PodSpec for new pods due to Kubernetes RBAC permission changes to the *cluster-admin* role in the cluster. The new pod may also have an invalid PodSpec, for example the service account associated with the pod no longer exists. To see the pods that are in a *Pending* state due to the initializer issue, use the `kubectl get pods` command:
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -482,7 +482,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 After your controller is reinstalled, redeploy your pods.
 
-### Incorrect RBAC permissions for calling Dev Spaces controller and APIs
+### Incorrect Azure RBAC permissions for calling Dev Spaces controller and APIs
 
 The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* Azure role for the controller. More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 

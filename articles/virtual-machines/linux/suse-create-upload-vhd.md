@@ -27,7 +27,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 
 As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
-## Prepare SUSE Linux Enterprise Server 11 SP4
+## Prepare SUSE Linux Enterprise Server for Azure
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 2. Click **Connect** to open the window for the virtual machine.
 3. Register your SUSE Linux Enterprise system to allow it to download updates and install packages.
@@ -36,57 +36,53 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     ```console
     # sudo zypper update
     ```
-
-1. Install the Azure Linux Agent from the SLES repository (SLE11-Public-Cloud-Module):
+    
+5. Install Azure Linux Agent and cloud-init
 
     ```console
+    # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
     # sudo zypper install python-azure-agent
+    # sudo zypper install cloud-init
     ```
 
-1. Check if waagent is set to "on" in chkconfig, and if not, enable it for autostart:
+6. Enable waagent & cloud-init to start on boot
 
     ```console
     # sudo chkconfig waagent on
+    # systemctl enable cloud-init-local.service
+    # systemctl enable cloud-init.service
+    # systemctl enable cloud-config.service
+    # systemctl enable cloud-final.service
+    # systemctl daemon-reload
+    # cloud-init clean
     ```
 
-7. Check if waagent service is running, and if not, start it: 
+7. Update waagent and cloud-init configuration
 
     ```console
-    # sudo service waagent start
+    # sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    # sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+
+    # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
+    # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
     ```
 
-8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
+8. Edit /etc/default/grub file to ensure console logs are sent to serial port and then update the main configuration file with grub2-mkconfig -o /boot/grub2/grub.cfg
 
     ```config-grub
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
-
     This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
-9. Confirm that /boot/grub/menu.lst and /etc/fstab both reference the disk using its UUID (by-uuid) instead of the disk ID (by-id). 
-   
-    Get disk UUID
-
-    ```console
-    # ls /dev/disk/by-uuid/
-    ```
-
-    If /dev/disk/by-id/ is used, update both /boot/grub/menu.lst and /etc/fstab with the proper by-uuid value
-   
-    Before change
-   
-    `root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1`
-   
-    After change
-   
-    `root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-
+    
+9. Ensure /etc/fstab file reference the disk using its UUID (by-uuid)
+         
 10. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
     ```console
     # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-
+   
 11. It is recommended to edit the file "/etc/sysconfig/network/dhcp" and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
 
     ```config
@@ -100,7 +96,8 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
 
-13. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
+13. Ensure that the SSH server is installed and configured to start at boot time. This is usually the default.
+
 14. Do not create swap space on the OS disk.
     
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:

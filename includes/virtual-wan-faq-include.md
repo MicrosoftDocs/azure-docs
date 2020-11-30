@@ -269,3 +269,7 @@ See the [Virtual WAN limits](../articles/azure-resource-manager/management/azure
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
 See [Basic and Standard Virtual WANs](../articles/virtual-wan/virtual-wan-about.md#basicstandard). For pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+
+### Does Virtual WAN store customer data? 
+
+No. Virtual WAN does not store any customer data.

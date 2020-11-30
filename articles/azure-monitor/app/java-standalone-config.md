@@ -340,7 +340,7 @@ Please configure specific options based on your needs.
       "enabled": true
     }
   },
-  "httpProxy": {
+  "proxy": {
   },
   "preview": {
     "processors": [
