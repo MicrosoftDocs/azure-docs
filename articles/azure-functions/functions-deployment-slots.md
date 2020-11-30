@@ -51,7 +51,7 @@ Keep in mind the following points:
 
 ## Manage settings
 
-Some configuration properties settings accessible to a slot are slot-specific. The following lists detail the settings that change when you swap slots.
+Some configuration settings are slot-specific. The following lists detail which settings change when you swap slots, and which remain the same.
 
 **Slot-specific settings**:
 
