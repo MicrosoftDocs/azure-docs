@@ -36,6 +36,25 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 ## November 2020
 
+### Azure Active Directory TLS 1.0, TLS 1.1 and 3DES Deprecation
+
+**Type:** Plan for change  
+**Service category:** All Azure AD applications  
+**Product capability:** Standards
+
+Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions by June 30, 2021:
+
+- TLS 1.0
+- TLS 1.1
+- 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
+
+Affected environments are:
+- Azure Commercial Cloud
+- Office 365 GCC and WW
+
+Related announcement 
+All client-server and browser-server combinations should use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365, and Microsoft 365 services. This is change is related to [Azure Active Directory TLS 1.0 & 1.1, and 3DES Cipher Suite Deprecation in US Gov Cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
+
 ### New Federated Apps available in Azure AD Application gallery - October 2020
 
 **Type:** New feature  
@@ -245,7 +264,7 @@ If you have an environment with firewall rules set to allow outbound calls to on
 ### Azure Active Directory TLS 1.0, TLS 1.1, and 3DES Deprecation in US Gov Cloud
 
 **Type:** Plan for change  
-**Service category:** N/A  
+**Service category:** All Azure AD applications  
 **Product capability:** Standards
  
 Azure Active Directory will deprecate the following protocols by March 31, 2021:
