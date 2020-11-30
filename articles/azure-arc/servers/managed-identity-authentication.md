@@ -2,7 +2,7 @@
 title: Authenticate against Azure resources with Arc enabled servers
 description: This article describes Azure Instance Metadata Service support for Arc enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/30/2020
 ---
 
 # Authenticate against Azure resources with Arc enabled servers
@@ -83,9 +83,11 @@ The following response is an example that is returned:
 For an Arc enabled Linux server, using Bash, you invoke the web request to get the token from the local host in the specific port. Specify the following request using the IP address or the environmental variable **IDENTITY_ENDPOINT**. To complete this step, you need an SSH client.
 
 ```bash
-ChallengeToken=$(curl -v 'http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com' -H Metadata:true | grep WWW-Authenticate)
-ResponseAccessToken=$(curl http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H "Authorization: Bearer $ChallengeToken")
-echo $ResponseAccessToken
+ChallengeToken=$(curl -s -D - -H Metadata:true "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | grep Www-Authenticate | cut -d '=' -f2)
+response=$(curl -s -D - -H Metadata:true -H "Authorization: Basic <ACCESS_TOKEN>" "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com" | grep Www-Authenticate | cut -d '=' -f2)
+if [$response -ne ""]
+  token = $(echo $response | jq .access_token)
+fi
 ```
 
 The response includes the access token you need to access any resource in Azure. To complete the configuration to authenticate to Azure Key Vault, see [Access Key Vault with Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#access-data) or [Access Key Vault with Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#access-data).
