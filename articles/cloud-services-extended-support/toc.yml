@@ -42,6 +42,8 @@
   items:
   - name: Enable Remote Desktop
     href: enable-rdp.md
+  - name: Enable Monitoring
+    href: enable-monitoring.md
   - name: Swap Cloud Service deployments
     href: cloud-services-swap.md
   - name: Update a Cloud Service

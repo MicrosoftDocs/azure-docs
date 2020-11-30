@@ -12,9 +12,10 @@ ms.custom:
 
 # Create a Cloud Service (extended support) using ARM Templates
 
-When creating a Cloud Service (extended support) deployment using ARM templates, the template and other artifacts (cscfg/ csdef/ cspkg) need to be kept in sync in order to have seemless deployments. 
+This tutorial explains how to create a Cloud Service (extended support) deployment using ARM templates. 
 
 ## Before you begin
+When creating a Cloud Service (extended support) deployment using ARM templates, the template and other artifacts (cscfg/ csdef/ cspkg) need to be kept in sync in order to have seemless deployments. Prior to deploying, review the below information related to the configuration requirements. 
 
 ### Package
 - Parameter name: `packageUrl`
@@ -62,3 +63,5 @@ When creating a Cloud Service (extended support) deployment using ARM templates,
     ```
 
 ## Next steps
+
+See [Frequently asked questions for Azure Cloud Services (extended support)](faq.md)
