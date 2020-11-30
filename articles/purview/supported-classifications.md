@@ -10,7 +10,7 @@ ms.date: 11/20/2020
 ## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
-# Classifications
+# Supported classifications in Azure Purview
 
 This article lists the supported and defined system classifications in Azure Purview (Preview).
 
