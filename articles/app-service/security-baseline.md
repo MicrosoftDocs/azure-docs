@@ -167,7 +167,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center monitoring**: Yes
 
@@ -204,7 +204,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](https://review.docs.microsoft.com/azure/app-service/environment/firewall-integrationEnvironment:)
+- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -220,7 +220,7 @@ Apply any of the built-in Azure Policy definitions related to tagging effects, s
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service Access Restrictions](/azure/app-service/app-service-ip-restriction)
+- [Azure App Service Access Restrictions](/azure/app-service/app-service-ip-restrictions)
 
 **Azure Security Center monitoring**: Not applicable
 

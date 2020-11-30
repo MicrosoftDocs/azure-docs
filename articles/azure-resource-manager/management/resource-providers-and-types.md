@@ -2,7 +2,7 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 11/09/2020 
+ms.date: 11/30/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -30,6 +30,9 @@ For a list that maps resource providers to Azure services, see [Resource provide
 Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. Other resource providers are registered automatically when you take certain actions. For example, when you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider.
 
 This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
+
+> [!IMPORTANT]
+> Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
 
 Your application code shouldn't block the creation of resources for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
 

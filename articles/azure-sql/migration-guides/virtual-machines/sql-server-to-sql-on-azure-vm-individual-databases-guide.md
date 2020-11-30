@@ -33,8 +33,8 @@ For information about additional migration strategies, see the [SQL Server VM mi
 Migrating to SQL Server on Azure VMs requires the following: 
 
 - [Database Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
-- An [Azure Migrate project](/azure/migrate/create-manage-projects).
-- A prepared target [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) that is the same or greater version than the source SQL Server.
+- An [Azure Migrate project](../../../migrate/create-manage-projects.md).
+- A prepared target [SQL Server on Azure VM](../../virtual-machines/windows/create-sql-vm-portal.md) that is the same or greater version than the source SQL Server.
 - [Connectivity between Azure and on-premises](/azure/architecture/reference-architectures/hybrid-networking).
 - [Choosing an appropriate migration strategy](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate).
 
@@ -152,8 +152,8 @@ The following table provides a list components and recommended migration methods
 || User databases with Filestream |  Use the [Backup and restore](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) methods for migration. DMA does not support databases with Filestream. |
 | **Security** | SQL Server and Windows Logins | Use DMA to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
 || SQL Server roles | Script with SQL Server Management Studio |
-|| Cryptographic providers | Recommend [converting to use Azure Key Vault Service](../../virtual-machines/windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Server objects** | Backup devices | Replace with database backup using [Azure Backup Service](../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Cryptographic providers | Recommend [converting to use Azure Key Vault Service](../../virtual-machines/windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md). |
+| **Server objects** | Backup devices | Replace with database backup using [Azure Backup Service](../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).|
 || Linked Servers | Script with SQL Server Management Studio. |
 || Server Triggers | Script with SQL Server Management Studio. |
 | **Replication** | Local Publications | Script with SQL Server Management Studio. |
