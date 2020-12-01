@@ -52,7 +52,8 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
   * Perform **get**, **wrap**, **unwrap** operations
   * recoverylevel attribute set to **Recoverable**.
 
-You can verify the above attributes of the key by using the following command
+You can verify the above attributes of the key by using the following command:
+
 ```azurecli-interactive
 az keyvault key show --vault-name <key_vault_name> -n <key_name>
 ```
