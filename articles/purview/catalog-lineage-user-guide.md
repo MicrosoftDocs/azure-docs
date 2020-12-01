@@ -25,7 +25,7 @@ Data integration and ETL tools can push lineage in to Azure Purview at execution
 
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
-| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#Data-Factory-Copy-Data-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#Data-Factory-Data-Flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#Data-Factory-Execute-SSIS-Package-support) |
+| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#data-factory-copy-data-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
