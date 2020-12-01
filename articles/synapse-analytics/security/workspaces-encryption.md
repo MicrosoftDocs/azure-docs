@@ -9,10 +9,10 @@ ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
 ---
-# Encryption for Azure Synapse Analytics (workspaces preview)
+# Encryption for Azure Synapse Analytics workspaces
 
 This article will describe:
-* Encryption of data at rest in Azure Synapse Analytics workspaces.
+* Encryption of data at rest in Synapse Analytics workspaces.
 * Configuration of Synapse workspaces to enable encryption with a customer managed key.
 * Managing keys used to encrypt data in workspaces.
 

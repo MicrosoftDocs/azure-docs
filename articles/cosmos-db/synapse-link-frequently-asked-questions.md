@@ -69,7 +69,7 @@ Yes, deletes and updates to the data in the transactional store will be reflecte
 You can only access and run queries against the analytical store using the various run-times provided by Azure Synapse Analytics. The analytical store can be queried and analyzed using:
 
 * Synapse Spark with full support for Scala, Python, SparkSQL, and C#. Synapse Spark is central to data engineering and science scenarios
-* SQL serverless with T-SQL language and support for familiar BI tools (For example, Power BI Premium, etc.)
+* Serverless SQL pool with T-SQL language and support for familiar BI tools (For example, Power BI Premium, etc.)
 
 ### Can I connect to analytical store from Synapse SQL provisioned?
 
@@ -132,10 +132,10 @@ Authentication with the analytical store is the same as a transactional store. F
 |Azure Synapse runtime |Current support |
 |---------|---------|
 |Azure Synapse Spark pools | Read, Write (through transactional store), Table, Temporary View |
-|Azure Synapse SQL Serverless pools    | Read, View |
+|Azure Synapse serverless SQL pool    | Read, View |
 |Azure Synapse SQL Provisioned   |  Not available |
 
-### Do my Azure Synapse Spark tables sync with my Azure Synapse SQL serverless tables the same way they do with Azure Data Lake?
+### Do my Azure Synapse Spark tables sync with my Azure Synapse serverless SQL pool tables the same way they do with Azure Data Lake?
 
 Currently, this feature is not available.
 

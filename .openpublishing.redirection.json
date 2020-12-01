@@ -19813,6 +19813,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/release-notes.md",
+      "redirect_url": "/azure/synapse-analytics/overview-what-is",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
       "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
       "redirect_document_id": false
@@ -48421,8 +48426,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "source_path": "articles/synapse-analytics/sql-date-warehouse/index.yml",
+      "redirect_url": "/azure/synapse-analytics/",
       "redirect_document_id": false
     },
     {
