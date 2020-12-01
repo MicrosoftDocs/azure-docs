@@ -1,6 +1,6 @@
 ---
 title: Understand the roles required to perform common tasks in Synapse
-description: An article that explains which Synapse RBAC role(s) are required to do specific tasks
+description: This article describes which built-in Synapse RBAC role(s) are required to accomplish specific tasks
 author: billgib
 ms.service: synapse-analytics 
 ms.topic: access control
@@ -15,14 +15,14 @@ This article will help you understand which Synapse RBAC (role-based access cont
 
 ## Synapse Studio access control and workflow summary 
 
-### Accessing Synapse Studio and listing its content
+### Accessing Synapse Studio and viewing its content
 
-- You can open Synapse Studio and view details of the workspace and list any of its Azure resources (SQL pools, Spark pools, or Integration runtimes) if you've been assigned any Synapse RBAC role or are an Azure Owner, Contributor, or Reader.
+- You can open Synapse Studio and view details of the workspace and list any of its Azure resources (SQL pools, Spark pools, or Integration runtimes) if you've been assigned any Synapse RBAC role or have the Azure Owner, Contributor, or Reader role on the workspace.
 
 ### Resource management
 
-- You can create SQL pools, Apache Spark pools, Integration runtimes if you're an Azure Owner or Contributor on the workspace.
-- You can pause or scale dedicated SQL pools, configure Spark pools or integration runtimes if you're an Azure Owner or Contributor on the workspace or a specific resource.
+- You can create SQL pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace.
+- You can pause or scale a dedicated SQL pool, configure a Spark pool or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
 
 ### Viewing and editing code artifacts
 

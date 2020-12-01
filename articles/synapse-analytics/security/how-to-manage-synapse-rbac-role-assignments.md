@@ -1,6 +1,6 @@
 ---
 title: How to manage Synapse RBAC assignments in Synapse Studio
-description: An article that describes how to assign and revoke Synapse RBAC roles to AAD security principals
+description: This article describes how to assign and revoke Synapse RBAC roles to AAD security principals
 author: billgib
 ms.service: synapse-analytics 
 ms.topic: how-to
@@ -22,7 +22,8 @@ This article shows how to add and delete Synapse RBAC role assignments.
 >- Access to SQL pools is managed using SQL permissions.  With the exception of the Synapse Administrator and Synapse SQL Administrator roles, Synapse RBAC roles do not grant access to SQL pools.
 
 >[!important]
->Changes made to Synapse RBAC role assignments may take 2-5 minutes to take effect.  
+>- Changes made to Synapse RBAC role assignments may take 2-5 minutes to take effect. 
+>- If you are managing Synapse RBAC permissions by modifying membership of security groups, then changes to membership are managed using Azure Active Directory.  Changes to group membership may take several minutes to take effect.
 
 ## Open Synapse Studio  
 
@@ -35,9 +36,6 @@ To assign a role to a user, group, service principal, or managed identity, first
  ![Select Access Control in Security section on left](./media/how-to-manage-synapse-rbac-role-assignments/left-nav-security-access-control.png)
 
 The Access control screen lists current role assignments.  You can filter the list by principal name or email, and  selectively filter the object types, roles, or scopes included. From this screen, you can add or remove role assignments.  
-
->[!Note]
->It can take a few minutes for role assignment changes to be available in Synapse Studio.
 
 ## Add a Synapse role assignment
 
@@ -67,11 +65,13 @@ Select the specific **item** to be used as the scope, then select the **role** t
  
 Then **select the principal(s)** to which the role is to be assigned.  You can iteratively select multiple principals.  Select **Apply** to create the role assignment(s).
 
-## Delete a Synapse RBAC role assignment
+## Remove a Synapse RBAC role assignment
 
-To revoke Synapse RBAC access, you remove the applicable role assignments.  On the Access control screen, use the filters to locate the role assignment(s) to be removed.  Check the role assignments and then select **Remove access**.   
+To revoke Synapse RBAC access, you remove the appropriate role assignments.  On the Access control screen, use the filters to locate the role assignment(s) to be removed.  Check the role assignments and then select **Remove access**.   
 
 ![Delete a role assignment to remove access](./media/how-to-manage-synapse-rbac-role-assignments/access-control-remove-access.png)
+
+Remember that changes to role assignments will take 2-5 minutes to take effect.   
 
 ## Next steps
 

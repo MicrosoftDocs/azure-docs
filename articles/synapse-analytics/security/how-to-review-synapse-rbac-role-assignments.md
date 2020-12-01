@@ -1,6 +1,6 @@
 ---
 title: How to assign a Synapse RBAC role in Synapse Studio
-description: An article that describes how to assign Synapse RBAC roles to AAD security principals
+description: This article describes how to assign Synapse RBAC roles to security principals
 author: billgib
 ms.service: synapse-analytics 
 ms.topic: access control
@@ -32,7 +32,7 @@ To review role assignments, first [open the Synapse Studio](https://web.azuresyn
 
 The Access control screen lists all current role assignments for the workspace, grouped by role. Each assignment includes the principal name, principal type, role, and its scope.
 
-![Access Control screen](./media/how-to-manage-synapse-rbac-role-assignments/access-control-assignments.png)
+![Access Control screen](./media/how-to-review-synapse-rbac-role-assignments/access-control-assignments.png)
 
 If a principal is assigned the same role at different scopes, you'll see multiple assignments for the principal, one for each scope.  
 

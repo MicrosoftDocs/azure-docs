@@ -11,10 +11,9 @@ ms.reviewer: jrasnick
 ---
 # What is Synapse role-based access control (RBAC)?
 
-Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and the Azure resources it contains, comprising:
-- SQL pools,
-- Apache Spark pools,
-- Integration runtimes.
+Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content. 
+
+Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and its SQL pools, Apache Spark pools, and Integration runtimes.
 
 Synapse RBAC is used to manage who can:
 - Publish code artifacts and list or access published code artifacts, 
@@ -23,7 +22,7 @@ Synapse RBAC is used to manage who can:
 - Monitor or cancel job execution, review job output, and execution logs.  
 
 >[!Note]
->While Synapse RBAC is used to manage access to published SQL scripts, Synapse RBAC is _not_ used to control access to dedicated SQL pools or allow execution of SQL scripts in dedicated SQL Pools, which is managed using SQL security.
+>While Synapse RBAC is used to manage access to published SQL scripts, it provides only limited access control to serverless SQL pools and is _not_ used to control access to dedicated SQL pools.  Access to SQL pools is primarily controlled using SQL security.
 
 ## What can I do with Synapse RBAC?
 
@@ -72,11 +71,11 @@ Synapse RBAC is an additive model like Azure RBAC. Multiple roles may be assigne
 
 In Synapse Studio, specific buttons or options may be grayed out or a permissions error may be returned when attempting an action if you don't have the required permissions. 
 
-If a button or option is disabled, hovering over the button or option shows a tooltip with the required permission.  Contact a Synapse Administrator to assign a role that grants the required permission. You can see the roles that provide specific actions [here](https://go.microsoft.com/fwlink/?linkid=2148305).
+If a button or option is disabled, hovering over the button or option shows a tooltip with the required permission.  Contact a Synapse Administrator to assign a role that grants the required permission. You can see the roles that provide specific actions [here](./synapse-workspace-synapse-rbac-roles.md).
 
 ## Who can assign Synapse RBAC roles?
 
-Only a Synapse Administrator is able to assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope, while a Synapse Administrator at a lower-level scope can only grant access at that scope. 
+Only a Synapse Administrator can assign Synapse RBAC roles.  A Synapse Administrator at the workspace level can grant access at any scope.  A Synapse Administrator at a lower-level scope can only grant access at that scope. 
 
 When a new workspace is created, the creator is automatically given the Synapse Administrator role at workspace scope.   
 
