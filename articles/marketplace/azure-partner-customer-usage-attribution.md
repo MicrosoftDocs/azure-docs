@@ -27,7 +27,7 @@ Customer usage attribution supports three deployment options:
 >
 >- Customer usage attribution is for new deployments and does NOT support tagging existing resources that have already been deployed.
 >
->- Customer usage attribution is required for [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offers published to Azure Marketplace.
+>- Customer usage attribution is required for [Azure Application](./create-new-azure-apps-offer.md) offers published to Azure Marketplace.
 >
 >- Not all Azure services are compatible with customer usage attribution. Azure Kubernetes Services (AKS) and VM Scale Sets have known issues today that cause under-reporting of usage.
 
@@ -59,7 +59,7 @@ The GUIDs must be registered in Partner Center to enable customer usage attribut
 After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
 
 > [!NOTE]
-> If you are publishing your [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offer to Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
+> If you are publishing your [Azure Application](./create-new-azure-apps-offer.md) offer to Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
@@ -85,7 +85,7 @@ Many partner solutions are deployed using Azure Resource Manager templates. If y
 > [!NOTE]
 > For more information on creating and publishing Solution Templates, see
 > * [Create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
->* [Azure Application offer](./partner-center-portal/create-new-azure-apps-offer.md).
+>* [Azure Application offer](./create-new-azure-apps-offer.md).
 >* Video: [Building Solution Templates, and Managed Applications for Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

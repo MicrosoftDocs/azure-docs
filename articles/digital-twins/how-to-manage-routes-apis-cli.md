@@ -91,19 +91,32 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint. 
-
-Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
-`https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
-
-To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
-
 To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-route-events.md#dead-letter-events).
 
-#### Configuring the endpoint
+#### Set up storage resources
 
-When creating an endpoint, add a `deadLetterSecret` to the `properties` object in the body of the request, which contains a container URL and SAS token for your storage account.
+Before setting the dead-letter location, you must have a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a [container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) set up in your Azure account. You'll provide the URL for this container when creating the endpoint later.
+The dead-letter is provided as a container URL with a [SAS token](../storage/common/storage-sas-overview.md). That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
+`https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
+Follow the steps below to set up these storage resources in your Azure account, to prepare to set up the endpoint connection in the next section.
+
+1. Follow [this article](../storage/common/storage-account-create.md?tabs=azure-portal) to create a storage account and save the storage account name to use it later.
+2. Create a container using [this article](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and save the container name to use it later, when setting up the connection between the container and the endpoint.
+3. Next, create a SAS token for your storage account. Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
+4. In the storage account page, choose _Shared access signature_ link in the left navigation bar to select the right permissions to generate SAS token.
+5. For _Allowed services_ and _Allowed resource types_, select the settings that you'd like. You'll need to select at least one box in each category. For Allowed permissions, choose **Write** (you can also select other permissions if you want).
+Set the remaining settings however you'd like.
+6. Then, select the _Generate SAS and connection string_ button to generate the SAS token. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values and use the copy to clipboard icon to copy the **SAS token** value. Save it to use later.
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token.png" alt-text="Storage account page in the Azure portal showing all the setting selection to generate a SAS token." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token.png":::
+
+:::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copy SAS token to use in the dead-letter secret." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+
+#### Configure the endpoint
+
+Dead-letter endpoints are created using Azure Resource Manager APIs. When creating an endpoint, use the [Azure Resource Manager APIs documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to fill the required request parameters. Also, add the `deadLetterSecret` to the properties object in the **body** of the request, which contains a container URL and SAS token for your storage account.
+      
 ```json
 {
   "properties": {
@@ -115,8 +128,7 @@ When creating an endpoint, add a `deadLetterSecret` to the `properties` object i
   }
 }
 ```
-
-For more information, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+For more information on structuring this request, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### Message storage schema
 
@@ -185,7 +197,7 @@ One route should allow multiple notifications and event types to be selected.
 ```csharp
 string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
 var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
-await CreateOrReplaceEventRouteAsync(client, "routeName", er);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
     
 > [!TIP]

@@ -192,8 +192,16 @@
         href: application-proxy-remove-personal-data.md
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
-      - name: Secure legacy apps with app delivery controllers or networks
-        href: secure-hybrid-access.md
+      - name: Secure legacy apps 
+        items:
+        - name: Secure hybrid access with Azure AD 
+          href: secure-hybrid-access.md
+        - name: F5 and Azure AD integration
+          href: f5-aad-integration.md
+        - name: F5 BIG-IP VE deployment in Azure IaaS
+          href: f5-bigip-deployment-guide.md
+        - name: F5 Big-IP with Azure AD for passwordless VPN
+          href: f5-aad-password-less-vpn.md
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Application Proxy on an NDES server
@@ -263,7 +271,7 @@
         - name: Configure Kerberos Constrained Delegation
           href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
         - name: Configure with PingAccess
-          href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
+          href: ./application-proxy-ping-access-publishing-guide.md
         - name: Can't Access this Corporate Application error
           href: application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector

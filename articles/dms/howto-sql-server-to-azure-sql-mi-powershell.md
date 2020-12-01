@@ -75,7 +75,7 @@ This cmdlet expects the following required parameters:
 * *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service.
 * *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia.
 * *Sku*. This parameter corresponds to DMS Sku name. Currently supported Sku names are *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*.
-* *Virtual Subnet Identifier*. You can use the cmdlet [`New-AzVirtualNetworkSubnetConfig`](//powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet.
+* *Virtual Subnet Identifier*. You can use the cmdlet [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet.
 
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup* located in the *East US* region using a virtual network named *MyVNET* and a subnet named *MySubnet*.
 
