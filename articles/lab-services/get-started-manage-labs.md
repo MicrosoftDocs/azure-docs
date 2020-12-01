@@ -43,7 +43,7 @@ The most important thing to remember when managing the VMs is that anytime a mac
 
 ### Overview
 
-Dashboards for classroom labs in Azure Lab Services provide a snapshot of different aspects of a particular lab including, VM information, number of assigned and unassigned VMs, number of registered and unregistered users and information about lab schedules. 
+Dashboards for labs in Azure Lab Services provide a snapshot of different aspects of a particular lab including, VM information, number of assigned and unassigned VMs, number of registered and unregistered users and information about lab schedules. 
 
 > [!NOTE]
 > While most administrative aspects of the dashboard and the [Azure Lab Services website](https://labs.azure.com/) will be visible to teachers, permissions specific to your role may impact your ability to modify certain criteria in the dashboard. If you encounter an issue with your particular lab set-up, reach out to your CTE administrator.
