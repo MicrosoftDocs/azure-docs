@@ -10,19 +10,12 @@ ms.topic: article
 ms.date: 12/01/2020
 ms.author: alkohli
 ---
+
 # Use the local web UI to administer your Data Box and Data Box Heavy
 
 This article describes some of the configuration and management tasks performed on Data Box and Data Box Heavy devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses on tasks performed using the local web UI.
 
 The local m UI for the Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
-
-This article includes the following tutorials:
-
-- Generate a Support package
-- Shut down or restart your device
-- Download bill of material (BOM) or manifest files
-- View available capacity of the device
-- Skip checksum validation
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
@@ -34,11 +27,11 @@ If you experience any device issues, you can create a Support package from the s
 
     A memory dump is the contents of your device's memory, saved after a system failure.
 
-    You shouldn't include a memory dump unless Support asks for one. Uploading the data is slow, and sensitive data is included. The data will be deleted from the Azure storage account after 30 days.<!--Has a 30-day delete policy been implemented or is this in discussion?-->
+    You shouldn't include a memory dump unless Support asks for one. It takes a long time to gather a support package that includes a memory dump, and sensitive data is included. The data will be deleted from the Azure storage account after 30 days.<!--Has a 30-day delete policy been implemented or is this in discussion?-->
 
     ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. A Support package is gathered. This operation takes a few minutes.<!--Longer time estimate if a memory dump is included?-->
+2. A Support package is gathered. This operation takes a few minutes if you only include system logs. If you include a memory dump, it takes a lot longer.
 
     ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
