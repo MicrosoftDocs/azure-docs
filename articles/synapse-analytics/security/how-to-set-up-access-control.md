@@ -248,35 +248,13 @@ REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
 DROP USER [<workspacename>];
 ```
 
-
 ## STEP 8: Add users to security groups
 
 The initial configuration for your access control system is complete.
 
 To manage access, you can add and remove users to the security groups you've set up.  Although you can manually assign users to Synapse roles, if you do, it won't configure their permissions consistently. Instead, only add or remove users to the security groups.
 
-## STEP 9: Verify access for users in the groups
-
-Users in each security group should complete the following steps to validate they have the required permissions:
-
-| Number | Step | **`workspace1_Synapse Administrators`** | **`workspace1_Synapse Contributors`** | **`workspace1_Synapse Compute Operators`** |
-| --- | --- | --- | --- | --- |
-| 1 | Upload a parquet file into `container1` | YES | YES | YES |
-| 2 | Read the parquet file using a serverless SQL pool | YES | NO | YES |
-| 3 | Create a Spark pool | YES [1] | YES [1] | NO  |
-| 4 | Reads the parquet file with a Notebook | YES | YES | NO |
-| 5 | Create a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
-| 6 | Create a SQL pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
-
-> [!NOTE]
-> [1] To create SQL or Spark pools the user must have at least Azure Contributor role on the Synapse workspace.
->
- 
->[!TIP]
-> - Some steps will deliberately not be allowed depending on the role.
-> - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
-
-## STEP 8: Network Security
+## STEP 9: Network Security
 
 As a final step to secure your workspace, you should secure network access, using:
 - [Workspace firewall](./synapse-workspace-ip-firewall.md)
@@ -284,7 +262,7 @@ As a final step to secure your workspace, you should secure network access, usin
 - [Private endpoints](./synapse-workspace-managed-private-endpoints.md)
 - [Private Link](../../azure-sql/database/private-endpoint-overview.md)
 
-## STEP 9: Completion
+## STEP 10: Completion
 
 Your workspace is now fully configured and secured.
 
