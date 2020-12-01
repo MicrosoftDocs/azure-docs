@@ -11,6 +11,11 @@ ms.date: 11/30/2020
 
 # Tutorial: Browse assets in Azure Purview (preview) and view their lineage
 
+> [!IMPORTANT]
+> Azure Purview is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This tutorial shows you how to browse assets in Azure Purview and view their important details, such as lineage.
 
 This tutorial is *part 3 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 2: Navigate the Azure Purview (preview) home page and search for an asset](starter-kit-tutorial-2.md).

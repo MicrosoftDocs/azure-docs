@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Scan data with Azure Purview (Preview)'
+title: 'Tutorial: Scan data with Azure Purview (preview)'
 description: In this tutorial, you run a starter kit to set up a data estate, and then scan data from data sources into your Azure Purview catalog. 
 author: viseshag
 ms.author: viseshag
@@ -9,8 +9,12 @@ ms.topic: tutorial
 ms.date: 11/24/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
-
 # Tutorial: Scan data with Azure Purview (Preview)
+
+> [!IMPORTANT]
+> Azure Purview is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this *six-part tutorial series*, you'll learn the fundamentals of how to manage data governance across a data estate using Azure Purview (Preview). The data estate you create in this part of the tutorial is used for the rest of the series.
 
@@ -92,7 +96,7 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
 
 ### Verify permissions
 
-Follow these steps to add the user running the script to the Azure Purview account that was created as a prerequisite. Users need both *Azure Purview Data Curator* and *Azure Purview Data Source Administrator* roles. 
+Follow these steps to add the user running the script to the Azure Purview account that was created as a prerequisite. Users need both *Purview Data Curator* and *Purview Data Source Administrator* roles. 
 
 If you created the Azure Purview account yourself, you're automatically given access and can skip this section.
 
@@ -102,7 +106,7 @@ If you created the Azure Purview account yourself, you're automatically given ac
 
 1. Select **Add role assignment**.
 
-1. Enter **Azure Purview Data Curator Role** for the *Role*.
+1. Enter **Purview Data Curator Role** for the *Role*.
  
 1. Use the default value for *Assign access to*. The default value should be **User, group, or service principal**.
 
@@ -110,7 +114,7 @@ If you created the Azure Purview account yourself, you're automatically given ac
 
 1. Select **Save**.
 
-1. Repeat the previous steps with the *Role* set to **Azure Purview Data Source Administrator Role**.
+1. Repeat the previous steps with the *Role* set to **Purview Data Source Administrator Role**.
 
 For more information, see [Catalog Permissions](catalog-permissions.md).
 
@@ -143,7 +147,7 @@ After the catalog configuration is complete, run the following scripts in the Po
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`
-   -ResourceGroup <NewResourceGroupName>
+   -ResourceGroup <NewResourceGroupName> `
    -SubscriptionId <SubscriptionID> `
    -CatalogResourceGroup <CatalogResourceGroupName>
    ```
