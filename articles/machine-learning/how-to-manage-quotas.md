@@ -51,7 +51,7 @@ In this section, you learn about the default and maximum quota limits for the fo
 > Limits are subject to change. For the latest information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) for all of Azure.
 
 ### Azure Machine Learning assets
-The following limits on assets and job runtime apply on a per-workspace basis. 
+The following limits on assets apply on a per-workspace basis. 
 
 | **Resource** | **Maximum limit** |
 | --- | --- |
@@ -59,7 +59,8 @@ The following limits on assets and job runtime apply on a per-workspace basis.
 | Runs | 10 million |
 | Models | 10 million|
 | Artifacts | 10 million |
-| Runtime | 30 days |
+
+In addition, the maximum **run time** is 30 days and the maximum number of **metrics logged per run** is 1 million.
 
 #### Azure Machine Learning compute
 [Azure Machine Learning compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores and the number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section.
