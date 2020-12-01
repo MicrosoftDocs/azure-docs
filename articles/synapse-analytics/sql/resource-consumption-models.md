@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Synapse SQL resource consumption
 
-This article describes resource consumption models of Synapse SQL (preview).
+This article describes resource consumption models of Synapse SQL.
 
 ## Serverless SQL pool
 
