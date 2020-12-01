@@ -26,7 +26,7 @@ This diagram highlights the pieces that make up the [Custom Speech portal](https
 
 1. [Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and subscribe to the Speech service. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the [Custom Speech portal](https://speech.microsoft.com/customspeech). Then, using your Speech service subscription, create your first Custom Speech project.
 
-1. [Upload test data](how-to-custom-speech-test-data.md) - Upload test data (audio files) to evaluate Microsoft's speech-to-text offering for your applications, tools, and products.
+1. [Upload test data](./how-to-custom-speech-test-and-train.md) - Upload test data (audio files) to evaluate Microsoft's speech-to-text offering for your applications, tools, and products.
 
 1. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Inspect data](how-to-custom-speech-inspect-data.md).
 
@@ -96,7 +96,7 @@ Note that you can upgrade the model on a custom speech endpoint without downtime
 
 ## Next steps
 
-* [Prepare and test your data](how-to-custom-speech-test-data.md)
+* [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate and improve model accuracy](how-to-custom-speech-evaluate-data.md)
 * [Train and deploy a model](how-to-custom-speech-train-model.md)
