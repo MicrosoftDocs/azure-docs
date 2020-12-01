@@ -23,7 +23,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 |----|:----|
 |Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Generally available (GA) |
 |Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
-|Protected SQL versions:|SQL on Azure virtual machines - [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Arc enabled SQL servers](https://docs.microsoft.com/sql/sql-server/azure-arc/overview) (includes on-premises SQL servers)<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
+|Protected SQL versions:|[SQL on Azure virtual machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc enabled SQL servers](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)<br>On-premises SQL servers on Windows machines without Azure Arc<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
 
@@ -38,7 +38,10 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 
 - **Azure Defender for SQL servers on machines** extends the protections for your Azure-native SQL Servers to fully support hybrid environments and protect SQL servers (all supported version) hosted in Azure, other cloud environments, and even on-premises machines:
     - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
-    - [Azure Arc enabled SQL Server (preview)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+    - On-premises SQL servers:
+        - [Azure Arc enabled SQL Server (preview)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/platform/agent-windows.md).
+
 
 
 ## What are the benefits of Azure Defender for SQL?
@@ -66,8 +69,10 @@ Alerts include details of the incident that triggered them, as well as recommend
 
 In this article, you learned about Azure Defender for SQL.
 
+> [!div class="nextstepaction"]
+> [Scan your SQL servers for vulnerabilities with Azure Defender](defender-for-sql-usage.md)
+
 For related material, see the following articles: 
 
-- [How to enable Azure Defender for SQL servers on machines](defender-for-sql-usage.md)
 - [How to enable Azure Defender for SQL database servers](../azure-sql/database/azure-defender-for-sql.md)
-- [The list of Azure Defender alerts for SQL](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [The list of security alerts for SQL servers](alerts-reference.md#alerts-sql-db-and-warehouse)
