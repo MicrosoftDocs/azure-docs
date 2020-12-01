@@ -15,11 +15,9 @@ ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-au
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: Use the Text Analytics client library
+# Quickstart: Use the Text Analytics client library and REST API
 
-Use this article to get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for mining text.
-
-Use the Text Analytics client library to perform:
+Use this article to get started with the Text Analytics client library and REST API. Follow these steps to try out examples code for mining text:
 
 * Sentiment analysis
 * Language detection
@@ -77,6 +75,10 @@ If you want to use Text Analytics for health or Asynchronous operations, see the
 ::: zone-end
 
 ::: zone pivot="rest-api"
+
+> [!IMPORTANT]
+> * The latest stable version of the Text Analytics API is `3.0`.
+>    * Be sure to only follow the instructions for the version you are using.
 
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
