@@ -34,9 +34,9 @@ Use alert commenting to improve:
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-comment-screen.png" alt-text="Alert comments":::
 
-The list of available options appears in each Alert. Users can select one or several messages.
+The list of available options appears in each alert. Users can select one or several messages.
 
-**To add alert comments:**
+To add alert comments:
 
 1. On the side menu, select **System Settings**.
 
@@ -48,7 +48,7 @@ The list of available options appears in each Alert. Users can select one or sev
 
 ## Accelerate incident workflow with alert grouping
 
-*Alert groups* let SOC teams view and filter alerts in their SIEM solutions and manage them based on enterprise security policies and business priorities. For example, alerts regarding new detections are organized in a **Discovery** group. This group includes alerts that deal with new devices detected, new VLANs detected, new user accounts, new MAC addresses detected and more.
+Alert groups let SOC teams view and filter alerts in their SIEM solutions and manage them based on enterprise security policies and business priorities. For example, alerts regarding new detections are organized in a discovery group. This group includes alerts that deal with new devices detected, new VLANs detected, new user accounts, new MAC addresses detected and more.
 
 Alert grouping is applied when Forwarding Rules are created for the following partner solutions:
 
@@ -60,7 +60,7 @@ Alert grouping is applied when Forwarding Rules are created for the following pa
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule.png" alt-text="Create forwarding rule":::
 
-The relevant alert group appears in partner output solutions. In the example below, the *Discovery* alert group is displayed.
+The relevant alert group appears in partner output solutions. 
 
 **Requirements**
 
@@ -68,7 +68,7 @@ The alert group will be shown in supported partner solutions with the following 
 
   - **cat** for QRadar, ArcSight, Syslog CEF, Syslog LEEF
 
-  - **Alert Group** for Syslog Text Messages
+  - **Alert Group** for Syslog text messages
 
   - **alert_group** for Syslog Object
 
