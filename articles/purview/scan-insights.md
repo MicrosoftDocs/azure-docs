@@ -56,5 +56,5 @@ Based on the time filter value selected, you can see the distribution of success
 
 ## Next steps
 
-Learn more about Azure Purview insight reports
-- Asset Insights to be added after merge
+Learn more about Azure Purview insight reports with
+[Asset Insights](./asset-insights.md)
