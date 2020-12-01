@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure AD roles
+  - name: What is Azure AD RBAC?
     href: custom-overview.md
+  - name: Understand Azure AD roles
+    href: concept-understand-roles.md
 - name: Quickstarts
   items:
   - name: Create unlimited app registrations
@@ -33,11 +35,11 @@
     - name: Revoke a user's access
       href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Assign role to guest user    
-      href: ../b2b/add-guest-to-role.md?context=%2fazure/active-directory/roles/context/ugr-context
+      href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Restrict guest user access
       href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Dynamic groups and guests   
-      href: ../b2b/use-dynamic-groups.md?context=%2fazure/active-directory/roles/context/ugr-context
+      href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
   - name: Roles and permissions
     expanded: true
     items: 
@@ -50,8 +52,6 @@
   - name: Custom roles
     expanded: true
     items: 
-    - name: Custom roles overview        
-      href: custom-overview.md
     - name: Create a custom role
       href: custom-create.md
     - name: View custom role assignments

@@ -184,7 +184,7 @@ az network vnet create \
 --name dsVNET \
 --resource-group DsResourceGroup01 \
 --location eastus  \
---address-prefixes "10.0.0.0/16" "ace:cab:deca::/48"
+--address-prefixes "10.0.0.0/16" "fd00:db8:deca::/48"
 
 # Create a single dual stack subnet
 
@@ -193,7 +193,7 @@ az network vnet subnet create \
 --resource-group DsResourceGroup01 \
 --vnet-name dsVNET \
 --address-prefix 10.0.0.0/24 \
---address-prefix "ace:cab:deca:deed::/64" \
+--address-prefix "fd00:db8:deca:deed::/64" \
 --network-security-group dsNSG1
 
 # Create NICs
