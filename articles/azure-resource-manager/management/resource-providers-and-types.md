@@ -2,7 +2,7 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 11/09/2020 
+ms.date: 11/30/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -31,6 +31,9 @@ Before using a resource provider, your Azure subscription must be registered for
 
 This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
 
+> [!IMPORTANT]
+> Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
+
 Your application code shouldn't block the creation of resources for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
 
 You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
@@ -50,7 +53,7 @@ To see all resource providers, and the registration status for your subscription
 
     ![show resource providers](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**.
+6. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
 
 To see information for a particular resource provider:
 
@@ -102,7 +105,7 @@ To see all registered resource providers for your subscription, use:
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-To register a resource provider, use:
+To maintain least privileges in your subscription, only register those resource providers that you're ready to use. To register a resource provider, use:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -211,7 +214,7 @@ To see all registered resource providers for your subscription, use:
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-To register a resource provider, use:
+To maintain least privileges in your subscription, only register those resource providers that you're ready to use. To register a resource provider, use:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch

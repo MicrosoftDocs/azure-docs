@@ -220,7 +220,7 @@ A blocking response exits the user flow. It can be purposely issued by the API t
 See an example of a [blocking response](#example-of-a-blocking-response).
 
 ### Validation-error response
- When the API responds with a validation-error response , the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
+ When the API responds with a validation-error response, the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
 
 See an example of a [validation-error response](#example-of-a-validation-error-response).
 
