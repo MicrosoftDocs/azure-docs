@@ -26,7 +26,7 @@ The Azure Connected Machine agent package contains several logical components, w
     * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
     * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14-day period.
 
-* The Extension agent manages VM extensions, including install, uninstall, and upgrade. Extensions are downloaded from Azure and copied to the `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
+* The Extension agent manages VM extensions, including install, uninstall, and upgrade. Extensions are downloaded from Azure and copied to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
 
 ## Download agents
 
@@ -167,7 +167,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contains the agent configuration file `agentconfig.json` recording its registration information with the service.|
     |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Installation path containing the Guest Configuration agent files. |
     |%ProgramData%\GuestConfig |Contains the (applied) policies from Azure.|
-    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Extensions are downloaded from Azure and copied here.|
+    |%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads | Extensions are downloaded from Azure and copied here.|
 
 * The following Windows services are created on the target machine during installation of the agent.
 
