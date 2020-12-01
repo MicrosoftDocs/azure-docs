@@ -40,7 +40,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 7. All the settings will be autopopulated. For custom settings, select the **Map Settings** button to open the settings pane.
 8. Below is a screenshot of the map visualization that shows storage accounts for each Azure region for the selected subscription.
 
-![Screenshot of Azure location map with the above query](./media/workbooks-map-visualizations/map-Azure-Loc-Example.png)
+![Screenshot of Azure location map with the above query](./media/workbooks-map-visualizations/map-azure-loc-example.png)
 
 ### Using Azure resource
 
@@ -109,7 +109,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 
 The map visualization below shows users for each latitude and longitude location with the selected label for metrics.
 
-![Screenshot of a map visualization that shows users for each latitude and longitude location with the selected label for metrics](./media/workbooks-map-visualizations/map-lat-long-example.png)
+![Screenshot of a map visualization that shows users for each latitude and longitude location with the selected label for metrics](./media/workbooks-map-visualizations/map-latitude-longitude-example.png)
 
 ## Map settings
 
