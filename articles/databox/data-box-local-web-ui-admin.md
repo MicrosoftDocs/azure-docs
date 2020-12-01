@@ -7,29 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/01/2020
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box and Data Box Heavy
 
 This article describes some of the configuration and management tasks performed on Data Box and Data Box Heavy devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses tasks performed using the local web UI.
 
-The local web UI for the Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
-
-This article includes the following tutorials:
-
-- Generate a Support package
-- Erase local data from your device
-- Shut down or restart your device
-- Download bill of material (BOM) or manifest files
-- View available capacity of the device
-- Skip checksum validation
+The local web UI for Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, erase local data from the device, and generate a support package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Generate Support package
 
-If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. 
+If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue.
 
 To generate a Support package, take the following steps:
 
@@ -49,12 +40,11 @@ To generate a Support package, take the following steps:
 
     ![Create Support package 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
-
 ## Erase local data from your device
 
-You can use the local web UI to erase local data from your device before returning it to the Azure Datacenter.
+You can use the local web UI to erase local data from your device before returning it to the Azure datacenter.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > A data erase can't be reversed. Before you erase local data from your device, be sure to back up the files.
 
 To erase local data from your device, perform these steps:
@@ -187,7 +177,7 @@ You can use the device dashboard to view the available and used capacity of the 
 
 Checksums are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be slow. In such instances, you can skip checksum.
 
-Checksum computation during prepare to ship is only done for import orders, and not for export orders. 
+Checksum computation during prepare to ship is only done for import orders, and not for export orders.
 
 We strongly recommend that you do not disable checksum unless the performance is severely impacted.
 
