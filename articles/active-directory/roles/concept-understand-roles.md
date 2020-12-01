@@ -1,5 +1,5 @@
 ---
-title: Understand Azure AD role concepts
+title: Understand Azure Active Directory role concepts
 description: Learn how to understand Azure Active Directory built-in and custom roles with resource scope in Azure Active Directory.
 services: active-directory
 author: curtand
