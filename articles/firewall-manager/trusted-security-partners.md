@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/01/2020
 ms.author: victorh
 ---
 
@@ -17,7 +17,7 @@ With a quick configuration, you can secure a hub with a supported security partn
 
 You can deploy secured hubs configured with the security partner of your choice in multiple Azure regions to get connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
 
-The supported security partners are **ZScaler**, **Check Point** (preview), and **iboss** (preview).
+The supported security partners are **ZScaler**, **[Check Point](check-point-overview.md)**, and **iboss**.
 
 ![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
