@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -25,6 +25,29 @@ The template spec is a resource type named **Microsoft.Resources/templateSpecs**
 With PowerShell and CLI, the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 
 These options are shown below.
+
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Create a resource**.
+1. In **Search the Marketplace**, type **template specs**, and then press **[ENTER]**.
+1. Select **Template Specs**.
+1. Select **Create**.
+1. Select or enter the following values:
+
+    - **Name**hon: enter **storageSpec**
+    - **Subscription**: select an Azure subscription used for creating the template spec.
+    - **Resource Group**: select **Create new**, and then enter **templateSpecRG** as the resource group name.
+    - **Location**: select **West US 2**.
+    - **Version**: enter **1.0**.
+
+1. Select **Next: Edit Template**.
+1. Replace the template content with the following JSON:
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+1. Select **Review + Create**.
+1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -199,6 +222,20 @@ These options are shown below.
 ## Deploy template spec
 
 You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+
+# [Portal](#tab/azure-portal)
+
+1. From the Azure portal, open the resource group called **templateSpecRG**.
+1. Select the template spec called **storageSpec**.
+1. Select **Deploy**.
+1. Select or enter the following values:
+
+    - **Subscription**: select an Azure subscription for creating the resource.
+    - **Resource group**: select **Create new** and then enter **storageRG**.
+    - **Storage Account Type**: select **Standard_GRS**.
+
+1. Select ** Review + create**.
+1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 
