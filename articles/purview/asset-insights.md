@@ -96,4 +96,4 @@ The second graph in file-based source types is ***Files not associated with a re
 ## Next steps
 
 Learn more about Azure Purview insight reports with
-[Scan Insights](/scan-insights.md)
+[Scan Insights](./scan-insights.md)
