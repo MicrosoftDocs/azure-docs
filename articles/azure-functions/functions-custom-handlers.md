@@ -1,13 +1,13 @@
 ---
-title: Azure Functions custom handlers (preview)
+title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 11/30/2020
 ms.topic: article
 ---
 
-# Azure Functions custom handlers (preview)
+# Azure Functions custom handlers
 
 Every Functions app is executed by a language-specific handler. While Azure Functions supports many [language handlers](./supported-languages.md) by default, there are cases where you may want to use other languages or runtimes.
 
@@ -15,10 +15,12 @@ Custom handlers are lightweight web servers that receive events from the Functio
 
 Custom handlers are best suited for situations where you want to:
 
-- Implement a function app in a language that's not currently supported, such as Go and Rust.
+- Implement a function app in a language that's not currently supported, such as Go or Rust.
 - Implement a function app in a runtime that's not currently supported, such as Deno.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
+
+Get started with Azure Functions custom handlers with [quickstarts in Go and Rust](create-first-function-vs-code-custom-handlers.md).
 
 ## Overview
 
