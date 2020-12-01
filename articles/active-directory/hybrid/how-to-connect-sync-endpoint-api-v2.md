@@ -139,7 +139,7 @@ The following steps can be used to increase the membership limit:
 > If Azure AD Connect Health is not enabled, change the windows application event log settings to archive the logs, instead of overwriting them. The logs may be used to assist in future troubleshooting efforts. 
 
 >[!NOTE]
-> After enabling the new endpoint, you may see additional export errors on the AAD connector with name ‘dn-attributes-failure’. There will be a corresponding event log entry for each error with id 6949, . The errors are informational and do not indicate a problem with your installation, but rather that the sync process could not add certain members to a group in Azure AD because the member object itself was not synced to Azure AD. 
+> After enabling the new endpoint, you may see additional export errors on the AAD connector with name ‘dn-attributes-failure’. There will be a corresponding event log entry for each error with id 6949. The errors are informational and do not indicate a problem with your installation, but rather that the sync process could not add certain members to a group in Azure AD because the member object itself was not synced to Azure AD. 
 
 The new V2 endpoint code handles some types of export errors slightly different from how the V1 code did.  You may see more of the informational error messages when you use the V2 endpoint. 
 
