@@ -18,7 +18,7 @@ ms.reviewer: azmetadatadev
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
-IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set (VMSS) instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
+IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
 the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
 
 Azure's IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). It can only be accessed from within the VM. Communication between the VM and IMDS never leaves the host.
@@ -46,7 +46,7 @@ IMDS is **not** intended to be used behind a proxy and doing so is unsupported. 
 
 ## Rate Limiting
 
-In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity-via-imds) category are limited to 20 requests per second and 5 concurrent requests.
+In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity) category are limited to 20 requests per second and 5 concurrent requests.
 
 ## HTTP Verbs
 
@@ -163,7 +163,7 @@ In json responses, all primitives will be of type `string`, and missing or inapp
 
 ### Versioning
 
-The IMDS is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#versions) endpoint which can be used to dynamically retrieve the available API versions.
+The IMDS is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#versions) endpoint, which can be used to dynamically retrieve the available API versions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -371,11 +371,11 @@ The IMDS API contains multiple endpoint categories representing different data s
 
 Category Root | Description | Version Introduced
 ----|-------------|-----------------------
-/metadata/attested | See [Attested Data](#attested-data) | 2018-10-01
-/metadata/identity | See [Managed Identity via IMDS](#managed-identity) | 2018-02-01
-/metadata/instance | See [Instance Metadata](#instance-metadata) | 2017-04-02
-/metadata/scheduledevents | See [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
-/metadata/versions | See [Versions](#versions) | N/A
+`/metadata/attested` | See [Attested Data](#attested-data) | 2018-10-01
+`/metadata/identity` | See [Managed Identity via IMDS](#managed-identity) | 2018-02-01
+`/metadata/instance` | See [Instance Metadata](#instance-metadata) | 2017-04-02
+`/metadata/scheduledevents` | See [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
+`/metadata/versions` | See [Versions](#versions) | N/A
 
 ## Versions
 
@@ -389,7 +389,7 @@ GET /metadata/versions
 
 #### Parameters
 
-None (this is an un-versioned endpoint).
+None (this endpoint is unversioned).
 
 #### Response
 
@@ -557,38 +557,38 @@ Schema breakdown:
 **Compute**
 Data | Description | Version Introduced
 -----|-------------|-----------------------
-azEnvironment | Azure Environment where the VM is running in | 2018-10-01
-customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
-isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
-licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
-location | Azure Region the VM is running in | 2017-04-02
-name | Name of the VM | 2017-04-02
-offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
-osProfile.adminUsername | Specifies the name of the admin account | 2020-07-15
-osProfile.computerName | Specifies the name of the computer | 2020-07-15
-osProfile.disablePasswordAuthentication | Specifies if password authentication is disabled. Note that this is only present for Linux VMs | 2020-10-01
-osType | Linux or Windows | 2017-04-02
-placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-platformUpdateDomain |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
-provider | Provider of the VM | 2018-10-01
-publicKeys | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
-publisher | Publisher of the VM image | 2017-04-02
-resourceGroupName | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
-resourceId | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
-sku | Specific SKU for the VM image | 2017-04-02
-securityProfile.secureBootEnabled | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
-securityProfile.virtualTpmEnabled | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
-storageProfile | See Storage Profile below | 2019-06-01
-subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
-tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
-tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
-version | Version of the VM image | 2017-04-02
-vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-vmScaleSetName | [Virtual machine scale set Name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
-vmSize | [VM size](../sizes.md) | 2017-04-02
-zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
+`azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
+`customData` | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+`isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
+`licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
+`location` | Azure Region the VM is running in | 2017-04-02
+`name` | Name of the VM | 2017-04-02
+`offer` | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
+`osProfile.adminUsername` | Specifies the name of the admin account | 2020-07-15
+`osProfile.computerName` | Specifies the name of the computer | 2020-07-15
+`osProfile.disablePasswordAuthentication` | Specifies if password authentication is disabled. This is only present for Linux VMs | 2020-10-01
+`osType` | Linux or Windows | 2017-04-02
+`placementGroupId` | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
+`plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
+`platformUpdateDomain` |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
+`platformFaultDomain` | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
+`provider` | Provider of the VM | 2018-10-01
+`publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
+`publisher` | Publisher of the VM image | 2017-04-02
+`resourceGroupName` | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
+`resourceId` | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
+`sku` | Specific SKU for the VM image | 2017-04-02
+`securityProfile.secureBootEnabled` | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
+`securityProfile.virtualTpmEnabled` | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
+`storageProfile` | See Storage Profile below | 2019-06-01
+`subscriptionId` | Azure subscription for the Virtual Machine | 2017-08-01
+`tags` | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
+`tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
+`version` | Version of the VM image | 2017-04-02
+`vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
+`vmScaleSetName` | [Virtual machine scale set Name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
+`vmSize` | [VM size](../sizes.md) | 2017-04-02
+`zone` | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
 **Storage Profile**
 
@@ -598,52 +598,52 @@ The image reference object contains the following information about the OS image
 
 Data    | Description
 --------|-----------------
-id      | Resource ID
-offer   | Offer of the platform or marketplace image
-publisher | Image publisher
-sku     | Image sku
-version | Version of the platform or marketplace image
+`id`      | Resource ID
+`offer`   | Offer of the platform or marketplace image
+`publisher` | Image publisher
+`sku`     | Image sku
+`version` | Version of the platform or marketplace image
 
 The OS disk object contains the following information about the OS disk used by the VM:
 
 Data    | Description
 --------|-----------------
-caching | Caching requirements
-createOption | Information about how the VM was created
-diffDiskSettings | Ephemeral disk settings
-diskSizeGB | Size of the disk in GB
-image   | Source user image virtual hard disk
-lun     | Logical unit number of the disk
-managedDisk | Managed disk parameters
-name    | Disk name
-vhd     | Virtual hard disk
+`caching` | Caching requirements
+`createOption` | Information about how the VM was created
+`diffDiskSettings` | Ephemeral disk settings
+`diskSizeGB` | Size of the disk in GB
+`image`   | Source user image virtual hard disk
+`lun`     | Logical unit number of the disk
+`managedDisk` | Managed disk parameters
+`name`    | Disk name
+`vhd`     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
 The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following information:
 
 Data    | Description
 --------|-----------------
-caching | Caching requirements
-createOption | Information about how the VM was created
-diffDiskSettings | Ephemeral disk settings
-diskSizeGB | Size of the disk in GB
-encryptionSettings | Encryption settings for the disk
-image   | Source user image virtual hard disk
-managedDisk | Managed disk parameters
-name    | Disk name
-osType  | Type of OS included in the disk
-vhd     | Virtual hard disk
-writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
+`caching` | Caching requirements
+`createOption` | Information about how the VM was created
+`diffDiskSettings` | Ephemeral disk settings
+`diskSizeGB` | Size of the disk in GB
+`encryptionSettings` | Encryption settings for the disk
+`image`   | Source user image virtual hard disk
+`managedDisk` | Managed disk parameters
+`name`    | Disk name
+`osType`  | Type of OS included in the disk
+`vhd`     | Virtual hard disk
+`writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk
 
 **Network**
 Data | Description | Version Introduced
 -----|-------------|-----------------------
-ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
-ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
-subnet/address | Subnet address of the VM | 2017-04-02
-subnet/prefix | Subnet prefix, example 24 | 2017-04-02
-ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
-macAddress | VM mac address | 2017-04-02
+`ipv4.privateIpAddress` | Local IPv4 address of the VM | 2017-04-02
+`ipv4.publicIpAddress` | Public IPv4 address of the VM | 2017-04-02
+`subnet.address` | Subnet address of the VM | 2017-04-02
+`subnet.prefix` | Subnet prefix, example 24 | 2017-04-02
+`ipv6.ipAddress` | Local IPv6 address of the VM | 2017-04-02
+`macAddress` | VM mac address | 2017-04-02
 
 **VM Tags**
 
@@ -922,7 +922,7 @@ Name | Required/Optional | Description
 
 The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of document. It contains the certificate used for signing along with certain VM-specific details.
 
-For VMs created by using Azure Resource Manager, this includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images.
+For VMs created by using Azure Resource Manager, the document includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images.
 
 For VMs created by using the classic deployment model, only the `vmId` is guaranteed to be populated. You can extract the certificate from the response, and use it to confirm that the response is valid and is coming from Azure.
 
@@ -933,14 +933,14 @@ The decoded document contains the following fields:
 
 Data | Description | Version introduced
 -----|-------------|-----------------------
-licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs. | 2020-09-01
-nonce | A string that can be optionally provided with the request. If no `nonce` was supplied, the current Coordinated Universal Time timestamp is used. | 2018-10-01
-plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
-timestamp.createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
-timestamp.expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
-vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
-subscriptionId | Azure subscription for the Virtual Machine | 2019-04-30
-sku | Specific SKU for the VM image | 2019-11-01
+`licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs. | 2020-09-01
+`nonce` | A string that can be optionally provided with the request. If no `nonce` was supplied, the current Coordinated Universal Time timestamp is used. | 2018-10-01
+`plan` | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
+`timestamp.createdOn` | The UTC timestamp for when the signed document was created | 2018-20-01
+`timestamp.expiresOn` | The UTC timestamp for when the signed document expires | 2018-10-01
+`vmId` |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
+`subscriptionId` | Azure subscription for the Virtual Machine | 2019-04-30
+`sku` | Specific SKU for the VM image | 2019-11-01
 
 > [!NOTE]
 > For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
@@ -1051,7 +1051,7 @@ Cloud | Certificate
 > [!NOTE]
 > The certificates might not have an exact match of `metadata.azure.com` for the public cloud. For this reason, the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
 
-In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Note that Azure rolls over the certificates, which is standard PKI practice. You need to update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
+In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Azure rolls over the certificates, which is standard PKI practice. You must update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
 
 You can find the intermediate certificates in the [PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
 
@@ -1094,13 +1094,13 @@ If there is a data element not found or a malformed request, the Instance Metada
 
 HTTP status code | Reason
 -----------------|-------
-200 OK | The request was successful.
-400 Bad Request | Missing `Metadata: true` header or missing parameter `format=json` when querying a leaf node
-404 Not Found | The requested element doesn't exist
-405 Method Not Allowed | The HTTP method (verb) is not supported on the endpoint.
-410 Gone | Retry after some time for a max of 70 seconds
-429 Too Many Requests | API [Rate Limits](#rate-limiting) has been exceeded
-500 Service Error     | Retry after some time
+`200 OK` | The request was successful.
+`400 Bad Request` | Missing `Metadata: true` header or missing parameter `format=json` when querying a leaf node
+`404 Not Found` | The requested element doesn't exist
+`405 Method Not Allowed` | The HTTP method (verb) is not supported on the endpoint.
+`410 Gone` | Retry after some time for a max of 70 seconds
+`429 Too Many Requests` | API [Rate Limits](#rate-limiting) has been exceeded
+`500 Service Error`     | Retry after some time
 
 ### Frequently asked questions
 
@@ -1139,51 +1139,51 @@ Metadata calls must be made from the primary IP address assigned to the primary 
   <details>
         <summary>Verifying your routing table</summary>
 
-        1. Dump your local routing table and look for the IMDS entry. For example:
-            ```console
-            > route print
-            IPv4 Route Table
-            ===========================================================================
-            Active Routes:
-            Network Destination        Netmask          Gateway       Interface  Metric
-                      0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
-                    127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-                    127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-              127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-                168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
-              169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
-            ... (continues) ...
-            ```
-        1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (for example, `172.16.69.7`).
-        1. Dump the interface configuration and find the interface that corresponds to the one referenced in the routing table, noting the MAC (physical) address.
-            ```console
-            > ipconfig /all
-            ... (continues) ...
-            Ethernet adapter Ethernet:
-
-               Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
-               Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-               Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
-               DHCP Enabled. . . . . . . . . . . : Yes
-               Autoconfiguration Enabled . . . . : Yes
-               Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
-               IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
-               Subnet Mask . . . . . . . . . . . : 255.255.255.0
-            ... (continues) ...
-            ```
-        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the public and private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
-            ```powershell
-            $ResourceGroup = '<Resource_Group>'
-            $VmName = '<VM_Name>'
-            $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-            foreach($NicName in $NicNames)
-            {
-                $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-                Write-Host $NicName, $Nic.primary, $Nic.macAddress
-            }
-            # Output: wintest767 True 00-0D-3A-E5-1C-C0
-            ```
-        1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
+1. Dump your local routing table and look for the IMDS entry. For example:         
+    ```console
+      > route print
+      IPv4 Route Table
+      ===========================================================================
+      Active Routes:
+      Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+              127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+              127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+          168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+        169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+      ... (continues) ...
+    ```
+1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (example, `172.16.69.7`).
+1. Dump the interface configuration and find the interface that corresponds to the one referenced in routing table, noting the MAC (physical) address.
+    ```console
+      > ipconfig /all
+      ... (continues) ...
+      Ethernet adapter Ethernet:
+  
+                 Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+                 Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+                 Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+                 DHCP Enabled. . . . . . . . . . . : Yes
+                 Autoconfiguration Enabled . . . . : Yes
+                 Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+                 IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+                 Subnet Mask . . . . . . . . . . . : 255.255.255.0
+              ... (continues) ...
+    ```
+1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the public and private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
+    ```powershell
+    $ResourceGroup = '<Resource_Group>'
+    $VmName = '<VM_Name>'
+    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json |Foreach-Object { $_.  id.Split('/')[-1] }
+    foreach($NicName in $NicNames)
+    {
+        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName ConvertFrom-Json
+        Write-Host $NicName, $Nic.primary, $Nic.macAddress
+    }
+    # Output: wintest767 True 00-0D-3A-E5-1C-C0
+    ```
+1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
   </details>
 
 ## Support
