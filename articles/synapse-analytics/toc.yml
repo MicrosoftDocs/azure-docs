@@ -1103,22 +1103,22 @@
     - name: Visualize data with Apache Spark
       href: ./spark/apache-spark-data-visualization-tutorial.md
       displayname: machine learning
-    - name: Model scoring wizard for SQL pools
+    - name: Predict using the SQL Pool scoring wizard
       href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       displayname: machine learning
-    - name: Run a regression experiment using Azure AutoML
+    - name: Train a model code-free using Azure AutoML
+      href: ./machine-learning/tutorial-automl.md
+    - name: Train a model in Python using Azure AutoML
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       displayname: machine learning
-    - name: Create a machine learning model with Apache Spark MLlib
+    - name: Create a model with Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       displayname: machine learning
     - name: Sentiment analysis with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-sentiment.md
     - name: Anomaly detection with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-    - name: Machine learning model training using AutoML in Azure ML
-      href: ./machine-learning/tutorial-automl.md
-    - name: Pre-requisites for Cognitive Services in Azure Synapse
+    - name: Configure Cognitive Services for Azure Synapse
       href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Reference
   items:
