@@ -13,7 +13,7 @@ A knowledge base must be published. Once published, the knowledge base is querie
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-The trained and [published](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). The following diagram illustrates the process when the user query is received.
+The trained and [published](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md). The following diagram illustrates the process when the user query is received.
 
 ![The ranking model process for a user query](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
@@ -23,7 +23,7 @@ The process is explained in the following table.
 
 |Step|Purpose|
 |--|--|
-|1|The client application sends the user query to the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|The client application sends the user query to the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
 |4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
@@ -36,7 +36,7 @@ Features used include but aren't limited to word-level semantics, term-level imp
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-The trained and [published](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). The following diagram illustrates the process when the user query is received.
+The trained and [published](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md). The following diagram illustrates the process when the user query is received.
 
 ![The ranking model process for a user query preview](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
 
@@ -46,7 +46,7 @@ The process is explained in the following table.
 
 |Step|Purpose|
 |--|--|
-|1|The client application sends the user query to the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|1|The client application sends the user query to the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
 |4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
