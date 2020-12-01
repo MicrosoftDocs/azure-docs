@@ -8,7 +8,7 @@ ms.topic: include
 # Purpose:
 # Ingested by Microsoft identity platform articles in /articles/active-directory/develop/* that document the error handling conditional access and claims challenges for the different platforms.
 ---
-## Conditional Access and claims challenges
+## Conditional access and claims challenges
 
 When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](../azuread-dev/conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
