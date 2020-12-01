@@ -39,9 +39,11 @@ The following table shows how each Blob storage feature is supported with Data L
 |Static websites|Preview|Preview|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 |Immutable storage|Preview|Preview|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
+|Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
+|Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](storage-blob-soft-delete.md)|
 |Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](./soft-delete-blob-overview.md)|
 |Blobfuse|Generally available|Generally available|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
-|Account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Customer-managed account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob container ACL|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|See the related note below this table.|
 |Customer-provided keys|Not yet supported|Not yet supported|[Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)|
 |Custom domains|Not yet supported|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
