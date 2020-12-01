@@ -14,25 +14,25 @@ ms.topic: how-to
 
 Work with alerts to help you enhance the security and operation of your network. Alerts provide you with information about:
 
-  - Deviations from authorized network activity
+- Deviations from authorized network activity
 
-  - Protocol and operational anomalies
+- Protocol and operational anomalies
 
-  - Suspected malware traffic
+- Suspected malware traffic
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/address-scan-detected-screen.png" alt-text="Detect address scan.":::
 
 Alert management options let users:
 
-  - Instruct sensors to learn activity detected as authorized traffic.
+- Instruct sensors to learn activity detected as authorized traffic.
 
-  - Acknowledge reviewing the alert.
+- Acknowledge reviewing the alert.
 
-  - Instruct sensors to mute events detected with identical devices and comparable traffic.
+- Instruct sensors to mute events detected with identical assets and comparable traffic.
 
 Additional tools are available that help you enhance and expedite the alert investigation. For example,
 
-  - Add instructional comments for alert reviewers. 
+  - Add instructional comments for alert reviewers.
 
   - Create Alert Groups for display at SOC solutions. 
 
@@ -54,14 +54,14 @@ Alerts are triggered when sensor engines detect changes in network traffic and b
 
 ## Alerts and sensor reporting
 
-Events reflected in alerts may be calculated when generating Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
+Activity reflected in alerts may be calculated when generating Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
 
 For example,
 
-  - Unauthorized connectivity between a device in a defined subnet and devices located outside the subnet (public) will appear in the Data Mining *Internet Activity* report and Risk Assessment *Internet Connections* section. Once authorized (Learned) these devices will not be calculated when generating these reports.
+  - Unauthorized connectivity between a device in a defined subnet and devices located outside the subnet (public) will appear in the Data Mining *Internet Activity* report and Risk Assessment *Internet Connections* section. Once authorized (Learned) these devices are calculated when generating these reports.
 
-  - Malware events are reported in Risk Assessment reports. When alerts about these events are muted these devices will not be calculated when generating these reports.
-  - 
+  - Malware events detected on network devices are reported in Risk Assessment reports. When alerts about malware events are *muted*, devices impacted will not be calculated in the Risk Assessment report.
+
 ## Accessing alerts
 
 This article describes how to access and search for alerts in the Alerts window. Alerts are also accessible from the Dashboard. 
@@ -102,8 +102,10 @@ Alert messages provide the following actions:
 
   - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/unpin-an-alert-icon.png" border="false"::: icon to unpin the alert.
 
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-icon.png" border="false":::.
-
-  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/close-alert-icon.png" border="false"::: icon to close the alert details window.
+  - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-icon.png" border="false"::: to  approve the traffic (Security Analysts and Administrators only)
 
   - Select a device to display it in the Device Map.
+
+## See also
+
+[Manage the alert event](how-to-manage-the-alert-event.md)

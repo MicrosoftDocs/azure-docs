@@ -10,18 +10,31 @@ ms.service: azure
 ms.topic: how-to
 ---
 
-# About threat intelligence research and packages
+# Threat intelligence research and packages
 
+## About threat intelligence research and packages
 Proprietary ICS threat intelligence and vulnerability research is carried out by:
 
-- MSTIC (Microsoft Threat Intelligence Center) who are
-threat-focused: one group is responsible for Russian hackers code-named Strontium, another watches North Korean hackers code-named Zinc, and yet another tracks Iranian hackers code-named Holmium. MSTIC tracks over 70 code-named government-sponsored threat groups and many more that are unnamed.
+**MSTIC (Microsoft Threat Intelligence Center)**
 
-- the Section 52 Threat Intelligence team, are world-class team of domain experts that track ICS-specific zero-days, campaigns, and adversaries as well as reverse-engineer malware. This intelligence adds contextual information to enrich our platform analytics and supports our managed services for incident response and breach investigation.
+Provides world-class security detection, analytics, and response to Microsoft’s 
+- Cloud infrastructure + services
+- Traditional products and devices, and
+- Internal corporate resources.
 
-Threat Intelligence packages contains signatures, including malware signatures, CVE's, and other security content.
+This provides security teams with:
 
-Packages can be downloaded from the Azure Defender to IoT portal, Updates page.
+- Protection from known, relevant threats
+- Insights that help you triage and prioritize 
+- An understanding of the full context of threats before they are affected
+- More relevant, accurate & actionable data.
+
+
+**Section 52 Threat Intelligence team**
+
+A world-class team of domain experts that track ICS-specific zero-days, campaigns, and adversaries as well as reverse-engineer malware. This intelligence adds contextual information to enrich our platform analytics and supports our managed services for incident response and breach investigation.
+
+Threat Intelligence packages contain signatures, including malware signatures, CVE's, and other security content. Packages can be downloaded from the Azure Defender to IoT portal, Updates page.
 
   :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/image283.png" alt-text="Azure Defender for IoT":::
 

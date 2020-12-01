@@ -34,7 +34,7 @@ The opening screen elements include:
 | 9. | Unacknowledged alerts gauge | Displays the number of alerts that have not yet been acknowledged. |
 | 10. | Unacknowledged alerts list | Lists all unacknowledged alerts. |
 
-The console's main window provides a list of options available that will vary based on the user type that is signed in.
+The console main window provides options available that  vary, based on the user who signed in.
 
 ## Console tools
 
@@ -80,7 +80,7 @@ Console tools are accessed from the side menu.
 
 ## User roles and permissions
 
-User permissions are designed to facilitate granular security roles within your organization. The following roles are available:
+User roles are designed to facilitate granular access to console tools. The following roles are available:
 
 - **Read Only** – Read Only users perform tasks such as viewing alerts and devices on the Device map. These users have access to options displayed on the **Navigation** pages.
 
@@ -88,4 +88,6 @@ User permissions are designed to facilitate granular security roles within your 
 
 - **Administrator** – The administrator has all the permissions of the RO and the security analyst and can also manage the system configuration, create, and delete users and create notifications. Administrators can see the **Navigation, Analysis**, and **Administration** sections.
 
-See [Create and manage users](how-to-create-and-manage-users.md) for details about creating users and permission assignments.
+## See also
+
+[Create and manage users](how-to-create-and-manage-users.md) for details about creating users and permission assignments.

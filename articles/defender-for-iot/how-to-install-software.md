@@ -248,8 +248,8 @@ This article describes how to configure the BIOS using the configuration file.
 
      > [!NOTE]
      > Before importing the file make sure:
-     > - You are the only user that is currently connected to iDRAC.
-     > - The system is not in the BIOS menu.
+     > -You are the only user that is currently connected to iDRAC.
+     > -The system is not in the BIOS menu.
 
 5. Go to **Configuration** > **Server Configuration Profile**. And set the following parameters:
 
@@ -272,9 +272,9 @@ This article describes how to configure the BIOS using the configuration file.
 
 This article describes how to manually configure the appliance BIOS. You will need to manually configure if:
 
-  - You did not purchase your appliance from Arrow
+- You did not purchase your appliance from Arrow
 
-  - You have an appliance, but do not have access to the XML configuration file
+- You have an appliance, but do not have access to the XML configuration file
 
 After you access the BIOS, go to **Device Settings**.
 
@@ -1084,3 +1084,7 @@ However, The user's experience when signing in to the sensor remains the same.
 3. Select **Enter**.
 
 4. Type `--port 10000`.
+
+### Next Steps
+
+[Set up your network](how-to-set-up-your-network.md)
