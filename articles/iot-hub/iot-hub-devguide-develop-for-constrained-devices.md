@@ -23,6 +23,8 @@ C SDK is available in package form from apt-get, NuGet, and MBED. To target cons
 
 Build the C SDK for constrained devices.
 
+**Note on constrained devices**: The `Embedded C SDK` is an alternative for constrained devices which enables the BYO (bring your own) network approach: IoT developers have the freedom of choice to bring MQTT client, TLS and Socket of their choice to create a device solution. Find more information about the Embedded C SDK [here](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
+
 ### Prerequisites
 
 Follow this [C SDK setup guide](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) to prepare your development environment for building the C SDK. Before you get to the step for building with cmake, you can invoke cmake flags to remove unused features.
