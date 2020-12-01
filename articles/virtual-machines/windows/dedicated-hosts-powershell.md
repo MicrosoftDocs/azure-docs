@@ -3,7 +3,7 @@ title: Deploy Azure dedicated hosts using the Azure PowerShell
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
@@ -14,7 +14,7 @@ ms.reviewer: zivr
 
 # Deploy VMs to dedicated hosts using the Azure PowerShell
 
-This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
+This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed Azure PowerShell version 2.8.0 or later, and you are signed in to an Azure account in with `Connect-AzAccount`. 
 
@@ -46,6 +46,15 @@ $hostGroup = New-AzHostGroup `
    -ResourceGroupName $rgName `
    -Zone 1
 ```
+
+
+Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
+> [!IMPORTANT]
+> Automatic placement is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create a host
 
@@ -162,13 +171,40 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## Create a scale set (preview)
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When you deploy a scale set, you specify the host group.
+
+```azurepowershell-interactive
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myDHScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"`
+  -HostGroupId $hostGroup.Id
+```
+
+If you want to manually choose which host to deploy the scale set to, add `--host` and the name of the host.
+
+
+
 ## Add an existing VM 
 
 You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2. 
 - The VM needs to be located in same region as the dedicated host.
-- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](./proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
@@ -241,4 +277,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 
-- You can also deploy dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
+- You can also deploy dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md).

@@ -2,7 +2,7 @@
 title: Enable managed identity in container group
 description: Learn how to enable a managed identity in Azure Container Instances that can authenticate with other Azure services
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/02/2020
 ---
 
 # How to use managed identities with Azure Container Instances
@@ -387,6 +387,6 @@ In this article, you learned about managed identities in Azure Container Instanc
 > * Grant the identity access to an Azure key vault
 > * Use the managed identity to access a key vault from a running container
 
-* Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
+* Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml).
 
 * See an [Azure Go SDK example](https://medium.com/@samkreter/c98911206328) of using a managed identity to access a key vault from Azure Container Instances.

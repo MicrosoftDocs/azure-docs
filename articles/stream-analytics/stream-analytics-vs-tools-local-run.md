@@ -5,7 +5,7 @@ author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2018
 ---
 
@@ -25,7 +25,7 @@ In your Azure Stream Analytics project, double-click **Script.asaql** to open th
 
 To validate your query against local static data, right-click the input and select **Add local input**.
    
-![Add local input](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Screenshot that highlights the Add local input menu option.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 In the pop-up window, select sample data from your local path and **Save**.
    

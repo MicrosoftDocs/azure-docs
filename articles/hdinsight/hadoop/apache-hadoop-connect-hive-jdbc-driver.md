@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ---
@@ -28,7 +28,9 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 
 JDBC connections to an HDInsight cluster on Azure are made over port 443. The traffic is secured using TLS/SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following connection string shows the format to use for HDInsight:
 
+```http
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+```
 
 Replace `CLUSTERNAME` with the name of your HDInsight cluster.
 
@@ -116,7 +118,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
 9. Once connected, enter the following query into the SQL query dialog, and then select the **Run** icon (a running person). The results area should show the results of the query.
 
-    ```hql
+    ```hiveql
     select * from hivesampletable limit 10;
     ```
 

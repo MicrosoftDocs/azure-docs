@@ -16,7 +16,7 @@ ms.date: 01/13/2020
 ms.author: apimpm
 ---
 
-# Configure a custom domain name
+# Configure a custom domain name for your Azure API Management instance
 
 When you create an Azure API Management service instance, Azure assigns it a subdomain of `azure-api.net` (for example, `apim-service-name.azure-api.net`). However, you can expose your API Management endpoints using your own custom domain name, such as **contoso.com**. This tutorial shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
 
@@ -47,10 +47,10 @@ To perform the steps described in this article, you must have:
     There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
     - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
-    - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
+    - **Developer portal (legacy)** (default is: `<apim-service-name>.portal.azure-api.net`),
+    - **Developer portal** (default is: `<apim-service-name>.developer.azure-api.net`).
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`),
-    - **NewPortal** (default is: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > Only the **Gateway** endpoint is available for configuration in the Consumption tier.
@@ -68,8 +68,8 @@ To perform the steps described in this article, you must have:
     > Wildcard domain names, e.g. `*.contoso.com` are supported in all tiers except the Consumption tier.
 
     > [!TIP]
-    > We recommend using [Azure Key Vault for managing certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) and setting them to autorenew.
-    > If you use Azure Key Vault to manage the custom domain TLS/SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a _secret_.
+    > We recommend using [Azure Key Vault for managing certificates](../key-vault/certificates/about-certificates.md) and setting them to autorenew.
+    > If you use Azure Key Vault to manage the custom domain TLS/SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/createcertificate/createcertificate), not a _secret_.
     >
     > To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. When using Azure portal all the necessary configuration steps will be completed automatically. When using command line tools or management API, these permissions must be granted manually. This is done in two steps. First, use Managed identities page on your API Management instance to make sure that Managed Identity is enabled and make a note of the principal id shown on that page. Second, give permission list and get secrets permissions to this principal id on the Azure Key Vault containing the certificate.
     >

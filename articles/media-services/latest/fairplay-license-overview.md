@@ -1,7 +1,7 @@
 ---
 title: Media Services and Apple FairPlay license support - Azure | Microsoft Docs
 description: This topic gives an overview of an Apple FairPlay license requirements and configuration.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2018
-ms.author: juliako
-ms.custom: seodec18
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: "seodec18, devx-track-csharp"
 
 ---
 
-# Apple FairPlay license requirements and configuration 
+# Apple FairPlay license requirements and configuration
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services enables you to encrypt your HLS content with **Apple FairPlay** (AES-128 CBC). Media Services also provides a service for delivering FairPlay licenses. When a player tries to play your FairPlay-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 
@@ -58,6 +60,9 @@ The following are required when using Media Services to encrypt your HLS content
   * .der file
   * .pfx file
   * password for the .pfx
+  
+> [!NOTE]
+> Azure Media Services doesn't check the certificate expiration date during packaging or key delivery. It will continue to work after the certificate expires.
 
 ## FairPlay and player apps
 
@@ -78,7 +83,7 @@ You can use Media Services API to configure FairPlay licenses. When the player t
 > [!NOTE]
 > Usually, you would want to configure FairPlay policy options only once, because you will only have one set of a certification and an ASK.
 
-The following example uses [Media Services .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) to configure the license.
+The following example uses [Media Services .NET SDK](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) to configure the license.
 
 ```csharp
 private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOptions()

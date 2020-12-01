@@ -6,15 +6,16 @@ ms.author: aul
 
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 08/04/2020
 
 ---
 
 # Azure Monitor view designer to workbooks transition guide
-[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They are being phased out and replaced with workbooks which provide additional functionality. This article provides an overview of the process for converting your existing views to workbooks.
+[View designer](view-designer.md) is a feature of Azure Monitor that allows you to create custom views to help you visualize data in your Log Analytics workspace, with charts, lists, and timelines. They have been transitioned to Workbooks to provide a flexible canvas for data analysis and creation of rich visual reports within the Azure portal. This article helps you make the transition from View designer to Workbooks. 
+
 
 ## Workbooks overview
-[Workbooks](../insights/vminsights-workbooks.md) combine text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
+[Workbooks](../insights/vminsights-workbooks.md) combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
 
 Workbooks are helpful for scenarios such as:
 

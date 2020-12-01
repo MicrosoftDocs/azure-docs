@@ -17,9 +17,8 @@ ms.workload: na
 
 # Microsoft Security Code Analysis releases and roadmap
 
-Microsoft Security Code Analysis team in partnership with Developer Support is proud to announce recent and upcoming enhancements to our MSCA extension. Please see Roadmap below.
+Microsoft Security Code Analysis team in partnership with Developer Support is proud to announce recent and upcoming enhancements to our MSCA extension.
 
-![Releases](./media/security-code-analysis-releases/releases.png)
 
 ## Credential Scanner v2.0: Released in April 2020
 
@@ -50,18 +49,25 @@ Microsoft Security Code Analysis team in partnership with Developer Support is p
 
 ### Improvements
 
-- FEATURE: Update to final SARIF v2 (version 2.1.16). This enables results caching when passing --hashes on the command-line, a significant performance improvement when recursively analyzing directories with multiple copies of scan targets.
+- FEATURE: Update to final SARIF v2 (version 2.1.16). This update enables results caching when passing --hashes on the command-line, a significant performance improvement when recursively analyzing directories with multiple copies of scan targets.
 - BUG FIX: Fix typo in BA2021.DoNotMarkWritableSectionsAsExecutable output.
 - PERFORMANCE: Eliminate PDB loading for all non-mixed-mode for managed assemblies, including IL Library (ahead of time compiled) binaries.
 - FALSE NEGATIVE FIX: Verify that a PDB placed alongside a binary actually matches the binary under analysis
 - FEATURE: Provide --local-symbol-directories argument to specify additional (local, non-symbol-server) PDB look-up locations
 - FALSE POSITIVE FIX: Skip PDB-driven analysis for the generated .NET core native bootstrap exe (which is not user-controllable code).
 
-## What's next in FY20?
+## What's next in Q3 CY20?
 
 - Java Security Analysis tool
 - Python Security Analysis tool
 - ES Lint to replace TS Lint for TypeScript and JavaScript
+- Resource Manager Templates Analysis tool
+
+## Tool Deprecation Notification
+
+### Microsoft Security Risk Detection (MSRD) is deprecated on June 26 2020.
+
+The deprecated MSRD fuzzing service will be replaced with an open source self-hosted developer fuzzing platform for Azure. This platform is currently being developed and tested in partnership with many of Microsoft’s core product teams. This fuzzing platform will integrate sanitizers and allow for adaptive, learning fuzz tests built into CI/CD pipelines that grow over time with software projects. The Open Source release of this platform is scheduled for the latter half of 2020.
 
 ## Next steps
 

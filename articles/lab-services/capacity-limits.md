@@ -1,20 +1,8 @@
 ---
 title: Capacity limits in Azure Lab Services
 description: Learn about capacity limits (virtual machine limits) in Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Capacity limits in Azure Lab Services
@@ -57,4 +45,5 @@ Once you submit the support request, we will review the request. If necessary, w
 
 ## Next steps
 See the following article:
+- [Administrator Guide - VM sizing](administrator-guide.md#vm-sizing).
 - [Frequently asked questions](classroom-labs-faq.md).

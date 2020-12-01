@@ -26,22 +26,25 @@ Certificates are configured in two ways.
 
 ## To obtain certificates
 
-Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
+Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](/windows/win32/seccrypto/certificate-services). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
 
 ## Tools to generate certificates
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### To run the tools
 
-* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](https://msdn.microsoft.com/library/ms229859.aspx) 
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](/dotnet/framework/tools/developer-command-prompt-for-vs) 
   
     If installed, go to:
   
-        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```console
+    %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```
+
 * Get the WDK from [Windows 8.1: Download kits and tools](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## To configure the TLS/SSL certificate
@@ -187,12 +190,14 @@ This topic is for reference only. Follow the configuration steps outlined in:
 ## Create a self-signed certificate
 Execute:
 
-    makecert ^
-      -n "CN=myservice.cloudapp.net" ^
-      -e MM/DD/YYYY ^
-      -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha256 -len 2048 ^
-      -sv MySSL.pvk MySSL.cer
+```console
+makecert ^
+  -n "CN=myservice.cloudapp.net" ^
+  -e MM/DD/YYYY ^
+  -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
+  -a sha256 -len 2048 ^
+  -sv MySSL.pvk MySSL.cer
+```
 
 To customize:
 
@@ -203,7 +208,9 @@ To customize:
 ## Create PFX file for self-signed TLS/SSL certificate
 Execute:
 
-        pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```console
+pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```
 
 Enter password and then export certificate with these options:
 
@@ -226,7 +233,9 @@ Upload certificate with the existing or generated .PFX file with the TLS key pai
 ## Update TLS/SSL certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```console
+<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## Import TLS/SSL certification authority
 Follow these steps in all account/machine that will communicate with the service:
@@ -254,13 +263,15 @@ Then, copy the same thumbprint as the TLS/SSL certificate in the CA certificate 
 ## Create a self-signed certification authority
 Execute the following steps to create a self-signed certificate to act as a Certification Authority:
 
-    makecert ^
-    -n "CN=MyCA" ^
-    -e MM/DD/YYYY ^
-     -r -cy authority -h 1 ^
-     -a sha256 -len 2048 ^
-      -sr localmachine -ss my ^
-      MyCA.cer
+```console
+makecert ^
+-n "CN=MyCA" ^
+-e MM/DD/YYYY ^
+ -r -cy authority -h 1 ^
+ -a sha256 -len 2048 ^
+  -sr localmachine -ss my ^
+  MyCA.cer
+```
 
 To customize it
 
@@ -307,13 +318,15 @@ Each individual authorized to access the service should have a client certificat
 
 The following steps must be executed in the same machine where the self-signed CA certificate was generated and stored:
 
-    makecert ^
-      -n "CN=My ID" ^
-      -e MM/DD/YYYY ^
-      -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha256 -len 2048 ^
-      -in "MyCA" -ir localmachine -is my ^
-      -sv MyID.pvk MyID.cer
+```console
+makecert ^
+  -n "CN=My ID" ^
+  -e MM/DD/YYYY ^
+  -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
+  -a sha256 -len 2048 ^
+  -in "MyCA" -ir localmachine -is my ^
+  -sv MyID.pvk MyID.cer
+```
 
 Customizing:
 
@@ -326,11 +339,15 @@ This command will prompt for a password to be created and then used once. Use a 
 ## Create PFX files for client certificates
 For each generated client certificate, execute:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Customizing:
 
-    MyID.pvk and MyID.cer with the filename for the client certificate
+```console
+MyID.pvk and MyID.cer with the filename for the client certificate
+```
 
 Enter password and then export certificate with these options:
 
@@ -375,11 +392,15 @@ The default setting does not check with the Certification Authority for client c
 ## Create PFX file for self-signed encryption certificates
 For an encryption certificate, execute:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Customizing:
 
-    MyID.pvk and MyID.cer with the filename for the encryption certificate
+```console
+MyID.pvk and MyID.cer with the filename for the encryption certificate
+```
 
 Enter password and then export certificate with these options:
 
@@ -483,4 +504,3 @@ The TLS settings described in this document encrypt communication between the se
 Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

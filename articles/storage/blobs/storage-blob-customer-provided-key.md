@@ -6,15 +6,16 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/26/2019
+ms.date: 07/20/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Specify a customer-provided key on a request to Blob storage with .NET
 
-Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys (preview) can be stored in Azure Key Vault or in another key store.
+Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys can be stored in Azure Key Vault or in another key store.
 
 This article shows how to specify a customer-provided key on a request with .NET.
 
@@ -70,5 +71,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## Next steps
 
+- [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md)

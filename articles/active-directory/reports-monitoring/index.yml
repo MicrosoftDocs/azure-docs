@@ -36,9 +36,9 @@ landingContent:
          - text: Sign-in logs
            url: concept-sign-ins.md
          - text: Risky sign-in logs
-           url: concept-risky-sign-ins.md
+           url: ../identity-protection/overview-identity-protection.md
          - text: Users flagged for risk logs
-           url: concept-user-at-risk.md
+           url: ../identity-protection/overview-identity-protection.md
          - text: Provisioning logs
            url: concept-provisioning-logs.md
   # Card

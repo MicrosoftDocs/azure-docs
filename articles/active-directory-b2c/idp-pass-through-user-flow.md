@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
@@ -22,7 +22,7 @@ Azure AD B2C currently only supports passing the access token of [OAuth 2.0](aut
 
 ## Prerequisites
 
-* Your application must be using a [v2 user flow](user-flow-versions.md).
+* Your application must be using a [recommended user flow](user-flow-versions.md).
 * Your user flow is configured with an OAuth 2.0 identity provider.
 
 ## Enable the claim

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
+ms.custom: ['Role: Cloud Development']
 ---
 # Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub
 

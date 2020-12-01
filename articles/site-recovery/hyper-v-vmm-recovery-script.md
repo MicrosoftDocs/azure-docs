@@ -1,19 +1,19 @@
-﻿---
+---
 title: Add a script to a recovery plan in Azure Site Recovery 
 description: Learn how to add a VMM script to a recovery plan for disaster recovery of Hyper-V VMs in VMM clouds. 
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
+ms.author: sharrai
 
 ---
 # Add a VMM script to a recovery plan
 
 This article describes how to create a System Center Virtual Machine Manager (VMM) script and add it to a recovery plan in [Azure Site Recovery](site-recovery-overview.md).
 
-Post any comments or questions at the bottom of this article, or on the [Microsoft Q&A question page for Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Post any comments or questions at the bottom of this article, or on the [Microsoft Q&A question page for Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ You can use PowerShell scripts in your recovery plans. To be accessible from the
 
     `Import-Module -Name virtualmachinemanager`
 
-    For more information, see [Get started with Windows PowerShell and VMM](https://technet.microsoft.com/library/hh875013.aspx).
+    For more information, see [Get started with Windows PowerShell and VMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Ensure that you have at least one library server in your VMM deployment. By default, the library share path for a VMM server is located locally on the VMM server. The folder name is MSCVMMLibrary.
 
   If your library share path is remote (or if it's local but not shared with MSCVMMLibrary), configure the share as follows, using \\libserver2.contoso.com\share\ as an example:
@@ -46,7 +46,7 @@ You can use PowerShell scripts in your recovery plans. To be accessible from the
 
      a. Open the **64-bit Windows PowerShell** console as an administrator.
      
-     b. Enter **Set-executionpolicy bypass**. For more information, see [Using the Set-ExecutionPolicy cmdlet](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Enter **Set-executionpolicy bypass**. For more information, see [Using the Set-ExecutionPolicy cmdlet](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Set **Set-executionpolicy bypass** only in the 64-bit PowerShell console. If you set it for the 32-bit PowerShell console, the scripts don't run.

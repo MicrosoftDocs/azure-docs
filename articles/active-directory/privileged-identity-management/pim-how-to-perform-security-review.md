@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Review access to Azure AD roles in Privileged Identity Management
 
-Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure Active Directory (AD) and other Microsoft online services like Office 365 or Microsoft Intune. Follow the steps in this article to successfully self-review your assigned roles.
+Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure Active Directory (AD) and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to successfully self-review your assigned roles.
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com) and begin.
 

@@ -1,6 +1,6 @@
 ---
 title: Connect AWS CloudTrail to Azure Sentinel | Microsoft Docs
-description: Learn how to connect AWS CloudTrail data to Azure Sentinel.
+description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -19,7 +19,7 @@ ms.author: yelevin
 
 # Connect Azure Sentinel to AWS CloudTrail
 
-Use the AWS connector to stream all your AWS CloudTrail events into Azure Sentinel. This connection process delegates access for Azure Sentinel to your AWS resource logs, creating a trust relationship between AWS CloudTrail and
+Use the AWS connector to stream your AWS CloudTrail management events into Azure Sentinel. This connection process delegates access for Azure Sentinel to your AWS resource logs, creating a trust relationship between AWS CloudTrail and
 Azure Sentinel. This is accomplished on AWS by creating a role that gives permission to Azure Sentinel to access your AWS logs.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Azure Sentinel. This is accomplished on AWS by creating a role that gives permis
 You must have write permission on the Azure Sentinel workspace.
 
 > [!NOTE]
-> Azure Sentinel collects CloudTrail events from all regions. It is recommended that you do not stream events from one region to another.
+> Azure Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
 
 ## Connect AWS 
 
@@ -77,11 +77,11 @@ You must have write permission on the Azure Sentinel workspace.
 
 1. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
 
-
+    > [!IMPORTANT]
+    > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
 
 ## Next steps
 In this document, you learned how to connect AWS CloudTrail to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-

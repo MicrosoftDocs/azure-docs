@@ -7,6 +7,8 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
+ms.custom: devx-track-js
+
 ---
 
 # Tutorial: Publish a Gatsby site to Azure Static Web Apps Preview
@@ -46,7 +48,7 @@ Create a Gatsby app using the Gatsby Command Line Interface (CLI):
    cd static-web-app
    ```
 
-1. Initialize a git repo
+1. Initialize a Git repo
 
    ```bash
    git init

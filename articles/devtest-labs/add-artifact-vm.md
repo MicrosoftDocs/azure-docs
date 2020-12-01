@@ -1,22 +1,10 @@
 ---
 title: Add an artifact to a VM in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add an artifact to a virtual machine in a lab in Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.assetid:
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add an artifact to a VM
 While creating a VM, you can add existing artifacts to it. These artifacts can be from either the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from your own Git repository. This article shows you how to add artifacts in the Azure portal, and by using Azure PowerShell. 
 

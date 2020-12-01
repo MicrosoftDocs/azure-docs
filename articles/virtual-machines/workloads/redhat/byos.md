@@ -1,20 +1,14 @@
 ---
 title: Red Hat Enterprise Linux bring-your-own-subscription Azure images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-
-ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
+ms.reviewer: cynthn
+
 
 ---
 
@@ -32,7 +26,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - Standard support policies apply to VMs created from these images.
 - The VMs provisioned from Red Hat Gold Images don't carry RHEL fees associated with RHEL pay-as-you-go images.
 - The images are unentitled. You must use Red Hat Subscription-Manager to register and subscribe the VMs to get updates from Red Hat directly.
-- It's currently not possible to dynamically switch between BYOS and pay-as-you-go billing models for Linux images. To switch the billing model, you must redeploy the VM from the respective image.
+- It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). However it's not possible to  switch from an initially deployed BYOS to pay-as-you-go billing models for Linux images. To switch the billing model from BYOS to pay-as-you-go, you must redeploy the VM from the respective image.
 
 >[!NOTE]
 > Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a
@@ -67,7 +61,7 @@ The rest of this document focuses on the CLI method to provision and accept term
 
 ## Use the Red Hat Gold Images from the Azure CLI
 
-The following instructions walk you through the initial deployment process for a RHEL VM by using the Azure CLI. These instructions assume that you have the [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The following instructions walk you through the initial deployment process for a RHEL VM by using the Azure CLI. These instructions assume that you have the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Make sure you use all lowercase letters in the publisher, offer, plan, and image references for all the following commands.
@@ -198,7 +192,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     In this case, contact Microsoft or Red Hat to enable your subscription.
 
-- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
+- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../linux/shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
 
     ```azurecli
     az vm create –image \

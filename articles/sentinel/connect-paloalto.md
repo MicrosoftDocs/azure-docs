@@ -1,6 +1,6 @@
 ---
 title: Connect Palo Alto Networks data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Palo Alto Networks data to Azure Sentinel.
+description: Learn how to use the Palo Alto Networks data connector to easily connect your Palo Alto Networks logs with Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin

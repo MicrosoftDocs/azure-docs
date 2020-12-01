@@ -6,6 +6,7 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
+ms.custom: devx-track-csharp
 ---
 # Scaling in Service Fabric
 Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. This Channel 9 video describes how you can build scalable microservices applications:
@@ -58,7 +59,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## Scaling by creating or removing new named services
 A named service instance is a specific instance of a service type (see [Service Fabric application life cycle](service-fabric-application-lifecycle.md)) within some named application instance in the cluster. 
 
-New named service instances can be created (or removed) as services become more or less busy. This allows requests to be spread across more service instances, usually allowing load on existing services to decrease. When creating services, the Service Fabric Cluster Resource Manager places the services in the cluster in a distributed fashion. The exact decisions are governed by the [metrics](service-fabric-cluster-resource-manager-metrics.md) in the cluster and other placement rules. Services can be created several different ways, but the most common are either through administrative actions like someone calling [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), or by code calling [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` can even be called from within other services running in the cluster.
+New named service instances can be created (or removed) as services become more or less busy. This allows requests to be spread across more service instances, usually allowing load on existing services to decrease. When creating services, the Service Fabric Cluster Resource Manager places the services in the cluster in a distributed fashion. The exact decisions are governed by the [metrics](service-fabric-cluster-resource-manager-metrics.md) in the cluster and other placement rules. Services can be created several different ways, but the most common are either through administrative actions like someone calling [`New-ServiceFabricService`](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), or by code calling [`CreateServiceAsync`](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` can even be called from within other services running in the cluster.
 
 Creating services dynamically can be used in all sorts of scenarios, and is a common pattern. For example, consider a stateful service that represents a particular workflow. Calls representing work are going to show up to this service, and this service is going to execute the steps to that workflow and record progress. 
 
@@ -122,7 +123,7 @@ But why even try to pick a single partition scheme out for all users? Why limit 
 When building for scale, consider the following dynamic pattern. You may need to adapt it to your situation:
 
 1. Instead of trying to pick a partitioning scheme for everyone up front, build a "manager service".
-2. The job of the manager service is to look at customer information when they sign up for your service. Then depending on that information the manager service create an instance of your _actual_ contact-storage service _just for that customer_. If they require particular configuration, isolation, or upgrades, you can also decide to spin up an Application instance for this customer. 
+2. The job of the manager service is to look at customer information when they sign up for your service. Then depending on that information the manager service creates an instance of your _actual_ contact-storage service _just for that customer_. If they require particular configuration, isolation, or upgrades, you can also decide to spin up an Application instance for this customer. 
 
 This dynamic creation pattern many benefits:
 

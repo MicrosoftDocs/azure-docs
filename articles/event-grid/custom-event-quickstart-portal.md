@@ -1,14 +1,8 @@
 ---
 title: 'Quickstart: Send custom events to web endpoint - Event Grid, Azure portal'
 description: 'Quickstart: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.' 
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 06/16/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
 ---
 
 # Quickstart: Route custom events to web endpoint with the Azure portal and Event Grid
@@ -45,7 +39,8 @@ An event grid topic provides a user-defined endpoint that you post your events t
 5. After the deployment succeeds, type **Event Grid Topics** in the search bar again, and select **Event Grid Topics** from the drop-down list as you did before. 
 6. Select the topic you created from the list. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Select your topic from the list":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Select your topic from the list":::
+
 7. You see the **Event Grid Topic** page for your topic. Keep this page open. You use it later in the quickstart. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Event Grid Topic home page":::
@@ -55,7 +50,7 @@ Before you create a subscription for the custom topic, create an endpoint for th
 
 1. In the article page, select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
 

@@ -56,7 +56,7 @@ The following connectivity parameters are published:
 * Network-based location
 * Consumed data traffic
 
-![Dashboard](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
+![Screenshot of the Device Explorer window in the Azure IoT Remote Monitoring dashboard. A row showing WeatherStation device details is highlighted.](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
 
 ## Next steps
 

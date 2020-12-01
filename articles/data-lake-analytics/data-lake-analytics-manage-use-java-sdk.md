@@ -1,16 +1,13 @@
 ---
 title: Manage Azure Data Lake Analytics using Azure Java SDK
 description: This article describes how to use the Azure Java SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
-ms.topic: conceptual
+ms.reviewer: jasonh
+ms.topic: how-to
 ms.date: 08/20/2019
+ms.custom: devx-track-java
 ---
+
 # Manage Azure Data Lake Analytics using a Java app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -30,7 +27,7 @@ The code following snippet provides code for **non-interactive** authentication,
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -314,6 +311,6 @@ Provide the values for parameters called out in the code snippet:
 
 ## Next steps
 
-* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](https://docs.microsoft.com/u-sql/).
+* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](/u-sql/).
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 * To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).

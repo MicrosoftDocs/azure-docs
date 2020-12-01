@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a NAT gateway - Azure PowerShell'
+title: 'Create a NAT gateway - Azure PowerShell'
 titlesuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using Azure PowerShell
 services: virtual-network
@@ -10,7 +10,7 @@ Customer intent: I want to create a NAT gateway for outbound connectivity for my
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020

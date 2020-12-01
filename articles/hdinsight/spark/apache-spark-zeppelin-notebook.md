@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ---
@@ -136,7 +136,9 @@ In this article, you'll see how to use the [spark-csv](https://search.maven.org/
 
     c. Concatenate the three values, separated by a colon (**:**).
 
-        com.databricks:spark-csv_2.10:1.4.0
+    ```
+    com.databricks:spark-csv_2.10:1.4.0
+    ```
 
 ## Where are the Zeppelin notebooks saved?
 

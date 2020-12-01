@@ -27,32 +27,32 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. In the **Virtual machines** page, select **Add**. 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
 
-    ![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
+    ![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
 
 1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Region**, and then choose *Windows Server 2019 Datacenter* for the **Image**. Leave the other defaults.
 
-    ![Instance details section](./media/quick-create-portal/instance-details.png)
+    ![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/quick-create-portal/instance-details.png)
 
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-    ![Enter your username and password](./media/quick-create-portal/administrator-account.png)
+    ![Screenshot of the Administrator account section where you provide the administrator username and password](./media/quick-create-portal/administrator-account.png)
 
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP (80)** from the drop-down.
 
-    ![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
+    ![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
-    ![Review and create](./media/quick-create-portal/review-create.png)
+    ![Screenshot showing the Review and create button at the bottom of the page](./media/quick-create-portal/review-create.png)
 
 
 ## Connect to virtual machine
 
 Create a remote desktop connection to the virtual machine. These directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) from the Mac App Store.
 
-1. Click the **Connect** button on the overview page for your virtual machine. 
+1. Select the **Connect** button on the overview page for your virtual machine. 
 
-    ![Connect to an Azure VM from the portal](./media/quick-create-portal/portal-quick-start-9.png)
+    ![Screenshot of the virtual machine overview page showing the location of the connect button](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. In the **Connect to virtual machine** page, keep the default options to connect by IP address, over port 3389, and click **Download RDP file**.
 
@@ -77,7 +77,7 @@ When done, close the RDP connection to the VM.
 
 In the portal, select the VM and in the overview of the VM, use the **Click to copy** button to the right of the IP address to copy it and paste it into a browser tab. The default IIS welcome page will open, and should look like this:
 
-![IIS default site](./media/quick-create-powershell/default-iis-website.png)
+![Screenshot of the IIS default site in a browser](./media/quick-create-powershell/default-iis-website.png)
 
 ## Clean up resources
 

@@ -6,22 +6,22 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
 # Design decisions and coding techniques for Synapse SQL features in Azure Synapse Analytics
-In this article, you'll find a list of resources for SQL pool and SQL on-demand (preview) functions of Synapse SQL. The recommended articles are split up into two sections: Key design decisions and Development and coding techniques.
+In this article, you'll find a list of resources for dedicated SQL pool and serverless SQL pool (preview) functions of Synapse SQL. The recommended articles are split up into two sections: Key design decisions and development and coding techniques.
 
 The goal of these articles is to help you develop the optimal technical approach for the Synapse SQL components within Synapse Analytics.
 
 ## Key design decisions
 The articles below highlight concepts and design decisions for Synapse SQL development:
 
-|                                                          |   SQL pool   | SQL on-demand |
-| -----------------------------------------------------    | ---- | ---- |
+| Article | dedicated SQL pool | serverless SQL pool |
+| ------- | -------- | ------------- |
 | [Connections](connect-overview.md)                    | Yes | Yes |
 | [Resource classes and concurrency](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | No |
 | [Transactions](develop-transactions.md)              | Yes | No |
@@ -39,8 +39,8 @@ The articles below highlight concepts and design decisions for Synapse SQL devel
 
 Below you'll find essential articles that emphasize specific coding techniques, tips, and recommendations for development:
 
-|                                            | SQL pool | SQL on-demand |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Article | dedicated SQL pool | serverless SQL pool |
+| ------- | -------- | ------------- |
 | [Stored procedures](develop-stored-procedures.md)  | Yes                | No                      |
 | [Labels](develop-label.md)                           | Yes                | No                      |
 | [Views](develop-views.md)                             | Yes                | Yes                     |

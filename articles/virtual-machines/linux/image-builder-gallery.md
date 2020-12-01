@@ -1,6 +1,6 @@
 ---
-title: Use Azure Image Builder with an image gallery for Linux VMs (preview)
-description: Create Linux VM images with Azure Image Builder and Shared Image Gallery.
+title: Use Azure Image Builder & Shared Image Gallery for Linux VMs (preview)
+description: Learn how to use the Azure Image Builder, and the Azure CLI, to create an image version in a Shared Image Gallery, and then distribute the image globally.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
@@ -11,7 +11,7 @@ ms.reviewer: danis
 ---
 # Preview: Create a Linux image and distribute it to a Shared Image Gallery 
 
-This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
+This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../windows/shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -88,7 +88,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group
-Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -101,7 +101,7 @@ imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $idenityName | grep "
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
 
-# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+# this command will download an Azure role definition template, and update the template with the parameters specified earlier.
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')

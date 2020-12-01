@@ -3,7 +3,7 @@ title: Configuration error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with configuration error codes. 
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
@@ -89,7 +89,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 ## SQLDWOutputInvalidServiceEdition
 
 * **Cause**: SQL Database is not supported.
-* **Recommendation**: Use Synapse SQL pool.
+* **Recommendation**: Use dedicated SQL pool.
 
 ## Next steps
 

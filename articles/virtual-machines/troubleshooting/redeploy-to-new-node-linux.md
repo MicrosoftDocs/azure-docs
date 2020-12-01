@@ -38,7 +38,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 
-Install the [latest Azure classic CLI](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
+Install the [latest Azure classic CLI](/cli/azure/install-classic-cli) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
 
 The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 
@@ -50,5 +50,3 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 
 ## Next steps
 If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [detailed SSH troubleshooting steps](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-

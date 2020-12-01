@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/24/2020
 ms.author: victorh
 ---
 
@@ -16,10 +16,9 @@ You can use Azure Powershell to configure [web traffic redirection](multiple-sit
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create a listener and redirection rule
-> * Create an application gateway
+* Set up the network
+* Create a listener and redirection rule
+* Create an application gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -152,9 +151,4 @@ You should see *bing.com* appear in your browser.
 
 ## Next steps
 
-In this article, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create a listener and redirection rule
-> * Create an application gateway
+- [Create an application gateway with internal redirection using Azure PowerShell](redirect-internal-site-powershell.md)

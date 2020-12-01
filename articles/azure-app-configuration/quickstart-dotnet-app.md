@@ -1,13 +1,14 @@
 ---
 title: Quickstart for Azure App Configuration with .NET Framework | Microsoft Docs
-description: A quickstart for using Azure App Configuration with .NET Framework apps
+description: In this article, create a .NET Framework app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
 
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
 
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
@@ -18,7 +19,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
@@ -26,7 +27,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+7. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -34,7 +35,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
     Leave **Label** and **Content Type** empty for now.
 
-7. Select **Apply**.
+8. Select **Apply**.
 
 ## Create a .NET console app
 
@@ -84,23 +85,15 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
         string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
+        Console.ReadKey();
     }
     ```
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
+1. Update the **App.config** file by replacing `${ConnectionString}` with the actual connection string to your Application Configuration instance. You can find it in the **Access keys** tab of the Application Configuration resource in the Azure Portal.
 
-    ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
-
-    If you use Windows PowerShell, run the following command:
-
-    ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-1. Restart Visual Studio to allow the change to take effect. Press Ctrl + F5 to build and run the console app.
+1. Press Ctrl + F5 to build and run the console app.
 
 ## Clean up resources
 

@@ -1,12 +1,12 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight 
 description: Install and use the REST SDK for the Phoenix Query Server in Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 01/01/2020
 ---
 
@@ -22,7 +22,9 @@ For more information, see [Apache Calcite Avatica Protocol Buffers Reference](ht
 
 Microsoft .NET driver for Apache Phoenix Query Server is provided as a NuGet package, which can be installed from the Visual Studio **NuGet Package Manager Console** with the following command:
 
-    Install-Package Microsoft.Phoenix.Client
+```console
+Install-Package Microsoft.Phoenix.Client
+```
 
 ## Instantiate new PhoenixClient object
 
@@ -489,7 +491,7 @@ finally
 
 The output of the `select` statements should be the following result:
 
-```
+```output
 id0 first0
 id1 first1
 id10 first10

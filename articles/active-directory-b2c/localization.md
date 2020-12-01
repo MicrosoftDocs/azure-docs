@@ -8,12 +8,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Localization
+# Localization element
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -22,7 +22,7 @@ The **Localization** element allows you to support multiple locales or languages
 - Set up the explicit list of the supported languages in a policy and pick a default language.
 - Provide language-specific strings and collections.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -112,7 +112,7 @@ The **Item** element contains the following attributes:
 
 The following example shows the use of the **LocalizedCollections** element. It contains two **LocalizedCollection** elements, one for English and another one for Spanish. Both set the **Restriction** collection of the claim `Gender` with a list of items for English and Spanish.
 
-```XML
+```xml
 <LocalizedResources Id="api.selfasserted.en">
  <LocalizedCollections>
    <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
@@ -159,6 +159,7 @@ The ElementType reference to a claim type, a claim transformation, or a user int
 |Predicate user message|`Predicate`|The name of the predicate| The attribute of the predicate to be localized. Possible values: `HelpText`.|
 |Predicate group user message|`InputValidation`|The ID of the PredicateValidation element.|The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.|
 |User interface elements |`UxElement` | | The ID of the user interface element to be localized.|
+|[Display Control](display-controls.md) |`DisplayControl` |The ID of the display control. | The ID of the user interface element to be localized.|
 
 ## Examples
 
@@ -201,7 +202,7 @@ The ClaimType value is used to localize one of the claim attributes.
 
 The following example shows how to localize the DisplayName, UserHelpText, and PatternHelpText attributes of the email claim type.
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
@@ -224,7 +225,7 @@ The ErrorMessage value is used to localize one of the system error messages.
 The following example shows how to localize the UserMessageIfClaimsPrincipalAlreadyExists error message.
 
 
-```XML
+```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
@@ -315,7 +316,7 @@ The InputValidation value is used to localize one of the [PredicateValidation](p
 
 The following example shows how to localize a predicate validation group help text.
 
-```XML
+```xml
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
@@ -323,9 +324,26 @@ The following example shows how to localize a predicate validation group help te
 
 The UxElement value is used to localize one of the user interface elements. The following example shows how to localize the continue and cancel buttons.
 
-```XML
+```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### DisplayControl
+
+The DisplayControl value is used to localize one of the [display Control](display-controls.md) user interface elements. The following example shows how to localize the send and verify buttons. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+In the Metadata section of a self-asserted technical profile, the referenced ContentDefinition needs to have DataUri set to [page layout version](page-layout.md) 2.1.0 or higher. For example:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## Next steps

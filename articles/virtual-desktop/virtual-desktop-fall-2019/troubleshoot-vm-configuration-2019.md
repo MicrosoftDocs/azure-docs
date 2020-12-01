@@ -1,19 +1,16 @@
 ---
-title: Troubleshoot Windows Virtual Desktop session host - Azure
-description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
-services: virtual-desktop
+title: Troubleshoot Windows Virtual Desktop (classic) session host - Azure
+description: How to resolve issues when you're configuring Windows Virtual Desktop (classic) session host virtual machines.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ---
-# Session host virtual machine configuration
+# Windows Virtual Desktop (classic) session host virtual machine configuration
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../troubleshoot-vm-configuration.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-vm-configuration.md).
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
@@ -113,7 +110,8 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 ### Error: The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable
 
-![Get-RdsSessionHost cmdlet shows status as Unavailable.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Get-RdsSessionHost cmdlet shows status as Unavailable.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The agent isn't able to update itself to a new version.
 
@@ -186,7 +184,8 @@ If you're having issues with the Windows Virtual Desktop side-by-side stack, typ
 
 The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-side stack is installed and enabled.
 
-![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) on how to reinstall the side-by-side stack.
 
@@ -200,7 +199,8 @@ Examine the registry entries listed below and confirm that their values match. I
 
 ### Error: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE error code.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE error code.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The side-by-side stack isn't installed on the session host VM.
 
@@ -242,19 +242,21 @@ Follow these instructions to run remediation from the same subnet and domain:
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname is the machine name of the VM with the malfunctioning side-by-side stack.
 
 7. Accept the PsExec License Agreement by clicking Agree.
 
-    ![Software license agreement screenshot.](../media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Software license agreement screenshot.](../media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >This dialog will show up only the first time PsExec is run.
 
 8. After the command prompt session opens on the VM with the malfunctioning side-by-side stack, run qwinsta and confirm that an entry named rdp-sxs is available. If not, a side-by-side stack isn't present on the VM so the issue isn't tied to the side-by-side stack.
 
-    ![Administrator command prompt](../media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Administrator command prompt](../media/AdministratorCommandPrompt.png)
 
 9. Run the following command, which will list Microsoft components installed on the VM with the malfunctioning side-by-side stack.
 
@@ -301,7 +303,7 @@ If you sign in to Windows 10 Enterprise multi-session using an administrative ac
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.  
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.
 
 >[!NOTE]
 >Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
@@ -322,7 +324,8 @@ To check which version of Windows 10 Enterprise multi-session you have:
 3. Select **About your PC**.
 4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
 
-    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](../media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](../media/windows-specifications.png)
 
 Now that you know your version number, skip ahead to the relevant section.
 

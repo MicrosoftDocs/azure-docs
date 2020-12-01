@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: "devx-track-dotnet, mvc, seodec18"
 ---
 
 # Create an ASP.NET Core app in a Docker container in App Service from Azure Container Registry
@@ -40,6 +40,6 @@ This script uses the following commands to create a resource group, App Service 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

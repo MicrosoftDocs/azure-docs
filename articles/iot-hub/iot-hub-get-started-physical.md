@@ -9,6 +9,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: wesmc
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Azure IoT Hub get started with physical devices tutorials

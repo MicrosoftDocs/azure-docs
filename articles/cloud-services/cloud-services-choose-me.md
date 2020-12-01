@@ -1,6 +1,6 @@
 ---
 title: What is Azure Cloud Services | Microsoft Docs
-description: 'Learn about what Azure Cloud Services is.'
+description: Learn about what Azure Cloud Services is, specifically that it's designed to support applications that are scalable, reliable, and inexpensive to operate.
 services: cloud-services
 author: tgore03
 ms.service: multiple

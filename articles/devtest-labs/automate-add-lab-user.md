@@ -1,19 +1,8 @@
 ---
 title: Automate adding a lab user in Azure DevTest Labs | Microsoft Docs
 description: This article shows you how to automate adding a user to a lab in Azure DevTest Labs using Azure Resource Manager templates, PowerShell, and CLI. 
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Automate adding a lab user to a lab in Azure DevTest Labs
@@ -185,7 +174,7 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 To specify the resource to which permissions are being granted can be specified by a combination of `ResourceName`, `ResourceType`, `ResourceGroup` or by the `scope` parameter. Whatever combination of parameters is used, provide enough information to the cmdlet to uniquely identify the Active Directory object (user, group, or service principal), scope (resource group or resource), and role definition.
 
 ## Use Azure Command Line Interface (CLI)
-In Azure CLI, adding a labs user to a lab is done by using the `az role assignment create` command. For more information on Azure CLI cmdlets, see [Manage access to Azure resources using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
+In Azure CLI, adding a labs user to a lab is done by using the `az role assignment create` command. For more information on Azure CLI cmdlets, see [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 The object that is being granted access can be specified by the `objectId`, `signInName`, `spn` parameters. The lab to which the object is being granted access can be identified by the `scope` url or a combination of the `resource-name`, `resource-type`, and `resource-group` parameters.
 

@@ -49,13 +49,13 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 
 **Work around:** Do the following steps to upgrade to MABS V3 using Russian install package:
 
-1. [Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) your SQL database and uninstall MABS V2 (choose to retain the protected data during uninstall).
+1. [Backup](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server#SSMSProcedure) your SQL database and uninstall MABS V2 (choose to retain the protected data during uninstall).
 2. Upgrade to SQL 2017 (Enterprise) and uninstall reporting as part of upgrade.
-3. [Install](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
-4. [Install](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
-5. Configure Reporting using the parameters as documented in [SSRS configuration with SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
+3. [Install](/sql/reporting-services/install-windows/install-reporting-services#install-your-report-server) SQL Server Reporting Services (SSRS).
+4. [Install](/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
+5. Configure Reporting using the parameters as documented in [SSRS configuration with SQL 2017](./backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 6. [Install](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL using SSMS and run DPM-Sync tool as described [here](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
+7. [Restore](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL using SSMS and run DPM-Sync tool as described [here](/system-center/dpm/back-up-the-dpm-server#using-dpmsync).
 8. Update the ‘DataBaseVersion’ property in dbo.tbl_DLS_GlobalSetting table using the following command:
 
     ```sql
@@ -76,7 +76,7 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 1. On Web Portal URL, the DPMReports Folder is present in the format of **`DPMReports_<GUID>`**
 
     >[!NOTE]
-    >There is always only one folder with this naming convention. If MABS is upgraded from a previous version, there might be another older folder as well, but you will not be able to open it.
+    >There's always only one folder with this naming convention. If MABS is upgraded from a previous version, there might be another older folder as well, but you won't be able to open it.
 
     ![DPMReports folder](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
 

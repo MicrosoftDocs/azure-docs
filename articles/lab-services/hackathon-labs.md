@@ -1,19 +1,8 @@
 ---
 title: Use Azure Lab Services for hackathon
 description: This article describes how to use Azure Lab Services for creating labs that you can use for running hackathons.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Use Azure Lab Services for your next hackathon
@@ -92,4 +81,4 @@ This section outlines the steps to complete the day of your hackathon.
         For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md?branch=master). 
 
 ## Next steps
-Start with creating a lab account in Classroom Labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).
+Start with creating a lab account in labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).

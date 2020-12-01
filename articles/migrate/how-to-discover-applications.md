@@ -41,7 +41,7 @@ After the appliance is deployed and you've provided credentials, the appliance s
 
 ## Verify permissions
 
-You [created a vCenter Server read-only account](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for app discovery.
+You [created a vCenter Server read-only account](./tutorial-discover-vmware.md#prepare-vmware) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for app discovery.
 
 ### Add the user account to the appliance
 
@@ -75,4 +75,4 @@ The app inventory is exported and downloaded in Excel format. The **Application 
 ## Next steps
 
 - [Create an assessment](how-to-create-assessment.md) for discovered servers.
-- Assess SQL Server databases using [Azure Migrate:Database Assessment](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- Assess SQL Server databases using [Azure Migrate:Database Assessment](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).

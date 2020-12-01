@@ -2,17 +2,17 @@
 title: YAML reference for container group   
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 07/06/2020
 ---
 
 # YAML reference: Azure Container Instances
 
 This article covers the syntax and properties for the YAML file supported by Azure Container Instances to configure a [container group](container-instances-container-groups.md). Use a YAML file to input the group configuration to the [az container create][az-container-create] command in the Azure CLI. 
 
-A YAML file is a convenient way to configure a container group for reproducible deployments. It is a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
+A YAML file is a convenient way to configure a container group for reproducible deployments. It is a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
 
 > [!NOTE]
-> This reference applies to YAML files for Azure Container Instances REST API version `2018-10-01`.
+> This reference applies to YAML files for Azure Container Instances REST API version `2019-12-01`.
 
 ## Schema 
 
@@ -20,7 +20,7 @@ The schema for the YAML file follows, including comments to highlight key proper
 
 ```yml
 name: string  # Name of the container group
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: string
 tags: {}
 identity: 
@@ -122,6 +122,25 @@ properties: # Properties of container group
     - string
     searchDomains: string
     options: string
+  sku: string # SKU for the container group
+  encryptionProperties:
+    vaultBaseUrl: string
+    keyName: string
+    keyVersion: string
+  initContainers: # Array of init containers in the group
+  - name: string
+    properties:
+      image: string
+      command:
+      - string
+      environmentVariables:
+      - name: string
+        value: string
+        secureValue: string
+      volumeMounts:
+      - name: string
+        mountPath: string
+        readOnly: boolean
 ```
 
 ## Property values
@@ -167,6 +186,9 @@ The following tables describe the values you need to set in the schema.
 |  diagnostics | object | No | The diagnostic information for a container group. - [ContainerGroupDiagnostics object](#containergroupdiagnostics-object) |
 |  networkProfile | object | No | The network profile information for a container group. - [ContainerGroupNetworkProfile object](#containergroupnetworkprofile-object) |
 |  dnsConfig | object | No | The DNS config information for a container group. - [DnsConfiguration object](#dnsconfiguration-object) |
+| sku | enum | No | The SKU for a container group - Standard or Dedicated |
+| encryptionProperties | object | No | The encryption properties for a container group. - [EncryptionProperties object](#encryptionproperties-object) | 
+| initContainers | array | No | The init containers for a container group. - [InitContainerDefinition object](#initcontainerdefinition-object) |
 
 
 
@@ -244,6 +266,20 @@ The following tables describe the values you need to set in the schema.
 |  options | string | No | The DNS options for the container group. |
 
 
+### EncryptionProperties object
+
+| Name	| Type	| Required	| Value |
+|  ---- | ---- | ---- | ---- |
+| vaultBaseUrl	| string	| Yes	| The keyvault base url. |
+| keyName	| string	| Yes	| The encryption key name. |
+| keyVersion	| string	| Yes	| The encryption key version. |
+
+### InitContainerDefinition object
+
+| Name	| Type	| Required	| Value |
+|  ---- | ---- | ---- | ---- |
+| name	| string |	Yes	| The name for the init container. |
+| properties	| object	| Yes	| The properties for the init container. - [InitContainerPropertiesDefinition object](#initcontainerpropertiesdefinition-object)
 
 
 ### ContainerProperties object
@@ -294,7 +330,6 @@ The following tables describe the values you need to set in the schema.
 
 
 
-
 ### LogAnalytics object
 
 |  Name | Type | Required | Value |
@@ -305,7 +340,14 @@ The following tables describe the values you need to set in the schema.
 |  metadata | object | No | Metadata for log analytics. |
 
 
+### InitContainerPropertiesDefinition object
 
+| Name	| Type	| Required	| Value |
+|  ---- | ---- | ---- | ---- |
+| image	| string	| No	| The image of the init container. |
+| command	| array	| No	| The command to execute within the init container in exec form. - string |
+| environmentVariables | array	| No |The environment variables to set in the init container. - [EnvironmentVariable object](#environmentvariable-object)
+| volumeMounts |array	| No	| The volume mounts available to the init container. - [VolumeMount object](#volumemount-object)
 
 ### ContainerPort object
 

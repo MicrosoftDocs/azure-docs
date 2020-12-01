@@ -6,6 +6,7 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Introduction to Service Fabric Reliable Actors
 Reliable Actors is a Service Fabric application framework based on the [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/) pattern. The Reliable Actors API provides a single-threaded programming model built on the scalability and reliability guarantees provided by Service Fabric.
@@ -132,7 +133,7 @@ The Actors runtime provides these concurrency guarantees in situations where it 
 ## Next steps
 Get started by building your first Reliable Actors service:
    * [Getting started with Reliable Actors on .NET](service-fabric-reliable-actors-get-started.md)
-   * [Getting started with Reliable Actors on Java](service-fabric-reliable-actors-get-started-java.md)
+   * [Getting started with Reliable Actors on Java](./service-fabric-create-your-first-linux-application-with-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

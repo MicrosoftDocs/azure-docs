@@ -29,7 +29,10 @@ landingContent:
         links:
           - text: Frequently asked questions
             url: application-gateway-faq.md
-
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
   # Card
   - title: Support high traffic volumes
     linkLists:
@@ -84,6 +87,19 @@ landingContent:
           - text: Create an Ingress Controller for AKS 
             url: ingress-controller-install-new.md
 
+# Card
+  - title: Rewrite HTTP headers and URL using Application Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Rewrite HTTP headers and URL using Application Gateway
+            url: rewrite-http-headers-url.md
+      - linkListType: how-to-guide
+        links:
+          - text: Rewrite HTTP headers using Azure portal
+            url: rewrite-http-headers-portal.md
+          - text: Rewrite URL and query string using Azure portal
+            url: rewrite-url-portal.md            
 
 # Card
   - title: Troubleshoot Application Gateway

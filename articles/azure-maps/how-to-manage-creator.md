@@ -64,7 +64,7 @@ Click the **Delete** button and type your Creator name to confirm deletion. Once
 
 Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
 
-Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Access to Creator services
 

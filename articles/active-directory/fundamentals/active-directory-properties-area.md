@@ -2,12 +2,12 @@
 title: Add your organization's privacy info - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add your organization's privacy info to the Azure Active Directory Properties area.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2018
 ms.author: ajburnle
 ms.reviewer: bpham
@@ -27,15 +27,15 @@ You add your organization's privacy information in the **Properties** area of Az
 
 ### To access the Properties area and add your privacy information
 
-1.    Sign in to the Azure portal as a tenant administrator.
+1. Sign in to the Azure portal as a tenant administrator.
 
-2.    On the left navbar, select **Azure Active Directory**, and then select **Properties**.
+2. On the left navbar, select **Azure Active Directory**, and then select **Properties**.
 
     The **Properties** area appears.
 
     ![Azure AD Properties area highlighting the privacy info area](media/active-directory-properties-area/properties-area.png)
 
-3.    Add your privacy info for your employees:
+3. Add your privacy info for your employees:
 
     - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
     
@@ -48,8 +48,8 @@ You add your organization's privacy information in the **Properties** area of Az
 
         ![B2B Collaboration Review Permissions box with message](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.    Select **Save**.
+4. Select **Save**.
 
 ## Next steps
-- [Azure Active Directory B2B collaboration invitation redemption](../b2b/redemption-experience.md)
+- [Azure Active Directory B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
 - [Add or change profile information for a user in Azure Active Directory](active-directory-users-profile-azure-portal.md)

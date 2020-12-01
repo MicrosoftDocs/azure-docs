@@ -1,7 +1,7 @@
 ---
 
 title: Send push notifications to iOS using Azure Notification Hubs and the iOS SDK version 2.0.4
-description: In this tutorial, you learn how to use Azure Notification Hubs and the Apple Push Notification service to send push notifications to iOS devices.
+description: In this tutorial, you learn how to use Azure Notification Hubs and the Apple Push Notification service to send push notifications to iOS devices (version 2.0.4).
 author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
@@ -453,7 +453,7 @@ Push notifications are normally sent in a back-end service like Mobile Apps or A
 
 Here is a list of some other tutorials you might want to review for sending notifications:
 
-- Azure Mobile Apps: For an example of how to send notifications from a Mobile Apps back end integrated with Notification Hubs, see [Add Push Notifications to your iOS App](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure Mobile Apps: For an example of how to send notifications from a Mobile Apps back end integrated with Notification Hubs, see [Add Push Notifications to your iOS App](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 - ASP.NET: [Use Notification Hubs to send push notifications to users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 - Azure Notification Hubs Java SDK: See [How to use Notification Hubs from Java](notification-hubs-java-push-notification-tutorial.md) for sending notifications from Java. This has been tested in Eclipse for Android Development.
 - PHP: [How to use Notification Hubs from PHP](notification-hubs-php-push-notification-tutorial.md).
@@ -489,7 +489,7 @@ For more information, see the following articles:
 - [Registration management](notification-hubs-push-notification-registration-management.md)
 - [Working with tags](notification-hubs-tags-segment-push-message.md)
 - [Working with custom templates](notification-hubs-templates-cross-platform-push-messages.md)
-- [Service Bus access control with shared access signatures](/azure/service-bus-messaging/service-bus-sas)
+- [Service Bus access control with shared access signatures](../service-bus-messaging/service-bus-sas.md)
 - [Programmatically generate SAS tokens](/rest/api/eventhub/generate-sas-token)
 - [Apple security: common crypto](https://developer.apple.com/security/)
 - [UNIX Epoch time](https://en.wikipedia.org/wiki/Unix_time)

@@ -11,8 +11,8 @@ metadata:
   ms.subservice:
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: Juliako
-  ms.author: juliako
+  author: IngridAtMicrosoft
+  ms.author: inhenkel
   ms.date: 21/16/2020 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -50,9 +50,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create an account
-            url: create-account-cli-how-to.md          
+            url: ./create-account-howto.md
           - text: Access API
-            url: access-api-cli-how-to.md    
+            url: ./access-api-howto.md
       - linkListType: download
         links:
           - text: .NET SDK samples
@@ -64,13 +64,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: https://aka.ms/ams-v3-cli-ref
+            url: /cli/azure/ams
           - text: REST
-            url: https://docs.microsoft.com/rest/api/media/
+            url: /rest/api/media/
           - text: .NET
-            url: https://aka.ms/ams-v3-dotnet-ref
+            url: /dotnet/api/overview/azure/mediaservices/management
           - text: Java
-            url: https://aka.ms/ams-v3-java-ref
+            url: /java/api/overview/azure/mediaservices/management
 
 # Card
   - title: Stream live

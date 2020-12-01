@@ -1,7 +1,7 @@
 ---
 title: Azure CLI script sample - Configure IPv6 frontend - Standard Load Balancer
 titlesuffix: Azure Virtual Network
-description: Enable IPv6 endpoints using Azure CLI in Azure Virtual Network
+description: Learn how to configure IPv6 endpoints in a virtual network script sample using Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,7 +11,8 @@ ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure IPv6 endpoints in virtual network script sample using Standard Load Balancer(preview)
@@ -200,7 +201,7 @@ az network vnet create \
 --name dsVNET \
 --resource-group DsResourceGroup01 \
 --location eastus  \
---address-prefixes "10.0.0.0/16" "ace:cab:deca::/48"
+--address-prefixes "10.0.0.0/16" "fd00:db8:deca::/48"
 
 # Create a single dual stack subnet
 
@@ -208,7 +209,7 @@ az network vnet subnet create \
 --name dsSubNET \
 --resource-group DsResourceGroup01 \
 --vnet-name dsVNET \
---address-prefixes "10.0.0.0/24" "ace:cab:deca:deed::/64" \
+--address-prefixes "10.0.0.0/24" "fd00:db8:deca:deed::/64" \
 --network-security-group dsNSG1
 
 # Create NICs

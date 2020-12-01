@@ -18,7 +18,7 @@ Updates rarely affect the hosted VMs. When updates do have an effect, Azure choo
 - If the update doesn't require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. 
 - If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 35 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. For instructions on managing planned maintenance, see Handling planned maintenance notifications using the Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
 
-This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](./windows/manage-availability.md) or the corresponding article for [Linux](./linux/manage-availability.md).
+This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](./manage-availability.md) or the corresponding article for [Linux](./manage-availability.md).
 
 Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](./windows/scheduled-events.md) or for [Linux](./linux/scheduled-events.md).
 
@@ -36,7 +36,7 @@ These maintenance operations that don't require a reboot are applied one fault d
 
 These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](./windows/scheduled-events.md) or [Linux](./linux/scheduled-events.md) for such applications. 
 
-For greater control on all maintenance activities including zero-impact and rebootless updates, you can use Maintenance Control feature. You must be using either [Azure Dedicated Hosts](./linux/dedicated-hosts.md) or an [isolated VM](../security/fundamentals/isolation-choices.md). Maintenance control gives you the option to skip all platform updates and apply the updates at your choice of time within a 35-day rolling window. For more information, see [Control updates with Maintenance Control and the Azure CLI](maintenance-control.md).
+For greater control on all maintenance activities including zero-impact and rebootless updates, you can use Maintenance Control feature. You must be using either [Azure Dedicated Hosts](./dedicated-hosts.md) or an [isolated VM](../security/fundamentals/isolation-choices.md). Maintenance control gives you the option to skip all platform updates and apply the updates at your choice of time within a 35-day rolling window. For more information, see [Control updates with Maintenance Control and the Azure CLI](maintenance-control.md).
 
 
 ### Live migration
@@ -72,7 +72,7 @@ If you decide to wait until the scheduled maintenance phase, there are a few thi
 
 #### Paired regions
 
-Each Azure region is paired with another region within the same geographical vicinity. Together, they make a region pair. During the scheduled maintenance phase, Azure updates only the VMs in a single region of a region pair. For example, while updating the VM in North Central US, Azure doesn't update any VM in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Each Azure region is paired with another region within the same geographical vicinity. Together, they make a region pair. During the scheduled maintenance phase, Azure updates only the VMs in a single region of a region pair. For example, while updating the VM in North Central US, Azure doesn't update any VM in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](../best-practices-availability-paired-regions.md).
 
 #### Availability sets and scale sets
 
@@ -82,7 +82,7 @@ Within an availability set, individual VMs are spread across up to 20 update dom
 
 Virtual machine *scale sets* are an Azure compute resource that you can use to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across UDs, like VMs in an availability set. As with availability sets, when you use scale sets, only one UD is updated at any given time during scheduled maintenance.
 
-For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](./windows/manage-availability.md) or the corresponding article for [Linux](./linux/manage-availability.md).
+For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](./manage-availability.md) or the corresponding article for [Linux](./manage-availability.md).
 
 #### Availability zones
 
@@ -94,4 +94,4 @@ Each infrastructure update rolls out zone by zone, within a single region. But, 
 
 ## Next steps 
 
-You can use the [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) or the [portal](maintenance-notifications-portal.md) to manage planned maintenance. 
+You can use the [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) or the [portal](maintenance-notifications-portal.md) to manage planned maintenance.

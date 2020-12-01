@@ -38,11 +38,11 @@ If you want to create a group manually outside of creating an assessment, do the
 
 2. Click the **Group** icon.
 3. In **Create group**, specify a group name, and in **Appliance name**, select the Azure Migrate appliance you're using for machine discovery.
-1. From the machine list, select the machines you want to add to the group > **Create**.
+4. From the machine list, select the machines you want to add to the group > **Create**.
 
     ![Create group](./media/how-to-create-a-group/create-group.png)
 
-You can now use this group when you [create an assessment](how-to-create-assessment.md).
+You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-azure-vmware-solution-assessment.md). Note that you can create an AVS assessment on groups with only VMware VMs. 
 
 ## Refine a group with dependency mapping
 

@@ -51,7 +51,7 @@ This article provides detailed steps for performing different functions with thi
 1. In the Canvas control of the textual editor, position the cursor where you want to place the code for the child runbook.
 2. Expand the **Assets** node in the Library control.
 3. Expand the node for the desired asset type.
-4. Right-click the asset name to insert and select **Add to canvas**. For [variable assets](automation-variables.md), select either **Add "Get Variable" to canvas** or **Add "Set Variable" to canvas**, depending on whether you want to get or set the variable.
+4. Right-click the asset name to insert and select **Add to canvas**. For [variable assets](./shared-resources/variables.md), select either **Add "Get Variable" to canvas** or **Add "Set Variable" to canvas**, depending on whether you want to get or set the variable.
 5. Note that the code for the asset is inserted into the runbook.
 
 ## Edit an Azure Automation runbook using Windows PowerShell
@@ -90,9 +90,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Manage runbooks in Azure Automation](manage-runbooks.md).
 * [Learning PowerShell workflow](automation-powershell-workflow.md).
 * [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
-* [Certificates](automation-certificates.md).
+* [Certificates](./shared-resources/certificates.md).
 * [Connections](automation-connections.md).
-* [Credentials](automation-credentials.md).
-* [Schedules](automation-schedules.md).
-* [Variables](automation-variables.md).
-* [PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Credentials](./shared-resources/credentials.md).
+* [Schedules](./shared-resources/schedules.md).
+* [Variables](./shared-resources/variables.md).
+* [PowerShell cmdlet reference](/powershell/module/az.automation/?view=azps-3.7.0#automation).

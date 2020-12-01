@@ -118,7 +118,7 @@ Use the following steps to set up and run code testing and an automated build by
 
     ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](/azure/devops/pipelines/agents/agents?view=vsts).
 	
     ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -136,7 +136,7 @@ Use the following steps to set up and run code testing and an automated build by
 
     !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
-Now every time a new commit is pushed to the code repository, the build process will start automatically. (Here we use master as the repository, but you can define any branch.) The process runs the **test1.py** file in the agent machine to make sure that everything defined in the code runs correctly. 
+Now every time a new commit is pushed to the code repository, the build process will start automatically. You can define any branch. The process runs the **test1.py** file in the agent machine to make sure that everything defined in the code runs correctly. 
 
 If alerts are set up correctly, you'll be notified in email when the build is finished. You can also check the build status in Azure DevOps. If it fails, you can check the details of the build and find out which piece is broken.
 
@@ -149,7 +149,7 @@ If alerts are set up correctly, you'll be notified in email when the build is fi
 * Follow the preceding outline and examples from the UCI income prediction scenario in your own data science projects.
 
 ## References
-* [Team Data Science Process](https://aka.ms/tdsp)
+* [Team Data Science Process](./index.yml)
 * [Visual Studio Testing Tools](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps Testing Resources](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

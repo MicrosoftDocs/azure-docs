@@ -4,6 +4,7 @@ description: Describes how to authenticate client access to a Service Fabric clu
 
 ms.topic: conceptual
 ms.date: 01/29/2019
+ms.custom: devx-track-csharp
 ---
 # Connect to a secure cluster
 
@@ -147,7 +148,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 <a id="connectsecureclusterfabricclient"></a>
 
 ## Connect to a cluster using the FabricClient APIs
-The Service Fabric SDK provides the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
+The Service Fabric SDK provides the [FabricClient](/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
 
 ### Connect to an unsecure cluster
 
@@ -165,7 +166,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### Connect to a secure cluster using a client certificate
 
-The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
+The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](/dotnet/api/system.fabric.x509credentials) set on [FabricClient](/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
 
 ```csharp
 using System.Fabric;
@@ -233,7 +234,7 @@ catch (Exception e)
 
 The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
 
-For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

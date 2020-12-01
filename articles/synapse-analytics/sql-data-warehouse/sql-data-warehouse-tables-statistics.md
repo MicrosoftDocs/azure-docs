@@ -1,47 +1,47 @@
 ---
-title: Creating, updating statistics
-description: Recommendations and examples for creating and updating query-optimization statistics on tables in Synapse SQL pool.
+title: Create and update statistics on tables
+description: Recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Table statistics in Synapse SQL pool
+# Table statistics for dedicated SQL pool in Azure Synapse Analytics
 
-In this article, you'll find recommendations and examples for creating and updating query-optimization statistics on tables in SQL pool.
+In this article, you'll find recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
 
 ## Why use statistics
 
-The more SQL pool knows about your data, the faster it can execute queries against it. After loading data into SQL pool, collecting statistics on your data is one of the most important things you can do to optimize your queries.
+The more dedicated SQL pool knows about your data, the faster it can execute queries against it. After loading data into dedicated SQL pool, collecting statistics on your data is one of the most important things you can do to optimize your queries.
 
-The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
+The dedicated SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
 
 For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ## Automatic creation of statistic
 
-When the database AUTO_CREATE_STATISTICS option is on, SQL pool analyzes incoming user queries for missing statistics.
+When the database AUTO_CREATE_STATISTICS option is on, dedicated SQL pool analyzes incoming user queries for missing statistics.
 
 If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
 > [!NOTE]
 > Automatic creation of statistics is currently turned on by default.
 
-You can check if your SQL pool has AUTO_CREATE_STATISTICS configured by running the following command:
+You can check if your dedicated SQL pool has AUTO_CREATE_STATISTICS configured by running the following command:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-If your SQL pool doesn't have AUTO_CREATE_STATISTICS configured, we recommend you enable this property by running the following command:
+If your dedicated SQL pool doesn't have AUTO_CREATE_STATISTICS configured, we recommend you enable this property by running the following command:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -77,11 +77,11 @@ The table_name is the name of the table that contains the statistics to display.
 
 ## Update statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the dedicated SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
 
 Statistics on a country/region column in a customer table might never need to be updated since the distribution of values doesn't generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution.
 
-However, if your SQL pool only contains one country/region, and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
+However, if your dedicated SQL pool only contains one country/region, and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
 The following are recommendations updating statistics:
 
@@ -92,14 +92,60 @@ The following are recommendations updating statistics:
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 
-This question isn't one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data.
+This question isn't one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or there is a material change in the distribution of values for a column, *then* it's time to update statistics. 
 
-> [!TIP]
-> When the number of rows has changed substantially, or there is a material change in the distribution of values for a column, *then* it's time to update statistics.
+There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated.  The following two queries can help you determine whether your statistics are stale.
 
-There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture.
+**Query 1:**  Find out the difference between the row count from the statistics (**stats_row_count**) and the actual row count (**actual_row_count**). 
 
-You can use the following query to determine the last time your statistics were updated on each table.
+```sql
+select 
+objIdsWithStats.[object_id], 
+actualRowCounts.[schema], 
+actualRowCounts.logical_table_name, 
+statsRowCounts.stats_row_count, 
+actualRowCounts.actual_row_count,
+row_count_difference = CASE
+	WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN actualRowCounts.actual_row_count - statsRowCounts.stats_row_count
+	ELSE statsRowCounts.stats_row_count - actualRowCounts.actual_row_count
+END,
+percent_deviation_from_actual = CASE
+	WHEN actualRowCounts.actual_row_count = 0 THEN statsRowCounts.stats_row_count
+	WHEN statsRowCounts.stats_row_count = 0 THEN actualRowCounts.actual_row_count
+	WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (actualRowCounts.actual_row_count - statsRowCounts.stats_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
+	ELSE CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (statsRowCounts.stats_row_count - actualRowCounts.actual_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
+END
+from
+(
+	select distinct object_id from sys.stats where stats_id > 1
+) objIdsWithStats
+left join
+(
+	select object_id, sum(rows) as stats_row_count from sys.partitions group by object_id
+) statsRowCounts
+on objIdsWithStats.object_id = statsRowCounts.object_id 
+left join
+(
+	SELECT sm.name [schema] ,
+	tb.name logical_table_name ,
+	tb.object_id object_id ,
+	SUM(rg.row_count) actual_row_count
+	FROM sys.schemas sm
+	INNER JOIN sys.tables tb ON sm.schema_id = tb.schema_id
+	INNER JOIN sys.pdw_table_mappings mp ON tb.object_id = mp.object_id
+	INNER JOIN sys.pdw_nodes_tables nt ON nt.name = mp.physical_name
+	INNER JOIN sys.dm_pdw_nodes_db_partition_stats rg
+	ON rg.object_id = nt.object_id
+	AND rg.pdw_node_id = nt.pdw_node_id
+	AND rg.distribution_id = nt.distribution_id
+	WHERE 1 = 1
+	GROUP BY sm.name, tb.name, tb.object_id
+) actualRowCounts
+on objIdsWithStats.object_id = actualRowCounts.object_id
+
+```
+
+**Query 2:** Find out the age of your statistics by checking the last time your statistics were updated on each table. 
 
 > [!NOTE]
 > If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
@@ -131,11 +177,11 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Date columns** in a SQL pool, for example, usually need frequent statistics updates. Each time new rows are loaded into the SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
+**Date columns** in a dedicated SQL pool, for example, usually need frequent statistics updates. Each time new rows are loaded into the dedicated SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
 
 Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution.
 
-If your SQL pool contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
+If your dedicated SQL pool contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
 
 For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -163,7 +209,7 @@ These examples show how to use various options for creating statistics. The opti
 
 To create statistics on a column, provide a name for the statistics object and the name of the column.
 
-This syntax uses all of the default options. By default, SQL pool samples **20 percent** of the table when it creates statistics.
+This syntax uses all of the default options. By default, **20 percent** of the table is sampled when creating statistics.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -263,7 +309,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### Use a stored procedure to create statistics on all columns in a database
 
-SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+Dedicated SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
 The following example will help you get started with your database design. Feel free to adapt it to your needs.
 
@@ -411,7 +457,7 @@ UPDATE STATISTICS dbo.table1;
 The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, and therefore might perform more work than is necessary. If performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
-> When updating all statistics on a table, SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
+> When updating all statistics on a table, dedicated SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
 For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](sql-data-warehouse-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
@@ -495,7 +541,7 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation.
 
 > [!NOTE]
-> SQL pool computes cardinality estimates with any of the data in the statistics object.
+> Dedicated SQL pool computes cardinality estimates with any of the data in the statistics object.
 
 ### Show header, density, and histogram
 
@@ -527,7 +573,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## DBCC SHOW_STATISTICS() differences
 
-DBCC SHOW_STATISTICS() is more strictly implemented in SQL pool compared to SQL Server:
+DBCC SHOW_STATISTICS() is more strictly implemented in dedicated SQL pool compared to SQL Server:
 
 - Undocumented features are not supported.
 - Cannot use Stats_stream.

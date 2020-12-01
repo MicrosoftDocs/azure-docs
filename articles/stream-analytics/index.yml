@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Stream Analytics documentation
-summary: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+summary: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
 
 metadata:
   title: Azure Stream Analytics documentation
-  description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+  description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
@@ -142,7 +142,7 @@ landingContent:
             url: stream-analytics-machine-learning-anomaly-detection.md
           - text: Perform sentiment analysis with Azure Machine Learning Studio (classic)
             url: stream-analytics-machine-learning-integration-tutorial.md
-          - text: Scale jobs with Machine Learning Studio functions
+          - text: Scale jobs with Azure Machine Learning Studio (classic) functions
             url: stream-analytics-scale-with-machine-learning-functions.md
   - title: Create and manage jobs with developer tools
     linkLists:
@@ -199,7 +199,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
         - text: Set up a CI/CD pipeline with Visual Studio Code
-          url: setup-cicd-vs-code.md
+          url: ./cicd-overview.md
         - text: Set up a CI/CD pipeline with Visual Studio
           url: stream-analytics-tools-for-visual-studio-cicd.md
         - text: Use REST APIs to set up CI/CD for IoT Edge jobs
@@ -216,5 +216,4 @@ landingContent:
             url: stream-analytics-scale-jobs.md
           - text: Optimize processing by repartitioning
             url: repartition.md
-          
           

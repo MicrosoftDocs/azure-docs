@@ -1,8 +1,8 @@
 ---
-title: Email notifications for Azure AD Domain Services | Microsoft Docs'
+title: Email notifications for Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure email notifications to alert you about issues in an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 ---
 # Configure email notifications for issues in Azure Active Directory Domain Services
@@ -70,7 +70,7 @@ If an alert is resolved, the alert is cleared from the Azure portal. The most li
 
 ### Why can I not edit the notification settings?
 
-If you're unable to access the notification settings page in the Azure portal, you don't have the permissions to edit the managed domain. You must contact a global administrator to either get permissions to edit Azure AD DS resource or be removed from the recipient list.
+If you're unable to access the notification settings page in the Azure portal, you don't have the permissions to edit the managed domain. Contact a global administrator to either get permissions to edit Azure AD DS resource or be removed from the recipient list.
 
 ### I don't seem to be receiving email notifications even though I provided my email address. Why?
 

@@ -1,10 +1,10 @@
 ---
 title: Request real-time public transit data | Microsoft Azure Maps
-description: Request real-time public transit data using the Microsoft Azure Maps Mobility Service.
+description: Learn how to request real-time public transit data, such as arrivals at a transit stop. See how to use the Azure Maps Mobility service for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
@@ -13,19 +13,19 @@ ms.custom: mvc
 
 # Request real-time public transit data using the Azure Maps Mobility Service
 
-This article shows you how to use Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) to request real-time public transit data.
+This article shows you how to use Azure Maps [Mobility Service](/rest/api/maps/mobility) to request real-time public transit data.
 
 In this article, you will learn how to request next real-time arrivals for all lines arriving at a given stop
 
 ## Prerequisites
 
-You first need to have an Azure Maps account and a subscription key to make any calls to the Azure Maps public transit APIs. For information, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to obtain the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+You first need to have an Azure Maps account and a subscription key to make any calls to the Azure Maps public transit APIs. For information, follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to obtain the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 
 ## Request real-time arrivals for a stop
 
-In order to request real-time arrivals data of a particular public transit stop, you'll need to make request to the [Real-time Arrivals API](https://aka.ms/AzureMapsMobilityRealTimeArrivals) of the Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService). You'll need the **metroID** and **stopID** to complete the request. To learn more about how to request these parameters, see our guide on how to [request public transit routes](https://aka.ms/AMapsHowToGuidePublicTransitRouting).
+In order to request real-time arrivals data of a particular public transit stop, you'll need to make request to the [Real-time Arrivals API](/rest/api/maps/mobility/getrealtimearrivalspreview) of the Azure Maps [Mobility Service](/rest/api/maps/mobility). You'll need the **metroID** and **stopID** to complete the request. To learn more about how to request these parameters, see our guide on how to [request public transit routes](./how-to-request-transit-data.md).
 
 Let's use "522" as our metro ID, which is the metro ID for the  "Seattle–Tacoma–Bellevue, WA" area. Use "522---2060603" as the stop ID, this bus stop is at "Ne 24th St & 162nd Ave Ne, Bellevue WA". To request the next five real-time arrivals data, for all next live arrivals at this stop, complete the following steps:
 
@@ -116,4 +116,4 @@ Learn how to request transit data using Mobility Service:
 Explore the Azure Maps Mobility Service API documentation:
 
 > [!div class="nextstepaction"]
-> [Mobility Service API documentation](https://aka.ms/AzureMapsMobilityService)
+> [Mobility Service API documentation](/rest/api/maps/mobility)

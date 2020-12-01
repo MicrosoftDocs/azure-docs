@@ -6,8 +6,8 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 06/07/2020
+ms.subservice: sql-dw 
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
@@ -170,6 +170,6 @@ No other changes to underlying external data sources are needed.
 
 ## Next steps
 
-- To learn more about the COPY statement or PolyBase when designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-elt-data-loading.md).
+- To learn more about the COPY statement or PolyBase when designing an Extract, Load, and Transform (ELT) process, see [Design ELT for Azure Synapse Analytics](design-elt-data-loading.md).
 - For a loading tutorial, [Use the COPY statement to load data from Azure blob storage to Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).

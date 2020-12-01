@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/26/2019
+ms.topic: how-to
+ms.date: 10/26/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -23,19 +24,22 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
 1. If you have not already done so, you need to register as a Facebook developer. To do this, select **Get Started** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.
 1. Select **My Apps** and then **Create App**.
+1. Select **Build Connected Experiences**.
 1. Enter a **Display Name** and a valid **Contact Email**.
 1. Select **Create App ID**. This may require you to accept Facebook platform policies and complete an online security check.
 1. Select **Settings** > **Basic**.
-1. Choose a **Category**, for example `Business and Pages`. This value is required by Facebook, but not used for Azure AD B2C.
+    1. Choose a **Category**, for example `Business and Pages`. This value is required by Facebook, but not used for Azure AD B2C.
+    1. Enter a URL for the **Terms of Service URL**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
+    1. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
 1. At the bottom of the page, select **Add Platform**, and then select **Website**.
-1. In **Site URL**, enter `https://your-tenant-name.b2clogin.com/` replacing `your-tenant-name` with the name of your tenant. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com`. The policy URL is a page you maintain to provide privacy information for your application.
+1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
 1. Select **Save Changes**.
 1. At the top of the page, copy the value of **App ID**.
 1. Select **Show** and copy the value of **App Secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
-1. Select the plus sign next to **PRODUCTS**, and then select **Set up** under **Facebook Login**.
-1. Under **Facebook Login**, select **Settings**.
+1. From the menu, select the **plus** sign next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
+1. From the menu, select **Facebook Login**, select **Settings**.
 1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant. Select **Save Changes** at the bottom of the page.
-1. To make your Facebook application available to Azure AD B2C, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**.  At this point the Status should change from **Development** to **Live**.
+1. To make your Facebook application available to Azure AD B2C, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**.  At this point, the Status should change from **Development** to **Live**.
 
 ## Configure a Facebook account as an identity provider
 

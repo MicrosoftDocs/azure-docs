@@ -9,7 +9,7 @@ ms.author: vturecek
 
 # Service Fabric with Azure API Management overview
 
-Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), or [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml), or [Azure API Management](../api-management/index.yml).
 
 This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services.
 
@@ -24,13 +24,13 @@ A common Service Fabric architecture uses a single-page web application that mak
 
 In this scenario, a stateless web service serves as the gateway into the Service Fabric application. This approach requires you to write a web service that can proxy HTTP requests to back-end services, as shown in the following diagram:
 
-![Service Fabric with Azure API Management topology overview][sf-web-app-stateless-gateway]
+![Diagram that shows how a stateless web service serves as the gateway into the Service Fabric application.][sf-web-app-stateless-gateway]
 
 As applications grow in complexity, so do the gateways that must present an API in front of myriad back-end services. Azure API Management is designed to handle complex APIs with routing rules, access control, rate limiting, monitoring, event logging, and response caching with minimal work on your part. Azure API Management supports Service Fabric service discovery, partition resolution, and replica selection to intelligently route requests directly to back-end services in Service Fabric so you don't have to write your own stateless API gateway. 
 
 In this scenario, the web UI is still served through a web service, while HTTP API calls are managed and routed through Azure API Management, as shown in the following diagram:
 
-![Service Fabric with Azure API Management topology overview][sf-apim-web-app]
+![Diagram that shows how the web UI is still served through a web service, while HTTP API calls are managed and routed through Azure API Management.][sf-apim-web-app]
 
 ## Application scenarios
 
@@ -46,7 +46,7 @@ In the simplest case, traffic is forwarded to a stateless service instance. To a
 
 In the following scenario, a Service Fabric application contains a stateless service named `fabric:/app/fooservice`, that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy. 
 
-![Service Fabric with Azure API Management topology overview][sf-apim-static-stateless]
+![Diagram that shows a Service Fabric application contains a stateless service that exposes an internal HTTP API.][sf-apim-static-stateless]
 
 ## Send traffic to a stateful service
 
@@ -77,7 +77,7 @@ In this example, a new stateless service instance is created for each user of an
   - A request to `/api/users/foo` is routed to service instance `fabric:/app/users/foo`
   - A request to `/api/users/bar` is routed to service instance `fabric:/app/users/bar`
 
-![Service Fabric with Azure API Management topology overview][sf-apim-dynamic-stateless]
+![Diagram that shows an example where a new stateless service instance is created for each user of an application with a dynamically generated name.][sf-apim-dynamic-stateless]
 
 ## Send traffic to multiple stateful services
 
@@ -98,7 +98,7 @@ In this example, a new stateful service instance is created for each user of the
 
 Each service instance is also partitioned using the Int64 partition scheme with two partitions and a key range that spans `Int64.MinValue` to `Int64.MaxValue`. The back-end policy computes a partition key within that range by converting the `id` value provided in the URL request path to a 64-bit integer, although any algorithm can be used here to compute the partition key. 
 
-![Service Fabric with Azure API Management topology overview][sf-apim-dynamic-stateful]
+![Diagram that shows that each service instance is also partitioned using the Int64 partition scheme with two partitions and a key range that spans Int64.MinValue to Int64.MaxValue.][sf-apim-dynamic-stateful]
 
 ## Next steps
 

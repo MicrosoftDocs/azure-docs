@@ -3,13 +3,14 @@ title: Use Studio 3T to connect to Azure Cosmos DB's API for MongoDB
 description: Learn how to connect to an Azure Cosmos DB's API for MongoDB using Studio 3T.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
 ---
 # Connect to an Azure Cosmos account using Studio 3T
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 To connect to an Azure Cosmos DB's API for MongoDB using Studio 3T, you must:
 
@@ -26,7 +27,7 @@ To add your Azure Cosmos account to the Studio 3T connection manager, use the fo
 
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectionManager.png" alt-text="Screenshot of the Studio 3T connection manager":::
+    :::image type="content" source="./media/mongodb-mongochef/ConnectionManager.png" alt-text="Screenshot of the Studio 3T connection manager that highlights the New Connection button.":::
 3. In the **New Connection** window, on the **Server** tab, enter the HOST (FQDN) of the Azure Cosmos account and the PORT.
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerServerTab.png" alt-text="Screenshot of the Studio 3T connection manager server tab":::
@@ -57,25 +58,29 @@ To create a database, collection, and documents using Studio 3T, perform the fol
     :::image type="content" source="./media/mongodb-mongochef/AddDocument1.png" alt-text="Screenshot of the Studio 3T Add Document menu item":::
 5. In the Add Document dialog, paste the following and then click **Add Document**.
 
-        {
+    ```json
+    {
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-               { "firstName": "Thomas" },
-               { "firstName": "Mary Kay"}
+            { "firstName": "Thomas" },
+            { "firstName": "Mary Kay"}
         ],
         "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
+            {
+                "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+                "pets": [{ "givenName": "Fluffy" }]
+            }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
-        }
+    }
+    ```
+    
 6. Add another document, this time with the following content:
 
-        {
+    ```json
+    {
         "_id": "WakefieldFamily",
         "parents": [
             { "familyName": "Wakefield", "givenName": "Robin" },
@@ -84,7 +89,7 @@ To create a database, collection, and documents using Studio 3T, perform the fol
         "children": [
             {
                 "familyName": "Merriam",
-                 "givenName": "Jesse",
+                "givenName": "Jesse",
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -93,13 +98,15 @@ To create a database, collection, and documents using Studio 3T, perform the fol
             },
             {
                 "familyName": "Miller",
-                 "givenName": "Lisa",
-                 "gender": "female",
-                 "grade": 8 }
+                "givenName": "Lisa",
+                "gender": "female",
+                "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
-        }
+    }
+    ```
+
 7. Execute a sample query. For example, search for families with the last name 'Andersen' and return the parents and state fields.
 
     :::image type="content" source="./media/mongodb-mongochef/QueryDocument1.png" alt-text="Screenshot of Mongo Chef query results":::

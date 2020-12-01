@@ -4,7 +4,8 @@ description: This tutorial shows how to create and use an Azure Custom Provider.
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
-ms.author: jobreen
+ms.author: jobreen 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and use a custom provider

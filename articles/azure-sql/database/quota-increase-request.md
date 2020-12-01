@@ -2,8 +2,9 @@
 title: Request a quota increase
 description: This page describes how to create a support request to increase the quotas for Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.topic: conceptual
+ms.service: sql-db-mi
+ms.subservice: service
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
@@ -101,7 +102,7 @@ If your subscription needs access in a particular region, select the **Region ac
 
 1. Enter the **Purchase Model**, and **Expected Consumption** details.
 
-   ![Request region access](./media/quota-increase-request/quota-details-whitelisting.png)
+   ![Request region access](./media/quota-increase-request/quota-request.png)
 
 ### <a id="mseries"></a> Enable M-series access to a region
 
@@ -112,7 +113,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
 
 
-   ![Request region access](./media/quota-increase-request/quota-m-series.png)
+   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
 
 ## <a id="sqlmiquota"></a> SQL Managed Instance quota type
 

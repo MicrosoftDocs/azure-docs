@@ -13,7 +13,7 @@ ms.service: service-fabric
 ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a secure Service Fabric Linux cluster in Azure
@@ -41,7 +41,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest) | Creates a new Service Fabric cluster.  |
+| [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) | Creates a new Service Fabric cluster.  |
 
 ## Next steps
 

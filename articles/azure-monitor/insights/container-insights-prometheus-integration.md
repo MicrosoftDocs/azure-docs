@@ -64,7 +64,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
 * Azure Stack or on-premises
 * Azure Red Hat OpenShift version 4.x and Red Hat OpenShift version 4.x
 
-1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
+1. [Download](https://aka.ms/container-azm-ms-agentconfig) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
 
    >[!NOTE]
    >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.
@@ -137,7 +137,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
            ```
@@ -254,7 +254,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
            ```
@@ -332,21 +332,22 @@ Azure Monitor for containers supports viewing metrics stored in your Log Analyti
 To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
 
 ```
-InsightsMetrics 
-| where Namespace == "prometheus"
+InsightsMetrics
+| where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
 | render barchart
 ```
+
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Screenshot shows the log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
-InsightsMetrics 
+InsightsMetrics
 | where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name

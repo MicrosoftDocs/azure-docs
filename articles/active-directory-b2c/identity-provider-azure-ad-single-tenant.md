@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -34,6 +34,7 @@ To use an Azure Active Directory (Azure AD) as an [identity provider](authorizat
     ```
 
     For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    For example, `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For **Client secret**, enter the client secret that you previously recorded.

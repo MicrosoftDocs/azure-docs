@@ -1,13 +1,8 @@
 ---
-title: Event delivery with managed service identity
+title: Event delivery, managed service identity, and private link 
 description: This article describes how to enable managed service identity for an Azure event grid topic. Use it to forward events to supported destinations. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/18/2020
-ms.author: spelluru
+ms.date: 10/22/2020
 ---
 
 # Event delivery with a managed identity
@@ -17,6 +12,9 @@ Here are the steps that are covered in detail in this article:
 1. Create a topic or domain with a system-assigned identity, or update an existing topic or domain to enable identity. 
 1. Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue).
 1. When you create event subscriptions, enable the usage of the identity to deliver events to the destination. 
+
+> [!NOTE]
+> Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). For more information, see the [Private endpoints](#private-endpoints) section at the end of this article. 
 
 ## Create a topic or domain with an identity
 First, let's look at how to create a topic or a domain with a system-managed identity.
@@ -40,6 +38,8 @@ Similarly, you can use the `az eventgrid domain create` command to create a doma
 In the previous section, you learned how to enable a system-managed identity while you created a topic or a domain. In this section, you learn how to enable a system-managed identity for an existing topic or domain. 
 
 ### Use the Azure portal
+The following procedure shows you how to enable system-managed identity for a topic. The steps for enabling an identity for a domain are similar. 
+
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Search for **event grid topics** in the search bar at the top.
 3. Select the **topic** for which you want to enable the managed identity. 
@@ -61,20 +61,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 The command for updating an existing domain is similar (`az eventgrid domain update`).
 
-## Supported destinations and RBAC roles
-After you enable identity for your event grid topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate role-based access control (RBAC) roles so that the topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid topic can forward events to event hubs in that namespace. 
+## Supported destinations and Azure roles
+After you enable identity for your event grid topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate Azure roles so that the topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid topic can forward events to event hubs in that namespace. 
 
 Currently, Azure event grid supports topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the topic can forward the events.
 
-| Destination | RBAC role | 
+| Destination | Azure role | 
 | ----------- | --------- | 
-| Service Bus queues and topics | [Azure Service Bus Data Sender](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Azure Event Hubs | [Azure Event Hubs Data Sender](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
-| Azure Blob storage | [Storage Blob Data Contributor](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Azure Queue storage |[Storage Queue Data Message Sender](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Service Bus queues and topics | [Azure Service Bus Data Sender](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
+| Azure Event Hubs | [Azure Event Hubs Data Sender](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
+| Azure Blob storage | [Storage Blob Data Contributor](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure Queue storage |[Storage Queue Data Message Sender](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## Add an identity to RBAC roles on destinations
-This section describes how to add the identity for your topic or domain to an RBAC role. 
+## Add an identity to Azure roles on destinations
+This section describes how to add the identity for your topic or domain to an Azure role. 
 
 ### Use the Azure portal
 You can use the Azure portal to assign the topic or domain identity to an appropriate role so that the topic or domain can forward events to the destination. 
@@ -92,7 +92,7 @@ The following example adds a managed identity for an event grid topic named **ms
 The steps are similar for adding an identity to other roles mentioned in the table. 
 
 ### Use the Azure CLI
-The example in this section shows you how to use the Azure CLI to add an identity to an RBAC role. The sample commands are for event grid topics. The commands for event grid domains are similar. 
+The example in this section shows you how to use the Azure CLI to add an identity to an Azure role. The sample commands are for event grid topics. The commands for event grid domains are similar. 
 
 #### Get the principal ID for the topic's system identity 
 First, get the principal ID of the topic's system-managed identity and assign the identity to appropriate roles.
@@ -277,6 +277,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## Private endpoints
+Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, there is no support if you have strict network isolation requirements where your delivered events traffic must not leave the private IP space. 
+
+However, If your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure event grid topic or a domain with system-managed identity configured as shown in this article. Then, you can use a private link configured in Azure Functions or your webhook deployed on your virtual network to pull events. See the sample: [Connect to private endpoints with Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+
+Note that under this configuration, the traffic goes over the public IP/internet from Event Grid to Event Hubs, Service Bus, or Azure Storage, but the channel can be encrypted and a managed identity of Event Grid is used. If you configure your Azure Functions or webhook deployed to your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link, that section of the traffic will evidently stay within Azure.
 
 
 ## Next steps

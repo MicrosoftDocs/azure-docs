@@ -4,9 +4,10 @@ description: Use the Azure Data Lake Storage Gen1 .NET SDK for filesystem operat
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
+ms.custom: devx-track-dotnet
 
 ---
 # Filesystem operations on Data Lake Storage Gen1 using the .NET SDK
@@ -197,7 +198,7 @@ Here are a few samples that show how to use the Data Lake Storage Gen1 Filesyste
 ## See also
 
 * [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK Reference](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK Reference](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## Next steps
 

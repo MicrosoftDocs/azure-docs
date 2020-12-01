@@ -1,16 +1,17 @@
 ---
 title: Build an Azure Cosmos DB Node.js application by using Gremlin API
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
-author: luisbosquez
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: lbosq
-
+ms.author: chrande
+ms.custom: devx-track-js
 ---
 # Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -155,7 +156,7 @@ This console app uses the open-source [Gremlin Node.js](https://www.npmjs.com/pa
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Azure portal "Keys" blade](./media/create-graph-nodejs/keys.png)
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure portal keys blade":::
 
 4. Enter the database name, and graph (container) name for the value of config.database and config.collection. 
 

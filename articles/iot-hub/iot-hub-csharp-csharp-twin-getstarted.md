@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.custom: mqtt
+ms.custom: "mqtt, devx-track-csharp"
 ---
 
 # Get started with device twins (.NET)
@@ -17,8 +17,6 @@ ms.custom: mqtt
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 In this tutorial, you create these .NET console apps:
-
-* **CreateDeviceIdentity**. This app creates a device identity and associated security key to connect your simulated device app.
 
 * **AddTagsAndQuery**. This back-end app adds tags and queries device twins.
 

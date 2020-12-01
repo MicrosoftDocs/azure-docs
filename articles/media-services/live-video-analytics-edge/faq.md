@@ -16,14 +16,14 @@ What are the system variables that can be used in graph topology definition?
 
 |Variable	|Description|
 |---|---|
-|[System.DateTime](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Represents an instant in time, typically expressed as a date and time of day.|
+|[System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Represents an instant in time, typically expressed as a date and time of day.|
 |System.GraphTopologyName	|Represents a media graph topology, holds the blueprint of a graph.|
 |System.GraphInstanceName|	Represents a media graph instance, holds parameter values and references the topology.|
 
 ## Configuration and deployment
 
 Can I deploy the media edge module to a Windows 10 device?
-    * Yes. See the article on [Linux Containers on Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers).
+    * Yes. See the article on [Linux Containers on Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## Capture from IP camera and RTSP settings
 

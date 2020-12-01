@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
@@ -22,7 +22,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
 ## Prerequisite
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- The [PowerShell Az module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- The [PowerShell Az module](/powershell/azure/install-az-ps).
 
 ## Create an Apache Spark cluster in HDInsight
 
@@ -32,7 +32,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
 Creating an HDInsight cluster includes creating the following Azure objects and resources:
 
 - An Azure resource group. An Azure resource group is a container for Azure resources.
-- An Azure storage account or Azure Data Lake Storage.  Each HDInsight cluster requires a dependent data storage. In this quickstart, you create a cluster that uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+- An Azure storage account or Azure Data Lake Storage.  Each HDInsight cluster requires a dependent data storage. In this quickstart, you create a cluster that uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 - An cluster of different cluster types on HDInsight.  In this quickstart, you create a Spark 2.3 cluster.
 
 You use a PowerShell script to create the resources. 
@@ -138,11 +138,11 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **HDInsight clusters**.
    
-   ![Open HDInsight cluster in the Azure portal](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
+   ![Screenshot shows the Azure portal search for H D Insight.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
    
 1. From the list, select the cluster you created.
    
-   ![Open HDInsight cluster in the Azure portal](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
+   ![Screenshot shows H D Insight clusters with the cluster that you created.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
    
 1. On the cluster **Overview** page, select **Cluster dashboards**, and then select **Jupyter Notebook**. If prompted, enter the cluster login credentials for the cluster.
 

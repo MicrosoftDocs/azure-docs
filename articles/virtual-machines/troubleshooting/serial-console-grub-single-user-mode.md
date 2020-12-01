@@ -22,7 +22,7 @@ GRand Unified Bootloader (GRUB) is likely the first thing you see when you boot 
 
 Single-user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues, file system issues, or network issues. Fewer services can run in the background and, depending on the runlevel, a file system might not even be automatically mounted.
 
-Single-user mode is also useful in situations where your VM might be configured to accept only SSH keys for sign-in. In this case, you might be able to use single-user mode to create an account with password authentication. 
+Single-user mode is also useful in situations where your VM might be configured to accept only SSH keys for sign-in. In this case, you might be able to use single-user mode to create an account with password authentication.
 
 > [!NOTE]
 > The Serial Console service allows only users with *contributor* level or higher permissions to access the serial console of a VM.
@@ -34,7 +34,7 @@ To enter single-user mode, enter GRUB when your VM is booting, and modify the bo
 ## General GRUB access
 To access GRUB, reboot your VM while the Serial Console pane is open. Some distributions require keyboard input to show GRUB, and others automatically show GRUB for a few seconds to allow user keyboard input to cancel the timeout.
 
-To be able to access single-user mode, you want to ensure that GRUB is enabled on your VM. Depending on your distribution, some setup work might be necessary to ensure that GRUB is enabled. For distribution-specific information, see the next section and our [Support for Linux on Azure](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/) page.
+To be able to access single-user mode, you want to ensure that GRUB is enabled on your VM. Depending on your distribution, some setup work might be necessary to ensure that GRUB is enabled. For distribution-specific information, see the next section.
 
 ### Restart your VM to access GRUB in Serial Console
 You can restart your VM within Serial Console by hovering over the **Restart** button and then selecting **Restart VM**. A notification about the restart is displayed at the bottom of the pane.
@@ -63,6 +63,9 @@ RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM by ru
 
 **For RHEL 8**
 
+>[!NOTE]
+> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. It is currently not possible to update the grub timeout and terminal parameters using grubby. To modify update the GRUB_CMDLINE_LINUX argument for all boot entries, run `grubby --update-kernel=ALL --args="console=ttyS0,115200 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"`. More details are available [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+
 ```
 GRUB_TIMEOUT=5
 GRUB_TERMINAL="serial console"
@@ -87,8 +90,8 @@ The root user is disabled by default. Single-user mode in RHEL requires the root
 1. Switch to root.
 1. Enable the password for the root user by doing the following:
     * Run `passwd root` (set a strong root password).
-1. Ensure that the root user can sign in only via ttyS0 by doing the following:  
-    a. Run `edit /etc/ssh/sshd_config`, and ensure that PermitRootLogIn is set to `no`.  
+1. Ensure that the root user can sign in only via ttyS0 by doing the following:
+    a. Run `edit /etc/ssh/sshd_config`, and ensure that PermitRootLogIn is set to `no`.
     b. Run `edit /etc/securetty file` to allow sign-in only via ttyS0.
 
 Now, if the system boots into single-user mode, you can sign in with the root password.
@@ -103,14 +106,14 @@ If you've set up GRUB and root access by using the preceding instructions, you c
 1. Find the kernel line. In Azure, it starts with *linux16*.
 1. Press Ctrl+E to go to the end of the line.
 1. At the end of the line, add *systemd.unit=rescue.target*.
-    
+
     This action boots you into single-user mode. If you want to use emergency mode, add *systemd.unit=emergency.target* to the end of the line (instead of *systemd.unit=rescue.target*).
 
 1. Press Ctrl+X to exit and reboot with the applied settings.
 
    You'll be prompted for the administrator password before you can enter single-user mode. This password is the one you created in the previous instructions.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Animated image showing a command-line interface. The user selects a server, locates the end of the kernel line, and then enters the specified text.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### Enter single-user mode without root account enabled in RHEL
 If you didn't enable the root user by following the earlier instructions, you can still reset your root password by doing the following:
@@ -127,14 +130,14 @@ If you didn't enable the root user by following the earlier instructions, you ca
     This action interrupts the boot process before control is passed from `initramfs` to `systemd`, as described in the [Red Hat documentation](https://aka.ms/rhel7rootpassword).
 1. Press Ctrl+X to exit and reboot with the applied settings.
 
-   After you've rebooted, you're dropped into emergency mode with a read-only file system. 
-   
+   After you've rebooted, you're dropped into emergency mode with a read-only file system.
+
 1. In the shell, enter `mount -o remount,rw /sysroot` to remount the root file system with read/write permissions.
 1. After you boot into single-user mode, enter `chroot /sysroot` to switch into the `sysroot` jail.
-1. You're now at root. You can reset your root password by entering `passwd` and then use the preceding instructions to enter single-user mode. 
+1. You're now at root. You can reset your root password by entering `passwd` and then use the preceding instructions to enter single-user mode.
 1. After you're done, enter `reboot -f` to reboot.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Animated image showing a command-line interface. The user selects a server, locates the end of the kernel line, and enters the specified commands.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > Running through the preceding instructions drops you into the emergency shell so that you can also perform tasks such as editing `fstab`. However, we ordinarily suggest that you reset your root password and use it to enter single-user mode.
@@ -238,7 +241,7 @@ To enable single-user mode in Oracle Linux, follow the earlier instructions for 
 ## Next steps
 To learn more about Serial Console, see:
 * [Linux Serial Console documentation](serial-console-linux.md)
-* [Use Serial Console to enable GRUB in various distributions](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [Use Serial Console to enable GRUB in various distributions](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Use Serial Console for NMI and SysRq calls](serial-console-nmi-sysrq.md)
 * [Serial Console for Windows VMs](serial-console-windows.md)
 * [Boot diagnostics](boot-diagnostics.md)

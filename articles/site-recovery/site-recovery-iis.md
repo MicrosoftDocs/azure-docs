@@ -26,7 +26,7 @@ This article describes how to protect a web application that's based on Internet
 Before you begin, ensure that you know how to do the following tasks:
 
 * [Replicate a virtual machine to Azure](vmware-azure-tutorial.md)
-* [Design a recovery network](site-recovery-network-design.md)
+* [Design a recovery network](./concepts-on-premises-to-azure-networking.md)
 * [Do a test failover to Azure](site-recovery-test-failover-to-azure.md)
 * [Do a failover to Azure](site-recovery-failover.md)
 * [Replicate a domain controller](site-recovery-active-directory.md)
@@ -87,7 +87,7 @@ For more information, see [Customize the recovery plan](site-recovery-runbook-au
 
 
 ### Add a script to the recovery plan
-For the IIS web farm to function correctly, you might need to do some operations on the Azure virtual machines post-failover or during a test failover. You can automate some post-failover operations. For example, you can update the DNS entry, change a site binding, or change a connection string by adding corresponding scripts to the recovery plan. [Add a VMM script to a recovery plan](site-recovery-how-to-add-vmmscript.md) describes how to set up automated tasks by using a script.
+For the IIS web farm to function correctly, you might need to do some operations on the Azure virtual machines post-failover or during a test failover. You can automate some post-failover operations. For example, you can update the DNS entry, change a site binding, or change a connection string by adding corresponding scripts to the recovery plan. [Add a VMM script to a recovery plan](./hyper-v-vmm-recovery-script.md) describes how to set up automated tasks by using a script.
 
 #### DNS update
 If DNS is configured for dynamic DNS update, virtual machines usually update the DNS with the new IP address when they start. If you want to add an explicit step to update DNS with the new IP addresses of the virtual machines, add a [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post-failover action on recovery plan groups.  
@@ -97,12 +97,14 @@ The connection string specifies the database that the website communicates with.
 
 If the connection string refers to the database virtual machine by using an IP address, it needs to be updated post-failover. For example, the following connection string points to the database with the IP address 127.0.1.2:
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<configuration>
-		<connectionStrings>
-		<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
-		</connectionStrings>
-		</configuration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+<connectionStrings>
+<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+</connectionStrings>
+</configuration>
+```
 
 To update the connection string in the web tier, add an [IIS connection update script](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) after Group 3 in the recovery plan.
 

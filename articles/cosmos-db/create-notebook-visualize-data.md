@@ -4,12 +4,14 @@ description: 'Tutorial: Learn how to use built-in Jupyter notebooks to import da
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ---
 
 # Tutorial: Create a notebook in Azure Cosmos DB to analyze and visualize the data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to use built-in Jupyter notebooks to import sample retail data to Azure Cosmos DB. You will see how to use the SQL and Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
 
@@ -230,7 +232,7 @@ In this section, you will run some queries on the data retrieved.
 
    The output displays the world map with different colors. The colors darker to lighter represent the countries/regions with highest revenue to lowest revenue.
 
-   ![Countries/regions revenue map visualization](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Countries/regions revenue map visualization":::
 
 1. Let's see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let's plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
 

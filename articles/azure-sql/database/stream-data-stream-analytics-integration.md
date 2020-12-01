@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
@@ -26,7 +26,7 @@ Users can now ingest, process, view, and analyze real-time streaming data into a
 - Additional ease of use with preview data: Preview incoming data from the events source (Event Hub/IoT Hub) in the context of selected table
 
 > [!IMPORTANT]
-> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics (formerly Azure SQL Data Warehouse). For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> An Azure Stream Analytics job can output to Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics (formerly SQL Data Warehouse). For more information, see [Outputs](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ To complete the steps in this article, you need the following resources:
 
 3. To start ingesting your streaming data into this database, select **Create** and give a name to your streaming job, and then select **Next: Input**.
 
-    ![create Stream Analytics job](./media/stream-data-stream-analytics-integration/create-job.png)
+    ![configure Stream Analytics job basics](./media/stream-data-stream-analytics-integration/create-job.png)
 
 4. Enter your events source details, and then select **Next: Output**.
 
@@ -59,7 +59,7 @@ To complete the steps in this article, you need the following resources:
 
       We recommend that you create a consumer group and a policy for each new Azure Stream Analytics job that you create from here. Consumer groups allow only five concurrent readers, so providing a dedicated consumer group for each job will avoid any errors that might arise from exceeding that limit. A dedicated policy allows you to rotate your key or revoke permissions without impacting other resources.
 
-     ![create Stream Analytics job](./media/stream-data-stream-analytics-integration/create-job-output.png)
+     ![configure Stream Analytics job output](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
 5. Select which table you want to ingest your streaming data into. Once done, select **Create**.
 
@@ -119,6 +119,5 @@ To complete the steps in this article, you need the following resources:
 
 ## Next steps
 
-- [Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/)
+- [Azure Stream Analytics documentation](../../stream-analytics/index.yml)
 - [Azure Stream Analytics solution patterns](../../stream-analytics/stream-analytics-solution-patterns.md)
- 

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Manage tag governance"
 description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
-ms.date: 04/21/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
 ---
 # Tutorial: Manage tag governance with Azure Policy
@@ -50,7 +50,7 @@ following items are our business requirements:
 ## Configure the CostCenter tag
 
 In terms specific to an Azure environment managed by Azure Policy, the _CostCenter_ tag requirements
-call for the following:
+call for the following outcomes:
 
 - Deny resource groups missing the _CostCenter_ tag
 - Modify resources to add the _CostCenter_ tag from the parent resource group when missing
@@ -124,7 +124,7 @@ parent resource group.
 ## Configure the Env tag
 
 In terms specific to an Azure environment managed by Azure Policy, the _Env_ tag requirements call
-for the following:
+for the following outcomes:
 
 - Modify the _Env_ tag on the resource group based on the naming scheme of the resource group
 - Modify the _Env_ tag on all resources in the resource group to the same as the parent resource
@@ -145,7 +145,12 @@ your Azure environment. The Modify policy for each looks something like this pol
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

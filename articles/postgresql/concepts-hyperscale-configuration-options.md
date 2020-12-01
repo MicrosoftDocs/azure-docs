@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/6/2020
+ms.date: 7/1/2020
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) configuration options
@@ -22,7 +22,7 @@ and worker nodes in your Hyperscale (Citus) server group. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
  
-|                       | Worker node           | Coordinator node      |
+| Resource              | Worker node           | Coordinator node      |
 |-----------------------|-----------------------|-----------------------|
 | Compute, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memory per vCore, GiB | 8                     | 4                     |
@@ -100,6 +100,45 @@ subscriptions. If you want to use a region from the list above and don't see it
 in your subscription, or if you want to use a region not on this list, open a
 [support
 request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## Limits and limitations
+
+The following section describes capacity and functional limits in the
+Hyperscale (Citus) service.
+
+### Maximum connections
+
+Every PostgreSQL connection (even idle ones) uses at least 10 MB of memory, so
+it's important to limit simultaneous connections. Here are the limits we chose
+to keep nodes healthy:
+
+* Coordinator node
+   * Maximum connections: 300
+   * Maximum user connections: 297
+* Worker node
+   * Maximum connections: 600
+   * Maximum user connections: 597
+
+Attempts to connect beyond these limits will fail with an error. The system
+reserves three connections for monitoring nodes, which is why there are three
+fewer connections available for user queries than connections total.
+
+Establishing new connections takes time. That works against most applications,
+which request many short-lived connections. We recommend using a connection
+pooler, both to reduce idle transactions and reuse existing connections. To
+learn more, visit our [blog
+post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+
+### Storage scaling
+
+Storage on coordinator and worker nodes can be scaled up (increased) but can't
+be scaled down (decreased).
+
+### Storage size
+
+Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
+available storage options and IOPS calculation [above](#compute-and-storage)
+for node and cluster sizes.
 
 ## Pricing
 For the most up-to-date pricing information, see the service

@@ -1,12 +1,8 @@
 ---
 title: Azure Lab Services - view support information (lab creator)
 description: This article explains how lab creators can view support information that they can use to get help. 
-author: spelluru
-
-ms.author: spelluru
-ms.date: 02/14/2020
+ms.date: 06/26/2020
 ms.topic: how-to
-ms.service: lab-services
 ---
 # View support information (lab creator in Azure Lab Services)
 This article explains how you (as a lab creator) can view the following support information:

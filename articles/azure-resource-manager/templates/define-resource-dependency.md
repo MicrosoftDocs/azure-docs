@@ -6,7 +6,7 @@ ms.date: 12/03/2019
 ---
 # Define the order for deploying resources in ARM templates
 
-When deploying a resource, you may need to make sure other resources exist before it's deployed. For example, you need a SQL server before deploying a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function.
+When deploying a resource, you may need to make sure other resources exist before it's deployed. For example, you need a logical SQL server before deploying a database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function.
 
 Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template.
 
@@ -53,7 +53,7 @@ The resources property allows you to specify child resources that are related to
 
 Each parent resource accepts only certain resource types as child resources. The accepted resource types are specified in the [template schema](https://github.com/Azure/azure-resource-manager-schemas) of the parent resource. The name of child resource type includes the name of the parent resource type, such as **Microsoft.Web/sites/config** and **Microsoft.Web/sites/extensions** are both child resources of the **Microsoft.Web/sites**.
 
-The following example shows a SQL server and SQL database. Notice that an explicit dependency is defined between the SQL database and SQL server, even though the database is a child of the server.
+The following example shows a logical SQL server and database. Notice that an explicit dependency is defined between the database and the server, even though the database is a child of the server.
 
 ```json
 "resources": [

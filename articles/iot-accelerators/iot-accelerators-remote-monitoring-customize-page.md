@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-
+ms.custom: devx-track-js
 # As a developer, I want to add a new page to the solution accelerator web UI in order to start customizing the user experience.
 ---
 
@@ -151,7 +151,7 @@ Optionally, you can connect your local running copy of the web UI to the Remote 
 
 1. Deploy a **basic** instance of the solution accelerator using the **pcs** CLI. Make a note of the name of your deployment and the credentials you provided for the virtual machine. For more information, see [Deploy using the CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to enable SSH access to the virtual machine that hosts the microservices in your solution. For example:
+1. Use the Azure portal or the [az CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to enable SSH access to the virtual machine that hosts the microservices in your solution. For example:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -159,7 +159,7 @@ Optionally, you can connect your local running copy of the web UI to the Remote 
 
     You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/fundamentals/network-best-practices.md).
 
-1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to find the name and public IP address of your virtual machine. For example:
+1. Use the Azure portal or the [az CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to find the name and public IP address of your virtual machine. For example:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

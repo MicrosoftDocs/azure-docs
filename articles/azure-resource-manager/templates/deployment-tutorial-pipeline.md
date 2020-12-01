@@ -1,7 +1,7 @@
 ---
 title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -14,7 +14,7 @@ Azure DevOps provides developer services to support teams to plan work, collabor
 
 > [!NOTE]
 > Pick a project name. When you go through the tutorial, replace any of the **AzureRmPipeline** with your project name.
-> This project name is used to generate resource names.  One of the resource is a storage account. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
+> This project name is used to generate resource names.  One of the resources is a storage account. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
 
 This tutorial covers the following tasks:
 
@@ -34,8 +34,8 @@ To complete this article, you need:
 
 * **A GitHub account**, where you use it to create a repository for your templates. If you don't have one, you can [create one for free](https://github.com). For more information about using GitHub repositories, see [Build GitHub repositories](/azure/devops/pipelines/repos/github).
 * **Install Git**. This tutorial instruction uses *Git Bash* or *Git Shell*. For instructions, see [Install Git]( https://www.atlassian.com/git/tutorials/install-git).
-* **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* (optional) **Visual Studio Code with Resource Manager Tools extension**. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+* **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* (optional) **Visual Studio Code with Resource Manager Tools extension**. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Prepare a GitHub repository
 
@@ -170,12 +170,12 @@ To create a pipeline with a step to deploy a template:
     * **Location**: Select a location for the resource group, for example, **Central US**.
     * **Template location**: Select **Linked artifact**, which means the task looks for the template file directly from the connected repository.
     * **Template**: Enter **CreateWebApp/azuredeploy.json**. If you changed the folder name and the file name, you need to change this value.
-    * **Template parameters**: Leave this field blank. You will specify the parameter values in the **Override template parameters.
-    * **overrideParameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Replace the project name and the linked template url. The linked template URL is what you wrote down at the end of [Create a GitHub repository](#create-a-github-repository).
+    * **Template parameters**: Leave this field blank. You will specify the parameter values in the **Override template parameters**.
+    * **Override template parameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Replace the project name and the linked template url. The linked template URL is what you wrote down at the end of [Create a GitHub repository](#create-a-github-repository). It starts with **https://raw.githubusercontent.com**.
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines step](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![Screenshot shows the ARM template deployment page with required values entered.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Select **Add**.
 
@@ -183,7 +183,7 @@ To create a pipeline with a step to deploy a template:
 
     The yml file shall be similar to:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![Screenshot shows the Review page with the new pipline titled Review your pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Select **Save and run**.
 1. From the **Save and run** pane, select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.

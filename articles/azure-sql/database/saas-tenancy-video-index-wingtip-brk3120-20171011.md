@@ -71,7 +71,7 @@ The following titles are links to their corresponding annotated sections later i
 - [32. Distributed query across tenant databases, 1:12:21](#anchor-image-wtip-min11221)
 - [33. Demo of ticket generation, 1:12:32](#anchor-image-wtip-min11232)
 - [34. SSMS adhoc analytics, 1:12:46](#anchor-image-wtip-min11246)
-- [35. Extract tenant data into SQL DW, 1:16:32](#anchor-image-wtip-min11632)
+- [35. Extract tenant data into Azure Synapse Analytics, 1:16:32](#anchor-image-wtip-min11632)
 - [36. Graph of daily sale distribution, 1:16:48](#anchor-image-wtip-min11648)
 - [37. Wrap up and call to action, 1:19:52](#anchor-image-wtip-min11952)
 - [38. Resources for more information, 1:20:42](#anchor-image-wtip-min12042)
@@ -302,8 +302,8 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 &nbsp;
 <a name="anchor-image-wtip-min11632"></a>
-#### 35. Extract tenant data into SQL DW, 1:15:46
-[![Extract tenant data into SQL DW][image-wtip-min11632-extract-tenant-data-sql-dw]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4546)
+#### 35. Extract tenant data into Azure Synapse Analytics, 1:15:46
+[![Extract tenant data into Azure Synapse Analytics][image-wtip-min11632-extract-tenant-data-sql-dw]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4546)
 
 
 &nbsp;
@@ -415,7 +415,7 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 [image-wtip-min11246-ssms-adhoc-analytics]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11246-tsql-adhoc-analystics-db-elastic-query.png "SSMS adhoc analytics"
 
-[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.png "Extract tenant data into SQL DW"
+[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.png "Extract tenant data into Azure Synapse Analytics"
 
 [image-wtip-min11648-graph-daily-sale-distribution]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11648-graph-daily-sale-contoso-concert-hall.png "Graph of daily sale distribution"
 

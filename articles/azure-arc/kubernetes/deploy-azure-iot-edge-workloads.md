@@ -22,11 +22,11 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Az
 
 ## Pre-requisites
 
-* [Register an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) and [deploy the simulated temperature sensor module](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Be sure to note the device's connection string.
+* [Register an IoT Edge device](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) and [deploy the simulated temperature sensor module](../../iot-edge/quickstart-linux.md#deploy-a-module). Be sure to note the device's connection string.
 
 * Use [IoT Edge's support for Kubernetes](https://aka.ms/edgek8sdoc) to deploy it via Azure Arc's Flux operator.
 
-* Download the [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) file for IoT Edge Helm chart and replace the **deviceConnectionString** placeholder at the end of the file with the one noted in Step 1. You can set any other supported chart installation options as required. Create a namespace for the IoT Edge workload and create add a secret in it:
+* Download the [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) file for IoT Edge Helm chart and replace the **deviceConnectionString** placeholder at the end of the file with the one noted in Step 1. You can set any other supported chart installation options as required. Create a namespace for the IoT Edge workload and create a secret in it:
 
     ```
     $ kubectl create ns iotedge

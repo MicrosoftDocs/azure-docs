@@ -24,10 +24,10 @@ Learn more about the Azure Active Directory (Azure AD) application consent user 
 
 Consent is the process of a user granting authorization to an application to access protected resources on their behalf. An admin or user can be asked for consent to allow access to their organization/individual data.
 
-The actual user experience of granting consent will differ depending on policies set on the user's tenant, the user's scope of authority (or role), and the type of [permissions](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) being requested by the client application. This means that application developers and tenant admins have some control over the consent experience. Admins have the flexibility of setting and disabling policies on a tenant or app to control the consent experience in their tenant. Application developers can dictate what types of permissions are being requested and if they want to guide users through the user consent flow or  the admin consent flow.
+The actual user experience of granting consent will differ depending on policies set on the user's tenant, the user's scope of authority (or role), and the type of [permissions](../azuread-dev/v1-permissions-consent.md) being requested by the client application. This means that application developers and tenant admins have some control over the consent experience. Admins have the flexibility of setting and disabling policies on a tenant or app to control the consent experience in their tenant. Application developers can dictate what types of permissions are being requested and if they want to guide users through the user consent flow or  the admin consent flow.
 
 - **User consent flow** is when an application developer directs users to the authorization endpoint with the intent to record consent for only the current user.
-- **Admin consent flow** is when an application developer directs users to the admin consent endpoint with the intent to record consent for the entire tenant. To ensure the admin consent flow works properly, application developers must list all permissions in the `RequiredResourceAccess` property in the application manifest. For more info, see [Application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- **Admin consent flow** is when an application developer directs users to the admin consent endpoint with the intent to record consent for the entire tenant. To ensure the admin consent flow works properly, application developers must list all permissions in the `RequiredResourceAccess` property in the application manifest. For more info, see [Application manifest](./reference-app-manifest.md).
 
 ## Building blocks of the consent prompt
 
@@ -61,13 +61,13 @@ Here are the consent experiences that a user may see in the common consent scena
     
     2. Users will see the traditional consent prompt.
 
-        ![Consent prompt for scenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Screenshot that shows the traditional consent prompt.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Individuals accessing an app that requires at least one permission that is outside their scope of authority.
     1. Admins will see the same prompt as 1.i shown above.
     2. Users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app. 
                 
-        ![Consent prompt for scenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Screenshot of the consent prompt telling the user to ask an admin for access to the app.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Individuals that navigate or are directed to the admin consent flow.
     1. Admin users will see the admin consent prompt. The title and the permission descriptions changed on this prompt, the changes highlight the fact that accepting this prompt will grant the app access to the requested data on behalf of the entire tenant.
@@ -77,6 +77,6 @@ Here are the consent experiences that a user may see in the common consent scena
     1. Non-admin users will see the same screen as 2.ii shown above.
 
 ## Next steps
-- Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- For more depth, learn [how a multi-tenant application can use the consent framework](active-directory-devhowto-multi-tenant-overview.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
+- Get a step-by-step overview of [how the Azure AD consent framework implements consent](./quickstart-register-app.md).
+- For more depth, learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - Learn [how to configure the app's publisher domain](howto-configure-publisher-domain.md).

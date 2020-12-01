@@ -1,16 +1,8 @@
 ---
 title: Azure Event Hubs - Visualize data anomalies in real-time events
-# event-hubs-tutorial-visualize-anomalies.md
 description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: seodec18
-ms.date: 01/15/2020
-#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
+ms.date: 06/23/2020
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
@@ -311,7 +303,7 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
    ![Screenshot specifying dataset.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select **fraudulentuses**.
+9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select `fraudulentuses`.
 
    ![Screenshot specifying visualization type and fields.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -332,9 +324,9 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
 12. Under **Visualization Type**, select **Line chart**.
 
-13. Under **Axis**, click **Add Value**, and select **windowend**. 
+13. Under **Axis**, click **Add Value**, and select `windowend`. 
 
-14. Under **Values**, click **Add value** and select **fraudulentuses**.
+14. Under **Values**, click **Add value** and select `fraudulentuses`.
 
 15. Under **Time window to display**, select the last five minutes. Click **Next**.
 
@@ -381,6 +373,6 @@ In this tutorial, you learned how to:
 Advance to the next article to learn more about Azure Event Hubs.
 
 > [!div class="nextstepaction"]
-> [Get started sending messages to Azure Event Hubs in .NET Standard](get-started-dotnet-standard-send-v2.md)
+> [Get started sending messages to Azure Event Hubs in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -9,17 +9,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ---
 
 # Quickstart: Extract printed text (OCR) using the Computer Vision REST API and JavaScript
 
 > [!NOTE]
-> If you're extracting English language text, consider using the new [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). A [JavaScript quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text) is available.
+> If you're extracting English language text, consider using the new [Read operation](../concept-recognizing-text.md). A [JavaScript quickstart](./javascript-hand-text.md) is available.
 
-In this quickstart, you'll extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+In this quickstart, you'll extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ To create and run the sample, do the following steps:
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v3.0/ocr";
+        var uriBase = endpoint + "vision/v3.1/ocr";
 
         // Request parameters.
         var params = {
@@ -244,6 +244,6 @@ A successful response is returned in JSON. The sample webpage parses and display
 Next, explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; and detect, categorize, tag, and describe visual features in images. 
 
 > [!div class="nextstepaction"]
-> [Computer Vision API JavaScript Tutorial](../Tutorials/javascript-tutorial.md)
+> [Computer Vision API JavaScript Tutorial](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)
 
-* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

@@ -1,12 +1,12 @@
 ---
-title: Scale compute in Azure Synapse Analytics - T-SQL
+title: 'Quickstart: Scale compute in Azure Synapse Analytics - T-SQL'
 description: Scale compute in Azure Synapse Analytics using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
@@ -127,7 +127,7 @@ To poll for the service object change status:
 
 ## Check data warehouse state
 
-When a data warehouse is paused, you can't connect to it with T-SQL. To see the current state of the data warehouse, you can use a PowerShell cmdlet. For an example, see [Check data warehouse state - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+When a data warehouse is paused, you can't connect to it with T-SQL. To see the current state of the data warehouse, you can use a PowerShell cmdlet. For an example, see [Check data warehouse state - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## Check operation status
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a NAT gateway - Azure CLI'
+title: 'Create a NAT gateway - Azure CLI'
 titlesuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using the Azure CLI
 services: virtual-network
@@ -10,22 +10,22 @@ Customer intent: I want to create a NAT gateway for outbound connectivity for my
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 
-# Tutorial: Create a NAT gateway using Azure CLI
+# Create a NAT gateway using Azure CLI
 
 This tutorial shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-You can complete this tutorial using Azure Cloud Shell or run the respective commands locally.  If you have never used Azure Cloud Shell, [sign in now](https://shell.azure.com) to go through the initial setup.
-If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
-
+- This article requires version 2.0.71 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

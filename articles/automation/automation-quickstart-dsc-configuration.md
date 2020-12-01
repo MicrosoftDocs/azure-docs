@@ -18,7 +18,7 @@ By enabling Azure Automation State Configuration, you can manage and monitor the
 To complete this quickstart, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
+* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](./manage-runas-account.md).
 * An Azure Resource Manager VM (not classic) running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
 
 ## Sign in to Azure
@@ -26,7 +26,7 @@ Sign in to Azure at https://portal.azure.com.
 
 ## Enable a virtual machine
 
-There are many different methods to enable a machine for State Configuration feature. This quickstart tells how to enable the feature for a VM using an Automation account. You can learn more about different methods to enable your machines for State Configuration by reading [Enable machines for management by Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
+There are many different methods to enable a machine for State Configuration feature. This quickstart tells how to enable the feature for a VM using an Automation account. You can learn more about different methods to enable your machines for State Configuration by reading [Enable machines for management by Azure Automation State Configuration](./automation-dsc-onboarding.md).
 
 1. In the left pane of the Azure portal, select **Automation accounts**. If it is not visible in the left pane, click **All services** and search in the resulting view.
 1. In the list, select an Automation account.
@@ -34,7 +34,7 @@ There are many different methods to enable a machine for State Configuration fea
 2. Click **Add** to open the VM select page.
 3. Find the virtual machine for which to enable DSC. You can use the search field and filter options to find a specific virtual machine.
 4. Click on the virtual machine, and then click **Connect**
-5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
+5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](/powershell/scripting/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
 6. Click **OK**. While the DSC extension is deployed to the virtual machine, the status shows up as `Connecting`.
 
 ![Enabling an Azure VM for DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -52,7 +52,7 @@ Modules contain DSC resources and many can be found in the [PowerShell Gallery](
 
 ## Import the configuration
 
-This quickstart uses a DSC configuration that configures Apache HTTP Server, MySQL, and PHP on the machine. See [DSC configurations](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
+This quickstart uses a DSC configuration that configures Apache HTTP Server, MySQL, and PHP on the machine. See [DSC configurations](/powershell/scripting/dsc/configurations/configurations).
 
 In a text editor, type the following and save it locally as **AMPServer.ps1**.
 

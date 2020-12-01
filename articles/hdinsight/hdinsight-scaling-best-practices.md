@@ -1,11 +1,11 @@
 ---
 title: Scale cluster sizes - Azure HDInsight
 description: Scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
-author: ashishthaps
+author: hrasheed-msft
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ---
@@ -14,7 +14,7 @@ ms.date: 04/29/2020
 
 HDInsight provides elasticity with options to scale up and scale down the number of worker nodes in your clusters. This elasticity allows you to shrink a cluster after hours or on weekends. And expand it during peak business demands.
 
-Scale up your cluster before periodic batch processing so the cluster has adequate resources.  After processing completes, and usage goes down, scale down the HDInsight cluster to fewer worker nodes.
+Scale up your cluster before periodic batch processing so the cluster has adequate resources.  After processing completes, and usage goes down, scale down the HDInsight cluster to fewer worker nodes.
 
 You can scale a cluster manually using one of the methods outlined below. You can also use [autoscale](hdinsight-autoscale-clusters.md) options to automatically scale up and down in response to certain metrics.
 
@@ -27,9 +27,9 @@ Microsoft provides the following utilities to scale clusters:
 
 |Utility | Description|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
@@ -38,8 +38,8 @@ Microsoft provides the following utilities to scale clusters:
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
 > [!IMPORTANT]  
-> * The Azure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) whenever possible.
+> * The Azure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](/cli/azure/).
+> * The PowerShell AzureRM module is deprecated.  Please use the [Az module](/powershell/azure/new-azureps-module-az) whenever possible.
 
 ## Impact of scaling operations
 
@@ -101,6 +101,14 @@ The impact of changing the number of data nodes varies for each type of cluster 
 * Kafka
 
     You should rebalance partition replicas after scaling operations. For more information, see the [High availability of data with Apache Kafka on HDInsight](./kafka/apache-kafka-high-availability.md) document.
+
+* Apache Hive LLAP
+
+    After scaling to `N` worker nodes, HDInsight will automatically set the following configurations and restart Hive.
+
+  * Maximum Total Concurrent Queries: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Number of nodes used by Hive's LLAP: `num_llap_nodes  = N`
+  * Number of Node(s) for running Hive LLAP daemon: `num_llap_nodes_for_llap_daemons = N`
 
 ## How to safely scale down a cluster
 

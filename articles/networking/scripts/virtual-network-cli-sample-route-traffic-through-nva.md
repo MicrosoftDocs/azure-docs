@@ -11,11 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 
 ---
 
-# Route traffic through a network virtual appliance
+# Use an Azure CLI script to route traffic through a network virtual appliance
 
 This script sample creates a virtual network with front-end and back-end subnets. It also creates a VM with IP forwarding enabled to route traffic between the two subnets. After running the script you can deploy network software, such as a firewall application, to the VM.
 

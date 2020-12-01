@@ -2,7 +2,7 @@
 title: Delete Azure Active Directory Domain Services | Microsoft Docs
 description: Learn how to disable, or delete, an Azure Active Directory Domain Services managed domain using the Azure portal
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
@@ -10,16 +10,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 ---
 # Delete an Azure Active Directory Domain Services managed domain using the Azure portal
 
-If you no longer need a managed domain, you can delete an Azure Active Directory Domain Services (Azure AD DS) managed domain. There's no option to turn off or temporarily disable an Azure AD DS managed domain. Deleting the managed domain doesn't delete or otherwise adversely impact the Azure AD tenant. This article shows you how to use the Azure portal to delete a managed domain.
+If you no longer need an Azure Active Directory Domain Services (Azure AD DS) managed domain, you can delete it. There's no option to turn off or temporarily disable an Azure AD DS managed domain. Deleting the managed domain doesn't delete or otherwise adversely impact the Azure AD tenant.
+
+This article shows you how to use the Azure portal to delete a managed domain.
 
 > [!WARNING]
 > **Deletion is permanent and can't be reversed.**
+> 
 > When you delete a managed domain, the following steps occur:
 >   * Domain controllers for the managed domain are de-provisioned and removed from the virtual network.
 >   * Data on the managed domain is deleted permanently. This data includes custom OUs, GPOs, custom DNS records, service principals, GMSAs, etc. that you created.
@@ -43,5 +46,5 @@ Consider [sharing feedback][feedback] for the features that you would like to se
 If you want to get started with Azure AD DS again, see [Create and configure an Azure Active Directory Domain Services managed domain][create-instance].
 
 <!-- INTERNAL LINKS -->
-[feedback]: contact-us.md
+[feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593
 [create-instance]: tutorial-create-instance.md

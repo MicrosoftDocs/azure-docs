@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/09/2020
 ms.author: victorh
 
 ---
@@ -192,5 +192,4 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure TLS offloading by visiting: [Configure TLS Offload](application-gateway-ssl-arm.md)
-
+Learn to configure TLS offloading by visiting: [Configure TLS Offload](./tutorial-ssl-powershell.md)

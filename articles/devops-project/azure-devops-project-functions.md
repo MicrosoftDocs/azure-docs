@@ -8,6 +8,7 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
+ms.custom: devx-track-csharp
 ---
 
 # Deploy to Azure Functions with DevOps Starter
@@ -89,7 +90,7 @@ DevOps Starter automatically configures a CI/CD pipeline in your Azure DevOps or
 
 1. Click on the hyperlink under **Build**. A browser tab displays the build pipeline for your new project.
 
-    ![Build](_img/azure-devops-project-functions/build.png)
+    ![Screenshot shows the Azure portal DevOps Starter dashboard with an arrow pointing to a link under Build in the C I / C D pipeline.](_img/azure-devops-project-functions/build.png)
 
 1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching source code from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
 

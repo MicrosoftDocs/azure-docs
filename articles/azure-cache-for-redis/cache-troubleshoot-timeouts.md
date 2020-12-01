@@ -5,6 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/18/2019
 ---
 # Troubleshoot Azure Cache for Redis timeouts
@@ -24,9 +25,11 @@ Azure Cache for Redis regularly updates its server software as part of the manag
 
 ## StackExchange.Redis timeout exceptions
 
-StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations with a default value of 1000 ms. If a synchronous call doesn’t complete in this time, the StackExchange.Redis client throws a timeout error similar to the following example:
+StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations with a default value of 5000 ms. If a synchronous call doesn’t complete in this time, the StackExchange.Redis client throws a timeout error similar to the following example:
 
+```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 This error message contains metrics that can help point you to the cause and possible resolution of the issue. The following table contains details about the error message metrics.
 
@@ -65,9 +68,12 @@ You can use the following steps to investigate possible root causes.
 
 1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine. 
 
-    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 2000 ms.
+    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 5000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 2000 ms.
 
-        synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```output
+    synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    ```
+
 1. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
 1. If your requests are bound by bandwidth limitations on the server or client, it takes longer for them to complete and can cause timeouts. To see if your timeout is because of network bandwidth on the server, see [Server-side bandwidth limitation](cache-troubleshoot-server.md#server-side-bandwidth-limitation). To see if your timeout is because of client network bandwidth, see [Client-side bandwidth limitation](cache-troubleshoot-client.md#client-side-bandwidth-limitation).
 1. Are you getting CPU bound on the server or on the client?
@@ -76,7 +82,7 @@ You can use the following steps to investigate possible root causes.
    - Check if you're getting CPU bound on the server by monitoring the CPU [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Requests coming in while Redis is CPU bound can cause those requests to time out. To address this condition, you can distribute the load across multiple shards in a premium cache, or upgrade to a larger size or pricing tier. For more information, see [Server-side bandwidth limitation](cache-troubleshoot-server.md#server-side-bandwidth-limitation).
 1. Are there commands taking long time to process on the server? Long-running commands that are taking long time to process on the redis-server can cause timeouts. For more information about long-running commands, see [Long-running commands](cache-troubleshoot-server.md#long-running-commands). You can connect to your Azure Cache for Redis instance using the redis-cli client or the [Redis Console](cache-configure.md#redis-console). Then, run the [SLOWLOG](https://redis.io/commands/slowlog) command to see if there are requests slower than expected. Redis Server and StackExchange.Redis are optimized for many small requests rather than fewer large requests. Splitting your data into smaller chunks may improve things here.
 
-    For information on connecting to your cache's TLS/SSL endpoint using redis-cli and stunnel, see the blog post [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+    For information on connecting to your cache's TLS/SSL endpoint using redis-cli and stunnel, see the blog post [Announcing ASP.NET Session State Provider for Redis Preview Release](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 1. High Redis server load can cause timeouts. You can monitor the server load by monitoring the `Redis Server Load` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). A server load of 100 (maximum value) signifies that the redis server has been busy, with no idle time, processing requests. To see if certain requests are taking up all of the server capability, run the SlowLog command, as described in the previous paragraph. For more information, see High CPU usage / Server Load.
 1. Was there any other event on the client side that could have caused a network blip? Common events include: scaling the number of client instances up or down, deploying a new version of the client, or autoscale enabled. In our testing, we have found that autoscale or scaling up/down can cause outbound network connectivity to be lost for several seconds. StackExchange.Redis code is resilient to such events and reconnects. While reconnecting, any requests in the queue can time out.
 1. Was there a large request preceding several small requests to the cache that timed out? The parameter `qs` in the error message tells you how many requests were sent from the client to the server, but haven't processed a response. This value can keep growing because StackExchange.Redis uses a single TCP connection and can only read one response at a time. Even though the first operation timed out, it doesn't stop more data from being sent to or from the server. Other requests will be blocked until the large request is finished and can cause time outs. One solution is to minimize the chance of timeouts by ensuring that your cache is large enough for your workload and splitting large values into smaller chunks. Another possible solution is to use a pool of `ConnectionMultiplexer` objects in your client, and choose the least loaded `ConnectionMultiplexer` when sending a new request. Loading across multiple connection objects should prevent a single timeout from causing other requests to also time out.
@@ -109,5 +115,5 @@ You can use the following steps to investigate possible root causes.
 
 - [Troubleshoot Azure Cache for Redis client-side issues](cache-troubleshoot-client.md)
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
-- [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [How can I benchmark and test the performance of my cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)

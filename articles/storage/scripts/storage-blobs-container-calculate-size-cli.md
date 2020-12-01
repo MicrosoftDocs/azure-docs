@@ -9,7 +9,8 @@ ms.subservice: blobs
 ms.devlang: cli
 ms.topic: sample
 ms.date: 06/28/2017
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurecli
 ---
 
 # Calculate the size of a Blob storage container

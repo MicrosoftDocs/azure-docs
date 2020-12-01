@@ -2,7 +2,7 @@
 title: Use Azure Deployment Manager to deploy templates
 description: Learn how to use Resource Manager templates with Azure Deployment Manager to deploy Azure resources.
 author: mumian
-ms.date: 12/04/2019
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
 
@@ -36,7 +36,7 @@ This tutorial covers the following tasks:
 
 Additional resources:
 
-* The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* The [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
 * [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -48,7 +48,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Some experience with developing [Azure Resource Manager templates](overview.md).
-* Azure PowerShell. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 * Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
 
     ```powershell
@@ -57,7 +57,7 @@ To complete this article, you need:
 
 ## Understand the scenario
 
-The service topology template describes the Azure resources the make up your service and where to deploy them. The service topology definition has the following hierarchy:
+The service topology template describes the Azure resources that make up your service and where to deploy them. The service topology definition has the following hierarchy:
 
 * Service topology
   * Services

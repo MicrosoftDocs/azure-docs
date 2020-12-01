@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 05/19/2020
+ ms.date: 09/11/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -57,6 +57,9 @@
 * US DoD Central
 * US DoD East
 * US Gov Arizona
-* US Gov Iowa
 * US Gov Texas
 * US Gov Virginia
+
+**Azure China**
+* China East 2
+* China North 2

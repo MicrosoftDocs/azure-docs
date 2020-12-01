@@ -1,13 +1,8 @@
 ---
 title: How to filter events for Azure Event Grid
 description: This article shows how to filter events (by event type, by subject, by operators and data, etc.) when creating an Event Grid subscription. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Filter events for Event Grid

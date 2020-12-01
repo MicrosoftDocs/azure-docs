@@ -72,7 +72,7 @@ landingContent:
           - text: Samples
             url: https://github.com/Azure-Samples/azure-media-player-samples
           - text: API
-            url: https://docs.microsoft.com/javascript/api/azuremediaplayer/?view=azure-node-latest
+            url: /javascript/api/azuremediaplayer/?view=azure-node-latest
           - text: API methods
             url: azure-media-player-api-methods.md
           - text: Options

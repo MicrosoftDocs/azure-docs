@@ -3,7 +3,7 @@ title: Share link to request an access package in Azure AD entitlement managemen
 description: Learn how to share link to request an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory

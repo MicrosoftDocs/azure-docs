@@ -4,6 +4,7 @@ description: Learn how to create your first Azure Resource Manager template usin
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
+ms.custom: devx-track-java
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the IntelliJ IDEA to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 
@@ -23,7 +24,7 @@ To complete this article, you need:
 
 * An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 * The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) installed, check [IntelliJ's plugins management guide](https://www.jetbrains.com/help/idea/managing-plugins.html) for more information
-* Be [signed in](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
+* Be [signed in](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
 
 ## Deploy a Quickstart template
 
@@ -61,7 +62,7 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. You can edit the two files on this page and deploy the changes to Azure. Here we modify the value of **storageAccountType** in parameter files, from `Standard_LRS` to `Standard_GRS`. Then, click **Update Deployment** on the bottom and confirm the update.
 
-    ![Resource Manager template edit deployment](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Screenshot shows the Resource Manager template with the Update Deployment prompt displayed.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. After update deployment completed, you can verify on the portal that the created storage account is changed to `Standard_GRS`.
 
@@ -82,4 +83,4 @@ The main focus of this article is to use IntelliJ IDEA to deploy an existing tem
 > [Beginner tutorials](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Visit Java on Azure Dev center](https://docs.microsoft.com/azure/java)
+> [Visit Java on Azure Dev center](/azure/java)

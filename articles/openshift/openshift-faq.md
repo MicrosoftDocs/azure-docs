@@ -5,7 +5,7 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 07/31/2020
 ---
 
 # Azure Red Hat OpenShift FAQ
@@ -16,7 +16,7 @@ This article answers frequently asked questions (FAQs) about Microsoft Azure Red
 
 ### Which Azure regions are supported?
 
-For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://docs.openshift.com/aro/4/welcome/index.html#available-regions).
+For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
 
 For a list of supported regions for Azure Red Hat OpenShift 3.11, see [Products available by region](supported-resources.md#azure-regions).
 
@@ -60,25 +60,9 @@ On Azure Red Hat OpenShift 4.x clusters, infrastructure nodes are not currently 
 
 On Azure Red Hat OpenShift 3.11 clusters, infrastructure nodes are included by default.
 
-## Upgrades
+## How do I handle cluster upgrades?
 
-###  What is the general upgrade process?
-
-Patches are applied automatically to your cluster. You do not need to take any action to receive patch upgrades on your cluster.
-
-Running an upgrade is a safe process to run and should not disrupt cluster services. The joint Microsoft-Red Hat team can trigger the upgrade process when new versions are available or Common Vulnerabilities and Exposures are outstanding. Available updates are tested in a staging environment and then applied to production clusters. Following best practices helps ensure minimal to no downtime.
-
-Planned maintenance is not prescheduled with the customer. Notifications related to maintenance may be sent via email.
-
-### What is the Azure Red Hat OpenShift maintenance process?
-
-There are two types of maintenance for Azure Red Hat OpenShift: upgrades and cloud provider-initiated maintenance.
-- Upgrades include software upgrades and Common Vulnerabilities and Exposures.
-- Cloud provider-initiated maintenance includes network, storage, and regional outages. The maintenance is dependent on the cloud provider and relies on provider-supplied updates.
-
-### What about emergency vs. planned maintenance windows?
-
-We do not distinguish between the two types of maintenance. Our teams are available 24/7/365 and do not use traditional scheduled “out-of-hours” maintenance windows.
+For information on upgrades, maintenance, and supported versions, see the [support lifecycle guide](support-lifecycle.md).
 
 ### How will the host operating system and OpenShift software be updated?
 
@@ -197,13 +181,13 @@ For more information, see the OpenShift documentation on disabling self-provisio
 
 ### Which UNIX rights (in IaaS) are available for Masters/Infra/App Nodes?
 
-For 4.x clusters, node access is available through the cluster-admin role. For more information, see [RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+For 4.x clusters, node access is available through the cluster-admin role. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 For 3.11 clusters, node access is forbidden.
 
 ### Which OCP rights do we have? Cluster-admin? Project-admin?
 
-For 4.x clusters, the cluster-admin role is available. For more information, see [RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+For 4.x clusters, the cluster-admin role is available. For more information, see [Kubernetes RBAC overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 For 3.11 clusters, see the [cluster administration overview](https://docs.openshift.com/aro/admin_guide/index.html) for more details.
 
@@ -230,3 +214,7 @@ For 3.11 clusters, data is not encrypted on the etcd level. The option to turn e
 For 4.x clusters, Azure Disk (Premium_LRS) is configured as the default storage class. For additional storage providers, and for configuration details (including Azure File), see the Red Hat documentation on [persistent storage](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
 
 For 3.11 clusters, two storage classes are provided by default: one for Azure Disk (Premium_LRS) and one for Azure File.
+
+## Does ARO store any customer data outside of the cluster's region?
+
+No. All data created in an ARO cluster is maintained within the cluster's region.

@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
@@ -80,7 +80,7 @@ You can define a Google account as a claims provider by adding it to the **Claim
             <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
             <Item Key="scope">email profile</Item>
             <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="client_id">Your Google application ID</Item>
           </Metadata>
           <CryptographicKeys>
@@ -135,7 +135,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
 2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `GoogleExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
     ```
 
@@ -146,7 +146,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
 2. Add the following **ClaimsExchange** element making sure that you use the same value for ID that you used for **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
 

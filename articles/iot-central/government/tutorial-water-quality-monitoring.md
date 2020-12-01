@@ -184,7 +184,7 @@ On the **Devices** tab, select **+ New** to add a new device.
 
 ## Explore and configure rules
 
-In Azure IoT Central, you can create rules that automatically monitor device telemetry. These rules trigger an action when any of their conditions are met. One possible action is to send email notifications. Other possibilities include a Microsoft Flow action or a webhook action to send data to other services.
+In Azure IoT Central, you can create rules that automatically monitor device telemetry. These rules trigger an action when any of their conditions are met. One possible action is to send email notifications. Other possibilities include a Power Automate action or a webhook action to send data to other services.
 
 The water quality monitoring application you created has two preconfigured rules.
 
@@ -252,4 +252,7 @@ If you're not going to continue to use your application, delete the application 
 
 ## Next steps
 
-* Learn more about [water quality monitoring concepts](./concepts-waterqualitymonitoring-architecture.md).
+* Learn more about 
+
+> [!div class="nextstepaction"]
+> [water quality monitoring concepts](./concepts-waterqualitymonitoring-architecture.md).

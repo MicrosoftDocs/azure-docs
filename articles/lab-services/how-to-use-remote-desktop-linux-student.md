@@ -1,20 +1,8 @@
 ---
 title: Connect to a Linux VM in Azure Lab Services | Microsoft Docs
 description: Learn how to use remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Connect to Linux virtual machines in a classroom lab of Azure Lab Services

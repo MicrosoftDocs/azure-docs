@@ -24,6 +24,8 @@ ms.service: media-services
 
 # Recommended on-premises encoders
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 When live streaming with Azure Media Services, you can specify how you want your channel to receive the input stream. If you choose to use an on premises encoder with a live encoding channel, your encoder should push a high-quality single-bitrate stream as output. If you choose to use an on premises encoder with a pass through channel, your encoder should push a multi-bitrate stream as output with all desired output qualities. For more information, see [Live streaming with on premises encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Encoder requirements

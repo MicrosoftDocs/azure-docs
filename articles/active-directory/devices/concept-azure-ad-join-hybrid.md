@@ -26,7 +26,7 @@ Typically, organizations with an on-premises footprint rely on imaging methods t
 
 If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These devices, are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
 
-|   | Hybrid Azure AD Join |
+| Hybrid Azure AD Join | Description |
 | --- | --- |
 | **Definition** | Joined to on-premises AD and Azure AD requiring organizational account to sign in to the device |
 | **Primary audience** | Suitable for hybrid organizations with existing on-premises AD infrastructure |

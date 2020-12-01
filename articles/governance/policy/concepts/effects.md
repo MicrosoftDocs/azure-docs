@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 06/15/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -20,7 +20,7 @@ These effects are currently supported in a policy definition:
 - [Disabled](#disabled)
 - [Modify](#modify)
 
-The following effects are being _deprecated_:
+The following effects are _deprecated_:
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -128,9 +128,9 @@ resource, but it doesn't stop the request.
 
 Audit is the last effect checked by Azure Policy during the creation or update of a resource. For a
 Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. Audit works
-the same for a resource request and an evaluation cycle. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the resource
-as non-compliant.
+the same for a resource request and an evaluation cycle. For new and updated resources, Azure Policy
+adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the
+resource as non-compliant.
 
 ### Audit properties
 
@@ -189,10 +189,10 @@ condition, but don't have the properties specified in the **details** of the **t
 
 AuditIfNotExists runs after a Resource Provider has handled a create or update resource request and
 has returned a success status code. The audit occurs if there are no related resources or if the
-resources defined by **ExistenceCondition** don't evaluate to true. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log the same way as the
-audit effect. When triggered, the resource that satisfied the **if** condition is the resource that
-is marked as non-compliant.
+resources defined by **ExistenceCondition** don't evaluate to true. For new and updated resources,
+Azure Policy adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log
+and marks the resource as non-compliant. When triggered, the resource that satisfied the **if**
+condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists properties
 
@@ -208,8 +208,8 @@ related resources to match.
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
-    becomes _required_ and must be `[field('name')]`. However, an [audit](#audit) effect should be
-    considered instead.
+    becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
+    However, an [audit](#audit) effect should be considered instead.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -361,7 +361,7 @@ related resources to match and the template deployment to execute.
   - Specifies the exact name of the resource to match and causes the policy to fetch one specific
     resource instead of all resources of the specified type.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
-    becomes _required_ and must be `[field('name')]`.
+    becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -479,12 +479,10 @@ pass Gatekeeper v3 admission control rules defined with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
 to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** effect and the
-> related **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_
-> and _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceOPAConstraint evaluation
 
@@ -550,12 +548,10 @@ to pass Gatekeeper v2 admission control rules defined with
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceRegoPolicy evaluation
 
@@ -605,23 +601,51 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Modify
 
-Modify is used to add, update, or remove tags on a resource during creation or update. A common
-example is updating tags on resources such as costCenter. A Modify policy should always have `mode`
-set to _Indexed_ unless the target resource is a resource group. Existing non-compliant resources
+Modify is used to add, update, or remove properties or tags on a resource during creation or update.
+A common example is updating tags on resources such as costCenter. Existing non-compliant resources
 can be remediated with a [remediation task](../how-to/remediate-resources.md). A single Modify rule
 can have any number of operations.
 
+The following operations are supported by Modify:
+
+- Add, replace or remove resource tags. For tags, a Modify policy should have `mode` set to
+  _Indexed_ unless the target resource is a resource group.
+- Add or replace the value of managed identity type (`identity.type`) of virtual machines and
+  virtual machine scale sets.
+- Add or replace the values of certain aliases (preview).
+  - Use
+    `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
+    in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with Modify.
+
 > [!IMPORTANT]
-> Modify is currently only for use with tags. If you are managing tags, it's recommended to use
-> Modify instead of Append as Modify provides additional operation types and the ability to
-> remediate existing resources. However, Append is recommended if you aren't able to create a
-> managed identity.
+> If you're managing tags, it's recommended to use Modify instead of Append as Modify provides
+> additional operation types and the ability to remediate existing resources. However, Append is
+> recommended if you aren't able to create a managed identity or Modify doesn't yet support the
+> alias for the resource property.
 
 ### Modify evaluation
 
 Modify evaluates before the request gets processed by a Resource Provider during the creation or
-updating of a resource. Modify adds or updates tags on a resource when the **if** condition of the
-policy rule is met.
+updating of a resource. The Modify operations are applied to the request content when the **if**
+condition of the policy rule is met. Each Modify operation can specify a condition that determines
+when it's applied. Operations with conditions that are evaluated to _false_ are skipped.
+
+When an alias is specified, the following additional checks are performed to ensure that the Modify
+operation doesn't change the request content in a way that causes the resource provider to reject
+it:
+
+- The property the alias maps to is marked as 'Modifiable' in the request's API version.
+- The token type in the Modify operation matches the expected token type for the property in the
+  request's API version.
+
+If either of these checks fail, the policy evaluation falls back to the specified
+**conflictEffect**.
+
+> [!IMPORTANT]
+> It's recommeneded that Modify definitions that include aliases use the _audit_ **conflict effect**
+> to avoid failing requests using API versions where the mapped property isn't 'Modifiable'. If the
+> same alias behaves differently between API versions, conditional modify operations can be used to
+> determine the modify operation used for each API version.
 
 When a policy definition using the Modify effect is run as part of an evaluation cycle, it doesn't
 make changes to resources that already exist. Instead, it marks any resource that meets the **if**
@@ -636,11 +660,11 @@ needed for remediation and the **operations** used to add, update, or remove tag
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
-  - The role defined must include all operations granted to the [Contributor](../../../role-based-access-control/built-in-roles.md#contributor)
-    role.
+  - The role defined must include all operations granted to the
+    [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
 - **conflictEffect** (optional)
   - Determines which policy definition "wins" in the event that more than one policy definition
-    modifies the same property.
+    modifies the same property or when the Modify operation doesn't work on the specified alias.
     - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
       definitions with _audit_ skip all **operations**. If more than one policy definition has
       _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
@@ -662,6 +686,12 @@ needed for remediation and the **operations** used to add, update, or remove tag
     - **value** (optional)
       - The value to set the tag to.
       - This property is required if **operation** is _addOrReplace_ or _Add_.
+    - **condition** (optional)
+      - A string containing an Azure Policy language expression with
+        [Policy functions](./definition-structure.md#policy-functions) that evaluates to _true_ or
+        _false_.
+      - Doesn't support the following Policy functions: `field()`, `resourceGroup()`,
+        `subscription()`.
 
 ### Modify operations
 
@@ -701,9 +731,9 @@ The **operation** property has the following options:
 
 |Operation |Description |
 |-|-|
-|addOrReplace |Adds the defined tag and value to the resource, even if the tag already exists with a different value. |
-|Add |Adds the defined tag and value to the resource. |
-|Remove |Removes the defined tag from the resource. |
+|addOrReplace |Adds the defined property or tag and value to the resource, even if the property or tag already exists with a different value. |
+|Add |Adds the defined property or tag and value to the resource. |
+|Remove |Removes the defined property or tag from the resource. |
 
 ### Modify examples
 
@@ -747,6 +777,29 @@ with a parameterized value:
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+Example 3: Ensure that a storage account doesn't allow blob public access, the Modify operation
+is applied only when evaluating requests with API version greater or equals to '2019-04-01':
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

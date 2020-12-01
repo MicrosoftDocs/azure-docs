@@ -14,7 +14,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
 ---
@@ -48,7 +48,7 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 1. Select the **Create a resource** option in the upper-left corner of the Azure portal:
 
-    ![Output after key vault creation is complete](./media/quickstarts/search-services.png)
+    ![Screenshot shows the Create a resource option in the Azure portal.](./media/quickstarts/search-services.png)
 1. In the search box, enter **Key Vault**.
 1. From the results list, select **Key vaults** on the left.
 1. In **Key vaults**, select **Add**.
@@ -62,7 +62,7 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 At this point, your Azure account is the only one authorized to access this new vault.
 
-![Output after key vault creation is complete](./media/quickstarts/vault-properties.png)
+![Screenshot shows your key vault.](./media/quickstarts/vault-properties.png)
 
 ## Add a secret to Key Vault
 

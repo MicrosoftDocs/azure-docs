@@ -23,7 +23,7 @@ The solution uses native syslog functionality of the ESXi host to push data to a
 ## Install and configure the solution
 Use the following information to install and configure the solution.
 
-* Add the VMware Monitoring solution to your subscription using the process described in [Install a monitoring solution](../insights/solutions.md#install-a-monitoring-solution).
+* Add the VMware Monitoring solution to your subscription using the process described in [Install a monitoring solution](./solutions.md#install-a-monitoring-solution).
 
 #### Supported VMware ESXi hosts
 vSphere ESXi Host 5.5, 6.0, and 6.5
@@ -62,7 +62,7 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
 
 1. In the Azure portal, perform a log query for `VMware_CL`. When Azure Monitor collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
 
-    ![type](./media/vmware/type.png)  
+    ![Screenshot shows a log query for Type = VMware_CL with a timestamped result.](./media/vmware/type.png)  
 
     If your view log search results are similar to the image above, you're set to use the VMware Monitoring solution dashboard.  
 
@@ -71,7 +71,7 @@ The VMware Monitoring solution collects various performance metrics and log data
 
 The following table shows data collection methods and other details about how data is collected.
 
-| platform | Log Analytics agent for Linux | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| platform | Log Analytics agent for Linux | System Center Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |every 3 minutes |
 
@@ -101,7 +101,7 @@ The following table show examples of data fields collected by the VMware Monitor
 ## VMware Monitoring solution overview
 The VMware tile appears in your Log Analytics workspace. It provides a high-level view of any failures. When you click the tile, you go into a dashboard view.
 
-![tile](./media/vmware/tile.png)
+![Screenshot shows the VMware tile, displaying nine failures.](./media/vmware/tile.png)
 
 #### Navigate the dashboard view
 In the **VMware** dashboard view, blades are organized by:
@@ -129,30 +129,30 @@ You can drill further by clicking an ESXi host or an event type.
 
 When you click an ESXi host name, you view information from that ESXi host. If you want to narrow results with the event type, add `“ProcessName_s=EVENT TYPE”` in your search query. You can select **ProcessName** in the search filter. That narrows the information for you.
 
-![drill](./media/vmware/eventhostdrilldown.png)
+![Screenshot of the ESXi Host Per Event Count and Breakdown Per Event Type blades in the VMware Monitoring dashboard view.](./media/vmware/eventhostdrilldown.png)
 
 #### Find high VM activities
 A virtual machine can be created and deleted on any ESXi host. It's helpful for an administrator to identify how many VMs an ESXi host creates. That in-turn, helps to understand performance and capacity planning. Keeping track of VM activity events is crucial when managing your environment.
 
-![drill](./media/vmware/vmactivities1.png)
+![Screenshot of the Virtual Machine Activities blade in the VMware Monitoring dashboard, showing a graph of VM creation and deletion by the ESXi host.](./media/vmware/vmactivities1.png)
 
 If you want to see additional ESXi host VM creation data, click an ESXi host name.
 
-![drill](./media/vmware/createvm.png)
+![Screenshot of a pane from the VMware Monitoring dashboard showing a table with a row of data for each virtual machine creation by an ESXi host.](./media/vmware/createvm.png)
 
 #### Common log queries
 The solution includes other useful queries that can help you manage your ESXi hosts, such as high storage space, storage latency, and path failure.
 
-![queries](./media/vmware/queries.png)
+![Screenshot shows RECOMMENDED SEARCHES, which are useful stored queries.](./media/vmware/queries.png)
 
 
 #### Save queries
 Saving log queries is a standard feature in Azure Monitor and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../learn/tutorial-logs-dashboards.md) page where you can create your own custom dashboards.
 
-![DockerDashboardView](./media/vmware/dockerdashboardview.png)
+![Screenshot shows part of a custom dashboard labeled Log Search with icons for Undo, Export, Alert, Save, Favorites, and History.](./media/vmware/dockerdashboardview.png)
 
 #### Create alerts from queries
-After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../platform/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog post.
+After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../platform/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blog post.
 
 ## Frequently asked questions
 ### What do I need to do on the ESXi host setting? What impact will it have on my current environment?
@@ -196,3 +196,4 @@ There can be multiple reasons:
 * Use [log queries](../log-query/log-query-overview.md) in Log Analytics to view detailed VMware host data.
 * [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing VMware host data.
 * [Create alerts](../platform/alerts-overview.md) when specific VMware host events occur.
+

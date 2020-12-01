@@ -108,7 +108,7 @@ When you're defining the skillset programmatically, add a `cognitiveServices` se
 The following example shows this pattern. Notice the `cognitiveServices` section at the end of the definition.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -165,5 +165,5 @@ Putting it all together, you'd pay about $57.00 to ingest 1,000 PDF documents of
 ## Next steps
 + [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

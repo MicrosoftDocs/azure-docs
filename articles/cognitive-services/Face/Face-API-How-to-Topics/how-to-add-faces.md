@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Add faces to a PersonGroup
@@ -133,6 +134,5 @@ The following features were explained and demonstrated:
 
 ## Related topics
 
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)
 - [Detect faces in an image](HowtoDetectFacesinImage.md)
 - [Use the large-scale feature](how-to-use-large-scale.md)

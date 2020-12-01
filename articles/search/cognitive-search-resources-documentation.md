@@ -87,12 +87,12 @@ The following is a consolidated list of the documentation for AI enrichment.
 
 ## APIs
 
-+ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [REST API](/rest/api/searchservice/)
+  + [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
+  + [Create Indexer (api-version=2020-06-30)](/rest/api/searchservice/create-indexer)
 
 ## See also
 
-+ [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
++ [Azure Cognitive Search REST API](/rest/api/searchservice/)
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 + [What is Azure Cognitive Search?](search-what-is-azure-search.md)

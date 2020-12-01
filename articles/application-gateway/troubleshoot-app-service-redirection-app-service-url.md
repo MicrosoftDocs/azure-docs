@@ -18,9 +18,8 @@ Learn how to diagnose and resolve issues you might encounter when Azure App Serv
 
 In this article, you'll learn how to troubleshoot the following issues:
 
-> [!div class="checklist"]
-> * The app service URL is exposed in the browser when there's a redirection.
-> * The app service ARRAffinity cookie domain is set to the app service host name, example.azurewebsites.net, instead of the original host.
+* The app service URL is exposed in the browser when there's a redirection.
+* The app service ARRAffinity cookie domain is set to the app service host name, example.azurewebsites.net, instead of the original host.
 
 When a back-end application sends a redirection response, you might want to redirect the client to a different URL than the one specified by the back-end application. You might want to do this when an app service is hosted behind an application gateway and requires the client to do a redirection to its relative path. An example is a redirect from contoso.azurewebsites.net/path1 to contoso.azurewebsites.net/path2. 
 
@@ -76,10 +75,10 @@ In the previous example, notice that the response header has a status code of 30
 
 ## Solution: Rewrite the location header
 
-Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) of Application Gateway. If you use v1 SKU, we recommend that you [migrate from v1 to v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). You want to use rewrite and other [advanced capabilities](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
+> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. If you use v1 SKU, we recommend that you [migrate from v1 to v2](./migrate-v1-v2.md). You want to use rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
 
 ## Alternate solution: Use a custom domain name
 
@@ -89,7 +88,7 @@ The app service now does the redirection (if any) on the same original host head
 
 You must own a custom domain and follow this process:
 
-- Register the domain to the custom domain list of the app service. You must have a CNAME in your custom domain that points to the app service's FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Register the domain to the custom domain list of the app service. You must have a CNAME in your custom domain that points to the app service's FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
     ![App service custom domain list](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

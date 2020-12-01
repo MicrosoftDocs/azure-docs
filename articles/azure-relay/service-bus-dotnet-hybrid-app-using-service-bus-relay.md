@@ -1,22 +1,11 @@
 ---
 title: Azure Windows Communication Foundation (WCF) Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus-relay
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: spelluru
-
+ms.custom: devx-track-csharp
+ms.date: 06/23/2020
 ---
+
 # Expose an on-premises WCF service to a web application in the cloud by using Azure Relay
 
 This article shows how to build a hybrid cloud application with Microsoft Azure and Visual Studio. You create an application that uses multiple Azure resources in the cloud. This tutorial helps you learn:
@@ -251,7 +240,7 @@ In this section, you build a simple ASP.NET application that displays data retri
     ![Specify authentication][18]
 
 1. Back in **Create a new ASP.NET Web Application**, select **Create** to create the MVC app.
-1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and continue to the next step.
+1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and continue to the next step.
 1. In **Solution Explorer**, right-click **Models** and then select **Add** > **Class**.
 1. Name the class *Product.cs*, then select **Add**.
 
@@ -350,7 +339,7 @@ Run the application to verify that it works.
 
 Your application should appear, running in a browser.
 
-![Web application][21]
+![Screenshot shows an example of the application running in a browser with the URL highlighted.][21]
 
 ## Put the pieces together
 

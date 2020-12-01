@@ -5,7 +5,7 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: how-to
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ---
 
@@ -13,7 +13,7 @@ ms.subservice: imaging
 
 Azure Image Builder supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. To use these, they must have been externally accessible to Azure Image Builder, but you could protect Azure Storage blobs using SAS Tokens.
 
-This article shows how to create a customized image using the Azure VM Image Builder, where the service will use a [User-assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to access files in Azure storage for the image customization, without you having to make the files publicly accessible, or setting up SAS tokens.
+This article shows how to create a customized image using the Azure VM Image Builder, where the service will use a [User-assigned Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in Azure storage for the image customization, without you having to make the files publicly accessible, or setting up SAS tokens.
 
 In the example below, you will create two resource groups, one will be used for the custom image, and the other will host an Azure Storage Account, that contains a script file. This simulates a real life scenario, where you may have build artifacts, or image files in different storage accounts, outside of Image Builder. You will create a user-assigned identity, then grant that read permissions on the script file, but you will not set any public access to that file. You will then use the Shell customizer to download and run that script from the storage account.
 
@@ -91,7 +91,7 @@ az group create -n $strResourceGroup -l $location
 
 Create a user-assigned identity and set permissions on the resource group.
 
-Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -252,4 +252,4 @@ az group delete -n $strResourceGroup
 
 ## Next steps
 
-If you have any trouble working with Azure Image Builder, see [Troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).
+If you have any trouble working with Azure Image Builder, see [Troubleshooting](image-builder-troubleshoot.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).

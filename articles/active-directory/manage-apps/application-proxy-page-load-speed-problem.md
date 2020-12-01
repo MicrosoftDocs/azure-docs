@@ -27,8 +27,6 @@ Although your applications are working, they can experience a long latency. Ther
 
 Besides network topology, there are currently no further recommendations for performance tuning. As the Application Proxy service expands it might come to a data center that is physically closer. The closer proximity might help with latency. For a list of Azure data centers, see the [latency test page](http://www.azurespeed.com/Azure/Latency). 
 
-The data centers with the Application Proxy service can be found with the [Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
-
 ## Feedback on Application Proxy data center locations 
 There may be Azure data centers that don’t yet include Application Proxy, but would lead to a great latency improvement for you. Send the data center location to aadapfeedback@microsoft.com. Microsoft uses your feedback for expansion plans.
 

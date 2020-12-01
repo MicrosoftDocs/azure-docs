@@ -1,18 +1,19 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
-description: The Azurite open-source emulator (preview) provides a free local environment for testing your Azure storage applications.
+description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
+ms.custom: devx-track-csharp
 ---
 
-# Use the Azurite emulator for local Azure Storage development and testing (preview)
+# Use the Azurite emulator for local Azure Storage development
 
-The Azurite version 3.2 open-source emulator (preview) provides a free local environment for testing your Azure blob and queue storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS. Azurite v3 supports APIs implemented by the Azure Blob service.
+The Azurite open-source emulator provides a free local environment for testing your Azure blob and queue storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
 
 Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
 
@@ -30,8 +31,6 @@ Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurit
 ![Visual Studio Code extensions marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 You can also navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
-
-You can quickly start or close Azurite in the Visual Studio Code status bar. Click on **[Azurite Blob Service]** or **[Azurite Queue Service]**.
 
 The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code. 
 
@@ -63,6 +62,7 @@ The following settings are supported:
    - **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
    - **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
    - **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
+   - **Azurite: Skip Api Version Check** - Skip the request API version check. The default value is **false**.
 
 ## Install and run Azurite by using NPM
 
@@ -278,7 +278,7 @@ azurite --version
 
 ### Certificate configuration (HTTPS)
 
-**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
+**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
 
 When `--cert` is provided for a PEM file, you must provide a corresponding `--key` switch.
 
@@ -307,6 +307,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 
 Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite will do basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite won't check the token signature or permissions.
 
+### Skip API Version Check
+
+**Optional** - When starting up, Azurite checks that the requested API version is valid. The following command skips the API version check:
+
+```console
+azurite --skipApiVersionCheck
+```
+
+
 ## Authorization for tools and SDKs
 
 Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
@@ -315,7 +324,7 @@ If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert
 
 ### Well-known storage account and key
 
-Azurite accepts the same well-known account and key used by the legacy Azure storage emulator.
+Azurite accepts the same well-known account and key used by the legacy Azure Storage Emulator.
 
 - Account name: `devstoreaccount1`
 - Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
@@ -543,11 +552,17 @@ Azurite supports read-access geo-redundant replication (RA-GRS). For storage res
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
+### Table support
+
+Support for tables in Azurite is currently under development and open to contribution! For the latest progress, check the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
+
+Support for durable functions requires tables.
+
 ## Azurite is open-source
 
 Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we're tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.
 
 ## Next steps
 
-- [Use the Azure storage emulator for development and testing](storage-use-emulator.md) documents the legacy Azure storage emulator, which is being superseded by Azurite.
-- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure STorage connection string.
+- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is being superseded by Azurite.
+- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.

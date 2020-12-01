@@ -1,19 +1,8 @@
 ---
 title: Configure a lab to use Remote Desktop Gateway in Azure DevTest Labs
 description: Learn how to configure a lab in Azure DevTest Labs with a remote desktop gateway to ensure secure access to the lab VMs without having to expose the RDP port. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Configure your lab in Azure DevTest Labs to use a remote desktop gateway
@@ -42,7 +31,7 @@ To work with the DevTest Labs token authentication feature, there are a few conf
 ### Requirements for remote desktop gateway machines
 - TLS/SSL certificate must be installed  on the gateway machine to handle HTTPS traffic. The certificate must match the fully qualified domain name (FQDN) of the load balancer for the gateway farm or the FQDN of the machine itself if there's only one machine. Wild-card TLS/SSL certificates don't work.  
 - A signing certificate installed on gateway machine(s). Create a signing certificate by using [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) script.
-- Install the [Pluggable Authentication](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) module that supports token authentication for the remote desktop gateway. One example of such a module is `RDGatewayFedAuth.msi` that comes with [System Center Virtual Machine Manager (VMM) images](/system-center/vmm/install-console?view=sc-vmm-1807). For more information about System Center, see [System Center documentation](https://docs.microsoft.com/system-center/) and [pricing details](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Install the [Pluggable Authentication](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) module that supports token authentication for the remote desktop gateway. One example of such a module is `RDGatewayFedAuth.msi` that comes with [System Center Virtual Machine Manager (VMM) images](/system-center/vmm/install-console?view=sc-vmm-1807). For more information about System Center, see [System Center documentation](/system-center/) and [pricing details](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - The gateway server can handle requests made to `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
 
     The gateway-hostname is the FQDN of the load balancer of the gateway farm or the FQDN of machine itself if there's only one machine. The `{lab-machine-name}` is the name of the lab machine that you're trying to connect, and the `{port-number}` is port on which the connection will be made.  By default, this port is 3389.  However, if the virtual machine is using the [shared IP](devtest-lab-shared-ip.md) feature in DevTest Labs, the port will be different.
@@ -85,7 +74,7 @@ Configure the lab to use the token authentication by using these steps:
 1. **Save** Changes.
 
     > [!NOTE] 
-    > By clicking **Save**, you agree to [Remote Desktop Gateway’s license terms](https://www.microsoft.com/licensing/product-licensing/products). For more information about remote gateway, see [Welcome to Remote Desktop Services](https://aka.ms/rds) and [Deploy your remote desktop environment](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > By clicking **Save**, you agree to [Remote Desktop Gateway’s license terms](https://www.microsoft.com/licensing/product-licensing/products). For more information about remote gateway, see [Welcome to Remote Desktop Services](/windows-server/remote/remote-desktop-services/Welcome-to-rds) and [Deploy your remote desktop environment](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
 If configuring the lab via automation is preferred, see [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) for a sample PowerShell script to set **gateway hostname** and **gateway token secret** settings. The [Azure DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) also provides an Azure Resource Manager template that creates or updates a lab with the **gateway hostname** and **gateway token secret** settings.
@@ -100,7 +89,7 @@ Here is an example NSG that only allows traffic that first goes through the gate
 ## Sample to create a remote desktop gateway
 
 > [!NOTE] 
-> By using the sample templates, you agree to [Remote Desktop Gateway’s license terms](https://www.microsoft.com/licensing/product-licensing/products). For more information about remote gateway, see [Welcome to Remote Desktop Services](https://aka.ms/rds) and [Deploy your remote desktop environment](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> By using the sample templates, you agree to [Remote Desktop Gateway’s license terms](https://www.microsoft.com/licensing/product-licensing/products). For more information about remote gateway, see [Welcome to Remote Desktop Services](/windows-server/remote/remote-desktop-services/Welcome-to-rds) and [Deploy your remote desktop environment](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 The [Azure DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) provides a few samples to help setup the resources needed to use token authentication and remote desktop gateway with DevTest Labs. These samples include Azure Resource Manager templates for gateway machines, lab settings, and function app.
 
@@ -165,5 +154,3 @@ Follow these steps to set up a sample solution for the remote desktop gateway fa
 
 ## Next steps
 See the following article to learn more about Remote Desktop Services: [Remote Desktop Services documentation](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
-
-

@@ -4,12 +4,17 @@ description: Learn about the Reporting APIs that enable Enterprise Azure custome
 author: mumami
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 08/20/2020
 ms.author: banders
 
 ---
 # Overview of Reporting APIs for Enterprise customers
+
+> [!Note]
+> Microsoft no longer updates the Azure Billing - Enterprise Reporting APIs. Instead, you should use [Azure Consumption](/rest/api/consumption) APIs.
+
 The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated monetary commitments and gain access to custom pricing for Azure resources.
 
 All date and time parameters required for APIs must be represented as combined Coordinated Universal Time (UTC) values. Values returned by APIs are shown in UTC format.
@@ -22,7 +27,7 @@ All date and time parameters required for APIs must be represented as combined C
 |-|-|
 |Authorization| Specify the value in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09|
 
-## Consumption APIs
+## Consumption-based APIs
 A Swagger endpoint is available [here](https://consumption.azure.com/swagger/ui/index) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API.
 
 * **Balance and Summary** - The [Balance and Summary API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments and overage charges.

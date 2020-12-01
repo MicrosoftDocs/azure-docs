@@ -1,9 +1,11 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, C# - QnA Maker"
 description: This C# REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: "RESTCURL2020FEB27, devx-track-csharp"
 ms.topic: how-to
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically publish a knowledge base using C#.
 ---
@@ -13,7 +15,7 @@ ms.topic: how-to
 This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Cognitive Search index and creates an endpoint that can be called in your application or chat bot.
 
 This quickstart calls QnA Maker APIs:
-* [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - this API doesn't require any information in the body of the request.
+* [Publish](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - this API doesn't require any information in the body of the request.
 
 ## Prerequisites
 
@@ -37,19 +39,19 @@ This quickstart calls QnA Maker APIs:
 
 At the top of Program.cs, replace the single using statement with the following lines to add necessary dependencies to the project:
 
-[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=1-2 "Add the required dependencies")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/publish-kb.cs" id="dependencies":::
 
 ## Add required constants
 
 In the **Program** class, add the required constants to access QnA Maker.
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=8-34 "Add the required constants")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/publish-kb.cs" id="constants":::
 
 ## Add the Main method to publish the knowledge base
 
 After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
-[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=36-56 "Add HTTP Post request and response")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/publish-kb.cs" id="post":::
 
 The API call returns a 204 status for a successful publish without any content in the body of the response.
 
@@ -66,4 +68,4 @@ Once your knowledge base is published, you can query it from the endpoint with a
 After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-csharp.md).
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [QnA Maker (V4) REST API Reference](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)

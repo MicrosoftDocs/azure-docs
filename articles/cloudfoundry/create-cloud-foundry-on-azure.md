@@ -32,13 +32,13 @@ There are several ways to generate a public secure shell (SSH) key by using Wind
 ssh-keygen -t rsa -b 2048
 ```
 
-For more information, see [Use SSH keys with Windows on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+For more information, see [Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 ## Create a service principal
 
 > [!NOTE]
 >
-> To create a service principal, you need owner account permission. You also can write a script to automate creating the service principal. For example, you can use the Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> To create a service principal, you need owner account permission. You also can write a script to automate creating the service principal. For example, you can use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Sign in to your Azure account.
 
@@ -124,4 +124,3 @@ Enter the parameters, and create your PCF cluster.
 5. Your PCF Ops Manager displays the deployed Azure instances. Now you can deploy and manage your applications here.
                
     ![Deployed Azure instance in Pivotal](media/deploy/ops-mgr.png )
- 

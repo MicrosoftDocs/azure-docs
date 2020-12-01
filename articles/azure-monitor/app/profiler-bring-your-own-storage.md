@@ -17,9 +17,9 @@ When you use Application Insights Profiler or Snapshot Debugger, artifacts gener
 With Bring Your Own Storage, these artifacts are uploaded into a storage account that you control. That means you control the encryption-at-rest policy, the lifetime management policy and network access. You will, however, be responsible for the costs associated with that storage account.
 
 > [!NOTE]
-> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link, [see the documentation](https://docs.microsoft.com/azure/private-link/private-link-overview).
+> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link for Application Insights, [see the documentation.](../platform/private-link-security.md)
 >
-> If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys, [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+> If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys for Application Insights, [see the documentation.](../platform/customer-managed-keys.md).
 
 ## How will my storage account be accessed?
 1. Agents running in your Virtual Machines or App Service will upload artifacts (profiles, snapshots, and symbols) to blob containers in your account. This process involves contacting the Application Insights Profiler or Snapshot Debugger service to obtain a SAS (Shared Access Signature) token to a new blob in your storage account.
@@ -56,10 +56,10 @@ After you added the role, it will appear under the "Role assignments" section, l
 _![Figure 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 _Figure 1.1_ 
 
-If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### Link your Storage Account with your Application Insights resource
-To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two options:
+To configure BYOS for code-level diagnostics (Profiler/Debugger), there are three options:
 
 * Using Azure PowerShell Cmdlets
 * Using Azure Command Line Interface (CLI)
@@ -69,7 +69,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two 
 
 1. Make sure you have installed Az PowerShell 4.2.0 or greater.
 
-    To install Azure PowerShell, refer to the [Official Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    To install Azure PowerShell, refer to the [Official Azure PowerShell documentation](/powershell/azure/install-az-ps).
 
 1. Install the Application Insights PowerShell extension.
     ```powershell
@@ -81,7 +81,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two 
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    For more info of how to sign in, refer to the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    For more info of how to sign in, refer to the [Connect-AzAccount documentation](/powershell/module/az.accounts/connect-azaccount).
 
 1. Remove previous Storage Account linked to your Application Insights resource.
 
@@ -117,7 +117,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two 
 
 1. Make sure you have installed Azure CLI.
 
-    To install Azure CLI, refer to the [Official Azure CLI documentation](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    To install Azure CLI, refer to the [Official Azure CLI documentation](/cli/azure/install-azure-cli).
 
 1. Install the Application Insights CLI extension.
     ```powershell
@@ -148,7 +148,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two 
     ```
 
     > [!NOTE]
-    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
 
 #### Configure using Azure Resource Manager template
 

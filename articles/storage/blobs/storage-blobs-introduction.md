@@ -1,13 +1,13 @@
 ---
 title: Introduction to Blob (object) storage
 titleSuffix: Azure Storage
-description: Azure Blob storage stores massive amounts of unstructured object data, such as text or binary data. Azure Blob storage is highly scalable and available. Clients can access data objects in Blob storage from PowerShell or Azure CLI, programmatically via Azure Storage client libraries, or using REST.  
+description: Use Azure Blob storage to store massive amounts of unstructured object data, such as text or binary data. Azure Blob storage is highly scalable and available.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 03/18/2020
+ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -51,7 +51,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 
 Azure Storage supports three types of blobs:
 
-- **Block blobs** store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
+- **Block blobs** store text and binary data. Block blobs are made up of blocks of data that can be managed individually. Block blobs store up to about 4.75 TiB of data. Larger block blobs are available in preview, up to about 190.7 TiB
 - **Append blobs** are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
 - **Page blobs** store random access files up to 8 TB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
 
@@ -70,5 +70,5 @@ A number of solutions exist for migrating existing data to Blob storage:
 
 ## Next steps
 
-- [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Create a storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Scalability and performance targets for Blob storage](scalability-targets.md)

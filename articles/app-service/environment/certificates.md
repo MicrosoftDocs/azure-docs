@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Certificates and the App Service Environment 
 
-The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) document.
+The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](./create-ilb-ase.md) document.
 
 The ASE is a single tenant system. Because it is single tenant, there are some features available only with an ASE that are not available in the multi-tenant App Service. 
 
@@ -37,13 +37,16 @@ You cannot create the ASE and upload the certificate as one action in the portal
 
 If you want to create a self signed certificate quickly for testing, you can use the following bit of PowerShell:
 
-	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-	$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-	$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-	$fileName = "exportedcert.pfx"
-	Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
+```
+
 When creating a self signed cert, you will need to ensure the subject name has the format of CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
 
 ## Application certificates 
@@ -76,15 +79,18 @@ To upload the certificate to your app in your ASE:
 
 The certificate will be available by all the apps in the same app service plan as the app, which configured that setting. If you need it to be available for apps in a different App Service plan, you will need to repeat the App Setting operation in an app in that App Service plan. To check that the certificate is set, go to the Kudu console and issue the following command in the PowerShell debug console:
 
-    dir cert:\localmachine\root
+```azurepowershell-interactive
+dir cert:\localmachine\root
+```
 
 To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 
-	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```azurepowershell-interactive
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-	$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-	$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-	$fileName = "exportedcert.cer"
-	export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
-
+$fileName = "exportedcert.cer"
+export-certificate -Cert $certThumbprint -FilePath $fileName -Type CERT
+```

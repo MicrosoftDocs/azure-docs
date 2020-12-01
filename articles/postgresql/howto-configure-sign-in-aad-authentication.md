@@ -4,11 +4,11 @@ description: Learn about how to set up Azure Active Directory (AAD) for authenti
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: how-to
+ms.date: 07/23/2020
 ---
 
-# Use Azure Active Directory for authenticating with PostgreSQL
+# Use Azure Active Directory for authentication with PostgreSQL
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL, and how to connect using an Azure AD token.
 
@@ -110,8 +110,12 @@ When using the `psql` command line client, the access token needs to be passed t
 
 Windows Example:
 
-```shell
+```cmd
 set PGPASSWORD=<copy/pasted TOKEN value from step 2>
+```
+
+```PowerShell
+$env:PGPASSWORD='<copy/pasted TOKEN value from step 2>'
 ```
 
 Linux/macOS Example:

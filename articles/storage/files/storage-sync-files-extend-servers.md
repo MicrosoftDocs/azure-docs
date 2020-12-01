@@ -255,9 +255,8 @@ The Server Registration UI should open automatically after you install the Azure
 
    ![A screenshot of the Server Registration UI](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | Value | Description |
+   | ----- | ----- |
    | **Azure Subscription** | The subscription that contains the Storage Sync Service for this tutorial. |
    | **Resource Group** | The resource group that contains the Storage Sync Service. Use _afsresgroup101918_ for this tutorial. |
    | **Storage Sync Service** | The name of the Storage Sync Service. Use _afssyncservice02_ for this tutorial. |
@@ -297,9 +296,8 @@ A server endpoint represents a specific location on a registered server. For exa
 
 1. On the **Add server endpoint** pane, enter the following information to create a server endpoint:
 
-   | | |
-   | ----- | ----- |
    | Value | Description |
+   | ----- | ----- |
    | **Registered server** | The name of the server you created. Use *afsvm101918* for this tutorial. |
    | **Path** | The Windows Server path to the drive you created. Use *f:\filestosync* in this tutorial. |
    | **Cloud Tiering** | Leave disabled for this tutorial. |
@@ -312,6 +310,8 @@ Your files are now in sync across your Azure file share and Windows Server.
 ![Azure Storage successfully synced](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## Clean up resources
+
+If you'd like to clean up the resources you created in this tutorial, first remove the endpoints from the storage sync service. Then, unregister the server with your storage sync service, remove the sync groups, and delete the sync service.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 09/25/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
 ---
@@ -89,7 +89,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
   
 3. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
 
@@ -141,11 +141,11 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
     On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk. 
 
-     !Customize settings page[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Customize settings page 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Scroll down until you see the **New hard disk** and expand it to view the settings. Set the **Virtual Device Node** to **IDE controller 0**.
 
-     ![Customize settings page](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Customize settings page 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Optional) *Perform this step only if you are running VMware ESXi Server 6.7*. On the **Customize settings** page, click **VM options**. Go to **Boot options > Firmware** and change it to **BIOS**. By default, the value is set to EFI. Click **Next**.
 
@@ -154,7 +154,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 18. On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Verify that CPU is 4, memory is 8192 MB, network interface is 1 and Hard disk 2 has IDE controller 0. Click **Finish**.
    
     ![Ready to Complete page](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![Ready to Complete page](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Ready to Complete page 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Your virtual machine is now provisioned. You will see a notification to the effect and the new virtual machine is added to the list of VMs.
 
@@ -190,13 +190,13 @@ Perform the following steps to start your virtual device and connect to it.
 
    ![Enter virtual device password](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 8. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**. 
+6. Steps 6-8 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**. 
    
 7. To configure the network, at the command prompt, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
 8. Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
-    `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
+    `Set-HcsIpAddress –Name Ethernet0 –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
 9. After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and activation.
 

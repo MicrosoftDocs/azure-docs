@@ -2,20 +2,22 @@
 title: What's new - Personalizer
 titleSuffix: Azure Cognitive Services
 description: This article contains news about Personalizer.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 06/10/2020
-ms.author: diberry
+ms.date: 07/17/2020
 ---
 # What's new in Personalizer
 
 Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## Release notes
+
+### July 2020
+
+* New tutorial - [using Personalizer in a chat bot](tutorial-use-personalizer-chat-bot.md)
 
 ### June 2020
 
@@ -54,5 +56,5 @@ The following preview features were released at the Build 2019 Conference:
 
 ## Next steps
 
-* [Quickstart: Create a feedback loop in C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Quickstart: Create a feedback loop in C#](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)

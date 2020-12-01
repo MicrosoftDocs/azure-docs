@@ -71,7 +71,9 @@ In Azure RBAC, to grant access, you create a role assignment.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add menu](./media/role-assignments-portal/add-menu.png)
+   ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
+
+    The Add role assignment pane opens.
 
    ![Add role assignment pane](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 

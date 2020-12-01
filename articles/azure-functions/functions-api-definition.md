@@ -1,11 +1,9 @@
 ---
 title: OpenAPI metadata in Azure Functions 
 description: Overview of OpenAPI support in Azure Functions
-author: alexkarcher-msft
 
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.author: alkarche
 
 ---
 # OpenAPI 2.0 metadata support in Azure Functions (preview)
@@ -19,7 +17,7 @@ OpenAPI 2.0 (formerly Swagger) metadata support in Azure Functions is a preview 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 >[!TIP]
->We recommend starting with the [getting started tutorial](./functions-api-definition-getting-started.md) and then returning to this document to learn more about specific features.
+>We recommend starting with the [getting started tutorial](./functions-openapi-definition.md) and then returning to this document to learn more about specific features.
 
 ## <a name="enable"></a>Enable OpenAPI definition support
 You can configure all OpenAPI settings on the **API Definition** page in your function app's **Platform features**.
@@ -32,7 +30,7 @@ To enable the generation of a hosted OpenAPI definition and a quickstart definit
 ## <a name="generate-definition"></a>Generate a Swagger skeleton from your function's metadata
 A template can help you start writing your first OpenAPI definition. The definition template feature creates a sparse OpenAPI definition by using all the metadata in the function.json file for each of your HTTP trigger functions. You'll need to fill in more information about your API from the [OpenAPI specification](https://swagger.io/specification/), such as request and response templates.
 
-For step-by-step instructions, see the [getting started tutorial](./functions-api-definition-getting-started.md).
+For step-by-step instructions, see the [getting started tutorial](./functions-openapi-definition.md).
 
 ### <a name="templates"></a>Available templates
 
@@ -56,7 +54,7 @@ The following table represents the Azure portal settings and corresponding data 
 > [!NOTE]
 > The x-ms-summary extension provides a display name in Logic Apps, PowerApps, and Flow.
 >
-> To learn more, see [Customize your Swagger definition for PowerApps](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions).
+> To learn more, see [Customize your Swagger definition for PowerApps](/connectors/custom-connectors/openapi-extensions).
 
 ## <a name="CICD"></a>Use CI/CD to set an API definition
 
@@ -66,12 +64,12 @@ The following table represents the Azure portal settings and corresponding data 
    1. Set **API definition source** to **Function**.
    1. Click **Generate API definition template** and then **Save** to create a template definition for modifying later.
    1. Note your API definition URL and key.
-1. [Set up continuous integration/continuous deployment (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
+1. [Set up continuous integration/continuous deployment (CI/CD)](./functions-continuous-deployment.md#requirements-for-continuous-deployment).
 2. Modify swagger.json in source control at \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
 Now, changes to swagger.json in your repository are hosted by your function app at the API definition URL and key that you noted in step 1.c.
 
 ## Next steps
-* [Getting started tutorial](functions-api-definition-getting-started.md). Try our walkthrough to see an OpenAPI definition in action.
+* [Getting started tutorial](./functions-openapi-definition.md). Try our walkthrough to see an OpenAPI definition in action.
 * [Azure Functions GitHub repository](https://github.com/Azure/Azure-Functions/). Check out the Functions repository to give us feedback on the API definition support preview. Make a GitHub issue for anything you want to see updated.
 * [Azure Functions developer reference](functions-reference.md). Learn about coding functions and defining triggers and bindings.

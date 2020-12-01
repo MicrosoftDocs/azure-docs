@@ -1,16 +1,16 @@
 ---
-title: Features - LUIS
+title: Use features to improve LUIS word list
 titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
+
 ---
 
 # Use features to boost signal of word list

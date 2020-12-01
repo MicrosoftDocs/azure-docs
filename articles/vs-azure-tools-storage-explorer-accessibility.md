@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Explorer Accessibility (Preview) | Microsoft Docs
-description: Azure Storage Explorer Accessibility (Preview)
+title: Azure Storage Explorer Accessibility | Microsoft Docs
+description: Understand accessibility in Azure Storage Explorer. Review what screen readers are available, the zoom capability, high contrast themes, and shortcut keys.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT

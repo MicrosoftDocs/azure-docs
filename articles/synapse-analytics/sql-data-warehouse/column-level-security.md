@@ -6,10 +6,10 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/19/2020
 ms.author: jrasnick
-ms.reviewer: igorstan, carlrab
+ms.reviewer: igorstan 
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ---
@@ -22,9 +22,9 @@ Since this video was posted [Row level Security](/sql/relational-databases/secur
 
 Column-level security simplifies the design and coding of security in your application, allowing you to restrict column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time data access is attempted from any tier. This restriction makes your security more reliable and robust by reducing the surface area of your overall security system. In addition, column-level security also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users.
 
-You could implement column-level security with the [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (AAD) authentication are supported.
+You could implement column-level security with the [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL statement. With this mechanism, both SQL and Azure Active Directory (Azure AD) authentication are supported.
 
-![cls](./media/column-level-security/cls.png)
+![Diagram shows a schematic table with the first column headed by a closed padlock and its cells an orange color while the other columns are white cells.](./media/column-level-security/cls.png)
 
 ## Syntax
 

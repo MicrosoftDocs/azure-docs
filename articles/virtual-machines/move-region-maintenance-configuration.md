@@ -15,7 +15,7 @@ ms.author: shants
 
 Follow this article to move a Maintenance Control configuration to a different Azure region. You might want to move a configuration for a number of reasons. For example, to take advantage of a new region, to deploy features or services available in a specific region, to meet internal policy and governance requirements, or in response to capacity planning.
 
-Maintenance control, with customized maintenance configurations, allows you to control how platform updates are applied to [Windows](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) and [Linux](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) VMs, and to Azure Dedicated Hosts. There are a couple of scenarios for moving maintenance control across regions:
+Maintenance control, with customized maintenance configurations, allows you to control how platform updates are applied to [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) and [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) VMs, and to Azure Dedicated Hosts. There are a couple of scenarios for moving maintenance control across regions:
 
 - To move your maintenance control configuration, but not the resources associated with the configuration, follow the instructions in this article.
 - To move the resources associated with a maintenance configuration, but not the configuration itself, follow [these instructions](move-region-maintenance-configuration-resources.md).
@@ -35,7 +35,7 @@ Before you begin moving a maintenance control configuration:
 
 ## Prepare and move 
 
-1. Retrieve all of the maintenance configurations in each subscription. Run the CLI [az maintenance configuration list](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) command to do this, replacing $subId with your subscription ID.
+1. Retrieve all of the maintenance configurations in each subscription. Run the CLI [az maintenance configuration list](/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) command to do this, replacing $subId with your subscription ID.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table

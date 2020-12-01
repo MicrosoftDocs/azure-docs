@@ -13,9 +13,13 @@
 | --- | --- |
 | Virtual WAN hubs per region | 1  |
 | Virtual WAN hubs per virtual wan |Azure regions |
-| VPN (branch) connections per hub |1,000 |
-| VNet connections per hub  | 500 |
-| Point-to-Site users per hub|10,000 |
-| Aggregate throughput per Virtual WAN VPN gateway |20 Gbps |
+| VPN (branch) connections per hub | 1,000 |
+| Aggregate throughput per Virtual WAN Site-to-site VPN gateway | 20 Gbps |
 | Throughput per Virtual WAN VPN connection (2 tunnels) | 2 Gbps with 1 Gbps/IPsec tunnel |
-| Aggregate throughput per Virtual WAN ExpressRoute gateway |20 Gbps 
+| Point-to-Site users per hub| 10,000 |
+| Aggregate throughput per Virtual WAN User VPN (Point-to-site) gateway | 20 Gbps |
+| Aggregate throughput per Virtual WAN ExpressRoute gateway | 20 Gbps |
+| ExpressRoute Circuit connections per hub | 4 |
+| VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
+| Aggregate throughput per Virtual WAN Hub Router | 50 Gbps for VNet to VNet transit |
+| VM workload across all VNets connected to a single Virtual WAN hub | 2000 

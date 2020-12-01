@@ -39,7 +39,7 @@ To register the Automation Resource Provider, follow these steps in the Azure po
 
 4. From the list of resource providers, verify that the **Microsoft.Automation** resource provider is registered.
 
-5. If the provider isn't listed, register it as described in [Resolve errors for resource provider registration](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. If the provider isn't listed, register it as described in [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## Next steps
 

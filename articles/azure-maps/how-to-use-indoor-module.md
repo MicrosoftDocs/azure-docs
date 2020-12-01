@@ -3,11 +3,12 @@ title: Use the Azure Maps Indoor Maps module
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
-ms.topic: conceptual
+ms.date: 07/20/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+ms.custom: devx-track-js
 ---
 
 # Use the Azure Maps Indoor Maps module
@@ -16,7 +17,7 @@ The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Create a Creator resource](how-to-manage-creator.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 4. Get a `tilesetId` and a `statesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
@@ -29,28 +30,23 @@ You can install and embed the *Azure Maps Indoor* module in one of two ways.
 To use the globally hosted Azure Content Delivery Network version of the *Azure Maps Indoor* module, reference the following JavaScript and Style Sheet references in the `<head>` element of the HTML file:
 
 ```html
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
 ```
 
  Or, you can download the *Azure Maps Indoor* module. The *Azure Maps Indoor* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor* module into your web application.  
   
-  1. Download the [azure-maps-indoor package](https://www.npmjs.com/package/azure-maps-indoor).
+  1. Install the [azure-maps-indoor package](https://www.npmjs.com/package/azure-maps-indoor).
   
-  2. Install the NPM package. Make sure you use administrator privileges in the console:
-
       ```powershell
-      >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
-  3. Reference the *Azure Maps Indoor* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
+  2. Reference the *Azure Maps Indoor* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
       ```html
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.js"></script>
       ```
 
 ## Instantiate the Map object
@@ -66,7 +62,7 @@ const map = new atlas.Map("map-id", {
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
-  authOptions: { 
+  authOptions: {
       authType: 'subscriptionKey',
       subscriptionKey: subscriptionKey
   },
@@ -146,7 +142,7 @@ This example shows you how to use the *Azure Maps Indoor* module in your web app
 4. Initialize a *Map object*. The *Map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
     - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you don't want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
-    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [# west, # south, # east, # north].
+    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [# west, # south, # east, # north].
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 
@@ -256,4 +252,4 @@ Learn more about how to add more data to your map:
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)
