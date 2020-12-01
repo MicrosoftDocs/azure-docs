@@ -25,8 +25,8 @@ The following table shows the supported mappings:
 |**Log Analytics workspace region**|**Azure Automation region**|
 |---|---|
 |**US**||
-|EastUS2<sup>3</sup> |EastUS |
 |EastUS<sup>1</sup>|EastUS2|
+|EastUS2<sup>2</sup>|EastUS|
 |WestUS2|WestUS2|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
@@ -36,7 +36,7 @@ The following table shows the supported mappings:
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>2</sup>|ChinaEast2|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europe**||
 |UKSouth|UKSouth|
@@ -44,13 +44,13 @@ The following table shows the supported mappings:
 |SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
-|USGovArizona<sup>2</sup>|USGovArizona|
+|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
-<sup>2</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory are not available at this time.
+<sup>2</sup> EastUS2 mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
-<sup>3</sup> EastUS2 mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
+<sup>3</sup> In this region, only Update Management is supported, and other features like Change Tracking and Inventory are not available at this time.
 
 ## Unlink a workspace
 
