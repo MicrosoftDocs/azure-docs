@@ -1,8 +1,8 @@
 ---
 title: 'How to scan Azure Cosmos Database (SQL API)'
 description: This how to guide describes details of how to scan Azure Cosmos Database (SQL API). 
-author: nayenama
-ms.author: nayenama
+author: viseshag
+ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
@@ -15,22 +15,42 @@ This article outlines how to register an Azure Cosmos Database (SQL API) account
 
 ## Supported capabilities
 
-Azure Cosmos Database (SQL API) supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications.
+Azure Cosmos Database (SQL API) supports full and incremental scans to capture the metadata and schema. Scans also classify the data automatically based on system and custom classification rules.
 
 ## Prerequisites
 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- You need to be a Data Source Administrator to setup and schedule scans, please see [Catalog Permissions](catalog-permissions.md) for details.
+- You need to be an Azure Purview Data Source Admin
+
+## Set up authentication for a scan
+
+There is only one way to set up authentication for Azure Cosmos Database (SQL API):
+
+- Account key
+ 
+### Account key
+
+When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
+
+1. Navigate to your Cosmos DB account in the Azure portal 
+1. Select **Settings** > **Keys** 
+1. Copy your *key* and save it somewhere for the next steps
+1. Navigate to your key vault
+1. Select **Settings > Secrets**
+1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your storage account
+1. Select **Create** to complete
+1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
 
 ## Register an Azure Cosmos Database (SQL API) account
 
 To register a new Azure Cosmos Database (SQL API) account in your data catalog, do the following:
 
-1. Navigate to your Purview Data Catalog.
-1. Select **Management center** on the left navigation.
-1. Select **Data sources** under **Sources and scanning**.
-1. Select **+ New**.
-1. On **Register sources**, select **Azure Cosmos Database (SQL API)**. Select **Continue**.
+1. Navigate to your Purview account
+1. Select **Sources** on the left navigation
+1. Select **Register**
+1. On **Register sources**, select **Azure Cosmos DB (SQL API)**
+1. Select **Continue**
 
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-new-data-source.png" alt-text="register new data source" border="true":::
 
@@ -38,23 +58,12 @@ On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
 1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Cosmos DB account name** drop down box.
+   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate cosmosDB account from the **Cosmos DB account name** drop down box.
    1. Or, you can select **Enter manually** and enter a service endpoint (URL).
 1. **Finish** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="register sources options" border="true":::
 
-## Set up authentication for a scan
-
-The supported Authentication mechanism for Azure Cosmos Database (SQL API) is **Account Key**
-
-### Account key
-
-Enter the storage account key manually as shown in screenshot below. The account key can found by locating your Cosmos DB account in the Azure portal, and selecting **Settings** > **Keys**. 
-
-Click on **Test connection** to verify if the connection is successful. After you have entered storage account key and tested the connection, select **Continue**. 
-
-:::image type="content" source="./media/register-scan-azure-cosmos-database/service-principal-auth.png" alt-text="Screenshot showing service principal authorization":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

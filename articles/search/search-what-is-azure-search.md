@@ -65,7 +65,7 @@ An end-to-end exploration of core search features can be achieved in four steps:
 1. [**Query an index**](search-query-overview.md) using [Search explorer](search-explorer.md) in the portal, [REST API](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search), or another SDK.
 
 > [!TIP]
-> Consolidate steps by starting with the [**Import data wizard**](search-get-started-portal.md) and an Azure data source to create, load, and query an index in minutes.
+> Minimize steps by starting with the [**Import data wizard**](search-get-started-portal.md) and an Azure data source to create, load, and query an index in minutes.
 
 ## How it compares
 

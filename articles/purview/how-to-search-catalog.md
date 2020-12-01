@@ -30,17 +30,17 @@ If there are no search terms and no filters, the search results include all asse
 
 Open the asset search dialog by selecting **Search catalog**.
 
-:::image type="content" source="./media/catalog-client-overview/search-catalog.png" alt-text="Below 'Search catalog' there's a left pane with search filters, and a right pane with recent searches." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/search-catalog.png" alt-text="Below 'Search catalog' there's a left pane with search filters, and a right pane with recent searches." border="true":::
 
 The search dialog shows quick filters, search history, and a list of recently accessed assets.
 
-:::image type="content" source="./media/catalog-client-overview/asset-search-dialog.png" alt-text="The search list is in the right pane, below 'Search catalog'." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/asset-search-dialog.png" alt-text="The search list is in the right pane, below 'Search catalog'." border="true":::
 
 ### Enter search terms
 
 Enter one or more search terms in **Search catalog**. As you type, matching search terms from recent searches are listed in **Your recent searches**, suggested matching search terms are listed in **Search suggestions**, and matching data assets are listed in **Asset suggestions**.
 
-:::image type="content" source="./media/catalog-client-overview/enter-search-terms.png" alt-text="Screenshot showing the results of a search being entered in the Search catalog box":::
+:::image type="content" source="./media/how-to-search-catalog/enter-search-terms.png" alt-text="Screenshot showing the results of a search being entered in the Search catalog box":::
 
 Search results include only assets with one or more characteristics that match the search terms. These characteristics include asset name, asset type, classifications, and contacts.
 
@@ -72,7 +72,7 @@ The current search results used in forming the drop-down list are determined by:
 
 Here is an example of the "Asset type" quick filter.
 
-:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/asset-type-quick-filter.png" alt-text="The asset type quick filter example." border="true":::
 
 You can enter text in the text box to restrict the values in the drop-down list to values that match or partially match the text. For examples of using the text box, see [Search quick filter: filter by asset type](#search-quick-filter-filter-by-asset-type), and [Search quick filter: filter by classification](#search-quick-filter-filter-by-classification).
 
@@ -80,13 +80,13 @@ You can enter text in the text box to restrict the values in the drop-down list 
 
 To filter by asset type, use the **Asset type** quick filter. The drop-down list shows the asset types found in the current search results, as determined by the search terms and the quick filters. For each type, the number of assets of that type is shown.
 
-:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
 
 Select an asset type to restrict the search results to assets of that type. You can only select one type.
 
 To show only asset types whose names match a string, enter the string in the text box. For example, to show only asset types with **sql** in their names, enter **sql**.
 
-:::image type="content" source="./media/catalog-client-overview/filter-asset-types.png" alt-text="The Quick Filters pane has sql for 'Asset type'. The list of assets that contain sql shows three entries." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/filter-asset-types.png" alt-text="The Quick Filters pane has sql for 'Asset type'. The list of assets that contain sql shows three entries." border="true":::
 
 Select an asset type to restrict the search results to assets of that type. You can select only one type.
 
@@ -94,13 +94,13 @@ Select an asset type to restrict the search results to assets of that type. You 
 
 To filter by asset classification, use the **Classification** quick filter. The drop-down list shows the classifications that have been assigned to one or more assets in the current search results, as determined by the search terms and the quick filters. For each classification, the number of assets assigned that classification is shown.
 
-:::image type="content" source="./media/catalog-client-overview/classification-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/classification-quick-filter.png" alt-text="The classification quick filters is highlighted." border="true":::
 
 Select a classification to restrict the search results to assets assigned that classification. You can only select one classification.
 
 To show only classifications whose names match a string, enter the string in the text box. For example, to show only classifications with **number** in their names, enter **number**.
 
-:::image type="content" source="./media/catalog-client-overview/filter-classifications.png" alt-text="In the Quick Filters pane, Classification is 'bank', and the classifications listed all contain that value." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/filter-classifications.png" alt-text="In the Quick Filters pane, Classification is 'bank', and the classifications listed all contain that value." border="true":::
 
 Select a classification to restrict the search results to assets that have been assigned that classification. You can't select more than one classification.
 
@@ -113,7 +113,7 @@ There are two ways to search for assets that have a particular contact assigned 
 - Enter all or part of the contact name in **Search catalog** and do a search. The search results will include assets that have contacts whose names match your search terms.
 - Select the contact of interest in the **Contact** quick filter and do a search.
 
-:::image type="content" source="./media/catalog-client-overview/contact-quick-filter.png" alt-text="The value of Person in the Quick Filters pane is 'darren'. There are three suggestions in the Suggestions pane." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/contact-quick-filter.png" alt-text="The value of Person in the Quick Filters pane is 'darren'. There are three suggestions in the Suggestions pane." border="true":::
 
 ## Search example
 
@@ -146,7 +146,7 @@ When you search, the search terms you enter in **Search catalog** are matched ag
 
 After you've entered the search terms and set the quick filters, start the search in one of these ways:
 
-- To search based on the terms you entered, select the search icon (:::image type="icon" source="./media/catalog-client-overview/search-icon.png":::), press **Enter**, or select **View search results**.
+- To search based on the terms you entered, select the search icon (:::image type="icon" source="./media/how-to-search-catalog/search-icon.png":::), press **Enter**, or select **View search results**.
 - To search using terms from a previous search, select them from **Your recent searches**.
 - To search using suggested terms, select them from **Search suggestions**.
 
@@ -156,19 +156,19 @@ The results list for suggestions and user searches can differ slightly. Results 
 
 When you search, the **Search results** page appears and lists the assets found by the search.
 
-:::image type="content" source="./media/catalog-client-overview/search-results.png" alt-text="Screenshot showing the search results for a search value of contoso.":::
+:::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the search results for a search value of contoso.":::
 
 To see asset details, select an asset name.
 
 Use the controls at the bottom a search results page to navigate to other search results pages.
 
-:::image type="content" source="./media/catalog-client-overview/page-navigation.png" alt-text="Screenshot showing how to navigate through thru the search results pages.":::
+:::image type="content" source="./media/how-to-search-catalog/page-navigation.png" alt-text="Screenshot showing how to navigate through thru the search results pages.":::
 
 ### Sort search results
 
 Use **Sort by** to sort the search results by **Relevance** or **Name**.
 
-:::image type="content" source="./media/catalog-client-overview/sort-by.png" alt-text="Screenshot showing how to sort the search results. For this example, the Sort by dropdown list is set to Relevance.":::
+:::image type="content" source="./media/how-to-search-catalog/sort-by.png" alt-text="Screenshot showing how to sort the search results. For this example, the Sort by dropdown list is set to Relevance.":::
 
 ### Search results dynamic filters
 
@@ -180,13 +180,13 @@ The dynamic filters have a check box for each value on the drop-down list. Use t
 
 If you select an asset type on the **Asset type** drop-down list, dynamic filters appear that give you additional ways to narrow your search results. The filters vary depending on the asset type selected. For example, if you select **Azure SQL Database**, dynamic filters appear for server, database, and schema. The values in these filters are from the assets in the search results of the selected type.
 
-:::image type="content" source="./media/catalog-client-overview/asset-type-dynamic-filter.png" alt-text="The Azure SQL Database filter item is the only 'Asset type' item that's selected. A search result of that asset type is highlighted also." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/asset-type-dynamic-filter.png" alt-text="The Azure SQL Database filter item is the only 'Asset type' item that's selected. A search result of that asset type is highlighted also." border="true":::
 
 #### Search results dynamic filter: filter by classification
 
 Each classification in the **Classification** list applies to at least one item in the search results list. Select one or more classifications to narrow your search results to assets of the selected classifications.
 
-:::image type="content" source="./media/catalog-client-overview/classification-dynamic-filter.png" alt-text="The Classification filter of 'Search results' is highlighted." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/classification-dynamic-filter.png" alt-text="The Classification filter of 'Search results' is highlighted." border="true":::
 
 #### Edit and delete search results filters
 
@@ -198,32 +198,33 @@ The **Recently accessed** section of the expanded search box displays your most 
 
 - Select **View all** in the **Recently accessed** section to see the full list of recently accessed assets.
 
-   :::image type="content" source="./media/catalog-client-overview/get-to-recent-view.png" alt-text="Screen shot showing the Recently accessed section of the expanded search box.":::
+   :::image type="content" source="./media/how-to-search-catalog/get-to-recent-view.png" alt-text="Screen shot showing the Recently accessed section of the expanded search box.":::
 
    A list of recently accessed assets appears.
 
-   :::image type="content" source="./media/catalog-client-overview/recent.png" alt-text="Screenshot showing a list of recently accessed assets.":::
+   :::image type="content" source="./media/how-to-search-catalog/recent.png" alt-text="Screenshot showing a list of recently accessed assets.":::
 
 - To filter by name, enter a search string in **Filter by name**.
 
 - To remove items from the list, select them with their check boxes, and then select **Remove**.
 
-   :::image type="content" source="./media/catalog-client-overview/remove-from-recent-view.png" alt-text="Screenshot showing how to remove items from a recently accessed assets list.":::
+   :::image type="content" source="./media/how-to-search-catalog/remove-from-recent-view.png" alt-text="Screenshot showing how to remove items from a recently accessed assets list.":::
 
 - To clear the entire list, select **Clear**.
 
-   :::image type="content" source="./media/catalog-client-overview/clear-recent-view-selections.png" alt-text="Screenshot showing how to clear a recently accessed assets list":::
+   :::image type="content" source="./media/how-to-search-catalog/clear-recent-view-selections.png" alt-text="Screenshot showing how to clear a recently accessed assets list":::
 
 ### Search assets
 
 Many pages other than **Home** have a **Search assets** box at the top. For instance, here's an assets details page, with **Search assets** highlighted.
 
-:::image type="content" source="./media/catalog-client-overview/search-assets.png" alt-text="Screenshot showing an asset details page with Search assets highlighted":::
+:::image type="content" source="./media/how-to-search-catalog/search-assets.png" alt-text="Screenshot showing an asset details page with Search assets highlighted":::
 
 Select **Search assets** to launch a search box like the one that you get from **Search catalog** on **Home**, with the same capabilities.
 
-:::image type="content" source="./media/catalog-client-overview/search-assets-dialog.png" alt-text="Screenshot showing an expanded Search assets box.":::
+:::image type="content" source="./media/how-to-search-catalog/search-assets-dialog.png" alt-text="Screenshot showing an expanded Search assets box.":::
 
 ## Next steps
 
-- [Browse the Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [How to create, import, and export glossary terms](how-to-create-import-export-glossary.md)
+- [How to manage term templates for business glossary](how-to-manage-term-templates.md)
