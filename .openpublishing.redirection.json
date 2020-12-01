@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/matlab-mdcs-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/connection-monitor-preview.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-overview",
       "redirect_document_id": false
@@ -19810,6 +19815,11 @@
     {
       "source_path": "articles/synapse-analytics/quickstart-synapse-studio.md",
       "redirect_url": "/azure/synapse-analytics/get-started-create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/release-notes.md",
+      "redirect_url": "/azure/synapse-analytics/overview-what-is",
       "redirect_document_id": false
     },
     {
@@ -39777,6 +39787,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cdn/enable-raw-logs.md",
+      "redirect_url": "/azure/cdn/monitoring-and-access-log",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
       "redirect_document_id": true
@@ -48421,18 +48436,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/index.yml",
+      "redirect_url": "/azure/synapse-analytics/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/index.yml",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/synapse-analytics/overview-faq.md",
-      "redirect_url": "/azure/synapse-analytics/overview-what-is",
       "redirect_document_id": false
     },
     {

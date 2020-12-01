@@ -41,7 +41,7 @@ The Azure SDK for Python includes numerous samples and a [getting started page](
 
 ## Documentation samples
 
-The following samples have an associated article in [Azure Cognitive Search documentation](https://docs.microsoft.com/azure/search/).
+The following samples have an associated article in [Azure Cognitive Search documentation](./index.yml).
 
 | Samples | Description | 
 |---------|-------------|
