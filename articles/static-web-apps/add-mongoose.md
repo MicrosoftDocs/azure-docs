@@ -1,10 +1,10 @@
 ---
-title: Tutorial: Access Cosmos DB's API for MongoDB with Mongoose and Azure Static Web Apps
-description: Azure Static Web Apps allows you to create a back-end using Azure Functions, which can use all the libraries you typically use when creating web applications. We will walk through a tutorial to show you how to add Mongoose to access Cosmos DB.
+title: Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps
+description: Learn to access data in Cosmos DB using Mongoose from an Azure Static Web Apps API function.
 author: GeekTrainer
 ms.author: chrhar
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: tutorial #Required
+ms.service: static-web-apps
+ms.topic: tutorial
 ms.date: #Required; mm/dd/yyyy format.
 ---
 
