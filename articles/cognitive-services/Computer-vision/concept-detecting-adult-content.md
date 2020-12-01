@@ -33,5 +33,4 @@ Within the "adult" classification are several different categories:
 
 You can detect adult content with the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. When you add the value of `Adult` to the **visualFeatures** query parameter, the API returns three boolean properties&mdash;`isAdultContent`, `isRacyContent`, and `isGoryContent`&mdash;in its JSON response. The method also returns corresponding properties&mdash;`adultScore`, `racyScore`, and `goreScore`&mdash;which represent confidence scores between zero and one for each respective category.
 
-- [Quickstart: Analyze an image (.NET SDK)](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+- [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

@@ -9,7 +9,7 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Using the client library
+  - name: Using the REST API or client libraries
     href: quickstarts-sdk/client-library.md
   - name: Using the REST API
     items:
