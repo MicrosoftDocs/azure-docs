@@ -10,15 +10,14 @@ ms.date: 09/16/2020
 
 # Azure Monitor Logs Dedicated Clusters
 
-Azure Monitor Logs Dedicated Clusters are a deployment option that is available to better serve high-volume customers. Customers that ingest more than 4 TB of data per day will use dedicated clusters. Customers with dedicated clusters can choose the workspaces to be hosted on these clusters.
+Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capability for Azure Monitor Logs customers. Customers with dedicated clusters can choose the workspaces to be hosted on these clusters.
 
-Other than the support for high volume, there are other benefits of using dedicated clusters:
+The capabilities that requires dedicated clusters are:
 
-- **Rate limit** - A customer can have higher [ingestion rate limits](../service-limits.md#data-ingestion-volume-rate) only on dedicated cluster.
-- **Features** - Certain enterprise features are only available on dedicated clusters - specifically customer-managed keys (CMK) and LockBox support. 
-- **Consistency** - Customers have their own dedicated resources and so there is no influence from other customers running on the same shared infrastructure.
-- **Cost efficiency** - It might be more cost effective to use dedicated cluster as the assigned capacity reservation tiers take into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
-- **Cross-workspace** queries run faster if all workspaces are on the same cluster.
+- **[Customer-managed Keys](../platform/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
+- **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)** - Customers can control Microsoft support engineers access requests for data.
+- **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
+- **[Multi-workspace](../log-query/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned capacity reservation tiers take into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
 
 Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. Migration to a dedicated cluster is simple. There is no data loss or service interruption. 
 
