@@ -40,7 +40,7 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 10. Review the service registration information and select **Save**.
 
 ## <a name="generateClientSecret"> </a>Generate the client secret
-Apple requires app developers to create and sign a JWT token, which is used as the client secret value in OpenID Connect flows. To generate this secret, you have to generate and download an elliptic curve private key from the Apple Developer portal and use it to [sign a JWT](#signing-the-client-secret-JWT) with a [specific payload](#structuring-the-client-secret-JWT).
+Apple requires app developers to create and sign a JWT token, which is used as the client secret value in OpenID Connect flows. To generate this secret, you have to generate and download an elliptic curve private key from the Apple Developer portal and use it to [sign a JWT](#signing-the-client-secret-jwt) with a [specific payload](#structuring-the-client-secret-hwt).
 
 ### Creating and downloading the private key
 1. On the **Keys** tab in the Apple Developer portal, choose **Create a key** or select the **(+)** button.
