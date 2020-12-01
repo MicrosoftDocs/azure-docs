@@ -1,5 +1,5 @@
 ---
-title: Monitoring, metrics, and raw logs for Azure CDN.
+title: Monitoring, metrics, and raw logs for Azure CDN
 description: This article describes how to set up and use Azure CDN monitoring, metrics, and raw logs.
 services: cdn
 author: asudbring
@@ -12,7 +12,7 @@ ms.date: 11/23/2020
 ms.author: yuajia
 ---
 
-# Real-time Monitoring, Metrics, and Access Logs for Azure CDN
+# Real-time Monitoring, metrics, and access Logs for Azure CDN
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues. 
 
 * Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.

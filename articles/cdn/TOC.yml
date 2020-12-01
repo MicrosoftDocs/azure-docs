@@ -111,7 +111,7 @@
   - name: Analyze
     href: cdn-log-analysis.md
     items:
-    - name: Monitoring, Metrics, and Access Logs
+    - name: Monitoring, metrics, and access Logs
       href: monitoring-and-access-log.md
     - name: Azure diagnostics logs
       href: cdn-azure-diagnostic-logs.md
