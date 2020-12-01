@@ -7,14 +7,6 @@ ms.subservice: develop
 ms.topic: include
 # Purpose:
 # Ingested by Microsoft identity platform articles in /articles/active-directory/develop/* that document the error handling intro for the different platforms.
-#
-# Usage:
-# Paste the below (without the hashtags) into your article.
-#
-# 
-#[!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-error-handling-intro.md)]
-#
-
 ---
 # Handle MSAL exceptions and errors
 
