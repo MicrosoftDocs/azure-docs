@@ -31,15 +31,15 @@ If you experience any device issues, you can create a Support package from the s
 
     ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. A Support package is gathered. This operation takes a few minutes if you only include system logs. If you include a memory dump, it takes a lot longer.
+    A Support package is gathered. This operation takes a few minutes if you only include system logs. If you include a memory dump, it takes a lot longer.
 
     ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Once Support package creation is complete, select **Download Support package**.
+2. Once Support package creation is complete, select **Download Support package**.
 
     ![Create Support package 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
 
-4. The support package is downloaded to the Downloads folder. Open the folder to view the contents.
+3. The support package is downloaded to the Downloads folder. Open the folder to view the contents.
 
     If you included a memory dump, you should store the downloaded files in a location that requires Customer Lockbox access. For more information, see [How to use Customer Lockbox](./data-box-customer-lockbox.md).  
 
