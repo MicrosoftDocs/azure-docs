@@ -100,7 +100,8 @@ If the peering was already created, you can modify the peering for transit.
    * Traffic forwarded to virtual network; **Allow**
    * Virtual network gateway: **Use remote virtual network's gateway**
 
-   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png" alt-text="Screenshot shows modify peering gateway.":::
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png" alt-text="Screenshot shows modify peering gateway.":::
+
 1. **Save** the peering settings.
 
 ### <a name="PS-Same"></a>PowerShell sample
@@ -144,7 +145,7 @@ For this configuration, you only need to configure the **Hub-RM** virtual networ
    * Virtual network gateway: **Use this virtual network's gateway**
    * Remote virtual network: **Classic**
 
-   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-classic.png" alt-text="Add peering page for Spoke-Classic":::
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-classic.png" alt-text="Add peering page for Spoke-Classic":::
 
 1. Verify the subscription is correct, then select the virtual network from the dropdown.
 1. Select **Add** to add the peering.
