@@ -1,6 +1,6 @@
 ---
-title: Synchronize Apache Spark for external table definitions in serverless SQL pool (preview)
-description: Overview of how to query Spark tables using serverless SQL pool (preview)
+title: Synchronize Apache Spark for external table definitions in serverless SQL pool
+description: Overview of how to query Spark tables using serverless SQL pool
 services: synapse-analytics 
 author: julieMSFT
 ms.service: synapse-analytics 
@@ -11,9 +11,9 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Synchronize Apache Spark for Azure Synapse external table definitions in serverless SQL pool (preview)
+# Synchronize Apache Spark for Azure Synapse external table definitions in serverless SQL pool
 
-Serverless SQL pool (preview) can automatically synchronize metadata from Apache Spark. A serverless SQL pool database will be created for each database existing in serverless Apache Spark pools (preview). 
+Serverless SQL pool can automatically synchronize metadata from Apache Spark. A serverless SQL pool database will be created for each database existing in serverless Apache Spark pools. 
 
 For each Spark external table based on Parquet and located in Azure Storage, an external table is created in a serverless SQL pool database. As such, you can shut down your Spark pools and still query Spark external tables from serverless SQL pool.
 

@@ -721,7 +721,7 @@ Split([extensionAttribute5], ",")
 
 **Sample input/output:** 
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### Output date as a string in a certain format

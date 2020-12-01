@@ -20,11 +20,11 @@ The following table describes some of the different ways that you can use Logs i
 
 |  |  |
 |:---|:---|
-| **Analyze** | Use [Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write [log queries](../log-query/log-query-overview.md) and interactively analyze log data using a powerful analysis engine |
+| **Analyze** | Use [Log Analytics](../log-query/log-analytics-tutorial.md) in the Azure portal to write [log queries](../log-query/log-query-overview.md) and interactively analyze log data using a powerful analysis engine |
 | **Alert** | Configure a [log alert rule](alerts-log.md) that sends a notification or takes [automated action](action-groups.md) when the results of the query match a particular result. |
-| **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../app/usage-workbooks.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
+| **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](./workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
 | **Insights** | Support [insights](../monitor-reference.md#insights-and-core-solutions) that provide a customized monitoring experience for particular applications and services.  |
-| **Retrieve** | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
+| **Retrieve** | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
 | **Export** | Configure [automated export of log data](logs-data-export.md) to Azure storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](logicapp-flow-connector.md). |
 
 ![Logs overview](media/data-platform-logs/logs-overview.png)
@@ -70,8 +70,8 @@ Data is retrieved from a Log Analytics workspace using a log query which is a re
 ## Log Analytics
 Use Log Analytics, which is a tool in the Azure portal, to edit and run log queries and interactively analyze their results. You can then use the queries that you create to support other features in Azure Monitor such as log query alerts and workbooks. Access Log Analytics from the **Logs** option in the Azure Monitor menu or from most other services in the Azure portal.
 
-- See [Overview of Log Analytics in Azure Monitor](/log-query/log-analytics-overview.md) for a description of Log Analytics. 
-- See [Log Analytics tutorial](/log-query/log-analytics-tutorial.md) to walk through using Log Analytics features to create a simple log query and analyze its results.
+- See [Overview of Log Analytics in Azure Monitor](../log-query/log-analytics-overview.md) for a description of Log Analytics. 
+- See [Log Analytics tutorial](../log-query/log-analytics-tutorial.md) to walk through using Log Analytics features to create a simple log query and analyze its results.
 
 
 

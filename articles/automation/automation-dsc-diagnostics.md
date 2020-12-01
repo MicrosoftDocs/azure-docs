@@ -30,7 +30,7 @@ To start sending your Automation State Configuration reports to Azure Monitor lo
 
 - The November 2016 or later release of [Azure PowerShell](/powershell/azure/) (v2.3.0).
 - An Azure Automation account. For more information, see [An introduction to Azure Automation](automation-intro.md).
-- A Log Analytics workspace with an Automation & Control service offering. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
+- A Log Analytics workspace with an Automation & Control service offering. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
 - At least one Azure Automation State Configuration node. For more information, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 - The [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) module, version 2.7.0.0 or greater. For installation steps, see [Troubleshoot Azure Automation Desired State Configuration](./troubleshoot/desired-state-configuration.md).
 
