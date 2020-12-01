@@ -68,9 +68,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the left window select **Glossary**.
 
-    |Option  |Description  | 
+    |Option|Description  | 
     |---------|---------|
-    | **KPIs**     | These tiles at the top of the page to provide high level summary of: </br>- The number of glossary terms in the catalog </br>- The number of catalog users|
+    | **KPIs** | These tiles at the top of the page to provide high level summary of: </br>- The number of glossary terms in the catalog </br>- The number of catalog users|
     | **Filters**| None|
     |**Top glossary terms and count of assets**  |Use the **Top glossary terms and count of assets** graph to view the top terms with assets associated with them|
     | **Glossary terms by term status** |Use the **Glossary terms by term status** graph to distribution of term status by count of assets|
