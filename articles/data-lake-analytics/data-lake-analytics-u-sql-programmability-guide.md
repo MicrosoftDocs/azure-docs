@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 06/30/2017
 ---
 
-# U-SQL programmability guide - overview
+# U-SQL programmability guide overview
 
 U-SQL is a query language that's designed for big data-type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
 

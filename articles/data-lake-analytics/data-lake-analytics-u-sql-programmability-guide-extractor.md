@@ -9,7 +9,7 @@ ms.date: 06/30/2017
 
 # Use user defined extractor
 
-## Use user-defined extractors
+## Use user-defined extractor
 U-SQL allows you to import external data by using an EXTRACT statement. An EXTRACT statement can use built-in UDO extractors:  
 
 * *Extractors.Text()*: Provides extraction from delimited text files of different encodings.

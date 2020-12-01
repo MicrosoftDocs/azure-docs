@@ -9,7 +9,7 @@ ms.date: 06/30/2017
 
 # Use user defined reducer
 
-## Use user-defined reducers
+## Use user-defined reducer
 
 U-SQL enables you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.
 
