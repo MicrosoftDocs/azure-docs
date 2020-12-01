@@ -95,7 +95,7 @@ Use the values in this table to figure out whether you need an additional proces
 --- | --- | --- | --- | ---
 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz) | 16 GB | 300 GB | 500 GB or less | < 100 machines 
 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) | 18 GB | 600 GB | 501 GB to 1 TB	| 100-150 machines.
-16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 G1 |  1 TB | 1 TB to 2 TB | 151-200 machines.
+16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 GB |  1 TB | 1 TB to 2 TB | 151-200 machines.
 
 ### Sizing scale-out process servers
 
