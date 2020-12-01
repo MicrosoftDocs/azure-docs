@@ -17,6 +17,8 @@ To complete the procedure in this topic, you must have enrolled in the Apple dev
 > [!CAUTION]
 > Enabling Sign in with Apple will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as the Azure portal, Azure CLI, and Azure PowerShell. The feature relies on a new API surface which, during preview, is not yet accounted for in all management experiences.
 
+[comment]: <Remove this caution block when V2 becomes available for use.> 
+
 ## <a name="createApplication"> </a>Create an application in the Apple Developer portal
 You'll need to create an App ID and a service ID in the Apple Developer portal.
 
@@ -33,19 +35,19 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple_registerservice.jpg)
 8. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
 ![Providing a description and an identifier](media/configure-authentication-provider-apple/apple_configureservice1.jpg)
-9. On the pop-up window, specify the App ID you created as the Primary App ID. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
+9. On the pop-up window, set the Primary App Id to the App Id you created earlier. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
 ![Specifying the domain and return URL for the registration](media/configure-authentication-provider-apple/apple_configureservice2.jpg)
 10. Review the service registration information and select **Save**.
 
 ## <a name="generateClientSecret"> </a>Generate the client secret
-Apple requires app developers to create and sign a JWT token, which is used as the client secret value in OpenID Connect flows. To generate this secret, you have to generate and download an elliptic curve private key from the Apple Developer portal and use it to sign a JWT with a specific payload.
+Apple requires app developers to create and sign a JWT token, which is used as the client secret value in OpenID Connect flows. To generate this secret, you have to generate and download an elliptic curve private key from the Apple Developer portal and use it to [sign a JWT](#signing-the-client-secret-JWT) with a [specific payload](#structuring-the-client-secret-JWT).
 
 ### Creating and downloading the private key
 1. On the **Keys** tab in the Apple Developer portal, choose **Create a key** or select the **(+)** button.
 2. On the **Register a New Key** page give the key a name, check the box next to **Sign in with Apple** and select **Configure**.
 3. On the **Configure Key** page, link the key to the primary app ID you created previously and select **Save**.
 4. Finish creating the key by confirming the information and selecting **Continue** and then reviewing the information and selecting **Register**.
-5. On the **Download Your Key** page, download the key. It will download as a `.p8` (PKCS#8) file - you'll use the file contents to sign your client secret JWT. After finishing the process, you can come back later to revoke the key, in case you ever need to.
+5. On the **Download Your Key** page, download the key. It will download as a `.p8` (PKCS#8) file - you'll use the file contents to sign your client secret JWT.
 
 ### Structuring the client secret JWT
 Apple requires the JWT token, which will be used as your client secret to have a payload structured like this example:
@@ -66,7 +68,7 @@ Apple requires the JWT token, which will be used as your client secret to have a
 - **aud**: Apple is receiving the token, so they're the audience
 - **exp**: No more than six months after **nbf**
 
-_Note: Apple doesn't accept client secret JWTs with an expiration date more than six months after the creation (or not-before) date. That means you'll need to rotate your client secret, at minimum, every six months._
+_Note: Apple doesn't accept client secret JWTs with an expiration date more than six months after the creation (or nbf) date. That means you'll need to rotate your client secret, at minimum, every six months._
 
 More information about generating and validating tokens can be found in [Apple's developer documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens). 
 
@@ -147,11 +149,11 @@ This section will walk you through updating the configuration to include your ne
        }
     }
     ```
-    a. Within the registration object, set the `clientId` to the client ID you collected
+    a. Within the registration object, set the `clientId` to the client ID you collected.
     
-    b. Within the registration object, set `clientSecretSettingName` to the name of the application setting where you stored the client secret
+    b. Within the registration object, set `clientSecretSettingName` to the name of the application setting where you stored the client secret.
     
-    c. Within the login object, you may choose to set the scopes array to include a list of scopes used when authenticating with apple (i.e. "name", "email")
+    c. Within the login object, you may choose to set the scopes array to include a list of scopes used when authenticating with apple (i.e. "name", "email"). If scopes are configured, they will be explicitly requested on the consent screen when users signin for the first time.
 
 Once this configuration has been set, you're ready to use your Apple provider for authentication in your app.
 
