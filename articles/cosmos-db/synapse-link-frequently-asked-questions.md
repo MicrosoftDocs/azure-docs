@@ -38,9 +38,13 @@ When Synapse Link is enabled on a database account, Azure Cosmos DB will continu
 
 ### Can I disable the Azure Synapse Link feature for my Azure Cosmos DB account?
 
-Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it. Understand that you will not have any billing implications if the Synapse Link capability is enabled at the account level and there is no analytical store enabled containers. 
+Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it. Understand that you will not have any billing implications if the Synapse Link capability is enabled at the account level and there is no analytical store enabled containers.
 
 If you need to turn off the capability, you have 2 options. The first one is to delete and re-create a new Azure Cosmos DB account, migrating the data if necessary. The second option is to open a support ticket, to get help on a data migration to another account.
+
+### Does analytical store have any impact on Cosmos DB transactional SLAs?
+
+No, there is no impact.
 
 ## Azure Cosmos DB analytical store
 
@@ -118,6 +122,11 @@ All transactional updates and deletes are copied to the analytical store but if 
 ### What is the billing model of Azure Synapse Link for Azure Cosmos DB?
 
 [Azure Cosmos DB analytical store](analytical-store-introduction.md) is available in public preview without any charges for analytical store until August 30, 2020. Synapse Spark and Synapse SQL are billed through [Synapse service consumption](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+
+### What is the billing impact if I enable Synapse Link in my Azure Cosmos DB database account?
+
+None. You will only be charged when you create an analytical store enabled container and start to load data.
+
 
 ## Security
 
