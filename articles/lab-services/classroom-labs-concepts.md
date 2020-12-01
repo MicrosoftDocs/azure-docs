@@ -1,11 +1,11 @@
 ---
-title: labs concepts - Azure Lab Services | Microsoft Docs
+title: Labs concepts - Azure Lab Services | Microsoft Docs
 description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
 ms.topic: article
 ms.date: 06/26/2020
 ---
 
-# labs concepts
+# Labs concepts
 
 The following list contains key Lab Services concepts and definitions:
 

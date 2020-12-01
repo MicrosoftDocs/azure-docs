@@ -30,7 +30,7 @@ landingContent:
             url: classroom-labs-overview.md
       - linkListType: concept
         links:
-          - text: labs concepts
+          - text: Labs concepts
             url: classroom-labs-concepts.md
   # Card
   - title: Lab accounts

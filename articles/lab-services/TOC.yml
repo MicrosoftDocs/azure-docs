@@ -20,11 +20,11 @@
     href: tutorial-track-usage.md            
 - name: Concepts
   items:
-  - name: labs overview
+  - name: Labs overview
     href: classroom-labs-overview.md 
-  - name: labs concepts
+  - name: Labs concepts
     href: classroom-labs-concepts.md    
-  - name: labs architecture fundamentals
+  - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
   - name: Capacity limits
     href: capacity-limits.md  
