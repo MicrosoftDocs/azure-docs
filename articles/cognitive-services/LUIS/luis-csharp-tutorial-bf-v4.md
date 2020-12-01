@@ -44,8 +44,8 @@ Use C# to build a chat bot integrated with language understanding (LUIS). The bo
     |Bot template|Bot framework settings - see next table|
     |LUIS App location|Must be the same as the LUIS resource region|`westus`|
     |App service plan/Location|Do not change from provided default value.|
-    |Application Insights|Do not change from provided default value.|
-    |Microsoft App ID and password|Do not change from provided default value.|
+    |Application Insights|Do not change from the provided default value.|
+    |Microsoft App ID and password|Do not change from the provided default value.|
 
 1. In the **Bot template**, select the following, then choose the **Select** button under these settings:
 
