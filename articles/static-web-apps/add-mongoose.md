@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Cosmos DB serverless database
 
-We are going to start by creating a [Cosmos DB serverless](https://docs.microsoft.com/azure/cosmos-db/serverless) account. By using a serverless account we only pay for the resources we use, and avoid needing to create a full infrastructure.
+Begin by creating a [Cosmos DB serverless](https://docs.microsoft.com/azure/cosmos-db/serverless) account. By using a serverless account, you only pay for the resources as they are used and avoid needing to create a full infrastructure.
 
 1. Navigate to [https://portal.azure.com](https://portal.azure.com)
 2. Click **Create a resource**
