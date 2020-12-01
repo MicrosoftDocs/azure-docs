@@ -77,7 +77,7 @@ Whether you use a private endpoint or a service endpoint, Azure Machine Learning
 
 These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access lets the workspace retrieve firewall settings to ensure that data dosen't leave the virtual network. Changes may take up to 10 minutes to take effect.
 
-### Enable MSI authentication for default storage accounts
+### Enable managed identity authentication for default storage accounts
 
 In addition to your data stores, each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. Azure Machine Learning studio uses these storage accounts to store experiment and model artifacts which are critical to certain features.
 
@@ -140,7 +140,7 @@ You can specify the output location for any module in the designer. Use this to 
  
 Make sure that you have access to the intermediate storage accounts in your virtual network. Otherwise, the pipeline will fail.
 
-You should also [enable MSI authentication to visualize output data](#enable-studio-data-visualization-access-to-datastores) for intermediate storage accounts.
+You should also [enable managed service authentication to visualize output data](#configure-datastores-to-use-workspace-managed-identity) for intermediate storage accounts.
 
 ## Next steps
 
