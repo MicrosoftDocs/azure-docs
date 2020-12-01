@@ -15,7 +15,7 @@ If you are using an old `applicationinsights.json` file, please make sure you ma
 2.  Please remove `instrumentationSettings`. All the contents inside `instrumentationSettings` are moved to the root level.  
 3.  Sub configurations like `sampling`, `jmxMetrics`, `instrumentation` and `heartbeat` are moved out of `preview` to the root level.
 
-For more information please go through the [docs](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config) related to different configuration options.
+For more information please go through the [docs](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config) related to different configuration options.
 
 ## SSL Certificate Issues
 
@@ -49,7 +49,7 @@ The following example is a simple command to import a SSL certificate to the key
     :::image type="content" source="media/java-ipa/troubleshooting/CertificateExportWizard.PNG" alt-text="SSL Certificate ExportWizard":::
 
 5.	Specify the file you want to save the SSL certificate to. Finally click next and finish. You should see "The export was successful" message.
-6.	Once you have the certificate its time to import the certificate into a Java keystore. Use the above [command](#Some-key-terminology) to import certificates.
+6.	Once you have the certificate its time to import the certificate into a Java keystore. Use the above [command](#some-key-terminology) to import certificates.
 
 > [!WARNING]
 > You will need to repeat these steps to get the new certificate before the current certificate expires. You can find the expiration information in the "Details" tab of the Certificate popup as shown below
