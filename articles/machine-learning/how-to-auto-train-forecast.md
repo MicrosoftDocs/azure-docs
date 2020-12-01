@@ -288,7 +288,7 @@ Automated ML considers a time series a **short series** if there are not enough 
 
 Automated ML offers short series handling by default with the `short_series_handling_config` parameter in the `ForecastingParameters` object. 
 
-To enable short series handling,  the `freq` parameter must also be defined. To change the default behavior, `short_series_handling_config = auto`, update the `short_series_handling_config` parameter in your `ForecastingParameter` object.  
+To enable short series handling,  the `freq` parameter must also be defined. To define an hourly frequency, we will set `freq='H'`. View the frequency string options [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). To change the default behavior, `short_series_handling_config = auto`, update the `short_series_handling_config` parameter in your `ForecastingParameter` object.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
@@ -296,7 +296,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
                                             short_series_handling_config='auto',
-                                            freq = '7',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 The following table summarizes the available settings for `short_series_handling_config`.
