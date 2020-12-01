@@ -21,7 +21,7 @@ In this guide, you'll set up a workspace and configure a basic access control sy
 
 Synapse access control can be simplified by using security groups that are aligned with the roles and personas in your organization.  You only need to add and remove users from security groups to manage access.
 
-Before you start this walkthrough, read the [Synapse access control overview](./synapse-workspace-access-control-overview) to familiarize yourself with the access control mechanisms used by Synapse.   
+Before you start this walkthrough, read the [Synapse access control overview](./synapse-workspace-access-control-overview.md) to familiarize yourself with the access control mechanisms used by Synapse.   
 
 ## Access control mechanisms
 
@@ -50,7 +50,8 @@ This document uses standard names to simplify the instructions. Replace them wit
 
 ## STEP 1: Set up security groups
 
->[!Note] During the preview, it was recommended to create security groups mapped to the Synapse **Synapse SQL Administrator** and **Synapse Apache Spark Administrator** roles.  With the introduction of new finer-grained Synapse RBAC roles and scopes, it is now recommended that you use these new capabilities to control access to your workspace.  These new roles and scopes provide more configuration flexibility and recognize that developers often use a mix of SQL and Spark in creating analytics applications and may need to be granted access to specific resources within the workspace. [Learn more](./synapse-workspace-synapse-rbac.md).
+>[!Note] 
+>During the preview, it was recommended to create security groups mapped to the Synapse **Synapse SQL Administrator** and **Synapse Apache Spark Administrator** roles.  With the introduction of new finer-grained Synapse RBAC roles and scopes, it is now recommended that you use these new capabilities to control access to your workspace.  These new roles and scopes provide more configuration flexibility and recognize that developers often use a mix of SQL and Spark in creating analytics applications and may need to be granted access to specific resources within the workspace. [Learn more](./synapse-workspace-synapse-rbac.md).
 
 Create the following security groups for your workspace:
 
@@ -153,7 +154,7 @@ To grant access to a dedicated SQL pool, the scripts can be run by the workspace
 To grant access to the serverless SQL pool, 'Built-in', the scripts can additionally be run by any member of the  `workspace1_SynapseAdministrators` group. 
 
 > [!TIP]
-> The steps below need to be run for **each** SQL pool to grant user access to all SQL databases except in section [Server level permission](#server-level-permission) where you can assign user a sysadmin role.
+> The steps below need to be run for **each** SQL pool to grant user access to all SQL databases except in section [Workspace-scoped permission](#workspace-scoped-permission) where you can assign user a sysadmin role.
 
 ### STEP 7.1: Serverless SQL pools
 
@@ -261,7 +262,7 @@ To manage access, you can add and remove users to the security groups you've set
 
 As a final step to secure your workspace, you should secure network access, using:
 - [Workspace firewall](./synapse-workspace-ip-firewall.md)
-- [Managed virtual network](./synapse-workspace-managed-vnet) 
+- [Managed virtual network](./synapse-workspace-synapse-managed-vnet.md) 
 - [Private endpoints](./synapse-workspace-managed-private-endpoints.md)
 - [Private Link](../../azure-sql/database/private-endpoint-overview.md)
 
@@ -271,9 +272,9 @@ Your workspace is now fully configured and secured.
 
 ## How roles interact with Synapse Studio
 
-Synapse Studio will behave differently based on user roles and the mode it's being used in. In Synapse live mode, some items may be hidden or disabled if a user doesn't have the required permissions. You can learn more about the required permissions for common tasks in this [article](./synapse-workspace-understand-what-role-you-need.md). 
+Synapse Studio will behave differently based on user roles and the current mode. In Synapse live mode, some items may be hidden or disabled if a user doesn't have the required permissions. You can learn more about the required permissions for common tasks in this [article](./synapse-workspace-understand-what-role-you-need.md). 
 
-If a feature is disabled in Synapse Studio, hovering over the item shows a tooltip that indicates the missing permission.  Use the [Synapse RBAC roles guide](./synapse-workspace-synapse-rbac-roles) to look up which role is required to provide the missing permission.
+If a feature is disabled in Synapse Studio, hovering over the item shows a tooltip that indicates the missing permission.  Use the [Synapse RBAC roles guide](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) to look up which role is required to provide the missing permission.
 
 ## Supporting more advanced scenarios
 

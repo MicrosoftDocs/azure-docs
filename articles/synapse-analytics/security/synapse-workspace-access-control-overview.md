@@ -88,7 +88,7 @@ To simplify managing access control, you can use security groups to assign roles
 ## Next steps
 
 - Learn more about [Synapse RBAC](./synapse-workspace-synapse-rbac.md)
-- Learn more about [Synapse RBAC roles](./)
+- Learn more about [Synapse RBAC roles](./synapse-workspace-synapse-rbac-roles.md)
 - Learn [How to set up access control](./how-to-set-up-access-control.md) for a Synapse Workspace using security groups.
 - Learn [How to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
 - Learn [How to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)

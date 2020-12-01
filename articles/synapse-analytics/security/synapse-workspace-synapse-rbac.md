@@ -3,7 +3,7 @@ title: Synapse Role Based Access Control
 description: An article that explains role-based access control in Azure Synapse Analytics
 author: billgib
 ms.service: synapse-analytics 
-ms.topic: concepts
+ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
@@ -49,7 +49,7 @@ Synapse provides built-in roles that define collections of actions that match th
 - Operators can monitor and manage system status, application execution and review logs, without access to code or the outputs from execution.
 - Security staff can manage and configure endpoints without having access to code, compute resources or data.
 
-[Learn more](./synapse-workspace-rbac-roles.md) about the built-in Synapse roles. 
+[Learn more](./synapse-workspace-synapse-rbac-roles.md) about the built-in Synapse roles. 
 
 Future releases of Synapse Analytics will allow custom roles to be defined.
 
