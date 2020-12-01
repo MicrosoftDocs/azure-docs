@@ -98,7 +98,7 @@ Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured. You c
 
 With the support of OpenShift 4.5, Azure Red Hat OpenShift introduced a few significant architectural changes. These changes only apply to newly created clusters running OpenShift 4.5. Existing clusters that have been upgraded to OpenShift 4.5 will not have their networking architecture changed by the upgrade process. Users will need to re-create their clusters to use this new architecture.
 
-![Azure Red Hat OpenShift 4.5 networking diagram](./media/concepts-networking/aro4.5-networking-diagram.png)
+![Azure Red Hat OpenShift 4.5 networking diagram](./media/concepts-networking/aro4-5-networking-diagram.png)
 
 As included in the diagram above, you'll notice a few changes:
 * Previously, ARO used two public LoadBalancers: one for the API server, and one for the worker node pool. With this architecture update, this has been consolidated under a single LoadBalancer. 
