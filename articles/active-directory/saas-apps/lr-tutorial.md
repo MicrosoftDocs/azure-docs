@@ -45,7 +45,7 @@ To configure the integration of LoginRadius into Azure AD, you need to add Login
 
 **To add LoginRadius from the gallery:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -53,11 +53,11 @@ To configure the integration of LoginRadius into Azure AD, you need to add Login
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add a new application, click the **New application** button:
+3. To add a new application, select the **New application** button:
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **LoginRadius**, select **LoginRadius** in the result panel, and then click the **Add** button to add the application.
+4. In the search box, enter **LoginRadius**, select **LoginRadius** in the result panel, and then select the **Add** button to add the application.
 
 	![LoginRadius in the results list](common/search-new-app.png)
 
@@ -85,11 +85,11 @@ To configure Azure AD single sign-on with LoginRadius, perform the following ste
 
     ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+2. On the **Select a Single sign-on method** pane, select **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** pane.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with LoginRadius, perform the following ste
 
    1. In the **Reply URL (Assertion Consumer Service URL)** textbox, enter the LoginRadius ACS URL `https://lr.hub.loginradius.com/saml/serviceprovider/AdfsACS.aspx` 
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -128,14 +128,15 @@ In this section, you enable Azure AD single sign-on in the LoginRadius Admin Con
 3. Select the **Single Sign-On** tab, and then select **Azure AD**:
 
    ![Screenshot that shows the single-sign-on menu in the LoginRadius Team Management console](./media/loginradius-tutorial/azure-ad.png)
-4. Enter the following information:
+4. In the Azure AD setup page, complete the following steps:
 
    ![Screenshot that shows Azure Active Directory configuration in the LoginRadius Team Management console](./media/loginradius-tutorial/single-sign-on.png)
 
   	1. In **ID Provider Location**, enter the SIGN-ON ENDPOINT, which you get from your Azure AD account.
-	1. In **ID Provider Logout URL**, enter the SIGN-OUT ENDPOINT, which you get from your Azure AD account.
-  	1. In **ID Provider Certificate**, enter the Azure AD certificate, which you get from your Azure AD account. Enter the certificate value with the header and footer. Example: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
 
+	1. In **ID Provider Logout URL**, enter the SIGN-OUT ENDPOINT, which you get from your Azure AD account.
+ 
+  	1. In **ID Provider Certificate**, enter the Azure AD certificate, which you get from your Azure AD account. Enter the certificate value with the header and footer. Example: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`
 
   	1. In **Service Provider Certificate** and **Server Provider Certificate Key**, enter your certificate and key. 
 
@@ -165,7 +166,7 @@ In this section, you enable Azure AD single sign-on in the LoginRadius Admin Con
 
 ### Create an Azure AD test user 
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a test user called Britta Simon in the Azure portal.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
@@ -175,17 +176,17 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![New user Button](common/new-user.png)
 
-3. In the User properties, perform the following steps.
+3. In **User** properties, perform the following steps.
 
    ![The User dialog box](common/user-properties.png)
 
    1. In the **Name** field, enter **BrittaSimon**.
   
-   1. In the **User name** field, type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
+   1. In the **User name** field, enter `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
 
-   1. Click **Create**.
+   1. Select **Create**.
 
 ### Assign the Azure AD test user
 
@@ -203,33 +204,33 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** pane.
+4. Select the **Add user** button, then select **Users and groups** in the **Add Assignment** pane.
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** pane, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** pane, select **Britta Simon** in the **Users** list, then choose the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion, in the **Select Role** pane, select the appropriate role for the user from the list. Then, click the **Select** button at the bottom of the screen.
+6. If you are expecting any role value in the SAML assertion, in the **Select Role** pane, select the appropriate role for the user from the list. Then, choose the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** pane, click the **Assign** button.
+7. In the **Add Assignment** pane, select the **Assign** button.
 
 ### Create LoginRadius test user
 
 1. Log in to your LoginRadius [Admin Console](https://adminconsole.loginradius.com/login) account.
 
-2. Go to your team management section in LoginRadius Admin Console.
+2. Go to your team management section in the LoginRadius Admin Console.
 
    ![Screenshot that shows the LoginRadius Admin Console](./media/loginradius-tutorial/team-management.png)
-3. Click **Add Team Member** in the side menu to open the form. 
+3. Select **Add Team Member** in the side menu to open the form. 
 
-4. In the **Add Team MemberR** form, you create a user called Britta Simon in your LoginRadius site by providing the user's details and assigning the permissions you want the user to have. To know more about the permissions based on roles, see the [Role Access Permissions](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) section of the LoginRadius [Manage Team Members](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) document. Users must be created and activated before you use single sign-on.
+4. In the **Add Team Member** form, you create a user called Britta Simon in your LoginRadius site by providing the user's details and assigning the permissions you want the user to have. To know more about the permissions based on roles, see the [Role Access Permissions](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) section of the LoginRadius [Manage Team Members](https://www.loginradius.com/docs/api/v2/admin-console/team-management/manage-team-members#roleaccesspermissions0) document. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-1. In a browser, go to https://accounts.loginradius.com/auth.aspx and click **Fed SSO log in**.
-2. Enter your LoginRadius app name, and then click **Login**.
+1. In a browser, go to https://accounts.loginradius.com/auth.aspx and select **Fed SSO log in**.
+2. Enter your LoginRadius app name, and then select **Login**.
 3. It should open a pop-up for asking you to sign in to your Azure AD account.
 4. After the authentication, your pop-up will close and you will be logged in to the LoginRadius Admin Console.
 
