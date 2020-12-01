@@ -506,6 +506,8 @@ platform-managed keys.
 
 - [How to manage encryption keys for Azure Storage Accounts](/azure/storage/common/storage-encryption-keys-portal)
 
+- [How to configure customer-managed encryption keys](/azure/storage/common/storage-encryption-keys-portal)
+
 How
 - [to create a pool with disk encryption enabled](disk-encryption.md)
 
