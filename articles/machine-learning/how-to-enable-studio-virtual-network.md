@@ -17,7 +17,7 @@ ms.custom: contperfq4, tracking-python
 
 # Use Azure Machine Learning studio in an Azure virtual network
 
-In this article, you learn how to use Azure Machine Learning studio in a virtual network. The studio includes features like AutoML, the designer, and data labelling. In order to use those feature in a virtual network, you must follow the steps in this article.
+In this article, you learn how to use Azure Machine Learning studio in a virtual network. The studio includes features like AutoML, the designer, and data labeling. In order to use those features in a virtual network, you must follow the steps in this article.
 
 In this article, you learn how to:
 
@@ -26,7 +26,7 @@ In this article, you learn how to:
 > - Access the studio from a resource inside of a virtual network.
 > - Understand how the studio impacts storage security.
 
-This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through the previous parts to setup a virtual network environment.
+This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through the previous parts to set up a virtual network environment.
 
 See the other articles in this series:
 
@@ -68,7 +68,7 @@ The studio supports reading data from the following datastore types in a virtual
 
 ### Configure datastores to use workspace-managed identity
 
-After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access the data in your storage account.
+After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access data in your storage account.
 
 Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure a datastore to use managed identity:
 
@@ -86,7 +86,7 @@ These steps add the workspace-managed identity as a __Reader__ to the storage se
 
 ### Enable managed identity authentication for default storage accounts
 
-Each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. The studio uses these default storage accounts to store experiment and model artifacts which are critical to certain features.
+Each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. The studio uses these default storage accounts to store experiment and model artifacts, which are critical to certain features.
 
 The following table describes why you must enable managed identity authentication for the default storage accounts.
 
