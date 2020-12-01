@@ -1,17 +1,23 @@
 ---
-title: Accelerate alert incident response
-description: Work with alert comments to improve communication between individuals and teams during the investigation of an alert event.
+title: Accelerate alert workflows
+description: Improve alert and incident workflows
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/23/2020
+ms.date: 12/01/2020
 ms.service: azure
 ms.topic: how-to
 ---
 
 
-# Accelerate Incident workflows
-This article describes how to accelerate alert workflows using Defender for IoT *alert comments* and *alert groups*. These tools help you analyze and manage the large volume of alert events detected in your network.
+# Accelerate Alert workflows
+
+This article describes how to accelerate alert workflows using Defender for IoT alert comments,  alert groups, and custom alert rules.  These tools help you:
+
+- Analyze and manage the large volume of alert events detected in your network
+
+- Pinpoint and handle specific network activity
+
 ## Accelerate incident workflow with alert comments
 
 Work with alert comments to improve communication between individuals and teams during the investigation of an alert event.
@@ -20,11 +26,11 @@ Work with alert comments to improve communication between individuals and teams 
 
 Use alert commenting to improve:
 
-  - **Workflow steps**: Provide guidelines regarding alert mitigation steps.
+- **Workflow steps**: Provide guidelines regarding alert mitigation steps.
 
-  - **Workflow follow-up**: Notify that steps were taken.
+- **Workflow follow-up**: Notify that steps were taken.
 
-  - **Workflow guidance**: Provide recommendations, insights, or warnings about the event.
+- **Workflow guidance**: Provide recommendations, insights, or warnings about the event.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-comment-screen.png" alt-text="Alert comments":::
 
@@ -83,3 +89,37 @@ The following alert groups are automatically defined:
 | Configuration changes | Programming |  |
 
 Alert groups are pre-defined. Contact [support.microsoft.com](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099) for details about alerts associated with alert groups, and about creating custom alert groups.
+
+## Customize alert rules
+
+You can add custom alert rules based on information detected by individual sensors. For example, define a rule that instructs a sensor to trigger an alert based on a Source IP, Destination IP, command (within a protocol). When the sensor detects the traffic defined in the rule, an alert or event is generated.
+
+The alert message indicates that a user-defined rule triggered the alert.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="user defind rule":::
+
+To create a custom alert rule:
+
+1. Select Custom Alerts from the Side menu of a sensor.
+1. Select the + sign to create a rule.
+
+ :::image type="content" source="media/how-to-work-with-alerts-sensor/image267.png" alt-text="create rule":::
+
+1. Define a rule name.
+1. Select a category or protocol from the Categories pane.
+1. Define a specific source and destination IP or MAC, or choose any address.
+1. Add a condition. A list of conditions and their properties is unique for each category. You can select more than one condition for each alert.
+1. Indicate if the rule triggers an Alarm or Event.
+1. Assign a severity level to the alert.
+1. Indicate if the alert will include a PCAP file.
+1. Select **Save.**
+
+The rule is added to the Customized Alerts Rules list. where you can review basic rule parameters, the last time the rule was triggered, and more. You can also enable and disable the rule from the list.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image269.png" alt-text="customized alert":::
+
+### See also
+
+[View information provided in alerts](how-to-view-information-provided-in-alerts.md)
+
+[Manage the alert event](how-to-manage-the-alert-event.md)

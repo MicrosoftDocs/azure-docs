@@ -1,6 +1,6 @@
 ---
 title: "How to: Onboard sensors in Azure Defender for IoT"
-description: Learn how to onboard sensors for Azure Defender for IoT deployment.
+description: Learn how to deploy and onboard sensors for Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 ms.author: rkarlin
 ---
 
-# How to: Deploy and onboard a sensor
+# Deploy and onboard a sensor
 
-This article provides an overview of the sensor deployment process. Sensors must be onboarded to the Azure Defender for IoT portal.
+This article provides an overview of the sensor deployment process. Sensors must be onboarded to the Azure Defender for IoT portal. This process requires acquiring a preconfigured sensor or acquiring a certified sensor appliance and installing the sensor software yourself.
 
-This process requires acquiring a preconfigured sensor or acquiring a certified sensor appliance and installing the sensor software yourself.
-
-If you are working with a certified sensor appliance, it is recommended to review the [Azure Defender for IoT hardware specifications guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) before you begin.
-
+If you are working with a certified sensor appliance, reviewreview the [Azure Defender for IoT hardware specifications guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) before you begin.
 
 > [!NOTE]
 > The Azure Defender for IoT on-premises management console does not need to be onboarded.
-
 
 Onboarding sensors lets you:
 
@@ -40,9 +36,9 @@ Onboarding sensors lets you:
 | **Acquire a sensor activation file** | For **Locally Managed** sensors, an activation file is used to manage authorized sensor activation periods.<br /><br />For **Cloud managed** sensors, an activation file is used as a connection between the sensor and an IoT Hub. For more information, see **Onboard sensors**. |
 | **Upload an activation file to your sensor** | Activation files must be uploaded to your enterprise sensors. Network monitoring and access to sensor console features will not be available until the activation file is uploaded. For more information, see **Upload sensor activation files**. |
 | **Update sensor network parameters before activation** | Update parameters defined during sensor installation. For more information, see **Upload sensor activation files**.|
+## Deploy a sensor
 
-
-**To deploy a sensor:**
+To deploy a sensor:
 
 1. Go to Azure Defender for IoT from the Azure portal.
 

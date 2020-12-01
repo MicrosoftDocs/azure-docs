@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-#
+# Manage individual sensors
 
 ## Manage sensor activation files
 
@@ -37,13 +37,13 @@ Sensors that are Cloud Managed are associated with an Azure IoT Hub. Thes
 
 You may need to upload a new activation file for an onboarded sensor when: 
 
-  - An activation file expires on a locally managed sensor. 
+- An activation file expires on a locally managed sensor. 
 
-  - You want to work in a different sensor management mode. 
+- You want to work in a different sensor management mode. 
 
-  - You want to assign a new IoT Hub to a Cloud Managed sensor.  
+- You want to assign a new IoT Hub to a Cloud Managed sensor.  
 
-**To add a new activation file:**
+To add a new activation file:
 
 1. Navigate to the Azure Defender for IoT, **Sensor Management** page.
 
@@ -75,11 +75,11 @@ You may need to upload a new activation file for an onboarded sensor when: 
 
 You will receive an error message if the activation file could not be uploaded. The following events may have occurred.
 
-  - **For Locally Managed sensors:** The activation file is not valid. If the file is not valid, go to the **Azure Defender for IoT portal**, **Sensor Management** page. Select the sensor with the invalid file and download a new activation file.
+**For Locally Managed sensors:** The activation file is not valid. If the file is not valid, go to the *Azure Defender for IoT portal**, **Sensor Management* page. Select the sensor with the invalid file and download a new activation file.
 
-  - **For Cloud Managed sensors:** The sensor cannot connect to the Internet: Check the sensor network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly in the Sensor Network Configuration screen. Verify that *.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the specific IoT Hub FQDN should be opened in your Firewall and/or Proxy. For details see [https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-endpoints](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fiot-hub%2Fiot-hub-devguide-endpoints&data=02%7C01%7Cshhazam%40microsoft.com%7C54abec3c770244100bf008d85577bc05%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637353320025591548&sdata=Bt%2BcKHNkS8pPamoqnCLtx6m3P9%2BmR9U11M2sCrtDEm0%3D&reserved=0).  
+**For Cloud Managed sensors:** The sensor cannot connect to the Internet: Check the sensor network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly in the Sensor Network Configuration screen. Verify that *.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the specific IoT Hub FQDN should be opened in your Firewall and/or Proxy. For details see [https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-endpoints](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fiot-hub%2Fiot-hub-devguide-endpoints&data=02%7C01%7Cshhazam%40microsoft.com%7C54abec3c770244100bf008d85577bc05%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637353320025591548&sdata=Bt%2BcKHNkS8pPamoqnCLtx6m3P9%2BmR9U11M2sCrtDEm0%3D&reserved=0).  
 
-  - **For Cloud Managed sensors**: The activation file is valid but Azure Defender for IoT rejected it.
+- **For Cloud Managed sensors**: The activation file is valid but Azure Defender for IoT rejected it.
 
 If you cannot resolve this issue, you can download another activation from the **Azure Defender for IoT portal, Sensor Management** page. If this does not work, contact support.
 
@@ -89,13 +89,13 @@ This section describes how ensure connection between the sensor and the on-premi
 
 Connection between the sensor and the management console is carried out in 3 steps:
 
-  - In the on-premises management console: copy an automatically generated sensor connection string.
+- In the on-premises management console: copy an automatically generated sensor connection string.
 
-  - In the sensor: Paste the connection string Management Console Connection dialog box.
+- In the sensor: Paste the connection string Management Console Connection dialog box.
 
-  - In the on-premises management console: Assign the sensor to a zone.
+- In the on-premises management console: Assign the sensor to a zone.
 
-**To connect:**
+To connect:
 
 1. Log in to the on-premises management console.
 
@@ -123,7 +123,7 @@ The sensor network configuration was defined during the sensor installation. You
 
 If you create a new IP you may be required to log in again.
 
-**To change the configuration:**
+To change the configuration:
 
 1. On the side menu, select **System Settings**.
 
@@ -156,7 +156,7 @@ You can configure the sensor time and region so that all the users see the same 
 | Date Format | Select one of the following format options:<br />- dd/MM/yyyy HH:mm:ss<br />- MM/dd/yyyy HH:mm:ss<br />- yyyy/MM/dd HH:mm:ss |
 | Date & Time | Displays the current date and local time in the format you selected.<br />For example: If your actual location is America/New York, but the Timezone is set to Europe/Berlin, the time is displayed according to Berlin local time. |
 
-**To configure Time & Regional:**
+To configure Time & Regional:
 
 1. On the side menu, select **System Settings**.
 
@@ -188,15 +188,15 @@ Sensor backup files are automatically named using the following format:
 
 Example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar.`
 
-**To configure backup:**
+To configure backup:
 
-  - Log in to an administrative account and type `$ sudo cyberx-xsense-system-backup`.
+- Log in to an administrative account and type `$ sudo cyberx-xsense-system-backup`.
 
-**To restore the latest backup file:**
+To restore the latest backup file:
 
-  - Log in to an administrative account and type `$ sudo cyberx-xsense-system-restore`.
+- Log in to an administrative account and type `$ sudo cyberx-xsense-system-restore`.
 
-**To save the backup to external SMB Server:** 
+To save the backup to external SMB Server:
 
 1. Create a shared folder in the external SMB server.
 
@@ -277,3 +277,17 @@ The following procedure describes how to update a standalone sensor using the se
 9. After the first reboot (before the completion of the update process), the system opens with the Log-in window and after the login, the following appears at the bottom left of the sidebar:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/image15.png" alt-text="Screenshot of the Upgrade version that appears after login":::
+
+## Adjust system properties
+
+System properties control various operations and settings in the management console. Editing or modifying them could damage our on-premises management console system operation.
+
+Consult with support.microsoft.com before changing your settings.
+
+To access system properties: 
+
+1. Sign in to the on-premises management console or the sensor.
+
+2. Select **System Settings**.
+
+3. Select **System Properties** from the general section.

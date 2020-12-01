@@ -1,21 +1,23 @@
 ---
 title: Change the name of your console
-description: Customize the name of your sensor.
+console name.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/25/2020
+ms.date: 12/01/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Change the name of your console
+# Change console names
 
-## Change the sensor name
+This article describes how to change the sensor and on-premises management console name. The new name appears in the console web browser, in various console windows, and in troubleshooting logs.
 
-This article describes how to customize the name of your sensor. This option is available if you registered your sensor in the Defender for IOT portal as a locally connected sensor.
+## Change the sensor console name
 
-The name appears in the web browser, in various console windows, and in the on-premises management console, site, and enterprise views. The default name is management console. We recommended you create unique names for your sensors.
+The process for changing the sensor names varies for cloud connected sensors  and locally connected sensors. The default name is sensor.
+
+### Change name of a locally connected sensor
 
 To change the name:
 
@@ -23,25 +25,31 @@ To change the name:
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/label-name.png" alt-text="Sensor label name":::
 
-2. In the edit sensor name dialog box, enter a name and select **Save**. The new name is applied.
+1. In the edit sensor name dialog box, enter a name.
 
-## Sensor name change for cloud connected sensors
+1. Select **Save**. The new name is applied.
 
-If your sensor was registered as a cloud connected sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file you uploaded when signing in for the first time. If you want to change the name of the sensor, you need to upload a new activation file.
+### Change of a cloud connected sensor
 
-To change the name of a cloud connected sensor:
+If your sensor was registered as a cloud connected sensor, the sensor name is defined by the name assigned during the registration. The name is included in the activation file you uploaded when signing in for the first time. To change the name of the sensor, you need to upload a new activation file.
+
+To change the name:
 
 1. Navigate to the Defender for IoT portal, sensor management page.
 
-2. Delete the sensor from the sensor management window.
+1. Delete the sensor from the sensor management window.
 
-3. Reregister with the new name.
+1. Register with the new name.
 
-## Changing the on-premises management console name
+1. Download and new activation file.
 
-You can change the on-premises management console name.
+1. Log in to the sensor and upload the new activation file.
 
-**To change the name:**
+## Change the on-premises management console name
+
+The default name is management console.
+
+To change the name:
 
 1. In the bottom of the left pane, select the current name.
 
@@ -51,7 +59,8 @@ You can change the on-premises management console name.
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Screenshot of editing the Defender for IoT platform configuration":::
 
-3. Select **Save**. The new name appears.
+3. Select **Save**. The new name is applied.
 
-   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Changed name of the console":::    
+   :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Changed name of the console":::
 
+See also, [Deploy and onboard a sensor](how-to-onboard-sensors.md) 

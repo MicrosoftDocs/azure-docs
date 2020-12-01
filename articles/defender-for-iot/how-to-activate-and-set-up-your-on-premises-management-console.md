@@ -1,30 +1,48 @@
 ---
 title: Activate and set up your on-premises management console 
-description: Ensure that sensors send information to the on-premises management console, and that the on-premises management console can perform backups, manage alerts and carry out other activity on the sensors.
+description: Management console activation and set up ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console  carries out management tasks on connected sensors.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/25/2020
+ms.date: 11/30/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# 
+# Activate and set up your on-premises management console 
+
+Activation and set up enures that:
+
+- Network devices you are monitoring through connected sensors are registered with an Azure account.
+
+- Sensors send information to the on-premises management console, and that the on-premises management console  carries out management tasks on connected sensors.
+
 ## Activate the on-premises management console
 
-Verify that you have the username and password required for the on-premises management console. After login, TBD
-
+Verify that you have the username and password required for the on-premises management console.
 
 **To log in:**
 
 1. Open a web browser and enter the on-premises management console IP address you received during the system installation.
 
-1. Enter the username and password you received by your administrator and select LOGIN. 
+1. Enter the username and password you received by your administrator and select LOGIN.
 
 After login, the on-premises management console opens in the Enterprise View.  
 ## Upload the activation file
 
-TBD
+After login, the on-premises management console should be activated by downloading an activation file from the Azure Portal, Pricing page.
+
+This file contains the aggregate committed devices defined during the onboarding process.  This includes sensors associated with multiple subscriptions. After initial activation, the number of monitored devices may exceed  the number of committed devices defined during onboarding. This may happen for example if you connect more sensors to the management console. If there is a discrepancy between the number of monitored devices and number of committed devices, a warning appears in the management console. If this happens you should upload a new activation file.
+
+To acquire and upload an activation file:
+
+1. Go to the Azure portal Pricing page.
+1. Select the on-premises management console tab.
+1. Download the activation file for the management console and save it.
+1. Select System Settings from the management console.
+1. Select Activation.
+1. Select Choose a File and select the file you saved.
+
 
 ## Connect sensors to the on-premises management console
 
@@ -178,7 +196,7 @@ The following table describes the site management window parameters.
 | Version | The sensor version. |
 | Connectivity | The sensor connectivity status. The status can be connected or disconnected. |
 | Last Upgrade | The date of the last upgrade. |
-| Upgrade Progress | During the upgrade process the progress bar shows the status of the upgrade process, as follows:<br />:::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/upgraded-libraries-icon.png" border="false":::<br />The following statuses appear during the process:<br />- Uploading package<br />- Preparing To install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >For details about upgrading, refer to the Defender for IoT upgrade guide on the Defender for IoT help center: help.cyberx-labs.com |
+| Upgrade Progress | During the upgrade process the progress bar shows the status of the upgrade process, as follows:<br />The following statuses appear during the process:<br />- Uploading package<br />- Preparing To install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >For details about upgrading, refer to the Defender for IoT upgrade guide on the Defender for IoT help center: help.cyberx-labs.com |
 | Assets | The number of OT assets monitored by the sensor. |
 | Alerts | The number of alerts on the sensor. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Enables assigning a sensor to zones. |
@@ -190,7 +208,7 @@ The following table describes the site management window parameters.
 
 **To add a zone to a site:**
 
-1.  In the site management window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name and select **Add Zone**. The **Create New Zone** dialog box appears.
+1. In the Site Management window, select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/expand-view-icon.png" border="false"::: from the bar that contains the site name and select **Add Zone**. The **Create New Zone** dialog box appears.
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/create-new-zone-screen.png" alt-text="Screeshot of create new zone view":::
 
@@ -263,3 +281,6 @@ For each zone, you need to assign sensors that perform local traffic analysis an
 2. In the site management window, select the sensor and select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false":::. The sensor appears in the unassigned sensors list. This unassigned sensor may appear on the list after a few moments.
 
 3. To delete the unassigned sensor from the site, select the sensor from the unassigned sensors list and select :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::.
+
+### See also
+[About the on-premises management console](concept-air-gapped-networks.md)

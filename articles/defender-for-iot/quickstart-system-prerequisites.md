@@ -4,20 +4,17 @@ description:
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/26/2020
+ms.date: 11/30/2020
 ms.topic: quickstart
 ms.service: azure
 ---
 
 ## Minimum requirements
 
-- Agentless monitoring for IoT and OT devices (based on CyberX technology)
 - Network switches supporting traffic monitoring via SPAN port
 - Hardware appliances for NTA sensor.
-- Azure Subscription **Contributor** role (required only during onboarding for defining committed devices)
+- Azure Subscription Contributor role (required only during onboarding for defining committed devices and connection to Azure Sentinel)
 - IoT Hub (Free or Standard tier) **Contributor** role (for cloud connected management)
-- Security for managed IoT devices managed via Azure IoT Hub
-- IoT Hub (Standard tier) **Contributor** role
 - IoT Hub: **Azure Defender for IoT** feature toggle should be enabled
 - For device level security module support, Defender for IoT agents supports a growing list of devices and platforms, see the [supported platform list](how-to-deploy-agent.md).
 

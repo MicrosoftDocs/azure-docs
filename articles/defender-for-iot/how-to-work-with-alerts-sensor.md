@@ -1,10 +1,10 @@
 ---
-title: Work with alerts sensor
-description: 
+title: Work with alerts detected by a sensor
+description: Work with alerts detected by a sensor
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/23/2020
+ms.date: 11/30/2020
 ms.topic: article
 ms.service: azure
 ms.topic: how-to
@@ -14,31 +14,31 @@ ms.topic: how-to
 
 Work with alerts to help you enhance the security and operation of your network. Alerts provide you with information about:
 
-  - Deviations from authorized network activity
+- Deviations from authorized network activity
 
-  - Protocol and operational anomalies
+- Protocol and operational anomalies
 
-  - Suspected malware traffic
+- Suspected malware traffic
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/image159.png" alt-text="Detect address scan":::
 
 Alert management options let users:
 
-  - Instruct sensors to learn activity detected as authorized traffic.
+- Instruct sensors to learn activity detected as authorized traffic.
 
-  - Acknowledge reviewing the alert.
+- Acknowledge reviewing the alert.
 
-  - Instruct sensors to mute events detected with identical assets and comparable traffic.
+- Instruct sensors to mute events detected with identical assets and comparable traffic.
 
 Additional tools are available that help you enhance and expedite the alert investigation. For example:
 
-  - Add instructional comments for alert reviewers. See [Accelerate Incident Workflow with Alert Comments](./accelerate-incident-workflow-with-alert-comments.md).
+- Add instructional comments for alert reviewers. See [Accelerate Incident Workflow with Alert Comments](./accelerate-incident-workflow-with-alert-comments.md).
 
-  - Create Alert Groups for display at SOC solutions. See [Accelerate Incident Workflow with Alert Grouping](./accelerate-incident-workflow-with-alert-grouping.md).
+- Create Alert Groups for display at SOC solutions. See [Accelerate Incident Workflow with Alert Grouping](./accelerate-incident-workflow-with-alert-grouping.md).
 
-  - Search for specific alerts; review related PCAP files; view the detected assets and other connected assets in the Asset Map or send alert details to 3rd party systems.
+- Search for specific alerts; review related PCAP files; view the detected assets and other connected assets in the Asset Map or send alert details to 3rd party systems.
 
-  - Forward alerts to 3<sup>rd</sup> party vendors, for example SIEM systems, MSSP systems, and more.
+- Forward alerts to 3<sup>rd</sup> party vendors, for example SIEM systems, MSSP systems, and more.
 
 ## Alerts and engines
 
@@ -101,11 +101,11 @@ Alert messages provide the following actions:
 
   - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image186.png" alt-text="Event"::: icon to show the Alert in the Event Timeline.
 
-  - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image181.png" alt-text="Pin"::: icon to pin the alert.
+- Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image181.png" alt-text="Pin"::: icon to pin the alert.
 
-  - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image182.png" alt-text="Unpin":::icon to unpin the alert.
+- Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image182.png" alt-text="Unpin":::icon to unpin the alert.
 
-  - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image42.png) icon to approve the traffic (Security Analysts and Administrators only" alt-text="Learn":::.
+- Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image42.png) icon to approve the traffic (Security Analysts and Administrators only" alt-text="Learn":::.
 
   - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image187.png" alt-text="Close":::icon to close the alert details window.
 
