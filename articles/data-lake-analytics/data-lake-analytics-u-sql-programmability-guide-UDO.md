@@ -1,6 +1,6 @@
 ---
-title: U-SQL programmability guide for Azure Data Lake
-description: Learn about the set of services in Azure Data Lake Analytics that enable you to create a cloud-based big data platform.
+title: U-SQL UDO programmability guide for Azure Data Lake
+description: Learn about the U-SQL UDO programmability Azure Data Lake Analytics to enable you create good USQL script.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
@@ -1200,3 +1200,7 @@ OUTPUT @rs2
 	TO @output_file 
 	USING Outputters.Text();
 ```
+
+## Next steps
+* [U-SQL programmability guide - overview](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL programmability guide - UDT and UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

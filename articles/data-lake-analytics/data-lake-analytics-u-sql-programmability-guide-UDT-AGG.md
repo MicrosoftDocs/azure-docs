@@ -1,6 +1,6 @@
 ---
-title: U-SQL programmability guide for Azure Data Lake
-description: Learn about the set of services in Azure Data Lake Analytics that enable you to create a cloud-based big data platform.
+title: U-SQL UDT and UDAGG programmability guide for Azure Data Lake
+description: Learn about the U-SQL UDT and UDAGG programmability in Azure Data Lake Analytics to enable you create good USQL script.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
