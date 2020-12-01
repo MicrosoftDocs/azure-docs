@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos Emulator download and release notes
-description: Get the Azure Cosmos emulator release notes for different versions and download information. 
+description: Get the Azure Cosmos Emulator release notes for different versions and download information. 
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
@@ -11,14 +11,14 @@ ms.date: 09/21/2020
 # Azure Cosmos Emulator - Release notes and download information
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-This article shows the Azure Cosmos emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
+This article shows the Azure Cosmos Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 
 ## Download
 
 | | |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
+|**Get started**|[Develop locally with Azure Cosmos Emulator](local-emulator.md)|
 
 ## Release notes
 
@@ -72,7 +72,7 @@ This release adds two new Cosmos emulator startup options:
 
 ### 2.4.6
 
-- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
+- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos Emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
 
 ### 2.4.3
 

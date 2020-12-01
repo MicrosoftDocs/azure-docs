@@ -48,7 +48,7 @@ Run this code in either of the following environments. We recommend that you try
     - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
     - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
-    - Run the virtual network [setup notebook](https://aka.ms/azure-rl-env-setup) to open network ports used for distributed reinforcement learning.
+    - Run the virtual network to open network ports used for distributed reinforcement learning.
 
 
 ## How to train a Pong-playing agent
@@ -113,7 +113,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Specify a virtual network
 
-For RL jobs that use multiple compute targets, you must specify a virtual network with open ports that allow worker nodes and head nodes to communicate with each other. The virtual network can be in any resource group, but it should be in the same region as your workspace. For more information on setting up your virtual network, see the [workspace setup notebook](https://aka.ms/azure-rl-env-setup) that can found in the prerequisites section. Here, you specify the name of the virtual network in your resource group.
+For RL jobs that use multiple compute targets, you must specify a virtual network with open ports that allow worker nodes and head nodes to communicate with each other. The virtual network can be in any resource group, but it should be in the same region as your workspace. For more information on setting up your virtual network, see the workspace setup notebook that can found in the prerequisites section. Here, you specify the name of the virtual network in your resource group.
 
 ```python
 vnet = 'your_vnet'

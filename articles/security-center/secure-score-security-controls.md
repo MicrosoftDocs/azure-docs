@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2020
+ms.date: 11/10/2020
 ms.author: memildin
 
 ---
@@ -66,8 +66,6 @@ To recap, your secure score is shown in the following locations in Security Cent
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's recommendations page":::
 
-
-
 ### Get your secure score from the REST API
 
 You can access your score via the secure score API (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the [Secure Scores API](/rest/api/securitycenter/securescores) to get the score for a specific subscription. In addition, you can use the [Secure Score Controls API](/rest/api/securitycenter/securescorecontrols) to list the security controls and the current score of your subscriptions.
@@ -76,11 +74,9 @@ You can access your score via the secure score API (currently in preview). The A
 
 For examples of tools built on top of the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
 
-
-
 ### Get your secure score from Azure Resource Graph (ARG)
 
-Azure Resource Graph provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal. [Learn more about Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+Azure Resource Graph provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
 
 To access the secure score for multiple subscriptions with ARG:
 
@@ -110,13 +106,34 @@ To access the secure score for multiple subscriptions with ARG:
 
 1. Select **Run query**.
 
+
+
+
+## Tracking your secure score over time
+
+If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** Power BI dashboard to track your secure score over time and investigate any changes.
+
+> [!TIP]
+> You can find this dashboard, as well as other tools for working programatically with secure score, in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+The dashboard contains the following two reports to help you analyze your security status:
+
+- **Resources Summary** - provides summarized data regarding your resources’ health.
+- **Secure Score Summary** - provides summarized data regarding your score progress. Use the “Secure score over time per subscription” chart to view changes in the score. If you notice a dramatic change in your score, check the “detected changes that may affect your secure score” table for possible changes that could have caused the change. This table presents deleted resources, newly deployed resources, or resources that their security status changed for one of the recommendations.
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time PowerBI dashboard for tracking your secure score over time and investigating changes":::
+
+
+
+
+
 ## How your secure score is calculated 
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
 
 [![The enhanced secure score introduces security controls](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
-To get all the possible points for a security control, all your resources must comply with all of the security recommendations within the security control. For example, Security Center has multiple recommendations regarding how to secure your management ports. In the past, you could remediate some of those related and interdependent recommendations while leaving others unsolved, and your secure score would improve. When looked at objectively, it's easy to argue that your security hadn't improved until you had resolved them all. Now, you must remediate them all to make a difference to your secure score.
+To get all the possible points for a security control, all your resources must comply with all of the security recommendations within the security control. For example, Security Center has multiple recommendations regarding how to secure your management ports. You'll need to remediate them all to make a difference to your secure score.
 
 For example, the security control called "Apply system updates" has a maximum score of six points, which you can see in the tooltip on the potential increase value of the control:
 
@@ -133,9 +150,9 @@ The maximum score for this control, Apply system updates, is always 6. In this e
 
 |Metric|Formula and example|
 |-|-|
-|**Security control's current score**|<br>![Equation for calculating a security control's current score](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
-|**Secure score**<br>Single subscription|<br>![Equation for calculating the current secure score](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Secure score**<br>Multiple subscriptions|<br>The current scores for all resources across all subscriptions are added and the calculation is then the same as for a single subscription<br><br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
+|**Security control's current score**|<br>![Equation for calculating a security control's score](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
+|**Secure score**<br>Single subscription|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Secure score**<br>Multiple subscriptions|<br>![Equation for calculating the secure score for multiple subscriptions](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, Security Center includes a *weight* for each subscription. The relative weights for your subscriptions are determined by Security Center based on factors such as the number of resources.<br>The current score for each subscription is calculated in the same way as for a single subscription, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
 ||||
 
 ### Which recommendations are included in the secure score calculations?
@@ -210,8 +227,8 @@ Even though Security Center’s default security initiative is based on industry
     <td class="tg-lboi"; width=55%>- API App should only be accessible over HTTPS<br>- Function App should only be accessible over HTTPS<br>- Only secure connections to your Redis Cache should be enabled<br>- Secure transfer to storage accounts should be enabled<br>- Web Application should only be accessible over HTTPS<br>- Private endpoint should be enabled for PostgreSQL servers<br>- Enforce SSL connection should be enabled for PostgreSQL database servers<br>- Enforce SSL connection should be enabled for MySQL database servers<br>- TLS should be updated to the latest version for your API app<br>- TLS should be updated to the latest version for your function app<br>- TLS should be updated to the latest version for your web app<br>- FTPS should be required in your API App<br>- FTPS should be required in your function App<br>- FTPS should be required in your web App</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Manage access and permissions (max score 4)</p></strong>A core part of a security program is ensuring your users have the necessary access to do their jobs but no more than that: the <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">least privilege access model</a>.<br>Control access to your resources by creating role assignments with <a href="/azure/role-based-access-control/overview">role-based access control (RBAC)</a>. A role assignment consists of three elements:<br>- <strong>Security principal</strong>: the object the user is requesting access to<br>- <strong>Role definition</strong>: their permissions<br>- <strong>Scope</strong>: the set of resources to which the permissions apply</td>
-    <td class="tg-lboi"; width=55%>- Deprecated accounts should be removed from your subscription (Preview)<br>- Deprecated accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with write permissions should be removed from your subscription (Preview)<br>- There should be more than one owner assigned to your subscription<br>- Role-Based Access Control (RBAC) should be used on Kubernetes Services (Preview)<br>- Service Fabric clusters should only use Azure Active Directory for client authentication<br>- Service principals should be used to protect your subscriptions instead of Management Certificates<br>- Least privileged Linux capabilities should be enforced for containers (preview)<br>- Immutable (read-only) root filesystem should be enforced for containers (preview)<br>- Container with privilege escalation should be avoided (preview)<br>- Running containers as root user should be avoided (preview)<br>- Containers sharing sensitive host namespaces should be avoided (preview)<br>- Usage of pod HostPath volume mounts should be restricted to a known list (preview)<br>- Privileged containers should be avoided (preview)<br>- Azure Policy add-on for Kubernetes should be installed and enabled on your clusters (preview)<br>- Web apps should request an SSL certificate for all incoming requests<br>- Managed identity should be used in your API App<br>- Managed identity should be used in your function App<br>- Managed identity should be used in your web App</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Manage access and permissions (max score 4)</p></strong>A core part of a security program is ensuring your users have the necessary access to do their jobs but no more than that: the <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">least privilege access model</a>.<br>Control access to your resources by creating role assignments with <a href="/azure/role-based-access-control/overview">Azure role-based access control (Azure RBAC)</a>. A role assignment consists of three elements:<br>- <strong>Security principal</strong>: the object the user is requesting access to<br>- <strong>Role definition</strong>: their permissions<br>- <strong>Scope</strong>: the set of resources to which the permissions apply</td>
+    <td class="tg-lboi"; width=55%>- Deprecated accounts should be removed from your subscription (Preview)<br>- Deprecated accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with owner permissions should be removed from your subscription (Preview)<br>- External accounts with write permissions should be removed from your subscription (Preview)<br>- There should be more than one owner assigned to your subscription<br>- Azure role-based access control (Azure RBAC) should be used on Kubernetes Services (Preview)<br>- Service Fabric clusters should only use Azure Active Directory for client authentication<br>- Service principals should be used to protect your subscriptions instead of Management Certificates<br>- Least privileged Linux capabilities should be enforced for containers (preview)<br>- Immutable (read-only) root filesystem should be enforced for containers (preview)<br>- Container with privilege escalation should be avoided (preview)<br>- Running containers as root user should be avoided (preview)<br>- Containers sharing sensitive host namespaces should be avoided (preview)<br>- Usage of pod HostPath volume mounts should be restricted to a known list (preview)<br>- Privileged containers should be avoided (preview)<br>- Azure Policy add-on for Kubernetes should be installed and enabled on your clusters (preview)<br>- Web apps should request an SSL certificate for all incoming requests<br>- Managed identity should be used in your API App<br>- Managed identity should be used in your function App<br>- Managed identity should be used in your web App</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Remediate security configurations (max score 4)</p></strong>Misconfigured IT assets have a higher risk of being attacked. Basic hardening actions are often forgotten when assets are being deployed and deadlines must be met. Security misconfigurations can be at any level in the infrastructure: from the operating systems and network appliances, to cloud resources.<br>Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. When you've configured the relevant "compliance packages" (standards and baselines) that matter to your organization, any gaps will result in security recommendations that include the CCEID and an explanation of the potential security impact.<br>Commonly used packages are <a href="/azure/security/benchmarks/introduction">Azure Security Benchmark</a> and <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark version 1.1.0</a></td>
@@ -275,3 +292,4 @@ This article described the secure score and the security controls it introduces.
 
 - [Learn about the different elements of a recommendation](security-center-recommendations.md)
 - [Learn how to remediate recommendations](security-center-remediate-recommendations.md)
+- [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

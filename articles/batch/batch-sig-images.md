@@ -53,7 +53,7 @@ In Azure, you can prepare a shared image from a managed image, which can be crea
 - A generalized on-premises VHD uploaded to the cloud
 
 > [!NOTE]
-> Currently, Batch only supports generalized Shared Images. You can't create a custom image pool from a specialized Shared Image at this time.
+> Batch only supports generalized Shared Images; a specialized Shared Image can't be used to create a pool.
 
 The following steps show how to prepare a VM, take a snapshot, and create an image from the snapshot.
 
@@ -68,6 +68,7 @@ If you are creating a new VM for the image, use a first party Azure Marketplace 
 - Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
 - When using attached data disks, you need to mount and format the disks from within a VM to use them.
 - Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
+- Ensure that the OS disk is not encrypted.
 - Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.  
 
 ### Create a VM snapshot

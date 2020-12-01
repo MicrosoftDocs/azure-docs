@@ -242,7 +242,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md)
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -529,7 +529,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### 4.6: Use Azure RBAC to manage access to resources
 
-**Guidance**: Azure Machine Learning supports using Azure Active Directory (Azure AD) to authorize requests to Machine Learning resources. With Azure AD, you can use Azure role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
+**Guidance**: Azure Machine Learning supports using Azure Active Directory (Azure AD) to authorize requests to Machine Learning resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
 - [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md)
 - [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
