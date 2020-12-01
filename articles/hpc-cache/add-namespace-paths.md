@@ -78,7 +78,7 @@ This list shows the maximum number of namespace paths per configuration.
   * 6 TB cache - 10 namespace paths
   * 23 TB cache - 20 namespace paths
 
-* Up to 5 GB/s throughput:
+* Up to 4 GB/s throughput:
 
   * 6 TB cache - 10 namespace paths
   * 12 TB cache - 10 namespace paths
