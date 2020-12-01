@@ -10,7 +10,7 @@ ms.date: 11/09/2020
 In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
 
 > [!IMPORTANT]
-> This quickstart uses the new azure-messaging-servicebus package, which is in **preview**. For a quickstart that uses the current generally available (GA) azure-servicebus package, [Send and receive messages using azure-servicebus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
+> This quickstart uses the new azure-messaging-servicebus package. For a quickstart that uses the old azure-servicebus package, see [Send and receive messages using azure-servicebus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0-beta.7</version>
+    <version>7.0.0</version>
 </dependency>
 ```
 

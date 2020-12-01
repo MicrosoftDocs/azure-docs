@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/matlab-mdcs-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/connection-monitor-preview.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-overview",
       "redirect_document_id": false
@@ -48426,7 +48431,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/sql-date-warehouse/index.yml",
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/index.yml",
       "redirect_url": "/azure/synapse-analytics/",
       "redirect_document_id": false
     },
