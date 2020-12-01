@@ -1,6 +1,6 @@
 ---
-title: Best practices for serverless SQL pool (preview) 
-description: Recommendations and best practices for working with serverless SQL pool (preview). 
+title: Best practices for serverless SQL pool
+description: Recommendations and best practices for working with serverless SQL pool. 
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Best practices for serverless SQL pool (preview) in Azure Synapse Analytics
+# Best practices for serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll find a collection of best practices for using serverless SQL pool (preview). Serverless SQL pool is a resource in Azure Synapse Analytics.
+In this article, you'll find a collection of best practices for using serverless SQL pool. Serverless SQL pool is a resource in Azure Synapse Analytics.
 
 ## General considerations
 
@@ -122,13 +122,17 @@ If your stored data isn't partitioned, consider partitioning it. That way you ca
 
 You can use a performance-optimized parser when you query CSV files. For details, see [PARSER_VERSION](develop-openrowset.md).
 
+## Manually create statistics for CSV files
+
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics will be automatically created for columns in Parquet files when needed. At this moment, statistics are not automatically created for columns in CSV files and you should create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool for details.
+
 ## Use CETAS to enhance query performance and joins
 
 [CETAS](develop-tables-cetas.md) is one of the most important features available in serverless SQL pool. CETAS is a parallel operation that creates external table metadata and exports the SELECT query results to a set of files in your storage account.
 
 You can use CETAS to store frequently used parts of queries, like joined reference tables, to a new set of files. You can then join to this single external table instead of repeating common joins in multiple queries.
 
-As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table, resulting in improved performance.
+As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table, resulting in improved performance for subsequent queries targeting table generated with CETAS.
 
 ## Azure AD Pass-through performance
 

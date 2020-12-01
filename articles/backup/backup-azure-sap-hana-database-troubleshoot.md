@@ -148,7 +148,7 @@ Upgrades to the OS, SDC version change, or MDC version change that don't cause a
 - Ensure that the new OS version, SDC, or MDC version are currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the database
 - Perform the upgrade or update
-- Rerun the pre-registration script. Usually, the upgrade process removes the necessary roles. Running the pre-registration script will help verify all the required roles
+- Rerun the pre-registration script. Often, the upgrade process may remove [the necessary roles](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). Running the pre-registration script will help verify all the required roles.
 - Resume protection for the database again
 
 ## SDC to MDC upgrade with no change in SID

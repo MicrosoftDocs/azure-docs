@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2020
+ms.date: 11/30/2020
 ms.author: memildin
 
 ---
@@ -33,7 +33,11 @@ Updates in November include:
 
 - [29 preview recommendations added to increase coverage of Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-
+- [Recommendations list now includes filters](#recommendations-list-now-includes-filters)
+- [Auto provisioning experience improved and expanded](#auto-provisioning-experience-improved-and-expanded)
+- [Secure score is now available in continuous export (preview)](#secure-score-is-now-available-in-continuous-export-preview)
+- ["System updates should be installed on your machines" recommendation now includes sub-recommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [Policy management page in the Azure portal now shows status of default policy assignments](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
 
@@ -74,6 +78,69 @@ To apply the standard to your subscriptions and continuously monitor your compli
 For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
 
+### Recommendations list now includes filters
+
+You can now filter the list of security recommendations according to a range of criteria. In the following example, the recommendations list has been filtered to show recommendations that:
+
+- are **generally available** (i.e. not preview)
+- are for **storage accounts**
+- support **quick fix** remediation
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filters for the recommendations list":::
+
+
+### Auto provisioning experience improved and expanded
+
+The auto provisioning feature helps reduce management overhead by installing the required extensions on new - and existing - Azure VMs so they can benefit from Security Center's protections. 
+
+As Azure Security Center grows, more extensions have been developed and Security Center can monitor a larger list of resource types. The auto provisioning tools have now been expanded to support additional extensions and resource types by leveraging the capabilities of Azure Policy.
+
+You can now configure the auto provisioning of:
+
+- Log Analytics agent
+- (New) Azure Policy Add-on for Kubernetes
+- (New) Microsoft Dependency agent
+
+Learn more in [Auto provisioning agents and extensions from Azure Security Center](security-center-enable-data-collection.md).
+
+
+### Secure score is now available in continuous export (preview)
+
+With continuous export of secure score, you can stream changes to your score in real-time to Azure Event Hubs or a Log Analytics workspace. Use this capability to:
+
+- track your secure score over time with dynamic reports
+- export secure score data to Azure Sentinel (or any other SIEM)
+- integrate this data with any processes you might already be using to monitor secure score in your organization
+
+Learn more about how to [Continuously export Security Center data](continuous-export.md).
+
+
+### "System updates should be installed on your machines" recommendation now includes sub-recommendations
+
+The **System updates should be installed on your machines** recommendation has been enhanced. The new version includes sub-recommendations for each missing update and brings the following improvements:
+
+- A redesigned experience in the Azure Security Center pages of the Azure portal. The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the sub-recommendations in the portal experience for the updated recommendation":::
+
+- Enriched data for the recommendation from Azure Resource Graph (ARG). ARG is an Azure service that's designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+
+    For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) to query a wide range of security posture data.
+
+    Previously, if you queried this recommendation in ARG, the only available information was that the recommendation needs to be remediated on a machine. The following query of the enhanced version  will return each missing system updates grouped by machine.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+### Policy management page in the Azure portal now shows status of default policy assignments
+
+You can now see whether or not your subscriptions have the default Security Center policy assigned, in the Security Center's **security policy** page of the Azure portal.
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="The policy management page of Azure Security Center showing the default policy assignments":::
 
 ## October 2020
 
@@ -416,7 +483,7 @@ After pod security policy (preview) is deprecated, you must disable the feature 
 The following areas of the emails regarding security alerts have been improved: 
 
 - Added the ability to send email notifications about alerts for all severity levels
-- Added the ability to notify users with different RBAC roles on the subscription
+- Added the ability to notify users with different Azure roles on the subscription
 - We're proactively notifying subscription owners by default on high-severity alerts (which have a high-probability of being genuine breaches)
 - We've removed the phone number field from the email notifications configuration page
 

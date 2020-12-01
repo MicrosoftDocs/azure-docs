@@ -52,12 +52,12 @@ The following PowerShell script will create the [create](/azure/data-explorer/ku
 ```powershell
 PARAM(
     $resourcegroupname, #The name of the Azure resource group
-    $TableName, # The log lanlyics table you wish to convert to external table
+    $TableName, # The Log Analytics table you wish to convert to external table
     $MapName, # The name of the map
     $subscriptionId, #The ID of the subscription
-    $WorkspaceId, # The log lanlyics WorkspaceId
-    $WorkspaceName, # The log lanlyics workspace name
-    $BlobURL, # The Blob URL where to save
+    $WorkspaceId, # The Log Analytics WorkspaceId
+    $WorkspaceName, # The Log Analytics workspace name
+    $BlobURL, # The Blob URL where the data is saved
     $ContainerAccessKey, # The blob container Access Key (Option to add a SAS url)
     $ExternalTableName = $null # The External Table name, null to use the same name
 )
@@ -117,7 +117,8 @@ The following image shows and example of the output.
 [![Example output](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
->Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.
+>* Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.
+>* To use all of the data inside the container, alter the script and change the URL to be 'https://your.blob.core.windows.net/containername;SecKey'
 
 ## Query the exported data from Azure Data Explorer 
 
@@ -131,4 +132,4 @@ external_table("HBTest","map") | take 10000
 
 ## Next steps
 
-- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Learn to [write queries in Azure Data Explorer](/azure/data-explorer/write-queries)

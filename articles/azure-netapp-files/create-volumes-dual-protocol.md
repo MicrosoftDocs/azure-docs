@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -46,6 +46,8 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
     |-	|-	|-	|-	|-	|
     | UNIX 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
     | NTFS 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
+* UNIX users mounting the NTFS security style volume using NFS will be authenticated as Windows user `root` for UNIX `root` and `pcuser` for all other users. Make sure that these user accounts exist in your Active Directory prior to mounting the volume when using NFS. 
+
 
 ## Create a dual-protocol volume
 

@@ -25,7 +25,7 @@ In this tutorial, you learn to deploy a [Nuxt.js](https://nuxtjs.org) generated 
 You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new project, in this tutorial you begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a dynamic Nuxt.js app as a static site.
 
 1. Create a new repository under your GitHub account from a template repository.
-1. Navigate to <http://github.com/staticwebdev/nuxtjs-starter/generate>
+1. Navigate to [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
 1. Name the repository **nuxtjs-starter**
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 

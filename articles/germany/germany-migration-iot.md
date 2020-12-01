@@ -49,7 +49,7 @@ Migrating Azure Functions resources from Azure Germany to global Azure isn't sup
 
 For more information:
 
-- Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions).
+- Refresh your knowledge by completing the [Functions tutorials](../azure-functions/index.yml).
 - Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -65,7 +65,7 @@ To migrate settings from one instance of Azure Notification Hubs to another inst
 
 For more information:
 
-- Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started).
+- Refresh your knowledge by completing the [Notification Hubs tutorials](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).
 - Review the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## IoT Hub

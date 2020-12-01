@@ -374,7 +374,7 @@ Microsoft performs vulnerability management on the underlying resources that sup
 ### 5.2: Deploy automated operating system patch management solution
 **Guidance:** Use Azure Update Management to ensure the most recent security updates are installed on your Windows and Linux VMs hosted within DevTest Labs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically. This setting isn't currently available to configure through DevTest Labs, however lab admin/subscription admin can configure this setting on the underlying compute VMs in their subscription. 
 
-- [How to configure Update Management for VMs in Azure](../automation/update-management/update-mgmt-overview.md)
+- [How to configure Update Management for VMs in Azure](../automation/update-management/overview.md)
 - [Understand Azure security policies monitored by Security Center](../security-center/policy-reference.md)
 
 **Azure Security Center monitoring:** Not applicable
@@ -388,8 +388,8 @@ Learn more about [DevTest Labs Image Factory](image-factory-create.md), which is
 
 As a subscription admin, you can also use the Azure Update Management solution to manage updates and patches for DevTest Labs VMs. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-- [Update Management solution in Azure](../automation/update-management/update-mgmt-overview.md)
-- [Manage updates and patches for your VMs](../automation/update-management/update-mgmt-overview.md)
+- [Update Management solution in Azure](../automation/update-management/overview.md)
+- [Manage updates and patches for your VMs](../automation/update-management/overview.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -688,7 +688,7 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 
 - [Configure managed identity to deploy Azure Resource Manager environments in DevTest Labs](use-managed-identities-environments.md)
 - [Configure managed identity to deploy virtual machines in DevTest Labs](enable-managed-identities-lab-vms.md)
-- [How to create a key vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a key vault](../key-vault/general/quick-create-portal.md)
 - [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 - [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 

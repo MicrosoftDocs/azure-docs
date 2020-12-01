@@ -121,7 +121,7 @@ To run the application on Open Liberty, you need to create an Open Liberty serve
    [INFO] Source compilation was successful.
    ```
 
-1. Open [http://localhost:9080/](http://localhost:9080/) in your browser to visit the application home page. The application will look similar to the following image:
+1. Open `http://localhost:9080/` in your browser to visit the application home page. The application will look similar to the following image:
 
    ![JavaEE Cafe Web UI](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Press **Control-C** to stop the application and Open Liberty server.
@@ -159,7 +159,7 @@ Before deploying the containerized application to a remote cluster, run with you
 
 1. Run `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` in your console.
 2. Wait for Liberty server to start and the application to deploy successfully.
-3. Open [http://localhost:9080/](http://localhost:9080/) in your browser to visit the application home page.
+3. Open `http://localhost:9080/` in your browser to visit the application home page.
 4. Press **Control-C** to stop the application and Liberty server.
 
 ### Push the image to the container image registry

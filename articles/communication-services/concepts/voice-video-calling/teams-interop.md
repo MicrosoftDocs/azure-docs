@@ -31,11 +31,12 @@ The high-level architecture for this use-case looks like this:
 
 While certain Teams meeting features such as raised hand, together mode, and breakout rooms will only be available for Teams users, your custom application will have access to the meeting's core audio, video, and screen sharing capabilities.
 
-When a Communication Services user joins the Teams meeting, the display name provided through the Calling client library will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams. Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
+When a Communication Services user joins the Teams meeting, the display name provided through the Calling client library will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams. Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
-Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams).
+Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams).
 
-
+## Teams in Government Clouds (GCC)
+Azure Communication Services interoperability is not allowed to Teams deployments using [Microsoft 365 government clouds (GCC)](https://docs.microsoft.com/MicrosoftTeams/plan-for-government-gcc) at this time. 
 
 ## Next steps
 

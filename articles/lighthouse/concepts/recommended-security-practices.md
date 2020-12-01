@@ -12,11 +12,11 @@ When using [Azure Lighthouse](../overview.md), it's important to consider securi
 > [!TIP]
 > These recommendations also apply to [enterprises managing multiple tenants](enterprise.md) with Azure Lighthouse.
 
-## Require Azure Multi-Factor Authentication
+## Require Azure AD Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
+[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
 
-We suggest that you ask your customers to implement Azure Multi-Factor Authentication in their tenants as well.
+We suggest that you ask your customers to implement Azure AD Multi-Factor Authentication in their tenants as well.
 
 ## Assign permissions to groups, using the principle of least privilege
 
@@ -42,5 +42,5 @@ Keep  in mind that when you [onboard customers through a public managed service 
 
 ## Next steps
 
-- [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Deploy Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).

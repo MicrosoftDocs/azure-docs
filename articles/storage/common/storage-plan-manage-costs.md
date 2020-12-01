@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -34,6 +34,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
    As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations. 
 
 4. Modify the remaining options to see their affect on your estimate.
+
+   > [!NOTE]
+   > You can pay for Azure Blob storage charges with your Azure Enterprise Agreement monetary commitment credit. However, you can't use the monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Optimize costs
 
@@ -95,11 +98,15 @@ To view Azure Storage costs in cost analysis:
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear. 
 You can add other filters as well (For example: a filter to see costs for specific storage accounts).
 
+## Export cost data
+
+You can also [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+
 ## Next steps
 
-Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
-
-See the following articles to learn more on how pricing works with Azure Storage:
-
-- [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/)
-- [Optimize costs for Blob storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md)
+- Learn more on how pricing works with Azure Storage. See [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/).
+- [Optimize costs for Blob storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
+- Learn [how to optimize your cloud investment with Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn more about managing costs with [cost analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn about how to [prevent unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Take the [Cost Management](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
