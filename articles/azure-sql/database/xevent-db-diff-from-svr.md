@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: reference
 author: MightyPen
 ms.author: genemi
-ms.reviewer: jrasnik
+ms.reviewer: wiassaf
 ms.date: 12/19/2018
 ---
 # Extended events in Azure SQL Database 
