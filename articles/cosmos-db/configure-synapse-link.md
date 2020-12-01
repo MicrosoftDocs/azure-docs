@@ -20,8 +20,8 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Az
 * [Create an analytical store enabled Azure Cosmos DB container](#create-analytical-ttl)
 * [Connect your Azure Cosmos DB database to a Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
-* [Query the analytical store using Synapse SQL serverless](#query-analytical-store-sql-on-demand)
-* [Use Synapse SQL serverless to analyze and visualize data in Power BI](#analyze-with-powerbi)
+* [Query the analytical store using serverless SQL pool](#query-analytical-store-sql-on-demand)
+* [Use serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
@@ -210,11 +210,11 @@ Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-
 
 ## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using serverless SQL pool in Azure Synapse Analytics
 
-Serverless SQL pool allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using Synapse SQL serverless](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
+Serverless SQL pool allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using serverless SQL pool](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 
-## <a id="analyze-with-powerbi"></a>Use Synapse SQL serverless to analyze and visualize data in Power BI
+## <a id="analyze-with-powerbi"></a>Use serverless SQL pool to analyze and visualize data in Power BI
 
-You can build a Synapse SQL serverless database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [Synapse SQL serverless to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
+You can build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. To learn more, see how to use [Serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
 
 ## Azure Resource Manager template
 
@@ -236,4 +236,4 @@ To learn more, see the following docs:
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL serverless runtime support in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Serverless SQL pool runtime support in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
