@@ -710,6 +710,8 @@
       href: migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
       href: migration-classic-resource-manager-cli.md
+        - name: Migrate using PowerShell
+      href: migration-classic-resource-manager-ps.md
     - name: Common migration errors
       href: migration-classic-resource-manager-errors.md
     - name: Community tools for migration
@@ -732,6 +734,8 @@
         href: ./windows/time-sync.md
     - name: Run scripts on a VM
       items:
+      - name: Overview
+        href: ./linux/run-scripts-in-vm.md
       - name: Custom Script Extension
         items:
         - name: Linux
@@ -1028,7 +1032,7 @@
   - name: Encryption
     items:
     - name: Overview
-      href: ./linux/disk-encryption.md
+      href: disk-encryption.md
     - name: Disk encryption scenarios
       items:
       - name: Linux
@@ -1118,13 +1122,13 @@
   - name: Designing for high performance
     href: premium-storage-performance.md
   - name: Disk bursting
-    href: ./linux/disk-bursting.md
+    href: disk-bursting.md
   - name: Scalability targets for disks
     href: ./linux/disk-scalability-targets.md
   - name: Backup and disaster recovery for disks
     href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-  - name: Shared disks
-    href: ./linux/disks-shared.md
+  - name: Disk performance tiers
+    href: ../disks-change-performance.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Swap the OS disk
@@ -1149,8 +1153,12 @@
           href: ./windows/attach-disk-ps.md
         - name: Azure portal
           href: ./windows/attach-managed-disk-portal.md
-    - name: Change disk tier
-      href: disks-performance-tiers.md
+    - name: Change disk performance tier
+      items: 
+      - name: CLI and PowerShell
+        href: disks-performance-tiers.md
+      - name: Portal
+        href: disks-performance-tiers-portal.md
     - name: Detach a disk
       items:
       - name: Linux
@@ -1160,8 +1168,12 @@
     - name: Deploy disks with ARM template
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
-    - name: Enable shared disks
-      href: disks-shared-enable.md
+    - name: Shared disks
+      items:
+      - name: Overview
+        href: ./linux/disks-shared.md
+      - name: Enable shared disks
+        href: disks-shared-enable.md
     - name: Upload a vhd to a disk
       items: 
       - name: PowerShell
@@ -1217,7 +1229,7 @@
         - name: PowerShell
           href: ./windows/disks-enable-customer-managed-keys-powershell.md
         - name: Portal
-          href: ./windows/disks-enable-customer-managed-keys-portal.md
+          href: disks-enable-customer-managed-keys-portal.md
       - name: Enable double encryption-at-rest
         items: 
       - name: CLI
@@ -1292,7 +1304,7 @@
   - name: Use accelerated networking
     href: ../virtual-network/create-vm-accelerated-networking-cli.md
   - name: Assign public DNS name
-    href: ./linux/portal-create-fqdn.md
+    href: create-fqdn.md
   - name: Find and delete unattached NICs
     href: ./linux/find-unattached-nics.md
   - name: DNS resolution
@@ -1306,9 +1318,9 @@
   - name: Built-in security controls
     href: virtual-machines-windows-security-controls.md
   - name: Azure security overview
-    href: ./linux/tutorial-azure-security.md
+    href: tutorial-azure-security.md
   - name: Recommendations
-    href: ./linux/security-recommendations.md
+    href: security-recommendations.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
   - name: Policy
@@ -1354,7 +1366,7 @@
       - name: PowerShell 
         href: ./windows/key-vault-setup.md
   - name: Mitigating speculative execution
-    href: ./linux/mitigate-se.md
+    href: mitigate-se.md
   - name: Join a Linux VM to Azure Active Directory
     displayName: Azure AD
     items:
@@ -1504,19 +1516,28 @@
   items:
   - name: Overview
     href: backup-recovery.md
-  - name: Disaster recovery
+  - name: Service disks-enable-double-encryption-at-rest-portal.md
     href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs
-    href: ../backup/backup-overview.md
-    items:
-    - name: Back up a single VM
-      href: ../backup/quick-backup-vm-cli.md
+    items: 
+    - name: Backup service overview
+      href: ../backup/backup-overview.md
+    - name: Quickstarts
+      items: 
+      - name: CLI
+        href: ../backup/quick-backup-vm-cli.md
+      - name: PowerShell
+        href: ../backup/quick-backup-vm-powershell.md
+      - name: Portal 
+        href: ../backup/quick-backup-vm-portal.md
+      - name: Template
+        href: ../backup/quick-backup-vm-template.md
     - name: Back up multiple VMs
       href: ../backup/tutorial-backup-vm-at-scale.md
     - name: Restore a disk       
       href: ../backup/tutorial-store-disk.md
     - name: Restore individual files
-      href: ../backup/torial-restore-files.md
+      href: ../backup/tutorial-restore-files
   - name: Set up disaster covery for VMs
     items:
     - name: Overview
