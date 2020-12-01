@@ -25,9 +25,9 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated 
 
 Rather than using the Next.js CLI to create an app, you can use a starter repository that includes an existing Next.js app. This repository features a Next.js app with dynamic routes, which highlights a common deployment issue. Dynamic routes need an extra deployment configuration which you will learn more about in a moment.
 
-To begin, create a new repository under your GitHub account from a template repository. 
+To begin, create a new repository under your GitHub account from a template repository.
 
-1. Navigate to <http://github.com/staticwebdev/nextjs-starter/generate>
+1. Navigate to [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
 1. Name the repository **nextjs-starter**
 1. Next, clone the new repo to your machine. Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your account name.
 

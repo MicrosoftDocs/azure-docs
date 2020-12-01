@@ -206,7 +206,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
 | setting.showSignupLink <sup>2</sup>| No | Displays the sign-up button. Possible values: `true` (default), or `false` |
 | setting.forgotPasswordLinkLocation <sup>2</sup>| No| Displays the forgot password link. Possible values: `AfterInput` (default) the link is displayed at the bottom of the page, or `None` removes the forgot password link.|
-| setting.enableRememberMe <sup>2</sup>| No| Displays the [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox. Possible values: `true` , or `false` (default). |
+| setting.enableRememberMe <sup>2</sup>| No| Displays the [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox. Possible values: `true`, or `false` (default). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
