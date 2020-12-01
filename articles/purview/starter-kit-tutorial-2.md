@@ -90,7 +90,7 @@ Follow these steps to search for an asset and mark yourself as the owner:
 
 ## Next steps
 
-In this tutorial, you learned how to:
+Before you move on to the next tutorial in this series, take some additional time to explore the Azure Purview home page on your own. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
