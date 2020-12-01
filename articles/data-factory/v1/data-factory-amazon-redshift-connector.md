@@ -100,7 +100,7 @@ Alternatively, you can use the **RelationalSource** type, which includes Amazon 
 
 The Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) command unloads the results of a query to one or more files on Amazon S3. This command is recommended by Amazon for copying large datasets from Redshift.
 
-**Example: Copy data from Amazon Redshift to Azure Synapse Analytics (formerly SQL Data Warehouse)**
+**Example: Copy data from Amazon Redshift to Azure Synapse Analytics**
 
 This example copies data from Amazon Redshift to Azure Synapse Analytics. The example uses the Redshift **UNLOAD** command, staged copy data, and Microsoft PolyBase.
 

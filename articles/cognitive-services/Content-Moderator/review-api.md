@@ -23,7 +23,7 @@ Content Moderator combines machine-assisted moderation with human-in-the-loop ca
 In a review, content is uploaded to the Review tool. You can view it by clicking its content type under **Review** tab on the dashboard. From the review screen, you can alter the applied tags and apply your own custom tags as appropriate. When you submit a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
 > [!div class="mx-imgBorder"]
-> ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-tab.png)
+> ![The Review drop-down menu is highlighted. It shows these content types: Image, Text, and Video.](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### Manage reviews
 
@@ -37,7 +37,7 @@ The three-dot **Actions** button on each review lets you go to the review screen
 Use the **Search** toolbar to sort the reviews by a variety of categories such as review state, tags, content type, subteams, assigned users, and created/modified date.
 
 > [!div class="mx-imgBorder"]
-> ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-search.png)
+> ![The Search toolbar is shown. It has various combo boxes for entering search criteria, such as Review State and Tags.](./Review-Tool-user-Guide/images/review-search.png)
 
 See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [REST API guide](./try-review-api-review.md) to learn how to do so programmatically.
 
