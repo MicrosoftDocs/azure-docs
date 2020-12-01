@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create and import glossary terms'
+title: 'Tutorial: Create and import glossary terms (preview)'
 description: This tutorial describes how to create glossary terms, add glossary terms to an asset, and import glossary terms. 
 author: hophan
 ms.author: hophan
@@ -8,8 +8,12 @@ ms.subservice: data-catalog-gen2
 ms.topic: tutorial
 ms.date: 10/01/2020
 ---
-
 # Tutorial: Create and import glossary terms
+
+> [!IMPORTANT]
+> Azure Purview is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A glossary is an important tool for maintaining and organizing your catalog. You build your glossary by defining new terms or importing a term list and then applying those terms to your assets.
 

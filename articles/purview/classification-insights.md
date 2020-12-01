@@ -1,5 +1,5 @@
 ---
-title: Classification reporting on your data using Purview Insights
+title: Classification reporting on your data using Purview Insights (preview)
 description: This how-to guide describes how to view and use Purview Insights classification reporting on your data. 
 author: batamig
 ms.author: bagol
