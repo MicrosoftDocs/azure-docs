@@ -1,6 +1,6 @@
 ---
 title: Synapse Studio notebooks
-description: In this article, you learn how to create and develop Azure Synapse Studio (preview) notebooks to do data preparation and visualization.
+description: In this article, you learn how to create and develop Azure Synapse Studio notebooks to do data preparation and visualization.
 services: synapse analytics 
 author: ruixinxu 
 ms.service: synapse-analytics 
@@ -12,9 +12,9 @@ ms.reviewer:
 ms.custom: devx-track-python
 ---
 
-# Create, develop, and maintain Synapse Studio (preview) notebooks in Azure Synapse Analytics
+# Create, develop, and maintain Synapse Studio notebooks in Azure Synapse Analytics
 
-A Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
+A Synapse Studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
 With an Azure Synapse Studio notebook, you can:
 
@@ -394,68 +394,6 @@ You can access data in the primary storage account directly. There's no need to 
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## Visualize data in a notebook
-
-### Produce rendered table view
-
-A tabular results view is provided with the option to create a bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the **Chart Options**. 
-
-The output of **%%sql** magic commands appear in the rendered table view by default. You can call <code>display(df)</code> on Spark DataFrames, Pandas DataFrames, List, or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
-
-   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
-
-### Visualize built-in charts from large-scale dataset 
-
-By default the <code>display(df)</code> function will only take the first 1000 rows of the data to render the charts. Check the **Aggregation over all results** and select **Apply** button, you will apply the chart generation from the whole dataset. A spark job will be triggered when the chart setting changes, it takes a while to complete the calculation and render the chart. 
-    [![builtin-charts-aggregation-all](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
-
-
-
-### Visualize data statistic information
-You can use <code>display(df, summary = True)</code> to check the statistics summary of a given spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its Minimal value, Maximal value, Mean value and Standard Deviation.
-    [ ![builtin-charts-summary](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png) ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
-
-### Render HTML or interactive libraries
-
-You can render HTML code, including JavaScript, CSS, D3, or interactive libraries, like **bokeh**, using the **displayHTML()**.
-
-The following image is an example of plotting glyphs over a map using **bokeh**.
-
-   ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
-   
-
-Run the following sample code to draw the image above.
-
-```python
-from bokeh.plotting import figure, output_file
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.embed import file_html
-from bokeh.resources import CDN
-from bokeh.models import ColumnDataSource
-
-tile_provider = get_provider(Vendors.CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
-p.add_tile(tile_provider)
-
-# plot datapoints on the map
-source = ColumnDataSource(
-    data=dict(x=[ -8800000, -8500000 , -8800000],
-              y=[4200000, 4500000, 4900000])
-)
-
-p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
-
-# create an html document that embeds the Bokeh plot
-html = file_html(p, CDN, "my plot1")
-
-# display this html
-displayHTML(html)
-
-```
-
 ## Save notebooks
 
 You can save a single notebook or all notebooks in your workspace.
@@ -538,11 +476,11 @@ Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user i
 
 1. A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.
 
-   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
 2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to select on a cell's editor area.
    
-   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### Shortcut keys under command mode
 
@@ -610,7 +548,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Next steps
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
-- [Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
 - [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
