@@ -17,7 +17,7 @@ In this guide, you'll find the most frequently asked questions for Azure Synapse
 
 ## General
 
-### Q: What RBAC roles exist and how I use them to secure a Synapse workspace?
+### Q: What RBAC roles exist and how do I use them to secure a Synapse workspace?
 
 A: Azure Synapse introduces a number of roles and scopes to assign them on that will simplify securing your workspace.
 
@@ -96,7 +96,7 @@ A: Azure Synapse Apache Spark fully supports Spark 2.4. For a full list of core 
 
 A: Yes, Azure Synapse Apache Spark provides the **mssparkutils** library. For full documentation of the utility see [Introduction to Microsoft Spark utilities](./spark/microsoft-spark-utilities.md).
 
-### Q: How do I set Session parameters in Apache Spark?
+### Q: How do I set session parameters in Apache Spark?
 
 A: To set session parameters, use %%configure magic available. A session restart is required for the parameters to take effect. 
 
@@ -132,7 +132,7 @@ A: You can find a full list of differences in [T-SQL feature differences in Syna
 A: There is no “move” or “migration.” 
 You can choose to enable new workspace features on your existing pools. If you do, there are no breaking changes, instead you’ll be able to use new features such as Synapse Studio, Spark, and serverless SQL pools.
 
-### Q: What is the default deployment of dedicated SQL Pools now? 
+### Q: What is the default deployment of dedicated SQL pools now? 
 
 A: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor. 
 
