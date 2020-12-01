@@ -160,9 +160,9 @@ This example request body shows the sample values:
    "identity": {
       "type": "UserAssigned",
       "userAssignedIdentities": {
-         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
-            "principalId": "{principal-ID}",
-            "clientId": "{client-ID}"
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
          }
       }
    },
