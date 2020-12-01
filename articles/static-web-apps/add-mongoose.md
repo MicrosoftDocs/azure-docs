@@ -8,7 +8,7 @@ ms.topic: tutorial #Required
 ms.date: #Required; mm/dd/yyyy format.
 ---
 
-# Tutorial: Access Cosmos DB's API for MongoDB with Mongoose and Azure Static Web Apps
+# Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps
 
 [Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Mongoose allows you to design your data structure and enforce validation, and provides all the tooling necessary to interact with any database which supports the Mongoose API. [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction?WT.mc_id=javascript-11262-chrhar) can be used as a back-end server for Mongoose as it supports the necessary APIs, and the Azure Functions running in Azure Static Web Apps can run Mongoose. Let's explore how to bring these services together.
 
