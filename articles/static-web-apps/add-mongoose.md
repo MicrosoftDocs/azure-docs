@@ -53,7 +53,7 @@ Begin by creating a [Cosmos DB serverless](https://docs.microsoft.com/azure/cosm
 7. Click **Review + create**
 8. Click **Create**
 
-The creation process will take a few minutes. We're going to focus on creating our Azure Static Web App, and return to the database in a little while.
+The creation process will take a few minutes. Later steps will return to the database to gather the connection string.
 
 ## Create a static web app
 
