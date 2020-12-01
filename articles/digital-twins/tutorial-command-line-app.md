@@ -66,7 +66,7 @@ Select *Room.json* to open it in the editing window, and change it in the follow
     ,
     {
       "@type": "Relationship",
-      "name": "contains",
+      "name": "contains"
     }
     ```
 
