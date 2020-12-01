@@ -1,7 +1,7 @@
 ---
 title: Update a Cloud Service (extended support) - PowerShell
 description: Update a Cloud Service (extended support) using PowerShell
-ms.topic: quickstart
+ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw

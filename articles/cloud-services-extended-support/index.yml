@@ -25,14 +25,16 @@ landingContent:
             url: overview.md
 
   # Card
-  - title: Quickstart Guides
+  - title: Tutorials
     linkLists:
-      - linkListType: quickstart
+      - linkListType: tutorial
         links:
           - text: Deploy using PowerShell
             url: deploy-powershell.md
           - text: Deploy using the Azure portal
             url: deploy-portal.md
+          - text: Deploy using ARM templates
+            url: deploy-template.md
           - text: Deploy using Visual Studio
             url: deploy-visual-studio.md
 
@@ -43,6 +45,8 @@ landingContent:
         links:
           - text: Available sizes
             url: available-sizes.md
+          - text: Manage deployments
+            url: manage-powershell.md
           - text: Frequently asked questions
             url: faq.md
 
@@ -53,6 +57,10 @@ landingContent:
         links:
           - text: Enable Remote Desktop
             url: enable-rdp.md
+          - text: Enable monitoring
+            url: enable-monitoring.md
+          - text: Configure scaling
+            url: configure-scaling.md
           - text: Swap Cloud Service deployments
             url: cloud-services-swap.md
           - text: Update a Cloud Service
