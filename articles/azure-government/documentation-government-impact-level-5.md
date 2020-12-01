@@ -194,7 +194,7 @@ Azure HDInsight can be used in Azure Government supporting Impact Level 5 worklo
 
 ### [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse/)
 
-Azure Synapse Analytics (formerly SQL Data Warehouse) can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Azure Synapse Analytics can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 

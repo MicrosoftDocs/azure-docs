@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Indexing tables using dedicated SQL pool in Azure Synapse Analytics
+# Indexing dedicated SQL pool tables in Azure Synapse Analytics
 
 Recommendations and examples for indexing tables in dedicated SQL pool.
 

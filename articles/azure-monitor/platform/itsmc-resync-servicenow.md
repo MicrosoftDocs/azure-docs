@@ -8,8 +8,9 @@ ms.author: nolavime
 ms.date: 04/12/2020
 
 ---
+# Troubleshooting problems in ITSM Connector
 
-# How to manually fix ServiceNow sync problems
+## How to manually fix ServiceNow sync problems
 
 Azure Monitor can connect to third-party IT Service Management (ITSM) providers. ServiceNow is one of those providers.
 
