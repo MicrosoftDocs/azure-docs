@@ -1,6 +1,6 @@
 ---
-title: SQL scripts in Azure Synapse Studio (preview)
-description: Introduction to Azure Synapse Studio (preview) SQL scripts   
+title: SQL scripts in Synapse Studio
+description: Introduction to Synapse Studio SQL scripts in Azure synapse Analytics.  
 services: synapse-analytics 
 author: pimorano 
 ms.service: synapse-analytics 
@@ -10,9 +10,9 @@ ms.date: 04/15/2020
 ms.author: pimorano 
 ms.reviewer: omafnan
 ---
-# Using SQL scripts in Azure Synapse Studio (preview)
+# Synapse Studio SQL scripts in Azure Synapse Analytics 
 
-Azure Synapse Studio (preview) provides a SQL script web interface for you to author SQL queries. You can connect to SQL pool (preview). 
+Synapse Studio provides a SQL script web interface for you to author SQL queries. 
 
 ## Begin authoring in SQL script 
 
