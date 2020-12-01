@@ -104,7 +104,7 @@ Use the self-host integration runtime capability. !-->
 A glossary uses a naming convention followed by non-technical/business users of the data, also known as data consumers. These types of people are business analysts or data scientists who use Azure Purview to search for certain types of data, based on business usage. For instance, supply chain analysts might need to search for the terms *SKU types* and *shipment details*. They search the glossary for these terms to find relevant data.
 Classification is a tag applied to a data asset at the table, column, or file level, that identifies what data exists in the asset. Classification can be applied automatically or manually, based on the type of data found. Typically, you use classification tags to identify whether an asset contains sensitive data, and what type of sensitive data that might be.
 
-### Does Azure Purview scan and classify emails, PDFs etc. in my Sharepoint and onedrive?
+### Does Azure Purview scan and classify emails, PDFs etc. in my Sharepoint and OneDrive?
 
 Scanning for on-premises SharePoint sites and libraries is provided through the Azure Information Protection scanner. The scanner is available for use  through a customer's Microsoft 365 subscription with the following SKUs: AIP P1, EMS E3, and M365 E3. If you have any one of these SKUs, you should have the right entitlements to start using the Azure Information Protection scanner.
 
@@ -122,7 +122,7 @@ Security-focused customers will see a distinction between classification and lab
 ### What is the compute used for the scan?
 There is a Microsoft-managed scanning infrastructure. For most Azure/AWS resources that we support, you don't need to deploy a scanning infrastructure.
 
-### Is there a way to provision Azure Purview via Azure Resource Manager (ARM) template / CLI / Powershell?
+### Is there a way to provision Azure Purview via Azure Resource Manager (ARM) template / CLI / PowerShell?
 
 Yes, ARM template is available
 
