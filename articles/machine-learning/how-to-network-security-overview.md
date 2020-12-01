@@ -141,6 +141,7 @@ If your storage is in a VNet, you first must perform additional configuration st
 
 * Preview data in the studio.
 * Visualize data in the designer.
+* Deploy a model in the designer.
 * Submit an AutoML experiment.
 * Start a labeling project.
 

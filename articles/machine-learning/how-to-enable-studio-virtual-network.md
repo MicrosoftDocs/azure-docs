@@ -51,7 +51,7 @@ See the other articles in this series:
 
 Some of the studio's features are disabled by default in a virtual network. You must enable managed identity for storage accounts you intend to use in the studio. 
 
-Failing to enable managed identity, will result in the following error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile`. You will be unable to perform the following operations:
+Failing to enable managed identity will result in the following error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile`. You will be unable to perform the following operations:
 
 * Preview data in the studio.
 * Visualize data in the designer.
