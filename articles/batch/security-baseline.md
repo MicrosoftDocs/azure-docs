@@ -34,20 +34,15 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Deploy Azure Batch pool(s) within a virtual network. To allow pool compute nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool in a subnet of an Azure virtual network. Also, deploying your Pool within a virtual network gives you control over the network security group (NSG) used to secure the individual nodes' network interfaces (NIC), as well as the subnet. Configure the NSG to allow traffic from only trusted IP(s)/locations on the Internet.
 
-When applicable, disable public network access by using
-Azure Private Link to connect to the Azure Batch account via a private endpoint. The Azure Private Link service is secured and accepts connections only
-from authenticated and authorized private endpoints. You can additionally limit connectivity and discoverability by disabling publicly exposed RDP/SSH endpoints for compute nodes in a Batch pool.
+When applicable, disable public network access by using Azure Private Link to connect to the Azure Batch account via a private endpoint. The Azure Private Link service is secured and accepts connections only from authenticated and authorized private endpoints. You can additionally limit connectivity and discoverability by disabling publicly exposed RDP/SSH endpoints for compute nodes in a Batch pool.
 
 - [How to create an Azure Batch Pool within a Virtual Network](batch-virtual-network.md)
 
-How
-- [to create an Azure Batch account with network access disabled](private-connectivity.md) 
- 
-How
-- [to create a private endpoint](../private-link/create-private-endpoint-portal.md) 
+- [How to create an Azure Batch account with network access disabled](private-connectivity.md)
 
-How
-- [to deny access to RDP/SSH traffic](pool-endpoint-configuration.md)
+- [How to create a private endpoint](../private-link/create-private-endpoint-portal.md)
+
+- [How to deny access to RDP/SSH traffic](pool-endpoint-configuration.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -992,11 +987,11 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:
+**Guidance**: - [Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.)
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
+You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, below: 
 
-- [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
