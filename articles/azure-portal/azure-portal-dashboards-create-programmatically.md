@@ -655,3 +655,41 @@ This example deploys a dashboard by itself, but the template language lets you d
 ```
 
 Now that you've seen an example of using a parameterized template to deploy a dashboard, you can try deploying the template by using the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](/cli/azure), or [Azure PowerShell commands](/powershell/azure/get-started-azureps).
+
+## Programmatically create a dashboard by using Azure CLI
+
+Run the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to create a dashboard:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+You can update a dashboard by using the [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) command:
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+See the details of a dashboard by running the [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) command:
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+You can also see all the dashboards for a resource group:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## Next steps
+
+For more information about desktops, see [Manage Azure portal settings and preferences](set-preferences.md)
+
+For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).

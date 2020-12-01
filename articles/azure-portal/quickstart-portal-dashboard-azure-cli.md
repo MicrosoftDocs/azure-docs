@@ -1,6 +1,6 @@
 ---
 title: Create an Azure portal dashboard with Azure CLI
-description: Learn how to create a dashboard in the Azure portal using the Azure CLI.
+description: "Quickstart: Learn how to create a dashboard in the Azure portal using the Azure CLI. A dashboard is a focused and organized view of your cloud resources."
 author: mgblythe
 ms.service: azure-portal
 ms.topic: quickstart
@@ -15,14 +15,14 @@ A dashboard in the Azure portal is a focused and organized view of your cloud re
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
+1. If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
 Select a subscription by using the [az account set](/cli/azure/account#az_account_set) command:
 
    ```azurecli
    az account set --subscription 00000000-0000-0000-0000-000000000000
    ```
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az_group_create) command:
+1. Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az_group_create) command or use an existing resource group:
 
    ```azurecli
    az group create --name myResourceGroup --location centralus
@@ -44,15 +44,15 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 > For more information, see [username requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)
 and [password requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-The deployment now starts and typically takes a few minutes to complete. After deployment completes, move on to the next section.
+The deployment now starts and typically takes a few minutes to complete.
+After deployment completes, move on to the next section.
 
 ## Download the dashboard template
 
 Since Azure dashboards are resources, they can be represented as JSON.
-The following code downloads a JSON representation of a sample dashboard.
 For more information, see [The structure of Azure Dashboards](./azure-portal-dashboards-structure.md).
 
-Download the following dashboard: 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
+Download the following file: 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'.
 
 Customize the downloaded template by changing the following values to your values:
 
@@ -80,11 +80,23 @@ You can now deploy the template from within Azure CLI.
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-1. To see all your dashboards, use the [az portal dashboard list]
+To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
 
-   ```azurecli
-   az portal dashboard list --resource-group myResourceGroup
-   ```
+```azurecli
+az portal dashboard list
+```
+
+You can also see all the dashboards for a resource group:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+You can update a dashboard by using the [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) command:
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+```
 
 Verify that you can see data about the virtual machine from within the Azure portal.
 
