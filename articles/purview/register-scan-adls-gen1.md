@@ -61,7 +61,7 @@ on.
    :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Click on Access":::
 
 4. Click on **Add**. Add the **Purview Catalog** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children** in the Add to option as shown in the below screenshot and click on **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/msi-authentication.png" alt-text="MSI authentication details":::
+   :::image type="content" source="./media/register-scan-adls-gen1/managed-instance-authentication.png" alt-text="MSI authentication details":::
 
 5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](https://review.docs.microsoft.com/en-us/azure/purview/manage-credentials?branch=release-preview-babylon#create-azure-key-vaults-connections-in-your-azure-purview-account)
 
@@ -105,7 +105,7 @@ To use a service principal, you must first create one following these steps:
    :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Click on Access":::
 
 4. Click on **Add**. Add the **Service principal application** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children** in the Add to option as shown in the below screenshot and click on **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/serviceprincipal-authentication.png" alt-text="service principal authentication details":::
+   :::image type="content" source="./media/register-scan-adls-gen1/service-principal-authentication.png" alt-text="service principal authentication details":::
 
 5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](https://review.docs.microsoft.com/en-us/azure/purview/manage-credentials?branch=release-preview-babylon#create-azure-key-vaults-connections-in-your-azure-purview-account)
 
