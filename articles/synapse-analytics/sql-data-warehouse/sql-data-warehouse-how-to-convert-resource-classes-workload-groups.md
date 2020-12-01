@@ -1,6 +1,6 @@
 ---
 title: Convert resource class to a workload group 
-description: Learn how to create a workload group that is similar to a resource class in Azure Synapse Analytics.
+description: Learn how to create a workload group that is similar to a resource class in a dedicated SQL pool.
 services: synapse-analytics
 author: ronortloff
 manager: craigg

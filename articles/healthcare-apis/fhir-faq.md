@@ -26,7 +26,7 @@ Yes, the data is stored in managed databases in Azure. The Azure API for FHIR do
 We currently support Microsoft Azure Active Directory as the identity provider.
 
 ### What is the Recovery Point Objective (RPO) for the Azure API for FHIR?
-The Azure API for FHIR is backed by Cosmos DB as our persistence provider. Because of this, the RPO for the service equals [Cosmos DB (single region)](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) and is < 240 minutes.
+The Azure API for FHIR is backed by Cosmos DB as our persistence provider. Because of this, the RPO for the service equals [Cosmos DB (single region)](../cosmos-db/consistency-levels.md) and is < 240 minutes.
 
 ### What FHIR version do you support?
 
@@ -60,6 +60,10 @@ To see some of what is releasing into the Azure API for FHIR, please refer to th
 
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
 Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
+
+### Where can I find what version of FHIR is running on my database. 
+
+You can find the exact FHIR version exposed in the capability statement under the "fhirVersion" property.
 
 ## FHIR Implementations and Specifications
 
@@ -113,7 +117,7 @@ We have a collection of reference architectures available on the [Health Archite
 
 ### Where can I see an example of connecting a web application to Azure API for FHIR?
 
-We have a [Health Architecture GitHub page](https://github.com/microsoft/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
+We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
 
 ## Azure API for FHIR Features and Services 
 
