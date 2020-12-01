@@ -1,6 +1,6 @@
 ---
-title: Deploy a Cloud Service (extended support) - Template
-description: Deploy a Cloud Service (extended support) using ARM Template
+title: Create a Azure Azure Cloud Service (extended support) - Templates
+description: Create a Azure Cloud Service (extended support) using ARM Templates
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -50,7 +50,7 @@ When creating a Cloud Service (extended support) deployment using ARM templates,
 - Parameter name: `extensionProfile`
 - For more information on adding extensions to Cloud Service (extended support) deployments, see [Update a Azure Cloud Service (extended Support) deployment](sample-update-cloud-service.md)
 
-## Create a Cloud Service (extended support) using an ARM template
+## Create a Cloud Service (extended support)
 
 1. Upload the cscfg and cspkg file to a storage account and obtain the SAS URLs.
 2. Add the SAS URLs to the `cloudservices` resource section of the ARM template.
