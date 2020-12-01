@@ -48,5 +48,5 @@ Use the Labeling Insights report to identify the sensitivity labels found in you
 
 ## Next steps
 
-[Tutorial on how to view Insights in Purview](starter-kit-tutorial-6.md)
+[Tutorial on how to view Insights in Purview](./starter-kit-tutorial-6.md)
 
