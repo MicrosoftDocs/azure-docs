@@ -41,13 +41,29 @@ Create a Java application named *blob-quickstart-v12*.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command to create a "Hello world!" Java project.
 
-   ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart \
-                          -DartifactId=blob-quickstart-v12 \
-                          -DarchetypeArtifactId=maven-archetype-quickstart \
-                          -DarchetypeVersion=1.4 \
-                          -DinteractiveMode=false
+# [PowerShell](#tab/powershell)
+
+   ```powershell
+   mvn archetype:generate `
+     --define interactiveMode=n `
+     --define groupId=com.blobs.quickstart `
+     --define artifactId=blob-quickstart-v12 `
+     --define archetypeArtifactId=maven-archetype-quickstart `
+     --define archetypeVersion=1.4
    ```
+
+# [Bash](#tab/bash)
+
+   ```bash
+   mvn archetype:generate \
+        --define interactiveMode=n \
+        --define groupId=com.blobs.quickstart \
+        --define artifactId=blob-quickstart-v12 \
+        --define archetypeArtifactId=maven-archetype-quickstart \
+        --define archetypeVersion=1.4
+   ```
+
+---
 
 1. The output from generating the project should look something like this:
 
