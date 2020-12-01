@@ -110,6 +110,6 @@ Follow the instructions in the "Verify driver installation" section of [Install 
 ## Next steps
 See the following articles:
 
-- [Create and manage classroom labs](how-to-manage-classroom-labs.md)
+- [Create and manage labs](how-to-manage-classroom-labs.md)
 - [SOLIDWORKS computer-aided design (CAD) class type](class-type-solidworks.md)
 - [MATLAB (matrix laboratory) class type](class-type-matlab.md)

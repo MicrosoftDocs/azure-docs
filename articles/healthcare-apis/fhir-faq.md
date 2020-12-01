@@ -61,6 +61,10 @@ To see some of what is releasing into the Azure API for FHIR, please refer to th
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
 Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
 
+### Where can I find what version of FHIR is running on my database. 
+
+You can find the exact FHIR version exposed in the capability statement under the "fhirVersion" property.
+
 ## FHIR Implementations and Specifications
 
 ### Can I create a custom FHIR resource?
@@ -113,7 +117,7 @@ We have a collection of reference architectures available on the [Health Archite
 
 ### Where can I see an example of connecting a web application to Azure API for FHIR?
 
-We have a [Health Architecture GitHub page](https://github.com/microsoft/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
+We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
 
 ## Azure API for FHIR Features and Services 
 

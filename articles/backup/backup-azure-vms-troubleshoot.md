@@ -245,7 +245,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 
 **Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
 
-**Step 3**: Try [increasing the size of the VM](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) and retry the operation
+**Step 3**: Try [increasing the size of the VM](../virtual-machines/windows/resize-vm.md) and retry the operation
 
 ### 320001, ResourceNotFound - Could not perform the operation as VM no longer exists / 400094, BCMV2VMNotFound - The virtual machine doesn't exist / An Azure virtual machine wasn't found
 
