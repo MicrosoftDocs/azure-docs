@@ -36,13 +36,13 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
-            url: /azure/storage/common/storage-choose-data-transfer-solution.md
+            url: ../storage/common/storage-choose-data-transfer-solution.md
           - text: Use network or offline transfer
-            url: /azure/storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
+            url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
-          - text: 2009 release notes
-            url: azure-stack-edge-gpu-2008-release-notes.md
+          - text: 2011 release notes
+            url: azure-stack-edge-gpu-2011-release-notes.md
 
   # Card
   - title: "Requirements and limits"
@@ -81,7 +81,7 @@ landingContent:
       - linkListType: download
         links:
           - text: "Samples - C# for Azure Stack Edge Pro GPU"
-            url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
+            url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 
   # Card
   - title: Manage 

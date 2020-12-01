@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/matlab-mdcs-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/connection-monitor-preview.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-overview",
       "redirect_document_id": false
@@ -7515,12 +7520,17 @@
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-author-marketplace.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-center-portal/create-new-azure-apps-offer.md",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/managed-application-consume-marketplace.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -7775,7 +7785,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/managed-applications/publish-marketplace-app.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -19920,6 +19930,11 @@
     {
       "source_path": "articles/synapse-analytics/quickstart-synapse-studio.md",
       "redirect_url": "/azure/synapse-analytics/get-started-create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/release-notes.md",
+      "redirect_url": "/azure/synapse-analytics/overview-what-is",
       "redirect_document_id": false
     },
     {
@@ -32459,37 +32474,37 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -32579,7 +32594,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -32609,7 +32624,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
@@ -48531,18 +48546,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/index.yml",
+      "redirect_url": "/azure/synapse-analytics/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/index.yml",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/synapse-analytics/overview-faq.md",
-      "redirect_url": "/azure/synapse-analytics/overview-what-is",
       "redirect_document_id": false
     },
     {
@@ -57456,37 +57466,37 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-testdrive-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-azure-apps-offer",
+      "redirect_url": "/azure/marketplace/create-new-azure-apps-offer",
       "redirect_document_id": false
     },
     {
