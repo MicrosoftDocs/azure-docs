@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 10/12/2020
 ---
 
-# Copy and transform data in Azure Synapse Analytics (formerly SQL Data Warehouse) by using Azure Data Factory
+# Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 >
@@ -36,7 +36,7 @@ This Azure Synapse Analytics connector is supported for the following activities
 For Copy activity, this Azure Synapse Analytics connector supports these functions:
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
-- As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Synapse Analytics](#parallel-copy-from-synapse-analytics) section for details.
+- As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-azure-synapse-analytics) section for details.
 - As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or [COPY statement](#use-copy-statement) or bulk insert. We recommend PolyBase or COPY statement for better copy performance. The connector also supports automatically creating destination table if not exists based on the source schema.
 
 > [!IMPORTANT]
@@ -252,7 +252,7 @@ For a full list of sections and properties available for defining activities, se
 ### Azure Synapse Analytics as the source
 
 >[!TIP]
->To load data from Azure Synapse Analytics efficiently by using data partitioning, learn more from [Parallel copy from Synapse Analytics](#parallel-copy-from-synapse-analytics).
+>To load data from Azure Synapse Analytics efficiently by using data partitioning, learn more from [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-azure-synapse-analytics).
 
 To copy data from Azure Synapse Analytics, set the **type** property in the Copy Activity source to **SqlDWSource**. The following properties are supported in the Copy Activity **source** section:
 
@@ -266,9 +266,9 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 | partitionOptions | Specifies the data partitioning options used to load data from Azure Synapse Analytics. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Azure Synapse Analytics is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | ***Under `partitionSettings`:*** | | |
-| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
-| partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
-| partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-synapse-analytics) section. | No |
+| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-azure-synapse-analytics) section. | No |
+| partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-azure-synapse-analytics) section. | No |
+| partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-azure-synapse-analytics) section. | No |
 
 **Example: using SQL query**
 
@@ -400,7 +400,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 }
 ```
 
-## Parallel copy from Synapse Analytics
+## Parallel copy from Azure Synapse Analytics
 
 The Azure Synapse Analytics connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 
