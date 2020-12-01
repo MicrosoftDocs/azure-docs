@@ -14,7 +14,7 @@ ms.topic: how-to
 This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Cognitive Search index and creates an endpoint that can be called in your application or chat bot.
 
 This quickstart calls QnA Maker REST APIs:
-* [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - this API doesn't require any information in the body of the request.
+* [Publish](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - this API doesn't require any information in the body of the request.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This quickstart calls QnA Maker REST APIs:
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](../how-to/create-knowledge-base.md).
+    If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](./create-publish-knowledge-base.md).
 
 > [!NOTE]
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-python** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
@@ -70,6 +70,6 @@ python publish-kb-3x.py
 After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-python.md).
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [QnA Maker (V4) REST API Reference](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)
 
 [QnA Maker overview](../Overview/overview.md)

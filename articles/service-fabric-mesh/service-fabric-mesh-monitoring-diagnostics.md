@@ -5,7 +5,7 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 
 ---
 

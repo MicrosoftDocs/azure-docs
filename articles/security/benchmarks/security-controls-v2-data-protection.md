@@ -46,13 +46,13 @@ You can use Azure SQL Information Protection to assist in the classification and
 |--|--|--|--|
 | DP-2 | 13.2, 2.10 | SC-7, AC-4 |
 
-Protect sensitive data by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases). 
+Protect sensitive data by restricting access using Azure role-based access control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases). 
 
 To ensure consistent access control, all types of access control should be aligned to your enterprise segmentation strategy. The enterprise segmentation strategy should also be informed by the location of sensitive or business critical data and systems.
 
 For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
 
-- [Azure Role Based Access Control (RBAC)](../../role-based-access-control/overview.md)
+- [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [Understand customer data protection in Azure](../fundamentals/protection-customer-data.md)
 

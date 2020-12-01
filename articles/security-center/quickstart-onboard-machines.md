@@ -15,7 +15,7 @@ Security Center can monitor the security posture of your non-Azure computers, bu
 
 You can connect your non-Azure computers in any of the following ways:
 
-- Using [Azure Arc enabled servers (**recommended**)
+- Using Azure Arc enabled servers (**recommended**)
 - From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
 
 Each of these is described on this page.
