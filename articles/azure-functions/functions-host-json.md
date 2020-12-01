@@ -214,6 +214,28 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 
 Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
 
+## customHandler
+
+Configuration settings for a custom handler. For more information, see [Azure Functions custom handlers](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Property | Default | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | n/a | The executable to start as the custom handler process. It is a required setting when using custom handlers and its value is relative to the function app root. |
+| workingDirectory | *function app root* | The working directory in which to start the custom handler process. It is an optional setting and its value is relative to the function app root. |
+| arguments | n/a | An array of command line arguments to pass to the custom handler process. |
+| enableForwardingHttpRequest | false | If set, all functions that consist of only an HTTP trigger and HTTP output is forwarded the original HTTP request instead of the custom handler [request payload](functions-custom-handlers.md#request-payload). |
+
 ## durableTask
 
 Configuration setting can be found in [bindings for Durable Functions](durable/durable-functions-bindings.md#host-json).
