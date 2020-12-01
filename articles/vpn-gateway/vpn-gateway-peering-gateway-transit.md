@@ -56,7 +56,7 @@ The accounts you use to create a virtual network peering must have the necessary
 
 Learn more about [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%252fazure%252fvirtual-network%252ftoc.json) (Resource Manager only).
 
-## <a name="Same"></a>Same deployment model
+## <a name="same"></a>Same deployment model
 
 In this scenario, the virtual networks are both in the Resource Manager deployment model. Use the following steps to create or update the virtual network peerings to enable gateway transit.
 
@@ -81,7 +81,7 @@ In this scenario, the virtual networks are both in the Resource Manager deployme
    * Traffic forwarded from remote virtual network: **Allow**
    * Virtual network gateway: **Use the remote virtual network's gateway**
 
-     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-remote.png" alt-text="Screenshot shows vales for remote virtual network.":::
+     :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-remote.png" alt-text="Screenshot shows values for remote virtual network.":::
 
 1. Select **Add** to create the peering.
 1. Verify the peering status as **Connected** on both virtual networks.
@@ -92,7 +92,7 @@ If the peering was already created, you can modify the peering for transit.
 
 1. Navigate to the virtual network. Select **Peerings** and select the peering that you want to modify.
 
-   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-modify.png" alt-text="Screenshot shows modify peering gateway.":::
+   :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-modify.png" alt-text="Screenshot shows select peerings.":::
 
 1. Update the VNet peering.
 
@@ -104,7 +104,7 @@ If the peering was already created, you can modify the peering for transit.
 
 1. **Save** the peering settings.
 
-### <a name="PS-Same"></a>PowerShell sample
+### <a name="ps-same"></a>PowerShell sample
 
 You can also use PowerShell to create or update the peering with the example above. Replace the variables with the names of your virtual networks and resource groups.
 
@@ -130,9 +130,9 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="Different"></a>Different deployment models
+## <a name="different"></a>Different deployment models
 
-In this configuration, the spoke VNet **Spoke-Classic** is in the classic deployment model and the hub VNet **Hub-RM** is in the Resource Manager deployment model. When configuring transit between deployment models, the virtual network gateway must be configured for the Resource Manager VNet, not the classic VNet. 
+In this configuration, the spoke VNet **Spoke-Classic** is in the classic deployment model and the hub VNet **Hub-RM** is in the Resource Manager deployment model. When configuring transit between deployment models, the virtual network gateway must be configured for the Resource Manager VNet, not the classic VNet.
 
 For this configuration, you only need to configure the **Hub-RM** virtual network. You don't need to configure anything on the **Spoke-Classic** VNet.
 
@@ -153,7 +153,7 @@ For this configuration, you only need to configure the **Hub-RM** virtual networ
 
 For this configuration, you do not need to configure anything on the **Spoke-Classic** virtual network. Once the status shows **Connected**, the spoke virtual network can use the connectivity through the VPN gateway in the hub virtual network.
 
-### <a name="PS-Different"></a>PowerShell sample
+### <a name="ps-different"></a>PowerShell sample
 
 You can also use PowerShell to create or update the peering with the example above. Replace the variables and subscription ID with the values of your virtual network and resource groups, and subscription. You only need to create virtual network peering on the hub virtual network.
 
