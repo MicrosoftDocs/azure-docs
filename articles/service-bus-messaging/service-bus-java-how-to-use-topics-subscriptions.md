@@ -32,7 +32,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0-beta.7</version>
+    <version>7.0.0</version>
 </dependency>
 ```
 

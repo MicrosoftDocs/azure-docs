@@ -89,13 +89,13 @@ You can now have knowledge bases in different languages within the same QnA Make
 
 ### Ingest data sources
 
-You can use one of the following ingested [data sources](knowledge-base.md) to create a knowledge base:
+You can use one of the following ingested [data sources](../index.yml) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
 * File
 
-The ingestion process converts [supported content types](content-types.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+The ingestion process converts [supported content types](../index.yml) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### Data format considerations
 
@@ -119,17 +119,17 @@ You should design your conversational flow with a loop in mind so that a user kn
 
 Collaborators may be other developers who share the full development stack of the knowledge base application or may be limited to just authoring the knowledge base.
 
-Knowledge base authoring supports several [role-based access permissions](../how-to/collaborate-knowledge-base.md) you apply in the Azure portal to limit the scope of a collaborator's abilities.
+Knowledge base authoring supports several [role-based access permissions](../index.yml) you apply in the Azure portal to limit the scope of a collaborator's abilities.
 
 ## Integration with client applications
 
-Integration with [client applications](integration-with-other-applications.md) is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
+Integration with [client applications](../index.yml) is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
 
 To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure Bot Service, configure these settings as part of the bot configuration in the Azure portal.
 
 ### Conversation flow in a client application
 
-Conversation flow in a [client application](integration-with-other-applications.md), such as an Azure bot, may require functionality before and after interacting with the knowledge base.
+Conversation flow in a [client application](../index.yml), such as an Azure bot, may require functionality before and after interacting with the knowledge base.
 
 Does your client application support conversation flow, either by providing alternate means to handle follow-up prompts or including chit-chit? If so, design these early and make sure the client application query is handled correctly by another service or when sent to your knowledge base.
 
@@ -147,7 +147,7 @@ QnA Maker uses _active learning_ to improve your knowledge base by suggesting al
 
 ### Providing a default answer
 
-If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page in the QnA Maker portal or in the [APIs](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page in the QnA Maker portal or in the [APIs](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
 This default answer is different from the Azure bot default answer. You configure the default answer for your Azure bot in the Azure portal as part of configuration settings. It's returned when the score threshold isn't met.
 
@@ -192,7 +192,7 @@ All queries to your knowledge base are stored in Application Insights. Use our [
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-In the managed deployment, telemetry is offered through the [Azure Monitor service](https://docs.microsoft.com/azure/azure-monitor/). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
+In the managed deployment, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
 
 
 ---
@@ -212,7 +212,7 @@ Each pair can contain:
 
 ### DevOps development
 
-Developing a knowledge base to insert into a DevOps pipeline requires that the knowledge base is isolated during [batch testing](../quickstarts/batch-testing.md).
+Developing a knowledge base to insert into a DevOps pipeline requires that the knowledge base is isolated during [batch testing](../index.yml).
 
 A knowledge base shares the Cognitive Search index with all other knowledge bases on the QnA Maker resource. While the knowledge base is isolated by partition, sharing the index can cause a difference in the score when compared to the published knowledge base.
 

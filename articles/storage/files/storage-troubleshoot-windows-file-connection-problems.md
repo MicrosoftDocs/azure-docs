@@ -170,7 +170,7 @@ Verify virtual network and firewall rules are configured properly on the storage
 Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Azure role-based access control (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## Unable to delete a file or directory in an Azure file share
+## Unable to modify, move/rename, or delete a file or directory
 One of the key purposes of a file share is that multiple users and applications may simultaneously interact with files and directories in the share. To assist with this interaction, file shares provide several ways of mediating access to files and directories.
 
 When you open a file from a mounted Azure file share over SMB, your application/operating system request a file handle, which is a reference to the file. Among other things, your application specifies a file sharing mode when it requests a file handle, which specifies the level of exclusivity of your access to the file enforced by Azure Files: 

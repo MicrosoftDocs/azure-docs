@@ -88,7 +88,7 @@ All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metric
 * Region
 * StatusCode
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### View operation level metrics for Azure Cosmos DB
 
@@ -122,7 +122,7 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 
 Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). For a list of the types of resource logs collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference]((monitor-cosmos-db-reference.md#resource-logs)  
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference](monitor-cosmos-db-reference.md#resource-logs).
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
@@ -167,7 +167,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/platform/alerts-metric-overview.md), [logs](../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
 For example, the following table lists few alert rules for your resources. You can find a detailed list of alert rules from the Azure portal. To learn more, see [how to configure alerts](create-alerts.md) article.  
 
