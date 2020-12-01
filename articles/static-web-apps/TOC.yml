@@ -18,6 +18,8 @@
           href: get-started-cli.md
 - name: Concepts
   items:
+    - name: Configuration
+      href: configuration.md
     - name: API support with Azure Functions
       href: apis.md
     - name: Routes
