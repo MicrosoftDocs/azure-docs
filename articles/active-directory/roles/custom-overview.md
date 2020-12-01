@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Active Directory role-based access control (RBAC) | Microsoft Docs
+title: Overview of Azure Active Directory role-based access control (RBAC)
 description: Learn how to understand the parts of a role assignment and restricted scope in Azure Active Directory.
 services: active-directory
 author: curtand
