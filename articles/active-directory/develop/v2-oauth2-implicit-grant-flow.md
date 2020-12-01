@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -17,17 +17,17 @@ ms.custom: aaddev
 
 # Microsoft identity platform and implicit grant flow
 
-The Microsoft identity platform supports the OAuth 2.0 Implicit Grant flow as described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). The defining characteristic of the implicit grant is that tokens (ID tokens or access tokens) are returned directly from the /authorize endpoint instead of the /token endpoint. This is often used as part of the [authorization code flow](v2-oauth2-auth-code-flow.md), in what is called the "hybrid flow" - retrieving the ID token on the /authorize request along with an authorization code. 
+The Microsoft identity platform supports the OAuth 2.0 Implicit Grant flow as described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). The defining characteristic of the implicit grant is that tokens (ID tokens or access tokens) are returned directly from the /authorize endpoint instead of the /token endpoint. This is often used as part of the [authorization code flow](v2-oauth2-auth-code-flow.md), in what is called the "hybrid flow" - retrieving the ID token on the /authorize request along with an authorization code.
 
-[!INCLUDE [suggest-msal-from-protocols.md](\includes)]
+[!INCLUDE [suggest-msal-from-protocols](includes/suggest-msal-from-protocols.md)]
 
 ## Prefer the auth code flow
 
-With the plans for [third party cookies to be removed from browsers](reference-third-party-cookies-spas.md), the **implicit grant flow is no longer a suitable authentication method**.  The [silent SSO features](getting-access-tokens-silently-in-the-background) of the implicit flow do not work without third party cookies, causing applications to break when they attempt to get a new token. We strongly recommend that all new applications use the [authorization code flow](v2-oauth2-auth-code-flow.md) that now supports single page apps in place of the implicit flow, and that [existing single page apps begin migrating to the authorization code flow](migrate-spa-implicit-to-auth-code.md) as well. 
+With the plans for [third party cookies to be removed from browsers](reference-third-party-cookies-spas.md), the **implicit grant flow is no longer a suitable authentication method**.  The [silent SSO features](getting-access-tokens-silently-in-the-background) of the implicit flow do not work without third party cookies, causing applications to break when they attempt to get a new token. We strongly recommend that all new applications use the [authorization code flow](v2-oauth2-auth-code-flow.md) that now supports single page apps in place of the implicit flow, and that [existing single page apps begin migrating to the authorization code flow](migrate-spa-implicit-to-auth-code.md) as well.
 
 ## Suitable scenarios for the OAuth2 implicit grant
 
-The implicit grant is only reliable for the initial, interactive portion of your sign in flow, where the lack of [third party cookies](reference-third-party-cookies-spas.md) cannot impact your application. This limitation means you should use it exclusively as part of the hybrid flow, where your application requests a code as well as a token from the authorization endpoint. This ensures that your application receives a code that can be redeemed for a refresh token, thus ensuring your app's login session remains valid over time. 
+The implicit grant is only reliable for the initial, interactive portion of your sign in flow, where the lack of [third party cookies](reference-third-party-cookies-spas.md) cannot impact your application. This limitation means you should use it exclusively as part of the hybrid flow, where your application requests a code as well as a token from the authorization endpoint. This ensures that your application receives a code that can be redeemed for a refresh token, thus ensuring your app's login session remains valid over time.
 
 ## Protocol diagram
 
