@@ -170,9 +170,9 @@ When a customer is redirected to the partner's landing page URL, the customer id
 
 "We couldn't identify this purchase. Please reopen this SaaS subscription in the Azure portal or in Microsoft 365 Admin Center and select "Configure Account" or "Manage Account" again."
 
-Calling Resolve API will return subscription details and status for SaaS subscriptions in all supported statuses.
+Calling the Resolve API will return subscription details and status for SaaS subscriptions in all supported statuses.
 
-##### Post`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### Post `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -254,7 +254,7 @@ Internal server error.  Retry the API call.  If the error persists, contact [Mic
 
 After the SaaS account is configured for an end user, the publisher must call the Activate Subscription API on the Microsoft side.  The customer won't be billed unless this API call is successful.
 
-##### Post`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### Post `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -314,7 +314,7 @@ This API retrieves a list of all purchased SaaS subscriptions for all offers tha
 
 The API returns paginated results of 100 per page.
 
-##### Get`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -628,7 +628,7 @@ Use this API to update (increase or decrease) the quantity of seats purchased fo
 
 The quantity of seats cannot be more than the quantity allowed in the current plan.  In this case, the publisher should change the plan before changing the quantity of seats.
 
-##### Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### Patch `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -706,7 +706,7 @@ The customer won't be billed if a subscription is canceled within the following 
 
 The customer will be billed if a subscription is canceled after the preceding grace periods.  The customer will lose access to the SaaS subscription on the Microsoft side immediately after cancellation. 
 
-##### Delete`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### Delete `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
