@@ -1,11 +1,11 @@
 ---
 title: Reset passwords for classroom lab VMs in Azure Lab Services | Microsoft Docs
-description: Learn how to reset passwords for virtual machines (VMs) in classroom labs of Azure Lab Services. 
+description: Learn how to reset passwords for virtual machines (VMs) in labs of Azure Lab Services. 
 ms.topic: article
 ms.date: 06/26/2020
 ---
 
-# Set or reset password for virtual machines in classroom labs (students)
+# Set or reset password for virtual machines in labs (students)
 This article shows you how students can set/reset password for their VMs. 
 
 ## Enable resetting of passwords
