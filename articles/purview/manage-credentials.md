@@ -72,8 +72,10 @@ Verify that your new Credential shows up in the Credential list view and is read
 
 1. Search/find Key Vault connections by name
 
-2. Delete one or more Key Vault connections 
+    :::image type="content" source="media/manage-credentials/search-kv.png" alt-text="Search key vault":::
 
+2. Delete one or more Key Vault connections 
+    :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Delete key vault":::
 
 ## Manage your credentials
 
@@ -82,6 +84,3 @@ Verify that your new Credential shows up in the Credential list view and is read
 2. Select and make updates to an existing Credential
 
 3. Delete one or more Credentials
-
- 
-

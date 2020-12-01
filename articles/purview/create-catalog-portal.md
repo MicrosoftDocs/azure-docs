@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Purview account in the Azure portal'
+title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview)'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: hophan
 ms.author: hophan
@@ -9,8 +9,12 @@ ms.topic: quickstart
 ms.date: 10/23/2020
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
-
 # Quickstart: Create an Azure Purview account in the Azure portal
+
+> [!IMPORTANT]
+> Azure Purview is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this quickstart, you create an Azure Purview account.
 
@@ -34,15 +38,20 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
       :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Screenshot showing how to select a subscription in the Azure portal.":::
 
-   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search for the **Microsoft.Purview** resource provider. If it isn't registered, register it by selecting **Register**.
+   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search and register all three resource providers: 
+       1. **Microsoft.Purview**
+       1. **Microsoft.Storage**
+       1. **Microsoft.EventHub** 
+      
+      If they are not registered, register it by selecting **Register**.
 
-      :::image type="content" source="./media/create-catalog-portal/register-babylon-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
+      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
 
 ## Create an Azure Purview account instance
 
 1. Go to the **Purview accounts** page in the Azure portal, and then select **Add** to create a new Azure Purview account. Alternatively, you can go to marketplace search for **Purview Accounts** and select **Create**. Note that you can add only one Azure Purview account at a time.
 
-   :::image type="content" source="./media/create-catalog-portal/add-babylon-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
+   :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.
@@ -76,7 +85,7 @@ If upon clicking Add you see two choices showing both marked (disabled) then thi
 1. Select **Add role assignment**.
 
 1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
- 
+
 1. For **Assign access to** leave the default, **User, group, or service principal**.
 
 1. For **Select** enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.

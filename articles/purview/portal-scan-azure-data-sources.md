@@ -297,6 +297,7 @@ Then select **Cancel Scan** to stop all the selected scans from running.
 
 In this tutorial, you scanned Azure data sources using the Purview portal.
 
-Advance to the next article to learn how to use the Purview REST APIs to access the contents of your catalog.
-> [!div class="nextstepaction"]
-> [Tutorial: Use the REST APIs](tutorial-using-rest-apis.md)
+To learn more about the features of Purview, see the following documents:
+
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)

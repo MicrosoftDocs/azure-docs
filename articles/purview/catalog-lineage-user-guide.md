@@ -1,5 +1,5 @@
 ---
-title: Data Catalog lineage user guide
+title: Data Catalog lineage user guide (preview)
 description: This article provides an overview of the catalog lineage feature of Azure Purview.
 author: chanuengg
 ms.author: csugunan
