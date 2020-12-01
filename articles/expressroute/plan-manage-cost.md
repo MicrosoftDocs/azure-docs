@@ -6,7 +6,7 @@ ms.author: duau
 ms.custom: subject-cost-optimization
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 11/30/2020
 ---
 
 
@@ -26,7 +26,7 @@ For information about assigning access to Azure Cost Management data, see [Assig
 
 ## Local vs. Standard vs. Premium
 
-ExpressRoute has three different circuit SKU: [*Local*](./expressroute-faqs.md#expressroute-local), *Standard*, and [*Premium*](./expressroute-faqs.md#expressroute-premium). The way you're charged for your ExpressRoute usage varies between these three SKU types. Local SKU has egress data cost included, while Standard and Premium SKU has two data plans you can select for egress data. The data plans are Metered Data and Unlimited Data. All ingress data are free of charge except when using the Global Reach add-on. It's important to understand which SKU type and data plan works best for your workload to best optimize cost and budget.
+ExpressRoute has three different circuit SKU: [*Local*](./expressroute-faqs.md#expressroute-local), *Standard*, and [*Premium*](./expressroute-faqs.md#expressroute-premium). The way you're charged for your ExpressRoute usage varies between these three SKU types. With Local SKU, you're automatically charged with an Unlimited data plan. With Standard and Premium SKU, you can select between a Metered or an Unlimited data plan. All ingress data are free of charge except when using the Global Reach add-on. It's important to understand which SKU types and data plan works best for your workload to best optimize cost and budget.
 
 ## Estimate costs
 
@@ -50,7 +50,7 @@ For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.c
 
 ### ExpressRoute gateway estimated cost
 
-If you're using an ExpressRoute gateway to link a virtual network to the ExpressRoute circuit. Use the following steps to estimate cost for gateway usage.
+If you're using an ExpressRoute gateway to link a virtual network to the ExpressRoute circuit, use the following steps to estimate cost for gateway usage.
 
 1. On the left, select **Networking**, then select **VPN Gateway** to begin. 
 
@@ -66,11 +66,11 @@ ExpressRoute runs on Azure infrastructure that accrues costs along with ExpressR
 
 ### Costs that typically accrue with ExpressRoute
 
-When you create an ExpressRoute circuit, you might choose to create an ExpressRoute gateway to link your virtual network to the circuit. Gateways are charged at an hourly rate in addition to the cost for an ExpressRoute circuit. See [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute) and select ExpressRoute Gateways to see rates for different gateway SKUs.
+When you create an ExpressRoute circuit, you might choose to create an ExpressRoute gateway to link your virtual network to the circuit. Gateways are charged at an hourly rate plus the cost of an ExpressRoute circuit. See [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute) and select ExpressRoute Gateways to see rates for different gateway SKUs.
  
 ### Costs might accrue after resource deletion
 
-After you delete your ExpressRoute circuit, if you have an ExpressRoute gateway you'll still be charged for the cost until you delete it.
+If you have an ExpressRoute gateway after deleting the ExpressRoute circuit, you'll still be charged for the cost until you delete it.
 
 ### Using Monetary Credit
 
@@ -110,16 +110,6 @@ Budgets can be created with filters for specific resources or services in Azure 
 ## Export cost data
 
 You can also [export your cost data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
-
-
-## Other ways to manage and reduce costs for <ServiceName>
-
-<!-- Note to Azure service writer: This is an optional section. Other than using the Cost Management methods above, there are probably ways to minimize costs for your service that are specific to your service. Because customers only pay for what they use and when they use less of a resource, the result is a smaller bill. You might already have published cost-saving content. For example, you might have best practice advice or specific ways to reduce costs that are specific to your service. If so, try to add that guidance here or at least summarize key points. Try to be as prescriptive as possible. If you have more comprehensive content, add links to your other published articles or sections here. 
-
-Add a statement that discusses any recommended settings for your service that might help keep the charges minimal if a service isn't being actively used by the customer. For example: Will turning off a VM help to get no charges for the specific VM resource?
-
-If your team has no cost-saving recommendations or best practice advice to reduce costs, then cut this section.
--->
 
 ## Next steps
 
