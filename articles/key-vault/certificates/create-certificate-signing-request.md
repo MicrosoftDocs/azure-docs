@@ -55,7 +55,7 @@ The following steps will help you create a certificate from certificate authorit
    ```
 
 3. Getting the CSR **request signed by the CA**
-The `$certificateOperation.CertificateSigningRequest` is the base4 encoded certificate signing request for the certificate. You can take this blob and dump into Issuer’s certificate request website. This step varies from CA to CA, the best way would be to look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the certificate request signed and complete the process of generating a certificate.
+The `$csr.CertificateSigningRequest` is the base4 encoded certificate signing request for the certificate. You can take this blob and dump into Issuer’s certificate request website. This step varies from CA to CA, the best way would be to look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the certificate request signed and complete the process of generating a certificate.
 
 
 4. **Merging the signed request** in Key Vault
