@@ -34,6 +34,8 @@ The following alert metadata is displayed.
 
   - Date and time the alert was triggered
 
+:::image type="content" source="media/how-to-work-with-alerts-sensor/internet-connectivity-detection-unauthorized.png" alt-text="Unauthorized internect connectivity detected.":::
+
 ## Information about traffic, devices, and the event
 
 The alert message provides information about:
@@ -49,6 +51,10 @@ You can use this information when deciding how to manage the alert event.
 ## Link to connected devices in the device map
 
 To learn more about devices connected to the devices detected, you can select an device image in the alert and view connected devices in the map.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/rcp-operation-failed.png" alt-text="RCP operation failed.":::
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/devices-screen-populated.png" alt-text="Devices screenshot.":::
 
 The map filters to the device you selected, and other devices connected to it. The Quick Properties dialog box for the devices detected in the alerts is displayed on the map as well.
 
