@@ -132,7 +132,7 @@ If you wish to stop using soft delete, or permanently delete a file share, follo
 
 # [Azure CLI](#tab/azure-cli)
 
-Soft delete cmdlets are available in the 2.1.3 version of the Azure CLI. You can use the following ocmmand to disable soft delete on your storage account:
+Soft delete cmdlets are available in the 2.1.3 version of the Azure CLI. You can use the following command to disable soft delete on your storage account:
 
 ```azurecli
 az storage account file-service-properties update --enable-delete-retention false -n yourStorageaccount -g yourResourceGroup
