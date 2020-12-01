@@ -1,1 +1,0 @@
-# dir for storing media content (videos, images and gifs)
