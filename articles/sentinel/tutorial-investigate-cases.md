@@ -78,7 +78,8 @@ To use the investigation graph:
 
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
-   > - Data retention in the investigation graph store is 30 days. Therefore, **only incidents up to 30 days old can be investigated.**
+   >
+   > - Since the data retention period in the investigation graph store is 30 days, Azure Sentinel currently supports only investigation of **incidents up to 30 days old**.
 
    ![View map](media/tutorial-investigate-cases/map1.png)
 
