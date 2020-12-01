@@ -19,20 +19,20 @@ See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md).
 The source code is stored in the following GitHub repositories:
 
 * [Connected Factory solution accelerator](https://github.com/Azure/azure-iot-connected-factory)
+* [Device simulation solution accelerator](https://github.com/Azure/device-simulation-dotnet)
+
+### Where can I find information about the deprecated solution accelerators?
+
+See the following pages on the previous versions site:
+
+* [Remote monitoring](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md)
+* [Predictive maintenance](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md)
 
 ### What SDKs can I use to develop device clients for the solution accelerators?
 
 You can find links to the different language (C, .NET, Java, Node.js, Python) IoT device SDKs in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repositories.
 
 If you're using the DevKit device, you can find resources and samples in the [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub repository.
-
-### Is the new microservices architecture available for all the three solution accelerators?
-
-Currently, only the Remote Monitoring solution uses the microservices architecture as it covers the broadest scenario.
-
-### What advantages does the new open-sourced microservices-based architecture provide in the new update?
-
-Over the last two years, cloud architecture has greatly evolved. Microservices have emerged as a great pattern to achieve scale and flexibility, without sacrificing development speed. This architectural pattern is used in several Microsoft services internally with great reliability and scalability results. Microsoft is putting these learnings into practice in the solution accelerators so that customers benefit from them.
 
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific Azure AD tenant. How do I complete this task?
 
@@ -71,10 +71,6 @@ By default you can provision [10 IoT hubs per subscription](../azure-resource-ma
 ### How many Azure Cosmos DB instances can I provision in a subscription?
 
 Fifty. You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit, but by default, you can only provision 50 Cosmos DB instances per subscription.
-
-### How many Free Bing Maps APIs can I provision in a subscription?
-
-Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The Remote Monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two Remote Monitoring solutions in a subscription with no modifications.
 
 ### Can I create a solution accelerator if I have Microsoft Azure for DreamSpark?
 

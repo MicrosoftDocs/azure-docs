@@ -63,7 +63,5 @@ If you're a hardware manufacturer, click **Become a Partner** to learn about par
 
 To try out one of the IoT solution accelerators, check out the quickstarts:
 
-* [Try a remote monitoring solution](quickstart-remote-monitoring-deploy.md)
 * [Try a connected factory solution](quickstart-connected-factory-deploy.md)
-* [Try a predictive maintenance solution](quickstart-predictive-maintenance-deploy.md)
 * [Try a device simulation solution](quickstart-device-simulation-deploy.md)

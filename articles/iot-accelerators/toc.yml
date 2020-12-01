@@ -28,7 +28,6 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: Remote monitoring
   - name: Device simulation
     items:
     - name: Create and run a simulation
@@ -37,7 +36,6 @@
       href: iot-accelerators-device-simulation-create-custom-device.md
 - name: Concepts
   items:
-  - name: Remote monitoring
   - name: Industrial IoT
     items:
     - name: OPC Twin Architecture
@@ -46,14 +44,6 @@
       href: overview-opc-vault-architecture.md
 - name: How-to guides
   items:
-  - name: Remote monitoring
-    items:
-    - name: Deploy solution
-    - name: Connect a real device
-    - name: Simulate a device
-    - name: Customize the UI
-    - name: Connect IoT Edge devices
-    - name: Explore telemetry
   - name: Industrial IoT
     items:
     - name: Connected Factory
@@ -128,18 +118,6 @@
       href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
       href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
-  - name: Remote monitoring
-    items:
-    - name: Developer reference guide (.NET)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide
-    - name: Developer reference guide (Java)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide
-    - name: Developer troubleshooting guide
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide
-    - name: GitHub repository (.NET)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
-    - name: GitHub repository (Java)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
   - name: Industrial IoT
     items:
     - name: GitHub repository
@@ -152,24 +130,12 @@
       href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
     - name: GitHub repository
       href: https://github.com/Azure/device-simulation-dotnet
-  - name: Predictive maintenance GitHub repository
-    href: https://github.com/Azure/azure-iot-predictive-maintenance
   - name: Reference Architecture
     href: /azure/architecture/reference-architectures/iot
     items:
     - name: Download
       href: https://aka.ms/iotrefarchitecture
-    - name: Partner implementations
-      items:
-      - name: Intel Connected Logistics Platform
-        href: https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform
-      - name: Edge Dynamometer Analysis
-        href: https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis
-      - name: Digital Signage Solution
-        href: https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution
   - name: FAQ
     href: iot-accelerators-faq.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-  - name: Remote Monitoring V1
-    href: /previous-versions/azure/iot-suite/

@@ -18,7 +18,7 @@ manager: timlt
 
 A cloud-based IoT solution typically uses custom code and cloud services to manage device connectivity, data processing and analytics, and presentation.
 
-The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. The scenarios include remote monitoring, connected factory, predictive maintenance, and device simulation. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
+The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. The scenarios include connected factory and device simulation. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
 
 The solution accelerators are starting points for your own IoT solutions. The source code for all the solution accelerators is open source and is available in GitHub. You're encouraged to download and customize the solution accelerators to meet your requirements.
 
@@ -44,7 +44,10 @@ Use the [Device Simulation solution accelerator](iot-accelerators-device-simulat
 
 You can use the device simulation web app to configure and run simulations:
 
-[![Connected factory solution dashboard](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/ds-dashboard-inline.png" alt-text="Screenshot that shows the device simulation solution dashboard." lightbox="./media/about-iot-accelerators/ds-dashboard-expanded.png":::
+
+> [!NOTE]
+> For information about the deprecated solution accelerators, see [What are Azure IoT solution accelerators? (deprecated)](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md) on the previous versions site.
 
 ## Design principles
 
