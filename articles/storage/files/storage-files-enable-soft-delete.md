@@ -50,7 +50,7 @@ az storage account file-service-properties show -n yourStorageaccount -g yourRes
 
 ## Prerequisite
 
-Soft delete cmdlets are available in the [3.0.0](https://www.powershellgallery.com/packages/Az.Storage/3.0.0) version of the Az.Storage module. 
+Soft delete cmdlets are available in the 4.8.0 and newer versions of the Az.Storage module. 
 
 ## Getting started with PowerShell
 
@@ -91,7 +91,13 @@ To restore a soft deleted file share:
 
 # [Azure CLI](#tab/azure-cli)
 
-Soft delete cmdlets are available in the 2.1.3 version of the Azure CLI. To restore a soft deleted file share, use the following command:
+Soft delete cmdlets are available in the 2.1.3 version of the Azure CLI. To restore a soft deleted file share, you must first get the `--deleted-version` value of the share. To get that value, use the following command to list out all the deleted shares for your storage account:
+
+```azurecli
+az storage share-rm list --storage-account yourStorageaccount --include-deleted
+```
+
+Once you've identified the share you'd like to restore, you can use it with the following command to restore it:
 
 ```azurecli
 az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
@@ -99,7 +105,13 @@ az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -
 
 # [PowerShell](#tab/azure-powershell)
 
-Soft delete cmdlets are available in the 3.0.0 version of the Az.Storage module. To restore a soft deleted file share, use the following command:
+Soft delete cmdlets are available in the 4.8.0 and newer versions of the Az.Storage module. To restore a soft deleted file share, you must first get the `-DeletedShareVersion` value of the share. To get that value, use the following command to list out all the deleted shares for your storage account:
+
+```azurepowershell-interactive
+Get-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -IncludeDeleted
+```
+
+Once you've identified the share you'd like to restore, you can use it with the following command to restore it:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -127,7 +139,7 @@ az storage account file-service-properties update --enable-delete-retention fals
 ```
 # [PowerShell](#tab/azure-powershell)
 
-Soft delete cmdlets are available in the 3.0.0 version of the Az.Storage module. You can use the following command to disable soft delete on your storage account:
+Soft delete cmdlets are available in the 4.8.0 and newer versions of the Az.Storage module. You can use the following command to disable soft delete on your storage account:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
