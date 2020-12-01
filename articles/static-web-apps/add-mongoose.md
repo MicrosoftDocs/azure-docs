@@ -10,7 +10,7 @@ ms.date: #Required; mm/dd/yyyy format.
 
 # Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps
 
-[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Mongoose allows you to design your data structure and enforce validation, and provides all the tooling necessary to interact with any database which supports the Mongoose API. [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction?WT.mc_id=javascript-11262-chrhar) can be used as a back-end server for Mongoose as it supports the necessary APIs, and the Azure Functions running in Azure Static Web Apps can run Mongoose. Let's explore how to bring these services together.
+[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Allowing you to design a data structure and enforce validation, Mongoose provides all the tooling necessary to interact with databases that support the Mongoose API. [Cosmos DB](../cosmos-db/mongodb-introduction.md) supports the necessary Mongoose APIs and is available as a back-end server option on Azure.
 
 In this tutorial, you learn how to:
 
@@ -36,7 +36,7 @@ Begin by creating a [Cosmos DB serverless](https://docs.microsoft.com/azure/cosm
 
 1. Navigate to [https://portal.azure.com](https://portal.azure.com)
 2. Click **Create a resource**
-3. Enter **Azure Cosmos DB** in the search dialog
+3. Enter **Azure Cosmos DB** in the search box
 4. Click **Azure Cosmos DB**
 5. Click **Create**
 6. Configure your Azure Cosmos DB Account with the following information
@@ -55,9 +55,9 @@ Begin by creating a [Cosmos DB serverless](https://docs.microsoft.com/azure/cosm
 
 The creation process will take a few minutes. We're going to focus on creating our Azure Static Web App, and return to the database in a little while.
 
-## Create Azure Static Web App
+## Create a static web app
 
-With our database being created, let's create our Azure Static Web App. We will generate a new repository from a template, and create an Azure Static Web App to use the repository for deployment.
+This tutorial uses a GitHub template repository to help you create your application.
 
 1. Navigate to the [starter template](https://github.com/login?return_to=/GeekTrainer/aswa-mongoose/generate)
 2. Choose the **owner** (if using an organization other than your main account)
@@ -85,11 +85,12 @@ With our database being created, let's create our Azure Static Web App. We will 
     ![Completed Azure Static Web Apps form](media/add-mongoose/aswa.png)
 11. Click **Review and create**
 12. Click **Create**
-13. In a few moments your web resource will be created
+
+The creation process takes a few minutes, but you can click on **Go to resource** once the app is provisioned.
 
 ## Configure database connection string
 
-In order to allow our application to communicate with our database we need to set the connection string. We do this by creating an Application Setting, which is then accessed in code like an environmental variable using `process.env` in Node.js.
+In order to allow the web app to communicate with the database, the database connection string is stored as an Application Setting. Setting values are accessible in Node.js using the `process.env` object.
 
 1. Click **Home** in the upper left corner of the Azure portal (or navigate back to [https://portal.azure.com](https://portal.azure.com))
 2. Click **Resource groups**
@@ -98,9 +99,9 @@ In order to allow our application to communicate with our database we need to se
 5. Under **Settings** click **Connection String**
 6. Copy the connection string listed under **PRIMARY CONNECTION STRING**
 7. In the breadcrumbs, click **aswa-mongoose**
-8. Click **aswa-mongoose-tutorial** to return to the website we created
+8. Click **aswa-mongoose-tutorial** to return to the website instance
 9. Under **Settings** click **Configuration**
-10. Click **Add** and create a new Application setting with the following values
+10. Click **Add** and create a new Application Setting with the following values
     - Name: **CONNECTION_STRING**
     - Value: Paste the connection string you copied earlier
 11. Click **OK**
@@ -108,15 +109,14 @@ In order to allow our application to communicate with our database we need to se
 
 ## Navigate to your site
 
-With our database created, our website deployed and created, we can now explore the site!
+You can now explore the static web app.
 
 1. Click **Overview**
-2. Click the URL displayed in the upper right (it will look similar to **https://calm-pond-05cb73a1e.azurestaticapps.net/**)
-3. Your website is displayed!
-4. Create a new task by typing in a title and clicking **Add task**
-5. Confirm the task is displayed (it may take a moment)
-6. Mark the task as complete by clicking the checkbox
-7. Refresh the page to confirm a database is being used
+1. Click the URL displayed in the upper right (it will look similar to **https://calm-pond-05cb73a1e.azurestaticapps.net/**)
+1. Create a new task by typing in a title and clicking **Add task**
+1. Confirm the task is displayed (it may take a moment)
+1. Mark the task as complete by **clicking the checkbox**
+1. **Refresh the page** to confirm a database is being used
 
 ## Clean up resources
 
@@ -134,4 +134,4 @@ the resource group with the following steps:
 
 Advance to the next article to learn how to configure local development...
 > [!div class="nextstepaction"]
-> [Setup local development](https://docs.microsoft.com/azure/static-web-apps/local-development?WT.mc_id=javascript-11262-chrhar)
+> [Setup local development](./local-development.md)
