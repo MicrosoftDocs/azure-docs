@@ -68,7 +68,7 @@ To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enabl
 </ClaimsProvider>
 ```
 
-1. Save the extensions file.
+1. Save and upload the extensions file. 
 
 ## Configure a relying party file
 
