@@ -40,7 +40,7 @@ If a VM is assigned a public IP address, or the VM is in the backend pool of a l
 SAP systems often contain sensitive business data. It is rarely acceptable for VMs hosting SAP systems to be accessible via public IP addresses. At the same time, there are scenarios, which would require outbound connectivity from the VM to public end points.  
 
 Examples of scenarios, requiring access to Azure public end point are:  
-- Azure Fence Agent in Pacemaker clusters requires access to **management.azure.com** and **login.microsoftonline.com**  
+- Azure Fence Agent requires access to **management.azure.com** and **login.microsoftonline.com**  
 - [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
 - [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
 - Using public repository for patching the Operating system
