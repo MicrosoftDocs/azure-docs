@@ -122,7 +122,7 @@ Security-focused customers will see a distinction between classification and lab
 ### What is the compute used for the scan?
 There is a Microsoft-managed scanning infrastructure. For most Azure/AWS resources that we support, you don't need to deploy a scanning infrastructure.
 
-### Is there a way to provision Azure Purview via ARM template / CLI / Powershell?
+### Is there a way to provision Azure Purview via Azure Resource Manager (ARM) template / CLI / Powershell?
 
 Yes, ARM template is available
 
@@ -133,9 +133,9 @@ Azure Purview is compatible with Atlas API. If you are migrating from Atlas, it'
 
 ### Can I create multiple catalogs in my tenant?
 Yes, you can create multiple Azure Purview accounts per subscription and per tenant. You can review the limits page
-https://review.docs.microsoft.com/en-us/azure/purview/how-to-manage-quotas?branch=release-preview-babylon
+https://docs.microsoft.com/azure/purview/how-to-manage-quotas?branch=release-preview-babylon
 Additional recommendation on when you should or should not have multiple accounts are documented in our Best Practice guide:
-https://review.docs.microsoft.com/en-us/azure/purview/deployment-best-practices
+https://docs.microsoft.com/azure/purview/deployment-best-practices
 
 ### Can I register multiple tenants within a single Azure Purview account?
 No, currently in order to scan another tenant's data source, you need to create a separate Azure Purview account in that tenant.
