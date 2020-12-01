@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 11/24/2020
+ms.date: 12/01/2020
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box and Data Box Heavy
 
 This article describes some of the configuration and management tasks performed on Data Box and Data Box Heavy devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses on tasks performed using the local web UI.
 
-The local web UI for the Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
+The local m UI for the Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
 
 This article includes the following tutorials:
 
@@ -44,7 +44,7 @@ If you experience any device issues, you can create a Support package from the s
 
 3. Once Support package creation is complete, select **Download Support package**.
 
-    ![Create Support package 4](data-box-custoermedia/data-box-local-web-ui-admin/create-support-package-3.png)
+    ![Create Support package 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
 
 4. The support package is downloaded to the Downloads folder. Open the folder to view the contents.
 
