@@ -9,7 +9,9 @@ ms.date: 11/22/2020
 
 [!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
-In this article, you use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function in Go or Rust that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
+In this article, you use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
+
+This article supports both [Go](create-first-function-vs-code-custom-handlers.md?tabs=go) and [Rust](create-first-function-vs-code-custom-handlers.md?tabs=rust).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -226,7 +228,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Compile the custom handler for Azure
 
-This quickstart will deploy your application to an Azure Functions Linux Consumption app. Unless you are developing locally on Linux/x64 architecture, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
+In this section, you publish your project to Azure in a function app running Linux. In most cases, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
 # [Go](#tab/go)
 
