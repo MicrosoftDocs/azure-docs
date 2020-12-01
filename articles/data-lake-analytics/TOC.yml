@@ -80,7 +80,13 @@
       - name: Cognitive extensions
         href: data-lake-analytics-u-sql-cognitive.md
       - name: Programmability guide
-        href: data-lake-analytics-u-sql-programmability-guide.md
+        items:  
+          - name: Programmability guide overview
+            href: data-lake-analytics-u-sql-programmability-guide.md
+          - name: Programmability guide - UDT and UDAGG
+            href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
+          - name: Programmability guide overview - UDO
+            href: data-lake-analytics-u-sql-programmability-guide-UDO.md
     - name: Visual Studio
       items:
       - name: Install
