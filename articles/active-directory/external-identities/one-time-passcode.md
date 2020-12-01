@@ -96,11 +96,11 @@ Starting March 2021, the email one-time passcode feature will be turned on for a
 
 ## Note for public preview customers
 
-If you've previously opted in to the email one-time passcode public preview, the March 2021 date for automatic feature enablement doesn't apply to you. This way we won't disrupt your business processes related to this feature. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**. Instead, you'll see the following **Yes** or **No** toggle: 
+If you've previously opted in to the email one-time passcode public preview, the March 2021 date for automatic feature enablement doesn't apply to you, so your related business processes won't be affected. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests in March 2021**. Instead, you'll see the following **Yes** or **No** toggle:
 
 ![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can revert to the default settings by using the Microsoft Graph API email authentication method configuration resource type. After you revert to the default settings, the following options will be available under **Email one-time passcode for guests**:
+However, if you'd prefer to opt out of the feature and allow it to be automatically enabled in March 2021, you can revert to the default settings by using the Microsoft Graph API [email authentication method configuration resource type](https://docs.microsoft.com/en-us/graph/api/resources/emailauthenticationmethodconfiguration?view=graph-rest-beta). After you revert to the default settings, the following options will be available under **Email one-time passcode for guests**:
 
 - **Automatically enable email one-time passcode for guests in March 2021**. (Default) If the email one-time passcode feature is not already enabled for your tenant, it will be automatically turned on in March 2021. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
 
