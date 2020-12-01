@@ -62,7 +62,7 @@ For example, if you wanted to move data at your location in Canada to an Azure W
 
 ### Option 1: 
 
-Ship a [supported disk](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../storage/common/storage-import-export-service.md) from the source location in Canada to the Azure WestUS datacenter.
+Ship a [supported disk](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../storage/common/storage-import-export-service.md) from the source location in Canada to the Azure WestUS datacenter.
 
 ### Option 2:
 
