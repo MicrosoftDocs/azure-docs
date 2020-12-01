@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Manage virtual machines with the CLI 
-description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying RBAC, polices, locks and tags.
+description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying Azure RBAC, polices, locks and tags.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -22,9 +22,9 @@ ms.custom: mvc, devx-track-azurecli
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use Azure CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- This tutorial requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Understand scope
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location "East US"
 
 Currently, the resource group is empty.
 
-## Role-based access control
+## Azure role-based access control
 
 You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 

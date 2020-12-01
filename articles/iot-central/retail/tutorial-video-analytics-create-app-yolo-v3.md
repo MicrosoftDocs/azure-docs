@@ -105,7 +105,7 @@ This tutorial configures your solution to use the YOLO v3 module for object and 
 
 ### Replace the manifest
 
-On the **LVA Edge Gateway** page, select **+ Replace manifest**.
+On the **LVA Edge Gateway v2** page, select **+ Replace manifest**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-yolo-v3/replace-manifest.png" alt-text="Replace Manifest":::
 

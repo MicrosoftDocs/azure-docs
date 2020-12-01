@@ -74,8 +74,8 @@ This happens because you're using Windows 10 Enterprise multi-session with a pro
 Most virtualized environments are configured by default to prevent users from installing additional apps to their profiles. If you want to make sure an app doesn't disappear when your user signs out of Windows Virtual Desktop, you have to provision that app for all user profiles in your environment. For more information about provisioning apps, check out these resources:
 
 - [Publish built-in apps in Windows Virtual Desktop](publish-apps.md)
-- [DISM app package servicing command-line options](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [DISM app package servicing command-line options](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## How do I make sure users don't download and install apps from the Microsoft Store?
 

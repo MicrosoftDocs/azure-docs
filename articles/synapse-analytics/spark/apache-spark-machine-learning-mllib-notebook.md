@@ -15,7 +15,7 @@ ms.author: euang
 
 In this article, you'll learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application that does simple predictive analysis on an Azure open dataset. Spark provides built-in machine learning libraries. This example uses *classification* through logistic regression.
 
-MLlib is a core Spark library that provides many utilities that are useful for machine learning tasks, including utilities that are suitable for:
+SparkML and MLlib are core Spark libraries that provides many utilities that are useful for machine learning tasks, including utilities that are suitable for:
 
 - Classification
 - Regression
@@ -41,7 +41,7 @@ In this example, you use Spark to perform some predictive analysis on taxi trip 
 
 In the following steps, you develop a model to predict whether a particular trip includes a tip or not.
 
-## Create an Apache Spark MLlib machine learning app
+## Create an Apache Spark  machine learning model
 
 1. Create a notebook using the PySpark kernel. For the instructions, see [Create a notebook](../quickstart-apache-spark-notebook.md#create-a-notebook).
 2. Import the types required for this application. Copy and paste the following code into an empty cell, and then press **SHIFT + ENTER**, or run the cell by using the blue play icon to the left of the code.
@@ -66,7 +66,7 @@ In the following steps, you develop a model to predict whether a particular trip
 
 Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. While the code below uses the default options, it is possible to force mapping of data types and other schema attributes if needed.
 
-1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
+1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your serverless Apache Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -104,44 +104,6 @@ Creating a temp table or view provides different access paths to the data, but o
 ```Python
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
-
-## Understand the data
-
-Normally you would go through a phase of *exploratory data analysis* (EDA) at this point to develop an understanding of the data. The following code shows three different visualizations of the data related to tips that lead to conclusions about the state and quality of the data.
-
-```python
-# The charting package needs a Pandas dataframe or numpy array do the conversion
-sampled_taxi_pd_df = sampled_taxi_df.toPandas()
-
-# Look at tips by amount count histogram
-ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
-ax1.set_title('Tip amount distribution')
-ax1.set_xlabel('Tip Amount ($)')
-ax1.set_ylabel('Counts')
-plt.suptitle('')
-plt.show()
-
-# How many passengers tipped by various amounts
-ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
-ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count')
-ax2.set_ylabel('Tip Amount ($)')
-plt.suptitle('')
-plt.show()
-
-# Look at the relationship between fare and tip amounts
-ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
-ax.set_title('Tip amount by Fare amount')
-ax.set_xlabel('Fare Amount ($)')
-ax.set_ylabel('Tip Amount ($)')
-plt.axis([-2, 80, -2, 20])
-plt.suptitle('')
-plt.show()
-```
-
-![Histogram](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
-![Box Whisker Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
-![Scatter Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
 ## Prepare the data
 
@@ -267,7 +229,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![ROC Curve for Logistic Regression tip model](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "ROC Curve for Logistic Regression tip model")
+![ROC Curve for Logistic Regression tip model](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## Shut down the Spark instance
 

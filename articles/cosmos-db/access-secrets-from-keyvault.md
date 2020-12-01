@@ -4,7 +4,6 @@ description: Use Azure Key Vault to store and access Azure Cosmos DB connection 
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019

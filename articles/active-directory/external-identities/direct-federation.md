@@ -143,7 +143,7 @@ Next, you'll configure federation with the identity provider configured in step 
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
 2. Select **External Identities** > **All identity providers**.
-3. Select , and then select **New SAML/WS-Fed IdP**.
+3. Select, and then select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
 

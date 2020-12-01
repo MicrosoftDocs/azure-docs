@@ -1,25 +1,37 @@
 ---
 title: ServicePrincipalSelector UI element
-description: Describes the Microsoft.Common.ServicePrincipalSelector UI element for Azure portal. Provides a dropdown to choose an application identifier and a textbox to input a password or certificate thumbprint.
+description: Describes the Microsoft.Common.ServicePrincipalSelector UI element for Azure portal. Provides a control to choose an application and a textbox to input a password or certificate thumbprint.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 ---
 
 # Microsoft.Common.ServicePrincipalSelector UI element
 
-A control that lets users select an existing service principal or register a new one. When you select **Create New**, you go through the steps to register a new application. When you select an existing application, the control provides a textbox to input a password or certificate thumbprint.
+A control that lets users select an existing [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or register a new application. When you select **Create New**, you follow the steps to register a new application. When you select an existing application, the control provides a textbox to input a password or certificate thumbprint.
 
-## UI sample
+## UI samples
 
-The default view is determined by the values in the `defaultValue` property. If the `principalId` property contains a valid globally unique identifier (GUID), the control searches for the application's object ID. The default value applies if the user doesn't make a selection from the dropdown.
+You can use a default application, create a new application, or use an existing application.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-initial.png" alt-text="Microsoft.Common.ServicePrincipalSelector initial view":::
+### Use default application or create new
 
-When you select **Create new** or an existing application identifier from the dropdown the **Authentication Type** is displayed to enter a password or certificate thumbprint in the text box.
+The default view is determined by the values in the `defaultValue` property and the **Service Principal Type** is set to **Create New**. If the `principalId` property contains a valid globally unique identifier (GUID), the control searches for the application's `objectId`. The default value applies if the user doesn't make a selection from the control.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-selection.png" alt-text="Microsoft.Common.ServicePrincipalSelector dropdown selection":::
+If you want to register a new application, select **Change selection** and the **Register an application** dialog box is displayed. Enter **Name**, **Supported account type**, and select the **Register** button.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Microsoft.Common.ServicePrincipalSelector initial view.":::
+
+After you register a new application, use the **Authentication Type** to enter a password or certificate thumbprint.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Microsoft.Common.ServicePrincipalSelector authentication.":::
+
+### Use existing application
+
+To use an existing application, choose **Select Existing** and then select **Make selection**. Use the **Select an application** dialog box to search for the application's name. From the results, select the the application and then the **Select** button. After you select an application, the control displays the **Authentication Type** to enter a password or certificate thumbprint.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft.Common.ServicePrincipalSelector select existing application.":::
 
 ## Schema
 
@@ -28,14 +40,12 @@ When you select **Create new** or an existing application identifier from the dr
   "name": "ServicePrincipal",
   "type": "Microsoft.Common.ServicePrincipalSelector",
   "label": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type",
     "sectionHeader": "Service Principal"
   },
   "toolTip": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type"
@@ -58,13 +68,13 @@ When you select **Create new** or an existing application identifier from the dr
 
 ## Remarks
 
-- The required properties are:
+- The required properties are as follows:
   - `name`
   - `type`
   - `label`
   - `defaultValue`: Specifies the default `principalId` and `name`.
 
-- The optional properties are:
+- The optional properties are as follows:
   - `toolTip`: Attaches a tooltip `infoBalloon` to each label.
   - `visible`: Hide or display the control.
   - `options`: Specifies whether or not the certificate thumbprint option should be made available.
@@ -90,14 +100,12 @@ The following is an example of the `Microsoft.Common.ServicePrincipalSelector` c
             "name": "ServicePrincipal",
             "type": "Microsoft.Common.ServicePrincipalSelector",
             "label": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type",
               "sectionHeader": "Service Principal"
             },
             "toolTip": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type"
@@ -133,9 +141,9 @@ The following is an example of the `Microsoft.Common.ServicePrincipalSelector` c
 
 ## Example output
 
-The `appId` is the Id of the application registration that you selected or created. The `objectId` is an array of objectIds for the Service Principals configured for the selected application registration.
+The `appId` is the Id of the application registration that you selected or created. The `objectId` is an array of object Ids for the service principals configured for the selected application registration.
 
-When no selection is made from the dropdown, the `newOrExisting` property value is **new**:
+When no selection is made from the control, the `newOrExisting` property value is **new**:
 
 ```json
 {
@@ -160,7 +168,7 @@ When no selection is made from the dropdown, the `newOrExisting` property value 
 }
 ```
 
-When **Create new** or an existing application identifier is selected from the dropdown the `newOrExisting` property value is **existing**:
+When **Create new** or an existing application is selected from the control the `newOrExisting` property value is **existing**:
 
 ```json
 {

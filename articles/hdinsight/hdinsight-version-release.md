@@ -97,5 +97,9 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 
 ## Next steps
 
+* [HBase migration guide](./hbase/apache-hbase-migrate-new-version.md)
+* [Hive migration guide](./interactive-query/apache-hive-migrate-workloads.md)
+* [Kafka migration guide](./kafka/migrate-versions.md)
+* [Spark migration guide](./spark/migrate-versions.md)
 * [Azure HDInsight Documentation](index.yml)
 * [Release Notes](hdinsight-release-notes.md)

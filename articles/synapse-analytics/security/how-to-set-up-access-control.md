@@ -1,6 +1,8 @@
 ---
+
 title: How to set up access control for your Synapse workspace
 description: This article will teach you how to control access to a Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
+
 services: synapse-analytics 
 author: billgib 
 ms.service: synapse-analytics 
@@ -10,6 +12,7 @@ ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
 ---
+
 # How to set up access control for your Synapse workspace 
 
 This article will teach you how to control access to a Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.   

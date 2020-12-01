@@ -1,7 +1,7 @@
 ---
 title: What are compute targets
 titleSuffix: Azure Machine Learning
-description: Define where you want to train or deploy your model with Azure Machine Learning.
+description: Learn how to designate a compute resource or environment to train or deploy your model with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -50,7 +50,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 * As a _batch inference_ endpoint that's used to periodically process batches of data. Batch inferences use [Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md).
 
-* To an _IoT device_ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* To an _IoT device_ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 
@@ -85,7 +85,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 ### Supported VM series and sizes
 
-When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](../virtual-machines/sizes.md).
 
 There are a few exceptions and limitations to choosing a VM size:
 
@@ -116,6 +116,12 @@ See the following table to learn more about supported series and restrictions.
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
+> [!NOTE]
+> Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
+> * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+>
+
 ### Compute isolation
 
 Azure Machine Learning compute offers VM sizes that are isolated to a specific hardware type and dedicated to a single customer. Isolated VM sizes are best suited for workloads that require a high degree of isolation from other customers' workloads for reasons that include meeting compliance and regulatory requirements. Utilizing an isolated size guarantees that your VM will be the only one running on that specific server instance.
@@ -129,7 +135,7 @@ The current isolated VM offerings include:
 
 *RDMA capable
 
-To learn more about isolation, see [Isolation in the Azure public cloud](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+To learn more about isolation, see [Isolation in the Azure public cloud](../security/fundamentals/isolation-choices.md).
 
 ## Unmanaged compute
 

@@ -57,12 +57,12 @@ Media Services lets you build a variety of media workflows in the cloud. Some ex
 * Use Azure Media Services together with [Azure Cognitive Services APIs](../../index.yml?pivot=products&panel=ai) to add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
 * Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event).
 
-## How can I get started with v3? 
+## How can I get started with v3?
 
 Learn how to encode and package content, stream videos on-demand, broadcast live, and analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
 > [!TIP]
-> Before you start developing, review:<br/>* [Fundamental concepts](concepts-overview.md) (includes important concepts, like packaging, encoding, and protecting)<br/>* [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, and so on)
+> Before you start developing, review: [Fundamental concepts](concepts-overview.md) which includes important concepts, like packaging, encoding, and protecting, and [Developing with Media Services v3 APIs](media-services-apis-overview.md) which includes information on accessing APIs, naming conventions, and so on.
 
 ### SDKs
 

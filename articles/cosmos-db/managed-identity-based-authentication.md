@@ -3,6 +3,7 @@ title: How to use a system-assigned managed identity to access Azure Cosmos DB d
 description: Learn how to configure an Azure Active Directory (Azure AD) system-assigned managed identity (managed service identity) to access keys from Azure Cosmos DB. 
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
@@ -209,7 +210,7 @@ namespace Monitor
 }
 ```
 
-You are now ready to [deploy your function app](../azure-functions/functions-create-first-function-vs-code.md).
+You are now ready to [deploy your function app](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## Next steps
 

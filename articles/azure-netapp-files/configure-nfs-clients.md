@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
@@ -70,7 +70,10 @@ The examples in this section use the following domain name and IP address:
     For example: 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
-
+    
+    Ensure that `default_realm` is set to the provided realm in `/etc/krb5.conf`.  If not, add it under the `[libdefaults]` section in the file as shown in the following example:
+    
+    `default_realm = CONTOSO.COM`
 
 7. Restart all NFS services:  
  
@@ -194,7 +197,7 @@ The examples in this section use the following domain name and IP address:
 
 5. Ubuntu 18.04 uses chrony by default. Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
-6. Join the Active Directory Domain:   
+6. Join the Active Directory domain:   
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  

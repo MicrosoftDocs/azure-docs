@@ -32,7 +32,7 @@ This article provides background information and steps to configure a customer-m
 
 The Azure Sentinel solution uses several storage resources for log collection and features, including Log Analytics and others. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
 
-Learn more about [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview).
+Learn more about [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview).
 
 > [!NOTE]
 > If you enable CMK on Azure Sentinel, any Public Preview feature that does not support CMK will not be enabled.
@@ -55,7 +55,7 @@ To provision CMK, follow these steps: 
 
 ### STEP 1: Create an Azure Key Vault and storing key
 
-1.  [Create Azure Key Vault resource](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal),
+1.  [Create Azure Key Vault resource](/azure-stack/user/azure-stack-key-vault-manage-portal),
     then generate or import a key to be used for data encryption.
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
@@ -115,7 +115,7 @@ The only operation possible after the encryption key is revoked or deleted is ac
 
 If access is restored after revocation, Azure Sentinel will restore access to the data within an hour.
 
-To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-revocation).
+To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/platform/customer-managed-keys.md#key-revocation).
 
 ## Key encryption key rotation
 
@@ -130,11 +130,10 @@ You can disable the previous version of the key after 24 hours, or after the Azu
 version.
 
 If you use the same key in Azure Sentinel and in Log Analytics, it is necessary to perform key rotation you must explicitly update the cluster resource in Log
-Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-rotation).
+Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/platform/customer-managed-keys.md#key-rotation).
 
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-

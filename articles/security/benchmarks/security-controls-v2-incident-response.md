@@ -22,7 +22,7 @@ Incident Response covers controls in the incident response life cycle - preparat
 
 Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
-- [Implement security across the enterprise environment](https://aka.ms/AzSec4)
+- [Implement security across the enterprise environment](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
@@ -136,7 +136,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md)
 
 **Responsibility**: Customer
 
@@ -172,4 +172,3 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 - [Incident preparation](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Threat intelligence](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
-

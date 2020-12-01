@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -31,7 +31,7 @@ When you enforce a minimum TLS version for your storage account, you risk reject
 
 To log requests to your Azure Storage account and determine the TLS version used by the client, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
-Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/log-query/get-started-portal.md).
+Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
 
@@ -87,6 +87,8 @@ When you are confident that traffic from clients using older versions of TLS is 
 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
+The **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it.  If the property value is **null**, then the storage account will permit requests sent with TLS version 1.0 or greater.
+
 # [Portal](#tab/portal)
 
 When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default.
@@ -102,8 +104,6 @@ To configure the minimum TLS version for an existing storage account with the Az
 # [PowerShell](#tab/powershell)
 
 To configure the minimum TLS version for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **MinimumTLSVersion** property for a new or existing storage account. Valid values for **MinimumTlsVersion** are `TLS1_0`, `TLS1_1`, and `TLS1_2`.
-
-The **MinimumTlsVersion** property is not set by default when you create a storage account with PowerShell. This property does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
 
 The following example creates a storage account and sets the **MinimumTLSVersion** to TLS 1.1, then updates the account and sets the **MinimumTLSVersion** to TLS 1.2. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
 
@@ -134,8 +134,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 # [Azure CLI](#tab/azure-cli)
 
 To configure the minimum TLS version for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **minimumTlsVersion** property for a new or existing storage account. Valid values for **minimumTlsVersion** are `TLS1_0`, `TLS1_1`, and `TLS1_2`.
-
-The **minimumTlsVersion** property is not set by default when you create a storage account with Azure CLI. This property does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
 
 The following example creates a storage account and sets the **minimumTLSVersion** to TLS 1.1. It then updates the account and sets the **minimumTLSVersion** property to TLS 1.2. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
 

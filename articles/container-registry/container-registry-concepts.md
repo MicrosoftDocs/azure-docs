@@ -40,7 +40,7 @@ A *repository* is a collection of container images or other artifacts with the s
 - *acr-helloworld:v1*
 - *acr-helloworld:v2*
 
-Repository names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you to identify related repositories and artifact ownership in your organization by using forward slash-delimited names. However, the registry manages all repositories independently, not as a hierarchy. For examples:
+Repository names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you to identify related repositories and artifact ownership in your organization by using forward slash-delimited names. However, the registry manages all repositories independently, not as a hierarchy. For example:
 
 - *marketing/campaign10-18/web:v2*
 - *marketing/campaign10-18/api:v3*

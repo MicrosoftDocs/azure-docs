@@ -111,7 +111,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     
     ![Schedule in the calendar](./media/how-to-create-schedules/schedule-calendar.png)
 
-    For more information about creating and managing schedules for a class, see [Create and manage schedule for classroom labs](how-to-create-schedules.md).
+    For more information about creating and managing schedules for a class, see [Create and manage schedule for labs](how-to-create-schedules.md).
 
 
 ## Add users to the lab

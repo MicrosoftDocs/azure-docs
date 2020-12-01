@@ -3,6 +3,7 @@ title: String functions in Azure Cosmos DB query language
 description: Learn about string SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins

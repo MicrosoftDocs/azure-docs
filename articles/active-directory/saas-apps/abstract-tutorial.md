@@ -142,7 +142,7 @@ To test SSO on Abstract:
 
 1. Open the [Abstract web app](https://app.abstract.com/).
 2. Go to the **Permissions** page in the left side bar.
-3. Click **Test with my Account**. If the test fails, please [contact our support team](https://www.abstract.com/help/contact/).
+3. Click **Test with my Account**. If the test fails, please [contact our support team](https://help.abstract.com/hc/).
 
 >[!Note]
 >You will need to authenticate with an organization Admin account to access the SSO settings on Abstract.

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -69,7 +69,7 @@ You can use a certificate issued by a public certificate authority or, for this 
 
 ### 1.1 Prepare a self-signed certificate
 
-If you don't already have a certificate, you can use a self-signed certificate for this tutorial. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
+If you don't already have a certificate, you can use a self-signed certificate for this tutorial. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
@@ -127,7 +127,7 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
-        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>-->
+        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml</Item>-->
       </Metadata>
       <CryptographicKeys>
         <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -256,7 +256,7 @@ Your final relying party policy file should look like the following XML code:
 
 Save your changes and upload the new policy file. After you've uploaded both policies (the extension and the relying party files), open a web browser and navigate to the policy metadata.
 
-Azure AD B2C policy IDP metadata is information used in the SAML protocol to expose the configuration of a SAML identity provider. Metadata defines the location of the services, such as sign-in and sign-out, certificates, sign-in method, and more. The Azure AD B2C policy metadata is available at the following URL. Replace `tenant-name` with the name of your Azure AD B2C tenant, and `policy-name` with the name (ID) of the policy:
+Azure AD B2C policy IDP metadata is information used in the SAML protocol to expose the configuration of a SAML identity provider. Metadata defines the location of the services, such as sign-in and sign-out, certificates, sign-in method, and more. The Azure AD B2C policy metadata is available at the following URL. Replace `tenant-name` with the name of your Azure AD B2C tenant, and `policy-name` with the name (ID) of the policy for example, .../B2C_1A_signup_signin_saml/samlp/metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -424,7 +424,7 @@ We provide a complete sample policy that you can use for testing with the SAML T
 
 1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. Update `TenantId` to match your tenant name, for example *contoso.b2clogin.com*
-1. Keep the policy name of *B2C_1A_SAML2_signup_signin*
+1. Keep the policy name of *B2C_1A_signup_signin_saml*
 
 ## Supported and unsupported SAML modalities
 
@@ -449,7 +449,7 @@ A SAML token is a security token that is issued by Azure AD B2C after a successf
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |The principal about which the token asserts information, such as the user object ID. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory.|
 |`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | A URI reference representing the classification of string-based identifier information. By default this property is omitted. You can set the relying party [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) to specify the `NameID` format, such as `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |The time at which the token becomes valid. The time value is encoded in UTC. Your application should use this claim to verify the validity of the token lifetime. To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technical profile. |
-|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | The time at which the token becomes invalid. Your application should use this claim to verify the validity of the token lifetime. The value is 15 minutes after the `NotBefore` and cannot be changed.|
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | The time at which the token becomes invalid. Your application should use this claim to verify the validity of the token lifetime. The default value is 5 minutes after the `NotBefore` and can be updated by adding the `TokenLifeTimeInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technical profile.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |A URI reference that identifies an intended audience. It identifies the intended recipient of the token. The value is identical to the SAML request `AssertionConsumerServiceURL`.|
 |`<Response>` `<Assertion>` `<AttributeStatement>` collection of `<Attribute>` | | Assertions collection (claims), as configured in the [relying party technical profile](relyingparty.md#technicalprofile) output claims. You can configure the name of the assertion by setting the `PartnerClaimType` of the output claim. |
 

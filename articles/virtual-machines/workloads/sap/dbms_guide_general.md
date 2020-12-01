@@ -3,6 +3,7 @@ title: Considerations for Azure Virtual Machines DBMS deployment for SAP workloa
 description: Considerations for Azure Virtual Machines DBMS deployment for SAP workload
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
@@ -155,8 +156,8 @@ If your IOPS requirement exceeds what a single VHD can provide, balance the numb
 >
 > Only MDADM and Logical Volume Manager (LVM) are supported to build a software RAID on Linux. For more information, see:
 >
-> - [Configure software RAID on Linux](../../linux/configure-raid.md) using MDADM
-> - [Configure LVM on a Linux VM in Azure](../../linux/configure-lvm.md) using LVM
+> - [Configure software RAID on Linux](/previous-versions/azure/virtual-machines/linux/configure-raid) using MDADM
+> - [Configure LVM on a Linux VM in Azure](/previous-versions/azure/virtual-machines/linux/configure-lvm) using LVM
 >
 >
 

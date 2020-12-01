@@ -36,18 +36,20 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Manage VMs
-    displayName: scope policy RBAC lock tag
+  - name: 10 - Enable disaster recovery
+    href: tutorial-disaster-recovery.md
+  - name: 11 - Manage VMs
+    displayName: scope policy Azure RBAC lock tag
     href: tutorial-govern-resources.md
-  - name: 11 - Track and update VMs
+  - name: 12 - Track and update VMs
     href: tutorial-config-management.md
-  - name: 12 - Monitor VMs
+  - name: 13 - Monitor VMs
     href: tutorial-monitor.md
-  - name: 13 - Manage VM security
-    href: tutorial-azure-security.md
-  - name: 14 - Install a SQL\IIS\.NET stack
+  - name: 14 - Manage VM security
+    href: ../tutorial-azure-security.md
+  - name: 15 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 15 - Secure web server with SSL
+  - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -270,7 +272,7 @@
     - name: Reserved instances
       items:
       - name: Prepay for VMs
-        href: prepay-reserved-vm-instances.md
+        href: ../prepay-reserved-vm-instances.md
       - name: Prepay for Dedicated Hosts
         href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: What are Azure reservations?
@@ -298,7 +300,7 @@
     - name: Reserved instances
       items:
       - name: Prepay for VMs
-        href: prepay-reserved-vm-instances.md
+        href: ../prepay-reserved-vm-instances.md
       - name: What are Azure reservations?
         href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
       - name: VM instance size flexibility
@@ -328,7 +330,9 @@
     - name: Backup and disaster recovery for disks
       href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Shared disks
-      href: disks-shared.md
+      href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Disk performance tiers
+      href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Ephemeral OS disks
       href: ../ephemeral-os-disks.md
   - name: Networking
@@ -375,7 +379,7 @@
         href: dedicated-hosts-powershell.md
       - name: Portal
         href: ../dedicated-hosts-portal.md
-    - name: Deploy spot VMs
+    - name: Deploy Spot VMs
       items:
       - name: Portal
         href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -421,17 +425,17 @@
     - name: Retirement starting March 1, 2023
       href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Migration Overview
-      href: migration-classic-resource-manager-overview.md
+      href: ../migration-classic-resource-manager-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Deep Dive on migration
       href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Plan for migration
-      href: migration-classic-resource-manager-plan.md
+      href: ../migration-classic-resource-manager-plan.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Migrate using PowerShell
-      href: migration-classic-resource-manager-ps.md
+      href: ../migration-classic-resource-manager-ps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Common migration errors
-      href: migration-classic-resource-manager-errors.md
+      href: ../migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Community tools for migration
-      href: migration-classic-resource-manager-community-tools.md
+      href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: FAQ
       href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Use Images
@@ -449,7 +453,7 @@
             href: ../image-version-vm-powershell.md
           - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-powershell.md
-          - name: Migrate from a managed image
+          - name: Clone a managed image
             href: ../image-version-managed-image-powershell.md
           - name: Copy from another gallery
             href: ../image-version-another-gallery-powershell.md
@@ -471,7 +475,7 @@
             href: ../image-version-vm-cli.md
           - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-cli.md
-          - name: Migrate from a managed image
+          - name: Clone a managed image
             href: ../image-version-managed-image-cli.md
           - name: Copy from another gallery
             href: ../image-version-another-gallery-cli.md
@@ -558,7 +562,7 @@
   - name: Secure VMs
     items:
     - name: Recommendations
-      href: security-recommendations.md
+      href: ../security-recommendations.md
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md
     - name: Use Bastion
@@ -566,7 +570,7 @@
       - name: Create a Bastion host
         items:
         - name: Portal
-          href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: PowerShell
           href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: CLI
@@ -646,9 +650,17 @@
     - name: Swap the OS disk
       href: os-disk-swap.md
     - name: Tag a VM
-      href: tag.md
-    - name: Time sync
       href: time-sync.md
+      items:
+      - name: Portal
+        href: ../tag-portal.md
+      - name: PowerShell
+        href: ../tag-powershell.md
+      - name: CLI
+        href: ../tag-cli.md
+      - name: Template
+        href: ../tag-template.md
+      - name: Time sync
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
       items:
@@ -666,7 +678,7 @@
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution
-      href: mitigate-se.md
+      href: ../mitigate-se.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Enable nested virtualization
@@ -851,8 +863,6 @@
       href: install-mongodb.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
-    - name: MATLAB cluster
-      href: matlab-mdcs-cluster.md
     - name: Visual Studio
       href: using-visual-studio-vm.md
     - name: High Performance Computing (HPC)
@@ -876,8 +886,10 @@
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
-    - name: Change disk tier
+    - name: Change disk tier - PowerShell/CLI
       href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Change disk tier - Portal
+      href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template
@@ -959,7 +971,7 @@
     - name: Use accelerated networking
       href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Assign public DNS name
-      href: portal-create-fqdn.md
+      href: ../create-fqdn.md
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Configure managed identities

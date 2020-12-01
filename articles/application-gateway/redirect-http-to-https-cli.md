@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
@@ -22,11 +22,11 @@ In this article, you learn how to:
 * Add a listener and redirection rule
 * Create a virtual machine scale set with the default backend pool
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a self-signed certificate
 
@@ -219,5 +219,3 @@ To accept the security warning if you used a self-signed certificate, select **D
 ## Next steps
 
 - [Create an application gateway with internal redirection using the Azure CLI](redirect-internal-site-cli.md)
-
-

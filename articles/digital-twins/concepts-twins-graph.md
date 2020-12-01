@@ -72,7 +72,7 @@ var relationship = new BasicRelationship
 try
 {
     string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync("GroundFloor", relId, relationship);
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

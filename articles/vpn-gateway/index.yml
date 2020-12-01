@@ -86,7 +86,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security controls
-            url: vpn-gateway-security-controls.md
+            url: ./security-baseline.md
       - linkListType: how-to-guide
         links:
           - text: Monitoring and alerts

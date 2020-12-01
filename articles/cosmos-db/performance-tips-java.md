@@ -3,6 +3,7 @@ title: Performance tips for Azure Cosmos DB Sync Java SDK v2
 description: Learn client configuration options to improve Azure Cosmos database performance for Sync Java SDK v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
@@ -137,7 +138,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    For more information, see [Azure Cosmos DB indexing policies](/azure/cosmos-db/index-policy).
+    For more information, see [Azure Cosmos DB indexing policies](./index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>

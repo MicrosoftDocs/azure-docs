@@ -1,12 +1,12 @@
 ---
 title: 'Introduction to Azure Cosmos DB Gremlin API'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
-ms.author: jasonh
+ms.date: 11/25/2020
+ms.author: chrande
 ---
 # Introduction to Gremlin API in Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -18,6 +18,9 @@ ms.author: jasonh
 This article provides an overview of the Azure Cosmos DB Gremlin API and explains how to use them to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is built based on the [Apache TinkerPop](https://tinkerpop.apache.org), a graph computing framework. The Gremlin API in Azure Cosmos DB uses the Gremlin query language.
 
 Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches.
+
+> [!NOTE]
+> The [serverless capacity mode](serverless.md) is now available on Azure Cosmos DB's Gremlin API.
 
 ## Features of Azure Cosmos DB's Gremlin API
  
@@ -47,7 +50,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Automatic indexing**
 
-  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](/azure/cosmos-db/index-overview).
+  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](./index-overview.md).
 
 * **Compatibility with Apache TinkerPop**
 

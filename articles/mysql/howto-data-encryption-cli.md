@@ -1,8 +1,8 @@
 ---
 title: Data encryption - Azure CLI - Azure Database for MySQL
 description: Learn how to set up and manage data encryption for your Azure Database for MySQL by using the Azure CLI.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020 
@@ -41,11 +41,22 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Retention days set to 90 days
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * The key must have the following attributes to use as a customer-managed key:
   * No expiration date
   * Not disabled
   * Perform **get**, **wrap**, **unwrap** operations
+  * recoverylevel attribute set to **Recoverable**.
+
+You can verify the above attributes of the key by using the following command:
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## Set the right permissions for key operations
 
