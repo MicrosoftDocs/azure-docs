@@ -15,6 +15,7 @@ In this tutorial, you learn how to create Java applications to send messages to 
 > [!WARNING]
 >  This quickstart uses the old azure-servicebus packages. For a quickstart that uses the latest azure-messaging-servicebus package, see [Send and receive messages using azure-messaging-servicebus](service-bus-java-how-to-use-queues.md). 
 
+
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.

@@ -18,7 +18,7 @@ To push an image to an Azure Container registry, you must first have an image. I
 docker pull hello-world
 ```
 
-Before you can push an image to your registry, you must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (all lowercase), for example, *mycontainerregistry.azurecr.io*.
+Before you can push an image to your registry, you must tag it with the fully qualified name of your registry login server. The login server name is in the format *\<registry-name\>.azurecr.io* (must be all lowercase), for example, *mycontainerregistry.azurecr.io*.
 
 Tag the image using the [docker tag][docker-tag] command. Replace `<login-server>` with the login server name of your ACR instance.
 

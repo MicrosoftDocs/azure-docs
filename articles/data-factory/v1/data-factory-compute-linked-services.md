@@ -227,7 +227,7 @@ This type of configuration is supported for the following compute environments:
 * Azure Batch
 * Azure Machine Learning Studio (classic)
 * Azure Data Lake Analytics
-* Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server
+* Azure SQL Database, Azure Synapse Analytics, SQL Server
 
 ## Azure HDInsight linked service
 You can create an HDInsight linked service to register your own HDInsight cluster with Data Factory.

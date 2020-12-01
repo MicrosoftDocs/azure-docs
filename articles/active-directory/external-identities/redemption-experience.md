@@ -32,7 +32,7 @@ When you add a guest user to your directory by [using the Azure portal](./b2b-qu
 
 1. The guest receives an [invitation email](./invitation-email-elements.md) that's sent from **Microsoft Invitations**.
 2. The guest selects **Accept invitation** in the email.
-3. The guest will use their own credentials to sign in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](./one-time-passcode.md) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) or an [Azure AD self-service account](../users-groups-roles/directory-self-service-signup.md). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
+3. The guest will use their own credentials to sign in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](./one-time-passcode.md) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) or an [Azure AD self-service account](../enterprise-users/directory-self-service-signup.md). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
 4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
 
 ## Redemption through a direct link
@@ -73,9 +73,9 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 7. If [email one-time passcode for guests is enabled](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), a passcode is sent to the user through the invited email. The user will retrieve and enter this passcode in the Azure AD sign-in page.
 
-8. If email one-time passcode for guests is disabled, Azure AD checks the domain suffix to determine if it belongs to a consumer account. If so, the user is prompted to create a personal [Microsoft account](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). If not, the user is prompted to create an [Azure AD self-service account](../users-groups-roles/directory-self-service-signup.md).
+8. If email one-time passcode for guests is disabled, Azure AD checks the domain suffix to determine if it belongs to a consumer account. If so, the user is prompted to create a personal [Microsoft account](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). If not, the user is prompted to create an [Azure AD self-service account](../enterprise-users/directory-self-service-signup.md).
 
-9. Azure AD attempts to create an [Azure AD self-service account](../users-groups-roles/directory-self-service-signup.md) by verifying access to the email. Verifying the account is done by sending a code to the email, and having the user retrieve and submit it to Azure AD. However, if the invited user’s tenant is federated or if the AllowEmailVerifiedUsers field is set to false in the invited user’s tenant, the user is unable to complete the redemption and the flow results in an error. For more information, see [Troubleshooting Azure Active Directory B2B collaboration](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Azure AD attempts to create an [Azure AD self-service account](../enterprise-users/directory-self-service-signup.md) by verifying access to the email. Verifying the account is done by sending a code to the email, and having the user retrieve and submit it to Azure AD. However, if the invited user’s tenant is federated or if the AllowEmailVerifiedUsers field is set to false in the invited user’s tenant, the user is unable to complete the redemption and the flow results in an error. For more information, see [Troubleshooting Azure Active Directory B2B collaboration](./troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. The user is prompted to create a personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 

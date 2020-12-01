@@ -1,6 +1,6 @@
 ---
 title: Using alerts suppression rules to suppress false positives or other unwanted security alerts in Azure Security Center.
-description: This article explains how to use Azure Security Center's suppression rules to hide unwanted Azure Defender alerts
+description: This article explains how to use Azure Security Center's suppression rules to hide unwanted security alerts
 author: memildin
 manager: rkarlin
 services: security-center
