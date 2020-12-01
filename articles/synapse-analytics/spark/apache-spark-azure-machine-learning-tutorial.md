@@ -67,7 +67,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-3. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. Once we have the filtered dataframe, we will also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
+3. Depending on the size of your Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. Once we have the filtered dataframe, we will also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
 
    Based on the summary statistics, we can see that there are some irregularities and outliers in the data. For example, the statistics show that the the minimum trip distance is less than 0. We will need to filter out these irregular data points.
    
