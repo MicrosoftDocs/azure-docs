@@ -14,7 +14,7 @@ ms.author: dobett
 
 # Use the azureiotsolutions.com site to deploy your solution accelerator
 
-You can deploy Azure IoT solution accelerators to your Azure subscription from [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hosts both the Microsoft open source and partner solution accelerators. These solution accelerators align with the [Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture). You can use the site to quickly deploy a solution accelerator as a demo or production environment.
+You can deploy Azure IoT solution accelerators to your Azure subscription from [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com hosts both the Microsoft open source and partner solution accelerators. These solution accelerators align with the [Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot). You can use the site to quickly deploy a solution accelerator as a demo or production environment.
 
 ![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
