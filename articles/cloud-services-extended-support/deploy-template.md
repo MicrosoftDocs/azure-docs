@@ -36,7 +36,7 @@ When creating a Cloud Service (extended support) deployment using ARM templates,
 ### Certificates
 - Parameter name: `osProfile`
 - Object name: `sourceVault`
-- Ob
+
 ### Load balancer
 - Parameter name: `networkProfile`
 - A load balancer is automatically created by the platform. 
