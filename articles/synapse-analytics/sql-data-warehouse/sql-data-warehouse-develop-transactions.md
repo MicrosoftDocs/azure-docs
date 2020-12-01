@@ -1,5 +1,5 @@
 ---
-title: Use transactions in Synapse SQL pool
+title: Use transactions in Azure Synapse Analytics SQL pool
 description: This article includes tips for implementing transactions and developing solutions in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT 
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/22/2019
 ms.author: xiaoyul
+ms.custom: azure-synapse
 ms.reviewer: igorstan
 ---
 
-# Use transactions in Synapse SQL pool
+# Use transactions in a SQL pool in Azure Synapse 
 
-This article includes tips for implementing transactions and developing solutions in SQL pool.
+This article includes tips for implementing transactions and developing solutions in a SQL pool.
 
 ## What to expect
 
@@ -22,7 +23,7 @@ As you would expect, SQL pool supports transactions as part of the data warehous
 
 ## Transaction isolation levels
 
-SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  
+SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user SQL pool when connected to the master database.  
 
 Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for details.
 
