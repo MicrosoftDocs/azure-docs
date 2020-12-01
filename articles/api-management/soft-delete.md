@@ -13,7 +13,7 @@ ms.date: 11/27/2020
 With API Management soft-delete (preview), you can recover and restore recently deleted API Management (APIM) instances.
 
 > [!IMPORTANT]
-> Only API Management instances deleted using `2020-01-01-preview` and later API versions will be soft-deleted and recoverable using the steps described in this article. APIM instances deleted using older API versions will continue to be hard deleted.
+> Only API Management instances deleted using `2020-01-01-preview` and later API versions will be soft-deleted and recoverable using the steps described in this article. APIM instances deleted using previous API versions will continue to be hard-deleted. Azure PowerShell and Azure CLI currently do not use the `2020-06-01-preview` version and will also result in hard-delete behavior.
 
 ## Supporting interfaces
 
