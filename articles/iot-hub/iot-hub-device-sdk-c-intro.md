@@ -15,7 +15,8 @@ ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 
 The **Azure IoT device SDK** is a set of libraries designed to simplify the process of sending messages to and receiving messages from the **Azure IoT Hub** service. There are different variations of the SDK, each targeting a specific platform, but this article describes the **Azure IoT device SDK for C**.
 
-**Note on constrained devices**: The `Embedded C SDK` is an alternative for constrained devices which enables the BYO (bring your own) network approach: IoT developers have the freedom of choice to bring MQTT client, TLS and Socket of their choice to create a device solution. Find more information about the Embedded C SDK [here](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
+> [!NOTE]
+> The Embedded C SDK is an alternative for constrained devices that supports the bring your own network (BYON) approach. IoT developers have the freedom to bring the MQTT client, TLS, and socket of their choice to create a device solution. [Learn more about the Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
