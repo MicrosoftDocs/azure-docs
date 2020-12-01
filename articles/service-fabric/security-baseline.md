@@ -74,7 +74,7 @@ Consider deploying Azure Web Application Firewall (WAF) in front of critical web
 
 **Guidance**: For protections from DDoS attacks, enable Azure DDoS Standard protection on the virtual network where your Azure Service Fabric cluster is deployed. Use Azure Security Center integrated threat intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 * [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -624,7 +624,7 @@ Alternately, to test OS patches first before going to production, use the manual
 
 * [How to bring VMs up-to-date with the latest scale set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Azure Automation Update Management overview](../automation/update-management/update-mgmt-overview.md)
+* [Azure Automation Update Management overview](../automation/update-management/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 

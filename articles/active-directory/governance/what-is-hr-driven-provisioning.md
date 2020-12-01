@@ -30,7 +30,7 @@ Currently, Microsoft on-premises HR provisioning solutions use Microsoft Identit
 
 Using MIM, you can provision users from your on-premises HR systems to Active Directory or Azure AD.
 
-For information on Microsoft Identity Manager and the systems it supports see the [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) documentation.
+For information on Microsoft Identity Manager and the systems it supports see the [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) documentation.
 
 [!INCLUDE [active-directory-hr-provisioning.md](../../../includes/active-directory-hr-provisioning.md)]
 

@@ -95,7 +95,7 @@ Next, you connect to your Azure Cosmos DB account and create the `Items` contain
     | ---|---|--- |
     | **Database ID** | Tasks |The name for your new database. This must match the name defined in your function binding. |
     | **Container ID** | Items | The name for the new container. This must match the name defined in your function binding.  |
-    | **[Partition key](../cosmos-db/partition-data.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
+    | **[Partition key](../cosmos-db/partitioning-overview.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |    
 
 1. Click **OK** to create the Items container. It may take a short time for the container to get created.

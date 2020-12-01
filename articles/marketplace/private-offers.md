@@ -38,6 +38,8 @@ Private plans are components of an offer and are only visible and purchasable by
 
 For *new offers that only include private plans*, publishers can create their offers as any other offer, and then mark the plans as private. The offers that only have private plans will not be discoverable or accessible via the Microsoft commercial marketplace or the [Azure portal](https://azure.microsoft.com/features/azure-portal/) by customers that are not associated with the offer.
 
+Private plans are available for both Azure Global and Azure Government.
+
 >[!NOTE]
 >An offer that contains only private plans will not be visible in the public Azure Marketplace or AppSource.
 

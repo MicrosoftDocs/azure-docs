@@ -189,10 +189,10 @@ Individual prices (which, depending on how they were set, may have been influenc
 
 For details on how to enter prices for specific offer types, refer to these articles:
 
-- [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md)
+- [Create an Azure application offer](create-new-azure-apps-offer.md)
 - [Create an Azure container offer](partner-center-portal/create-azure-container-offer.md)
 - [Create an Azure virtual machine offer](azure-vm-create.md)
-- [Create a consulting service offer](partner-center-portal/create-consulting-service-offer.md)
+- [Create a consulting service offer](./create-consulting-service-offer.md)
 - [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
 - [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)

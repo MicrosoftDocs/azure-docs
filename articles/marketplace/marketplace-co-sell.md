@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ---
 
 # Co-sell partner engagement
@@ -80,6 +80,13 @@ Start your Co-sell journey directly in Partner Center following the steps below.
         :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="This image shows the CED dropdown to request a Co-sell review.":::
 
     The CED will reach out to you to complete the process.
+
+## See your offer's Co-sell status
+
+For offers with the [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md), you can see your offer's current Co-sell status on the Offer Overview page:
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="This image shows the current Co-sell status of offers.":::
+
 
 ## Next steps
 

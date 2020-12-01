@@ -1,6 +1,6 @@
 ---
 title: Deploy template - Azure portal
-description: Learn how to create your first Azure Resource Manager template using the Azure portal, and how to deploy it.
+description: Learn how to create your first Azure Resource Manager template (ARM template) using the Azure portal, and how to deploy it.
 author: mumian
 ms.date: 06/29/2020
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.author: jgao
 
 # Quickstart: Create and deploy ARM templates by using the Azure portal
 
-Learn how to generate an Azure Resource Manager (ARM) template using the Azure portal, and the process of editing and deploying the template from the portal. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+Learn how to generate an Azure Resource Manager template (ARM template) using the Azure portal, and the process of editing and deploying the template from the portal. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 ![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
