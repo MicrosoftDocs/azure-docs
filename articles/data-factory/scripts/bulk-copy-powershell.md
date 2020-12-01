@@ -14,7 +14,7 @@ ms.date: 10/31/2017
 
 # PowerShell script - copy multiple tables in bulk by using Azure Data Factory
 
-This sample PowerShell script copies data from multiple tables in Azure SQL Database to Azure Synapse Analytics (formerly SQL Data Warehouse).
+This sample PowerShell script copies data from multiple tables in Azure SQL Database to Azure Synapse Analytics.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

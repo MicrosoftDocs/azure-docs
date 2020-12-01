@@ -30,7 +30,7 @@ robots: noindex
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 ## Overview
-You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. The following table provides a list of data stores supported as sources or sinks by the copy activity. For example, you can move data **from** a SQL Server database or a database in Azure SQL Database **to** an Azure blob storage. And, you can copy data **from** Azure blob storage **to** Azure Synapse Analytics (formerly SQL Data Warehouse) or an Azure Cosmos DB collection.
+You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. The following table provides a list of data stores supported as sources or sinks by the copy activity. For example, you can move data **from** a SQL Server database or a database in Azure SQL Database **to** an Azure blob storage. And, you can copy data **from** Azure blob storage **to** Azure Synapse Analytics or an Azure Cosmos DB collection.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
