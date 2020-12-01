@@ -2,10 +2,20 @@
 title: Troubleshooting - Azure Monitor Application Insights Java
 description: Troubleshooting Azure Monitor Application Insights Java
 ms.topic: conceptual
-ms.date: 11/25/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-java
 ---
 # Troubleshooting Azure Monitor Application Insights Java
+
+## Configuration Issues
+
+If you are using an old `applicationinsights.json` file, please make sure you make following changes in the configuration:
+
+1.  Please rename `ApplicationInsights.json` to `applicationinsights.json`.
+2.  Please remove `instrumentationSettings`. All the contents inside `instrumentationSettings` are moved to the root level.  
+3.  Sub configurations like `sampling`, `jmxMetrics`, `instrumentation` and `heartbeat` are moved out of `preview` to the root level.
+
+For more information please go through the [docs](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-standalone-config) related to different configuration options.
 
 ## SSL Certificate Issues
 
