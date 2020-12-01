@@ -1,8 +1,8 @@
 ---
 title: Use Azure Private Link to securely connect networks to Azure Monitor
 description: Use Azure Private Link to securely connect networks to Azure Monitor
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: 
@@ -80,6 +80,11 @@ In the below topology:
 * Workspace2 connects to AMPLS A and AMPLS B, using 2/5 (40%) of its possible AMPLS connections.
 
 ![Diagram of AMPLS limits](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> In some network topologies (mainly Hub-and-spoke) you may quickly reach the 10 VNets limit for a single AMPLS. In such cases it's advised to use a hub network to create a shared private link connection - basically create a single Private Endpoint on the hub network, link it to your AMPLS and peer all other networks to the hub network. Spoke networks would then communicate with Azure Monitor through the hub network.
+
+![Hub-and-spoke-single-PE](./media/private-link-security/Hub-and-spoke-single-PE.png)
 
 ## Example connection
 
