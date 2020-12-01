@@ -12,15 +12,15 @@ ms.reviewer: jrasnick
 ---
 # Synapse access control 
 
-This article describes how you control access to Synapse compute resources and data.  
+This article provides an overview of the mechanisms available to control access to Synapse compute resources and data.  
 
 ## Overview
 
-Synapse includes a comprehensive and fine-grained access control system, that integrates 
+Synapse provides a comprehensive and fine-grained access control system, that integrates 
 - **Azure roles** for resource management and access to data in storage, 
 - **Synapse roles** for managing live access to code and execution, 
 - **SQL roles** for data plane access to data in SQL pools, and 
-- **Git permissions** for access to source code repository, including continuous integration and deployment support.  
+- **Git permissions** for source code control, including continuous integration and deployment support.  
 
 Synapse roles provide sets of permissions that can be applied at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
 
@@ -72,7 +72,7 @@ The creator of a workspace is assigned as the Active Directory Admin on the work
 
 **Dedicated SQL pools**: Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools is not otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool database.
 
-[Learn more](TODO) about granting SQL permissions.  
+See [How to set up Synapse Access Control](./how-to-set-up-access-control.md) for examples of SQL scripts for granting SQL permissions in SQL pools.  
 
  ### Accessing system-managed data in storage
 
@@ -84,4 +84,8 @@ To simplify managing access control, you can use security groups to assign roles
 
 ## Next steps
 
-How to [set up access control](./how-to-set-up-access-control.md) for a Synapse Workspace using security groups to manage access control.
+- Learn more about [Synapse RBAC](./synapse-workspace-synapse-rbac.md)
+- Learn more about [Synapse RBAC roles](./)
+- Learn [How to set up access control](./how-to-set-up-access-control.md) for a Synapse Workspace using security groups.
+- Learn [How to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
+- Learn [How to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)

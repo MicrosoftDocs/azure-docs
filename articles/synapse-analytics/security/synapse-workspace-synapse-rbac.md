@@ -11,16 +11,16 @@ ms.reviewer: jrasnick
 ---
 # What is Synapse role-based access control (RBAC)?
 
-Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and the Azure resources it contains:
-- SQL pools, 
-- Apache Spark pools, 
-- Integration runtimes. 
+Synapse RBAC extends the capabilities of [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) for Synapse workspaces and their content. Azure RBAC is used to manage who can create, update, or delete the Synapse workspace and the Azure resources it contains, comprising:
+- SQL pools,
+- Apache Spark pools,
+- Integration runtimes.
 
-Synapse RBAC is used to manage who can
-- publish code artifacts and list or access published code artifacts, 
-- execute code on Apaches Spark pools and Integration runtimes,
-- access linked (data) services protected by credentials 
-- monitor or cancel job execution, review job output, and execution logs.  
+Synapse RBAC is used to manage who can:
+- Publish code artifacts and list or access published code artifacts, 
+- Execute code on Apaches Spark pools and Integration runtimes,
+- Access linked (data) services protected by credentials 
+- Monitor or cancel job execution, review job output, and execution logs.  
 
 >[!Note]
 >While Synapse RBAC is used to manage access to published SQL scripts, Synapse RBAC is _not_ used to control access to dedicated SQL pools or allow execution of SQL scripts in dedicated SQL Pools, which is managed using SQL security.
@@ -30,7 +30,7 @@ Synapse RBAC is used to manage who can
 Here are some examples of what you can do with Synapse RBAC:
   - Allow a user to publish changes made to Apache Spark notebooks and jobs to the live service.
   - Allow a user to run and cancel notebooks and spark jobs on a specific Apache Spark pool.
-  - Allow a user to use specific credentials so they can run pipelines secured by the workspace system identity and access linked services secured with credentials. 
+  - Allow a user to use specific credentials so they can run pipelines secured by the workspace system identity and access data in linked services secured with credentials. 
   - Allow an administrator to manage, monitor, and cancel job execution on specific Spark Pools.    
 
 ## How Synapse RBAC works
@@ -42,7 +42,7 @@ A _security principal_ is a user, group, service principal, or managed identity.
 
 ### Roles
  
-A _role_ is a collection of permissions or actions that can be performed on specific resource types or artifact types. Actions may be generic and apply to different kinds of resources or artifacts.  Type-specific actions apply only to certain resource types or artifact types.
+A _role_ is a collection of permissions or actions that can be performed on specific resource types or artifact types.
 
 Synapse provides built-in roles that define collections of actions that match the needs of different personas:
 - Administrators can get full access to create and configure a workspace 
