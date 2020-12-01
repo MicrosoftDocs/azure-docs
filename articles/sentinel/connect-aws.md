@@ -77,8 +77,8 @@ You must have write permission on the Azure Sentinel workspace.
 
 1. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
 
-    > [!WARNING]
-    > From \<date\>, the **AWSRequestID** field will be replaced by the **AWSRequestID_** field (note the added underscore). To avoid data loss, the data in the old **AWSRequestID** field will be preserved through the end of the customer's specified data retention period.
+    > [!IMPORTANT]
+    > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
 
 ## Next steps
 In this document, you learned how to connect AWS CloudTrail to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
