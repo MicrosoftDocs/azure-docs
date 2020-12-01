@@ -114,7 +114,7 @@ To access the secure score for multiple subscriptions with ARG:
 If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** Power BI dashboard to track your secure score over time and investigate any changes.
 
 > [!TIP]
-> You can find this dashboard as well as other tools for working programatically with secure score in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+> You can find this dashboard, as well as other tools for working programatically with secure score, in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
 
 The dashboard contains the following two reports to help you analyze your security status:
 
