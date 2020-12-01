@@ -78,7 +78,7 @@ Either way, we still recommend that you have a second and regular internet break
 
 A compliant network architecture within China could look like the following example:
 
-![Multiple branches](./media/interconnect-china/multi-branch.png)
+:::image type="content" source="./media/interconnect-china/multi-branch.png" alt-text="Diagram shows multiple branches.":::
 
 In this example, having an interconnect with the Microsoft Global Network in Hong Kong, you can now start to leverage the [Azure Virtual WAN Global Transit Architecture](virtual-wan-global-transit-network-architecture.md) and additional services, like Azure secure Virtual WAN hub, in order to consume services and interconnect to your branches and datacenter outside China.
 
