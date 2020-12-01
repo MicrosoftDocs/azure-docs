@@ -258,36 +258,58 @@
     {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script",
+      "redirect_document_id": false
+    },
       "source_path": "articles/virtual-machines/windows/matlab-mdcs-cluster.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster",
       "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/virtual-machines/linux/powershell-samples.md",
+    "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+    "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/virtual-machines/windows/powershell-samples.md",
+    "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+    "redirect_document_id": false
+    },
+    { 
+    "source_path": "articles/virtual-machines/linux/cli-samples.md",
+    "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+    "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/virtual-machines/windows/cli-samples.md",
+    "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+    "redirect_document_id": false
     },
     {
       "source_path": "articles/network-watcher/connection-monitor-preview.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-overview",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-arm-client.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-template",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-network-performance-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-connection-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
     },
-	{
+  	{
       "source_path": "articles/digital-twins/how-to-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
