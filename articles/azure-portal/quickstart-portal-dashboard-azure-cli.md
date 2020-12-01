@@ -28,7 +28,7 @@ Select a subscription by using the [az account set](/cli/azure/account#az_accoun
    az group create --name myResourceGroup --location centralus
    ```
 
-A resource group is a logical container in which Azure resources are deployed and managed as a group.
+   A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 ## Create a virtual machine
 
@@ -41,11 +41,11 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 > [!Note]
 > The password must be complex.
 > This is a new user name and password.
-> It's not, for example, the account you use to sign in to Azure. 
+> It's not, for example, the account you use to sign in to Azure.
 > For more information, see [username requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)
 and [password requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-The deployment now starts and typically takes a few minutes to complete.
+The deployment starts and typically takes a few minutes to complete.
 After deployment completes, move on to the next section.
 
 ## Download the dashboard template
@@ -53,7 +53,7 @@ After deployment completes, move on to the next section.
 Since Azure dashboards are resources, they can be represented as JSON.
 For more information, see [The structure of Azure Dashboards](./azure-portal-dashboards-structure.md).
 
-Download the following file: 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'.
+Download the following file: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json).
 
 Customize the downloaded template by changing the following values to your values:
 

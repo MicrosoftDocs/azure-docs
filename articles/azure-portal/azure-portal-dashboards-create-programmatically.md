@@ -658,7 +658,7 @@ Now that you've seen an example of using a parameterized template to deploy a da
 
 ## Programmatically create a dashboard by using Azure CLI
 
-If necessary, configure your environment for Azure CLI.
+Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -694,6 +694,6 @@ az portal dashboard list --resource-group myResourceGroup
 
 ## Next steps
 
-For more information about desktops, see [Manage Azure portal settings and preferences](set-preferences.md)
+For more information about desktops, see [Manage Azure portal settings and preferences](set-preferences.md).
 
 For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
