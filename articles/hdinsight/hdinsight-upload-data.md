@@ -12,7 +12,7 @@ ms.date: 04/27/2020
 
 # Upload data for Apache Hadoop jobs in HDInsight
 
-HDInsight provides a Hadoop distributed file system (HDFS) over Azure Storage, and Azure Data Lake Storage. This storage includes Gen1 and Gen2. Azure Storage and Data Lake Storage Gen1 and Gen2 are designed as HDFS extensions. They enable the full set of components in the Hadoop environment to operate directly on the data it manages. Azure Storage, Data Lake Storage Gen1, and Gen2 are distinct file systems. The systems are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). See also, [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md), and [Use Data Lake Storage Gen2 with HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+HDInsight provides a Hadoop distributed file system (HDFS) over Azure Storage, and Azure Data Lake Storage. This storage includes Gen1 and Gen2. Azure Storage and Data Lake Storage Gen1 and Gen2 are designed as HDFS extensions. They enable the full set of components in the Hadoop environment to operate directly on the data it manages. Azure Storage, Data Lake Storage Gen1, and Gen2 are distinct file systems. The systems are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). See also, [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md), and [Use Data Lake Storage Gen2 with HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Note the following requirements before you begin:
 * An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Knowledge of the following articles:
     * [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md)
-    * [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    * [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)
     * [Use Data Lake Storage Gen2 with HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## Upload data to Azure Storage
@@ -83,7 +83,7 @@ There are also several applications that provide a graphical interface for worki
 
 ## Mount Azure Storage as Local Drive
 
-See [Mount Azure Storage as Local Drive](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
+See [Mount Azure Storage as Local Drive](/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## Upload using services
 

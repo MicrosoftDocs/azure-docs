@@ -113,13 +113,13 @@ The following steps can be used to increase the membership limit:
 2. In the editor, choose **Outbound** for Direction 
 3. Click on the **Out to AAD – Group Join** sync rule 
 4. Click the **Edit** button 
- ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+ ![Screenshot that shows the "View and manage your synchronization rules" with "Out to AAD - Group Join" selected.](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. Click the **Yes** button to disable the default rule and create an editable copy.
- ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ ![Screenshot that shows the "Edit Reserved Rule Confirmation" window with the "Yes" button selected.](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
 7. In the pop-up window on the **Description** page, set the precedence to an available value between 1 and 99
-![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+![Screenshot that shows the "Edit outbound synchronization rule" window with "Precedence" highlighted.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. On the **Transformations** page, update the **Source** value for the **member** transformation, replacing ‘50000’ with a value between 50001 and 250000. This replacement will increase the maximum membership size of groups that will sync to Azure AD. We suggest starting with a number of 100k, to understand the impact that syncing large groups will have on your sync performance. 
  
@@ -139,7 +139,7 @@ The following steps can be used to increase the membership limit:
 > If Azure AD Connect Health is not enabled, change the windows application event log settings to archive the logs, instead of overwriting them. The logs may be used to assist in future troubleshooting efforts. 
 
 >[!NOTE]
-> After enabling the new endpoint, you may see additional export errors on the AAD connector with name ‘dn-attributes-failure’. There will be a corresponding event log entry for each error with id 6949, . The errors are informational and do not indicate a problem with your installation, but rather that the sync process could not add certain members to a group in Azure AD because the member object itself was not synced to Azure AD. 
+> After enabling the new endpoint, you may see additional export errors on the AAD connector with name ‘dn-attributes-failure’. There will be a corresponding event log entry for each error with id 6949. The errors are informational and do not indicate a problem with your installation, but rather that the sync process could not add certain members to a group in Azure AD because the member object itself was not synced to Azure AD. 
 
 The new V2 endpoint code handles some types of export errors slightly different from how the V1 code did.  You may see more of the informational error messages when you use the V2 endpoint. 
 

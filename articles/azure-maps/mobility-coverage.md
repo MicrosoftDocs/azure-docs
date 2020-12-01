@@ -12,7 +12,7 @@ manager: philmea
 
 # Azure Maps Mobility coverage
 
-The Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) improves the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility service also allows users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility service provides routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries. 
+The Azure Maps [Mobility service](/rest/api/maps/mobility) improves the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility service also allows users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility service provides routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries. 
 
 Azure Maps doesn't provide the same level of information and accuracy for all cities and countries/regions. The ability to call public transit data depends on the metro area. In addition, the map data may not include all public transit options and agencies that serve the metro area.
 
@@ -154,4 +154,4 @@ Learn how to request real-time data using Mobility Service:
 Explore the Azure Maps Mobility Service API documentation
 
 > [!div class="nextstepaction"]
-> [Mobility Service API documentation](https://aka.ms/AzureMapsMobilityService)
+> [Mobility Service API documentation](/rest/api/maps/mobility)

@@ -36,7 +36,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 2. From the left menu, select **+ Add API**.
 3. Select **Blank API** from the list.  
     ![Blank API](media/add-api-manually/blank-api.png)  
-4. Enter settings for the API. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
+4. Enter settings for the API. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 5. Select **Create**.
 
 At this point, you have no operations in API Management that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the API Management, you get a **404**.

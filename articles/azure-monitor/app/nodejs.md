@@ -3,7 +3,7 @@ title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Monitor your Node.js services and apps with Application Insights
@@ -411,10 +411,9 @@ These properties are client specific, so you can configure `appInsights.defaultC
 ## Next steps
 
 * [Monitor your telemetry in the portal](./overview-dashboard.md)
-* [Write Analytics queries over your telemetry](../log-query/get-started-portal.md)
+* [Write Analytics queries over your telemetry](../log-query/log-analytics-tutorial.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
-

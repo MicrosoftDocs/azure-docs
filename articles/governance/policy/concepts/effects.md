@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -20,7 +20,7 @@ These effects are currently supported in a policy definition:
 - [Disabled](#disabled)
 - [Modify](#modify)
 
-The following effects are being _deprecated_:
+The following effects are _deprecated_:
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -128,9 +128,9 @@ resource, but it doesn't stop the request.
 
 Audit is the last effect checked by Azure Policy during the creation or update of a resource. For a
 Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. Audit works
-the same for a resource request and an evaluation cycle. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the resource
-as non-compliant.
+the same for a resource request and an evaluation cycle. For new and updated resources, Azure Policy
+adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the
+resource as non-compliant.
 
 ### Audit properties
 
@@ -189,10 +189,10 @@ condition, but don't have the properties specified in the **details** of the **t
 
 AuditIfNotExists runs after a Resource Provider has handled a create or update resource request and
 has returned a success status code. The audit occurs if there are no related resources or if the
-resources defined by **ExistenceCondition** don't evaluate to true. Azure Policy adds a
-`Microsoft.Authorization/policies/audit/action` operation to the activity log the same way as the
-audit effect. When triggered, the resource that satisfied the **if** condition is the resource that
-is marked as non-compliant.
+resources defined by **ExistenceCondition** don't evaluate to true. For new and updated resources,
+Azure Policy adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log
+and marks the resource as non-compliant. When triggered, the resource that satisfied the **if**
+condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists properties
 
@@ -479,12 +479,10 @@ pass Gatekeeper v3 admission control rules defined with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
 to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** effect and the
-> related **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_
-> and _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceOPAConstraint** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceOPAConstraint evaluation
 
@@ -550,12 +548,10 @@ to pass Gatekeeper v2 admission control rules defined with
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_ and
-> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
+> [!IMPORTANT]
+> The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceRegoPolicy evaluation
 

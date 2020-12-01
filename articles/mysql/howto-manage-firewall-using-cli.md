@@ -1,8 +1,8 @@
 ---
 title: Manage firewall rules - Azure CLI - Azure Database for MySQL
 description: This article describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI command-line.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
@@ -16,7 +16,7 @@ Server-level firewall rules can be used to manage access to an Azure Database fo
 Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-using-cli.md).
 
 ## Prerequisites
-* [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Install Azure CLI](/cli/azure/install-azure-cli).
 * An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## Firewall rule commands:

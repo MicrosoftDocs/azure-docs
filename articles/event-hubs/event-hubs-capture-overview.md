@@ -13,6 +13,8 @@ Azure Event Hubs enables you to automatically capture the streaming data in Even
 
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
+> [!IMPORTANT]
+> The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
 
 ## How Event Hubs Capture works
 
@@ -51,6 +53,8 @@ You can configure Capture at the event hub creation time using the [Azure portal
 - [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md)
 - [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+> [!NOTE]
+> If you enable the Capture feature for an existing event hub, the feature captures events that arrive at the event hub **after** the feature is turned on. It doesn't capture events that existed in the event hub before the feature was turned on. 
 
 ## Exploring the captured files and working with Avro
 

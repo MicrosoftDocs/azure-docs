@@ -1,5 +1,6 @@
 ---
-title: How to integrate with Microsoft identity platform
+title: How to integrate with Microsoft identity platform | Azure
+titleSuffix: Microsoft identity platform
 description: Learn the benefits of integrating your application with Microsoft identity platform, and get resources for features like simplified sign-in, identity management, multi-factor authentication, and access control.
 services: active-directory
 author: rwike77
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
@@ -41,9 +42,9 @@ There are several ways for your application to integrate with Microsoft identity
 
 **Use Microsoft identity platform for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Microsoft identity platform. Role information is sent to your application in sign in tokens and can also be read using the Microsoft Graph API. Learn more about [using Microsoft identity platform for authorization](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
-### Get access to user's profile, calendar, email, contacts, files, and more
+### Get access to users' profile, calendar, email, contacts, files, and more
 
-**Microsoft identity platform is the authorization server for Microsoft 365 and other Microsoft business services.**  If you support Microsoft identity platform for sign in to your application or support linking your current user accounts to Azure AD user accounts using OAuth 2.0, you can request read and write access to a user's profile, calendar, email, contacts, files, and other information. You can seamlessly write events to user's calendar, and read or write files to their OneDrive. Learn more about [accessing the Microsoft 365 APIs](/previous-versions/office/office-365-api/).
+**Microsoft identity platform is the authorization server for Microsoft 365 and other Microsoft business services.**  If you support Microsoft identity platform for sign in to your application or support linking your current user accounts to Azure AD user accounts using OAuth 2.0, you can request read and write access to a user's profile, calendar, email, contacts, files, and other information. You can seamlessly write events to user's calendar, and read or write files to their OneDrive. Learn more about [the Microsoft 365 APIs](/graph/overview).
 
 ### Promote your application in the Azure and Microsoft 365 Marketplaces
 

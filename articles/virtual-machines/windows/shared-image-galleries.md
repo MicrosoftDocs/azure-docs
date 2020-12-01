@@ -1,12 +1,12 @@
 ---
 title: Azure Shared Image Gallery 
-description: Learn how to use shared image galleries to share VM images across your organization.
+description: Learn how to use shared image galleries to share Windows VM images across your organization.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 05/06/2019
+ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
 

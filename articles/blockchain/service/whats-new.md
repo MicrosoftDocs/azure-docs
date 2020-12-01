@@ -8,7 +8,7 @@ ms.reviewer: ravastra
 
 # What's new in Azure Blockchain Service?
 
-> Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` into your RSS feed reader [![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us).
+> Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` into your RSS feed reader [![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png)](/api/search/rss?locale=en-us&search=%2522Release%2bnotes%2b-%2bAzure%2bBlockchain%2bService%2522).
 
 Azure Blockchain Service receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
@@ -22,7 +22,7 @@ Azure Blockchain Service receives improvements on an ongoing basis. To stay up t
 
 ### Version upgrades
 
-- Quorum version upgrade to 2.6.0. With version 2.6.0, you can send signed private transactions. For more information on sending private transactions, see the [Quorum API documentation](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Quorum version upgrade to 2.6.0. With version 2.6.0, you can send signed private transactions. For more information on sending private transactions, see the [Quorum API documentation](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Tessera version upgrade to 0.10.5.
 
 ### Contract size and transaction size increased to 128 KB
@@ -122,5 +122,5 @@ Avoid unbounded loops in smart contracts as they can reduce performance. For mor
 
 - [Avoid unbounded loops](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Smart contract security best practices](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Smart contract guidelines provided by Quorum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Smart contract guidelines provided by Quorum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Guidelines on gas limits and loops provided by Solidity](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 
@@ -151,6 +151,9 @@ With an Azure Firewall, you automatically get everything below configured with t
 |wdcpalt.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |mscrl.microsoft.com:443 |
 |mscrl.microsoft.com:80 |
 |crl.microsoft.com:443 |
@@ -158,6 +161,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |www.thawte.com:443 |
 |crl3.digicert.com:80 |
 |ocsp.digicert.com:80 |
+|ocsp.digicert.com:443 |
 |csc3-2009-2.crl.verisign.com:80 |
 |crl.verisign.com:80 |
 |ocsp.verisign.com:80 |
@@ -218,6 +222,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |rteventservice.trafficmanager.net:443 |
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
+|global-dsms.dsms.core.windows.net:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
 
@@ -246,6 +251,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*.data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
@@ -346,10 +352,9 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |management.core.usgovcloudapi.net:80 |
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
-|mscrl.microsoft.com
-|ocsp.digicert.0 |
-|ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|mscrl.microsoft.com:80
+|ocsp.digicert.com:80 |
+|ocsp.verisign.com:80 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -388,6 +393,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |definitionupdates.microsoft.com:443 |
 |download.windowsupdate.com:443 |
 |fairfax.warmpath.usgovcloudapi.net:443 |
+|gcs.monitoring.core.usgovcloudapi.net:443 |
 |flighting.cp.wd.microsoft.com:443 |
 |gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
 |gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
@@ -407,6 +413,9 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |mscrl.microsoft.com:443 |
 |ocsp.digicert.com:443 |
 |ocsp.msocsp.com:443 |
+|ocsp.msocsp.com:80 |
+|oneocsp.microsoft.com:80 |
+|oneocsp.microsoft.com:443 |
 |ocsp.verisign.com:443 |
 |rteventservice.trafficmanager.net:443 |
 |settings-win.data.microsoft.com:443 |
@@ -418,6 +427,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |www.microsoft.com:443 |
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
+|global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

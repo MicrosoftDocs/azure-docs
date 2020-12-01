@@ -10,7 +10,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.author: duau
 # As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
 
@@ -131,6 +131,11 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
     - The key vault accounts for your subscription ID. 
     - The certificates (secrets) under the selected key vault. 
     - The available certificate versions. 
+
+> [!NOTE]
+> Leaving the certificate version as blank would lead to:
+> - The latest version of the certificate getting selected.
+> - Automatic rotation of certificates to the latest version, when a newer version of the certificate is available in your Key Vault.
  
 5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
@@ -151,7 +156,7 @@ Your CNAME record should be in the following format, where *Name* is your custom
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+For more information about CNAME records, see [Create the CNAME DNS record](../cdn/cdn-map-content-to-custom-domain.md).
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be autorenewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 

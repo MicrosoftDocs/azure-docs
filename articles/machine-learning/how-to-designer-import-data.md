@@ -1,18 +1,18 @@
 ---
-title: Import data into the designer (preview)
+title: Import data into the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to import data into Azure Machine Learning designer (preview) from various data sources.
+description: Learn how to import data into Azure Machine Learning designer using Azure Machine Learning datasets and the Import Data module.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Import data into Azure Machine Learning designer (preview)
+# Import data into Azure Machine Learning designer
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
@@ -27,7 +27,7 @@ We recommend that you use [datasets](concept-data.md#datasets) to import data in
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#datasets-ui).
+You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
 
 You can also register the output for any designer module as a dataset.
 
@@ -49,6 +49,8 @@ If the module output data is in a tabular format, you must choose to register th
 
 Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the canvas. 
 
+If you register a file dataset, the output port type of the dataset is **AnyDirectory**. If you register a Tabular dataset, the output port type of the dataset if **DataFrameDirectory**. Note that if you connect the output port of the dataset to other modules in the designer, the port type of datasets and modules need to be aligned.
+
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
@@ -63,7 +65,7 @@ While we recommend that you use datasets to import data, you can also use the [I
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#datasets-ui).
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-connect-data-ui.md#create-datasets).
 
 ## Supported sources
 
@@ -102,4 +104,4 @@ If your workspace is in a virtual network, you must perform additional configura
 
 ## Next steps
 
-Learn the basics of the designer with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).

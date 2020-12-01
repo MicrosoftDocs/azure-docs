@@ -31,7 +31,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Build analytical solutions with Azure HDInsight
-            url: https://docs.microsoft.com/learn/paths/build-oss-analytical-solutions-az-hdinsight/
+            url: /learn/paths/build-oss-analytical-solutions-az-hdinsight/
           - text: Create HDInsight clusters
             url: ./hdinsight-hadoop-provision-linux-clusters.md
           - text: Monitoring with HDInsight

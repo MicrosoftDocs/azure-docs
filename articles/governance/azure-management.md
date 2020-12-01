@@ -64,7 +64,7 @@ to track cloud usage and expenditures for your Azure resources and other cloud p
 Manage the security of your resources and data. A security program involves assessing threats,
 collecting and analyzing data, and compliance of your applications and resources. Security
 monitoring and threat analysis are provided by [Azure Security
-Center](../security-center/security-center-intro.md), which includes unified security management and
+Center](../security-center/security-center-introduction.md), which includes unified security management and
 advanced threat protection across hybrid cloud workloads. See [Introduction to Azure
 Security](../security/fundamentals/overview.md) for comprehensive information and guidance on
 securing Azure resources.

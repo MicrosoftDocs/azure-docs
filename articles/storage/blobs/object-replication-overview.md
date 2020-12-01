@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Object replication for block blobs
@@ -64,7 +64,7 @@ You can also specify one or more filters as part of a replication rule to filter
 
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md#archive-access-tier).
 
-## Billing 
+## Billing
 
 Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed.
 

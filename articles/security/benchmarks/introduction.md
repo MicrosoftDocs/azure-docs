@@ -20,8 +20,8 @@ Microsoft has found that using *security benchmarks* can help you quickly secure
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
-- Security controls: These recommendations are generally applicable across your Azure tenant and Azure services. Each recommendation identifies a list of stakeholders that are typically involved in planning, approval, or implementation of the benchmark. 
-- Service baselines: These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
+- **Security controls**: These recommendations are generally applicable across your Azure tenant and Azure services. Each recommendation identifies a list of stakeholders that are typically involved in planning, approval, or implementation of the benchmark. 
+- **Service baselines**: These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
 
 ## Implement the Azure Security Benchmark
 - **Plan** your Azure Security Benchmark implementation by reviewing the [documentation](overview.md) for the enterprise controls and service-specific baselines to plan your control framework and how it maps to guidance like CIS (Controls v7.1) and NIST (SP800-53) framework.

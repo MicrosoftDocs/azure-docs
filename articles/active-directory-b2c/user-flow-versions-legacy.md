@@ -1,6 +1,6 @@
 ---
 title: Legacy user flow versions in Azure Active Directory B2C | Microsoft Docs
-description: Learn about the versions of user flows available in Azure Active Directory B2C.
+description: Learn about legacy versions of user flows available in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg

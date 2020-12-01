@@ -1,17 +1,32 @@
 ---
-title: What's new with Azure Arc enabled servers (preview) agent
-description: This article has release notes for Azure Arc enabled servers (preview) agent. For many of the summarized issues, there are links to additional details.
+title: What's new with Azure Arc enabled servers agent
+description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to additional details.
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 11/10/2020
 ---
 
-# What's new with Azure Arc enabled servers (preview) agent
+# What's new with Azure Arc enabled servers agent
 
-The Azure Arc enabled servers (preview) Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+The Azure Arc enabled servers Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
 - Bug fixes
+
+## November 2020
+
+### Fixed
+
+Resolved issue where proxy configuration could be lost after upgrade on RPM-based distributions.
+
+## October 2020
+
+### Fixed
+
+- Fixed proxy script to handle alternate GC daemon unit file location.
+- GuestConfig agent reliability changes.
+- GuestConfig agent support for US Gov Virginia region.
+- GuestConfig agent extension report messages to be more verbose in case of failures.
 
 ## September 2020
 
@@ -21,7 +36,7 @@ Version: 1.0 (General Availability)
 
 - Support for preview agents (all versions older than 1.0) will be removed in a future service update.
 - Removed support for fallback endpoint `.azure-automation.net`. If you have a proxy, you need to allow the endpoint `*.his.arc.azure.com`.
-- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions cannot be installed or modified from the Arc enabled Servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
+- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions cannot be installed or modified from the Arc enabled servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
 - Name of Guest Configuration process has changed, from *gcd* to *gcad* on Linux, and *gcservice* to *gcarcservice* on Windows.
 
 ### New feature
@@ -55,4 +70,4 @@ If you are using an older version of the Linux agent and configured it to use a 
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+Before evaluating or enabling Arc enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.

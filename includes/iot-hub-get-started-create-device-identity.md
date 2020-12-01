@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 09/07/2018
  ms.author: dobett
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 In this section, you use the Azure CLI to create a device identity for this article. Device IDs are case sensitive.

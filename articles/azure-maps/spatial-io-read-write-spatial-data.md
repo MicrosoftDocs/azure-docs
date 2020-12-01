@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 #Customer intent: As an Azure Maps web sdk user, I want to read and write spatial data so that I can use data for map rendering.
 ---
 
@@ -156,38 +156,31 @@ The `GmlReader` will parse coordinates that has one of the following SRIDs:
 - EPSG:4269, EPSG:4283, EPSG:4258, EPSG:4308, EPSG:4230, EPSG:4272, EPSG:4271, EPSG:4267, EPSG:4608, EPSG:4674 possibly with a small margin of error.
 - EPSG:3857, EPSG:102100, EPSG:3785, EPSG:900913, EPSG:102113, EPSG:41001, EPSG:54004
 
-## Next steps
+## More resources
 
 Learn more about the classes and methods used in this article:
 
-> [!div class="nextstepaction"]
-> [atlas.io static functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[atlas.io static functions](/javascript/api/azure-maps-spatial-io/atlas.io)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-> [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
+[GmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-> [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
+[GmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-> [!div class="nextstepaction"]
-> [atlas.io.ogc.WKT functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[atlas.io.ogc.WKT functions](/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+
+[Connect to a WFS service](spatial-io-connect-wfs-service.md)
+
+[Leverage core operations](spatial-io-core-operations.md)
+
+[Supported data format details](spatial-io-supported-data-format-details.md)
+
+
+## Next steps
 
 See the following articles for more code samples to add to your maps:
 
-> [!div class="nextstepaction"]
-> [Add an OGC map layer](spatial-io-add-ogc-map-layer.md)
-
-> [!div class="nextstepaction"]
-> [Connect to a WFS service](spatial-io-connect-wfs-service.md)
-
-> [!div class="nextstepaction"]
-> [Leverage core operations](spatial-io-core-operations.md)
-
-> [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+[Add an OGC map layer](spatial-io-add-ogc-map-layer.md)

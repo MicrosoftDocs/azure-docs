@@ -48,6 +48,14 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | \*.windows.net |HTTPS/443 |Used to sign in to Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Used for MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
+| \*.crl3.digicert.com |HTTP/80 |Used to verify certificates. |
+| \*.crl4.digicert.com |HTTP/80 |Used to verify certificates. |
+| \*.ocsp.digicert.com |HTTP/80 |Used to verify certificates. |
+| \*.www.d-trust.net |HTTP/80 |Used to verify certificates. |
+| \*.root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |Used to verify certificates. |
+| \*.crl.microsoft.com |HTTP/80 |Used to verify certificates. |
+| \*.oneocsp.microsoft.com |HTTP/80 |Used to verify certificates. |
+| \*.ocsp.msocsp.com |HTTP/80 |Used to verify certificates. |
 
 ## Errors in the wizard
 The installation wizard is using two different security contexts. On the page **Connect to Azure AD**, it is using the currently signed in user. On the page **Configure**, it is changing to the [account running the service for the sync engine](reference-connect-accounts-permissions.md#adsync-service-account). If there is an issue, it appears most likely already at the **Connect to Azure AD** page in the wizard since the proxy configuration is global.
@@ -83,7 +91,7 @@ To verify if the Azure AD Connect server has actual connectivity with the Proxy 
 PowerShell uses the configuration in machine.config to contact the proxy. The settings in winhttp/netsh should not impact these cmdlets.
 
 If the proxy is correctly configured, you should get a success status:
-![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+![Screenshot that shows the success status when the proxy is configured correctly.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 If you receive **Unable to connect to the remote server**, then PowerShell is trying to make a direct call without using the proxy or DNS is not correctly configured. Make sure the **machine.config** file is correctly configured.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
@@ -185,7 +193,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 </div>
 
 ### Azure AD Global Admin Role Needed
-User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user.
+User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../roles/permissions-reference.md) to the user.
 
 <div id="privileged-identity-management">
 <!--

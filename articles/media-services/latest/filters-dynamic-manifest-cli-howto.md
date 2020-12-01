@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 # Creating filters with CLI

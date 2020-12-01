@@ -72,7 +72,18 @@ Set up an account that the appliance can use to access AWS instances.
 
 - For Windows servers, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
  - For Linux servers, you need a root account on the Linux servers that you want to discover.
-
+- Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
+    - For Windows machines, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
+    - For Linux machines:
+        1. Sign into each Linux  machine.
+        2. Open the sshd_config file : vi /etc/ssh/sshd_config
+        3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
+        4. Save the file and close it. Restart the ssh service.
+    - If you are using a root user to discover your Linux VMs, ensure root login is allowed on the VMs.
+        1. Sign into each Linux machine
+        2. Open the sshd_config file : vi /etc/ssh/sshd_config
+        3. In the file, locate the **PermitRootLogin** line, and change the value to **yes**.
+        4. Save the file and close it. Restart the ssh service.
 
 ## Set up a project
 
@@ -209,7 +220,7 @@ Set up the appliance for the first time.
    
    Sign-in with a PIN isn't supported.
 3. After you successfully logged in, go back to the web app. 
-4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
+4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 

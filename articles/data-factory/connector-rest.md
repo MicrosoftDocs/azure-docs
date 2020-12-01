@@ -399,7 +399,7 @@ The template defines two parameters:
     ![Use this template](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
 4. You would see the pipeline created as shown in the following example:
-    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+    ![Screenshot shows the pipeline created from the template.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 

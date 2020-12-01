@@ -276,6 +276,6 @@ The search score is computed based on statistical properties of the data and the
 
 ## See also  
 
-+ [REST API Reference](/rest/api/searchservice/)   
-+ [Create Index API](/rest/api/searchservice/create-index)   
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [REST API Reference](/rest/api/searchservice/)
++ [Create Index API](/rest/api/searchservice/create-index)
++ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?)

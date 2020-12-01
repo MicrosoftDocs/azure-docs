@@ -12,44 +12,9 @@ ms.author: v-erkel
 
 Follow these steps to prepare your environment before using Azure CLI to create or manage an Azure HPC Cache.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Install Azure CLI
-
-Azure HPC Cache requires version 2.7 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-```azurecli-interactive
-az --version
-```
-
-### Install the Azure HPC Cache extension
-
-Azure HPC Cache functions are not part of the main code base, so you also must install the extension reference. Follow the instructions below.
-
-1. Sign in
-
-   Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a locally installed version of the CLI.
-
-    ```azurecli
-    az login
-    ```
-
-    Follow the steps displayed in your terminal to complete the authentication process.
-
-   > [!TIP]
-   > If you have multiple subscriptions, you need to choose one. Select it when you start a Cloud Shell session in the Azure Portal, or follow the instructions in [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in) to set your subscription from the command line.
-
-2. Install the Azure CLI extension
-
-   The Azure HPC Cache functions are provided as an Azure CLI extension - it is not yet part of the core CLI package. You need to install the extension reference before you can use it.
-
-   Azure CLI extensions give you access to experimental and pre-release commands. To learn more about extensions, including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-   Install the extension for Azure HPC Cache by running the following command:
-
-    ```azurecli-interactive
-    az extension add --name hpc-cache
-   ```
+ - Azure HPC Cache requires version 2.7 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Set default resource group (optional)
 

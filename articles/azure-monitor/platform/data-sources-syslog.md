@@ -1,16 +1,19 @@
 ---
-title: Collect and analyze Syslog messages in Azure Monitor | Microsoft Docs
+title: Collect Syslog data sources with Log Analytics agent in Azure Monitor
 description: Syslog is an event logging protocol that is common to Linux. This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
+ms.date: 10/21/2020
 
 ---
 
-# Syslog data sources in Azure Monitor
+# Collect Syslog data sources with Log Analytics agent
 Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to Azure Monitor where a corresponding record is created.  
+
+> [!IMPORTANT]
+> This article covers collecting Syslog events with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
 
 > [!NOTE]
 > Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
@@ -41,7 +44,7 @@ For any other facility, [configure a Custom Logs data source](data-sources-custo
 The Log Analytics agent for Linux will only collect events with the facilities and severities that are specified in its configuration. You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
-Configure Syslog from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources). This configuration is delivered to the configuration file on each Linux agent.
+Configure Syslog from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace. This configuration is delivered to the configuration file on each Linux agent.
 
 You can add a new facility by first selecting the option **Apply below configuration to my machines** and then typing in its name and clicking **+**. For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect. You cannot provide any additional criteria to filter messages.
 

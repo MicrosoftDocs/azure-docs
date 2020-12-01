@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 09/22/2020
 ms.author: memildin
 
 ---
@@ -36,7 +36,7 @@ David, from Contoso's IT security, has already chosen to onboard Security Center
 
 Security Center automatically analyzes the security state of Contoso’s Azure resources and applies default security policies. When Security Center identifies potential security vulnerabilities, it creates **recommendations** based on the controls set in the security policy. 
 
-David runs Azure Security standard tier, across all their subscriptions to get the full suite of recommendations and security features available. Jeff also onboards all their existing on-premises servers that haven't yet been migrated to the cloud so that they can take advantage of Security Center's hybrid support across their [Windows](quick-onboard-windows-computer.md) and [Linux](quick-onboard-linux-computer.md) servers.
+David runs Azure Security with Azure Defender enabled, across all their subscriptions to get the full suite of recommendations and security features available. Jeff also onboards all their existing on-premises servers that haven't yet been migrated to the cloud so that they can take advantage of Security Center's hybrid support across their [Windows and Linux servers](quickstart-onboard-machines.md).
 
 Jeff is a cloud workload owner. Jeff is responsible for applying security controls in accordance with Contoso’s security policies. 
 
@@ -55,9 +55,9 @@ As part of their daily monitoring activities, Jeff signs in to Azure and opens S
 
 3. Jeff has to decide which recommendations to handle first. So Jeff clicks Secure Score and starts to handle recommendations based on how much it improves his [secure score](secure-score-security-controls.md).
 
-4. Because Jeff has lots of connected VMs and servers, Jeff decides to focus on **Compute and apps**.
+4. Because Jeff has lots of connected VMs, Jeff decides to focus on his machines in [asset inventory](asset-inventory.md).
 
-5. When Jeff clicks **Compute and apps**, they see a list of recommendations and handles them according to the Secure Score impact.
+5. When Jeff opens the asset inventory, a list of recommendations appears. Jeff handles them according to the secure score impact.
 
 6. Jeff has numerous Internet facing VMs, and because their ports are exposed, they're worried that an attacker could gain control over the servers. So Jeff chooses to use [**just-in-time VM access**](security-center-just-in-time.md).
 

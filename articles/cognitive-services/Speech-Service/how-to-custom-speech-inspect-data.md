@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
 ---
 
 # Inspect Custom Speech data
 
 > [!NOTE]
-> This page assumes you've read [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md) and have uploaded a dataset for inspection.
+> This page assumes you've read [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md) and have uploaded a dataset for inspection.
 
 Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the [Custom Speech portal](https://speech.microsoft.com/customspeech), you can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
 
@@ -75,11 +75,13 @@ After data has been successfully imported, you can click into the datasets and s
 
 ### Edit transcription by listening to audio
 
-After the data upload has succeeded, click on each item name to see details of the data. The detail page lists all the files in your dataset, and you can click into the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
+After the data upload has succeeded, click on each item name to see details of the data. You can also use **Previous** and **Next** to move between each file.
+
+The detail page lists all the segments in each audio file, and you can click into the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
 
 ![Editor page](media/custom-speech/custom-speech-editor.png)
 
-If the audio file is long, it is automatically segmented into smaller pieces. You can edit them one-by-one using **Previous** and **Next** to move between pages. After you've made edits, click the **Save** button.
+After you've made edits, click the **Save** button.
 
 ### Export datasets from the Editor
 
@@ -98,4 +100,4 @@ The files exported to Data will be used as a brand-new dataset and will not affe
 
 ## Additional resources
 
-- [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md)
+- [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md)

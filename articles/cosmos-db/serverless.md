@@ -5,10 +5,11 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/25/2020
 ---
 
 # Azure Cosmos DB serverless (Preview)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB serverless is currently in preview. This preview version is provided without a Service Level Agreement and is not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -27,8 +28,7 @@ When using Azure Cosmos DB, every database operation has a cost expressed in [Re
 
 Azure Cosmos DB serverless best fits scenarios where you expect:
 
-- **Light traffic**: Because provisioning capacity in such situations isn't required and may be cost-prohibitive
-- **Moderate burstability**: Because serverless containers can deliver up to 5,000 Request Units per second
+- **Low, intermittent and unpredictable traffic**: Because provisioning capacity in such situations isn't required and may be cost-prohibitive
 - **Moderate performance**: Because serverless containers have [specific performance characteristics](#performance)
 
 For these reasons, Azure Cosmos DB serverless should be considered for the following types of workload:
@@ -45,9 +45,6 @@ See the [how to choose between provisioned throughput and serverless](throughput
 
 Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. During the preview release, the only supported way to create a new serverless account is by [using the Azure portal](create-cosmosdb-resources-portal.md). Migrating existing accounts to/from serverless mode is not currently supported.
 
-> [!NOTE]
-> Serverless is currently supported on the Azure Cosmos DB Core (SQL) API only.
-
 Any container that is created in a serverless account is a serverless container. Serverless containers expose the same capabilities as containers created in provisioned throughput mode, so you read, write and query your data the exact same way. However serverless accounts and containers also have specific characteristics:
 
 > [!IMPORTANT]
@@ -59,7 +56,6 @@ Any container that is created in a serverless account is a serverless container.
     - You can't pass any throughput when creating a serverless container and doing so returns an error.
     - You can't read or update the throughput on a serverless container and doing so returns an error.
     - You can't create a shared throughput database in a serverless account and doing so returns an error.
-- Serverless containers can deliver a maximum throughput burstability of 5,000 Request Units per second.
 - Serverless containers can store a maximum of 50 GB of data and indexes.
 
 ## Monitoring your consumption

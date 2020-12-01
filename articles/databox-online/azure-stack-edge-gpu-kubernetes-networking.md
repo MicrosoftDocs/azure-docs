@@ -1,6 +1,6 @@
 ---
-title: Understand Kubernetes networking on Azure Stack Edge device| Microsoft Docs
-description: Describes how Kubernetes networking works on an Azure Stack Edge device.
+title: Understand Kubernetes networking on Azure Stack Edge Pro device| Microsoft Docs
+description: Describes how Kubernetes networking works on an Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
 ---
-# Kubernetes networking in your Azure Stack Edge GPU device
+# Kubernetes networking in your Azure Stack Edge Pro GPU device
 
-On your Azure Stack Edge device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then containerized applications can be deployed on the Kubernetes cluster in Pods. There are distinct ways that networking is used for the Pods in your Kubernetes cluster. 
+On your Azure Stack Edge Pro device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then containerized applications can be deployed on the Kubernetes cluster in Pods. There are distinct ways that networking is used for the Pods in your Kubernetes cluster. 
 
-This article describes the networking in a Kubernetes cluster in general and specifically in the context of your Azure Stack Edge device. 
+This article describes the networking in a Kubernetes cluster in general and specifically in the context of your Azure Stack Edge Pro device. 
 
 ## Networking requirements
 
@@ -54,9 +54,9 @@ For discovery of applications within the cluster, Kubernetes cluster has a
 When an application or the end user would first use the IP address associated with the service of type load balancer to discover the service. Then it would use the label select `app = WS` to discover the pods associated with the application. The `kube-proxy` component would then distribute the traffic and ensure that it hits one of the web server application pods. If the web server app wanted to talk to the database app, then it would simply use the name of the service and using the name and the DNS server pod, resolve the name to an IP address. Again using labels and label selector, it would discover the pods associated with the database application. The `kube-proxy` would then distribute the traffic across each of the database app nodes.-->
 
 
-## Kubernetes networking on Azure Stack Edge
+## Kubernetes networking on Azure Stack Edge Pro
 
-Calico, Metallb, and Core DNS are all the components that are installed for networking on your Azure Stack Edge. 
+Calico, Metallb, and Core DNS are all the components that are installed for networking on your Azure Stack Edge Pro. 
 
 - **Calico** assigns an IP address from a private IP range to every pod and configure networking for these pods so that pod on one node can communicate with the pod on another node. 
 - **Metallb** runs on an in-cluster pod and assigns IP address to services of type load balancer. Load balancer IP addresses are chosen from the service Ip range provided via the local UI. 
@@ -75,8 +75,8 @@ The IP assignment is for:
 
 ## Next steps
 
-To configure Kubernetes networking on your Azure Stack Edge see:
+To configure Kubernetes networking on your Azure Stack Edge Pro see:
 
-- [Expose a stateless application externally on your Azure Stack Edge via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+- [Expose a stateless application externally on your Azure Stack Edge Pro via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
-- [Expose a stateless application externally on your Azure Stack Edge via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Expose a stateless application externally on your Azure Stack Edge Pro via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

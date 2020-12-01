@@ -1,5 +1,5 @@
 ---
-title: Pause and resume compute in Synapse SQL pool with Azure PowerShell
+title: 'Quickstart: Pause and resume compute in Synapse SQL pool with Azure PowerShell'
 description: You can use Azure PowerShell to pause and resume the Synapse SQL pool (data warehouse). compute resources.
 services: synapse-analytics
 author: kevinvngo

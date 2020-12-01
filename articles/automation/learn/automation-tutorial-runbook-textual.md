@@ -104,17 +104,17 @@ The runbook that you've created is still in Draft mode. You must publish it befo
 
 6. Note that the job status is shown in **Job Summary**. This status matches the statuses that you saw when testing the runbook.
 
-   ![Job Summary](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Screenshot of the runbook Job pane showing the Job Summary section highlighted.":::
 
 7. Once the runbook status shows Completed, click **Output**. The Output page is opened, where you can see your `Hello World` message.
 
-   ![Job Summary](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Screenshot of the runbook Job pane showing the Output button highlighted.":::
 
 8. Close the Output page.
 
 9. Click **All Logs** to open the Streams pane for the runbook job. You should only see `Hello World` in the output stream. Note that the Streams pane can show other streams for a runbook job, such as verbose and error streams, if the runbook writes to them.
 
-   ![Job Summary](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Screenshot of the runbook Job pane showing the All Logs button highlighted.":::
 
 10. Close the Streams pane and the Job pane to return to the MyFirstRunbook page.
 

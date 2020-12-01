@@ -19,7 +19,7 @@ Today, businesses, and corporations are becoming more and more a mixture of on-p
 
 Provisioning is the process of creating an object based on certain conditions, keeping the object up to date and deleting the object when conditions are no longer met. For example, when a new user joins your organization, that user is entered in to the HR system.  At that point, provisioning can create a corresponding user account in the cloud, in Active Directory, and different applications that the user needs access to.  This allows the user to start work and have access to the applications and systems they need on day one. 
 
-![cloud provisioning](media/what-is-provisioning/cloud1.png)
+![Diagram that shows cloud provisioning with Azure Active Directory.](media/what-is-provisioning/cloud1.png)
 
 With regard to Azure Active Directory, provisioning can be broken down in to the following key scenarios.  
 
@@ -29,7 +29,7 @@ With regard to Azure Active Directory, provisioning can be broken down in to the
 
 ## HR-driven provisioning
 
-![cloud provisioning](media/what-is-provisioning/cloud2.png)
+![Diagram that shows HR-driven provisioning with Cloud HR, On-premises HR, and Azure Active Directory.](media/what-is-provisioning/cloud2.png)
 
 Provisioning from HR to the cloud involves the creation of objects (users, roles, groups, etc.) based on the information that is in your HR system.  
 
@@ -43,7 +43,7 @@ The most common scenario would be, when a new employee joins your company, they 
 
 ## App provisioning
 
-![cloud provisioning](media/what-is-provisioning/cloud3.png)
+![Diagram that shows App provisioning with On-premises apps, Non-Microsoft cloud apps, and Azure Active Directory.](media/what-is-provisioning/cloud3.png)
 
 In Azure Active Directory (Azure AD), the term **[app provisioning](../app-provisioning/user-provisioning.md)** refers to automatically creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), and more.
 

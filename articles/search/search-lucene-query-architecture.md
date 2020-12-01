@@ -47,7 +47,7 @@ A search request is a complete specification of what should be returned in a res
 
 The following example is a search request you might send to Azure Cognitive Search using the [REST API](/rest/api/searchservice/search-documents).  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -57,7 +57,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 For this request, the search engine does the following:
 
@@ -72,9 +72,9 @@ The majority of this article is about processing of the *search query*: `"Spacio
 
 As noted, the query string is the first line of the request: 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 The query parser separates operators (such as `*` and `+` in the example) from search terms, and deconstructs the search query into *subqueries* of a supported type: 
 
@@ -100,9 +100,9 @@ Another search request parameter that affects parsing is the `searchMode` parame
 
 When `searchMode=any`, which is the default, the space delimiter between spacious and air-condition is OR (`||`), making the sample query text equivalent to: 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 Explicit operators, such as `+` in `+"Ocean view"`, are unambiguous in boolean query construction (the term *must* match). Less obvious is how to interpret the remaining terms: spacious and air-condition. Should the search engine find matches on ocean view *and* spacious *and* air-condition? Or should it find ocean view plus *either one* of the remaining terms? 
 
@@ -110,9 +110,9 @@ By default (`searchMode=any`), the search engine assumes the broader interpretat
 
 Suppose that we now set `searchMode=all`. In this case, the space is interpreted as an "and" operation. Each of the remaining terms must both be present in the document to qualify as a match. The resulting sample query would be interpreted as follows: 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 A modified query tree for this query would be as follows, where a matching document is the intersection of all three subqueries: 
 
@@ -148,16 +148,16 @@ When the default analyzer processes the term, it will lowercase "ocean view" and
 
 The behavior of an analyzer can be tested using the [Analyze API](/rest/api/searchservice/test-analyzer). Provide the text you want to analyze to see what terms given analyzer will generate. For example, to see how the standard analyzer would process the text "air-condition", you can issue the following request:
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 The standard analyzer breaks the input text into the following two tokens, annotating them with attributes like start and end offsets (used for hit highlighting) as well as their position (used for phrase matching):
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -174,7 +174,7 @@ The standard analyzer breaks the input text into the following two tokens, annot
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -188,7 +188,7 @@ Lexical analysis applies only to query types that require complete terms – eit
 
 Document retrieval refers to finding documents with matching terms in the index. This stage is understood best through an example. Let's start with a hotels index having the following simple schema: 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -197,11 +197,11 @@ Document retrieval refers to finding documents with matching terms in the index.
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 Further assume that this index contains the following four documents: 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -226,7 +226,7 @@ Further assume that this index contains the following four documents:
         }
     ]
 }
-~~~~
+```
 
 **How terms are indexed**
 
@@ -317,10 +317,12 @@ Every document in a search result set is assigned a relevance score. The functio
 ### Scoring example
 
 Recall the three documents that matched our example query:
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -343,7 +345,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 Document 1 matched the query best because both the term *spacious* and the required phrase *ocean view* occur in the description field. The next two documents match only the phrase *ocean view*. It might be surprising that the relevance score for document 2 and 3 is different even though they matched the query in the same way. It's because the scoring formula has more components than just TF/IDF. In this case, document 3 was assigned a slightly higher score because its description is shorter. Learn about [Lucene's Practical Scoring Formula](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) to understand how field length and other factors can influence the relevance score.
 

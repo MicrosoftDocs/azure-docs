@@ -59,7 +59,7 @@ Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
 Once you're logged into the OpenShift Web Console, click on the **?** on the top right and then on **Command Line Tools**. Download the release appropriate to your machine.
 
-![Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
+![Screenshot that highlights the Command Line Tools option in the list when you select the ? icon.](media/aro4-download-cli.png)
 
 You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

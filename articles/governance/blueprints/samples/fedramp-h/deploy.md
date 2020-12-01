@@ -1,7 +1,7 @@
 ---
 title: Deploy FedRAMP High blueprint sample
 description: Deploy steps for the FedRAMP High blueprint sample including blueprint artifact parameter details.
-ms.date: 07/31/2020
+ms.date: 10/26/2020
 ms.topic: sample
 ---
 # Deploy the FedRAMP High blueprint sample

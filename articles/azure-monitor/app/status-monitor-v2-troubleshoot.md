@@ -12,7 +12,6 @@ ms.date: 04/23/2019
 
 When you enable monitoring, you might experience issues that prevent data collection.
 This article lists all known issues and provides troubleshooting examples.
-If you come across an issue that's not listed here, you can contact us on [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## Known issues
 
@@ -68,12 +67,10 @@ After you run the Enable command, complete these steps:
 ### IIS Nested Applications
 
 We don't instrument nested applications in IIS in version 1.0.
-We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
 ### Advanced SDK Configuration isn't available.
 
 The SDK configuration isn't exposed to the end user in version 1.0.
-We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
     
     
@@ -152,4 +149,3 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 ## Next steps
 
 - Review the [API reference](status-monitor-v2-overview.md#powershell-api-reference) to learn about parameters you might have missed.
-- If you come across an issue that's not listed here, you can contact us on [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

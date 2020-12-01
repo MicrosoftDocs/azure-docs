@@ -11,7 +11,7 @@ ms.reviewer: cweining
 # Debug snapshots on exceptions in .NET apps
 When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](./asp-net-exceptions.md) in the Application Insights portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2019 Enterprise. In Visual Studio, you can also [set Snappoints to interactively take snapshots](https://aka.ms/snappoint) without waiting for an exception.
+You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2019 Enterprise. In Visual Studio, you can also [set Snappoints to interactively take snapshots](/visualstudio/debugger/debug-live-azure-applications) without waiting for an exception.
 
 Debug snapshots are stored for 15 days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
@@ -35,7 +35,7 @@ If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Trou
 
 ## Grant permissions
 
-Access to snapshots is protected by role-based access control (RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
+Access to snapshots is protected by Azure role-based access control (Azure RBAC). To inspect a snapshot, you must first be added to the necessary role by a subscription owner.
 
 > [!NOTE]
 > Owners and contributors do not automatically have this role. If they want to view snapshots, they must add themselves to the role.
@@ -138,4 +138,3 @@ Beyond Application Insights Snapshot Debugger:
 * [Set snappoints in your code](/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](./asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights.
 * [Smart Detection](./proactive-diagnostics.md) automatically discovers performance anomalies.
-

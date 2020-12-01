@@ -21,19 +21,19 @@ suboptimal performance.
 To access PostgreSQL logs for a Hyperscale (Citus) coordinator or worker node,
 open the node in the Azure portal:
 
-![list of nodes](media/howto-hyperscale-logging/choose-node.png)
+:::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="list of nodes":::
 
 For the selected node, open **Diagnostic settings**, and click **+ Add
 diagnostic setting**.
 
-![Add diagnostic settings button](media/howto-hyperscale-logging/diagnostic-settings.png)
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
 
 Pick a name for the new diagnostics settings, and check the **PostgreSQLLogs**
 box.  Choose which destination(s) should receive the logs.
 
-![Choose PostgreSQL logs](media/howto-hyperscale-logging/diagnostic-create-setting.png)
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
 
 ## Next steps
 
-- [Get started with log analytics queries](/azure/azure-monitor/log-query/get-started-portal)
-- Learn about [Azure event hubs](/azure/event-hubs/event-hubs-about)
+- [Get started with log analytics queries](../azure-monitor/log-query/get-started-portal.md)
+- Learn about [Azure event hubs](../event-hubs/event-hubs-about.md)

@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Azure Synapse Analytics workload classification
 
-This article explains the workload classification process of assigning a workload group and importance to incoming requests with Synapse SQL pools in Azure Synapse.
+This article explains the workload classification process of assigning a workload group and importance to incoming requests with dedicated SQL pools in Azure Synapse.
 
 ## Classification
 
@@ -31,7 +31,7 @@ Not all statements are classified as they do not require resources or need impor
 
 ## Classification process
 
-Classification for Synapse SQL pool in Azure Synapse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  With this syntax, Synapse SQL pool users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter.
+Classification for dedicated SQL pool in Azure Synapse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  With this syntax, dedicated SQL pool users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter.
 
 > [!NOTE]
 > Classification is evaluated on a per request basis. Multiple requests in a single session can be classified differently.

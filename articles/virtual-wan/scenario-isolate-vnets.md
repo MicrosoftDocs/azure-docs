@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -22,10 +22,10 @@ In this scenario, the workload within a certain VNet remains isolated and is not
 
 | From |   To |  *VNets* | *Branches* |
 | -------------- | -------- | ---------- | ---|
-| VNets     | &#8594;|           |     X    |
-| Branches   | &#8594;|    X     |     X    |
+| VNets     | &#8594;| Direct |   Direct    |
+| Branches   | &#8594;|  Direct  |   Direct    |
 
-Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) learns a destination prefix (the "To" side of the flow, the column headers in italics) for a specific traffic flow, where an "X" means that connectivity is provided by Virtual WAN.
+Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) communicates with a destination prefix (the "To" side of the flow, the column headers in italics). In this scenario there are no firewalls or Network Virtual Appliances, so communications flows directly over Virtual WAN (hence the word "Direct" in the table).
 
 This connectivity matrix gives us two different row patterns, which translate to two route tables. Virtual WAN already has a Default route table, so we will need another route table. For this example, we will name the route table **RT_VNET**.
 

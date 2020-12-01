@@ -2,7 +2,7 @@
 title: Network security for Azure Event Hubs 
 description: This article describes how to configure access from private endpoints
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 10/20/2020
 ---
 
 # Network security for Azure Event Hubs 
@@ -11,13 +11,13 @@ This article describes how to use the following security features with Azure Eve
 - Service tags
 - IP Firewall rules
 - Network service endpoints
-- Private endpoints (preview)
+- Private endpoints
 
 
 ## Service tags
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [Service tags overview](../virtual-network/service-tags-overview.md).
 
-You can use service tags to define network access controls on [network security groups](../virtual-network/security-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **EventHub**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
+You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **EventHub**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -67,11 +67,8 @@ For more information, see [How to configure virtual network service endpoints fo
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-> [!NOTE]
-> This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
->
-> This feature is currently in **preview**. 
-
+> [!IMPORTANT]
+> This feature is supported for both **standard** and **dedicated** tiers. It's not supported in the **basic** tier.
 
 For more information, see [How to configure private endpoints for an event hub](private-link-service.md)
 

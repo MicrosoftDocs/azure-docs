@@ -296,9 +296,9 @@ To help you understand how updates proceed on a node, let's go step by step:
 
    In POA versions 1.4.0 and later, you can find the status of the update by viewing the health events on NodeAgentService with the WUOperationStatus-\<NodeName> property. The highlighted sections in the following images show the status of Windows updates on nodes *poanode_0* and *poanode_2*:
 
-   [![Image of Windows Update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![Screenshot shows console window of Windows Update operation status with poanode_0 highlighted.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Image of Windows Update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![Screenshot shows console window of Windows Update operation status with poanode_1 highlighted.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    You can also get the details by using PowerShell. To do so, you connect to the cluster and fetch the state of the repair task by using [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
@@ -328,7 +328,7 @@ To help you understand how updates proceed on a node, let's go step by step:
 
 1. In POA versions 1.4.0 and later, when a node update attempt finishes, an event with the "WUOperationStatus-[NodeName]" property is posted on NodeAgentService to notify you when the next attempt to download and install the Windows updates will begin. This is displayed in the following image:
 
-     [![Image of Windows Update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![Screenshot shows console window of Windows Update operation status with the NodeAgentService.](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### Diagnostics logs
 

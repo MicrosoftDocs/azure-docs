@@ -18,7 +18,7 @@ ms.author: rohink
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure classic CLI](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure classic CLI](./dns-operations-recordsets-cli.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 

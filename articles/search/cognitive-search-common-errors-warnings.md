@@ -8,7 +8,7 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/23/2020
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure Cognitive Search
@@ -55,9 +55,9 @@ Indexer with a Blob data source was unable to extract the content or metadata fr
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| blob is over the size limit | Document is `'150441598'` bytes, which exceeds the maximum size `'134217728'` bytes for document extraction for your current service tier. | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob has unsupported content type | Document has unsupported content type `'image/png'` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob with [blob settings](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
+| blob is over the size limit | Document is `'150441598'` bytes, which exceeds the maximum size `'134217728'` bytes for document extraction for your current service tier. | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| blob has unsupported content type | Document has unsupported content type `'image/png'` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob with [blob settings](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | transient issues | "Error processing blob: The request was aborted: The request was canceled." "Document timed out during processing." | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
 <a name="could-not-parse-document"></a>
@@ -171,7 +171,7 @@ In all these cases, refer to [Supported Data types](/rest/api/searchservice/supp
 
 ## Error: Integrated change tracking policy cannot be used because table has a composite primary key
 
-This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
+This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
