@@ -103,7 +103,6 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
 * For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
   * [Application](/graph/api/resources/application?view=graph-rest-1.0)
   * [Service Principal](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
-* The schema of service principal and user objects can be extended to store additional data in Azure AD.  For more information, read [Using directory schema extension attributes](active-directory-schema-extensions.md).
 
 ## Why do applications integrate with Azure AD?
 
@@ -116,6 +115,7 @@ Applications are added to Azure AD to leverage one or more of the services it pr
 * Role-based access control - Use the directory to define application roles to perform role-based authorization checks in an application
 * OAuth authorization services - Used by Microsoft 365 and other Microsoft applications to authorize access to APIs/resources
 * Application publishing and proxy - Publish an application from a private network to the internet
+* Directory schema extension attributes - [Extend the schema of service principal and user objects](active-directory-schema-extensions.md) to store additional data in Azure AD 
 
 ## Who has permission to add applications to my Azure AD instance?
 
