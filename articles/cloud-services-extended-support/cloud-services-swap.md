@@ -1,7 +1,7 @@
 ---
 title: Swap between two Azure Cloud Services (extended support) deployments
 description: Swap between two Azure Cloud Services (extended support) deployments
-ms.topic: article
+ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
