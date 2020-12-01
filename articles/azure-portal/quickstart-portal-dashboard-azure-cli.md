@@ -15,6 +15,8 @@ A dashboard in the Azure portal is a focused and organized view of your cloud re
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
+Start by selecting a subscription and a resource group.
+
 1. If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
 Select a subscription by using the [az account set](/cli/azure/account#az_account_set) command:
 

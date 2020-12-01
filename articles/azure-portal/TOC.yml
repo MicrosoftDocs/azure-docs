@@ -25,6 +25,7 @@
     href: azure-portal-dashboard-share-access.md
   - name: Programmatically create Azure dashboards
     href: azure-portal-dashboards-create-programmatically.md
+    displayName: Azure CLI, az portal dashboard, az portal
 - name: How-to guides
   items:
   - name: Manage Azure portal settings and preferences
