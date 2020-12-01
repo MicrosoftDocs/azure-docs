@@ -86,15 +86,25 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
 
 ## Set up a stage task for artifacts deployment 
 
-Use [Synapse workspaces Build & Release](https://marketplace.visualstudio.com/items?itemName=PraveenMathamsetty.synapsecicd-deploy) task to deploy other items in Synapse workspace, like dataset, SQL script, notebook, spark job definition, dataflow, pipeline,linked service, credentials and IR (Integration Runtime).  
+Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in Synapse workspace, like dataset, SQL script, notebook, spark job definition, dataflow, pipeline,linked service, credentials and IR (Integration Runtime).  
+
+1. Search and get the extension from **Azure DevOps marketplace**(https://marketplace.visualstudio.com/azuredevops) 
+
+     ![Get extension](media/get-extension-from-market.png)
+
+1. Select an organization to install extension. 
+
+     ![Install extension](media/install-extension.png)
 
 1. Make sure Azure DevOps pipeline’s service principle has been granted the permission of subscription and also assigned as workspace admin for target workspace. 
 
-1. Create a new task. Search for **Synapse workspaces Build & Release**, and then select **Add**.
+1. Create a new task. Search for **Synapse workspace deployment**, and then select **Add**.
+
+     ![Add extension](media/add-extension-task.png)
 
 1.  In the task, provide related git repository information of **workspace_publish** , and select resource group, region, name, and Cloud environment for the target workspace. Provide parameters and values if you need.
 
-    ![synapse workspace deploy](media/create-release-artifacts-deployment.png)
+    ![Synapse workspace deploy](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.

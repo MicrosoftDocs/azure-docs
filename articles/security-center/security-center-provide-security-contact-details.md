@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 12/01/2020
 ms.author: memildin
 
 ---
@@ -26,9 +26,9 @@ To define your own preferences for notification emails, Azure Security Center's 
 
 To avoid alert fatigue, Security Center limits the volume of outgoing mails. For each subscription, Security Center sends:
 
-- a maximum of **four** emails per day for **high-severity** alerts
-- a maximum of **two** emails per day for **medium-severity** alerts
-- a maximum of **one** email per day for **low-severity** alerts
+- a maximum of one email per **6 hours** (4 emails per day) for **high-severity** alerts
+- a maximum of one email per **12 hours** (2 emails per day) for **medium-severity** alerts
+- a maximum of one email per **24 hours** for **low-severity** alerts
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuring the details of the contact who will receive emails about security alerts." :::
  

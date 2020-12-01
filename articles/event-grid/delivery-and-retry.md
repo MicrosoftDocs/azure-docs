@@ -50,6 +50,22 @@ For more information on using Azure CLI with Event Grid, see [Route storage even
 
 ## Retry schedule and duration
 
+When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery or dead-letter or drop the event based on the type of the error. 
+
+If the error returned by the subscribed endpoint is configuration related error which can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead lettering the event or drop the event if dead letter is not configured.
+
+Following are the types of endpoints for which retry doesn't happen:
+
+| Endpoint Type | Error codes |
+| --------------| -----------|
+| Azure Resources | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden | 
+| Webhook | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found, 401 Unauthorized |
+ 
+> [!NOTE]
+> If Dead-Letter is not configured for endpoint, events will be dropped when above errors happen, so consider configuring Dead-Letter, if you don't want these kinds of events to be dropped.
+
+If the error returned by the subscribed endpoint is not among the above list, EventGrid performs the retry using policies described below:
+
 Event Grid waits 30 seconds for a response after delivering a message. After 30 seconds, if the endpoint hasn’t responded, the message is queued for retry. Event Grid uses an exponential backoff retry policy for event delivery. Event Grid retries delivery on the following schedule on a best effort basis:
 
 - 10 seconds
@@ -252,16 +268,16 @@ Event Grid considers **only** the following HTTP response codes as successful de
 
 ### Failure codes
 
-All other codes not in the above set (200-204) are considered failures and will be retried. Some have specific retry policies tied to them outlined below, all others follow the standard exponential back-off model. It's important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
+All other codes not in the above set (200-204) are considered failures and will be retried (if needed). Some have specific retry policies tied to them outlined below, all others follow the standard exponential back-off model. It's important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
 
 | Status code | Retry behavior |
 | ------------|----------------|
-| 400 Bad Request | Retry after 5 minutes or more (Deadletter immediately if deadletter setup) |
-| 401 Unauthorized | Retry after 5 minutes or more |
-| 403 Forbidden | Retry after 5 minutes or more |
-| 404 Not Found | Retry after 5 minutes or more |
+| 400 Bad Request | Not retried |
+| 401 Unauthorized | Retry after 5 minutes or more for Azure Resources Endpoints |
+| 403 Forbidden | Not retried |
+| 404 Not Found | Retry after 5 minutes or more for Azure Resources Endpoints |
 | 408 Request Timeout | Retry after 2 minutes or more |
-| 413 Request Entity Too Large | Retry after 10 seconds or more (Deadletter immediately if deadletter setup) |
+| 413 Request Entity Too Large | Not retried |
 | 503 Service Unavailable | Retry after 30 seconds or more |
 | All others | Retry after 10 seconds or more |
 
