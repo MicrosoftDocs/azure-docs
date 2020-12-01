@@ -17,6 +17,8 @@ ms.reviewer: azmetadatadev
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see [metadata APIs](#metadata-apis).
+
+
 IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All APIs support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
 the attested and network endpoints support VMs created by using the classic deployment model. The attested endpoint does so only to a limited extent.
 
@@ -194,7 +196,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```
 
 > [!NOTE]
-> For leaf nodes in `/metadata/instance`, the `format=json` doesn't work. For these queries, `format=text` needs to be explicitly specified because the default format is json.
+> For leaf nodes in `/metadata/instance`, the `format=json` doesn't work. For these queries, `format=text` needs to be explicitly specified because the default format is JSON.
 
 ### Version
 
@@ -551,7 +553,7 @@ Data    | Description
 id      | Resource ID
 offer   | Offer of the platform or image
 publisher | Image publisher
-sku     | Image sku
+sku     | Image SKU
 version | Version of the platform or image
 
 The operating system disk object contains the following information about the operating system disk used by the VM:
@@ -727,7 +729,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 }
 ```
 
-The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of the document. It contains the certificate used for signing, along with certain VM-specific details. For VMs created by using Azure Resource Manager, this includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images. For VMs created by using the classic deployment model, only `vmId` is guaranteed to be populated. You can extract the certificate from the response, and use it to confirm that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of the document. It contains the certificate used for signing, along with certain VM-specific details. 
+
+For VMs created by using Azure Resource Manager, this includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images. 
+
+For VMs created by using the classic deployment model, only `vmId` is guaranteed to be populated. You can extract the certificate from the response, and use it to confirm that the response is valid and is coming from Azure.
 
 The document contains the following fields:
 
@@ -794,7 +800,9 @@ Cloud | Certificate
 > [!NOTE]
 > The certificates might not have an exact match of `metadata.azure.com` for the public cloud. For this reason, the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
 
-In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Note that Azure rolls over the certificates, as per standard PKI practice. You need to update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. You can find the intermediate certificates in the [PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
+In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Note that Azure rolls over the certificates, which is standard PKI practice. You need to update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
+
+You can find the intermediate certificates in the [PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
 
 > [!NOTE]
 > The intermediate certificate for Azure China 21Vianet is from DigiCert Global Root CA, instead of Baltimore.
@@ -856,7 +864,7 @@ You can obtain the status of the scheduled events by using IMDS. Then the user c
 
 ## Regional availability
 
-The service is generally available in all Azure Clouds.
+The service is generally available in all Azure clouds.
 
 ## Sample code in different languages
 
