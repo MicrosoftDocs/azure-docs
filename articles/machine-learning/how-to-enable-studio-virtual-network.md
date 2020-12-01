@@ -17,14 +17,16 @@ ms.custom: contperfq4, tracking-python
 
 # Use Azure Machine Learning studio in an Azure virtual network
 
-In this article, you learn how to use Azure Machine Learning studio in a virtual network. You learn how to:
+In this article, you learn how to use Azure Machine Learning studio in a virtual network. The studio includes features like AutoML, the designer, and data labelling. In order to use those feature in a virtual network, you must follow the steps in this article.
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
-> - Grant the studio access to data stored inside of a virtual network.
+> - Give the studio access to data stored inside of a virtual network.
 > - Access the studio from a resource inside of a virtual network.
 > - Understand how the studio impacts storage security.
 
-This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
+This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through the previous parts to setup a virtual network environment.
 
 See the other articles in this series:
 
@@ -45,14 +47,15 @@ See the other articles in this series:
 
 + An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
-## Access data using the studio
+## Configure data access in the studio
 
-After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access your data. 
+Some of the studio's features are disabled by default in a virtual network. You must enable managed identity for storage accounts you intend to use in the studio. 
 
 Failing to enable managed identity, will result in the following error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile`. You will be unable to perform the following operations:
 
 * Preview data in the studio.
 * Visualize data in the designer.
+* Deploy a model in the designer.
 * Submit an AutoML experiment.
 * Start a labeling project.
 
@@ -63,30 +66,36 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### Configure datastores to use workspace managed identity
+### Configure datastores to use workspace-managed identity
 
-Whether you use a private endpoint or a service endpoint, Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure datastores to use managed identity to enable critical studio features:
+After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access the data in your storage account.
+
+Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure a datastore to use managed identity:
 
 1. In the studio, select __Datastores__.
 
-1. To create a new datastore, select __+ New datastore__.
+1. To update an existing datastore, select the datastore and select __Update credentials__.
 
-    To update an existing datastore, select the datastore and select __Update credentials__.
+    To create a new datastore, select __+ New datastore__.
 
-1. In the datastore settings, select __Yes__ for  __Allow Azure Machine Learning service to access the storage using workspace-managed identity__.
+1. In the datastore settings, select __Yes__ for  __Use workspace managed identity for data preview and profiling in Azure Machine Learning studio__.
 
-These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access lets the workspace retrieve firewall settings to ensure that data dosen't leave the virtual network. Changes may take up to 10 minutes to take effect.
+    ![Screenshot showing how to enable managed workspace identity](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
+
+These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access lets the workspace retrieve firewall settings to ensure that data doesn't leave the virtual network. Changes may take up to 10 minutes to take effect.
 
 ### Enable managed identity authentication for default storage accounts
 
-In addition to your data stores, each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. Azure Machine Learning studio uses these storage accounts to store experiment and model artifacts which are critical to certain features.
+Each Azure Machine Learning workspace comes with two default storage accounts, which are defined when you create your workspace. The studio uses these default storage accounts to store experiment and model artifacts which are critical to certain features.
 
 The following table describes why you must enable managed identity authentication for the default storage accounts.
 
 |Storage account  | Notes  |
 |---------|---------|
-|Workspace default blob storage| Stores designer model assets. Enable managed identity authentication to deploy models in the designer.|
+|Workspace default blob storage| Stores model assets from the designer. Enable managed identity authentication to deploy models in the designer.|
 |Workspace default file store| Stores AutoML experiment assets. Enable managed identity authentication to submit AutoML experiments. |
+
+![Screenshot showing where default datastores can be found](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 
 ### Grant workspace managed identity __Reader__ access to storage private link
@@ -103,8 +112,7 @@ For example, if you are using network security groups (NSG) to restrict outbound
 
 ## Technical notes for managed identity
 
-Using managed identity to access storage services impacts some security considerations. This section describes the changes for each storage account type. 
-
+Using managed identity to access storage services impacts security considerations. This section describes the changes for each storage account type. 
 
 These considerations are unique to the __type of storage account__ you are accessing.
 
@@ -132,7 +140,7 @@ After you create a SQL contained user, grant permissions to it by using the [GRA
 
 ### Azure Machine Learning designer default datastore
 
-You can specify the output location for any module in the designer. Use this to store intermediate datasets in separate locations for security, logging, or auditing purposes. To specify output:
+You can specify the output location for any module in the designer. Use this to store intermediate datasets in separate location for security, logging, or auditing purposes. To specify output:
 
 1. Select the module whose output you'd like to specify.
 1. In the module settings pane that appears to the right, select **Output settings**.
@@ -140,7 +148,7 @@ You can specify the output location for any module in the designer. Use this to 
  
 Make sure that you have access to the intermediate storage accounts in your virtual network. Otherwise, the pipeline will fail.
 
-You should also [enable managed service authentication to visualize output data](#configure-datastores-to-use-workspace-managed-identity) for intermediate storage accounts.
+You should also [enable managed identity authentication](#configure-datastores-to-use-workspace-managed-identity) for intermediate storage accounts to visualize output data.
 
 ## Next steps
 
