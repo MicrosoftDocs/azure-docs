@@ -7,7 +7,7 @@ ms.date: 11/25/2020
 
 # Set up dependency visualization
 
-This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
@@ -16,7 +16,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
     - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Make sure you:
-    - Have an Azure Migrate project. If you don't, [create](how-to-add-tool-first-time.md) one now.
+    - Have an Azure Migrate project. If you don't, [create](./create-manage-projects.md) one now.
     - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
     - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment. Set up an appliance for:
         - [VMware](how-to-set-up-appliance-vmware.md) VMs.
@@ -142,7 +142,7 @@ After creating the group, we recommend that you install agents on all the machin
 You can query dependency data captured by Service Map in the Log Analytics workspace associated with the Azure Migrate project. Log Analytics is used to write and run Azure Monitor log queries.
 
 - [Learn how to](../azure-monitor/insights/service-map.md#log-analytics-records) search for Service Map data in Log Analytics.
-- [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 Run a query for dependency data as follows:
 
