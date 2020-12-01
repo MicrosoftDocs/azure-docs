@@ -17,6 +17,64 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-12-07
+
+### Azure Machine Learning SDK for Python v1.19.0
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Added experimental support for test data to AutoMLStep.
+    + Added the initial core implementation of test set ingestion feature.
+    + Moved references to sklearn.externals.joblib to depend directly on joblib.
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-automl-runtime**
+    + Added the initial core implementation of test set ingestion feature.
+    + When all the strings in a text column have a length of exactly 1 character, the TfIdf word-gram featurizer won't work because its tokenizer ignores the strings with fewer than 2 characters. The current code change will allow AutoML to handle this use case.
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-contrib-automl-dnn-nlp**
+    + Initial PR for new dnn-nlp package
+  + **azureml-contrib-automl-dnn-vision**
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-contrib-automl-pipeline-steps**
+    + This PR brings following changes. - It creates new contrib package - azureml-contrib-automl-pipeline-steps - This new package is responsible for creating steps required for many models train/inference scenario. - It also moves the train/inference code into azureml.train.automl.runtime package so any future fixes would be automatically available through curated environment releases.
+  + **azureml-contrib-dataset**
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-core**
+    + Added the initial core implementation of test set ingestion feature.
+    + Fixing the xref warnings for documentation in azureml-core package
+    + Doc string fixes for Command support feature in SDK
+    + Adding command property to runconfiguration. The feature enables users to run an actual command or executables on the compute through AzureML SDK.
+    + Users can delete an empty experiment given the id of that experiment.
+    + Added a new method, Dataset.Tabular.to_dask_dataframe() that returns a DaskFrame that can lazily read the data in the dataset.
+  + **azureml-dataprep**
+    + Added dataset support for Spark built with Scala 2.12. This adds to the existing 2.11 support.
+    + Added a new method, Dataset.Tabular.to_dask_dataframe() that returns a DaskFrame that can lazily read the data in the dataset.
+  + **azureml-mlflow**
+    + AzureML-MLflow adds safe guards in remote scripts to avoid early termination of submitted runs.
+  + **azureml-pipeline-core**
+    + It has fix for the bug in pipeline endpoint. The customer got an exception in setting a default pipeline for pipeline endpoint created via UI
+  + **azureml-pipeline-steps**
+    + Added experimental support for test data to AutoMLStep.
+  + **azureml-synapse**
+    + Fix a UI bug, now the Spark Monitor widget in Jupyter and JupyterLab will still in good shape even the window is small.
+    + Fix a bug, so that empty subcommand for synapse magic won't cause error, but default to pyspark.
+  + **azureml-tensorboard**
+    + Fixing the xref warnings for documentation in azureml-core package
+  + **azureml-train-automl-client**
+    + Added experimental support for test data to AutoMLStep.
+    + Added the initial core implementation of test set ingestion feature.
+    + introduce a new AutoML task type of "image-instance-segmentation".
+  + **azureml-train-automl-runtime**
+    + Added the initial core implementation of test set ingestion feature.
+    + Fix the computation of the raw explanations for the best AutoML model if the AutoML models are trained using validation_size setting.
+    + This PR brings following changes. - It creates new contrib package - azureml-contrib-automl-pipeline-steps - This new package is responsible for creating steps required for many models train/inference scenario. - It also moves the train/inference code into azureml.train.automl.runtime package so any future fixes would be automatically available through curated environment releases.
+    + Moved references to sklearn.externals.joblib to depend directly on joblib.
+  + **azureml-train-core**
+    + HyperDriveRun.get_children_sorted_by_primary_metric() should complete faster now
+    + Improved error handling in HyperDrive SDK.
+    +  Deprecated all estimator classes in favor of using ScriptRunConfig to configure experiment runs. Deprecated classes include: + MMLBaseEstimator + Estimator + PyTorch + TensorFlow + Chainer + SKLearn + Deprecated the use of Nccl and Gloo as a valid type of input for Estimator classes in favor of using PyTorchConfiguration with ScriptRunConfig. + Deprecated the use of Mpi as a valid type of input for Estimator classes in favor of using MpiConfiguration with ScriptRunConfig.
+    + Adding command property to runconfiguration. The feature enables users to run an actual command or executables on the compute through AzureML SDK.
+
+
 
 ## 2020-11-09
 
