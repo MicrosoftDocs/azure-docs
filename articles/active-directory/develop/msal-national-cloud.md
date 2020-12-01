@@ -52,7 +52,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 For details about using a national cloud with a particular programming language, choose the tab matching your language:
 
-## [.NET](#tab/donet)
+## [.NET](#tab/dotnet)
 
 You can use MSAL.NET to sign in users, acquire tokens, and call the Microsoft Graph API in national clouds.
 

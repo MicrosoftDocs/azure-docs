@@ -63,7 +63,8 @@ static void Main(string[] args)
 }
 ```
 
-Because version 3.*x* uses the default .NET Core configuration APIs, there is no API to change connection string names.
+> [!NOTE]
+> Because version 3.*x* uses the default .NET Core configuration APIs, there is no API to change connection string names. See [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ### Host development settings
 

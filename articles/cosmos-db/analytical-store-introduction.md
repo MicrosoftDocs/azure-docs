@@ -1,19 +1,16 @@
 ---
-title: What is Azure Cosmos DB Analytical Store (Preview)?
+title: What is Azure Cosmos DB Analytical Store?
 description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store  
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: "seo-nov-2020"
 ---
 
-# What is Azure Cosmos DB analytical store (Preview)?
+# What is Azure Cosmos DB analytical store?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB analytical store is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads. 
 
@@ -190,9 +187,6 @@ Analytical store follows a consumption-based pricing model where you are charged
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (auto-sync)
 
 * Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL serverless run times.
-
-> [!NOTE]
-> Azure Cosmos DB analytical store is currently available in public preview free of any charges.
 
 Analytical store pricing is separate from the transaction store pricing model. There is no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), for full details on the pricing model for analytical store.
 
