@@ -68,9 +68,9 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
 ## Add a security principal to a data plane role
 
-Before you or your team can begin to use Azure Purview, one or more security principals must be added to one of the pre-defined Data Plane roles: **Data Reader**, **Data Curator** or **Data Source Administrator**. For more information on Azure Purview Data Catalog permissions, see [Catalog permissions](catalog-permissions.md).
+Before you or your team can begin to use Azure Purview, one or more security principals must be added to one of the pre-defined Data Plane roles: **Purview Data Reader**, **Purview Data Curator** or **Purview Data Source Administrator**. For more information on Azure Purview Data Catalog permissions, see [Catalog permissions](catalog-permissions.md).
 
-To add a security principal to the **Data Curator** data plane role in an Azure Purview account:
+To add a security principal to the **Purview Data Curator** data plane role in an Azure Purview account:
 
 1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
@@ -84,7 +84,7 @@ If upon clicking Add you see two choices showing both marked (disabled) then thi
 
 1. Select **Add role assignment**.
 
-1. For the Role type in **Azure Purview Data Curator Role** or **Azure Purview Data Source Administrator Role** depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
+1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
 
 1. For **Assign access to** leave the default, **User, group, or service principal**.
 

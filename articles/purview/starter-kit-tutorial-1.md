@@ -96,7 +96,7 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
 
 ### Verify permissions
 
-Follow these steps to add the user running the script to the Azure Purview account that was created as a prerequisite. Users need both *Azure Purview Data Curator* and *Azure Purview Data Source Administrator* roles. 
+Follow these steps to add the user running the script to the Azure Purview account that was created as a prerequisite. Users need both *Purview Data Curator* and *Purview Data Source Administrator* roles. 
 
 If you created the Azure Purview account yourself, you're automatically given access and can skip this section.
 
@@ -106,7 +106,7 @@ If you created the Azure Purview account yourself, you're automatically given ac
 
 1. Select **Add role assignment**.
 
-1. Enter **Azure Purview Data Curator Role** for the *Role*.
+1. Enter **Purview Data Curator Role** for the *Role*.
  
 1. Use the default value for *Assign access to*. The default value should be **User, group, or service principal**.
 
@@ -114,7 +114,7 @@ If you created the Azure Purview account yourself, you're automatically given ac
 
 1. Select **Save**.
 
-1. Repeat the previous steps with the *Role* set to **Azure Purview Data Source Administrator Role**.
+1. Repeat the previous steps with the *Role* set to **Purview Data Source Administrator Role**.
 
 For more information, see [Catalog Permissions](catalog-permissions.md).
 

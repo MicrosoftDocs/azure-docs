@@ -31,7 +31,7 @@ For the tutorial you need:
 
 To set up a Purview account, you must be the owner or co-owner of the Azure subscription.
 
-To scan content into the Azure Purview Data Catalog, you must be in the Azure Purview Data Source Administrator Role. For more information on permissioning, see [Catalog Permissions](catalog-permissions.md) for details.
+To scan content into the Azure Purview Data Catalog using the Azure Purview Portal, you must be in either the Purview Data Reader or Purview Data Curator role as well as the Purview Data Source Administrator Role. For more information on permissioning, see [Catalog Permissions](catalog-permissions.md) for details.
 
 ## Add a data source and work with data sources
 
