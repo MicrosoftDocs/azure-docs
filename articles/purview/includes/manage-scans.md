@@ -8,6 +8,9 @@ ms.author: hrasheed
 ---
 ## Creating and running a scan
 
+> [!Note] 
+> The steps and screenshots shown below illustrate the general process for managing scans across different data source types. Your options may differ slightly depending on the types of data sources that you are working with.
+
 To create and run a new scan, do the following:
 
 1. Navigate to the **Sources**
