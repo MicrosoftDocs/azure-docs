@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -101,7 +101,7 @@ Follow these steps to change the Service Administrator in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 
-1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
+1. Open **Cost Management + Billing** and select a subscription.
 
 1. In the left navigation, click **Properties**.
 
@@ -136,7 +136,7 @@ Follow these steps to view the Account Administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
+1. Open **Cost Management + Billing** and select a subscription.
 
 1. In the left navigation, click **Properties**.
 
