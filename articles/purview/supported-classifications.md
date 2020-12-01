@@ -3,8 +3,8 @@ title: List of supported classifications
 description: This page lists the supported system classifications in Azure Purview.
 author: animukherjee
 ms.author: anmuk
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: reference
 ms.date: 11/20/2020
 ## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.

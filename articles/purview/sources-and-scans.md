@@ -3,8 +3,8 @@ title: Supported data sources and file types
 description: This article provides conceptual details about supported data sources and file types in Purview.
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ---

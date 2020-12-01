@@ -3,8 +3,8 @@ title: 'Use Purview Studio'
 description: This conceptual article describes how to use Azure Purview Studio. 
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
 

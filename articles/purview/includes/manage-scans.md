@@ -1,7 +1,7 @@
 ---
 author: hrasheed-msft
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: hrasheed

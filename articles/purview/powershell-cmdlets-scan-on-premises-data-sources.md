@@ -3,8 +3,8 @@ title: Use PowerShell cmdlets to scan on-premises data sources (preview)
 description: Learn how to use PowerShell cmdlets to register and scan on-premises data sources.
 author: aaronyan87
 ms.author: royan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/12/2020
 

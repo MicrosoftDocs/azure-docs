@@ -3,8 +3,8 @@ title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
 description: This tutorial describes how to scan Azure Data Lake Storage Gen2. 
 author: prmujumd
 ms.author: prmujumd
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen2 into the catalog.

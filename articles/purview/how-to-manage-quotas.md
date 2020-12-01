@@ -4,8 +4,8 @@ titleSuffix: Azure Purview
 description: Learn about the quotas and limits on resources for Azure Purview and how to request quota increases.
 author: chandrakavya
 ms.author: kchandra
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
 ---

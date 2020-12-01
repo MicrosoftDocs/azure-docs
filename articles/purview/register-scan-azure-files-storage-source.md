@@ -3,8 +3,8 @@ title: 'How to scan Azure files'
 description: This how to guide describes details of how to scan Azure files. 
 author: SunetraVirdi
 ms.author: suvirdi
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/01/2020
 ---

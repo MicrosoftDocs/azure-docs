@@ -3,8 +3,8 @@ title: Data lineage in Azure Purview (preview)
 description: Describes the concepts for data lineage. 
 author: chanuengg
 ms.author: csugunan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
 ---
