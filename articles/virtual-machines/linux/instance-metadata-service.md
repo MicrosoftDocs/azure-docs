@@ -45,7 +45,7 @@ IMDS is **not** intended to be used behind a proxy and doing so is unsupported. 
 
 ## Rate Limiting
 
-In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#Managed-Identity-via-IMDS) category are limited to 20 requests per second and 5 concurrent requests.
+In general, requests to IMDS are limited to 5 requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the [Managed Identity](#managed-identity-via-imds) category are limited to 20 requests per second and 5 concurrent requests.
 
 ## HTTP Verbs
 
@@ -56,7 +56,7 @@ Verb | Description
 
 ## Parameters
 
-Endpoints may support required and/or optional parameters. See [Schema](#Schema) and the documentation for the specific endpoint in question for details.
+Endpoints may support required and/or optional parameters. See [Schema](#schema) and the documentation for the specific endpoint in question for details.
 
 ### Query Parameters
 
@@ -150,7 +150,7 @@ would filter to the first element from the `Network.interface` property and retu
 
 ### Data format
 
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, endpoints that support response filtering (see [Route Parameters](#Route-Parameters)) also support the format `text`.
+By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, endpoints that support response filtering (see [Route Parameters](#route-parameters)) also support the format `text`.
 
 To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
@@ -162,7 +162,7 @@ In json responses, all primitives will be of type `string`, and missing or inapp
 
 ### Versioning
 
-The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#Versions) endpoint which can be used to dynamically retrieve the available API versions.
+The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#versions) endpoint which can be used to dynamically retrieve the available API versions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -374,7 +374,7 @@ Category Root | Description | Version Introduced
 /metadata/identity | See [Managed Identity via IMDS](#managed-identity-via-imds) | 2018-02-01
 /metadata/instance | See [Instance Metadata](#instance-metadata) | 2017-04-02
 /metadata/scheduledevents | See [Scheduled Events via IMDS](#scheduled-events-via-imds) | 2017-08-01
-/metadata/versions | See [Versions](#Versions) | N/A
+/metadata/versions | See [Versions](#versions) | N/A
 
 ## Versions
 
@@ -419,7 +419,7 @@ Name | Required/Optional | Description
 `api-version` | Required | The version used to service the request.
 `format` | Optional* | The format (`json` or `text`) of the response. *Note: May be required when using request parameters
 
-This endpoint supports response filtering via [request paramaters](#request-parameters).
+This endpoint supports response filtering via [route parameters](#route-parameters).
 
 #### Response
 
@@ -579,7 +579,7 @@ resourceId | The [fully qualified](/rest/api/resources/resources/getbyid) ID of 
 sku | Specific SKU for the VM image | 2017-04-02
 securityProfile.secureBootEnabled | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
 securityProfile.virtualTpmEnabled | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
-storageProfile | See [Storage Profile](#storage-metadata) | 2019-06-01
+storageProfile | See Storage Profile below | 2019-06-01
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
@@ -896,7 +896,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 ### Get Attested Data
 
-Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
+Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that their image is running on Azure.
 
 ```bash
 GET /metadata/attested/document
@@ -975,7 +975,7 @@ Marketplace vendors want to ensure that their software is licensed to run only i
 > [!NOTE]
 > Requires jq to be installed.
 
-**Request**
+**Validation**
 
 ```bash
 # Get the signature
@@ -993,7 +993,7 @@ openssl x509 -inform der -in intermediate.cer -out intermediate.pem
 openssl smime -verify -in sign.pk7 -inform pem -noverify
 ```
 
-**Response**
+**Results**
 
 ```json
 Verification successful
