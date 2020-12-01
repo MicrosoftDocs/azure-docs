@@ -202,7 +202,7 @@ To map an A record to an app, usually to the root domain, create two records:
 > | Record type | Host | Value |
 > | - | - | - |
 > | A | `www` | IP address from [Copy the app's IP address](#info) |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [The verification ID you got earlier](#get-a-domain-verification-id) |
 >
 
 After the records are added, the DNS records page looks like the following example:
