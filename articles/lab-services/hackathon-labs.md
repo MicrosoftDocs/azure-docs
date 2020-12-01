@@ -81,4 +81,4 @@ This section outlines the steps to complete the day of your hackathon.
         For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md?branch=master). 
 
 ## Next steps
-Start with creating a lab account in Classroom Labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).
+Start with creating a lab account in labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).

@@ -174,6 +174,6 @@ az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 
 ## Next steps
 
-* Learn how to [manage record sets and records](dns-getstarted-create-recordset-cli.md) in your DNS zone.
+* Learn how to [manage record sets and records](./dns-getstarted-cli.md) in your DNS zone.
 
 * Learn how to [delegate your domain to Azure DNS](dns-domain-delegation.md).

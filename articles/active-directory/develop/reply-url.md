@@ -5,7 +5,7 @@ description: A description of the restrictions and limitations on redirect URI (
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
@@ -45,25 +45,32 @@ To add redirect URIs with an HTTP scheme to app registrations that sign in work 
 
 Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" or "localhost" redirect URIs come with two special considerations:
 
-1. `http` URI schemes are acceptable because the redirect never leaves the device. As such, both of these are acceptable:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI. As a result, all of these are considered equivalent:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` URI schemes are acceptable because the redirect never leaves the device. As such, both of these URIs are acceptable:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI. As a result, all of these URIs are considered equivalent:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 From a development standpoint, this means a few things:
 
 * Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's a `web`-, `native`-, or `spa`-type redirect).
 
     This is especially important when you want to use different authentication flows in the same application registration, for example both the authorization code grant and implicit flow. To associate the correct response behavior with each redirect URI, the login server must be able to distinguish between the redirect URIs and cannot do so when only the port differs.
-* If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
+* If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://localhost/MyWebApp` doesn't match `http://localhost/MyNativeApp`.
 * The IPv6 loopback address (`[::1]`) is not currently supported.
-* To prevent your app from being broken by misconfigured firewalls or renamed network interfaces, use the IP literal loopback address `127.0.0.1` in your redirect URI instead of `localhost`.
 
-    To use the `http` scheme with the IP literal loopback address `127.0.0.1`, you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
+#### Prefer 127.0.0.1 over localhost
+
+To prevent your app from being broken by misconfigured firewalls or renamed network interfaces, use the IP literal loopback address `127.0.0.1` in your redirect URI instead of `localhost`. For example, `https://127.0.0.1`.
+
+You cannot, however, use the **Redirect URIs** text box in the Azure portal to add a loopback-based redirect URI that uses the `http` scheme:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Error dialog in Azure portal showing disallowed http-based loopback redirect URI":::
+
+To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback address, you must currently modify the [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) attribute in the [application manifest](reference-app-manifest.md).
 
 ## Restrictions on wildcards in redirect URIs
 

@@ -287,7 +287,7 @@
         href: dedicated-hosts-powershell.md
       - name: Portal
         href: ../dedicated-hosts-portal.md
-    - name: Deploy spot VMs
+    - name: Deploy Spot VMs
       items:
       - name: Portal
         href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -361,7 +361,7 @@
             href: ../image-version-vm-powershell.md
           - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-powershell.md
-          - name: Migrate from a managed image
+          - name: Clone a managed image
             href: ../image-version-managed-image-powershell.md
           - name: Copy from another gallery
             href: ../image-version-another-gallery-powershell.md
@@ -383,7 +383,7 @@
             href: ../image-version-vm-cli.md
           - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-cli.md
-          - name: Migrate from a managed image
+          - name: Clone a managed image
             href: ../image-version-managed-image-cli.md
           - name: Copy from another gallery
             href: ../image-version-another-gallery-cli.md
@@ -771,8 +771,6 @@
       href: install-mongodb.md
     - name: SAP on Azure
       href: ../workloads/sap/get-started.md
-    - name: MATLAB cluster
-      href: matlab-mdcs-cluster.md
     - name: Visual Studio
       href: using-visual-studio-vm.md
     - name: High Performance Computing (HPC)

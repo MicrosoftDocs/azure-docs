@@ -305,7 +305,7 @@
         href: dedicated-hosts-cli.md
       - name: Portal
         href: ../dedicated-hosts-portal.md
-    - name: Deploy spot VMs
+    - name: Deploy Spot VMs
       items:
       - name: CLI
         href: spot-cli.md
@@ -329,7 +329,7 @@
     - name: Migrate using the CLI
       href: ../migration-classic-resource-manager-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Common migration errors
-      href: migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../migration-classic-resource-manager-errors.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Community tools for migration
       href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: FAQ
@@ -395,7 +395,7 @@
             href: ../image-version-vm-cli.md
           - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-cli.md
-          - name: Migrate from a managed image
+          - name: Clone a managed image
             href: ../image-version-managed-image-cli.md
           - name: Copy from another gallery
             href: ../image-version-another-gallery-cli.md
@@ -419,7 +419,7 @@
             href: ../image-version-vm-powershell.md
           - name: From a Managed Disk or snapshot
             href: ../image-version-snapshot-powershell.md
-          - name: Migrate from a managed image
+          - name: Clone a managed image
             href: ../image-version-managed-image-powershell.md
           - name: Copy from another gallery
             href: ../image-version-another-gallery-powershell.md
@@ -502,7 +502,7 @@
       - name: Create a Bastion host
         items:
         - name: Portal
-          href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../bastion/tutorial-create-host-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: PowerShell
           href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: CLI

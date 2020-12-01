@@ -352,10 +352,9 @@ These diagnostic tools help you inspect the data from your app:
 
 * [Metric explorer](../platform/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
-* [Analytics - powerful query language](../log-query/get-started-portal.md)
+* [Analytics - powerful query language](../log-query/log-analytics-tutorial.md)
 
 Smart detections are automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](../platform/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)
-
