@@ -31,7 +31,7 @@ The configuration steps include the following procedures to configure and use Az
 
 1. Create and populate Azure AD.
 2. Create an Azure Active Directory identity
-3. Assign role to created Azure Active Directory identity in Synapse workspace (preview)
+3. Assign role to created Azure Active Directory identity in Synapse workspace
 4. Connect to Synapse Studio by using Azure AD identities.
 
 ## Azure AD pass-through in Azure Synapse Analytics
@@ -60,7 +60,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the Synapse SQL instance. 
 
-Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in Synapse Analytics workspace. Only one Azure AD administrator (a user or group) can be configured at any time.
+Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in Azure Synapse Analytics workspace. Only one Azure AD administrator (a user or group) can be configured at any time.
 
 ![admin structure](./media/aad-authentication/3-admin-structure.png)
 
@@ -104,7 +104,7 @@ Azure Active Directory authentication supports the following methods of connecti
 - Azure Active Directory Universal with MFA
 - Using Application token authentication
 
-The following authentication methods are supported for Azure AD server principals (logins) (**public preview**):
+The following authentication methods are supported for Azure AD server principals (logins):
 
 - Azure Active Directory Password
 - Azure Active Directory Integrated
@@ -114,7 +114,7 @@ The following authentication methods are supported for Azure AD server principal
 
 - To enhance manageability, we recommend you provision a dedicated Azure AD group as an administrator.
 - Only one Azure AD administrator (a user or group) can be configured for Synapse SQL pool at any time.
-  - The addition of Azure AD server principals (logins) for Synapse SQL (preview) allows the possibility of creating multiple Azure AD server principals (logins) that can be added to the `sysadmin` role.
+  - The addition of Azure AD server principals (logins) for Synapse SQL allows the possibility of creating multiple Azure AD server principals (logins) that can be added to the `sysadmin` role.
 - Only an Azure AD administrator for Synapse SQL can initially connect to Synapse SQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
 - We recommend setting the connection timeout to 30 seconds.
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). So, the newest versions of these tools and data-tier applications (DAC and .BACPAC) can use Azure AD authentication.

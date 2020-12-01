@@ -186,7 +186,7 @@ To get started with shared access signatures, see the following articles for eac
 
 ### Service SAS
 
-- [Create a service SAS for a container or blob with .NET](../blobs/storage-blob-service-sas-create-dotnet.md)
+- [Create a service SAS for a container or blob with .NET](../blobs/sas-service-create.md)
 
 ### Account SAS
 

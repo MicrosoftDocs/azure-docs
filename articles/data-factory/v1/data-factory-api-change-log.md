@@ -70,7 +70,7 @@ Feature Additions:
 ### Feature Additions
 * Added new StorageFormat type [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) type to copy files in optimized row columnar (ORC) format.
 * Add [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) and PolyBaseSettings properties to SqlDWSink.
-  * Enables the use of PolyBase to copy data into Azure Synapse Analytics (formerly SQL Data Warehouse).
+  * Enables the use of PolyBase to copy data into Azure Synapse Analytics.
 
 ## Version 4.6.1
 ### Bug Fixes

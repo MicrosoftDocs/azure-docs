@@ -192,7 +192,7 @@ Recent changes to SMB Multichannel config settings without a remount.
 
 ### Cause  
 
-High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
 
 To confirm, you can use Azure Metrics in the portal - 
 
