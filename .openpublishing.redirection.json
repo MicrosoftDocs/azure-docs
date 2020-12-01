@@ -260,6 +260,7 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script",
       "redirect_document_id": false
     },
+    {
       "source_path": "articles/virtual-machines/windows/matlab-mdcs-cluster.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster",
       "redirect_document_id": false
