@@ -53,7 +53,7 @@ To see all resource providers, and the registration status for your subscription
 
     ![show resource providers](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**.
+6. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
 
 To see information for a particular resource provider:
 
@@ -105,7 +105,7 @@ To see all registered resource providers for your subscription, use:
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-To register a resource provider, use:
+To maintain least privileges in your subscription, only register those resource providers that you're ready to use. To register a resource provider, use:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -214,7 +214,7 @@ To see all registered resource providers for your subscription, use:
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-To register a resource provider, use:
+To maintain least privileges in your subscription, only register those resource providers that you're ready to use. To register a resource provider, use:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch
