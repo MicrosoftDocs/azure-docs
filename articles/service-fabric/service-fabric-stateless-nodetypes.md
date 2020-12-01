@@ -8,14 +8,123 @@ ms.date: 09/25/2020
 ms.author: pepogors
 ---
 # Deploy an Azure Service Fabric cluster with Stateless only node types (Preview)
-Service Fabric node types come with inherent notion that at some point of time, stateful services might get placed on those nodes. Stateless node types remove this notion from a node type, thus allowing faster scale out operations, support for VMSS Automatic OS Upgrades and scaling out to more than 100 nodes in a single VMSS.
+Service Fabric node types come with inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type, thus allowing nodetype to use other features such as faster scale out operations, support for VMSS based Automatic OS Upgrades on Bronze durability and scaling out to more than 100 nodes in a single VMSS.
 
 * Primary Node types cannot be configured to be stateless
 * Stateless node types are only supported with Bronze Durability Levels
-* Stateless node types are only supported on Service fabric Runtime version 7.1.409 or above
+* Stateless node types are only supported on Service Fabric Runtime version 7.1.409 or above.
 
 
-Sample templates are available: [Service Fabric stateless node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Sample templates are available: [Service Fabric Stateless Nodetypes template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+
+## Enabling Stateless Node Types in the Service Fabric Cluster resource
+To set one or more node types as Stateless in a cluster resource, set the "isStateless" property to "true". When deploying a Service Fabric cluster with Stateless node types, do remember to have atleast one primary node type in the cluster resource.
+
+```json
+{
+    "nodeTypes": [
+    {
+        "name": "[parameters('vmNodeType0Name')]",
+        "applicationPorts": {
+            "endPort": "[parameters('nt0applicationEndPort')]",
+            "startPort": "[parameters('nt0applicationStartPort')]"
+        },
+        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
+        "durabilityLevel": "Bronze",
+        "ephemeralPorts": {
+            "endPort": "[parameters('nt0ephemeralEndPort')]",
+            "startPort": "[parameters('nt0ephemeralStartPort')]"
+        },
+        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
+        "isPrimary": true,
+        "isStateles": false,
+        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+    },
+    {
+        "name": "[parameters('vmNodeType1Name')]",
+        "applicationPorts": {
+            "endPort": "[parameters('nt1applicationEndPort')]",
+            "startPort": "[parameters('nt1applicationStartPort')]"
+        },
+        "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
+        "durabilityLevel": "Silver",
+        "ephemeralPorts": {
+            "endPort": "[parameters('nt1ephemeralEndPort')]",
+            "startPort": "[parameters('nt1ephemeralStartPort')]"
+        },
+        "httpGatewayEndpointPort": "[parameters('nt1fabricHttpGatewayPort')]",
+        "isPrimary": false,
+        "isStateless": true,
+        "vmInstanceCount": "[parameters('nt1InstanceCount')]"
+    }    
+    ],
+}
+```
+
+## Configuring virtual machine scale set resource for Stateless node types
+To enable Stateless node types over a virtual machine scale set, you must include the following changes in the virtual machine scale set resource.
+
+* The first value is the **singlePlacementGroup** property, which should be set to true/false depending on requirement to scale to more than 100 VMs.
+* The second value is the "upgradeMode" which should be set to Rolling.
+* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the nodetype, Health Probe/Health extension ports can be changed to monitor application health.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+          "mode": "Rolling",
+          "automaticOSUpgradePolicy": {
+            "enableAutomaticOSUpgrade": true
+          }
+        }
+    }
+    "virtualMachineProfile": {
+    "extensionProfile": {
+    "extensions": [
+    {
+    "name": "[concat(parameters('vmNodeType1Name'),'_ServiceFabricNode')]",
+    "properties": {
+        "type": "ServiceFabricNode",
+        "autoUpgradeMinorVersion": false,
+        "publisher": "Microsoft.Azure.ServiceFabric",
+        "settings": {
+            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+            "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+            "dataPath": "D:\\\\SvcFab",
+            "durabilityLevel": "Silver",
+            "certificate": {
+                "thumbprint": "[parameters('certificateThumbprint')]",
+                "x509StoreName": "[parameters('certificateStoreValue')]"
+            },
+            "systemLogUploadSettings": {
+                "Enabled": true
+            },
+        },
+        "typeHandlerVersion": "1.0"
+    }
+    },
+    {
+        "type": "extensions",
+        "name": "HealthExtension",
+        "properties": {
+            "publisher": "Microsoft.ManagedServices",
+            "type": "ApplicationHealthWindows",
+            "autoUpgradeMinorVersion": true,
+            "typeHandlerVersion": "1.0",
+            "settings": {
+            "protocol": "tcp",
+            "port": "19000"
+            }
+            }
+        },
+    ]
+}
+```
 
 ## Networking requirements
 ### Public IP and Load Balancer Resource
@@ -31,9 +140,6 @@ To enable scaling to more than 100 VMs on a virtual machine scale set resource, 
         "name": "Standard"
     }
 }
-```
-
-```json
 {
     "apiVersion": "2018-11-01",
     "type": "Microsoft.Network/loadBalancers",
@@ -125,115 +231,8 @@ Standard Load Balancer and Standard Public IP introduce new abilities and differ
 > Any Service Fabric cluster making use of a Standard SKU SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail.
 
 
-### Configuring virtual machine scale set resource for Stateless node types
-To enable Stateless node types over a virtual machine scale set, you must include the following changes in the virtual machine scale set resource.
 
-* The first value is the **singlePlacementGroup** property, which should be set to true/false depending on requirement to scale to more than 100 VMs.
-* The second value is the "upgradeMode" which should be set to Rolling.
-* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Remember to configure health probe with default configuration for Stateless Node types as suggested below.
-
-```json
-{
-    "apiVersion": "2018-10-01",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    "name": "[parameters('vmNodeType1Name')]",
-    "location": "[parameters('computeLocation')]",
-    "properties": {
-        "overprovision": "[variables('overProvision')]",
-        "upgradePolicy": {
-          "mode": "Rolling",
-          "automaticOSUpgradePolicy": {
-            "enableAutomaticOSUpgrade": true
-          }
-        }
-    }
-    "virtualMachineProfile": {
-    "extensionProfile": {
-    "extensions": [
-    {
-    "name": "[concat(parameters('vmNodeType1Name'),'_ServiceFabricNode')]",
-    "properties": {
-        "type": "ServiceFabricNode",
-        "autoUpgradeMinorVersion": false,
-        "publisher": "Microsoft.Azure.ServiceFabric",
-        "settings": {
-            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-            "nodeTypeRef": "[parameters('vmNodeType1Name')]",
-            "dataPath": "D:\\\\SvcFab",
-            "durabilityLevel": "Silver",
-            "certificate": {
-                "thumbprint": "[parameters('certificateThumbprint')]",
-                "x509StoreName": "[parameters('certificateStoreValue')]"
-            },
-            "systemLogUploadSettings": {
-                "Enabled": true
-            },
-        },
-        "typeHandlerVersion": "1.0"
-    }
-    },
-    {
-        "type": "extensions",
-        "name": "HealthExtension",
-        "properties": {
-            "publisher": "Microsoft.ManagedServices",
-            "type": "ApplicationHealthWindows",
-            "autoUpgradeMinorVersion": true,
-            "typeHandlerVersion": "1.0",
-            "settings": {
-            "protocol": "tcp",
-            "port": "19000"
-            }
-            }
-        },
-    ]
-}
-```
-
-### Enabling Stateless Node Types in the Service Fabric Cluster resource
-To set one or more node types as Stateless in a cluster resource, set the "isStateless" property to "true". When deploying a Service Fabric cluster with Stateless node types, do remember to have atleast one primary node type in the cluster resource.
-
-```json
-{
-    "nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Bronze",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": false,
-        "isStateles": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt1applicationEndPort')]",
-            "startPort": "[parameters('nt1applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt1ephemeralEndPort')]",
-            "startPort": "[parameters('nt1ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt1fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt1InstanceCount')]"
-    }    
-    ],
-}
-```
-
-## Migrate to using Stateless node types from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
+### Migrate to using Stateless node types from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
 To migrate a cluster, which was using a Load Balancer and IP with a basic SKU, you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place.
 
 The new LB and IP should be referenced in the new Stateless node types that you would like to use. In the example above, a new virtual machine scale set resources is added to be used for Stateless node types. These virtual machine scale sets reference the newly created LB and IP and are marked as stateless node types in the Service Fabric Cluster Resource.
@@ -253,7 +252,7 @@ New-AzureRmResourceGroupDeployment `
     -TemplateParameterFile $Parameters
 ```
 
-Once the resources have finished deploying, you can begin to disable the nodes in the primary node type from the original cluster. As the nodes are disabled, the system services will migrate to the new primary node type that had been deployed in the step above.
+Once the resources have finished deploying, you can begin to disable the nodes in the node type that you want to remove from the original cluster.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
