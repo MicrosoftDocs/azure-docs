@@ -122,11 +122,11 @@
 - name: Resources
   items:
   - name: Build your security skills with Microsoft Learn
-    href: https://docs.microsoft.com/learn/browse/?term=securityS&terms=securityS
+    href: /learn/browse/?term=securityS&terms=securityS
   - name: Azure Security Center documentation
-    href: https://docs.microsoft.com/azure/security-center/
+    href: ../security-center/index.yml
   - name: Azure security documentation 
-    href: https://docs.microsoft.com/azure/security/
+    href: ../security/index.yml
   - name: Azure RTOS security module on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
   - name: Azure IoT Security, Privacy, & Compliance blog
