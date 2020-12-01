@@ -76,7 +76,7 @@ For examples of tools built on top of the secure score API, see [the secure scor
 
 ### Get your secure score from Azure Resource Graph (ARG)
 
-Azure Resource Graph provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal. [Learn more about Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+Azure Resource Graph provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
 
 To access the secure score for multiple subscriptions with ARG:
 
