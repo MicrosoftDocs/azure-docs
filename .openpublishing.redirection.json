@@ -39787,6 +39787,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cdn/enable-raw-logs.md",
+      "redirect_url": "/azure/cdn/monitoring-and-access-log",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
       "redirect_document_id": true
