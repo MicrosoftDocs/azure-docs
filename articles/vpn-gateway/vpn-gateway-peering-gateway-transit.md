@@ -17,10 +17,7 @@ This article helps you configure gateway transit for virtual network peering. [V
 
 ![Gateway transit diagram](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
-In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. The transit option is available for peering between the same, or different deployment models. 
-
->[!IMPORTANT]
->The hub virtual network and virtual network gateway must be in the Resource Manager deployment model.
+In the diagram, gateway transit allows the peered virtual networks to use the Azure VPN gateway in Hub-RM. Connectivity available on the VPN gateway, including S2S, P2S, and VNet-to-VNet connections, applies to all three virtual networks. The transit option is available for peering between the same, or different deployment models. If you are configuring transit between different deployment models, the hub virtual network and virtual network gateway must be in the Resource Manager deployment model, not the classic deployment model.
 >
 
 In hub-and-spoke network architecture, gateway transit allows spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. Routes to the gateway-connected virtual networks or on-premises networks will propagate to the routing tables for the peered virtual networks using gateway transit. You can disable the automatic route propagation from the VPN gateway. Create a routing table with the "**Disable BGP route propagation**" option, and associate the routing table to the subnets to prevent the route distribution to those subnets. For more information, see [Virtual network routing table](../virtual-network/manage-route-table.md).
@@ -134,11 +131,11 @@ Add-AzVirtualNetworkPeering `
 
 ## <a name="Different"></a>Different deployment models
 
-In this configuration, the spoke VNet **Spoke-Classic** is in the classic deployment model and the hub VNet **Hub-RM** is in the Resource Manager deployment model. The virtual network gateway must be configured for the Resource Manager VNet, not the classic VNet. When creating this configuration, you only need to configure the **Hub-RM** virtual network. You don't need to configure anything on the **Spoke-Classic** VNet.
+In this configuration, the spoke VNet **Spoke-Classic** is in the classic deployment model and the hub VNet **Hub-RM** is in the Resource Manager deployment model. When configuring transit between deployment models, the virtual network gateway must be configured for the Resource Manager VNet, not the classic VNet. 
 
-In the Azure portal, create the virtual network peering from **Hub-RM** to **Spoke-Classic**.
+For this configuration, you only need to configure the **Hub-RM** virtual network. You don't need to configure anything on the **Spoke-Classic** VNet.
 
-1. Navigate to the **Hub-RM** virtual network, select **Peerings**, then **+ Add**.
+1. In the Azure portal, navigate to the **Hub-RM** virtual network, select **Peerings**, then select **+ Add**.
 1. On the **Add peering** page, configure the following values:
 
    * Peering link name: Name the link. Example: **HubRMToClassic**
