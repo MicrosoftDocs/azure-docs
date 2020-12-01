@@ -178,8 +178,6 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
 ## Constraints
 
-*	Ports will be released after 15 seconds if a **TCP RST** is received or sent
-*	Ports will be released after 240 seconds if a **FINACK** is received or sent
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
   *	This threshold can be configured via outbound rules.
 *	Each IP address provides 64,000 ports that can be used for SNAT.

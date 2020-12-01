@@ -286,8 +286,8 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Preview | Preview |
-| User assigned | ![Available][check] | ![Available][check] | Preview | Preview |
+| System assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure Virtual Machine Scale Sets (in regions where available):
 
@@ -303,8 +303,8 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Preview | Preview |
-| User assigned | ![Available][check] | ![Available][check] | Preview | Preview |
+| System assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure Virtual Machines (in regions where available):
 
