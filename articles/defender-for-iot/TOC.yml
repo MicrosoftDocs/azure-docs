@@ -202,7 +202,7 @@
       - name: Configure DNS servers for reverse lookup resolution
         href: how-to-configure-dns-servers-for-reverse-lookup-resolution.md
       - name: Working with asset notifications
-        href: how-to-working-with-asset-notifications.md
+        href: how-to-working-with-device-notifications.md
       - name: Enhance port and VLAN names resolution
         href: how-to-enhance-port-and-vlan-names-resolution.md
       - name: Import asset information

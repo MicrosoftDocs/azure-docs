@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Accelerate Incident workflows
 
-This article describes how to accelerate alert workflows using Defender for IoT *alert comments* and *alert groups*. These tools help you analyze and manage the large volume of alert events detected in your network.
+This article describes how to accelerate alert workflows using Defender for IoT alert comments and alert groups. These tools help you analyze and manage the large volume of alert events detected in your network.
 
 ## Accelerate incident workflow with alert comments
 
