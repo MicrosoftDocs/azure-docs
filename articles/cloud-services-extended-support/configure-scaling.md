@@ -12,7 +12,7 @@ ms.custom:
 
 # Configure Scaling option with Azure Cloud Services (extended support) 
 
-Conditions can be configured to enable a Cloud Service (extended support) deployent to scale in and out. These conditions can be based on CPU usage, disk load and network load. 
+Conditions can be configured to enable a Cloud Service (extended support) deployment to scale in and out. These conditions can be based on CPU usage, disk load and network load. 
 
 Consider the following information before configuring scaling of your Cloud Service deployment:
 - Scaling impacts core usage. Larger role instances consume more cores and you can only scale within the core limit of your subscription. For more information, see [Available sizes](available-sizes.md).
@@ -43,7 +43,7 @@ Consider the following information before configuring scaling of your Cloud Serv
 		:::image type="content" source="media/enable-scaling-3.png" alt-text="Image shows setting up custom autoscale in the Azure portal":::
 		5. The scaling operations will begin as soon as a rule is triggered.
 		
-6. You can view or adjust the scaling rules applied to your deplyment by selecting the **Scale** tab.
+6. You can view or adjust the scaling rules applied to your deployment by selecting the **Scale** tab.
 	:::image type="content" source="media/enable-scaling-4.png" alt-text="Image shows viewing the scaling tab in the Azure portal":::
 	:::image type="content" source="media/enable-scaling-5.png" alt-text="Image shows adjusting an existing scaling rule in the Azure portal":::
 
