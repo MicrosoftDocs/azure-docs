@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View your assets in Asset insights
 
-1. On the left window, select **Assets**.
+* On the left window, select **Assets**.
 
     |Option  |Description  |
     |---------|------------|
@@ -56,7 +56,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
   
 ## View your scan summary
 
-1. On the left window, select **Scans**.
+* On the left window, select **Scans**.
 
     |Option  |Description  |
     |---------|---------|
@@ -66,7 +66,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
   
 ## View glossary status
 
-1. On the left window select **Glossary**.
+* On the left window select **Glossary**.
 
     |Option|Description  | 
     |---------|---------|
