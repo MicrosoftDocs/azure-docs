@@ -30,13 +30,14 @@ The following steps will help you create a certificate from certificate authorit
 
 
 
-1.  First, **create the certificate policy**. Key Vault will not enroll or renew the certificate from the Issuer on behalf of the user as CA chosen in this scenario is not a supported one and hence the IssuerName is set to Unknown.
+1. First, **create the certificate policy**. Key Vault will not enroll or renew the certificate from the Issuer on behalf of the user as CA chosen in this scenario is not a supported one and hence the IssuerName is set to Unknown.
 
-    ```azurepowershell
-    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
-    ```
->[!Note]
->If you are using Relative Distinguished Names (RDNs), with a comma (,) in the value; you will need to use single quotations and wrap the value containing the special character in double quotations. Example: $policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown. In this example the OrganizationalUnit value would read as "Docs, Contoso", without the quotations. This format works for all values that contain a comma.
+   ```azurepowershell
+   $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+   ```
+    
+   > [!NOTE]
+   > If you're using a Relative Distinguished Name (RDN) that has a comma (,) in the value, use single quotes and wrap the value that contains the special character in double quotes. Example: `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. In this example, the `OU` value reads as **Docs, Contoso**. This format works for all values that contain a comma.
 
 2. Create a **certificate signing request**
 
@@ -70,22 +71,22 @@ After the certificate request has been signed by the Issuer, you can bring back 
     - **Subject:** `"CN=www.contosoHRApp.com"`
     - Select the other values as desired. Click **Create**.
 
-    ![Certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)
-    
+    ![Certificate properties](../media/certificates/create-csr-merge-csr/create-certificate.png)  
 
 
 6.	You will see that certificate has now been added in Certificates list. Select this new certificate you had just created. The current state of the certificate would be ‘disabled’ as it hasn’t been issued by the CA yet.
 7. Click on **Certificate Operation** tab and select **Download CSR**.
- ![Certificate properties](../media/certificates/create-csr-merge-csr/download-csr.png)
+   ![Certificate properties](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.	Take .csr file to the CA for the request to get signed.
 9.	Once the request is signed by the CA, bring back the certificate file to **merge the Signed request** in the same Certificate Operation screen.
 
-Certificate request has now been successfully merged.
->[!Note]
->If your RDN values have commas you may also add them in the "Subject" field by surrounding the value in double quotation marks as shown below during step 4.
-Example entry to "Subject" DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com
-In this example the RDN "OrganizationalUnit" contains a value with a comma in the name. The resulting output will populate the OU as "Docs, Contoso" without the quotation marks.
+The certificate request has now been successfully merged.
+
+> [!NOTE]
+> If your RDN values have commas, you also can add them in the **Subject** field by surrounding the value in double quotes as shown in step 4.
+> Example entry to "Subject": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com`
+> In this example, the RDN `OU` contains a value with a comma in the name. The resulting output for `OU` is **Docs, Contoso**.
 
 
 ## Adding more information to CSR
@@ -102,8 +103,8 @@ Example
     ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
     ```
 
->[!Note]
->If you are requesting a DV cert with all those details in the CSR, the CA might reject the request as CA might not be able to validate all that information in the request. If you are requesting an OV cert then it would be more appropriate to add all that information in the CSR.
+> [!NOTE]
+> If you're requesting a DV cert with all those details in the CSR, the CA might reject the request because it might not be able to validate all the information in the request. If you're requesting an OV cert, it would be more appropriate to add all that information in the CSR.
 
 
 ## Troubleshoot
