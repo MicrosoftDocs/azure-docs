@@ -19,7 +19,6 @@ The Azure Data Explorer cross service queries flow:
 
 > [!NOTE]
 > * The ability to query Azure Monitor data from Azure Data Explorer, either directly from Azure Data Explorer client tools, or indirectly by running a query on an Azure Data Explorer cluster, is in preview mode.
->* [Add a Log Analytics/Application Insights workspace to Azure Data Explorer client tools](#Add-a-Log-Analytics/Application-Insights-workspace-to-Azure-Data-Explorer-client-tools) to enable the Cross service query ability for your clusters.
 >* Contact the [Cross service query](mailto:adxproxy@microsoft.com) team with any questions.
 
 ## Add a Log Analytics/Application Insights workspace to Azure Data Explorer client tools
