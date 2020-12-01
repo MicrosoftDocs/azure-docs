@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
@@ -103,6 +103,7 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
 * For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
   * [Application](/graph/api/resources/application?view=graph-rest-1.0)
   * [Service Principal](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+* The schema of service principal and user objects can be extended to store additional data in Azure AD.  For more information, read [Using directory schema extension attributes](active-directory-schema-extensions.md).
 
 ## Why do applications integrate with Azure AD?
 
