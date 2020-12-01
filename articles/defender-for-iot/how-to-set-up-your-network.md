@@ -1,55 +1,27 @@
 ---
 title: Set up your network
-description: 
+description: Learn about solution architecture, network preparation, pre-requisites, and other information needed to ensure you successfully set up your network to work with Defender for IoT appliances.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/18/2020
+ms.date: 12/01/2020
 ms.topic: how-to
 ms.service: azure
 ---
 
-# About Azure Defender for IoT
+# About Azure Defender for IoT Network Setup
 
 Azure Defender for IoT delivers continuous ICS threat monitoring and device discovery. The platform includes the following components:
 
-**Defender for IoT sensors:** Sensors collect ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero performance impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide](https://aka.ms/AzureDefenderforIoTUserGuide).
+**Defender for IoT sensors:** Sensors collect ICS network traffic using passive (agentless) monitoring. Passive and non-intrusive, the sensors have zero performance impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. 
 
-**Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network devices and delivers a real-time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats. Read more about management capabilities in the [On-premises Management Console User Guide](https://aka.ms/DefenderForIoTManagementConsole).
+**Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network devices and delivers a real-time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats. 
 
-**Defender for IoT for IoT portal:** The Defender for IoT application is used to help you purchase solution appliances; install and update software and update TI packages. Read more in the [Deployment and Onboarding Guide](https://aka.ms/AzureDefenderforIoTOverview).
+**Defender for IoT for IoT portal:** The Defender for IoT application is used to help you purchase solution appliances; install and update software and update TI packages. 
 
-## Document goals
+This article provides information about solution architecture, network preparation, pre-requisites, and other information needed to ensure you successfully set up your network to work with Defender for IoT appliances. Readers working with the information in this article should be experienced in operating and managing OT and IoT networks, for example automation engineers, plant managers, OT Network infrastructure service providers, cyber security teams, CISOs, or CIOs.
 
-The purpose of this document is to provide information about solution architecture and provide guidance regarding preparation, pre-requisites, and information that is needed to ensure you successfully set up your network to work with Defender for IoT appliances.
-
-### Audience
-
-The intended audience for this document includes stakeholders experienced in operating and managing OT and IoT networks, for example automation engineers, plant managers, OT Network infrastructure service providers, cyber security teams, CISO, CIO.
-
-### Other flows
-
-This document describes how to connect your sensor to the network. The network setup processes described here reflect important tasks required to get your system up and running. Additional steps are also required. It is recommended that you understand these steps and familiarize yourself with information in the accompanying documents.  
-
-Once you complete all steps, Defender for IoT will monitor network traffic and report detections via deployed sensors. Depending on how you set up your solution, detections can also be sent to the Defender for IoT application and Sentinel.
-
-Verify that you have completed steps 1 & 2 before proceeding to step described in this document (step 3).
-
-1. Create a Defender for IoT subscription.
-
-2. Deploy hardware, software, and an onboard to sensor. This is described in the installation guide.
-
-3. Perform network setup for sensor monitoring and management. This is described in this article.
-
-4. Set up your sensor console to start discovering your network, for example define subnets, alert exclusion rules, connect sensors to an on-premises management console. See the [Defender for IoT Sensor User Guide](https://aka.ms/AzureDefenderforIoTUserGuide) and [On-premises Management Console User Guide](https://aka.ms/DefenderForIoTManagementConsole) for details.
-
-5. Populate Sentinel with alert information (optional).
-
-### Get more information
-
-- To get assistance or support, contact [support.microsoft.com](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099)
-
-- For additional documentation, visit the [TBD](TBD)
+For assistance or support, contact [support.microsoft.com](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099)
 
 ## On-site deployment tasks
 
@@ -61,7 +33,7 @@ Site Deployment tasks include:
 
 - [Plan rack installation](#plan-rack-installation)
 
-### Gather site information
+### Collect site information
 
 Record site information, for example:
 
@@ -83,7 +55,8 @@ Record site information, for example:
 
 - DNS Servers (Optional) Prepare your DNS server IP and Hostname.
 
-A detailed list and description of important site information is provided in [Appendix 2 - Example site book](#appendix-2---example-site-book)
+A detailed list and description of important site information is provided in [Example site book](#appendix-2---example-site-book)
+
 #### Successful monitoring guidelines
 
 To find the optimal place to connect the appliance in each of your production networks, it is recommended to follow the procedure below:
@@ -116,7 +89,7 @@ The following browsers re supported for the sensors and on-premises management c
 
 Verify that your organizational security policy allows access to the following:
 
-| **Purpose**	| **Protocol** | **Transport** | **In or out** | **Port** | **Category** |
+| **Purpose** | **Protocol** | **Transport** | **In or out** | **Port** | **Category** |
 | ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
 | **Access to the web console** | HTTPS | TCP | In or out | 443 | On-premises management console Defender for IoT platform web console |
 | **Access to the CLI** | SSH | TCP | In or out | 22 | CLI |
@@ -137,7 +110,7 @@ Verify that your organizational security policy allows access to the following:
 
 This article describes how to plan your rack installation.
 
-**To plan:**
+To plan:
 
 1. Prepare a monitor and a keyboard for your appliance network settings.
 2. Allocate the rack space for the appliance.
@@ -491,13 +464,13 @@ Recording a sample PCAP file (a few minutes) can be done by connecting a laptop 
 
 :::image type="content" source="media/how-to-set-up-your-network/wireshark-validation.png" alt-text="Screenshot of Wireshark validation.":::
 
-## Appendix 1 - Troubleshooting
+## Troubleshooting
 
 The following troubleshooting issues are covered:
 
 - [Cannot Connect Using a Web Interface](#cannot-connect-using-a-web-interface)
 
-- [The Appliance is not Responding](#the-appliance-is-not-responding)
+- [The Appliance is not responding](#the-appliance-is-not-responding)
 
 ### Cannot connect using a web interface
 
@@ -549,7 +522,7 @@ The following troubleshooting issues are covered:
 
 For any other issues, contact [support.microsoft.com](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-## Appendix 2 - Example site book
+## Example site book
 
 Use the example site book to retrieve and review important information needed for network setup.
 
@@ -647,7 +620,7 @@ An overview of the industrial network diagram will allow you to define the prope
 
     If **Yes,** mark on the network diagram where and what are the devices that communicate with serial protocols: 
  
-    <Add network diagram with marked serial connection> 
+    <Add your network diagram with marked serial connection> 
 
 7. QOS, the default setting of the sensor is 1.5 Mbps, specify if you want to change it  
 ________________ 
@@ -672,7 +645,7 @@ Provide address details for sensor NIC that will be connected in the corpora
 
 #### iDRAC/iLO/Server management
 
-|                 | Appliance #1 | Appliance #2 | Appliance #3 |
+|       Item          | Appliance #1 | Appliance #2 | Appliance #3 |
 | --------------- | ------------- | ------------- | ------------- |
 | Appliance IP address     |               |               |               |
 | Subnet          |               |               |               |
@@ -681,7 +654,7 @@ Provide address details for sensor NIC that will be connected in the corpora
 
 #### On-premises management console  
 
-|                 | Active | Passive (when using HA) |
+|       Item          | Active | Passive (when using HA) |
 | --------------- | ------ | ----------------------- |
 | IP address             |        |                         |
 | Subnet          |        |                         |
@@ -690,7 +663,7 @@ Provide address details for sensor NIC that will be connected in the corpora
 
 #### SNMP  
 
-|                 | **Details** |
+|   Item              | **Details** |
 | --------------- | ------ |
 | IP              |        |
 | IP Address | |
@@ -709,7 +682,7 @@ If yes, what service you use to generate it and what attributes do you include i
 
 ### SMTP authentication
 
-Are you planning to use SMTP to forward alerts to email server? Yes or No 
+Are you planning to use SMTP to forward alerts to email server? Yes or No
 
 If yes, what authentication method you will use  
 
@@ -723,3 +696,7 @@ Contact active directory administrator to create an active directory site 
 | --------------- | ------ | ----------------------- |
 | Camera | |
 | X-ray machine | |
+
+## See also
+
+[About the Defender for IoT Installation](how-to-install-software.md)
