@@ -16,7 +16,7 @@ ms.author: victorh
 To learn more about supported scenarios and best practice guidelines, see [What are security partner providers?](trusted-security-partners.md)
 
 
-Integrated third-party Security as a service (SECaaS) partners are now available in all Azure public cloud regions: 
+Integrated third-party Security as a service (SECaaS) partners are now available: 
 
 - **Zscaler**
 - **[Check Point](check-point-overview.md)**
