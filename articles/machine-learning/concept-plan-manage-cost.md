@@ -74,6 +74,8 @@ To delete the workspace along with these dependent resources, use the SDK:
 ws.delete(delete_dependent_resources=True)
 ```
 
+If you have attached other compute resources to your workspace (like Azure Kubernetes Service or VMs) you must delete them separately in [Azure portal](https://portal.azure.com).
+
 ### Using Monetary Credit with Azure Machine Learning
 
 You can pay for Azure Machine Learning charges with your EA monetary commitment credit. However, you can't use EA monetary commitment credit to pay for charges for third party products and services including those from the Azure Marketplace.
