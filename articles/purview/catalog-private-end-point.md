@@ -3,8 +3,8 @@ title: Use private endpoints for your Purview account (preview)
 description: This article describes how you can set up a private end point for your Purview account
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/03/2020
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.

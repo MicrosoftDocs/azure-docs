@@ -3,8 +3,8 @@ title: Automatically apply sensitivity labels to your data
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
 author: batamig
 ms.author: bagol
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
 ---

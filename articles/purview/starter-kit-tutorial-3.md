@@ -3,8 +3,8 @@ title: 'Tutorial: Browse assets and view their lineage (preview)'
 description: This tutorial describes how to browse for assets in the catalog and view data lineage. 
 author: hophan
 ms.author: hophan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/29/2020
 ---

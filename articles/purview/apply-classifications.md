@@ -3,8 +3,8 @@ title: Apply classifications on assets (preview)
 description: This document describes how to apply classifications on assets.
 author: SunetraVirdi
 ms.author: suvirdi
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
 ---

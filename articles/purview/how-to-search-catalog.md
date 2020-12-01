@@ -3,8 +3,8 @@ title: 'How to: search the Data Catalog'
 description: This article gives an overview of how to search a data catalog.
 author: chanuengg
 ms.author: csugunan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/15/2020
 ---

@@ -3,8 +3,8 @@ title: Manage data sources in Azure Purview (Preview)
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview).
 author: mamccrea
 ms.author: mamccrea
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
 ---

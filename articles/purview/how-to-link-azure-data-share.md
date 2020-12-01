@@ -3,8 +3,8 @@ title: Connect to Azure Data Share
 description: This article describes how to connect an Azure Data Share account with Azure Purview to search assets and track data lineage.
 author: chanuengg
 ms.author: csugunan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
 ---
