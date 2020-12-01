@@ -9,12 +9,13 @@ ms.date: 06/30/2017
 
 # Use user-defined reducer
 
-## Use user-defined reducer
+## U-SQL UDO: user-defined reducer
 
 U-SQL enables you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.
 
 User-defined reducer, or UDR, can be used to eliminate unnecessary rows during data extraction (import). It also can be used to manipulate and evaluate rows and columns. Based on programmability logic, it can also define which rows need to be extracted.
 
+## How to define and use user-defined reducer
 To define a UDR class, we need to create an `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.
 
 This class interface should contain a definition for the `IEnumerable` interface rowset override.

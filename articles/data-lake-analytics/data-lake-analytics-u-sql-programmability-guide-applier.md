@@ -9,9 +9,11 @@ ms.date: 06/30/2017
 
 # Use user-defined applier 
 
-## Use user-defined applier
+## U-SQL UDO: user-defined applier
 A U-SQL user-defined applier enables you to invoke a custom C# function for each row that's returned by the outer table expression of a query. The right input is evaluated for each row from the left input, and the rows that are produced are combined for the final output. The list of columns that are produced by the APPLY operator are the combination of the set of columns in the left and the right input.
 
+
+## How to define and use user-defined applier
 User-defined applier is being invoked as part of the USQL SELECT expression.
 
 The typical call to the user-defined applier looks like the following:

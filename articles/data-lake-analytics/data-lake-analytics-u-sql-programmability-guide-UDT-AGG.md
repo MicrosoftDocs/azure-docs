@@ -70,16 +70,16 @@ C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQ
 
 To define a UDT, we have to:
 
-* Add the following namespaces:
+1. Add the following namespaces:
 
 ```csharp
 using Microsoft.Analytics.Interfaces
 using System.IO;
 ```
 
-* Add `Microsoft.Analytics.Interfaces`, which is required for the UDT interfaces. In addition, `System.IO` might be needed to define the IFormatter interface.
+2. Add `Microsoft.Analytics.Interfaces`, which is required for the UDT interfaces. In addition, `System.IO` might be needed to define the IFormatter interface.
 
-* Define a used-defined type with SqlUserDefinedType attribute.
+3. Define a used-defined type with SqlUserDefinedType attribute.
 
 **SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL. The properties on the attribute reflect the physical characteristics of the UDT. This class cannot be inherited.
 

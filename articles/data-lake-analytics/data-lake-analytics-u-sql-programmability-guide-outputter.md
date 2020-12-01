@@ -9,7 +9,7 @@ ms.date: 06/30/2017
 
 # Use user-defined outputter
 
-## Use user-defined outputter
+## U-SQL UDO: user-defined outputter
 User-defined outputter is another U-SQL UDO that allows you to extend built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
 
 * *Outputters.Text()*: Writes data to delimited text files of different encodings.
@@ -23,6 +23,7 @@ Custom outputter allows you to write data in a custom defined format. This can b
 * Writing data not supported encodings.
 * Modifying output data or adding custom attributes.
 
+## How to define and use user-defined outputter
 To define user-defined outputter, we need to create the `IOutputter` interface.
 
 Following is the base `IOutputter` class implementation:

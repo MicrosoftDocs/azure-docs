@@ -9,8 +9,10 @@ ms.date: 06/30/2017
 
 # Use user-defined combiner
 
-## Use user-defined combiner
+## U-SQL UDO: user-defined combiner
 User-defined combiner, or UDC, enables you to combine rows from left and right rowsets, based on custom logic. User-defined combiner is used with COMBINE expression.
+
+## How to define and use user-defined combiner
 
 A combiner is being invoked with the COMBINE expression that provides the necessary information about both the input rowsets, the grouping columns, the expected result schema, and additional information.
 
