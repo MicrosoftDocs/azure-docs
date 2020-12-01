@@ -3,6 +3,7 @@ title: Install IBM zD&T dev/test environment on Azure | Microsoft Docs
 description: Deploy IBM Z Development and Test Environment (zD&T) on Azure Virtual Machine (VM) infrastructure as a service (IaaS).
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter:
 author: njray
 ms.author: edprice

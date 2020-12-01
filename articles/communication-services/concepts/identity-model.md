@@ -14,12 +14,13 @@ ms.service: azure-communication-services
 
 # Identity model
 
-Azure Communication Services is an identity agnostic service. This design offers multiple benefits:
+Azure Communication Services is an identity-agnostic service. This design offers multiple benefits:
+
 - Reuses existing identities from your identity management system
 - Provides flexibility for integration scenarios
 - Keeps your identities private in Azure Communication Services
 
-Instead of duplicating information in your system, you'll maintain the mapping relationship that your business case requires. For example, you can map identities 1:1, 1:N, N:1, N:M. External identifiers such as phone numbers, users, devices, applications, and GUIDs can't be used for identity in Azure Communication Services. Access tokens that are generated for an Azure Communication Services identity are used to access primitives such as chat or calling. 
+Instead of duplicating information in your system, you'll maintain the mapping relationship that your business case requires. For example, you can map identities 1:1, 1:N, N:1, N:M. External identifiers such as phone numbers, users, devices, applications, and GUIDs can't be used for identity in Azure Communication Services. Access tokens that are generated for an Azure Communication Services identity are used to access primitives such as chat or calling.
 
 ## Identity
 
@@ -78,6 +79,6 @@ If you cache access tokens to a backing store, we recommend using encryption. An
 
 ## Next steps
 
-* For an introduction to access token management, see [Create and manage access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
-* For an introduction to authentication, see [Authenticate to Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
-* For an introduction to data residency and privacy, see [Region availability and data residency](https://docs.microsoft.com/azure/communication-services/concepts/privacy).
+* For an introduction to access token management, see [Create and manage access tokens](../quickstarts/access-tokens.md).
+* For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
+* For an introduction to data residency and privacy, see [Region availability and data residency](./privacy.md).
