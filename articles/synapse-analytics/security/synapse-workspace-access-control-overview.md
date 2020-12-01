@@ -70,7 +70,7 @@ The creator of a workspace is assigned as the Active Directory Admin on the work
 
 **Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless database.  
 
-**Dedicated SQL pools**: Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools is not otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool database.
+**Dedicated SQL pools**: Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool database.
 
 See [How to set up Synapse Access Control](./how-to-set-up-access-control.md) for examples of SQL scripts for granting SQL permissions in SQL pools.  
 
@@ -80,7 +80,10 @@ Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 co
 
 ## Using security groups as a best practice
 
-To simplify managing access control, you can use security groups to assign roles to individuals and groups. With well-chosen security groups, it's easy to assign a person the required permissions with a single action. 
+To simplify managing access control, you can use security groups to assign roles to individuals and groups. Security groups can be created to mirror personas or job functions in your organization that need access to Synapse resources or artifacts.  These persona-based security groups can then be assigned one or more Azure roles, Synapse roles, SQL permissions, or Git permissions. With well-chosen security groups, it's easy to assign a user the required permissions by adding them to the appropriate security group. 
+
+>[!Note]
+>If using security groups to manage access, there is additional latency introduced by Azure Active Directory before changes take effect. 
 
 ## Next steps
 

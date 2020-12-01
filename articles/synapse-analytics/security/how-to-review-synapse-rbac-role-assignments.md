@@ -30,22 +30,23 @@ To review role assignments, first [open the Synapse Studio](https://web.azuresyn
 
 ## Review Workspace role assignments
 
-The Access control screen lists all current role assignments for the workspace, grouped by role. 
-
- For each assignment, the principal name, principal type, role, and the scope at which it was assigned are shown.  All assignments are shown, including those assignments at workspace and lower-level scopes.
+The Access control screen lists all current role assignments for the workspace, grouped by role. Each assignment includes the principal name, principal type, role, and its scope.
 
 ![Access Control screen](./media/how-to-manage-synapse-rbac-role-assignments/access-control-assignments.png)
 
 If a principal is assigned the same role at different scopes, you'll see multiple assignments for the principal, one for each scope.  
 
-If a role is assigned at a group level, you'll see the group-level role assignment but not any assignments inherited by members of the group.  
+If a role is assigned to a security group, you'll see the roles explicitly assigned to the group but not roles inherited from parent groups.  
 
-You can filter the list by principal name or email, and selectively filter the object types, roles, and scopes. To see roles assigned to you, enter your name or email alias in the Name filter.  To change the roles assigned to you contact a Synapse Administrator for the workspace.
+You can filter the list by principal name or email, and selectively filter the object types, roles, and scopes. enter your name or email alias in the Name filter to see roles assigned to you. Only a Synapse Administrator can change your roles.
 
 >[!Important] 
 >If you are directly or indirectly a member of a group that is assigned roles, you may have permissions that are not shown.
 
-When you create a new workspace, you and the workspace MSI service principal are automatically given the Synapse Administrator role at workspace scope.
+>[!tip]
+>You can find your group memberships using Azure Active Directory in the Azure portal.  
+
+If you create a new workspace, you and the workspace MSI service principal are automatically given the Synapse Administrator role at workspace scope.
 
 ## Next Steps
 

@@ -12,19 +12,21 @@ ms.reviewer: jrasnick
 
 # How to manage Synapse RBAC role assignments in Synapse Studio
 
-Synapse RBAC uses roles to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources and code artifacts.  [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306)
+Synapse RBAC uses roles to assign permissions to users, groups, and other security principals to enable access and use of Synapse resources and code artifacts.  [Learn more](./synapse-workspace-synapse-rbac.md)
 
-This article explains how to add and delete Synapse RBAC role assignments to grant and revoke access to Apache Spark pools, Integration runtimes, Linked Services, Credentials, and to code artifacts like SQL scripts and Spark notebooks and jobs. [Learn more](https://go.microsoft.com/fwlink/?linkid=2148306) about Synapse RBAC.
+This article shows how to add and delete Synapse RBAC role assignments.
 
 >[!Note]
->- To manage Synapse RBAC role assignments you need to have the Synapse Administrator role on the workspace or at a lower level scope that includes the objects you want to manage. If you are a Synapse Administrator on the workspace you can grant access to all objects in the workspace. 
+>- To manage Synapse RBAC role assignments you need to have the Synapse Administrator role on the workspace or at a lower-level scope that includes the objects you want to manage. If you are a Synapse Administrator on the workspace you can grant access to all objects in the workspace. 
 >- To help you regain access to a workspace in the event that no Synapse Administrators are assigned or available to you, users with permissions to manage **Azure RBAC** role assignments on the workspace can also manage **Synapse RBAC** role assignments, allowing the addition of Synapse Administrator or other role assignments in Synapse RBAC.
->- Access to SQL pools is managed using SQL permissions.  With the exception of the Synapse Administrator role, Synapse RBAC roles do not grant access to SQL pools.
->- Changes made to Synapse RBAC role assignments may take 2-3 minutes to apply.  
+>- Access to SQL pools is managed using SQL permissions.  With the exception of the Synapse Administrator and Synapse SQL Administrator roles, Synapse RBAC roles do not grant access to SQL pools.
+
+>[!important]
+>Changes made to Synapse RBAC role assignments may take 2-5 minutes to take effect.  
 
 ## Open Synapse Studio  
 
-To assign a role to a user, group, service principal, or managed identity first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace. 
+To assign a role to a user, group, service principal, or managed identity, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace. 
 
 ![Log in to workspace](./media/common/login-workspace.png) 
  
@@ -55,7 +57,7 @@ The assigned role will apply for all applicable objects in the workspace.
 
 ## Add workspace item-scoped role assignment
 
-To assign a role at a more limited scope, select **Workspace item** as the scope, then select the scoping **item type**, which may be Apache Spark pool, Integration runtime, Linked service, or Credential.       
+To assign a role at a finer-grained scope, select **Workspace item** as the scope, then select the scoping **Item type**.       
 
 ![Add workspace item role assignment - select item type](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 

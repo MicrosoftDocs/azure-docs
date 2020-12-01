@@ -1,6 +1,6 @@
 ---
 title: How to set up access control for your Synapse workspace
-description: This article will teach you how to use Azure roles, Synapse roles, SQL permissions, and Git permission to control access to the resources and data in a Synapse workspace.
+description: This article will teach you how to control access to a Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 services: synapse-analytics 
 author: billgib 
 ms.service: synapse-analytics 
@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ---
 # How to set up access control for your Synapse workspace 
 
-This article will teach you how to use Azure roles, Synapse roles, SQL permissions, and Git permissions to control access to a Synapse workspace.   
+This article will teach you how to control access to a Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.   
 
 In this guide, you'll set up a workspace and configure a basic access control system suitable for many Synapse projects.  It then describes more advanced options for finer-grained control should you need it.  
 
@@ -27,11 +27,11 @@ Before you start this walkthrough, read the [Synapse access control overview](./
 
 To secure a Synapse workspace, you'll follow a pattern of configuring the following items:
 
-- **Security Groups**, to manage groups of users with similar access requirements.
-- **Azure roles**, to control creation and management of SQL pools, Apache Spark pools and Integration runtimes and access to ADLS Gen2 storage.
-- **Synapse roles**, to control access to development artifacts and use of Synapse compute resources.
+- **Security Groups**, to group users with similar access requirements.
+- **Azure roles**, to control who can create and manage SQL pools, Apache Spark pools and Integration runtimes, and access ADLS Gen2 storage.
+- **Synapse roles**, to control access to published code artifacts, use of Apache Spark compute resources and Integration runtimes 
 - **SQL permissions**, to control administrative and data plane access to SQL pools. 
-- **Git permissions**, if you choose to configure Git-support for the workspace.
+- **Git permissions**, to control who can access code artifacts in source control if you configure Git-support for the workspace 
  
 ## Steps to secure a Synapse workspace
 
@@ -292,17 +292,17 @@ Your workspace is now fully configured and secured.
 
 Synapse Studio will behave differently based on user roles and the mode it's being used in. In Synapse live mode, some items may be hidden or disabled if a user doesn't have the required permissions. You can learn more about the required permissions for common tasks in this [article](./synapse-workspace-understand-what-role-you-need.md). 
 
-If a feature is disabled in Synapse Studio, hovering over the item will show a tooltip that will indicate the missing permission.  Use this guide to the Synapse RBAC roles to look up which role is required to provide the missing permission.
+If a feature is disabled in Synapse Studio, hovering over the item shows a tooltip that indicates the missing permission.  Use the [Synapse RBAC roles guide](./synapse-workspace-synapse-rbac-roles) to look up which role is required to provide the missing permission.
 
 ## Supporting more advanced scenarios
 
-While this guide has focused on setting up a basic access control system, you can extend your access control system to handle more advanced scenarios by creating additional security groups and assigning the groups more granular roles at more specific scopes. Consider the following cases:
+This guide has focused on setting up a basic access control system. You can support more advanced scenarios by creating additional security groups and assigning these groups more granular roles at more specific scopes. Consider the following cases:
 
-**Enable Git-support** for the workspace for more advanced development scenarios including CI/CD.  While in Git mode, Git permissions will determine whether a user can commit changes to their working branch.  Publishing to the service only takes place from the collaboration branch.  Consider creating security groups for developers who need to read published artifact definitions and develop and debug updates that they commit to a working branch.  These developers don't need permission to publish changes to the live service.
+**Enable Git-support** for the workspace for more advanced development scenarios including CI/CD.  While in Git mode, Git permissions will determine whether a user can commit changes to their working branch.  Publishing to the service only takes place from the collaboration branch.  Consider creating a security group for developers who need to develop and debug updates in a working branch but don't need  to publish changes to the live service.
 
-**Restrict developer access** to specific resources.  If developers only need access to specific resources, create additional finer-grained security groups and assign appropriate Synapse roles that are scoped to specific Spark pools, SQL pools, Integration runtimes, or credentials.
+**Restrict developer access** to specific resources.  Create additional finer-grained security groups for developers who need access only to specific resources.  Assign these groups appropriate Synapse roles that are scoped to specific Spark pools, Integration runtimes, or credentials.
 
-**Restrict operators from accessing code artifacts**.  For operators who need to monitor the status and view logs but who don't need access to code or need to publish updates to the service, create additional security groups that are assigned the Compute Operator role scoped to specific Spark pools and Integration runtimes.  
+**Restrict operators from accessing code artifacts**.  Create security groups for operators who need to monitor operational status of Synapse compute resources and view logs but who don't need access to code or to publish updates to the service. Assign these groups the Compute Operator role scoped to specific Spark pools and Integration runtimes.  
 
 ## Next steps
 
