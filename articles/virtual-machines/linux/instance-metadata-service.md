@@ -380,7 +380,7 @@ Category Root | Description | Version Introduced
 
 ### List API Versions
 
-Returns the set of support API versions.
+Returns the set of supported API versions.
 
 ```bash
 GET /metadata/versions
@@ -388,7 +388,7 @@ GET /metadata/versions
 
 #### Parameters
 
-None
+None (this is an un-versioned endpoint).
 
 #### Response
 
@@ -398,8 +398,6 @@ None
     "2017-03-01",
     "2017-04-02",
     ...
-    "2019-11-01",
-    "2020-06-01"
   ]
 }
 ```
@@ -410,10 +408,152 @@ None
 
 Instance API exposes the important metadata for the VM instances, including the VM, network, and storage. 
 
+```bash
+GET /metadata/instance
+```
 
+#### Parameters
 
-The following categories can be accessed through instance/compute:
+Name | Required/Optional | Description 
+-----|-------------|--------
+`api-version` | Required | The version used to service the request.
+`format` | Optional* | The format (`json` or `text`) of the response. *Note: May be required when using request parameters
 
+This endpoint supports response filtering via [request paramaters](#request-parameters).
+
+#### Response
+
+Sample:
+<details>
+    <summary>Expand</summary>
+
+```json
+{
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "Windows",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformUpdateDomain": "42",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false"
+        },
+        "sku": "Windows-Server-2012-R2-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "caching": "None",
+                "createOption": "Empty",
+                "diskSizeGB": "1024",
+                "image": {
+                    "uri": ""
+                },
+                "lun": "0",
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampledatadiskname",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                    "enabled": "false"
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
+}
+```
+</details>
+
+Schema breakdown:
+<details>
+    <summary>Expand</summary>
+
+**Compute**
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
@@ -449,8 +589,74 @@ vmScaleSetName | [Virtual machine scale set Name](../../virtual-machine-scale-se
 vmSize | [VM size](../sizes.md) | 2017-04-02
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
-### Sample 1: Tracking VM running on Azure
+**Storage Profile**
 
+The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks.
+
+The image reference object contains the following information about the OS image:
+
+Data    | Description
+--------|-----------------
+id      | Resource ID
+offer   | Offer of the platform or marketplace image
+publisher | Image publisher
+sku     | Image sku
+version | Version of the platform or marketplace image
+
+The OS disk object contains the following information about the OS disk used by the VM:
+
+Data    | Description
+--------|-----------------
+caching | Caching requirements
+createOption | Information about how the VM was created
+diffDiskSettings | Ephemeral disk settings
+diskSizeGB | Size of the disk in GB
+image   | Source user image virtual hard disk
+lun     | Logical unit number of the disk
+managedDisk | Managed disk parameters
+name    | Disk name
+vhd     | Virtual hard disk
+writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
+
+The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following information:
+
+Data    | Description
+--------|-----------------
+caching | Caching requirements
+createOption | Information about how the VM was created
+diffDiskSettings | Ephemeral disk settings
+diskSizeGB | Size of the disk in GB
+encryptionSettings | Encryption settings for the disk
+image   | Source user image virtual hard disk
+managedDisk | Managed disk parameters
+name    | Disk name
+osType  | Type of OS included in the disk
+vhd     | Virtual hard disk
+writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
+
+**Network**
+Data | Description | Version Introduced
+-----|-------------|-----------------------
+ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
+ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
+subnet/address | Subnet address of the VM | 2017-04-02
+subnet/prefix | Subnet prefix, example 24 | 2017-04-02
+ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
+macAddress | VM mac address | 2017-04-02
+
+**VM Tags**
+
+VM tags are included the instance API under instance/compute/tags endpoint.
+Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+
+The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently, easier to parse.
+
+</details>
+
+#### Sample 1: Tracking VM running on Azure
+
+<details>
+    <summary>Expand</summary>
 As a service provider, you may require to track the number of VMs running your software or have agents that need to track uniqueness of the VM. To be able to get a unique ID for a VM, use the `vmId` field from Instance Metadata Service.
 
 **Request**
@@ -464,9 +670,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```text
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
+</details>
 
-### Sample 2: Placement of containers, data-partitions based fault/update domain
+#### Sample 2: Placement of containers, data-partitions based fault/update domain
 
+<details>
+    <summary>Expand</summary>
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
 You can also use [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
@@ -483,9 +692,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```text
 0
 ```
+</details>
 
-### Sample 3: Getting more information about the VM during support case
+#### Sample 3: Getting more information about the VM during support case
 
+<details>
+    <summary>Expand</summary>
 As a service provider, you may get a support call where you would like to know more information about the VM. Asking the customer to share the compute metadata can provide basic information for the support professional to know about the kind of VM on Azure.
 
 **Request**
@@ -598,9 +810,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "zone": ""
 }
 ```
+</details>
 
-### Sample 4: Getting Azure Environment where the VM is running
+#### Sample 4: Getting Azure Environment where the VM is running
 
+<details>
+    <summary>Expand</summary>
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
@@ -614,7 +829,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```text
 AzurePublicCloud
 ```
-
 The cloud and the values of the Azure Environment are listed below.
 
  Cloud   | Azure Environment
@@ -624,24 +838,12 @@ The cloud and the values of the Azure Environment are listed below.
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-### Network Metadata 
+</details>
 
-Network metadata is part of the instance API. The following Network categories are available through the instance/network endpoint.
+#### Sample 5: Retrieving network information
 
-Data | Description | Version Introduced
------|-------------|-----------------------
-ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
-ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
-subnet/address | Subnet address of the VM | 2017-04-02
-subnet/prefix | Subnet prefix, example 24 | 2017-04-02
-ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
-macAddress | VM mac address | 2017-04-02
-
-> [!NOTE]
-> All API responses are JSON strings. All following example responses are pretty-printed for readability.
-
-#### Sample 1: Retrieving network information
-
+<details>
+    <summary>Expand</summary>
 **Request**
 
 ```bash
@@ -678,218 +880,63 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
     }
   ]
 }
-
 ```
+</details>
 
-#### Sample 2: Retrieving public IP address
+#### Sample 6: Retrieving public IP address
 
+<details>
+    <summary>Expand</summary>
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
+</details>
 
-### Storage Metadata
+## Attested Data
 
-Storage metadata is part of the instance API under instance/compute/storageProfile endpoint.
-It provides details about the storage disks associated with the VM. 
+### Get Attested Data
 
-The storage profile of a VM is divided into three categories: image reference, OS disk, and data disks.
-
-The image reference object contains the following information about the OS image:
-
-Data    | Description
---------|-----------------
-id      | Resource ID
-offer   | Offer of the platform or marketplace image
-publisher | Image publisher
-sku     | Image sku
-version | Version of the platform or marketplace image
-
-The OS disk object contains the following information about the OS disk used by the VM:
-
-Data    | Description
---------|-----------------
-caching | Caching requirements
-createOption | Information about how the VM was created
-diffDiskSettings | Ephemeral disk settings
-diskSizeGB | Size of the disk in GB
-image   | Source user image virtual hard disk
-lun     | Logical unit number of the disk
-managedDisk | Managed disk parameters
-name    | Disk name
-vhd     | Virtual hard disk
-writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
-
-The data disks array contains a list of data disks attached to the VM. Each data disk object contains the following information:
-
-Data    | Description
---------|-----------------
-caching | Caching requirements
-createOption | Information about how the VM was created
-diffDiskSettings | Ephemeral disk settings
-diskSizeGB | Size of the disk in GB
-encryptionSettings | Encryption settings for the disk
-image   | Source user image virtual hard disk
-managedDisk | Managed disk parameters
-name    | Disk name
-osType  | Type of OS included in the disk
-vhd     | Virtual hard disk
-writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
-
-The following example shows how to query the VM's storage information.
-
-**Request**
+Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
+GET /metadata/attested/document
 ```
 
-**Response**
+#### Parameters
+
+Name | Required/Optional | Description 
+-----|-------------|--------
+`api-version` | Required | The version used to service the request.
+`nonce` | Optional | A 10-digit string that serves as a cryptographic nonce. If no value is provided, IMDS uses the current UTC timestamp.
+
+#### Response
 
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```json
 {
-    "dataDisks": [
-      {
-        "caching": "None",
-        "createOption": "Empty",
-        "diskSizeGB": "1024",
-        "image": {
-          "uri": ""
-        },
-        "lun": "0",
-        "managedDisk": {
-          "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-          "storageAccountType": "Standard_LRS"
-        },
-        "name": "exampledatadiskname",
-        "vhd": {
-          "uri": ""
-        },
-        "writeAcceleratorEnabled": "false"
-      }
-    ],
-    "imageReference": {
-      "id": "",
-      "offer": "UbuntuServer",
-      "publisher": "Canonical",
-      "sku": "16.04.0-LTS",
-      "version": "latest"
-    },
-    "osDisk": {
-      "caching": "ReadWrite",
-      "createOption": "FromImage",
-      "diskSizeGB": "30",
-      "diffDiskSettings": {
-        "option": "Local"
-      },
-      "encryptionSettings": {
-        "enabled": "false"
-      },
-      "image": {
-        "uri": ""
-      },
-      "managedDisk": {
-        "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-        "storageAccountType": "Standard_LRS"
-      },
-      "name": "exampleosdiskname",
-      "osType": "Linux",
-      "vhd": {
-        "uri": ""
-      },
-      "writeAcceleratorEnabled": "false"
-    }
+    "encoding":"pkcs7",
+    "signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
 }
 ```
-
-### VM Tags
-
-VM tags are included the instance API under instance/compute/tags endpoint.
-Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
-
-**Request**
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
-```
-
-**Response**
-
-```text
-Department:IT;Environment:Test;Role:WebRole
-```
-
-The `tags` field is a string with the tags delimited by semicolons. This output can be a problem if semicolons are used in the tags themselves. If a parser is written to programmatically extract the tags, you should rely on the `tagsList` field. The `tagsList` field is a JSON array with no delimiters, and consequently, easier to parse.
-
-**Request**
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
-```
-
-**Response**
-
-```json
-[
-  {
-    "name": "Department",
-    "value": "IT"
-  },
-  {
-    "name": "Environment",
-    "value": "Test"
-  },
-  {
-    "name": "Role",
-    "value": "WebRole"
-  }
-]
-```
-
-## Attested Data
-
-Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
-
-### Sample 1: Getting attested Data
-
-> [!NOTE]
-> All API responses are JSON strings. The following example responses are pretty-printed for readability.
-
-**Request**
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
-```
-
-Api-version is a mandatory field. Refer to the [usage section](#usage) for supported API versions.
-Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place.
 
 > [!NOTE]
 > Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
 
-**Response**
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
-
-```json
-{
- "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
-}
-```
-
 The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
-The document contains the following fields:
+The decoded document contains the following fields:
+
+<details>
+    <summary>Expand:</summary>
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
 licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
 nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used | 2018-10-01
 plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
-timestamp/createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
-timestamp/expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
+timestamp.createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
+timestamp.expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
 subscriptionId | Azure subscription for the Virtual Machine | 2019-04-30
 sku | Specific SKU for the VM image | 2019-11-01
@@ -897,7 +944,31 @@ sku | Specific SKU for the VM image | 2019-11-01
 > [!NOTE]
 > For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
 
-### Sample 2: Validating that the VM is running in Azure
+Example document:
+```json
+{
+   "nonce":"20201130-211924",
+   "plan":{
+      "name":"planName",
+      "product":"planProduct",
+      "publisher":"planPublisher"
+   },
+   "sku":"Windows-Server-2012-R2-Datacenter",
+   "subscriptionId":"8d10da13-8125-4ba9-a717-bf7490507b3d",
+   "timeStamp":{
+      "createdOn":"11/30/20 21:19:19 -0000",
+      "expiresOn":"11/30/20 21:19:24 -0000"
+   },
+   "vmId":"02aab8a4-74ef-476e-8182-f6d2ba4166a6"
+}
+```
+
+</details>
+
+#### Sample 1: Validating that the VM is running in Azure
+
+<details>
+    <summary>Expand:</summary>
 
 Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
 
@@ -984,6 +1055,8 @@ In cases where the intermediate certificate cannot be downloaded due to network 
 > [!NOTE]
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
 Also if you had pinned the intermediate certificates for Azure China as part of root chain authority change, the intermediate certificates will have to be updated.
+
+</details>
 
 ## Managed Identity via IMDS
 
