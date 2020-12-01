@@ -140,4 +140,4 @@ For Azure Database for MySQL, the support for encryption of data at rest using c
 
 ## Next steps
 
-Learn how to [set up data encryption with a customer-managed key for your Azure database for MySQL by using the Azure portal](howto-data-encryption-portal.md).
+Learn how to set up data encryption with a customer-managed key for your Azure database for MySQL by using the [Azure portal](howto-data-encryption-portal.md) and [Azure CLI](howto-data-encryption-cli.md).
