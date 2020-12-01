@@ -84,7 +84,7 @@ Visual Studio for Mac is not integrated with Azure AD authentication. However, t
 
 Once Azure CLI is installed on your local machine, sign in to Azure CLI with the following command using your Azure AD user:
 
-```bash
+```azurecli
 az login --allow-no-subscriptions
 ```
 You're now ready to develop and debug your app with the SQL Database as the back end, using Azure AD authentication.
@@ -203,7 +203,7 @@ Here's an example of the output:
 
 In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server-name>_ with your server name, _\<db-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials.
 
-```azurecli-interactive
+```bash
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
@@ -246,7 +246,7 @@ In the publish page, click **Publish**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 When the new webpage shows your to-do list, your app is connecting to the database using the managed identity.
