@@ -3,7 +3,7 @@ title: Azure Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Azure Defender for SQL.
 author: memildin
 ms.author: memildin
-ms.date: 11/22/2020
+ms.date: 11/30/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
@@ -40,8 +40,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
     - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - On-premises SQL servers:
         - [Azure Arc enabled SQL Server (preview)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
-        - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/platform/agent-windows.md).
-
+        - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/platform/agent-windows.md)
 
 
 ## What are the benefits of Azure Defender for SQL?
@@ -55,11 +54,11 @@ These two plans include functionality for identifying and mitigating potential d
 
 ## What kind of alerts does Azure Defender for SQL provide?
 
-Security alerts are triggered when there's:
+Threat intelligence enriched security alerts are triggered when there's:
 
 - **Potential SQL injection attacks** - including vulnerabilities detected when applications generate a faulty SQL statement in the database
 - **Anomalous database access and query patterns** - for example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt)
-- **Threat intelligence enriched security alerts** - for example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server
+- **Suspicious database activity** - for example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server
 
 Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
 
