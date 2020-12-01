@@ -262,7 +262,9 @@ In this section, you publish your project to Azure in a function app running Lin
     go build hello.go
     ```
 
-1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
+    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
+
+    ---
 
 # [Rust](#tab/rust)
 
