@@ -66,6 +66,7 @@
   - name: Media graph
     href: media-graph-concept.md
   - name: Media graph extension
+    displayName: AI
     href: media-graph-extension-concept.md
   - name: Video recording 
     href: video-recording-concept.md
