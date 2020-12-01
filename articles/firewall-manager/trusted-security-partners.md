@@ -11,7 +11,7 @@ ms.author: victorh
 
 # What are security partner providers?
 
-*Security partner providers* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
+*Security partner providers* in Azure Firewall Manager allow you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
 
 With a quick configuration, you can secure a hub with a supported security partner, and route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. You can do this with automated route management, without setting up and managing User Defined Routes (UDRs).
 
