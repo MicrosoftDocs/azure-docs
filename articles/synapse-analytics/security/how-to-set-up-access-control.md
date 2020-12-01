@@ -270,12 +270,6 @@ As a final step to secure your workspace, you should secure network access, usin
 
 Your workspace is now fully configured and secured.
 
-## How roles interact with Synapse Studio
-
-Synapse Studio will behave differently based on user roles and the current mode. In Synapse live mode, some items may be hidden or disabled if a user doesn't have the required permissions. You can learn more about the required permissions for common tasks in this [article](./synapse-workspace-understand-what-role-you-need.md). 
-
-If a feature is disabled in Synapse Studio, hovering over the item shows a tooltip that indicates the missing permission.  Use the [Synapse RBAC roles guide](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) to look up which role is required to provide the missing permission.
-
 ## Supporting more advanced scenarios
 
 This guide has focused on setting up a basic access control system. You can support more advanced scenarios by creating additional security groups and assigning these groups more granular roles at more specific scopes. Consider the following cases:

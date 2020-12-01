@@ -85,6 +85,17 @@ To simplify managing access control, you can use security groups to assign roles
 >[!Note]
 >If using security groups to manage access, there is additional latency introduced by Azure Active Directory before changes take effect. 
 
+## Access control enforcement in Synapse Studio
+
+Synapse Studio will behave differently based on your permissions and the current mode:
+- **Synapse live mode:** Synapse Studio will prevent you from seeing published content, publishing content, or taking other actions if you don't have the required permission.  In some cases, you'll be prevented from creating code artifacts that you can't use or save. 
+- **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted even if you don't have permission to publish changes to the live service.  
+
+In some cases, you are allowed to create code artifacts even without permission to publish or commit.  This allows you to execute code (with the required execution permissions).[Learn more](./synapse-workspace-understand-what-role-you-need.md) about the roles required for common tasks. 
+
+If a feature is disabled in Synapse Studio, a tooltip will indicate the required permission.  Use the [Synapse RBAC roles guide](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) to look up which role is required to provide the missing permission.
+
+
 ## Next steps
 
 - Learn more about [Synapse RBAC](./synapse-workspace-synapse-rbac.md)
