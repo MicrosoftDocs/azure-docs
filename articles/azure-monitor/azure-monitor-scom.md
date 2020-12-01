@@ -44,7 +44,7 @@ Operations Manager can discover Azure resources and monitor their health based o
 
 
 ## Monitor packaged workloads (IaaS)
-IaaS packaged workloads include applications running in virtual machines that support your custom applications  in addition to the guest operating system they rely on. This includes such applications as Internet Information Services (IIS), SQL Server, or Microsoft Exchange.
+IaaS packaged workloads include services running in virtual machines that support your custom applications  in addition to the guest operating system they rely on. This includes such applications as Internet Information Services (IIS), SQL Server, or Microsoft Exchange.
 
 Operations Manager was designed for workloads running on virtual machines, and an extensive collection of management packs is available to monitor various applications. Each includes predefined logic to discover different components of the application, measure their health, and generate alerts when issues are detected. You may have also have considerable investment in tuning existing management packs and even developing your own to your specific requirements and in developing custom management packs for any custom requirements.
 
@@ -52,7 +52,7 @@ Operations Manager was designed for workloads running on virtual machines, and a
 
 A new [guest health feature for Azure Monitor for VMs](insights/vminsights-health-overview.md) is now in public preview and does alert based on the health state of a set of performance metrics. This is currently limited though to a specific set of performance counters related to the guest operating system and not applications or other workloads running in the virtual machine.
 
-Azure Monitor for VMs does provides additional features that enhance enhance monitoring in Operations Manager including the following:
+Azure Monitor for VMs does provides additional features that augment monitoring in Operations Manager including the following:
 
 - View aggregated performance data across multiple virtual machines in interactive charts and workbooks.
 - Use [log queries](log-query/log-query-overview.md) to interactively analyze collected performance data, and event data if you configure it.
@@ -64,14 +64,14 @@ Azure Monitor for VMs does provides additional features that enhance enhance mon
 
 **Continue using management packs for IaaS workloads.** Keep using management packs the monitor your IaaS workloads since Azure Monitor cannot yet collect the same data and doesn't include the rich set of alerting rules. Management packs also measure and alert on the health of workloads which is  currently in limited preview for Azure Monitor.
 
-**Configure Azure Monitor for VMs.** Configure Azure Monitor for VMs to gain additional monitoring features and to start an eventual transition to Azure Monitor. Continue to analyze the guest health feature as it moves to general availability and adds functionality.
+**Configure Azure Monitor for VMs.** Configure Azure Monitor for VMs and onboard your virtual machines to gain additional monitoring features and to start an eventual transition to Azure Monitor. 
 
 **Remove select virtual machines from Operations Manager.** Azure Monitor may be sufficient to monitor some of your virtual machines that don't require detailed workload monitoring. If this level of monitoring is sufficient, then remove those agents from your Operations Manager management group and allow them to be monitored with Azure Monitor. Continue to perform this evaluation as features are added to Azure Monitor.
 
 **Create policy to enable Azure Monitor for VMs.** Once you've determined the virtual machines that you'll monitor with both management packs and Azure Monitor for VMs, [create an Azure Policy](../deploy-scale.md#azure-monitor-for-vms) to deploy the agent to existing and new virtual machines. 
 
 ## Monitor custom applications (IaaS and PaaS)
-You typically require custom management packs to monitor applications in your IaaS environment, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors any web based application regardless of its environment, so you can use it for your applications hosted on either IaaS or PaaS. Application Insights provides the following benefits over custom management packs:
+You typically require custom management packs to monitor applications in your IaaS environment with Operations Manager, leveraging agents installed on each virtual machine. Application Insights in Azure Monitor monitors any web based application regardless of its environment, so you can use it for your applications hosted on either IaaS or PaaS. Application Insights provides the following benefits over custom management packs:
 
 - Automatically discover and monitor all components of the application.
 - Collect detailed application usage and performance data such as response time, failure rates, and request rates.
