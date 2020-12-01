@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Configure Scaling option with Azure Cloud Services (extended support) 
+# Configure scaling option with Azure Cloud Services (extended support) 
 
 Conditions can be configured to enable a Cloud Service (extended support) deployment to scale in and out. These conditions can be based on CPU usage, disk load and network load. 
 
