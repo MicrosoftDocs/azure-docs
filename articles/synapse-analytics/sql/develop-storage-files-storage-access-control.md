@@ -1,6 +1,6 @@
 ---
-title: Control storage account access for serverless SQL pool (preview)
-description: Describes how serverless SQL pool (preview) accesses Azure Storage and how you can control storage access for serverless SQL pool in Azure Synapse Analytics.
+title: Control storage account access for serverless SQL pool
+description: Describes how serverless SQL pool accesses Azure Storage and how you can control storage access for serverless SQL pool in Azure Synapse Analytics.
 services: synapse-analytics 
 author: filippopovic
 ms.service: synapse-analytics 
@@ -11,7 +11,7 @@ ms.author: fipopovi
 ms.reviewer: jrasnick 
 ---
 
-# Control storage account access for serverless SQL pool (preview) in Azure Synapse Analytics
+# Control storage account access for serverless SQL pool in Azure Synapse Analytics
 
 A serverless SQL pool query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
 - **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate SAS key that will be used to access storage.

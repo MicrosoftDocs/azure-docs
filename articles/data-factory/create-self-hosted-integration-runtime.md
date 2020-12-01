@@ -145,7 +145,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 - Use a self-hosted integration runtime to support data integration within an Azure virtual network.
 - Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to connect the service to the data source.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
-- Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
+- Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
 
 ## Prerequisites
 
@@ -326,7 +326,7 @@ At the Windows firewall level or machine level, these outbound ports are normall
 
 Ensure that you properly enable firewall rules on the corporate firewall, the Windows firewall of the self-hosted integration runtime machine, and the data store itself. Enabling these rules lets the self-hosted integration runtime successfully connect to both source and sink. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from an on-premises data store to a SQL Database sink or an Azure Synapse Analytics (formerly SQL Data Warehouse) sink, take the following steps:
+For example, to copy from an on-premises data store to a SQL Database sink or an Azure Synapse Analytics sink, take the following steps:
 
 1. Allow outbound TCP communication on port 1433 for both the Windows firewall and the corporate firewall.
 1. Configure the firewall settings of the SQL Database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
