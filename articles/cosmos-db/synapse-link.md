@@ -31,7 +31,7 @@ When compared to the traditional ETL-based solutions, Azure Synapse Link for Azu
 
 ### Reduced complexity with No ETL jobs to manage
 
-Azure Synapse Link allows you to directly access Azure Cosmos DB analytical store using  Azure Synapse Analytics without complex data movement. Any updates made to the operational data are visible in the analytical store in near real-time with no ETL or change feed jobs. You can run large scale analytics against analytical store, from Synapse Analytics, without additional data transformation.
+Azure Synapse Link allows you to directly access Azure Cosmos DB analytical store using  Azure Synapse Analytics without complex data movement. Any updates made to the operational data are visible in the analytical store in near real-time with no ETL or change feed jobs. You can run large scale analytics against analytical store, from Azure Synapse Analytics, without additional data transformation.
 
 ### Near real-time insights into your operational data
 
@@ -70,13 +70,13 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ### <a id="synapse-link-integration"></a>Integration with Azure Synapse Analytics
 
-With Synapse Link, you can now directly connect to your Azure Cosmos DB containers from Azure Synapse Analytics and access the analytical store with no separate connectors. Azure Synapse Analytics currently supports Synapse Link with [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) and [Synapse SQL serverless](../synapse-analytics/sql/on-demand-workspace-overview.md).
+With Synapse Link, you can now directly connect to your Azure Cosmos DB containers from Azure Synapse Analytics and access the analytical store with no separate connectors. Azure Synapse Analytics currently supports Synapse Link with [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) and [serverless SQL pool](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 You can query the data from Azure Cosmos DB analytical store simultaneously, with interop across different analytics run times supported by Azure Synapse Analytics. No additional data transformations are required to analyze the operational data. You can query and analyze the analytical store data using:
 
 * Synapse Apache Spark with full support for Scala, Python, SparkSQL, and C#. Synapse Spark is central to data engineering and data science scenarios
 
-* SQL serverless with T-SQL language and support for familiar BI tools (for example, Power BI Premium, etc.)
+* Serverless SQL pool with T-SQL language and support for familiar BI tools (for example, Power BI Premium, etc.)
 
 > [!NOTE]
 > From Azure Synapse Analytics, you can access both analytical and transactional stores in your Azure Cosmos DB container. However, if you want to run large-scale analytics or scans on your operational data, we recommend that you use analytical store to avoid performance impact on transactional workloads.

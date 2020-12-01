@@ -158,7 +158,7 @@ At Windows firewall level, these outbound ports are normally enabled. If not, yo
 #### Copy data from a source data store to a sink data store
 Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. Enabling these rules allows the gateway to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure Synapse Analytics (formerly SQL Data Warehouse) sink**, do the following steps:
+For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure Synapse Analytics sink**, do the following steps:
 
 * Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
 * Configure the firewall settings of logical SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.

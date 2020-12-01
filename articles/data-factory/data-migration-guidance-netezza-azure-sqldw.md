@@ -17,7 +17,7 @@ ms.date: 9/03/2019
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from an on-premises Netezza server to your Azure storage account or Azure Synapse Analytics (formerly SQL Data Warehouse) database. 
+Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from an on-premises Netezza server to your Azure storage account or Azure Synapse Analytics database. 
 
 This article provides the following information for data engineers and developers:
 

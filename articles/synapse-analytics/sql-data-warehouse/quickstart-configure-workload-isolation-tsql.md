@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Quickstart: Configure workload isolation using T-SQL
+# Quickstart: Configure workload isolation in a dedicated SQL pool using T-SQL
 
 In this quickstart, you'll quickly create a workload group and classifier for reserving resources for data loading. The workload group will allocate 20% of the system resources to the data loads.  The workload classifier will assign requests to the data loads workload group.  With 20% isolation for data loads, they are guaranteed resources to hit SLAs.
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-This quickstart assumes you already have a Synapse SQL instance in Azure Synapse and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you already have a Synapse SQL instance in Azure Synapse and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool called **mySampleDataWarehouse**.
 
 ## Create login for DataLoads
 
@@ -98,10 +98,10 @@ DROP USER [ELTLogin]
 ;
 ```
 
-You're being charged for data warehouse units and data stored in your data warehouse. These compute and storage resources are billed separately.
+You're being charged for data warehouse units and data stored in your dedicated SQL pool. These compute and storage resources are billed separately.
 
-- If you want to keep the data in storage, you can pause compute when you aren't using the SQL pool. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
-- If you want to remove future charges, you can delete the data warehouse.
+- If you want to keep the data in storage, you can pause compute when you aren't using the dedicated SQL pool. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
+- If you want to remove future charges, you can delete the dedicated SQL pool.
 
 ## Next steps
 
