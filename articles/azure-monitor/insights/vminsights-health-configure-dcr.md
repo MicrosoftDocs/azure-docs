@@ -267,8 +267,7 @@ Defines threshold and comparison logic for the critical condition. If this eleme
 | `operator`  | No | Defines comparison operator to use in threshold expression. Possible values: >, <, >=, <=, ==. |
 
 ## Sample data collection rule
-The following sample data collection rule shows an example of an override to configure monitoring.
-
+For a sample data collection rule enabling guest monitoring, see [Enable a virtual machine using Resource Manager template](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template).
 
 
 ## Next steps

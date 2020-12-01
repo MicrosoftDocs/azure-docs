@@ -111,7 +111,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 ---
 
-The data collection rule defined in the Resource Manager template below enables all monitors for the virtual machines with the guest health extension and includes a sample set of counters to collect. 
+The data collection rule defined in the Resource Manager template below enables all monitors for the virtual machines with the guest health extension. It must include data sources for each of the performance counters used by the monitors.
 
 ```json
 {
