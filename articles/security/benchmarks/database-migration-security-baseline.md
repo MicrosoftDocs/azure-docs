@@ -352,13 +352,11 @@ If GitHub is used, you can use native secret scanning feature to identify creden
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39949).
 
-**Guidance**: Azure Database Migration Service uses Azure Active Directory (AAD) accounts to manage its resources. Review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
+**Guidance**: - [Azure Database Migration service requires customers to create an App ID for migrations to Azure SQL Database Managed Instance in 'Online' mode. See the tutorial here for details on how this App ID is used ](../../dms/tutorial-sql-server-managed-instance-online.md.) 
 
-In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
+- [See documentation here for providing minimum required permissions to this App ID](../../dms/resource-custom-roles-sql-db-managed-instance.md)
 
-Note: Some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
-
-- [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
+It is recommended this App ID is deleted once the migrations are complete.
 
 - [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overvie)
 
@@ -499,7 +497,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39964).
 
-**Guidance**: Azure Database Migration Service encrypts the data in transit from the sources configured by the customer to the database migration service instance by default using TLS 1.2 or later. You can choose to disable this if their source server does not support TLS 1.2 connection, although it is highly recommended not to do so. Transfer of data from database migration service instance to the target instance is always encrypted.  
+**Guidance**: Azure Database Migration Service encrypts the data in transit from the sources configured by the customer to the database migration service instance by default using TLS 1.2 or later. You can choose to disable this if the source server does not support TLS 1.2 connection, although it is highly recommended not to do so. Transfer of data from database migration service instance to the target instance is always encrypted.  
 
 Outside of the Azure Database Migration Service, you can use access controls, data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data. Ensure for HTTP traffic, that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater.
 For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of unencrypted protocol. Obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers should be disabled.
