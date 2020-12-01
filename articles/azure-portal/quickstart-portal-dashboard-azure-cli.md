@@ -38,7 +38,8 @@ Create a virtual machine by using the [az vm create](/cli/azure/vm#az_vm_create)
 az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016datacenter --admin-username azureuser --admin-password 1StrongPassword$
 ```
 
-> [!Note] The password must be complex.
+> [!Note]
+> The password must be complex.
 > This is a new user name and password.
 > It's not, for example, the account you use to sign in to Azure. 
 > For more information, see [username requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)
