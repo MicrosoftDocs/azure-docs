@@ -121,7 +121,7 @@
         href: data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md
       - name: Programmability guide - UDO
         items:
-        - name: User defined-objects overview
+        - name: User-defined objects overview
           href: data-lake-analytics-u-sql-programmability-guide-UDO.md
         - name: Use user-defined extractor
           href: data-lake-analytics-u-sql-programmability-guide-extractor.md
