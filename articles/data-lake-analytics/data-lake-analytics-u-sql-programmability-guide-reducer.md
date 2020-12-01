@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 06/30/2017
 ---
 
-# Use user defined reducer
+# Use user-defined reducer
 
 ## Use user-defined reducer
 
