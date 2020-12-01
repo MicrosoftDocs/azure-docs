@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, devx-track-azurecli
@@ -121,16 +121,6 @@ After creating the policy assign it to the resource group that you would like to
 At this point any attempt to create a user-assigned managed identity in the resource group will fail.
 
   ![Policy violation](./media/known-issues/policy-violation.png)
-
-### How can I find out when a managed identity is created or deleted?
-
-[Azure Activity log](../../azure-monitor/platform/activity-log.md) gives you insight into subscription level events. You can filter activity by different attributes like Management group, Subscription, Timespan, event severity, and more. Using the filtering options you can apply a filter using **Operation** that limits the results to managed identity events.
-
-In Activity log click on **Add filter** and choose **Operation** and filter by "managedidentity" and choose the operations that you want to use as filtering criteria.
-
-![Activity log](./media/known-issues/activity-log.png)
-
-For more information review the [resource provider operations](../../role-based-access-control/resource-provider-operations.md#identity) documentation.
 
 ## Known issues
 
