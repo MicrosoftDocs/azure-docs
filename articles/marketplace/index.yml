@@ -81,7 +81,7 @@ landingContent:
       - text: Virtual machines offers
         url: ./marketplace-virtual-machines.md
       - text: Azure application offers
-        url: ./partner-center-portal/create-new-azure-apps-offer.md
+        url: ./create-new-azure-apps-offer.md
       - text: Dynamics 365 for Customer Engagement & PowerApps offers
         url: ./partner-center-portal/create-new-customer-engagement-offer.md
       - text: Dynamics 365 Business Central offers

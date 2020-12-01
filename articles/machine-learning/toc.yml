@@ -93,7 +93,7 @@
       displayName: example, examples, studio, pipelines, data sets, modules
       href: samples-designer.md
     - name: Open Datasets (public)
-      href: ../open-datasets/samples.md?context=azure%252fmachine-learning%252fcontext%252fml-context
+      href: ../open-datasets/samples.md?context=%2fazure%2fmachine-learning%2fcontext%2fml-context
 - name: Concepts
   items: 
     - name: Plan and manage costs
@@ -448,11 +448,15 @@
           href: how-to-deploy-model-cognitive-search.md
         - name: Use custom Docker image
           href: how-to-deploy-custom-docker-image.md
+        - name: Local machine
+          href: how-to-deploy-local.md
         - name: IoT Edge
-          href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%252fmachine-learning%252fservice%252fcontext%252fml-context
+          href: ../iot-edge/tutorial-deploy-machine-learning.md?context=%2fazure%2fmachine-learning%2fservice%2fcontext%2fml-context
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
-      - name: Troubleshoot & debug
+      - name: Troubleshoot & debug (Local)
+        href: how-to-troubleshoot-deployment-local.md        
+      - name: Troubleshoot & debug (Remote)
         href: how-to-troubleshoot-deployment.md
       - name: Consume web service
         displayName: create client consume request response synchronous
@@ -530,7 +534,7 @@
           href: how-to-debug-parallel-run-step.md
     - name: Azure Pipelines for CI/CD
       displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=%2fazure/machine-learning/context/ml-context
     - name: GitHub Actions for CI/CD
       href: how-to-github-actions-machine-learning.md
     - name: Manage resource quotas
@@ -595,7 +599,7 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure/machine-learning/context/ml-context
     - name: What happened to Workbench
       displayName: desktop, ui, Workbench, upgrade, update, transfer
       href: overview-what-happened-to-workbench.md

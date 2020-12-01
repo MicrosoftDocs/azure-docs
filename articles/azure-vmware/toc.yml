@@ -6,7 +6,7 @@
     href: introduction.md
 - name: Quick start
   items:
-    - name: 0- Plan the deployment
+    - name: 0 - Plan the deployment
       href: production-ready-deployment-steps.md
     - name: 1 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
@@ -109,4 +109,4 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.vmware/
+    href: /powershell/module/az.vmware/

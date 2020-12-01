@@ -175,6 +175,7 @@ Windows:
 C:\> nslookup fabrikam.vault.azure.net
 ```
 
+```output
 Non-authoritative answer:
 Address:  52.168.109.101
 Aliases:  fabrikam.vault.azure.net
@@ -182,6 +183,7 @@ Aliases:  fabrikam.vault.azure.net
           data-prod-eus.vaultcore.azure.net
           data-prod-eus-region.vaultcore.azure.net
 ```
+
 Linux:
 
 ```console
