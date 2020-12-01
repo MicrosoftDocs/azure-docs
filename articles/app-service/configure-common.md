@@ -223,21 +223,29 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 ![Path mappings](./media/configure-common/open-path.png)
 
-The **Path mappings** page shows you different things based on the OS type.
+> [!NOTE]
+The **Path mappings** tab may display OS-specific settings that differ from the example shown here.
 
 ### Windows apps (uncontainerized)
 
 For Windows apps, you can customize the IIS handler mappings and virtual applications and directories.
 
-Handler mappings let you add custom script processors to handle requests for specific file extensions. To add a custom handler, click **New handler**. Configure the handler as follows:
+Handler mappings let you add custom script processors to handle requests for specific file extensions. To add a custom handler, click **New handler mapping**. Configure the handler as follows:
 
 - **Extension**. The file extension you want to handle, such as *\*.php* or *handler.fcgi*.
 - **Script processor**. The absolute path of the script processor to you. Requests to files that match the file extension are processed by the script processor. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
 - **Arguments**. Optional command-line arguments for the script processor.
 
-Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. Click **New virtual application or directory**.
+#### Virtual applications and directories 
 
-To configure virtual applications and directories, specify each virtual directory and its corresponding physical path relative to the website root (`D:\home`). Optionally, you can select the **Application** checkbox to mark a virtual directory as an application.
+Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. 
+
+From the **Path mappings** tab, click **New virtual application or directory**. 
+
+- To configure virtual applications and directories,leave the **Directory** checkbox selected and specify each virtual directory and its corresponding physical path relative to the website root (`D:\home`). 
+- To mark a virtual _directory_ as an **application**, de-select the **Directory** checkbox.
+
+![Path mappings](./media/configure-common/directory-checkbox.png)
 
 ### Containerized apps
 
