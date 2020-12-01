@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Browse assets and view their lineage'
+title: 'Tutorial: Browse assets and view their lineage (preview)'
 description: This tutorial describes how to browse for assets in the catalog and view data lineage. 
 author: hophan
 ms.author: hophan
@@ -8,8 +8,12 @@ ms.subservice: data-catalog-gen2
 ms.topic: tutorial
 ms.date: 09/29/2020
 ---
-
 # Tutorial: Browse assets and view their lineage
+
+> [!IMPORTANT]
+> Azure Purview is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Browsing Azure Purview is a powerful way to discover assets and view their important details, such as lineage.
 

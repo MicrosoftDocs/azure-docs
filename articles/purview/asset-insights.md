@@ -1,5 +1,5 @@
 ---
-title: Asset insights on your data in Azure Purview
+title: Asset insights on your data in Azure Purview (preview)
 description: This how-to guide describes how to view and use Purview Insights asset reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
