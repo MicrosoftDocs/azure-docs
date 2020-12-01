@@ -3,7 +3,7 @@ This tutorial requires the following Azure resources:
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* Linux VM in Azure, with [IoT Edge runtime](../../../../../iot-edge/how-to-install-iot-edge-linux.md) installed
+* Linux VM in Azure, with [IoT Edge runtime](../../../../../iot-edge/how-to-install-iot-edge.md) installed
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
@@ -27,4 +27,3 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     You'll need these files when you set up your development environment in Visual Studio Code in the next section. You might want to copy them into a local file for now.
     
     ![App settings](../../../media/quickstarts/clouddrive.png)
-    
