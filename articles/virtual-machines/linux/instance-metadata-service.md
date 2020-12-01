@@ -151,7 +151,7 @@ would filter to the first element from the `Network.interface` property and retu
 
 ### Data format
 
-By default, the IMDS returns data in JSON format (`Content-Type: application/json`). However, endpoints that support response filtering (see [Route Parameters](#route-parameters)) also support the format `text`.
+By default, IMDS returns data in JSON format (`Content-Type: application/json`). However, endpoints that support response filtering (see [Route Parameters](#route-parameters)) also support the format `text`.
 
 To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
@@ -163,7 +163,7 @@ In json responses, all primitives will be of type `string`, and missing or inapp
 
 ### Versioning
 
-The IMDS is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#versions) endpoint, which can be used to dynamically retrieve the available API versions.
+IMDS is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#versions) endpoint, which can be used to dynamically retrieve the available API versions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
