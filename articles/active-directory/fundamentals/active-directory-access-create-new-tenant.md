@@ -43,7 +43,7 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 1.  On the Configuration tab, enter the following information:
     
-    - Type _Contoso Organziation_ into the **Organization name** box.
+    - Type _Contoso Organization_ into the **Organization name** box.
 
     - Type _Contosoorg_ into the **Initial domain name** box.
 
@@ -58,7 +58,7 @@ Your new tenant is created with the domain contoso.onmicrosoft.com.
 ## Clean up resources
 If you're not going to continue to use this application, you can delete the tenant using the following steps:
 
-- Ensure that you are signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure Portal, and switching to the target directory if needed.
+- Ensure that you are signed in to the directory that you want to delete through the **Directory + subscription** filter in the Azure portal, and switching to the target directory if needed.
 - Select **Azure Active Directory**, and then on the **Contoso - Overview** page, select **Delete directory**.
 
     The tenant and its associated information is deleted.
