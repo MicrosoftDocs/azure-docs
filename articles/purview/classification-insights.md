@@ -3,8 +3,8 @@ title: Classification reporting on your data using Purview Insights (preview)
 description: This how-to guide describes how to view and use Purview Insights classification reporting on your data. 
 author: batamig
 ms.author: bagol
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.

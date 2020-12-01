@@ -3,8 +3,8 @@ title: Catalog Permissions (preview)
 description: This article gives an overview of how to configure Role-Based Access Control (RBAC) in the Azure Purview
 author: yarong
 ms.author: yarong
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
 ---

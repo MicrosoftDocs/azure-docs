@@ -3,8 +3,8 @@ title: Purview Connector Overview
 description: This article outlines the different data stores and functionalities supported in Purview
 author: chandrakavya
 ms.author: kchandra
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
 ---

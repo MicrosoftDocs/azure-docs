@@ -3,8 +3,8 @@ title: Connect to Azure Data Factory
 description: This article describes how to connect Azure Data Factory and Azure Purview to track data lineage.
 author: chanuengg
 ms.author: csugunan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
 ---

@@ -3,8 +3,8 @@ title: 'Deployment best practices'
 description: This article provides best practices for deploying Azure Purview. Azure Purview enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
 ---

@@ -3,8 +3,8 @@ title: 'Tutorial: Resource sets, asset details, schemas, and classifications (pr
 description: This tutorial describes how to use resource sets, asset details, schemas, and classifications. 
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/30/2020
 ---

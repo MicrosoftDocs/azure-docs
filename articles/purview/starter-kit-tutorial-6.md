@@ -3,8 +3,8 @@ title: 'Tutorial: Add a new starter kit part for Purview insights (preview)'
 description: This tutorial describes how to view Insights. 
 author: batamig
 ms.author: bagol
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 11/24/2020
 ---

@@ -3,8 +3,8 @@ title: How to manage term templates for business glossary
 description: Learn how to manage term templates for business glossary in an Azure Purview data catalog.
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/04/2020
 ---

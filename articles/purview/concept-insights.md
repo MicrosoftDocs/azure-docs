@@ -3,8 +3,8 @@ title: Understand Insights reports in Azure Purview
 description: This article explains what Insights are in Azure Purview.
 author: SunetraVirdi
 ms.author: suvirdi
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/22/2020
 ---

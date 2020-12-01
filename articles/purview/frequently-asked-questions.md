@@ -3,8 +3,8 @@ title: Frequently asked questions (FAQ)
 description: This article answers frequently asked questions about Azure Purview. 
 author: SunetraVirdi
 ms.author: suvirdi
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
 ---
