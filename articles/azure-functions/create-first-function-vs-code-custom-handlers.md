@@ -350,7 +350,5 @@ In this section, you create a function app and related resources in your Azure s
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. 
-
 > [!div class="nextstepaction"]
 > [Learn about Azure Functions custom handlers](functions-custom-handlers.md)
