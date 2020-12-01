@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 12/01/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -151,8 +151,11 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 ### Upload a file with index tags
 
-You can upload a file and add [index tags](../blobs/storage-manage-find-blobs.md) to the target blob by using the `--blob-tags` option along with a URL encoded key-value pair. 
+You can upload a file and add [blob index tags(preview)](../blobs/storage-manage-find-blobs.md) to the target blob.  
 
+If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role or must be been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
+
+Add [index tags](../blobs/storage-manage-find-blobs.md) to the target blob by using the `--blob-tags` option along with a URL encoded key-value pair. 
 For example, to add the a key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter. 
 
 Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
@@ -380,7 +383,11 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 
 ### Copy blobs to another storage account with index tags
 
-You can copy blobs to another storage account and add [index tags](../blobs/storage-manage-find-blobs.md) to the target blob by using the `--blob-tags` option along with a URL encoded key-value pair. 
+You can copy blobs to another storage account and add [blob index tags(preview)](../blobs/storage-manage-find-blobs.md) to the target blob.
+
+If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role or must be been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
+
+Add [index tags](../blobs/storage-manage-find-blobs.md) to the target blob by using the `--blob-tags` option along with a URL encoded key-value pair. 
 
 For example, to add the a key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter. 
 
