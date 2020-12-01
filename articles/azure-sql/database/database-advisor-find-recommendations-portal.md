@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations

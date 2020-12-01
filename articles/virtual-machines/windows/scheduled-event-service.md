@@ -127,7 +127,7 @@ This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md)
 ## Creating an alert rule with Azure Monitor 
 
 
-Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/log-query/get-started-portal.md) to look for the schedule Events.
+Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/log-query/log-analytics-tutorial.md) to look for the schedule Events.
 
 1. At the top of the page, select **Logs** and paste the following into the text box:
 
