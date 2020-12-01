@@ -40,4 +40,4 @@ To learn more about AMQP and Service Bus, visit the following links:
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

@@ -3,7 +3,7 @@ title: Tutorial`:` Use a managed identity to access Azure Data Lake Store - Wind
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -42,7 +42,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 ## Grant access
 
-Now you can grant your VM access to files and folders in an Azure Data Lake Store.  For this step, you can use an existing Data Lake Store or create a new one.  To create a new Data Lake Store using the Azure portal, follow this [Azure Data Lake Store quickstart](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure Data Lake Store documentation](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Now you can grant your VM access to files and folders in an Azure Data Lake Store.  For this step, you can use an existing Data Lake Store or create a new one.  To create a new Data Lake Store using the Azure portal, follow this [Azure Data Lake Store quickstart](../../data-lake-store/data-lake-store-get-started-portal.md). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure Data Lake Store documentation](../../data-lake-store/data-lake-store-overview.md).
 
 In your Data Lake Store, create a new folder and grant your VM's system-assigned identity permission to read, write, and execute files in that folder:
 
@@ -58,11 +58,11 @@ In your Data Lake Store, create a new folder and grant your VM's system-assigned
 10. Similar to step 5, click **Add**, in the **Select** field enter the name of your VM, select it and click **Select**.
 11. Similar to step 6, click **Select Permissions**, select **Read**, **Write**, and **Execute**, add to **This folder**, and add as **An access permission entry and a default permission entry**.  Click **Ok**.  The permission should be added successfully.
 
-Your VM's system-assigned managed identity can now perform all operations on files in the folder you created.  For more information on managing access to Data Lake Store, read this article on [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Your VM's system-assigned managed identity can now perform all operations on files in the folder you created.  For more information on managing access to Data Lake Store, read this article on [Access Control in Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 
 ## Access data
 
-Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS_TOKEN_VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources.  To authenticate to the Data Lake Store filesystem you send an access token issued by Azure AD to your Data Lake Store filesystem endpoint, in an Authorization header in the format "Bearer <ACCESS_TOKEN_VALUE>".  To learn more about Data Lake Store support for Azure AD authentication, read [Authentication with Data Lake Store using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)
 
 > [!NOTE]
 > The Data Lake Store filesystem client SDKs do not yet support managed identities for Azure resources.  This tutorial will be updated when support is added to the SDK.
@@ -189,4 +189,4 @@ Using other Data Lake Store filesystem APIs you can append to files, download fi
 In this tutorial, you learned how to use a system-assigned managed identity for a Windows virtual machine to access an Azure Data Lake Store. To learn more about Azure Data Lake Store see:
 
 > [!div class="nextstepaction"]
->[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+>[Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md)

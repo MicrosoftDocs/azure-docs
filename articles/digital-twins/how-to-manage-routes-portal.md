@@ -3,8 +3,8 @@
 title: Manage endpoints and routes (portal)
 titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data using the Azure portal.
-author: v-lakast
-ms.author: v-lakast # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
@@ -23,12 +23,12 @@ In Azure Digital Twins, you can route [event notifications](how-to-interpret-eve
 
 This article walks you through the process of creating endpoints and routes using the [Azure portal](https://portal.azure.com).
 
-You can also manage endpoints and routes with the [EventRoutes APIs](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [*How-to: Manage endpoints and routes (APIs and CLI)*](how-to-manage-routes-apis-cli.md).
+Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](how-to-use-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [*How-to: Manage endpoints and routes (APIs and CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## Prerequisites
 
 * You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md). Have the following values from setup handy to use later in this article:
+* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
 
@@ -73,7 +73,7 @@ You can also view the endpoint that was created back on the *Endpoints* page for
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
-Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
+Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create an Event Hubs endpoint
 
@@ -95,7 +95,7 @@ You can verify that the endpoint is successfully created by checking the notific
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
-Now, the Event hub is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
+Now, the Event hub is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create a Service Bus endpoint
 
@@ -117,9 +117,17 @@ You can verify that the endpoint is successfully created by checking the notific
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
-Now, the Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
+Now, the Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
-## Event routes
+### Create an endpoint with dead-lettering
+
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
+
+In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+
+For instructions on how to do this with the APIs, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
+
+## Create an event route
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
@@ -128,46 +136,50 @@ To actually send data from Azure Digital Twins to an endpoint, you'll need to de
 >[!NOTE]
 >If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If you're unable to set up the route because the endpoints aren't ready, wait a few minutes and try again.
 
-### Create an event route 
+### Creation steps with the Azure portal
 
-An event route definition can contain these elements:
-* The route ID you want to use
+An event route definition contains these elements:
+* The route name you want to use
 * The name of the endpoint you want to use
 * A filter that defines which events are sent to the endpoint
+    - To disable the route so that no events are sent, use a filter value of `false`
+    - To enable a route that has no specific filtering, use a filter value of `true`
+    - For details on any other type of filter, see the [*Filter events*](#filter-events) section below.
 
-If there is no route ID, no messages are routed outside of Azure Digital Twins.
-If there is a route ID and the filter is `true`, all messages are routed to the endpoint.
-If there is a route ID and a different filter is added, messages will be filtered based on the filter.
-
-One route should allow multiple notifications and event types to be selected.
+A single route can allow multiple notifications and event types to be selected.
 
 To create an event route, go to the details page for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
 
 From the instance menu, select _Event routes_. Then from the *Event routes* page that follows, select *+ Create an event route*. 
 
-On the *Create an event route* page that opens up, choose at minimum a name for your route in the _Name_ field, and select the _Endpoint_ you would like to use to create route from the dropdown.
+On the *Create an event route* page that opens up, choose at minimum:
+* A name for your route in the _Name_ field
+* The _Endpoint_ you would like to use to create the route 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance.":::
+For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do this, toggle the switch for the _Advanced editor_ to enable it, and write `true` in the *Filter* box.
+
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 When finished, hit the _Save_ button to create your event route.
 
-### Filter events
+## Filter events
 
-Without filtering, endpoints receive a variety of events from Azure Digital Twins:
+As described above, routes have a **filter** field. If the filter value on your route is `false`, no events will be sent to your endpoint. 
+
+After enabling the minimal filter of `true`, endpoints will receive a variety of events from Azure Digital Twins:
 * Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
-* Model change events, fired when [models](concepts-models.md) configured in an Azure Digital Twins instance are added or deleted
 
-You can restrict the events being sent by adding a **filter** for an endpoint to your event route.
+You can restrict the types of events being sent by defining a more-specific filter.
 
-To add a filter while you are creating an event route, use the _Add an event route filter_ section of the *Create an event route* page. 
+To add an event filter while you are creating an event route, use the _Add an event route filter_ section of the *Create an event route* page. 
 
 You can either select from some basic common filter options, or use the advanced filter options to write your own custom filters.
 
 #### Use the basic filters
 
-To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to filter on. 
+To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to send to your endpoint. 
 
 :::row:::
     :::column:::

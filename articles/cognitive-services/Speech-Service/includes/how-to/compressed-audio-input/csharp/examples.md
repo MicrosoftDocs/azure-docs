@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 To stream in a compressed audio format to the Speech service, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.

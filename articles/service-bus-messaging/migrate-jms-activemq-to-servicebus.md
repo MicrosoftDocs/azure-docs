@@ -58,7 +58,7 @@ As part of migrating and modifying your client applications to interact with Azu
 
 #### Authentication and authorization
 
-Role-based access control (RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. Because RBAC, or claim-based authentication, isn't currently supported by Apache QPID JMS, however, you should use SAS keys for authentication.
+Azure role-based access control (Azure RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. Because Azure RBAC, or claim-based authentication, isn't currently supported by Apache QPID JMS, however, you should use SAS keys for authentication.
 
 ## Pre-migration
 
@@ -268,7 +268,7 @@ Now that you have modified the application to start sending and receiving messag
 
 ## Next steps
 
-Use the [Spring Boot Starter for Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Service Bus.
+Use the [Spring Boot Starter for Azure Service Bus JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Service Bus.
 
 To learn more about Service Bus messaging and JMS, see:
 

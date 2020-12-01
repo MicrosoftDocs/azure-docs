@@ -22,7 +22,7 @@ This document provides context and descriptions of various features found in the
 
 ## My Applications or Converged applications
 
-This list contains all of your applications registered for use with the Microsoft identity platform (v2.0) endpoint. These applications have the ability to sign in users with both personal Microsoft accounts and work/school accounts from Azure Active Directory. To learn more about the identity platform endpoint, see the [v2.0 overview](active-directory-appmodel-v2-overview.md). These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
+This list contains all of your applications registered for use with the Microsoft identity platform (v2.0) endpoint. These applications have the ability to sign in users with both personal Microsoft accounts and work/school accounts from Azure Active Directory. To learn more about the identity platform endpoint, see the [v2.0 overview](./v2-overview.md). These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
 
 ## Azure AD only applications
 

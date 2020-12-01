@@ -1,10 +1,11 @@
 ---
 title: Use Azure Functions to perform a database clean up task 
 description: Use Azure Functions to schedule a task that connects to Azure SQL Database to periodically clean up rows.
-
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/02/2019
+
 ---
 
 # Use Azure Functions to connect to an Azure SQL Database

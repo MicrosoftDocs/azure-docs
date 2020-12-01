@@ -3,6 +3,7 @@ title: Reliable Actors timers and reminders
 description: Introduction to timers and reminders for Service Fabric Reliable Actors, including guidance on when to use each.
 ms.topic: conceptual
 ms.date: 11/02/2017
+ms.custom: devx-track-csharp
 ---
 # Actor timers and reminders
 Actors can schedule periodic work on themselves by registering either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.

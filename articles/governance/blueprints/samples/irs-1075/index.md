@@ -1,7 +1,7 @@
 ---
 title: IRS 1075 blueprint sample overview
 description: Overview of the IRS 1075 blueprint sample. This blueprint sample helps customers assess specific IRS 1075 controls.
-ms.date: 05/13/2020
+ms.date: 08/19/2020
 ms.topic: sample
 ---
 # Overview of the IRS 1075 blueprint sample

@@ -18,7 +18,7 @@ Learn how to deploy the Cognitive Services [Text Analytics][install-and-run-cont
 
 ## Prerequisites
 
-* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -45,7 +45,7 @@ Learn how to deploy the Cognitive Services [Text Analytics][install-and-run-cont
 ## Next steps 
 
 * Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
-* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use the [Text Analytics Connected Service](../index.yml)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

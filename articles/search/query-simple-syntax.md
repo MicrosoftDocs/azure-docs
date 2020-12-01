@@ -17,7 +17,7 @@ Azure Cognitive Search implements two Lucene-based query languages: [Simple Quer
 
 The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search. 
 
-The simple syntax is used for query expressions passed in the `search` parameter of a [Search Documents request](https://docs.microsoft.com/rest/api/searchservice/search-documents), not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
+The simple syntax is used for query expressions passed in the `search` parameter of a [Search Documents request](/rest/api/searchservice/search-documents), not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
 
 Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
@@ -62,7 +62,7 @@ Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `
 
 In some circumstances, you may want to search for a special character, like the '❤' emoji or the '€' sign. In those case, make sure that the analyzer you use does not filter those characters out.  The standard analyzer ignores many of the special characters so they would not become tokens in your index.
 
-So the first step is to make sure you use an analyzer that will consider those elements tokens. For instance, the "whitespace" analyzer takes into consideration any character sequences separated by whitespaces as tokens, so the "❤" string would be considered a token. Also, an analyzer like the Microsoft English analyzer ("en.microsoft"), would take into consideration the "€" string as a token. You can [test an analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
+So the first step is to make sure you use an analyzer that will consider those elements tokens. For instance, the "whitespace" analyzer takes into consideration any character sequences separated by whitespaces as tokens, so the "❤" string would be considered a token. Also, an analyzer like the Microsoft English analyzer ("en.microsoft"), would take into consideration the "€" string as a token. You can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
 
 When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for "❤" would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.
 
@@ -115,6 +115,6 @@ A term search is a query for one or more terms, where any of the terms are consi
 + [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Query examples for simple search](search-query-simple-examples.md)
 + [Query examples for full Lucene search](search-query-lucene-examples.md)
-+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Search Documents REST API](/rest/api/searchservice/Search-Documents)
 + [Lucene query syntax](query-lucene-syntax.md)
-+ [OData expression syntax](query-odata-filter-orderby-syntax.md) 
++ [OData expression syntax](query-odata-filter-orderby-syntax.md)

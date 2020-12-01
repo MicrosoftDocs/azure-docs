@@ -10,7 +10,7 @@ ms.date: 03/03/2020
 
 This article explains how to back up Windows machines by using the [Azure Backup](backup-overview.md) service and the Microsoft Azure Recovery Services (MARS) agent. MARS is also known as the Azure Backup agent.
 
-In this article, you will learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 >
@@ -24,7 +24,7 @@ In this article, you will learn how to:
 * Learn about the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
 * [Verify internet access](install-mars-agent.md#verify-internet-access) on the machines that you want to back up.
-* If the MARS agent is not installed, learn how to install it [here](install-mars-agent.md).
+* If the MARS agent isn't installed, learn how to install it [here](install-mars-agent.md).
 
 ## Create a backup policy
 
@@ -121,7 +121,7 @@ To enable network throttling:
 1. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**.
 
     ![Set up network throttling for backup operations](./media/backup-configure-vault/throttling-dialog.png)
-1. Specify the allowed bandwidth during work hours and nonwork hours. Bandwidth values begin at 512 Kbps and go up to 1,023 MBps. Then select **OK**.
+1. Specify the allowed bandwidth during work hours and nonwork hours. Bandwidth values begin at 512 Kbps and go up to 1,023 Mbps. Then select **OK**.
 
 ## Run an on-demand backup
 

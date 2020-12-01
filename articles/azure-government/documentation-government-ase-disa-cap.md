@@ -29,7 +29,7 @@ The customer has deployed an ASE with an ILB and has implemented an ExpressRoute
 When creating the ASE via the portal, a route table with a default route of 0.0.0.0/0 and next hop “Internet” is created. 
 However, since DISA advertises a default route out the ExpressRoute circuit, the User Defined Route (UDR) should either be deleted, or remove the default route to internet.  
 
-You will need to create new routes in the UDR for the management addresses in order to keep the ASE healthy. For Azure Government ranges see [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses
+You will need to create new routes in the UDR for the management addresses in order to keep the ASE healthy. For Azure Government ranges see [App Service Environment management addresses](../app-service/environment/management-addresses.md
 )
 
 * Rule 1: 23.97.29.209 --> Internet
@@ -44,7 +44,7 @@ Make sure the UDR is applied to the subnet your ASE is deployed to.
 
 The ASE will be created with inbound and outbound security rules as shown below.  The inbound security rules MUST allow ports 454-455 with an ephemeral source port range (*).
 
-The images below describe the default NSG rules created during the ASE creation.  For more information, see [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
+The images below describe the default NSG rules created during the ASE creation.  For more information, see [Networking considerations for an App Service Environment](../app-service/environment/network-info.md#network-security-groups)
 
 ![Default inbound NSG security rules for an ILB ASE](media/documentation-government-ase-disacap-inbound-route-table.png)
 
@@ -52,7 +52,7 @@ The images below describe the default NSG rules created during the ASE creation.
 
 ### Service Endpoints 
 
-Depending on the storage you use, you will be required to enable Service Endpoints for SQL and Azure Storage to access them without going back down to the DISA BCAP. You also need to enable EventHub Service Endpoint for ASE logs. [Learn more](https://docs.microsoft.com/azure/app-service/environment/network-info#service-endpoints).
+Depending on the storage you use, you will be required to enable Service Endpoints for SQL and Azure Storage to access them without going back down to the DISA BCAP. You also need to enable EventHub Service Endpoint for ASE logs. [Learn more](../app-service/environment/network-info.md#service-endpoints).
 
 ## FAQs
 

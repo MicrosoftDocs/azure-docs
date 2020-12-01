@@ -14,7 +14,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 11/17/2019
 ms.author: zhenlwa
-ms.custom: azure-functions
+ms.custom: "devx-track-csharp, azure-functions"
 ms.tgt_pltfrm: Azure Functions
 
 #Customer intent: I want to dynamically update my Azure Functions app to use the latest configuration data in App Configuration.

@@ -1,29 +1,49 @@
 ---
 title: How to create Guest Configuration policy definitions from Group Policy baseline for Windows
 description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition. 
-ms.date: 06/05/2020
+ms.date: 08/17/2020
 ms.topic: how-to
 ---
 # How to create Guest Configuration policy definitions from Group Policy baseline for Windows
 
-Before creating custom policy definitions, it's a good idea to read the conceptual overview information at [Azure Policy Guest Configuration](../concepts/guest-configuration.md). To learn about creating custom Guest Configuration policy definitions for Linux, see [How to create Guest Configuration policies for Linux](./guest-configuration-create-linux.md). To learn about creating custom Guest Configuration policy definitions for Windows, see [How to create Guest Configuration policies for Windows](./guest-configuration-create.md). 
+Before creating custom policy definitions, it's a good idea to read the conceptual overview
+information at [Azure Policy Guest Configuration](../concepts/guest-configuration.md). To learn
+about creating custom Guest Configuration policy definitions for Linux, see
+[How to create Guest Configuration policies for Linux](./guest-configuration-create-linux.md). To
+learn about creating custom Guest Configuration policy definitions for Windows, see
+[How to create Guest Configuration policies for Windows](./guest-configuration-create.md).
 
-When auditing Windows, Guest Configuration uses a [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to create the configuration file. The DSC configuration defines the condition that the machine should be in. If the evaluation of the configuration is **non-compliant**, the policy effect *auditIfNotExists* is triggered. [Azure Policy Guest Configuration](../concepts/guest-configuration.md) only audits settings inside machines.
+When auditing Windows, Guest Configuration uses a
+[Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
+create the configuration file. The DSC configuration defines the condition that the machine should
+be in. If the evaluation of the configuration is **non-compliant**, the policy effect
+*auditIfNotExists* is triggered.
+[Azure Policy Guest Configuration](../concepts/guest-configuration.md) only audits settings inside
+machines.
 
 > [!IMPORTANT]
-> Custom policy definitions with Guest Configuration is a Preview feature.
->
-> The Guest Configuration extension is required to perform audits in Azure virtual machines.
-> To deploy the extension at scale across all Windows machines, assign the following policy definitions:
->   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> The Guest Configuration extension is required to perform audits in Azure virtual machines. To
+> deploy the extension at scale across all Windows machines, assign the following policy
+> definitions:
+> - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> Don't use secrets or confidential information in custom content packages.
 
-The DSC community has published the [BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported Group Policy templates to DSC format. Together with the GuestConfiguration cmdlet, the BaselineManagement module creates Azure Policy Guest Configuration package for Windows from Group Policy content. For details about using the BaselineManagement module, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
+The DSC community has published the
+[BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported
+Group Policy templates to DSC format. Together with the GuestConfiguration cmdlet, the
+BaselineManagement module creates Azure Policy Guest Configuration package for Windows from Group
+Policy content. For details about using the BaselineManagement module, see the article
+[Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
-In this guide, we walk through the process to create an Azure Policy Guest Configuration package from a Group Policy Object (GPO). While the walkthrough outlines conversion of the Windows Server 2019 Security Baseline, the same process can be applied to other GPOs.  
+In this guide, we walk through the process to create an Azure Policy Guest Configuration package
+from a Group Policy Object (GPO). While the walkthrough outlines conversion of the Windows Server
+2019 Security Baseline, the same process can be applied to other GPOs.  
 
 ## Download Windows Server 2019 Security Baseline and install related PowerShell modules
 
-To install the **DSC**, **GuestConfiguration**, **Baseline Management**, and related Azure modules in PowerShell:
+To install the **DSC**, **GuestConfiguration**, **Baseline Management**, and related Azure modules
+in PowerShell:
 
 1. From a PowerShell prompt, run the following command:
 
@@ -32,7 +52,8 @@ To install the **DSC**, **GuestConfiguration**, **Baseline Management**, and rel
    Install-Module az.resources, az.policyinsights, az.storage, guestconfiguration, gpregistrypolicyparser, securitypolicydsc, auditpolicydsc, baselinemanagement -scope currentuser -Repository psgallery -AllowClobber
    ```
 
-1. Create a directory for and download the Windows Server 2019 Security Baseline from the Windows Security Compliance toolkit.
+1. Create a directory for and download the Windows Server 2019 Security Baseline from the Windows
+   Security Compliance toolkit.
 
    ```azurepowershell-interactive
    # Download the 2019 Baseline files from https://docs.microsoft.com/windows/security/threat-protection/security-compliance-toolkit-10
@@ -56,7 +77,8 @@ To install the **DSC**, **GuestConfiguration**, **Baseline Management**, and rel
 
 ## Convert from Group Policy to Azure Policy Guest Configuration
 
-Next, we convert the downloaded Server 2019 Baseline into a Guest Configuration Package using the Guest Configuration and Baseline Management modules. 
+Next, we convert the downloaded Server 2019 Baseline into a Guest Configuration Package using the
+Guest Configuration and Baseline Management modules.
 
 1. Convert the Group Policy to Desired State Configuration using the Baseline Management Module.
 
@@ -81,79 +103,16 @@ Next, we convert the downloaded Server 2019 Baseline into a Guest Configuration 
 
 ## Create Azure Policy Guest Configuration
 
-The next step is to publish the file to blob storage. 
-
-1. The script below contains a function you can use to automate this task. Note, the commands used in the `publish` function require the `Az.Storage` module.
+1. The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
+module.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Create parameters to define the unique resource group, storage account, and container. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Use the publish function with the assigned parameters to publish the Guest Configuration package to public blob storage.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
-1. Once a Guest Configuration custom policy package has been created and uploaded, create the Guest Configuration policy definition. Use the `New-GuestConfigurationPolicy` cmdlet to create the Guest Configuration.
+1. Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
+   Configuration policy definition. Use the `New-GuestConfigurationPolicy` cmdlet to create the
+   Guest Configuration.
 
    ```azurepowershell-interactive
     $NewGuestConfigurationPolicySplat = @{
@@ -166,7 +125,12 @@ The next step is to publish the file to blob storage.
    New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
 	
-1. Publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The cmdlet only has the **Path** parameter that points to the location of the JSON files created by `New-GuestConfigurationPolicy`. To run the Publish command, you need access to create policy definitions in Azure. The specific authorization requirements are documented in the [Azure Policy Overview](../overview.md#getting-started) page. The best built-in role is **Resource Policy Contributor**.
+1. Publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The cmdlet
+   only has the **Path** parameter that points to the location of the JSON files created by
+   `New-GuestConfigurationPolicy`. To run the Publish command, you need access to create policy
+   definitions in Azure. The specific authorization requirements are documented in the
+   [Azure Policy Overview](../overview.md#getting-started) page. The best built-in role is
+   **Resource Policy Contributor**.
 
    ```azurepowershell-interactive
    Publish-GuestConfigurationPolicy -Path C:\git\policyfiles\policy\ -Verbose
@@ -179,10 +143,10 @@ initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 [Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
-> Guest Configuration policy definitions must **always** be assigned using the initiative that combines the
-> _AuditIfNotExists_ and _DeployIfNotExists_ policies. If only the _AuditIfNotExists_ policy is
-> assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
-> compliant.
+> Guest Configuration policy definitions must **always** be assigned using the initiative that
+> combines the _AuditIfNotExists_ and _DeployIfNotExists_ policies. If only the _AuditIfNotExists_
+> policy is assigned, the prerequisites aren't deployed and the policy always shows that '0' servers
+> are compliant.
 
 Assigning a policy definition with _DeployIfNotExists_ effect requires an additional level of
 access. To grant the least privilege, you can create a custom role definition that extends
@@ -205,5 +169,5 @@ Contributor DINE** with the additional permission _Microsoft.Authorization/roleA
 ## Next steps
 
 - Learn about auditing VMs with [Guest Configuration](../concepts/guest-configuration.md).
-- Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](get-compliance-data.md).
+- Understand how to [programmatically create policies](./programmatically-create.md).
+- Learn how to [get compliance data](./get-compliance-data.md).

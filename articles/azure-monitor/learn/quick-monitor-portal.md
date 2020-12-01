@@ -18,7 +18,7 @@ app, you can make informed choices to maintain and improve your application.
 
 This quickstart shows how to add Application Insights to an existing ASP.NET web application and start
 analyzing live statistics, which is just one of the various methods you can use to analyze your application. If you do not have an ASP.NET web application, you can create one following the
-[Create an ASP.NET Web App quickstart](../../app-service/app-service-web-get-started-dotnet-framework.md).
+[Create an ASP.NET Web App quickstart](../../app-service/quickstart-dotnet-framework.md).
 
 ## Prerequisites
 To complete this quickstart:
@@ -63,13 +63,13 @@ You can now open Application Insights in the Azure portal to view various detail
 
 1. Expand the **Connected Services** folder (cloud and plug icon) in the Solution Explorer then right-click on the **Application Insights** folder and click **Open Application Insights Portal**.  You see some information about your application and a variety of options.
 
-	![Application Map](media/quick-monitor-portal/04-overview.png)
+	![Screenshot that shows information about the application within the Application Insights Portal.](media/quick-monitor-portal/04-overview.png)
 
 2. Click on **Application map** to get a visual layout of the dependency relationships between your application components.  Each component shows KPIs such as load, performance, failures, and alerts.
 
 	![Application Map](media/quick-monitor-portal/05-appmap.png)
 
-3. Click on the **App Analytics** icon ![Application Map](media/quick-monitor-portal/app-viewinlogs-icon.png) **View in Logs (Analytics)** on one of the application components. This opens **Logs (Analytics)**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
+3. Click on the **App Analytics** icon ![Screenshot of the App Analytics icon.](media/quick-monitor-portal/app-viewinlogs-icon.png) **View in Logs (Analytics)** on one of the application components. This opens **Logs (Analytics)**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
 	![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
@@ -78,7 +78,7 @@ You can now open Application Insights in the Azure portal to view various detail
 	![Live Stream](media/quick-monitor-portal/7livemetrics.png)
 
     If you are ready to host your application in Azure, you can publish it now. Follow the steps described
-    in [Create an ASP.NET Web App Quickstart](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
+    in [Create an ASP.NET Web App Quickstart](../../app-service/quickstart-dotnetcore.md#update-the-app-and-redeploy).
 
 5. If you use Visual Studio to add Application Insights monitoring, you can automatically add client-side monitoring. To add client-side monitoring manually to an application add the following JavaScript to your application:
 

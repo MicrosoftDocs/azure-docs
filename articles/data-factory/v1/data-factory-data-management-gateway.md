@@ -1,6 +1,6 @@
 ---
 title: Data Management Gateway for Data Factory 
-description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
+description: Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -53,7 +53,7 @@ When you use a copy activity to copy data between on-premises and cloud, the act
 Here is the high-level data flow for and summary of steps for copy with data gateway:
 ![Data flow using gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1. Data developer creates a gateway for an Azure Data Factory using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.datafactory/).
+1. Data developer creates a gateway for an Azure Data Factory using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](/powershell/module/az.datafactory/).
 2. Data developer creates a linked service for an on-premises data store by specifying the gateway. As part of setting up the linked service, data developer uses the Setting Credentials application to specify authentication types and credentials. The Setting Credentials application dialog communicates with the data store to test connection and the gateway to save credentials.
 3. Gateway encrypts the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
 4. Data Factory service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be kicked off, Data Factory queues the request along with credential information. Gateway kicks off the job after polling the queue.
@@ -73,7 +73,7 @@ Here is the high-level data flow for and summary of steps for copy with data gat
 ## Installation
 ### Prerequisites
 * The supported **Operating System** versions are Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Installation of the data management gateway on a domain controller is currently not supported.
-* .NET Framework 4.5.1 or above is required. If you are installing gateway on a Windows 7 machine, install .NET Framework 4.5 or later. See [.NET Framework System Requirements](https://msdn.microsoft.com/library/8z6watww.aspx) for details.
+* .NET Framework 4.5.1 or above is required. If you are installing gateway on a Windows 7 machine, install .NET Framework 4.5 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 * The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8-GB RAM, and 80-GB disk.
 * If the host machine hibernates, the gateway does not respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. If the machine is configured to hibernate, the gateway installation prompts a message.
 * You must be an administrator on the machine to install and configure the data management gateway successfully. You can add additional users to the **data management gateway Users** local Windows group. The members of this group are able to use the **Data Management Gateway Configuration Manager** tool to configure the gateway.
@@ -121,7 +121,7 @@ To create a gateway in the portal and get the key from the **Configure** page, F
     ![Download link in the portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. In the **Configure** page, click **Recreate key**. Click Yes on the warning message after reading it carefully.
 
-    ![Recreate key](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![Recreate key button](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Click Copy button next to the key. The key is copied to the clipboard.
 
     ![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -150,21 +150,21 @@ At corporate firewall level, you need configure the following domains and outbou
 At Windows firewall level, these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on gateway machine.
 
 > [!NOTE]
-> 1. Based on your source/ sinks, you may have to whitelist additional domains and outbound ports in your corporate/Windows firewall.
-> 2. For some Cloud Databases (For example: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), you may need to whitelist IP address of Gateway machine on their firewall configuration.
+> 1. Based on your source/ sinks, you may have to allow additional domains and outbound ports in your corporate/Windows firewall.
+> 2. For some Cloud Databases (For example: [Azure SQL Database](../../azure-sql/database/firewall-configure.md), [Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access), etc.), you may need to allow IP address of Gateway machine on their firewall configuration.
 >
 >
 
 #### Copy data from a source data store to a sink data store
 Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. Enabling these rules allows the gateway to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, do the following steps:
+For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure Synapse Analytics (formerly SQL Data Warehouse) sink**, do the following steps:
 
 * Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
 * Configure the firewall settings of logical SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Database / SQL Managed Instance / SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
+> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](./data-factory-copy-activity-performance.md#staged-copy) to SQL Database / SQL Managed Instance / SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
 >
 >
 
@@ -175,7 +175,7 @@ If your corporate network environment uses a proxy server to access the internet
 
 Gateway uses the proxy server to connect to the cloud service. Click **Change** link during initial setup. You see the **proxy setting** dialog.
 
-![Set proxy using config manager](media/data-factory-data-management-gateway/SetProxySettings.png)
+![Set proxy using config manager 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 There are three configuration options:
 
@@ -194,7 +194,7 @@ After gateway has been successfully registered, if you want to view or update pr
 
 You can view and update HTTP proxy by using Configuration Manager tool.
 
-![Set proxy using config manager](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![Set proxy using config manager 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, Gateway Host Service runs under the domain account. If you change the password for the domain account later, remember to update configuration settings for the service and restart it accordingly. Due to this requirement, we suggest you use a dedicated domain account to access the proxy server that does not require you to update the password frequently.
@@ -223,7 +223,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
     </system.net>
     ```
 
-    Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on syntax.
+    Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) on syntax.
 
     ```
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
@@ -233,7 +233,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 > [!IMPORTANT]
 > Do not forget to update **both** diahost.exe.config and diawp.exe.config.
 
-In addition to these points, you also need to make sure Microsoft Azure is in your company's whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+In addition to these points, you also need to make sure Microsoft Azure is in your company's allowed list. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### Possible symptoms for firewall and proxy server-related issues
 If you encounter errors similar to the following ones, it is likely due to improper configuration of the firewall or proxy server, which blocks gateway from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
@@ -252,7 +252,7 @@ If you are using a third-party firewall, you can manually open the port 8050. If
 msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 ```
 
-If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
+If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
 
 ## Update
 By default, data management gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version.
@@ -426,7 +426,7 @@ This section provides steps for moving gateway client from one machine to anothe
     ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.
 
-    ![Recreate key](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![Recreate key 2](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
 
     ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
@@ -473,7 +473,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
 
 When you use the **Setting Credentials** application, the portal encrypts the credentials with the certificate specified in the **Certificate** tab of the **Gateway Configuration Manager** on the gateway machine.
 
-If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON. You use the JSON with the [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet or in the Data Factory Editor.
+If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON. You use the JSON with the [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet or in the Data Factory Editor.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",

@@ -6,8 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: mihansen
-author: hansenms
+ms.author: matjazl
+author: matjazl
 ms.date: 02/07/2019
 ---
 
@@ -116,7 +116,7 @@ Now that you have a valid access token. You can insert a new patient. Switch to 
 
 Hit "Send" and you should see that the patient is successfully created:
 
-![Patient Created](media/tutorial-postman/postman-patient-created.png)
+![Screenshot that shows that the patient is successfully created.](media/tutorial-postman/postman-patient-created.png)
 
 If you repeat the patient search, you should now see the patient record:
 

@@ -1,6 +1,6 @@
 --- 
 title: Delete an Azure VMware Solution by CloudSimple Private Cloud
-description: Describes how to delete a CloudSimple Private Cloud.
+description: Learn how to delete a CloudSimple Private Cloud. When you delete a Private Cloud, all clusters will be deleted.
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/06/2019 

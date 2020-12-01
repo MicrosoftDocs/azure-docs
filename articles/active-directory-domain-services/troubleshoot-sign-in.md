@@ -2,7 +2,7 @@
 title: Troubleshoot sign in problems in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot common user sign-in problems and errors in Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 #Customer intent: As a directory administrator, I want to troubleshoot user account sign in problems in an Azure Active Directory Domain Services managed domain.
 ---
@@ -74,7 +74,7 @@ If you still have problems joining your VM to the managed domain, [find help and
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-ad-connect-phs]: active-directory-ds-getting-started-password-sync-synced-tenant.md
+[azure-ad-connect-phs]: ./tutorial-configure-password-hash-sync.md
 [enable-user-accounts]:  tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [phs-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

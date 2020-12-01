@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 
 > [!NOTE]
-> If you want to try out a proof-of-concept to assess a couple of VMs before assessing at scale, follow our [tutorial series](tutorial-prepare-hyper-v.md)
+> If you want to try out a proof-of-concept to assess a couple of VMs before assessing at scale, follow our [tutorial series](./tutorial-discover-hyper-v.md)
 
 ## Plan for assessment
 
@@ -61,7 +61,7 @@ Prepare Azure and Hyper-V for server assessment.
 2. Set up permissions for your Azure account to interact with Azure Migrate
 3. Prepare Hyper-V hosts and VMs
 
-Follow the instructions in [this tutorial](tutorial-prepare-hyper-v.md) to configure these settings.
+Follow the instructions in [this tutorial](./tutorial-discover-hyper-v.md) to configure these settings.
 
 ## Create a project
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 04/01/2020
+ms.date: 09/02/2020
 ---
 
 # Co-sell state and province codes in Azure Marketplace
@@ -73,7 +73,7 @@ This article lists the available state and province codes when providing contact
 | Northern Mariana Islands            | US-MP     |
 | Puerto Rico                         | US-PR     |
 | United States Minor Outlying Islands | US-UM    |
-| Virgin Islands, U.S.                 | US-VI    |
+| U.S. Virgin Islands                 | US-VI    |
 
 ## Canadian provinces and territories
 

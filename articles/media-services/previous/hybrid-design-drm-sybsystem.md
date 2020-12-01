@@ -13,12 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.reviewer: juliako
 
 ---
-# Hybrid design of DRM subsystems 
+# Hybrid design of DRM subsystems
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 

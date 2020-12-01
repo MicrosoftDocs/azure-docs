@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
-description: Frequently asked questions covering different topics on Azure Dedicated HSM 
+description: Find answers to common questions about Azure Dedicated Hardware Security Module, such as basic information, interoperability, high availability, and support.
 services: dedicated-hsm
 author: johncdawson
 manager: rkarlin

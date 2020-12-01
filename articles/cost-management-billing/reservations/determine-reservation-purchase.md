@@ -4,6 +4,7 @@ description: This article helps you determine which reservation you should purch
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: banders
@@ -33,7 +34,7 @@ To narrow down to eligible VM usage, apply the following filters on your usage d
 
 Ignore resources that have less than 24 hours of usage in a day.
 
-If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 

@@ -1,6 +1,6 @@
 ---
 title: What are Azure AD registered devices?
-description: Learn how device identity management can help you to manage devices that are accessing resources in your environment.
+description: Learn how Azure AD registered devices provide your users with support for the Bring Your Own Device (BYOD) or mobile device scenarios.
 
 services: active-directory
 ms.service: active-directory

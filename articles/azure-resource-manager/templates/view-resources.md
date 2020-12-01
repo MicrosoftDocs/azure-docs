@@ -69,7 +69,7 @@ Resource Explorer is embedded in the Azure portal. Before using this method, you
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **resource explorer**, and then select **Resource Explorer**.
 
-    ![Azure portal Resource Explorer](./media/view-resources/azure-portal-resource-explorer.png)
+    ![Screenshot shows searching for the Resource Explorer in the Azure portal.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. From left, expand **Subscriptions**, and then expand your Azure subscription. You can find the storage account under either **Providers** or **ResourceGroups**.
 

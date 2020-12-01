@@ -4,7 +4,7 @@ description: Learn how to create your first Azure Function for serverless execut
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.custom: mvc, devcenter, cc996988-fb4f-47
+ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47"
 ---
 
 # Create your first function in the Azure portal
@@ -16,7 +16,7 @@ Use one of the following links to get started with your chosen local development
 
 | Visual Studio Code | Terminal/command prompt | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[Get started with C#](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[Get started with C#](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[Get started with C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Get started with C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-cli-python.md) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,4 +75,3 @@ Next, create a function in the new function app.
 ## Next steps
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

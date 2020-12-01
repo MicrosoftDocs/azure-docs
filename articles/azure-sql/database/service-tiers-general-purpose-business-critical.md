@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers
@@ -78,7 +78,7 @@ The following factors affect the amount of storage used for data and log files, 
 > [!IMPORTANT]
 > You are charged for the total storage allocated for MDF and LDF files.
 
-To monitor the current total size of your MDF and LDF files, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). To monitor the current size of the individual MDF and LDF files, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+To monitor the current total size of your MDF and LDF files, use [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). To monitor the current size of the individual MDF and LDF files, use [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
@@ -96,5 +96,4 @@ For details about the specific compute and storage sizes available in the genera
 
 - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore-based resource limits for pooled databases in Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
-
+- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md).

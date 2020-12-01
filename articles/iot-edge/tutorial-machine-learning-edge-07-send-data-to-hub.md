@@ -8,18 +8,20 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Send data via transparent gateway
-
-> [!NOTE]
-> This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
 In this article, we once again use the development VM as a simulated device. However instead of sending data directly to the IoT Hub, the device sends data to the IoT Edge device configured as a transparent gateway.
 
 We monitor the operation of the IoT Edge device while the simulated device is sending data. Once the device is finished running, we look at the data in our storage account to validate everything worked as expected.
 
 This step is typically performed by a cloud or device developer.
+
+## Prerequisites
+
+This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
 
 ## Review device harness
 
@@ -220,7 +222,7 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 1. Delete the resource group(s) created to hold the Dev VM, IoT Edge VM, IoT Hub, storage account, machine learning workspace service (and created resources: container registry, Application Insights, key vault, storage account).
 
-1. Delete the machine learning project in [Azure notebooks](https://notebooks.azure.com).
+1. Delete the machine learning project in [Azure Notebooks](https://notebooks.azure.com).
 
 1. If you cloned the repo locally, close any PowerShell or VS Code windows referring to the local repo, then delete the repo directory.
 
@@ -232,5 +234,8 @@ In this article, we used our development VM to simulate a leaf device sending se
 
 More information can be found at the following pages:
 
-* [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
-* [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)

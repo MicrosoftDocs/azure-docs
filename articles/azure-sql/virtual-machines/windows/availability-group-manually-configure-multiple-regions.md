@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "05/02/2017"
@@ -29,7 +29,7 @@ This article applies to Azure Virtual Machines in Resource Manager mode.
 
 The following image shows a common deployment of an availability group on Azure virtual machines:
 
-   ![Availability Group](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   ![Diagram that shows the Azure load balancer and the Availability set with a "Windows Server Failover Cluster" and "Always On Availability Group".](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. To build this architecture, see [Availability Group template or tutorial](availability-group-overview.md).
 
@@ -51,7 +51,7 @@ When availability group replicas are on Azure virtual machines in different Azur
 
 The following diagram shows how the networks communicate between data centers.
 
-   ![Availability Group](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![Diagram that shows the two Virtual Networks in different Azure Regions communicating using V P N Gateways.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -67,7 +67,7 @@ To create a replica in a remote data center, do the following steps:
    >[!NOTE]
    >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Create a domain controller in the new region](../../../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [Create a domain controller in the new region](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
    This domain controller provides authentication if the domain controller in the primary site is not available.
 
@@ -82,7 +82,7 @@ To create a replica in a remote data center, do the following steps:
    - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
-   - Be a Standard Load Balancer if the virtual machines in the backend pool are not part of either a single availability set or virtual machine scale set. For additional information review [Azure Load Balancer Standard overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Be a Standard Load Balancer if the virtual machines in the backend pool are not part of either a single availability set or virtual machine scale set. For additional information review [Azure Load Balancer Standard overview](../../../load-balancer/load-balancer-overview.md).
 
 1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -96,7 +96,7 @@ To create a replica in a remote data center, do the following steps:
 
    You can create the IP address resource in Failover Cluster Manager. Select the name of the cluster, then right-click the cluster name under **Cluster Core Resources** and select **Properties**: 
 
-   ![Cluster properties](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![Screenshot that shows the "Failover Cluster Manager" with a cluster name, "Server Name", and "Properties" selected.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    On the **Properties** dialog box, select **Add** under **IP Address**, and then add the IP address of the cluster name from the remote network region. Select **OK** on the **IP Address** dialog box, and then select **OK** again on the **Cluster Properties** dialog box to save the new IP address. 
 
@@ -159,7 +159,7 @@ To create a replica in a remote data center, do the following steps:
 
 The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connection time-outs may occur. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
-Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 If you cannot modify the connection strings, you can configure name resolution caching. See [Time-out error and you cannot connect to a SQL Server 2012 AlwaysOn availability group listener in a multi-subnet environment](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -192,12 +192,12 @@ After testing connectivity, move the primary replica back to your primary data c
 
 For more information, see the following topics:
 
-- [Perform a Planned Manual Failover of an Availability Group (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Perform a Forced Manual Failover of an Availability Group (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Perform a Planned Manual Failover of an Availability Group (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
+- [Perform a Forced Manual Failover of an Availability Group (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
 ## Next steps
 
-* [Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Always On Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Azure Virtual Machines](../../../virtual-machines/windows/index.yml)
 * [Azure Load Balancers](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Azure Availability Sets](../../../virtual-machines/linux/manage-availability.md)
+* [Azure Availability Sets](../../../virtual-machines/manage-availability.md)

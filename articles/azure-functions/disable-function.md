@@ -3,14 +3,14 @@ title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
 ms.date: 04/08/2020 
-ms.custom: devx-track-azurecli
+ms.custom: "devx-track-csharp, devx-track-azurecli"
 ---
 
 # How to disable functions in Azure Functions
 
 This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that's defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
 
-The recommended way to disable a function is by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
+The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
 > [!NOTE]  
 > When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
@@ -35,12 +35,27 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## Use the Portal
 
-You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
+You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by changing the value of the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting. This function-specific setting is created the first time it's disabled.
 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
 > [!NOTE]  
 > The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
+
+## local.settings.json
+
+Functions can be disabled in the same way when running locally. To disable a function named `HttpExample`, add an entry to the Values collection in the local.settings.json file, as follows:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+	"AzureWebJobs.HttpExample.Disabled": "true"
+  }
+}
+``` 
 
 ## Other methods
 

@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 10/29/2020
 ms.custom: seodec18
 ---
 
@@ -27,11 +27,11 @@ Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azur
 ## Edge jobs in Azure Stream Analytics
 ### What is an "edge" job?
 
-ASA Edge jobs run in containers deployed to [Azure IoT Edge devices](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). They are composed of two parts:
+ASA Edge jobs run in containers deployed to [Azure IoT Edge devices](../iot-edge/about-iot-edge.md). They are composed of two parts:
 1.	A cloud part that is responsible for job definition: users define inputs, output, query, and other settings (out of order events, etc.) in the cloud.
 2.	A module running on your IoT devices. It contains the ASA engine and receives the job definition from the cloud. 
 
-ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](../iot-edge/module-deployment-monitoring.md).
 
 ![Azure Stream Analytics Edge job](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
@@ -43,24 +43,24 @@ The high-level steps are described in the following table. More details are give
 | --- | --- |
 | **Create a storage container** | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container. |
 | **Create an ASA edge job** | Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices. |
-| **Setup your IoT Edge environment on your device(s)** | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
+| **Setup your IoT Edge environment on your device(s)** | Instructions for [Windows](../iot-edge/quickstart.md) or [Linux](../iot-edge/quickstart-linux.md).|
 | **Deploy ASA on your IoT Edge device(s)** | ASA job definition is exported to the storage container created earlier. |
 
-You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
+You can follow [this step-by-step tutorial](../iot-edge/tutorial-deploy-stream-analytics.md) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
 #### Create a storage container
 A storage container is required in order to export the ASA compiled query and the job configuration. It is used to configure the ASA Docker image with your specific query. 
-1. Follow [these instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to create a storage account from the Azure portal. You can keep all default options to use this account with ASA.
+1. Follow [these instructions](../storage/common/storage-account-create.md) to create a storage account from the Azure portal. You can keep all default options to use this account with ASA.
 2. In the newly created storage account, create a blob storage container:
     1. Click on **Blobs**, then **+ Container**. 
     2. Enter a name and keep the container as **Private**.
 
 #### Create an ASA Edge job
 > [!Note]
-> This tutorial focuses on ASA job creation using Azure portal. You can also [use Visual Studio plugin to create an ASA Edge job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+> This tutorial focuses on ASA job creation using Azure portal. You can also [use Visual Studio plugin to create an ASA Edge job](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 
 1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
@@ -76,7 +76,7 @@ A storage container is required in order to export the ASA compiled query and th
 4. Set the storage container information in the **IoT Edge settings** menu.
 
 5. Set optional settings
-    1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+    1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Locale**. Set the internalization format.
 
 
@@ -93,7 +93,7 @@ For this, you need to follow these steps:
 - Install Docker and IoT Edge runtime on your edge devices.
 - Set your devices as **IoT Edge devices** in IoT Hub.
 
-These steps are described in the IoT Edge documentation for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
+These steps are described in the IoT Edge documentation for [Windows](../iot-edge/quickstart.md) or [Linux](../iot-edge/quickstart-linux.md).  
 
 
 ####  Deployment ASA on your IoT Edge device(s)
@@ -110,11 +110,11 @@ These steps are described in the IoT Edge documentation for [Windows](https://do
 > When you update an IoT Edge job, the SAS will change, but the image version will not change. Once you **Update**, follow the deployment workflow, and an update notification is logged on the device.
 
 
-For more information about IoT Edge deployments, see to [this page](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+For more information about IoT Edge deployments, see to [this page](../iot-edge/module-deployment-monitoring.md).
 
 
 ##### Configure routes
-IoT Edge provides a way to declaratively route messages between modules, and between modules and IoT Hub. The full syntax is described [here](https://docs.microsoft.com/azure/iot-edge/module-composition).
+IoT Edge provides a way to declaratively route messages between modules, and between modules and IoT Hub. The full syntax is described [here](../iot-edge/module-composition.md).
 Names of the inputs and outputs created in the ASA job can be used as endpoints for routing.  
 
 ###### Example
@@ -142,7 +142,7 @@ This example defines the following routes:
 ### Current limitations for IoT Edge jobs compared to cloud jobs
 The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query language features are supported, enabling to run the same logic on both cloud and IoT Edge.
 However the following features are not yet supported for edge jobs:
-* User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
+* User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](./stream-analytics-edge-csharp-udf.md) (preview).
 * User-defined aggregates (UDA).
 * Azure ML functions.
 * Using more than 14 aggregates in a single step.
@@ -162,7 +162,7 @@ ASA on IoT Edge is made available as Windows and Linux images, running on both x
 
 ### Input and output
 #### Input and Output Streams
-ASA Edge jobs can get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation](https://docs.microsoft.com/azure/iot-edge/module-composition).
+ASA Edge jobs can get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation](../iot-edge/module-composition.md).
 
 For both inputs and outputs, CSV and JSON formats are supported.
 
@@ -173,7 +173,7 @@ At present, the only supported stream input and stream output types are Edge Hub
 
 
 ##### Reference data
-Reference data (also known as a lookup table) is a finite data set that is static or slow changing in nature. It is used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data JOIN](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. For more information, see the [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md).
+Reference data (also known as a lookup table) is a finite data set that is static or slow changing in nature. It is used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data JOIN](/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. For more information, see the [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md).
 
 Only local reference data is supported. When a job is deployed to IoT Edge device, it loads reference data from the user defined file path.
 
@@ -203,33 +203,33 @@ There are two ways to update the reference data:
 
 This version information was last updated on 2019-06-27:
 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
+   - base image: mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
    - platform:
       - architecture: amd64
       - os: linux
-  
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+ 
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
+   - base image: mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7
    - platform:
       - architecture: arm
       - os: linux
-  
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+ 
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
+   - base image: mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8
    - platform:
-      - architecture: amd64
-      - os: windows
+      - architecture: arm64
+      - os: linux
       
       
 ## Get help
-For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 
-* [More information on Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [ASA on IoT Edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Develop Stream Analytics Edge jobs using Visual Studio tools](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [More information on Azure Iot Edge](../iot-edge/about-iot-edge.md)
+* [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
+* [Develop Stream Analytics Edge jobs using Visual Studio tools](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Implement CI/CD for Stream Analytics using APIs](stream-analytics-cicd-api.md)
 
 <!--Link references-->
@@ -237,5 +237,5 @@ For further assistance, try the [Microsoft Q&A question page for Azure Stream An
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

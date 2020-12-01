@@ -89,7 +89,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
    
    j. **Greater_Than_OR_EQUALS.** Clause returns "true" if the evaluated attribute is greater than or equal to the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
    
-   k. **Includes.** Clause returns "true" if the evaluated attribute contains the string value (case sensitive) as described [here](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Includes.** Clause returns "true" if the evaluated attribute contains the string value (case sensitive) as described [here](/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
@@ -125,4 +125,3 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 * [Account provisioning notifications](../app-provisioning/user-provisioning.md)
 * [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
-

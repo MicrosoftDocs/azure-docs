@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -78,11 +78,11 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, enable
 
 You can use Azure Security Center's Just In Time Network access to limit exposure of Windows virtual machines to the approved IP addresses for a limited period of time. Also, use Azure Security Center Adaptive Network Hardening recommendations for NSG configurations to limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 * [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -144,11 +144,11 @@ If you are using Hybrid Runbook Workers hosted on Azure virtual machines, you ca
 
 **Guidance**: Define and implement standard security configurations for network resources used by Azure Automation with Azure Policy.
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -218,7 +218,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [Supported regions for linked Log Analytics workspace](./how-to/region-mappings.md)
 
-* [Query Update Management Logs](./update-management/update-mgmt-query-logs.md)
+* [Query Update Management Logs](./update-management/query-logs.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -268,7 +268,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Understand log queries in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Understand log queries in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
@@ -518,7 +518,7 @@ However, when using Hybrid Runbook Workers backed by Azure virtual machines and 
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -568,11 +568,11 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure AD RBAC to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least privileged or 'just-enough' access model. When using Hybrid Runbook Workers, leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped RBAC permissions on the identity of the runbook workers.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least privileged or 'just-enough' access model. When using Hybrid Runbook Workers, leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped Azure RBAC permissions on the identity of the runbook workers.
 
-* [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+* [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 * [Runbook permissions for a Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
@@ -598,7 +598,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 When using Hybrid Runbook Workers, the virtual disks on the virtual machines are encrypted at rest using either server-side encryption or Azure disk encryption (ADE). Azure disk encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
-* [Server side encryption of Azure managed disks](../virtual-machines/windows/disk-encryption.md)
+* [Server side encryption of Azure managed disks](../virtual-machines/disk-encryption.md)
 
 * [Azure Disk Encryption for Windows VMs](../virtual-machines/windows/disk-encryption-overview.md)
 
@@ -644,9 +644,9 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 If you are using Hybrid Runbook Workers backed by Azure virtual machines, then use Azure Update Management to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management in Azure](./update-management/update-mgmt-overview.md)
+* [Update Management in Azure](./update-management/overview.md)
 
-* [Manage updates and patches for your VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your VMs](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -658,9 +658,9 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then u
 
 If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you can use Azure Update Management to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allows you to publish custom updates into Windows Server Update Services (WSUS). This scenario enables Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](./update-management/update-mgmt-overview.md)
+* [Update Management solution in Azure](./update-management/overview.md)
 
-* [Manage updates and patches for your Azure VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
+* [Manage updates and patches for your Azure VMs](./update-management/manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -718,7 +718,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -750,7 +750,7 @@ In addition, use the Azure Resource Graph to query/discover resources within sub
 
 * [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -852,7 +852,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 
 * [Azure Web Application Firewall Overview](../web-application-firewall/overview.md)
 
-* [Network security groups](../virtual-network/security-overview.md)
+* [Network security groups](../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
@@ -880,7 +880,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 
 * [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -918,7 +918,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 * [Deploy an Automation Account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -966,9 +966,9 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 When using the Hybrid Runbook Worker feature, ensure you are properly limiting access to the custom OS image located in your storage account so only authorized users may access the image.
 
-* [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -982,7 +982,7 @@ When using the Hybrid Runbook Worker feature, ensure you are properly limiting a
 
 * [How to use Aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1012,7 +1012,7 @@ When using the Hybrid Runbook Worker feature, leverage Azure Security Center to 
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1038,9 +1038,11 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 * [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+* [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

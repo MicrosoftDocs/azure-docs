@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: This article describes how to use time-shifting and Live Outputs to record Live Streams and create on-demand playback.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,13 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-ms.date: 05/07/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # Use time-shifting and Live Outputs to create on-demand video playback
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Azure Media Services, a [Live Output](/rest/api/media/liveoutputs) object is like a digital video recorder that will catch and record your live stream into an asset in your Media Services account. The recorded content is persisted into the container defined by the [Asset](/rest/api/media/assets) resource (the container is in the Azure Storage account attached to your account). The Live Output also allows you to control some properties of the outgoing live stream, like how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR) or when viewers can start watching the live stream. The archive on disk is a circular archive "window" that only holds the amount of content that's specified in the **archiveWindowLength** property of the Live Output. Content that falls outside of this window is automatically discarded from the storage container and isn't recoverable. The archiveWindowLength value represents an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR. The value can be set from a minimum of one minute to a maximum of 25 hours.
 

@@ -11,7 +11,7 @@ ms.date: 01/24/2020
 
 # Azure HDInsight Accelerated Writes for Apache HBase
 
-This article provides background on the **Accelerated Writes** feature for Apache HBase in Azure HDInsight, and how it can be used effectively to improve write performance. **Accelerated Writes** uses [Azure premium SSD managed disks](../../virtual-machines/linux/disks-types.md#premium-ssd) to improve performance of the Apache HBase Write Ahead Log (WAL). To learn more about Apache HBase, see [What is Apache HBase in HDInsight](apache-hbase-overview.md).
+This article provides background on the **Accelerated Writes** feature for Apache HBase in Azure HDInsight, and how it can be used effectively to improve write performance. **Accelerated Writes** uses [Azure premium SSD managed disks](../../virtual-machines/disks-types.md#premium-ssd) to improve performance of the Apache HBase Write Ahead Log (WAL). To learn more about Apache HBase, see [What is Apache HBase in HDInsight](apache-hbase-overview.md).
 
 ## Overview of HBase architecture
 
@@ -27,7 +27,7 @@ If a **RegionServer** crashes or becomes unavailable before the MemStore is flus
 
 ## Accelerated Writes feature in Azure HDInsight for Apache HBase
 
-The Accelerated Writes feature solves the problem of higher write-latencies caused by using Write Ahead Logs that are in cloud storage.  The Accelerated Writes feature for HDInsight Apache HBase clusters, attaches premium SSD-managed disks to every RegionServer (worker node). Write Ahead Logs are then written to the Hadoop File System (HDFS) mounted on these premium managed-disks instead of cloud storage.  Premium managed-disks use Solid-State Disks (SSDs) and offer excellent I/O performance with fault tolerance.  Unlike unmanaged disks, if one storage unit goes down, it won't affect other storage units in the same availability set.  As a result, managed-disks provide low write-latency and better resiliency for your applications. To learn more about Azure-managed disks, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+The Accelerated Writes feature solves the problem of higher write-latencies caused by using Write Ahead Logs that are in cloud storage.  The Accelerated Writes feature for HDInsight Apache HBase clusters, attaches premium SSD-managed disks to every RegionServer (worker node). Write Ahead Logs are then written to the Hadoop File System (HDFS) mounted on these premium managed-disks instead of cloud storage.  Premium managed-disks use Solid-State Disks (SSDs) and offer excellent I/O performance with fault tolerance.  Unlike unmanaged disks, if one storage unit goes down, it won't affect other storage units in the same availability set.  As a result, managed-disks provide low write-latency and better resiliency for your applications. To learn more about Azure-managed disks, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## How to enable Accelerated Writes for HBase in HDInsight
 

@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, cont
 
 Learn how to use HDInsight Spark to train machine learning models for taxi fare prediction using Spark MLlib.
 
-This sample showcases the various steps in the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). A subset of the NYC taxi trip and fare 2013 dataset is used to load, explore and prepare data. Then, using Spark MLlib, binary classification and regression models are trained to predict whether a tip will be paid for the trip and estimate the tip amount.
+This sample showcases the various steps in the [Team Data Science Process](./index.yml). A subset of the NYC taxi trip and fare 2013 dataset is used to load, explore and prepare data. Then, using Spark MLlib, binary classification and regression models are trained to predict whether a tip will be paid for the trip and estimate the tip amount.
 
 ## Prerequisites
 

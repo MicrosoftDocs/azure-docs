@@ -6,6 +6,7 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
+ms.custom: devx-track-csharp
 ---
 # Actor lifecycle, automatic garbage collection, and manual delete
 An actor is activated the first time a call is made to any of its methods. An actor is deactivated (garbage collected by the Actors runtime) if it is not used for a configurable period of time. An actor and its state can also be deleted manually at any time.

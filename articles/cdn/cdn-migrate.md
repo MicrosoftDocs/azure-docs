@@ -38,7 +38,7 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 
 **Azure CDN Premium from Verizon** profiles have the following additional features:
 - [Token authentication](cdn-token-auth.md): Allows users to obtain and use a token to fetch secure resources.
-- [Rules engine](cdn-rules-engine.md): Enables you to customize how HTTP requests are handled.
+- [Rules engine](./cdn-verizon-premium-rules-engine.md): Enables you to customize how HTTP requests are handled.
 - Advanced analytics tools:
    - [Detailed HTTP analytics](cdn-advanced-http-reports.md)
    - [Edge performance analytics](cdn-edge-performance.md)
@@ -46,5 +46,4 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 
 
 ## Next steps
-To learn more about the rules engine, see [Azure CDN rules engine reference](cdn-rules-engine-reference.md).
-
+To learn more about the rules engine, see [Azure CDN rules engine reference](./cdn-verizon-premium-rules-engine-reference.md).

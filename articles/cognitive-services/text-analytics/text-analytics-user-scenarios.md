@@ -24,7 +24,7 @@ Draw insights from customer and employee survey results by processing the raw te
 
 ## Analyze recorded inbound customer calls​
 
-Extract insights from customer services calls using Text to Speech, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​ Send API requests as a batch for reporting, or in real-time for intervention. See the sample code [on GitHub](https://github.com/rlagh2/callcenteranalytics).​
+Extract insights from customer services calls using Speech-to-Text, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​ Send API requests as a batch for reporting, or in real-time for intervention. See the sample code [on GitHub](https://github.com/rlagh2/callcenteranalytics).​
 
 ![An image describing how to automate getting insights from customer service calls using sentiment analysis](media/use-cases/azure-inbound.svg)
 
@@ -36,7 +36,7 @@ Use Key Phrase Extraction and Entity Recognition to process support requests sub
 
 ## Monitor your product's social media feeds​
 
-Monitor user product feedback on your product's twitter or Facebook page. Use the data to analyze customer sentiment toward new products launches, extract key phrases about features and feature requests, or address customer complaints  as they happen. See the example [Microsoft Flow template](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)​.
+Monitor user product feedback on your product's twitter or Facebook page. Use the data to analyze customer sentiment toward new products launches, extract key phrases about features and feature requests, or address customer complaints  as they happen. See the example [Microsoft Power Automate template](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)​.
 
 ![An image describing how to monitor your product and company feedback on social media using key phrase extraction](media/use-cases/social-feed.svg)
 

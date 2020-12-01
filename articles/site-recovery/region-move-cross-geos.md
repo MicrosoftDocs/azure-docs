@@ -1,11 +1,11 @@
 ---
 title: Move Azure VMs between government and public regions with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure VMs between Azure government and public regions.
-author: rajani-janaki-ram
+author: sideeksh
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
-ms.author: rajanaki
+ms.author: sideeksh
 ms.custom: MVC
 ---
 # Move Azure VMs between Azure Government and Public regions 
@@ -47,7 +47,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 ### Set up an Azure network
 

@@ -2,6 +2,7 @@
 title: Release notes for Azure Application Insights | Microsoft Docs
 description: The latest updates for Application Insights SDKs.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 07/27/2020
 
 ---

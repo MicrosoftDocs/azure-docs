@@ -209,6 +209,6 @@ As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for 
 
 ## Next steps
 
-Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD.
+Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD. For information about setting up Azure AD as an identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant-custom.md). 
 
-For information about setting up Azure AD as and identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant-custom.md).
+Visit our [partner gallery](partner-gallery.md) to learn more on how to implement ISV integration using custom policies. 

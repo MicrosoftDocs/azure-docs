@@ -33,9 +33,9 @@ IoT Hub will continue to support TLS 1.0/1.1 until further notice. However, we r
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-## TLS 1.2 ciphers
+## TLS 1.2 cipher suites
 
-See [IoT Hub TLS 1.2 recommended ciphers](iot-hub-tls-support.md#recommended-ciphers).
+See [IoT Hub TLS 1.2 cipher suites](iot-hub-tls-support.md#cipher-suites).
  
 ## Customer feedback
 

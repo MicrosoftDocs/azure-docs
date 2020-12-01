@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp, devx-track-azurecli"
 ---
 
 # Secure access to application data
@@ -156,7 +156,7 @@ The following classes, properties, and methods are used in the preceding task:
 
 [Azure Storage encryption](../common/storage-service-encryption.md) helps you protect and safeguard your data by encrypting data at rest and by handling encryption and decryption. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
-You can choose to have Microsoft manage encryption keys, or you can bring your own keys with customer-managed keys with Azure Key Vault. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md).
+You can choose to have Microsoft manage encryption keys, or you can bring your own keys with customer-managed keys stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview). For more information, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
 
 Azure Storage encryption automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File).
 

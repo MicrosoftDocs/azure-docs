@@ -21,12 +21,16 @@ In this tutorial, you learn how to:
 > * Create a release pipeline in Azure Pipelines
 > * Automatically deploy and upgrade an application
 
+> [!NOTE]
+> The CI/CD NuGet is being deprecated. For information on how to migrate to the latest npm, see the [Continuous integration and deployment overview](cicd-overview.md)
+
 ## Prerequisites
-Before you start, make sure you have the following:
+
+Before you start, make sure you have done the following steps:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
-* Create a [Stream Analytics project in Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Create a [Stream Analytics project in Visual Studio](./stream-analytics-quick-create-vs.md).
 * Create an [Azure DevOps](https://visualstudio.microsoft.com/team-services/) organization.
 
 ## Configure NuGet package dependency
@@ -58,9 +62,9 @@ Share your application source files to a project in Azure DevOps so you can gene
     Publishing the repo creates a new project in your organization with the same name as the local repo. To create the repo in an existing project, click **Advanced** next to **Repository name**, and select a project. You can view your code in the browser by selecting **See it on the web**.
  
 ## Configure continuous delivery with Azure DevOps
-An Azure Pipelines build pipeline describes a workflow comprised of build steps that are executed sequentially. Learn more about [Azure Pipelines build pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
+An Azure Pipelines build pipeline describes a workflow comprised of build steps that are executed sequentially. Learn more about [Azure Pipelines build pipelines](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts).
 
-An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Azure Pipelines [release pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts).
+An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Azure Pipelines [release pipelines](/azure/devops/pipelines/release/define-multistage-release-process?preserve-view=true&view=vsts).
 
 ### Create a build pipeline
 Open a web browser and navigate to the project you just created in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -116,7 +120,7 @@ Open a web browser and navigate to the project you just created in [Azure DevOps
     |Resource Group  |  Enter a resource group name.   |
     |Template  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.json   |
     |Template parameters  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.parameters.json   |
-    |Override template parameters  | Type the template parameters to override in the textbox. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). This property is optional, but your build will result in errors if key parameters are not overridden.    |
+    |Override template parameters  | Type the template parameters to override in the textbox. Example, `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)`. This property is optional, but your build will result in errors if key parameters are not overridden.    |
     
     ![Set properties for Azure Resource Group Deployment](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -146,14 +150,14 @@ Pushing the changes to Azure DevOps Services automatically triggers a build.  Wh
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this tutorial by using the following steps:
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and restart it later when you need. If you are not going to continue to use this job, delete all resources created by this tutorial by using the following steps:
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
 
-To learn more about using Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process, continue to the set up CI/CD pipeline article:
+To learn more about using Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process, continue to the setup CI/CD pipeline article:
 
 > [!div class="nextstepaction"]
 > [Continuously integrate and develop with Stream Analytics tools](stream-analytics-tools-for-visual-studio-cicd.md)

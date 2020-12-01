@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
 ---
 # Tutorial: Configure active geo-replication and failover in the Azure portal (Azure SQL Database)
@@ -29,7 +29,7 @@ To configure active geo-replication by using the Azure portal, you need the foll
 * A database in Azure SQL Database: The primary database that you want to replicate to a different geographical region.
 
 > [!Note]
-> When using Azure portal, you can only create a secondary database within the same subscription as the primary. If a secondary database is required to be in a different subscription, use [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> When using Azure portal, you can only create a secondary database within the same subscription as the primary. If a secondary database is required to be in a different subscription, use [Create Database REST API](/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](/sql/t-sql/statements/alter-database-transact-sql).
 
 ## Add a secondary database
 
@@ -49,12 +49,12 @@ After the secondary is created and seeded, data begins replicating from the prim
     ![Configure geo-replication](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Select or configure the server and pricing tier for the secondary database.
 
-    ![Configure secondary](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![create secondary form](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, click **elastic pool** and select a pool on the target server. A pool must already exist on the target server. This workflow does not create a pool.
 5. Click **Create** to add the secondary.
 6. The secondary database is created and the seeding process begins.
 
-    ![Configure secondary](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![secondaries map](./media/active-geo-replication-configure-portal/seeding0.png)
 7. When the seeding process is complete, the secondary database displays its status.
 
     ![Seeding complete](./media/active-geo-replication-configure-portal/seeding-complete.png)

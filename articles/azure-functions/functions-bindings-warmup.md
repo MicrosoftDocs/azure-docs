@@ -8,6 +8,7 @@ keywords: azure functions, functions, event processing, warmup, cold start, prem
 
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
 ---
@@ -92,10 +93,8 @@ Here's the *function.json* file:
 
 The [configuration](#trigger---configuration) section explains these properties.
 
-Here's C# script code that binds to `HttpRequest`:
-
 ```cs
-public static void Run(ILogger log)
+public static void Run(WarmupContext warmupContext, ILogger log)
 {
     log.LogInformation("Function App instance is warm 🌞🌞🌞");  
 }

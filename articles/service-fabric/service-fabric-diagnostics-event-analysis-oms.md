@@ -38,7 +38,7 @@ In `Summary`, you will see tiles in the form of a graph for each of the solution
 
 The following image shows the home page of the Service Fabric Analytics solution. This home page provides a snapshot view of what's happening in your cluster.
 
-![Service Fabric solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![Screenshot that shows the home page of the Service Fabric Analytics solution.](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  If you enabled diagnostics upon cluster creation, you can see events for 
 

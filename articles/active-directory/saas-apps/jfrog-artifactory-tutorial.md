@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with JFrog Artifactory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and JFrog Artifactory.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 767cb0fc-048c-412b-a8ad-fe52daeeb02d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate JFrog Artifactory with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate JFrog Artifactory with Azure Act
 * Enable your users to be automatically signed-in to JFrog Artifactory with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -97,15 +90,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. JFrog Artifactory application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the edit control called out.](common/edit-attribute.png)
 
 1. In addition to above, JFrog Artifactory application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
 	a. Click the **pen** next to **Groups returned in claim**.
 
-	![image](./media/jfrog-artifactory-tutorial/config04.png)
+	![Screenshot shows User Attributes & Claims with the Edit icon selected.](./media/jfrog-artifactory-tutorial/config04.png)
 
-	![image](./media/jfrog-artifactory-tutorial/config05.png)
+	![Screenshot shows the Group Claims section with All groups selected.](./media/jfrog-artifactory-tutorial/config05.png)
 
 	b. Select **All Groups** from the radio list.
 
@@ -161,13 +154,12 @@ In this section, a user called B.Simon is created in JFrog Artifactory. JFrog Ar
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the JFrog Artifactory tile in the Access Panel, you should be automatically signed in to the JFrog Artifactory for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the JFrog Artifactory tile in the Access Panel, you should be automatically signed in to the JFrog Artifactory for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

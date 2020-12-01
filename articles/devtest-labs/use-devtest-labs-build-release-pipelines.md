@@ -21,7 +21,7 @@ Once the build has been completed successfully, the **release pipeline** will us
 
 One of the necessary premises is that all the information needed to recreate the tested ecosystem is available within the build artifacts, including the configuration of the Azure resources. As Azure resources incur a cost when used, companies want to either control or track the use of these resources. In some situations, Azure Resource Manager templates that are used to create and configure the resources may be managed by another department like IT. And, these templates might be stored in a different repository. It leads to an interesting situation where a build will be created and tested, and both the code and the configuration will need to be stored within the build artifacts to properly recreate the system in production. 
 
-Using DevTest Labs during the build/test phase, you can add Azure Resource Manager templates and supporting files to the build sources so that during the release phase the exact configuration used to test with is deployed to production. The **Create Azure DevTest Labs Environment** task with the proper configuration will save the Resource Manager templates within the build artifacts. For this example, you’ll be using the code from the [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md), to deploy and test the web app in Azure.
+Using DevTest Labs during the build/test phase, you can add Azure Resource Manager templates and supporting files to the build sources so that during the release phase the exact configuration used to test with is deployed to production. The **Create Azure DevTest Labs Environment** task with the proper configuration will save the Resource Manager templates within the build artifacts. For this example, you’ll be using the code from the [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md), to deploy and test the web app in Azure.
 
 ![Overall flow](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -35,7 +35,7 @@ There are a couple of items that need to be created beforehand:
 The build pipeline will create a DevTest Labs environment and deploy the code for testing.
 
 ## Set up a build pipeline
-In Azure Pipelines, create a build pipeline using the code from the [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use the **ASP.NET Core** template, which will populate the necessary task to build, test, and publish the code.
+In Azure Pipelines, create a build pipeline using the code from the [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Use the **ASP.NET Core** template, which will populate the necessary task to build, test, and publish the code.
 
 ![Select the ASP.NET template](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 

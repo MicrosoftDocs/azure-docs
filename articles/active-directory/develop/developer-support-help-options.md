@@ -58,7 +58,7 @@ If you can't find an answer to your question through search, submit a new questi
 | ADAL library | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL library     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
 | OWIN middleware  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
+| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
 | Any other area related to authentication or authorization topics | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |

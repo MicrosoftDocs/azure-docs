@@ -1,6 +1,8 @@
 ---
 title: Import document format guidelines - QnA Maker
-description: Understand how the types of URLs are used to import and create QnA pairs.
+description: Use these guidelines for importing documents to get the best results for your content.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
 ---
@@ -15,7 +17,7 @@ After importing a file or URL, QnA Maker converts and stores your content in the
 
 If you add or edit your content directly in your knowledge base, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. QnA Maker supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers.
 
-See a full list of [content types and examples](./Concepts/content-types.md#file-and-url-data-types).
+See a full list of [content types and examples](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base).
 
 ## Basic document formatting
 
@@ -111,4 +113,4 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 ## Next steps
 
-See a full list of [content types and examples](./Concepts/content-types.md#file-and-url-data-types)
+See a full list of [content types and examples](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)

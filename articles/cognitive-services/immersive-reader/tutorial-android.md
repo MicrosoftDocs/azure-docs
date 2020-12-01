@@ -25,7 +25,7 @@ In the [overview](./overview.md), you learned about what the Immersive Reader is
 > * Acquire an access token.
 > * Start the Immersive Reader with sample content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

@@ -21,6 +21,7 @@ The template is as follows
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -31,7 +32,7 @@ The template is as follows
 }
 ```
 
-A CreateUiDefinition always contains three properties: 
+A `CreateUiDefinition` always contains three properties:
 
 * handler
 * version
@@ -39,11 +40,86 @@ A CreateUiDefinition always contains three properties:
 
 The handler should always be `Microsoft.Azure.CreateUIDef`, and the latest supported version is `0.1.2-preview`.
 
-The schema of the parameters property depends on the combination of the specified handler and version. For managed applications, the supported properties are `basics`, `steps`, `outputs`, and `config`. The basics and steps properties contain the [elements](create-uidefinition-elements.md) - like textboxes and dropdowns - to be displayed in the Azure portal. The outputs property is used to map the output values of the specified elements to the parameters of the Azure Resource Manager template. You use `config` only when you need to override the default behavior of the `basics` step.
+The schema of the parameters property depends on the combination of the specified handler and version. For managed applications, the supported properties are `config`, `basics`, `steps`, and `outputs`. You use `config` only when you need to override the default behavior of the `basics` step. The basics and steps properties contain the [elements](create-uidefinition-elements.md) - like textboxes and dropdowns - to be displayed in the Azure portal. The outputs property is used to map the output values of the specified elements to the parameters of the Azure Resource Manager template.
 
 Including `$schema` is recommended, but optional. If specified, the value for `version` must match the version within the `$schema` URI.
 
 You can use a JSON editor to create your createUiDefinition then test it in the [createUiDefinition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
+
+## Config
+
+The `config` property is optional. Use it to either override the default behavior of the basics step, or to set your interface as a step-by-step wizard. If `config` is used, it's the first property in the **createUiDefinition.json** file's `parameters` section. The following example shows the available properties.
+
+```json
+"config": {
+    "isWizard": false,
+    "basics": {
+        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+        "subscription": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid subscription."
+                    },
+                    {
+                        "permission": "<Resource Provider>/<Action>",
+                        "message": "Must have correct permission to complete this step."
+                    }
+                ]
+            },
+            "resourceProviders": [
+                "<Resource Provider>"
+            ]
+        },
+        "resourceGroup": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid resource group."
+                    }
+                ]
+            },
+            "allowExisting": true
+        },
+        "location": {
+            "label": "Custom label for location",
+            "toolTip": "provide a useful tooltip",
+            "resourceTypes": [
+                "Microsoft.Compute/virtualMachines"
+            ],
+            "allowedValues": [
+                "eastus",
+                "westus2"
+            ],
+            "visible": true
+        }
+    }
+},
+```
+
+### Wizard
+
+The `isWizard` property enables you to require successful validation of each step before proceeding to the next step. When the `isWizard` property isn't specified, the default is **false**, and step-by-step validation isn't required.
+
+When `isWizard` is enabled, set to **true**, the **Basics** tab is available and all other tabs are disabled. When the **Next** button is selected the tab's icon indicates if a tab's validation passed or failed. After a tab's required fields are completed and validated the **Next** button allows navigation to the next tab. When all tabs pass validation, you can go to the **Review and Create** page and select the **Create** button to begin the deployment.
+
+:::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Tab wizard":::
+
+### Override basics
+
+The basics config lets you customize the basics step.
+
+For `description`, provide a markdown-enabled string that describes your resource. Multi-line format and links are supported.
+
+The `subscription` and `resourceGroup` elements enable you to specify additional validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.  
+
+The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.  
+
+The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.  
+
+For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown.  
 
 ## Basics
 
@@ -67,61 +143,6 @@ The following example shows a text box that has been added to the default elemen
     }
 ]
 ```
-
-## Config
-
-You specify the config element when you need to override the default behavior for the basics steps. The following example shows the available properties.
-
-```json
-"config": {  
-    "basics": {  
-        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
-        "subscription": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
-                    },
-                    {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
-                    }
-                ]
-            },
-            "resourceProviders": [ "<Resource Provider>" ]
-        },
-        "resourceGroup": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
-                    }
-                ]
-            },
-            "allowExisting": true
-        },
-        "location": {  
-            "label": "Custom label for location",  
-            "toolTip": "provide a useful tooltip",  
-            "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
-            "allowedValues": [ "eastus", "westus2" ],  
-            "visible": true  
-        }  
-    }  
-},  
-```
-
-For `description`, provide a markdown-enabled string that describes your resource. Multi-line format and links are supported.
-
-For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown.  
-
-The `subscription` and `resourceGroup` elements enable you to specify additional validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.  
-
-The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.  
-
-The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.  
 
 ## Steps
 

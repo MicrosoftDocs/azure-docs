@@ -1,6 +1,6 @@
 ---
 title: Tutorial to order Azure Data Box Heavy | Microsoft Docs
-description: Learn the deployment prerequisites and how to order an Azure Data Box Heavy
+description: In this tutorial, learn about Azure Data Box Heavy, a hybrid solution that allows you to import on-premises data into Azure, and how to order Data Box Heavy.
 services: databox
 author: alkohli
 

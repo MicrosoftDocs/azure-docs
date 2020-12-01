@@ -109,11 +109,11 @@ Redis is an in-memory data store. Data is kept on the physical or virtual machin
 
 Caches in the Standard and Premium tiers offer much higher resiliency against data loss by using two VMs in a replicated configuration. When the primary node in such a cache fails, the replica node takes over to serve data automatically. These VMs are located on separate domains for faults and updates, to minimize the chance of both becoming unavailable simultaneously. If a major datacenter outage happens, however, the VMs might still go down together. Your data will be lost in these rare cases.
 
-Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) to improve protection of your data against these infrastructure failures.
+Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](./cache-how-to-geo-replication.md) to improve protection of your data against these infrastructure failures.
 
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
-- [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
-- [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+- [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands)

@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Script Sample - Set up rate limit policy | Microsoft Docs
-description: Azure PowerShell Script Sample - Set up rate limit policy
+description: Learn how to set up rate limit policy with Azure PowerShell. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Set up rate limit policy
 
-This sample script sets up  rate limit policy. 
+This sample script sets up rate limit policy. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

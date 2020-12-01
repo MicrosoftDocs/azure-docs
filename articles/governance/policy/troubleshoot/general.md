@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with creating policy definitions, the various SDK, and the add-on for Kubernetes.
-ms.date: 05/22/2020
+ms.date: 10/30/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Policy
 
 You may run into errors when creating policy definitions, working with SDK, or setting up the
 [Azure Policy for Kubernetes](../concepts/policy-for-kubernetes.md) add-on. This article describes
-various errors that may occur and how to resolve them.
+various general errors that may occur and how to resolve them.
 
 ## Finding error details
 
@@ -62,7 +62,7 @@ become available in Azure portal or SDK. To start a new evaluation scan with Azu
 REST API, see
 [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### Scenario: Evaluation not as expected
+### Scenario: Compliance not as expected
 
 #### Issue
 
@@ -76,15 +76,32 @@ operate as intended.
 
 #### Resolution
 
-- For a non-compliant resource that was expected to be compliant, start by
-  [determining reasons for non-compliance](../how-to/determine-non-compliance.md). The comparison of
-  the definition to the evaluated property value indicates why a resource was non-compliant.
-- For a compliant resource that was expected to be non-compliant, read the policy definition
-  condition by condition and evaluate against the resources properties. Validate that logical
-  operators are grouping the right conditions together and that your conditions aren't inverted.
+Follow these steps to troubleshoot your policy definition:
 
-If compliance for a policy assignment shows `0/0` resources, no resources were determined to be
-applicable within the assignment scope. Check both the policy definition and the assignment scope.
+1. First, wait the appropriate amount of time for an evaluation to complete and compliance results
+   to become available in Azure portal or SDK. To start a new evaluation scan with Azure PowerShell
+   or REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Check that the assignment parameters and assignment scope are set correctly.
+1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
+   - Mode 'all' for all resource types.
+   - Mode 'indexed' if the policy definition checks for tags or location.
+1. Check that the scope of the resource isn't
+   [excluded](../concepts/assignment-structure.md#excluded-scopes) or
+   [exempt](../concepts/exemption-structure.md).
+1. If compliance for a policy assignment shows `0/0` resources, no resources were determined to be
+   applicable within the assignment scope. Check both the policy definition and the assignment
+   scope.
+1. For a non-compliant resource that was expected to be compliant, check
+   [determining reasons for non-compliance](../how-to/determine-non-compliance.md). The comparison
+   of the definition to the evaluated property value indicates why a resource was non-compliant.
+   - If the **target value** is wrong, revise the policy definition.
+   - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
+1. Check [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected) for
+   other common issues and solutions.
+
+If you still have an issue with your duplicated and customized built-in policy definition or custom
+definition, create a support ticket under **Authoring a policy** to route the issue correctly.
 
 ### Scenario: Enforcement not as expected
 
@@ -97,14 +114,33 @@ A resource that's expected to be acted on by Azure Policy isn't and there's no e
 
 The policy assignment has been configured for
 [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) of _Disabled_. While
-enforcement mode is disabled, the policy effect isn't enforced and there is no entry in the Activity
+enforcement mode is disabled, the policy effect isn't enforced and there's no entry in the Activity
 log.
 
 #### Resolution
 
-Update **enforcementMode** to _Enabled_. This change lets Azure Policy act on the resources in this
-policy assignment and send entries to Activity log. If **enforcementMode** is already enabled, see
-[Evaluation not as expected](#scenario-evaluation-not-as-expected) for courses of action.
+Follow these steps to troubleshoot your policy assignment's enforcement:
+
+1. First, wait the appropriate amount of time for an evaluation to complete and compliance results
+   to become available in Azure portal or SDK. To start a new evaluation scan with Azure PowerShell
+   or REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Check that the assignment parameters and assignment scope are set correctly and that
+   **enforcementMode** is _Enabled_. 
+1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
+   - Mode 'all' for all resource types.
+   - Mode 'indexed' if the policy definition checks for tags or location.
+1. Check that the scope of the resource isn't
+   [excluded](../concepts/assignment-structure.md#excluded-scopes) or
+   [exempt](../concepts/exemption-structure.md).
+1. Verify the resource payload matches the policy logic. This can be done by
+   [capturing a HAR trace](../../../azure-portal/capture-browser-trace.md) or reviewing the ARM
+   template properties.
+1. Check [Troubleshoot: Compliance not as expected](#scenario-compliance-not-as-expected) for other
+   common issues and solutions.
+
+If you still have an issue with your duplicated and customized built-in policy definition or custom
+definition, create a support ticket under **Authoring a policy** to route the issue correctly.
 
 ### Scenario: Denied by Azure Policy
 
@@ -122,9 +158,9 @@ are prevented from being created or updated.
 
 The error message from a deny policy assignment includes the policy definition and policy assignment
 IDs. If the error information in the message is missed, it's also available in the
-[Activity log](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use this information to get
-more details to understand the resource restrictions and adjust the resource properties in your
-request to match allowed values.
+[Activity log](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use this
+information to get more details to understand the resource restrictions and adjust the resource
+properties in your request to match allowed values.
 
 ## Template errors
 
@@ -150,7 +186,7 @@ Manager to treat the value as a string when processing the template. Azure Polic
 function into the policy definition allowing it to be dynamic as expected. For more information, see
 [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/templates/template-expressions.md).
 
-## Add-on installation errors
+## Add-on for Kubernetes installation errors
 
 ### Scenario: Install using Helm Chart fails on password
 
@@ -187,6 +223,162 @@ The Helm Chart with the name `azure-policy-addon` has already been installed or 
 Follow the directions to
 [remove the Azure Policy for Kubernetes add-on](../concepts/policy-for-kubernetes.md#remove-the-add-on),
 then rerun the `helm install azure-policy-addon` command.
+
+### Scenario: Azure virtual machine user-assigned identities are replaced by system-assigned managed identities
+
+#### Issue
+
+After assigning Guest Configuration policy initiatives to audit settings inside machines, user-assigned managed identities
+that were assigned to the machine are no longer assigned. Only a system-assigned managed identity is
+assigned.
+
+#### Cause
+
+The policy definitions previously used in Guest Configuration DeployIfNotExists definitions ensured that a system-assigned
+identity is assigned to the machine but also removed user-assigned identity assignments.
+
+#### Resolution
+
+The definitions that previously caused this issue appear as \[Deprecated\] and are replaced by policy definitions that manage
+prerequisites without removing user-assigned managed identity. A manual step is required. Delete any existing
+policy assignments that are marked \[Deprecated\] and replace them with the updated prerequisite policy initiative
+and policy definitions that have the same name as the original.
+
+For a detailed narrative, see the following blog post:
+
+[Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+
+## Add-on for Kubernetes general errors
+
+### Scenario: Add-on doesn't work with AKS clusters on version 1.19 (preview)
+
+#### Issue
+
+Version 1.19 clusters return this error via gatekeeper controller and policy webhook pods:
+
+```
+2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
+```
+
+#### Cause
+
+AKS clusers on version 1.19 (preview) isn't yet compatible with the Azure Policy Add-on.
+
+#### Resolution
+
+Avoid using Kubernetes 1.19 (preview) with the Azure Policy Add-on. The add-on can be used with any
+supported generally available version such as 1.16, 1.17, or 1.18.
+
+### Scenario: Add-on is unable to reach the Azure Policy service endpoint due to egress restrictions
+
+#### Issue
+
+The add-on can't reach the Azure Policy service endpoint and returns one of the following errors:
+
+- `failed to fetch token, service not reachable`
+- `Error getting file "Get https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml: dial tcp 151.101.228.133.443: connect: connection refused`
+
+#### Cause
+
+This issues happens when a cluster egress is locked down.
+
+#### Resolution
+
+Ensure the domains and ports in the following articles are open:
+
+- [Required outbound network rules and FQDNs for AKS clusters](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Install Azure Policy Add-on for Azure Arc enabled Kubernetes (preview)](../concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+
+### Scenario: Add-on is unable to reach the Azure Policy service endpoint due to aad-pod-identity configuration
+
+#### Issue
+
+The add-on can't reach the Azure Policy service endpoint and returns one of the following errors:
+
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
+
+#### Cause
+
+This error occurs when _add-pod-identity_ is installed on the cluster and _kube-system_ pods aren't
+excluded in _aad-pod-identity_.
+
+The _aad-pod-identity_ component Node Managed Identity (NMI) pods modify the nodes' iptables to
+intercept calls to Azure Instance Metadata endpoint. This setup means any request that's made to the
+Metadata endpoint is intercepted by NMI even if the pod doesn't use _aad-pod-identity_.
+**AzurePodIdentityException** CRD can be configured to inform _aad-pod-identity_ that any requests
+to metadata endpoint originating from a pod that matches labels defined in CRD should be proxied
+without any processing in NMI.
+
+#### Resolution
+
+Exclude the system pods with `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace
+in _aad-pod-identity_ by configuring the **AzurePodIdentityException** CRD.
+
+For more information, see
+[Disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+
+To configure an exception, see this example:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: mic-exception
+  namespace: default
+spec:
+  podLabels:
+    app: mic
+    component: mic
+---
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: aks-addon-exception
+  namespace: kube-system
+spec:
+  podLabels:
+    kubernetes.azure.com/managedby: aks
+```
+
+### Scenario: The Resource Provider isn't registered
+
+#### Issue
+
+The add-on can reach the Azure Policy service endpoint, but sees the following error:
+
+```
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+#### Cause
+
+The `Microsoft.PolicyInsights` resource provider isn't registered and must be registered for the
+add-on to get policy definitions and return compliance data.
+
+#### Resolution
+
+Register the `Microsoft.PolicyInsights` resource provider. For directions, see
+[Register a resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+### Scenario: The subscript is disabled
+
+#### Issue
+
+The add-on can reach the Azure Policy service endpoint, but sees the following error:
+
+```
+The subscription '{subId}' has been disabled for azure data-plane policy. Please contact support.
+```
+
+#### Cause
+
+This error means the subscription was determined to be problematic and the feature flag
+`Microsoft.PolicyInsights/DataPlaneBlocked` was added to block the subscription.
+
+#### Resolution
+
+Contact feature team `azuredg@microsoft.com` to investigate and resolve this issue. 
 
 ## Next steps
 

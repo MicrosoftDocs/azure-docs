@@ -3,8 +3,8 @@ title: Diagnose performance issues using Azure Application Insights | Microsoft 
 description: Tutorial to find and diagnose performance issues in your application using Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 
 ms.custom: mvc
@@ -98,11 +98,6 @@ Like the data collected for server performance, Application Insights makes all c
 2. Logs opens with a query for each of the views in the panel. The first query shows the duration for different page views over time.
 
 	![Logs query](media/tutorial-performance/10-page-view-logs.png)
-
-3.  Smart Diagnostics is a feature of Logs identifies unique patterns in the data. When you click the Smart Diagnostics dot in the line chart, the same query is run without the records that caused the anomaly. Details of those records are shown in the comment section of the query so you can identify the properties of those page views that are causing the excessive duration.
-
-	![Logs with Smart Diagnostics](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## Next steps
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to create alerts in response to failures.

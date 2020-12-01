@@ -4,7 +4,7 @@ description: Learn about the optional Uptime SLA offering for the Azure Kubernet
 services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Azure Kubernetes Service (AKS) Uptime SLA
@@ -20,9 +20,8 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 ## Region availability
 
-Uptime SLA is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Uptime SLA is available in public regions and Azure Government regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
 ## Limitations

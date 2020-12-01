@@ -5,7 +5,7 @@ author: mhopkins-msft
 
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 12/4/2019
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
@@ -17,26 +17,26 @@ Get started with the Azure Queue storage client library version 12 for Java. Azu
 
 Use the Azure Queue storage client library v12 for Java to:
 
-* Create a queue
-* Add messages to a queue
-* Peek at messages in a queue
-* Update a message in a queue
-* Receive and delete messages from a queue
-* Delete a queue
+- Create a queue
+- Add messages to a queue
+- Peek at messages in a queue
+- Update a message in a queue
+- Receive and delete messages from a queue
+- Delete a queue
 
 Additional resources:
 
-* [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
-* [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
-* [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+- [API reference documentation](/java/api/overview/azure/storage-queue-readme)
+- [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+- [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+- [Samples](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
-* [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) version 8 or above
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+- [Apache Maven](https://maven.apache.org/download.cgi)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure storage account - [create a storage account](../common/storage-account-create.md)
 
 ## Setting up
 
@@ -147,9 +147,9 @@ public class App
 
 Azure Queue storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue storage offers three types of resources:
 
-* The storage account
-* A queue in the storage account
-* Messages within the queue
+- The storage account
+- A queue in the storage account
+- Messages within the queue
 
 The following diagram shows the relationship between these resources.
 
@@ -157,22 +157,22 @@ The following diagram shows the relationship between these resources.
 
 Use the following Java classes to interact with these resources:
 
-* [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): The `QueueClientBuilder` class configures and instantiates a `QueueClient` object.
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): The `QueueServiceClient` allows you to manage the all queues in your storage account.
-* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): The `QueueMessageItem` class represents the individual objects returned when calling [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) on a queue.
+- [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): The `QueueClientBuilder` class configures and instantiates a `QueueClient` object.
+- [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
+- [QueueClient](/java/api/com.azure.storage.queue.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
+- [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): The `QueueMessageItem` class represents the individual objects returned when calling [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) on a queue.
 
 ## Code examples
 
 These example code snippets show you how to do the following actions with the Azure Queue storage client library for Java:
 
-* [Get the connection string](#get-the-connection-string)
-* [Create a queue](#create-a-queue)
-* [Add messages to a queue](#add-messages-to-a-queue)
-* [Peek at messages in a queue](#peek-at-messages-in-a-queue)
-* [Update a message in a queue](#update-a-message-in-a-queue)
-* [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
-* [Delete a queue](#delete-a-queue)
+- [Get the connection string](#get-the-connection-string)
+- [Create a queue](#create-a-queue)
+- [Add messages to a queue](#add-messages-to-a-queue)
+- [Peek at messages in a queue](#peek-at-messages-in-a-queue)
+- [Update a message in a queue](#update-a-message-in-a-queue)
+- [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
+- [Delete a queue](#delete-a-queue)
 
 ### Get the connection string
 
@@ -199,8 +199,7 @@ Decide on a name for the new queue. The code below appends a GUID value to the q
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-
-Create an instance of the [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) class. Then, call the [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) method to create the queue in your storage account.
+Create an instance of the [QueueClient](/java/api/com.azure.storage.queue.queueclient) class. Then, call the [create](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
 
 Add this code to the end of the `main` method:
 
@@ -223,7 +222,7 @@ queueClient.create();
 
 ### Add messages to a queue
 
-The following code snippet adds messages to queue by calling the [sendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) method. It also saves a [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) returned from a `sendMessage` call. The result is used to update the message later in the program.
+The following code snippet adds messages to queue by calling the [sendMessage](/java/api/com.azure.storage.queue.queueclient.sendmessage) method. It also saves a [SendMessageResult](/java/api/com.azure.storage.queue.models.sendmessageresult) returned from a `sendMessage` call. The result is used to update the message later in the program.
 
 Add this code to the end of the `main` method:
 
@@ -240,7 +239,7 @@ SendMessageResult result = queueClient.sendMessage("Third message");
 
 ### Peek at messages in a queue
 
-Peek at the messages in the queue by calling the [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) method. The `peelkMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
+Peek at the messages in the queue by calling the [peekMessages](/java/api/com.azure.storage.queue.queueclient.peekmessages) method. The `peelkMessages` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `main` method:
 
@@ -254,7 +253,7 @@ queueClient.peekMessages(10, null, null).forEach(
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with new content for the message, pass in the message ID and pop receipt by using the `SendMessageResult` that was saved earlier in the code. The message ID and pop receipt identify which message to update.
+Update the contents of a message by calling the [updateMessage](/java/api/com.azure.storage.queue.queueclient.updatemessage) method. The `updateMessage` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with new content for the message, pass in the message ID and pop receipt by using the `SendMessageResult` that was saved earlier in the code. The message ID and pop receipt identify which message to update.
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -262,14 +261,14 @@ System.out.println("\nUpdating the third message in the queue...");
 // Update a message using the result that
 // was saved when sending the message
 queueClient.updateMessage(result.getMessageId(),
-                          result.getPopReceipt(), 
+                          result.getPopReceipt(),
                           "Third message has been updated",
                           Duration.ofSeconds(1));
 ```
 
 ### Receive and delete messages from a queue
 
-Download previously added messages by calling the [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
+Download previously added messages by calling the [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
 The app pauses for user input by calling `System.console().readLine();` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
@@ -294,7 +293,7 @@ queueClient.receiveMessages(10).forEach(
 
 ### Delete a queue
 
-The following code cleans up the resources the app created by deleting the queue using the [​delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--) method.
+The following code cleans up the resources the app created by deleting the queue using the [delete](/java/api/com.azure.storage.queue.queueclient.delete) method.
 
 Add this code to the end of the `main` method:
 
@@ -368,6 +367,6 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for Java cloud developers](https://docs.microsoft.com/azure/developer/java/)
+> [Azure for Java cloud developers](/azure/developer/java/)
 
-* To see more Azure Queue storage sample apps, continue to [Azure Queue storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
+- To see more Azure Queue storage sample apps, continue to [Azure Queue storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

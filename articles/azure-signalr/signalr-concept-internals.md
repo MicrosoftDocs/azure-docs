@@ -4,6 +4,7 @@ description: Learn about Azure SignalR Service internals, the architecture, the 
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
 ---

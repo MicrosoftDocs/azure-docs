@@ -17,7 +17,7 @@ When you set up the appliance, it connects to vCenter Server and starts discover
 
 ## Before you start
 
-If you haven't set up a vCenter user account that Azure Migrate uses for discovery, do that now for [assessment](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) or [agentless migration](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
+If you haven't set up a vCenter user account that Azure Migrate uses for discovery, do that now for [assessment](./tutorial-discover-vmware.md#prepare-vmware) or [agentless migration](./migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## Assign permissions and roles
@@ -56,4 +56,4 @@ The role-based access control setup ensures that the corresponding vCenter user 
 
 ## Next steps
 
-[Set up the appliance](how-to-set-up-appliance-vmware.md), and [start continuous discovery](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
+[Set up the appliance](how-to-set-up-appliance-vmware.md)

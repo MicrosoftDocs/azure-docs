@@ -32,7 +32,7 @@ Knowing the types of operations in advance helps you optimize the design of your
 
 ## Data migration
 
-First, load your data into [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or Azure Blob Storage. Next, use PolyBase to load your data into staging tables. Use the following configuration:
+First, load your data into [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or Azure Blob Storage. Next, use the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (preview) to load your data into staging tables. Use the following configuration:
 
 | Design | Recommendation |
 |:--- |:--- |
@@ -59,8 +59,8 @@ Use the following strategies, depending on the table properties:
 * Make sure that common hash keys have the same data format.
 * Don't distribute on varchar format.
 * Dimension tables with a common hash key to a fact table with frequent join operations can be hash distributed.
-* Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* to analyze any skewness in the data.
-* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* to analyze data movements behind queries, monitor the time broadcast, and shuffle operations take. This is helpful to review your distribution strategy.
+* Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* to analyze any skewness in the data.
+* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* to analyze data movements behind queries, monitor the time broadcast, and shuffle operations take. This is helpful to review your distribution strategy.
 
 Learn more about [replicated tables](design-guidance-for-replicated-tables.md) and [distributed tables](sql-data-warehouse-tables-distribute.md).
 
@@ -104,7 +104,7 @@ For a large batch of updates in your historical data, consider using a [CTAS](sq
 
 ## Maintain statistics
 
- Until auto-statistics are generally available, manual maintenance of statistics is required. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics.
+It's important to update statistics as *significant* changes happen to your data. See [update statistics](sql-data-warehouse-tables-statistics.md#update-statistics) to determine if *significant* changes have occurred. Updated statistics optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics.
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
@@ -116,7 +116,7 @@ Resource groups are used as a way to allocate memory to queries. If you need mor
 
 If you notice that queries take too long, check that your users do not run in large resource classes. Large resource classes consume many concurrency slots. They can cause other queries to queue up.
 
-Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
+Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
 
 Learn more how to work with [resource classes and concurrency](resource-classes-for-workload-management.md).
 

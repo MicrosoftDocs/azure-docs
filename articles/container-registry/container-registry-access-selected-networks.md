@@ -2,7 +2,7 @@
 title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
-ms.date: 05/19/2020
+ms.date: 08/17/2020
 ---
 
 # Configure public IP network rules
@@ -12,6 +12,8 @@ An Azure container registry by default accepts connections over the internet fro
 IP network rules are configured on the public registry endpoint. IP network rules do not apply to private endpoints configured with [Private Link](container-registry-private-link.md)
 
 Configuring IP access rules is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
+
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## Access from selected public network - CLI
 
@@ -56,12 +58,12 @@ az acr network-rule add \
 
 Optionally, disable the public endpoint on the registry. Disabling the public endpoint overrides all firewall configurations. For example, you might want to disable public access to a registry secured in a virtual network using [Private Link](container-registry-private-link.md).
 
+> [!NOTE]
+> If the registry is set up in a virtual network with a [service endpoint](container-registry-vnet.md), disabling access to the registry's public endpoint also disables access to the registry within the virtual network.
+
 ### Disable public access - CLI
 
-To disable public access using the Azure CLI, run [az acr update][az-acr-update] and set `--public-network-enabled` to `false`. 
-
-> [!NOTE]
-> The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
+To disable public access using the Azure CLI, run [az acr update][az-acr-update] and set `--public-network-enabled` to `false`. The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false

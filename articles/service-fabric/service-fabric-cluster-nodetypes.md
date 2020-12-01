@@ -26,7 +26,7 @@ When you scale out a scale set, a new instance is created. The new scale set ins
 
 If you deployed your cluster in the Azure portal or used the sample Azure Resource Manager template, all resources under a resource group are listed. You can see the load balancers for each scale set or node type. The load balancer name uses the following format: **LB-&lt;node type name&gt;**. An example is LB-sfcluster4doc-0, as shown in the following figure:
 
-![Resources][Resources]
+![Screenshot shows a resource group with two load balancers highlighted.][Resources]
 
 ## Service Fabric Virtual Machine Extension
 

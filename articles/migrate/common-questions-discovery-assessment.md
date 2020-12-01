@@ -32,23 +32,34 @@ You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 100
 - Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - You can use a common group with VMware machines only to run both types of assessments. Note that if you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
+ 
+
+## Why is performance data missing for some/all VMs in my assessment report?
+
+For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance cannot collect performance data for the on-premises VMs. Please check:
+
+- If the VMs are powered on for the duration for which you are creating the assessment
+- If only memory counters are missing and you are trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. There is a known issue currently due to which Azure Migrate appliance cannot collect memory utilization for such VMs.
+- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) is allowed.
+
+Note- If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+
+## Why is the confidence rating of my assessment low?
+
+The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+
+- You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you cannot wait for the duration, please change the performance duration to a smaller period and 'Recalculate' the assessment.
+ 
+- Server Assessment is not be able to collect the performance data for some or all the VMs in the assessment period. Please check if the VMs were powered on for the duration of the assessment, outbound connections on ports 443 are allowed. For Hyper-V VMs, if dynamic memory is enabled, memory counters will be missing leading to a low confidence rating. Please 'Recalculate' the assessment to reflect the latest changes in confidence rating. 
+
+- Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
+
+[Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence rating.
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 
 - AVS assessment can be done on groups that have only VMware machines. Please remove any non-VMware machine from the group if you intend to perform an AVS assessment.
 - If you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
-
-## How do I select FTT-RAID level in AVS assessment?
-
-The storage engine used in AVS is vSAN. vSAN storage polices define storage requirements for your virtual machines. These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. These are the available FTT-Raid Combinations: 
-
-**Failures to Tolerate (FTT)** | **RAID Configuration** | **Minimum Hosts Required** | **Sizing consideration**
---- | --- | --- | --- 
-1 | RAID-1 (Mirroring) | 3 | A 100GB VM would consume 200GB.
-1 | RAID-5 (Erasure Coding) | 4 | A 100GB VM would consume 133.33GB
-2 | RAID-1 (Mirroring) | 5 | A 100GB VM would consume 300GB.
-2 | RAID-6 (Erasure Coding) | 6 | A 100GB VM would consume 150GB.
-3 | RAID-1 (Mirroring) | 7 | A 100GB VM would consume 400GB.
 
 ## I can't see some VM types in Azure Government
 
@@ -109,7 +120,7 @@ Import-based Azure VM assessments are assessments created with machines that are
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
 
-For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
+For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 
 ## What is dependency visualization?
@@ -166,13 +177,13 @@ No, the dependency visualization report in agent-based visualization can't be ex
 For agent-based dependency visualization:
 
 - Use a [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- For MMA, [use the command line or automation](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- For MMA, [use the command line or automation](../azure-monitor/platform/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/intigua-for-azure-migration) to deploy the agents.
 
 ## What operating systems does MMA support?
 
-- View the list of [Windows operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
-- View the list of [Linux operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
+- View the list of [Windows operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- View the list of [Linux operating systems that MMA supports](../azure-monitor/platform/log-analytics-agent.md#installation-options).
 
 ## Can I visualize dependencies for more than one hour?
 

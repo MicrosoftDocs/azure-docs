@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault Service Limits - Azure Key Vault | Microsoft Docs
-description: Learn about the service limits for Azure Key Vault.
+description: Learn about service limits for Azure Key Vault, including key transactions and Azure Private Link integration.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin

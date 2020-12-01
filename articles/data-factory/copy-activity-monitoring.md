@@ -6,11 +6,10 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/06/2020
 ms.author: jingwang
 
 ---
@@ -26,7 +25,7 @@ Once you've created and published a pipeline in Azure Data Factory, you can asso
 
 To monitor the Copy activity run, go to your data factory **Author & Monitor** UI. On the **Monitor** tab, you see a list of pipeline runs, click the **pipeline name** link to access the list of activity runs in the pipeline run.
 
-![Monitor copy activity run](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 At this level, you can see links to copy activity input, output, and errors (if the Copy activity run fails), as well as statistics like duration/status. Clicking the **Details** button (eyeglasses) next to the copy activity name will give you deep details on your copy activity execution. 
 
@@ -52,6 +51,8 @@ Copy activity execution details and performance characteristics are also returne
 | dataWritten | The actual mount of data written/committed to the sink. The size may be different from `dataRead` size, as it relates how each data store stores the data. | Int64 value, in bytes |
 | filesRead | The number of files read from the file-based source. | Int64 value (no unit) |
 | filesWritten | The number of files written/committed to the file-based sink. | Int64 value (no unit) |
+| filesSkipped | The number of files skipped from the file-based source. | Int64 value (no unit) |
+| dataConsistencyVerification | Details of data consistency verification where you can see if your copied data has been verified to be consistent between source and destination store. Learn more from [this article](copy-activity-data-consistency.md#monitoring). | Array |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int64 value (no unit) |
 | sinkPeakConnections | Peak number of concurrent connections established to the sink data store during the Copy activity run. | Int64 value (no unit) |
 | rowsRead | Number of rows read from the source. This metric does not apply when copying files as-is without parsing them, for example, when source and sink datasets are binary format type, or other format type with identical settings. | Int64 value (no unit) |
@@ -61,15 +62,17 @@ Copy activity execution details and performance characteristics are also returne
 | throughput | Rate of data transfer. | Floating point number, in KBps |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int32 value (no unit) |
 | sinkPeakConnections| Peak number of concurrent connections established to the sink data store during the Copy activity run.| Int32 value (no unit) |
-| sqlDwPolyBase | Whether PolyBase is used when data is copied into SQL Data Warehouse. | Boolean |
+| sqlDwPolyBase | Whether PolyBase is used when data is copied into Azure Synapse Analytics (formerly SQL Data Warehouse). | Boolean |
 | redshiftUnload | Whether UNLOAD is used when data is copied from Redshift. | Boolean |
 | hdfsDistcp | Whether DistCp is used when data is copied from HDFS. | Boolean |
 | effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
-| redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](copy-activity-overview.md#fault-tolerance). | Text (string) |
+| logPath | Path to the session log of skipped data in the blob storage. See [Fault tolerance](copy-activity-overview.md#fault-tolerance). | Text (string) |
 | executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change. To better understand how it helps you understand and troubleshoot copy performance, refer to [Monitor visually](#monitor-visually) section. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips) for details. | Array |
+| billingReference | The billing consumption for the given run. Learn more from [Monitor consumption at activity-run level](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Object |
+| durationInQueue | Queueing duration in second before the copy activity starts to execute. | Object |
 
 **Example:**
 
@@ -79,6 +82,7 @@ Copy activity execution details and performance characteristics are also returne
     "dataWritten": 1180089300500,
     "filesRead": 110,
     "filesWritten": 110,
+    "filesSkipped": 0,
     "sourcePeakConnections": 640,
     "sinkPeakConnections": 1024,
     "copyDuration": 388,
@@ -88,6 +92,11 @@ Copy activity execution details and performance characteristics are also returne
     "usedDataIntegrationUnits": 128,
     "billingReference": "{\"activityType\":\"DataMovement\",\"billableDuration\":[{\"Managed\":11.733333333333336}]}",
     "usedParallelCopies": 64,
+    "dataConsistencyVerification": 
+    { 
+        "VerificationResult": "Verified", 
+        "InconsistentData": "None" 
+    },
     "executionDetails": [
         {
             "source": {

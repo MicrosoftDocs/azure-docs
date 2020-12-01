@@ -4,7 +4,7 @@ description: Learn how to deploy a Linux Service Fabric cluster into an existing
 
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Deploy a Linux Service Fabric cluster into an Azure virtual network
 
@@ -36,7 +36,12 @@ For Ubuntu 18.04 LTS:
 * [AzureDeploy.json][template2]
 * [AzureDeploy.Parameters.json][parameters2]
 
-The difference between the two templates is the **vmImageSku** attribute being set to "18.04-LTS" and each node's **typeHandlerVersion** being set to 1.1.
+For Ubuntu 18.04 LTS the difference between the two templates are 
+* the **vmImageSku** attribute being set to "18.04-LTS"
+* each node's **typeHandlerVersion** being set to 1.1
+* Microsoft.ServiceFabric/clusters resource's
+   - **apiVersion** being set to "2019-03-01" or higher
+   - **vmImage** property being set to "Ubuntu18_04"
 
 This template deploys a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
 

@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data
@@ -19,7 +19,7 @@ In this example, we'll use the Cognitive Services for Big Data to add intelligen
 
 ## Prerequisites
 
-* You must have a subscription key for Computer Vision and Cognitive Search. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
+* You must have a subscription key for Computer Vision and Cognitive Search. Follow the instructions in [Create a Cognitive Services account](../../cognitive-services-apis-create-account.md) to subscribe to Computer Vision and get your key.
   > [!NOTE]
   > For pricing information, see [Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
 
@@ -113,4 +113,3 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 ## Next steps
 
 Learn how to use [Cognitive Services for Big Data for Anomaly Detection](anomaly-detection.md).
-

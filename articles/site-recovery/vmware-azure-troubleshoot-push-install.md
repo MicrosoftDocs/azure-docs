@@ -125,6 +125,28 @@ To resolve the error:
 
 This error occurs when the network that the source machine resides isn't found, might have been deleted, or is no longer available. The only way to resolve the error is to ensure that the network exists.
 
+## Check access for network shared folders on source machine (ErrorID: 95105,95523)
+
+Verify if the network shared folders on your virtual machine, are accessible from Process Server (PS) remotely using specified credentials. To confirm access: 
+
+1. Log in to your Process Server machine.
+2. Open File Explorer. In the address bar, type `\\<SOURCE-MACHINE-IP>\C$` and click Enter.
+
+    ![Open folder in PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. File explorer will prompt for credentials. Enter the username and password and click OK. <br><br/>
+
+    ![Provide Credentials](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > If source machine is domain joined, provide the domain name along with user name as `<domainName>\<username>`. If source machine is in work group, provide only the user name.
+
+4. If connection is successful, the folders of source machine will be visible remotely from Process Server.
+
+    ![Visible folders from Source Machine](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+If connection is unsuccessful, please check whether all pre-requisites are met.
+
 ## File and Printer sharing services check (ErrorID: 95105 & 95106)
 
 After a connectivity check, verify if the File and Printer sharing service is enabled on your virtual machine. These settings are required to copy the Mobility agent to the source machine.
@@ -252,6 +274,10 @@ Beginning with the [9.20 version](https://support.microsoft.com/help/4478871/upd
 ## Insufficient space (ErrorID: 95524)
 
 When the Mobility agent is copied to the source machine, at least 100 MB free space is required. Ensure that your source machine has the required amount of free space and retry the operation.
+
+## Low system resources
+
+The possible Error IDs seen for this issue are 95572 and 95573. This issue occurs when the system has low available memory, and is not able to allocate memory for mobility service installation. Ensure that enough memory has been freed up for the installation to proceed and complete successfully.
 
 ## VSS Installation failures
 

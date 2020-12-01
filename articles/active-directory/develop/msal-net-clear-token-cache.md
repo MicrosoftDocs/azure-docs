@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how how to clear the token cache so I can .
 ---
 

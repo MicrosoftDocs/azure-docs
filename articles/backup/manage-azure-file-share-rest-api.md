@@ -41,7 +41,7 @@ The Azure file share backup job is identified by the **jobId** field and can be 
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-The {jobName} is the "jobId" mentioned above. The response is always "200 OK" with the **status** field indicating the status of the job. Once it is "Completed" or "CompletedWithWarnings", the **extendedInfo** section reveals more details about the job.
+The {jobName} is the "jobId" mentioned above. The response is always "200 OK" with the **status** field indicating the status of the job. Once it's "Completed" or "CompletedWithWarnings", the **extendedInfo** section reveals more details about the job.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'

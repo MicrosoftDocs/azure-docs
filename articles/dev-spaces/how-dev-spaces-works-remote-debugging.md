@@ -9,6 +9,8 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 
 # How remote debugging your code with Azure Dev Spaces works
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Kubernetes applications and collaborate with your team on an Azure Kubernetes Service (AKS) cluster. Once your project is running in a dev space, Azure Dev Spaces provides a way to attach to and debug a running application in AKS.
 
 This article describes how remote debugging with Dev Spaces works.
@@ -25,15 +27,7 @@ The debugger image is automatically determined by the client-side tooling. It us
 
 ## Next steps
 
-To get started using Azure Dev Spaces to for remote debugging your project, see the following quickstarts:
+Learn more about how Azure Dev Spaces works.
 
-* [Rapidly iterate and debug with Visual Studio Code and Java][quickstart-java]
-* [Rapidly iterate and debug with Visual Studio Code and .NET][quickstart-netcore]
-* [Rapidly iterate and debug with Visual Studio Code and Node.js][quickstart-node]
-* [Rapidly iterate and debug with Visual Studio and .NET Core][quickstart-vs]
-
-
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
+> [!div class="nextstepaction"]
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)

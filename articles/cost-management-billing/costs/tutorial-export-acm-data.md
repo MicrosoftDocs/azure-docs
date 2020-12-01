@@ -3,9 +3,10 @@ title: Tutorial - Create and manage exported data from Azure Cost Management
 description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
 ---
@@ -44,40 +45,110 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a daily export
 
-To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Settings** and then **Exports** and then choose an export option.
+### [Portal](#tab/azure-portal)
+
+To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Settings**, then **Exports**.
 
 > [!NOTE]
-> - Besides subscriptions, you can create exports on resource groups, accounts, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+> - Besides subscriptions, you can create exports on resource groups, management groups, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 >- When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 
-Select **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Select **Next**.
-
-[![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
-
-Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to. Select **Next**.
-
-![New export example showing storage account details](./media/tutorial-export-acm-data/storage_exports.png)
-
-Review your export details and select **Create**.
+1. Select **Add** and type a name for the export. 
+1. For the **Metric**, make a selection:
+    - **Actual cost (Usage and Purchases)** - Select to export standard usage and purchases
+    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations
+1. For **Export type**, make a selection:
+    - **Daily export of month-to-date costs** – Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
+    - **Weekly export of cost for the last seven days** – Creates a weekly export of your costs for the past seven days from the selected start date of your export.  
+    - **Monthly export of last month's costs** – Provides you with an export of your last month's costs compared to the current month that you create the export. Moving forward, the schedule runs an export on the fifth day of every new month with your previous months costs.  
+    - **One-time export** – Allows you to choose a date range for historical data to export to Azure blob storage. You can export a maximum of 90 days of historical costs from the day you choose. This export runs immediately and is available in your storage account within two hours.  
+        Depending on your export type, either choose a start date, or choose a **From** and **To** date.
+1. Specify the subscription for your Azure storage account, then select a resource group or create a new one. 
+1. Select the storage account name or create a new one. 
+1. Select the location (Azure region).
+1. Specify the storage container and the directory path that you'd like the export file to go to. 
+    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="New export example" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
+1. Review your export details and select **Create**.
 
 Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list and then select either **Disable** or **Delete**.
 
-Initially, it can take one to two hours before the export runs. However, it can take up to four hours before data is shown in exported files.
+Initially, it can take 12-24 hours before the export runs. However, it can take up longer before data is shown in exported files.
+
+### [Azure CLI](#tab/azure-cli)
+
+Start by preparing your environment for the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list) command:
+
+   ```azurecli
+   az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   ```
+
+   >[!NOTE]
+   >
+   >* Besides subscriptions, you can create exports for resource groups and management groups. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+   >* When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
+
+1. Create a resource group or use an existing resource group. To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command:
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. Create a storage account to receive the exports or use an existing storage account. To create a storage account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type ActualCost \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --recurrence Daily \
+   --recurrence-period from="2020-06-01T00:00:00Z" to="2020-10-31T00:00:00Z" \
+   --schedule-status Active --storage-directory demodirectory
+   ```
+
+   For the **--type** parameter, you can choose `ActualCost`, `AmortizedCost`, or `Usage`.
+
+   This example uses `MonthToDate`. The export creates an export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports this month.
+
+1. To see the details of your export operation, use the [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show) command:
+
+   ```azurecli
+   az costmanagement export show --name DemoExport \
+      --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   ```
+
+1. Update an export by using the [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update) command:
+
+   ```azurecli
+   az costmanagement export update --name DemoExport 
+      --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-directory demodirectory02
+   ```
+
+   This example changes the output directory.
+
+>[!NOTE]
+>Initially, it can take 12-24 hours before the export runs. However, it can take longer before data is shown in exported files.
+
+You can delete an export by using the [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete) command:
+
+```azurecli
+az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+---
 
 ### Export schedule
 
-Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each subsequent export occurrence. For example, for a month-to-date export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export is not guaranteed and the exported data is available within four hours of run time."
-Each export creates a new file, so older exports are not overwritten.
+Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each subsequent export occurrence. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export is not guaranteed and the exported data is available within four hours of run time.
 
-There are two types of export options:
-
-**Daily export of month-to-date costs** – The initial export runs immediately. Subsequent exports run the next day at the same time as the initial export. The latest data is aggregated from previous daily exports.
-
-**Custom** – Allows you to schedule weekly and monthly exports with week-to-date and month-to-date options. *The initial export will run immediately.*
-
-If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those types of subscriptions and resource groups, you can create an export that's aligned to your invoice period or to calendar months. To create an export aligned to your invoice month, navigate to **Custom**, then select **Billing-period-to-date**.  To create an export aligned to the calendar month, select **Month-to-date**.
-
-![New export - Basics tab showing a custom weekly week-to-date selection](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
 
@@ -85,10 +156,11 @@ If you have an Enterprise Agreement, then you can use a management group to aggr
 
 Exports for management groups of other subscription types aren't supported.
 
-1. Create a management group and assign subscriptions to it.
-1. In Exports, select **Scope**.
-1. Select **Select this management group**.
-1. Create an export at the scope to get cost management data for the subscriptions in the management group.
+1. If haven't already created a management group, create one group and assign subscriptions to it.
+1. In cost analysis, set the scope to your management group and select **Select this management group**.  
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Example showing the Select this management group option" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+1. Create an export at the scope to get cost management data for the subscriptions in the management group.  
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Example showing the create new export option with a management group scope":::
 
 ## Verify that data is collected
 
@@ -112,16 +184,26 @@ You can also download the exported CSV file in the Azure portal. The following s
 
 1. In cost analysis, select **Settings**, and then select **Exports**.
 1. In the list of exports, select the storage account for an export.
-1. In your storage account, click **Containers**.
+1. In your storage account, select **Containers**.
 1. In list of containers, select the container.
 1. Navigate through the directories and storage blobs to the date you want.
 1. Select the CSV file and then select **Download**.
 
 [![Example export download](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
+## View export run history  
+
+You can view the run history of your scheduled export by selecting an individual export in the exports list page. The exports list page also provides you with quick access to view the run time of your previous exports and the next time and export will run. Here's an example showing the run history.
+
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Screenshot shows the Exports pane.":::
+
+Select an export to view its run history.
+
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Screenshot shows the run history of an export.":::
+
 ## Access exported data from other systems
 
-One of the purposes of exporting your Cost Management data is to access the data from external systems. You might use a dashboard system or other financial system. Such systems vary widely so showing an example wouldn't be practical.  However, you can get started with accessing your data from you applications at [Introduction to Azure Storage](../../storage/common/storage-introduction.md).
+One of the purposes of exporting your Cost Management data is to access the data from external systems. You might use a dashboard system or other financial system. Such systems vary widely so showing an example wouldn't be practical.  However, you can get started with accessing your data from your applications at [Introduction to Azure Storage](../../storage/common/storage-introduction.md).
 
 ## Next steps
 

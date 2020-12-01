@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Cloud Service allocation failure | Microsoft Docs
-description: Troubleshooting allocation failure when you deploy Cloud Services in Azure
+description: Troubleshoot an allocation failure when you deploy Azure Cloud Services. Learn how allocation works and why allocation can fail.
 services: azure-service-management, cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -64,4 +64,4 @@ Here are the common allocation scenarios that cause an allocation request to be 
      ```
    * Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group.
-5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet).

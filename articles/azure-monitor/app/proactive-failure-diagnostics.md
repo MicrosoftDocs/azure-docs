@@ -54,6 +54,7 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 * A comparison of the failure percentage of the last 20 minutes to the rate in the last 40 minutes and the past seven days, and looking for significant deviations that exceed X-times that standard deviation.
 * Using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
 * There is logic that can automatically resolve the fired alert monitor condition, if the issue is no longer detected for 8-24 hours.
+  Note: in the current design. a notification or action will not be sent when a Smart Detection alert is resolved. You can check if a Smart Detection alert was resolved in the Azure portal.
 
 ## Configure alerts
 
@@ -351,10 +352,9 @@ These diagnostic tools help you inspect the data from your app:
 
 * [Metric explorer](../platform/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
-* [Analytics - powerful query language](../log-query/get-started-portal.md)
+* [Analytics - powerful query language](../log-query/log-analytics-tutorial.md)
 
 Smart detections are automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](../platform/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)
-

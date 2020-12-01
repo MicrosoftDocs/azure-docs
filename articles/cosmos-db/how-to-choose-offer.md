@@ -1,14 +1,15 @@
 ---
-title: How to choose the right throughput offer in Azure Cosmos DB
-description: Learn about how to choose between standard (manual) provisioned throughput and autoscale provisioned throughput for your workload. 
+title: How to choose between manual and autoscale on Azure Cosmos DB
+description: Learn how to choose between standard (manual) provisioned throughput and autoscale provisioned throughput for your workload.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
 ---
 
 # How to choose between standard (manual) and autoscale provisioned throughput 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB supports two types or offers of provisioned throughput: standard (manual) and autoscale. Both throughput types are suitable for mission-critical workloads that require high performance and scale, and are backed by the same Azure Cosmos DB SLAs on throughput, availability, latency, and consistency.
 
@@ -32,7 +33,10 @@ The following table shows a high-level comparison between standard (manual) and 
 ## Understand your traffic patterns
 
 ### New applications ###
-If you are building a new application and do not know your traffic pattern yet, you may want to start at the entry point RU/s (or minimum RU/s) to avoid over-provisioning in the beginning. Or, if you have a small application that doesn't need high scale, you may want to provision just the minimum entry point RU/s to optimize cost. In both cases, both standard (manual) or autoscale are suitable. Here's what you should consider:
+
+If you are building a new application and do not know your traffic pattern yet, you may want to start at the entry point RU/s (or minimum RU/s) to avoid over-provisioning in the beginning. Or, if you have a small application that doesn't need high scale, you may want to provision just the minimum entry point RU/s to optimize cost. For small applications with a low expected traffic, you can also consider the [serverless](throughput-serverless.md) capacity mode.
+
+Whether you plan to use standard (manual) or autoscale, here's what you should consider:
 
 If you provision standard (manual) RU/s at the entry point of 400 RU/s, you won't be able to consume above 400 RU/s, unless you manually change the throughput. You'll be billed for 400 RU/s at the standard (manual) provisioned throughput rate, per hour.
 
@@ -46,18 +50,83 @@ If you have an existing application using standard (manual) provisioned throughp
 
 First, find the [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) of your database or container. Normalized utilization is a measure of how much you are currently using your standard (manual) provisioned throughput. The closer the number is to 100%, the more you are fully using your provisioned RU/s. [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) about the metric.
 
-Next, determine how the normalized utilization varies over time. If you see that your normalized utilization is variable or unpredictable, consider enabling autoscale on your database or container. In contrast, if it's steady and predictable, consider remaining on standard (manual) provisioned throughput. 
+Next, determine how the normalized utilization varies over time. Find the highest normalized utilization for each hour. Then, calculate the average normalized utilization across all hours. If you see that your average utilization is less than 66%, consider enabling autoscale on your database or container. In contrast, if the average utilization is greater than 66%, it's recommended to remain on standard (manual) provisioned throughput.
+
+> [!TIP]
+> If your account is configured to use multi-region writes and has more than one region, the rate per 100 RU/s is the same for both manual and autoscale. This means that enabling autoscale incurs no additional cost regardless of utilization. As a result, it is always recommended to use autoscale with multi-region writes when you have more than one region, to take advantage of the savings from paying only for the RU/s your application scales to. If you have multi-region writes and one region, use the average utilization to determine if autoscale will result in cost savings. 
+
+#### Examples
+
+Let's take a look at two different example workloads and analyze if they are suitable for manual or autoscale throughput. To illustrate the general approach, we'll analyze three hours of history to determine the cost difference between using manual and autoscale. For production workloads, it's recommended to use 7 to 30 days of history (or longer if available) to establish a pattern of RU/s usage.
+
+> [!NOTE]
+> All the examples shown in this doc are based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
+
+Assumptions:
+- Suppose we currently have manual throughput of 30,000 RU/s. 
+- Our region is configured with single-region writes, with one region. If we had multiple regions, we would multiply the hourly cost by the number of regions.
+- Use public pricing rates for manual ($0.008 USD per 100 RU/s per hour) and autoscale throughput ($0.012 USD per 100 RU/s per hour) in single-region write accounts. See [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
+
+#### Example 1: Variable workload (autoscale recommended)
+
+First, we look at the normalized RU consumption. This workload has variable traffic, with normalized RU consumption ranging from 6% to 100%. There are occasional spikes to 100% that are hard to predict, but many hours with low utilization. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload_use_autoscale.png" alt-text="Workload with variable traffic - normalized RU consumption between 6% and 100% for all hours":::
+
+Let's compare the cost of provisioning 30,000 RU/s manual throughput, versus setting autoscale max RU/s to 30,000 (scales between 3000 - 30,000 RU/s). 
+
+Now, let's analyze the history. Suppose we have the utilization described in the following table. The average utilization across these three hours is 39%. Because the normalized RU consumption averages to less than 66%, we save by using autoscale. 
+
+Note that in hour 1, when there is 6% usage, autoscale will bill RU/s for 10% of the max RU/s, which is the minimum per hour. Though the cost of autoscale may be higher than manual throughput in certain hours, as long as the average utilization is less than 66% across all hours, autoscale will be cheaper overall.
+
+|Time period  | Utilization |Billed autoscale RU/s  |Option 1: Manual 30,000 RU/s  | Option 2: Autoscale between 3000 - 30,000 RU/s |
+|---------|---------|---------|---------|---------|
+|Hour 1  | 6%  |     3000  |  30,000 * 0.008 / 100 = $2.40        |   3000 * 0.012 / 100 = $0.36      |
+|Hour 2  | 100%  |     30,000    |  30,000 * 0.008 / 100 = $2.40       |  30,000 * 0.012 / 100 = $3.60      |
+|Hour 3 |  11%  |     3300    |  30,000 * 0.008 / 100 = $2.40       |    3300 * 0.012 / 100 = $0.40     |
+|**Total**   |  |        |  $7.20       |    $4.36 (39% savings)    |
+
+#### Example 2: Steady workload (manual throughput recommended)
+
+This workload has steady traffic, with normalized RU consumption ranging from 72% to 100%. With 30,000 RU/s provisioned, this means that we are consuming between 21,600 to 30,000 RU/s.
+
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Workload with steady traffic - normalized RU consumption between 72% and 100% for all hours":::
+
+Let's compare the cost of provisioning 30,000 RU/s manual throughput, versus setting autoscale max RU/s to 30,000 (scales between 3000 - 30,000 RU/s).
+
+Suppose we have the utilization history as described in the table. Our average utilization across these three hours is 88%. Because the normalized RU consumption averages to greater than 66%, we save by using manual throughput.
+
+In general, if the average utilization across all 730 hours in one month is greater than 66%, then we'll save by using manual throughput. 
+
+| Time period | Utilization |Billed autoscale RU/s  |Option 1: Manual 30,000 RU/s  | Option 2: Autoscale between 3000 - 30,000 RU/s |
+|---------|---------|---------|---------|---------|
+|Hour 1  | 72%  |     21,600   |  30,000 * 0.008 / 100 = $2.40        |   21600 * 0.012 / 100 = $2.59      |
+|Hour 2  | 93%  |     28,000    |  30,000 * 0.008 / 100 = $2.40       |  28,000 * 0.012 / 100 = $3.36       |
+|Hour 3 |  100%  |     30,000    |  30,000 * 0.008 / 100 = $2.40       |    30,000 * 0.012 / 100 = $3.60     |
+|**Total**   |  |        |  $7.20       |    $9.55     |
 
 > [!TIP]
 > With standard (manual) throughput, you can use the normalized utilization metric to estimate the actual RU/s you may use if you switch to autoscale. Multiply the normalized utilization at a point in time by the currently provisioned standard (manual) RU/s. For example, if you have provisioned 5000 RU/s, and the normalized utilization is 90%, the RU/s usage is 0.9 * 5000 = 4500 RU/s. 
 If you see that your traffic pattern is variable, but you are over or under provisioned, you may want to enable autoscale and then change the autoscale max RU/s setting accordingly.
+
+#### How to calculate average utilization
+Autoscale bills for the highest RU/s scaled to in an hour. When analyzing the normalized RU consumption over time, it is important to use the highest utilization per hour when calculating the average. 
+
+To calculate the average of the highest utilization across all hours:
+1. Set the **Aggregation** on the Noramlized RU Consumption metric to **Max**.
+1. Select the **Time granularity** to 1 hour.
+1. Navigate to **Chart options**.
+1. Select the bar chart option. 
+1. Under **Share**, select the **Download to Excel** option. From the generated spreadsheet, calculate the average utilization across all hours. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="To see normalized RU consumption by hour, 1) Select time granularity to 1 hour; 2) Edit chart settings; 3) Select bar chart option; 4) Under Share, select Download to Excel option to calculate average across all hours. ":::
 
 ## Measure and monitor your usage
 Over time, after you've chosen the throughput type, you should monitor your application and make adjustments as needed. 
 
 When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/s (**Autoscale Max Throughput**) and the RU/s the system is currently scaled to (**Provisioned Throughput**). Below is an example of a variable or unpredictable workload using autoscale. Note when there isn't any traffic, the system scales the RU/s to the minimum of 10% of the max RU/s, which in this case is 5000 RU/s and 50,000 RU/s, respectively. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Example of workload using autoscale":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Example of workload using autoscale, with autoscale max RU/s of 50,000 RU/s and throughput ranging from 5000 - 50,000 RU/s":::
 
 > [!NOTE]
 > When you use standard (manual) provisioned throughput, the **Provisioned Throughput** metric refers to what you as a user have set. When you use autoscale throughput, this metric refers to the RU/s the system is currently scaled to.

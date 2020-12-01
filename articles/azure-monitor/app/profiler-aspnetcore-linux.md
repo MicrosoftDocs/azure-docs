@@ -2,6 +2,7 @@
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
@@ -102,7 +103,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
     ![Set up the Git repository](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-For more deployment options, see [this article](../../app-service/containers/choose-deployment-type.md).
+For more deployment options, see [App Service documentation](../../app-service/index.yml).
 
 ## Deploy your project
 
@@ -169,4 +170,3 @@ Enable Service Profiler for a containerized ASP.NET Core application](https://gi
 
 Report any issues or suggestions to the Application Insights GitHub repository:
 [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
-

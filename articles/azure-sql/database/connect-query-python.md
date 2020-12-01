@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: seo-python-october2019, sqldbrb=2, tracking-python
+ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 author: stevestein
@@ -124,6 +124,5 @@ Get the connection information you need to connect to the database in Azure SQL 
 ## Next steps
 
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
-- [Microsoft Python drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Microsoft Python drivers for SQL Server](/sql/connect/python/python-driver-for-sql-server/)
 - [Python developer center](https://azure.microsoft.com/develop/python/?v=17.23h)
-

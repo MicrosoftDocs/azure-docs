@@ -10,7 +10,7 @@ ms.author: irenehua
 ---
 
 # Upgrade Azure Public Load Balancer
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
 There are three stages in a upgrade:
 
@@ -29,7 +29,7 @@ An Azure PowerShell script is available that does the following:
 
 ### Caveats\Limitations
 
-* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, refer to [this page](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) for instructions.
+* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, refer to [this page](./upgrade-basicinternal-standard.md) for instructions.
 * The Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
@@ -103,11 +103,11 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
     >For VMs which have Public IPs, you will need to create Standard IP addresses first where same IP address is not guaranteed. Disassociate VMs from Basic IPs and associate them with the newly created Standard IP addresses. Then, you will be able to follow instructions to add VMs into backend pool of Standard Load Balancer. 
 
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
-    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### Create an outbound rule for outbound connection
 
-Follow the [instructions](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) to create an outbound rule so you can
+Follow the [instructions](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) to create an outbound rule so you can
 * Define outbound NAT from scratch.
 * Scale and tune the behavior of existing outbound NAT.
 
