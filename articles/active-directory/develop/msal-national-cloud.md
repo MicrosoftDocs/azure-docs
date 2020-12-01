@@ -46,13 +46,13 @@ After you decide, a special consideration is where you perform your app registra
 
 ### Get an Azure Government subscription
 
-To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
+To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](../../azure-government/compare-azure-government-global-azure.md).
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
 For details about using a national cloud with a particular programming language, choose the tab matching your language:
 
-## [.NET](#tab/donet)
+## [.NET](#tab/dotnet)
 
 You can use MSAL.NET to sign in users, acquire tokens, and call the Microsoft Graph API in national clouds.
 

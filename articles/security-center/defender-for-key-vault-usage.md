@@ -19,7 +19,7 @@ Every alert from Azure Defender for Key Vault, includes the following elements:
 - User Principal Name or IP Address of the suspicious resource
 
 > [!TIP]
-> Based on the *type* of access that occurred, some fields may not be available. For example, if your key vault was accessed by an application, you won't see an associated User Principal Name. If the traffic originated from outside of Azure, you won't see an Object ID.
+> Based on the *type* of access that occurred, some fields might not be available. For example, if your key vault was accessed by an application, you won't see an associated User Principal Name. If the traffic originated from outside of Azure, you won't see an Object ID.
 
 ## Step 1. Contact
 
