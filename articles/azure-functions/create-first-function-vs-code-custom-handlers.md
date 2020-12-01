@@ -2,7 +2,7 @@
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
 ms.topic: quickstart
-ms.date: 11/22/2020
+ms.date: 11/30/2020
 ---
 
 # Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
@@ -21,6 +21,8 @@ There's also a [CLI-based version](create-first-function-cli-node.md) of this ar
 
 Before you get started, make sure you have the following requirements in place:
 
+# [Go](#tab/go)
+
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
@@ -29,13 +31,19 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
 
-# [Go](#tab/go)
-
-[Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.
++ [Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.
 
 # [Rust](#tab/rust)
 
-Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+
++ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
+
++ Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
 
 ---
 
@@ -126,7 +134,7 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     cargo init --name handler
     ```
 
-1. In *Cargo.toml*, add the following dependencies necessary to complete this quickstart.
+1. In *Cargo.toml*, add the following dependencies necessary to complete this quickstart. The example uses the [warp](https://docs.rs/warp/) web server framework.
 
     ```toml
     [dependencies]
@@ -234,13 +242,19 @@ In this section, you publish your project to Azure in a function app running Lin
 
 1. In the integrated terminal, compile the handler to Linux/x64. A binary named `handler` is created in the function app root.
 
-    **macOS or Linux**
+    # [macOS](#tab/macos)
 
     ```bash
     GOOS=linux GOARCH=amd64 go build handler.go
     ```
 
-    **Windows**
+    # [Linux](#tab/linux)
+
+    ```bash
+    GOOS=linux GOARCH=amd64 go build handler.go
+    ```
+
+    # [Windows](#tab/windows)
 
     ```cmd
     set GOOS=linux
@@ -291,7 +305,11 @@ In this section, you create a function app and related resources in your Azure s
 
     + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
-    + **Select Function App in Azure**: Choose `+ Create new Function App (advanced)`. **Important: The `advanced` option is required to ensure you select the correct operating system.**
+    + **Select Function App in Azure**: Choose `+ Create new Function App (advanced)`. 
+    
+        > [!IMPORTANT]
+        > The `advanced` option is required to ensure you select the correct operating system.
+
         ![VS Code - Select advanced create new function app](./media/functions-create-first-function-vs-code/functions-vscode-create-azure-advanced.png)
 
     + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.

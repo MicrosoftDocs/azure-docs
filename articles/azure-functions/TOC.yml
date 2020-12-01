@@ -33,7 +33,7 @@
             href: create-first-function-vs-code-python.md
           - name: TypeScript
             href: create-first-function-vs-code-typescript.md
-          - name: Go / Rust (custom handler)
+          - name: Custom handler (Go/Rust)
             href: create-first-function-vs-code-custom-handlers.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
