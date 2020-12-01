@@ -125,6 +125,8 @@
        href: concepts-supported-versions.md
      - name: Limitations
        href: concepts-limits.md
+     - name: Operational best practices
+       href: concept-operation-excellence-best-practices.md
      - name: Pricing Tiers
        items:
        - name: Pricing tiers
@@ -196,6 +198,10 @@
        - name: Performance recommendations
          href: concepts-performance-recommendations.md
          displayName:  recommendation
+       - name: Monitoring best practices
+         href: concept-monitoring-best-practices.md
+       - name: Performance best practices
+         href: concept-performance-best-practices.md
      - name: Application development
        items:
        - name: Application development overview
@@ -203,7 +209,7 @@
        - name: Drivers and tools compatibility
          href: concepts-compatibility.md
          displayName: drivers, tools
-       - name: Application Best practices
+       - name: Application best practices
          href: app-development-best-practices.md
          displayName: application
        - name: Connection resiliency

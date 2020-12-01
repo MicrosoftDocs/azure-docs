@@ -1,6 +1,6 @@
 ---
-title: Azure Instance Metadata Service 
-description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances.
+title: Azure Instance Metadata Service for Linux
+description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances in Linux.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -15,17 +15,18 @@ ms.reviewer: azmetadatadev
 
 # Azure Instance Metadata Service (IMDS)
 
-The Azure Instance Metadata Service (IMDS) is a REST API that provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
-This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see the [Endpoint Categories Summary](#endpoint-categories).
-Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All endpoints support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
-the Attested category and Network portion of the Instance category support Classic (non-ARM) VMs. The Attested category does so only to a limited extent.
+The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
+This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
-Azure's IMDS is available at a well-known non-routable IP address (`169.254.169.254`) that can only be accessed from within the VM. Communication between the VM and IMDS never leaves the Host.
-Your HTTP clients should bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set (VMSS) instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
+the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
+
+Azure's IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). It can only be accessed from within the VM. Communication between the VM and IMDS never leaves the host.
+Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Security & Authentication
 
-IMDS is only accessible from within a running virtual machine instance on a non-routable IP address. VMs are limited to interacting with metadata/functionality that pertains to themselves. The API is HTTP only and never leaves the host.
+The Instance Metadata Service is only accessible from within a running virtual machine instance on a non-routable IP address. VMs are limited to interacting with metadata/functionality that pertains to themselves. The API is HTTP only and never leaves the host.
 
 In order to ensure that requests are directly intended for IMDS and prevent unintended or unwanted redirection of requests, requests:
 1. **Must** contain the header `Metadata: true`
@@ -150,7 +151,7 @@ would filter to the first element from the `Network.interface` property and retu
 
 ### Data format
 
-By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, endpoints that support response filtering (see [Route Parameters](#route-parameters)) also support the format `text`.
+By default, the IMDS returns data in JSON format (`Content-Type: application/json`). However, endpoints that support response filtering (see [Route Parameters](#route-parameters)) also support the format `text`.
 
 To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
@@ -162,11 +163,11 @@ In json responses, all primitives will be of type `string`, and missing or inapp
 
 ### Versioning
 
-The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#versions) endpoint which can be used to dynamically retrieve the available API versions.
+The IMDS is versioned and specifying the API version in the HTTP request is mandatory. The only exception to this requirement is the [versions](#versions) endpoint which can be used to dynamically retrieve the available API versions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
-When no version is specified, an error is returned with a list of the newest supported versions:
+When you don't specify a version, you get an error with a list of the newest supported versions:
 ```json
 {
     "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
@@ -217,16 +218,16 @@ The service is **generally available** in all Azure Clouds.
 
 ## Root Endpoint
 
-The root endpoint `http://169.254.169.254/metadata`.
+The root endpoint is `http://169.254.169.254/metadata`.
 
 ## Usage
 
-### Accessing Azure Instance Metadata Service
+### Access Azure Instance Metadata Service
 
-To access Instance Metadata Service, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and follow the samples below.
-More examples of how to query IMDS can be found at [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
+To access IMDS, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and use the following samples.
+For more examples, see [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
 
-Below is the sample code to retrieve all metadata for an instance, to see [Endpoint Categories](#endpoint-categories) for an overview of all available features.
+Here's sample code to retrieve all metadata for an instance. To access a specific data source, see [Endpoint Categories](#endpoint-categories) for an overview of all available features.
 
 **Request**
 
@@ -371,9 +372,9 @@ The IMDS API contains multiple endpoint categories representing different data s
 Category Root | Description | Version Introduced
 ----|-------------|-----------------------
 /metadata/attested | See [Attested Data](#attested-data) | 2018-10-01
-/metadata/identity | See [Managed Identity via IMDS](#managed-identity-via-imds) | 2018-02-01
+/metadata/identity | See [Managed Identity via IMDS](#managed-identity) | 2018-02-01
 /metadata/instance | See [Instance Metadata](#instance-metadata) | 2017-04-02
-/metadata/scheduledevents | See [Scheduled Events via IMDS](#scheduled-events-via-imds) | 2017-08-01
+/metadata/scheduledevents | See [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
 /metadata/versions | See [Versions](#versions) | N/A
 
 ## Versions
@@ -672,14 +673,14 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```
 </details>
 
-#### Sample 2: Placement of containers, data-partitions based fault/update domain
+#### Sample 2: Placement of different data replicas
 
 <details>
     <summary>Expand</summary>
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
-or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
+or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) might require you to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
 You can also use [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
-You can query this data directly via the Instance Metadata Service.
+You can query this data directly via IMDS.
 
 **Request**
 
@@ -694,7 +695,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```
 </details>
 
-#### Sample 3: Getting more information about the VM during support case
+#### Sample 3: Get more information about the VM during support case
 
 <details>
     <summary>Expand</summary>
@@ -812,7 +813,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```
 </details>
 
-#### Sample 4: Getting Azure Environment where the VM is running
+#### Sample 4: Get the Azure Environment where the VM is running
 
 <details>
     <summary>Expand</summary>
@@ -829,18 +830,19 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```text
 AzurePublicCloud
 ```
-The cloud and the values of the Azure Environment are listed below.
 
- Cloud   | Azure Environment
+The cloud and the values of the Azure environment are listed here.
+
+ Cloud   | Azure environment
 ---------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[All generally available global Azure regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 </details>
 
-#### Sample 5: Retrieving network information
+#### Sample 5: Retrieve network information
 
 <details>
     <summary>Expand</summary>
@@ -851,9 +853,6 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ```
 
 **Response**
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```json
 {
@@ -883,7 +882,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ```
 </details>
 
-#### Sample 6: Retrieving public IP address
+#### Sample 6: Retrieve public IP address
 
 <details>
     <summary>Expand</summary>
@@ -896,7 +895,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 ### Get Attested Data
 
-Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that their image is running on Azure.
+IMDS helps to provide guarantees that the data provided is coming from Azure. Microsoft signs part of this information, so you can confirm that an image in Azure Marketplace is the one you are running on Azure.
 
 ```bash
 GET /metadata/attested/document
@@ -911,9 +910,6 @@ Name | Required/Optional | Description
 
 #### Response
 
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
-
 ```json
 {
     "encoding":"pkcs7",
@@ -924,16 +920,21 @@ Name | Required/Optional | Description
 > [!NOTE]
 > Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
 
-The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of document. It contains the certificate used for signing along with certain VM-specific details.
+
+For VMs created by using Azure Resource Manager, this includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images.
+
+For VMs created by using the classic deployment model, only the `vmId` is guaranteed to be populated. You can extract the certificate from the response, and use it to confirm that the response is valid and is coming from Azure.
+
 The decoded document contains the following fields:
 
 <details>
     <summary>Expand:</summary>
 
-Data | Description | Version Introduced
+Data | Description | Version introduced
 -----|-------------|-----------------------
-licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
-nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used | 2018-10-01
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs. | 2020-09-01
+nonce | A string that can be optionally provided with the request. If no `nonce` was supplied, the current Coordinated Universal Time timestamp is used. | 2018-10-01
 plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan ID (name), product image or offer (product), and publisher ID (publisher). | 2018-10-01
 timestamp.createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
 timestamp.expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
@@ -965,15 +966,15 @@ Example document:
 
 </details>
 
-#### Sample 1: Validating that the VM is running in Azure
+#### Sample 1: Validate that the VM is running in Azure
 
 <details>
     <summary>Expand:</summary>
 
-Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
+Vendors in Azure Marketplace want to ensure that their software is licensed to run only in Azure. If someone copies the VHD to an on-premises environment, the vendor needs to be able to detect that. Through IMDS, these vendors can get signed data that guarantees response only from Azure.
 
 > [!NOTE]
-> Requires jq to be installed.
+> This sample requires the jq utility to be installed.
 
 **Validation**
 
@@ -1017,7 +1018,7 @@ Verification successful
 }
 ```
 
-Verify that the signature is from Microsoft Azure and check the certificate chain for errors.
+Verify that the signature is from Microsoft Azure, and check the certificate chain for errors.
 
 ```bash
 # Verify the subject name for the main certificate
@@ -1033,44 +1034,46 @@ openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -un
 ```
 
 > [!NOTE]
-> Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
+> Due to IMDS's caching mechanism, a previously cached `nonce` value might be returned.
 
-The nonce in the signed document can be compared if you provided a nonce parameter in the initial request.
+The `nonce` in the signed document can be compared if you provided a `nonce` parameter in the initial request.
 
 > [!NOTE]
-> The certificate for Public cloud and sovereign cloud will be different.
+> The certificate for the public cloud and each sovereign cloud will be different.
 
 Cloud | Certificate
 ------|------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+[All generally available global Azure regions](https://azure.microsoft.com/regions/) | *.metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)          | *.metadata.azure.us
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)     | *.metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                | *.metadata.microsoftazure.de
 
 > [!NOTE]
-> There is a known issue around the certificate used for signing. The certificates may not have an exact match of `metadata.azure.com` for public cloud. Hence the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
+> The certificates might not have an exact match of `metadata.azure.com` for the public cloud. For this reason, the certification validation should allow a common name from any `.metadata.azure.com` subdomain.
 
-In cases where the intermediate certificate cannot be downloaded due to network constraints during validation, the intermediate certificate can be pinned. However, Azure will roll over the certificates as per standard PKI practice. The pinned certificates would need to be updated when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog will be updated and Azure customers will be notified. The intermediate certificates can be found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
+In cases where the intermediate certificate can't be downloaded due to network constraints during validation, you can pin the intermediate certificate. Note that Azure rolls over the certificates, which is standard PKI practice. You need to update the pinned certificates when rollover happens. Whenever a change to update the intermediate certificate is planned, the Azure blog is updated, and Azure customers are notified. 
+
+You can find the intermediate certificates in the [PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
 
 > [!NOTE]
-> The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
-Also if you had pinned the intermediate certificates for Azure China as part of root chain authority change, the intermediate certificates will have to be updated.
+> The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
+If you pinned the intermediate certificates for Azure China as part of a root chain authority change, the intermediate certificates must be updated.
 
 </details>
 
-## Managed Identity via IMDS
+## Managed identity
 
-A system assigned managed identity can be enabled on the VM or one or more user assigned managed identities can be assigned to the VM.
-Tokens for managed identities can then be requested from Instance Metadata Service. These tokens can be used to authenticate with other Azure services such as Azure Key Vault.
+A managed identity, assigned by the system, can be enabled on the VM. You can also assign one or more user-assigned managed identities to the VM.
+You can then request tokens for managed identities from IMDS. Use these tokens to authenticate with other Azure services, such as Azure Key Vault.
 
 For detailed steps to enable this feature, see [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## Scheduled Events via IMDS
-You can obtain the status of the scheduled events via metadata service, then user can specify a set of action to execute upon these events.  See [Scheduled Events](scheduled-events.md) for details.
+## Scheduled events
+You can obtain the status of the scheduled events by using IMDS. Then the user can specify a set of actions to run upon these events. For more information, see [Scheduled events](scheduled-events.md).
 
-## Sample Code in Different Languages
+## Sample code in different languages
 
-Samples of calling metadata service using different languages inside the VM:
+The following table lists samples of calling IMDS by using different languages inside the VM:
 
 Language      | Example
 --------------|----------------
@@ -1085,69 +1088,90 @@ Puppet        | https://github.com/keirans/azuremetadata
 Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 
-## Error and Debugging
+## Errors and debugging
 
 If there is a data element not found or a malformed request, the Instance Metadata Service returns standard HTTP errors. For example:
 
-HTTP Status Code | Reason
-----------------|-------
-200 OK |
+HTTP status code | Reason
+-----------------|-------
+200 OK | The request was successful.
 400 Bad Request | Missing `Metadata: true` header or missing parameter `format=json` when querying a leaf node
 404 Not Found | The requested element doesn't exist
-405 Method Not Allowed | Only `GET` requests are supported
+405 Method Not Allowed | The HTTP method (verb) is not supported on the endpoint.
 410 Gone | Retry after some time for a max of 70 seconds
 429 Too Many Requests | API [Rate Limits](#rate-limiting) has been exceeded
 500 Service Error     | Retry after some time
 
-### Known issues and FAQ
+### Frequently asked questions
 
-1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
-   * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
-1. Why am I not getting compute information for my VM?
-   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager.
-1. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
-1. I am not seeing all data populated for new version
-   * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
-1. Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?
-   * Retry your request based on exponential back off system or other methods described in [Transient fault handling](/azure/architecture/best-practices/transient-faults). If the issue persists create a support issue in Azure portal for the VM.
-1. Would this work for Virtual Machine Scale Set instances?
-   * Yes Metadata service is available for Scale Set instances.
-1. I updated my tags in Virtual Machine Scale Sets but they don't appear in the instances unlike single instance VMs?
-   * Currently tags for Scale Sets only show to the VM on a reboot, reimage, or disk change to the instance.
-1. I get request timed out for my call to the service?
-   * Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally in the case you have changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
-   * <details>
+**I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?**
+
+IMDS requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to IMDS.
+
+**Why am I not getting compute information for my VM?**
+
+Currently, IMDS only supports instances created with Azure Resource Manager.
+
+**I created my VM through Azure Resource Manager some time ago. Why am I not seeing compute metadata information?**
+
+If you created your VM after September 2016, add a [tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+
+**Why am I not seeing all data populated for a new version?**
+
+If you created your VM after September 2016, add a [tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. If you created your VM before September 2016, add or remove extensions or data disks to the VM instance to refresh metadata.
+
+**Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?**
+
+Retry your request. For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults). If the problem persists, create a support issue in the Azure portal for the VM.
+
+**Would this work for virtual machine scale set instances?**
+
+Yes, IMDS is available for virtual machine scale set instances.
+
+**I updated my tags in virtual machine scale sets, but they don't appear in the instances (unlike single instance VMs). Am I doing something wrong?**
+
+Currently tags for virtual machine scale sets only show to the VM on a reboot, reimage, or disk change to the instance.
+
+**Why is my request timed out for my call to the service?**
+
+Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally, if you've changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
+
+  <details>
         <summary>Verifying your routing table</summary>
 
-        1. Dump your local routing table with a command such as `netstat -r` and look for the IMDS entry (e.g.):
+        1. Dump your local routing table and look for the IMDS entry. For example:
             ```console
-            ~$ netstat -r
-            Kernel IP routing table
-            Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-            default         _gateway        0.0.0.0         UG        0 0          0 eth0
-            168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
-            169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
-            172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+            > route print
+            IPv4 Route Table
+            ===========================================================================
+            Active Routes:
+            Network Destination        Netmask          Gateway       Interface  Metric
+                      0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+                    127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+                    127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+              127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+                168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+              169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+            ... (continues) ...
             ```
-        1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (e.g. `eth0`).
-        1. Dump the interface configuration for the corresponding interface in the routing table (note the exact name of the configuration file may vary)
+        1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (for example, `172.16.69.7`).
+        1. Dump the interface configuration and find the interface that corresponds to the one referenced in the routing table, noting the MAC (physical) address.
             ```console
-            ~$ cat /etc/netplan/50-cloud-init.yaml
-            network:
-            ethernets:
-                eth0:
-                    dhcp4: true
-                    dhcp4-overrides:
-                        route-metric: 100
-                    dhcp6: false
-                    match:
-                        macaddress: 00:0d:3a:e4:c7:2e
-                    set-name: eth0
-            version: 2
+            > ipconfig /all
+            ... (continues) ...
+            Ethernet adapter Ethernet:
+
+               Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+               Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+               Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+               DHCP Enabled. . . . . . . . . . . : Yes
+               Autoconfiguration Enabled . . . . : Yes
+               Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+               IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+               Subnet Mask . . . . . . . . . . . : 255.255.255.0
+            ... (continues) ...
             ```
-        1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
-        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure portal or by looking it up [with the Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the CLI). PowerShell CLI example:
+        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC and IP by looking at the network configuration in the Azure portal, or by looking it up with the Azure CLI. Note the public and private IPs (and the MAC address if you're using the CLI). Here's a PowerShell CLI example:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
@@ -1157,22 +1181,21 @@ HTTP Status Code | Reason
                 $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
                 Write-Host $NicName, $Nic.primary, $Nic.macAddress
             }
-            # Output: ipexample606 True 00-0D-3A-E4-C7-2E
+            # Output: wintest767 True 00-0D-3A-E5-1C-C0
             ```
-        1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
-    </details>
+        1. If they don't match, update the routing table so that the primary NIC and IP are targeted.
+  </details>
 
-## Support and Feedback
+## Support
 
-Submit your feedback and comments on https://feedback.azure.com.
+If you aren't able to get a metadata response after multiple attempts, you can create a support issue in the Azure portal.
+For **Problem Type**, select **Management**. For **Category**, select **Instance Metadata Service**.
 
-To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries.
-Use the Problem Type of `Management` and select `Instance Metadata Service` as the Category.
+![Screenshot of Instance Metadata Service support](./media/instance-metadata-service/InstanceMetadata-support.png)
 
-![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png "Screenshot: Opening a support case when having issues with Instance Metadata Service")
+## Next steps
 
-## Next Steps
+[Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-Learn more about:
-1. [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
-1. [Scheduled Events](scheduled-events.md)
+[Scheduled events](scheduled-events.md)
+

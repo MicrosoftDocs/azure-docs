@@ -77,7 +77,7 @@ You can upgrade and downgrade to and from any tier. Upgrading or downgrading can
 If you are scaling from or to the Developer tier, there will be downtime. Otherwise, there is no downtime. 
 
 ## Compute isolation
-If your security requirements include [compute isolation](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, please [create a support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, please [create a support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 
 
