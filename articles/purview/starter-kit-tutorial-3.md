@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ---
 
 # Tutorial: Browse assets in Azure Purview (preview) and view their lineage
@@ -51,32 +51,31 @@ This section shows you how to browse your Azure Purview catalog.
 
    :::image type="content" source="./media/starter-kit-tutorial-3/browse-by-asset-type.png" alt-text="Screenshot showing the Browse by asset type page with Azure Data Lake Gen2 selected.":::
 
-1. Select the **Name** column header to sort the assets alphabetically.
+1. If there are multiple assets, you can select the **Name** column header to sort the assets alphabetically. In this tutorial, there is only one Azure Data Lake Storage Gen2 asset.
 
-1. Browse by using filters in the **Filters** pane. There are many filters you can set, such as **Asset type**, **Classification**, **Label**, **Contact**, and **Glossary term**.
+1. Select the name of the asset.
 
-   :::image type="content" source="./media/starter-kit-tutorial-3/browse-by-filter.png" alt-text="Screenshot showing the Filters pane.":::
+1. Select the **Contoso_GrossProfit_{N}.ssv** resource set. If this asset doesn't exist in your catalog, choose another one.
 
-1. Select the **Contoso_AccountsPayable_{N}** resource set. If this asset doesn't exist in your catalog, choose another one.
+   :::image type="content" source="media/starter-kit-tutorial-3/view-adls-assets.png" alt-text="List of Azure Data Lake Storage Gen2 resources":::
 
 ## View the lineage of assets
 
-On the asset details page, explore the source of the data:
+On the asset details page, explore the source of the data.
 
-1. Select the **Lineage** tab of the **Contoso_AccountsPayable_{N}.ssv** resource set.
+1. Select the **Lineage** tab of the **Contoso_GrossProfit_{N}.ssv** resource set.
 
-   The asset you selected is displayed. The lineage information that you're viewing shows that this resource set was copied from your Azure Blob storage account to Azure Data Lake Storage Gen2.
+   The asset you selected is displayed. The lineage information that you see shows that this resource set was copied from your Azure Blob storage account to Azure Data Lake Storage Gen2.
 
    :::image type="content" source="./media/starter-kit-tutorial-3/view-lineage.png" alt-text="Screenshot showing the Lineage view for the asset.":::
 
-1. Select the other asset on this page, and select the **switch to asset** link.
+1. Select the blob asset on this page, and select the **Switch to asset** link.
 
-   Observe that the window has switched to the Azure Blob resource set, which was the source of the Azure Data Lake Storage Gen2 resource set that you originally browsed for.
+   Observe that the window has switched to the Azure Blob resource set, which was the source of the original Azure Data Lake Storage Gen2.
 
 1. Select the **Overview** tab to investigate the asset and confirm its details.
 
-For information about how to create an Azure Data Factory data flow activity between an Azure Blob and Azure Data Lake Storage Gen2 resource set and observe the lineage, see: [Azure Data Factory data flow activity](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
-
+For information about how to create an Azure Data Factory data flow activity between an Azure Blob and Azure Data Lake Storage Gen2 resource set and observe the lineage, see [Azure Data Factory data flow activity](../data-factory/concepts-data-flow-overview.md).
 
 ## Next steps
 
