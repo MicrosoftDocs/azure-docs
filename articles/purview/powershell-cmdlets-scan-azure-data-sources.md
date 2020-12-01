@@ -3,8 +3,8 @@ title: Use PowerShell cmdlets to scan Azure data sources
 description: Learn how to use PowerShell cmdlets to register and scan Azure data sources.
 author: chandrakavya
 ms.author: kchandra
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: reference
 ms.date: 11/17/2020
 # Customer intent As a data steward, I want to perform scans so that I can classify my data.

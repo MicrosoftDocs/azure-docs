@@ -69,7 +69,9 @@ items:
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
     - name: Manage integration runtimes
-      href: manage-integration-runtimes.md      
+      href: manage-integration-runtimes.md
+    - name: Troubleshoot connection issues
+      href: troubleshoot-connections.md        
     - name: Sources
       items:
       - name: Manage data sources

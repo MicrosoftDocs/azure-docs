@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 11/03/2020
+ms.date: 12/01/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,20 @@ ms.author: marsma
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## November 2020
+
+### New articles
+
+- [How to use Continuous Access Evaluation-enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
+
+### Updated articles
+
+- [Microsoft identity platform access tokens](access-tokens.md)
+- [Application configuration options (MSAL)](msal-client-application-configuration.md)
+- [How to: Provide optional claims to your app](active-directory-optional-claims.md)
+- [Publish your app to the Azure AD app gallery](v2-howto-app-gallery-listing.md)
+- [How to: Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)
 
 ## October 2020
 
@@ -63,23 +77,3 @@ Welcome to what's new in Microsoft identity platform documentation. This article
 - [Quickstart: Configure a client application to access a web API](quickstart-configure-app-access-web-apis.md)
 - [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 - [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-
-## August 2020
-
-### New articles
-
-- [Migrate Android applications that use a broker from ADAL.NET to MSAL.NET](msal-net-migration-android-broker.md)
-- [Handle exceptions and errors in MSAL for Android](msal-android-handling-exceptions.md)
-
-### Updated articles
-
-- [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md)
-- [Use Microsoft Authenticator or Intune Company Portal on Xamarin applications](msal-net-use-brokers-with-xamarin-apps.md)
-- [Configuration requirements and troubleshooting tips for Xamarin Android with MSAL.NET](msal-net-xamarin-android-considerations.md)
-- [Configure a mobile app that calls web APIs](scenario-mobile-app-configuration.md)
-- [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](active-directory-claims-mapping.md)
-- [Microsoft identity platform application authentication certificate credentials](active-directory-certificate-credentials.md)
-- [Redirect URI (reply URL) restrictions and limitations](reply-url.md)
-- [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
-- [Microsoft identity platform videos](identity-videos.md)
-- [Quickstart: Call an ASP.NET web API protected by Microsoft identity platform](quickstart-v2-dotnet-native-aspnet.md)

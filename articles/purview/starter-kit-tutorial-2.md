@@ -1,34 +1,36 @@
 ---
-title: 'Tutorial: Navigate the home page and search for an asset (preview)'
+title: 'Tutorial: Navigate the Azure Purview home page and search for an asset'
 description: This tutorial describes how to use features on the Azure Purview home page and search in the catalog. 
 author: hophan
 ms.author: hophan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 09/28/2020
+ms.date: 12/01/2020
 ---
-# Tutorial: Navigate the home page and search for an asset
+
+# Tutorial: Navigate the Azure Purview (preview) home page and search for an asset
 
 > [!IMPORTANT]
 > Azure Purview is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Become familiar with Azure Purview by navigating the features of the home page and searching for an asset in the catalog.
+In this tutorial, you become familiar with Azure Purview by navigating the features of the home page and searching for an asset in the catalog.
 
-In this tutorial, you learn how to:
+This article is *part 2 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 1: Scan data with Azure Purview](starter-kit-tutorial-1.md)
+
+In this tutorial, you will:
 
 > [!div class="checklist"]
 >
 > * Navigate the Azure Purview home page.
 > * Search for an asset.
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+> * Add an asset owner.
 
 ## Prerequisites
 
-* Complete [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
+* Complete [Tutorial: Scan data with Azure Purview](starter-kit-tutorial-1.md).
 
 ## Sign in to Azure
 
@@ -36,19 +38,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Navigate the Azure Purview home page
 
-Follow these steps to explore the home page:
+The following steps walk you through the Azure Purview home page.
 
-1. Go to your Azure Purview portal at `https://web.babylon.azure.com/resource/<your purview account name>`, and then select **Home**.
+1. Navigate to your Azure Purview resource in the Azure portal and select **Open Purview Studio**. You're automatically taken to your Purview Studio's home page.
 
-   The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 16,000 assets in total and 189 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
+   The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 200 assets in total and 113 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
 
-   :::image type="content" source="./media/starter-kit-tutorial-2/babylon-home-page.png" alt-text="Screenshot showing the Azure Purview home page.":::
+   :::image type="content" source="./media/starter-kit-tutorial-2/purview-home-page.png" alt-text="Screenshot showing the Azure Purview home page.":::
 
-1. To navigate to other areas, select: **Browse by asset type**, **View insights**, or **Manage your data**.
-
-1. Select **Manage your data** > **Data sources**. Two of the data sources are the Azure Blob storage and Azure Data Lake Storage Gen2 accounts that you configured in [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md).
-
-1. Select **Browse by asset type**. The assets include all of your files in the data sources you configured previously.
+1. Select **Browse assets** to see all of your assets.
 
 ## Search for an asset
 
@@ -62,31 +60,21 @@ Before you begin, here's a quick refresher on some fundamental terminology:
 
 * **Asset type**: A grouping of assets and resource sets under a logical name, which usually maps to the name of the data platform.
 
-Follow these steps to search for an asset, pin it, and mark yourself as owner:
+Follow these steps to search for an asset and mark yourself as the owner:
 
-1. In the **Search catalog** box on your home page, start typing *Contoso_*.
+1. In the **Search catalog** box on your home page, enter the name of the resource group that contains your data estate (the resource group you created in the previous tutorial). A list of suggestions will appear.
 
-   If you don't have any assets beginning with *Contoso_*, replace with an asset name that you've scanned before.
-
-   The list of options is displayed based on autocomplete suggestions. As shown by the icons next to the assets, these suggestions come in various asset types, such as Azure Blob storage or Azure SQL storage.
+1. Select **View search results**. Because all of your assets begin with the name of your resource group, they all appear in the search results. Outside of this tutorial, you would search for specific asset names, not resource groups.
 
     :::image type="content" source="./media/starter-kit-tutorial-2/search-suggestions.png" alt-text="Screenshot showing the list of catalog search suggestions.":::
 
-1. In the left pane, in the **Asset type** drop-down list, select **Azure Blob Resource Set**.
+1. You can use the filters in the left navigation to filter by asset type, classification, contact, label, and glossary term.
 
-    All the search suggestions are now of the same type as the Azure Blob resource set.
+## Edit an asset
 
-1. Continue typing to change the search term to *Contoso_s*, and note how the suggestions change.
+1. Select one of the assets from your search results. Then select **Edit**
 
-1. Type *Contoso_CashFlow** to find a single resource set of interest to you. If this particular asset doesn't exist in your catalog, choose another one.
-
-1. Select **Contoso_CashFlow_{N}.json**, or some other resource set.
-
-1. From the top menu, select **Pin**.
-
-    :::image type="content" source="./media/starter-kit-tutorial-2/select-pin.png" alt-text="Screenshot showing how to select the Pin button.":::
-
-1. Select **Edit**, and then enter a **Description** in the **Overview** tab.
+1. On the **Overview** tab, you can add a description.
 
     :::image type="content" source="./media/starter-kit-tutorial-2/overview-tab.png" alt-text="Screenshot showing the Description field on the Overview tab.":::
 
@@ -100,20 +88,15 @@ Follow these steps to search for an asset, pin it, and mark yourself as owner:
 
     The description, owner name, and expert name fields are now populated.
 
-1. To return to the Azure Purview home page, select  **Home** at the top left. Azure displays the asset you created in both the **Recently accessed** and **Pinned assets** lists.
-
-   :::image type="content" source="./media/starter-kit-tutorial-2/pinned-assets-list.png" alt-text="Screenshot showing classifications on the home page.":::
-
-1. To learn about the supported stores and classifications in Azure Purview, under **FAQ/Documentation** at the lower right, select **Supported Stores and Classifications**.
-
 ## Next steps
 
-In this tutorial, you learned how to:
+Before you move on to the next tutorial in this series, take some additional time to explore the Azure Purview home page on your own. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
 > * Navigate the Azure Purview home page.
 > * Search for an asset.
+> * Add an asset owner.
 
 Advance to the next tutorial to learn how to browse for assets in Azure Purview and discover asset lineage.
 

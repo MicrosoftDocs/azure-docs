@@ -3,8 +3,8 @@ title: Create a Custom Classification and classification rule
 description: This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization as well as create custom classification rules in Purview that let you find specified data throughout your data estate.
 author: chandrakavya
 ms.author: kchandra
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/1/2020
 ---

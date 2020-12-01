@@ -3,8 +3,8 @@ title: 'Tutorial: Use the portal to scan Azure data sources'
 description: This tutorial describes how to use the Azure Purview portal to scan Azure data sources.
 author: prmujumd
 ms.author: prmujumd
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/12/2020
 # Customer intent As a data steward, I want to perform scans so that I can classify my data.

@@ -3,8 +3,8 @@ title: Understand search features in Azure Purview
 description: This article explains what search is in Azure Purview.
 author: chanuengg
 ms.author: csugunan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/06/2020
 ---
