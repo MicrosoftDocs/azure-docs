@@ -1,5 +1,5 @@
 ---
-title: Storing and using certificates in Azure Cloud Services (extended support)
+title: Store and use certificates in Azure Cloud Services (extended support)
 description: Processes for storing and using certificates in Azure Cloud Services (extended support)
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Storing and using certificates in Azure Cloud Services (extended support)
+# Store and use certificates in Azure Cloud Services (extended support)
 
 To install certificates on your Cloud Service roles, users need to add the certificates to a Key Vault and reference the certificate thumbprints in the cscfg and osProfile.
 
@@ -28,16 +28,32 @@ To install certificates on your Cloud Service roles, users need to add the certi
  
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image shows importing window in the Azure portal.":::
 
-4.	In your cscfg file, ensure you add the certificate details associated with the role. 
+4.	Add the certificate details associated with the role to the cscfg file.
 
     `<Certificate name="<your cert name>" thumbprint="<thumbprint in Key Vault" thumbprintAlgorithm="sha1" />`
 
-5.	In your template file, add the Key Vault reference. 
+5.	Add the Key Vault reference to the template file.
+    
+    >[!NOTE]
+    > Certificate Identifier should be in the following format: **https://<vaultEndpoint>/secrets/<secretName>/<secretVersion>**
+
+    ```
+    "osProfile": 
+    
+        { "secrets":  
+            [  
+                { "sourceVault": { 
+                     "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/{keyvault-name}"  
+                },  
+    "vaultCertificates": [ 
+            { "certificateUrl": "https://{keyvault-name}.vault.azure.net:443/secrets/ContosoCertificate/{secret-id}"  
+            } 
+        ] 
+    } 
+    ```
 
     - `vaultId` is the Azure Resource Manager ID to your Key Vault. You can find this information by looking in the properties section of the Key Vault. 
     - `vaultSecertUrl` is stored in the certificate of your Key Vault. Browse to your certificate in the Azure portal and copy the **Certificate Identifier**.
-
-    :::image type="content" source="media/certs-and-key-vault-3.png" alt-text="Image shows adding properties to an ARM template.":::
  
 
 ## Next steps

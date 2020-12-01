@@ -8,6 +8,8 @@
     href: deploy-portal.md
   - name: Deploy a Cloud Service - PowerShell
     href: deploy-powershell.md
+  - name: Deploy a Cloud Service - Template
+    href: deploy-template.md
   - name: Deploy a Cloud Service - Visual Studio
     href: deploy-visual-studio.md
 - name: Concepts
@@ -40,6 +42,8 @@
   items:
   - name: Enable Remote Desktop
     href: enable-rdp.md
+  - name: Enable Monitoring
+    href: enable-monitoring.md
   - name: Swap Cloud Service deployments
     href: cloud-services-swap.md
   - name: Update a Cloud Service
