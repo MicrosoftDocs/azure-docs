@@ -1,6 +1,6 @@
 ---
-title: Introduction of Microsoft Spark Utilities
-description: Tutorial of using MSSparkutils in Azure Synapse Analytics notebooks.
+title: Introduction to Microsoft Spark utilities
+description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
 author: ruxu 
 services: synapse-analytics 
 ms.service: synapse-analytics 
@@ -12,7 +12,7 @@ ms.reviewer:
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ---
 
-# Introduction of Microsoft Spark Utilities
+# Introduction to Microsoft Spark Utilities
 
 Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and Synapse pipelines.
 

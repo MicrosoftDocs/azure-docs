@@ -307,7 +307,6 @@
     - name: .NET SDK
       href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
 
-
 - name: Azure Stack Edge Pro - FPGA
   items:
   - name: Overview
