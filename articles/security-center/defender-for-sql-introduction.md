@@ -15,8 +15,6 @@ manager: rkarlin
 
 Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. 
 
-> [!VIDEO <iframe width="560" height="315" src="https://www.youtube.com/embed/V7RdB6RSVpc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
-
 ## Availability
 
 |Aspect|Details|
