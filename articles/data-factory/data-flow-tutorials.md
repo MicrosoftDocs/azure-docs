@@ -1,8 +1,8 @@
 ---
 title: Mapping data flow video tutorials
 description: A list of video tutorials explaining mapping data flow concepts
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 11/02/2020
