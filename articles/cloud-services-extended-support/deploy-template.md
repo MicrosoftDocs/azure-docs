@@ -1,6 +1,6 @@
 ---
-title: Create a Azure Azure Cloud Service (extended support) - Templates
-description: Create a Azure Cloud Service (extended support) using ARM Templates
+title: Create an Azure Cloud Service (extended support) - Templates
+description: Create an Azure Cloud Service (extended support) by using ARM templates
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Create a Cloud Service (extended support) using ARM Templates
+# Create a Cloud Service (extended support) using ARM templates
 
 This tutorial explains how to create a Cloud Service (extended support) deployment using ARM templates. 
 
