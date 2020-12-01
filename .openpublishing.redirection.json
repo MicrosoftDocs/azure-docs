@@ -48431,11 +48431,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/overview-faq.md",
-      "redirect_url": "/azure/synapse-analytics/overview-what-is",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/synapse-analytics/overview-cheat-sheet.md",
       "redirect_url": "/azure/synapse-analytics/overview-terminology",
       "redirect_document_id": false
