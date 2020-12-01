@@ -1,6 +1,6 @@
 ---
-title: Data processed by using serverless SQL pool
-description: This document describes how the data-processed amount is calculated when you query data in your data lake.
+title: Cost management for serverless SQL pool
+description: This document describes how to manage cost of serverless SQL pool and how data processed is calculated when querying data in Azure storage.
 services: synapse analytics 
 author: filippopovic 
 ms.service: synapse-analytics 
@@ -11,7 +11,15 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Data processed by using serverless SQL pool in Azure Synapse Analytics
+# Cost management for serverless SQL pool in Azure Synapse Analytics
+
+This article explains how you can estimate and manage costs for serverless SQL pool in Azure Synapse Analytics:
+- Estimate amount of data processed before issuing a query
+- Use cost control feature to set the budget
+
+Understand that the costs for serverless SQL pool in Azure Synapse Analytics are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you’re billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for serverless SQL pool in Azure Synapse Analytics.
+
+## Data processed
 
 *Data processed* is the amount of data that the system temporarily stores while a query is run. Data processed consists of the following quantities:
 
@@ -79,6 +87,53 @@ This query reads all columns and transfers all data in an uncompressed format. I
 This query reads whole files. The total size of files in storage for this table is 100 KB. Nodes process fragments of this table, and the sum for each fragment is transferred among nodes. The final sum is transferred to your endpoint. 
 
 This query processes slightly more than 100 KB of data. The amount of data processed for this query is rounded up to 10 MB, as specified in the [Rounding](#rounding) section of this article.
+
+## Cost control
+
+Cost control feature in serverless SQL pool enables you to set the budget for amount of data processed. You can set the budget in TB of data processed for a day, week, and month. At the same time you can have one or more budgets set. To configure cost control for serverless SQL pool, you can use Synapse Studio or T-SQL.
+
+## Configure cost control for serverless SQL pool in Synapse Studio
+ 
+To configure cost control for serverless SQL pool in Synapse Studio navigate to Manage item in the menu on the left, than select SQL pool item under Analytics pools. As you hover of serverless SQL pool, you will notice an icon for cost control - click on this icon.
+
+![Cost control navigation](./media/data-processed/cost-control-menu.png)
+
+Once you click on the cost control icon, a side bar will appear:
+
+![Cost control configuration](./media/data-processed/cost-control-sidebar.png)
+
+To set one or more budgets, first click on Enable radio button for a budget you want to set, than enter the integer value in the text box. Unit for the value is TBs. Once you have configured the budgets you wanted click on apply button at the bottom of the side bar. That's it, you budget is now set.
+
+## Configure cost control for serverless SQL pool in T-SQL
+
+To configure cost control for serverless SQL pool in T-SQL, you need to execute one or more of the following stored procedures.
+
+```sql
+sp_set_data_processed_limit
+	@type = N'daily',
+	@limit_tb = 1
+
+sp_set_data_processed_limit
+	@type= N'weekly',
+	@limit_tb = 2
+
+sp_set_data_processed_limit
+	@type= N'monthly',
+	@limit_tb = 3334
+```
+
+To see the current configuration execute the following T-SQL statement:
+
+```sql
+SELECT * FROM sys.configurations
+WHERE name like 'Data processed %';
+```
+
+To see how much data was processed during the current day, week, or month, execute the following T-SQL statement:
+
+```sql
+SELECT * FROM sys.dm_external_data_processed
+```
 
 ## Next steps
 

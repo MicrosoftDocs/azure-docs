@@ -58,6 +58,50 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 ---
 
+## <a name="create-venv"></a>Create and activate a virtual environment
+
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
+
+# [bash](#tab/bash)
+
+```bash
+python -m venv .venv
+```
+
+```bash
+source .venv/bin/activate
+```
+
+If Python didn't install the venv package on your Linux distribution, run the following command:
+
+```bash
+sudo apt-get install python3-venv
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+py -m venv .venv
+```
+
+```powershell
+.venv\scripts\activate
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
+---
+
+You run all subsequent commands in this activated virtual environment. 
+
 ## Create a local function project
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
@@ -152,7 +196,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    The [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) cmdlet.
+    The [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) cmdlet.
 
     ---
 
@@ -188,7 +232,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
     ```
     
     The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. If you are using Python 3.7 or 3.6, change `--runtime-version` to `3.7` or `3.6`, respectively.
@@ -200,6 +244,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     ```
     
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. If you're using Python 3.7 or 3.6, change `-RuntimeVersion` to `3.7` or `3.6`, respectively.
+
     ---
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you.  The `<APP_NAME>` is also the default DNS domain for the function app. 
@@ -224,3 +269,5 @@ In a separate terminal window or in the browser, call the remote function again.
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)

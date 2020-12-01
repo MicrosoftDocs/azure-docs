@@ -206,7 +206,7 @@ You see the syslog entries in your terminal echoed as they are sent to Elasticse
 Edit `/etc/kibana/kibana.yml` and change the IP address Kibana listens on so you can access it from your web browser.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 Start Kibana with the following command:

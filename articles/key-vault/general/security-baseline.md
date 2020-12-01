@@ -341,7 +341,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Not applicable; Azure Key Vault does not have the concept of default passwords as authentication is provided by Active Directory and secured with Role-based access control.
+**Guidance**: Not applicable; Azure Key Vault does not have the concept of default passwords as authentication is provided by Active Directory and secured with Azure role-based access control (Azure RBAC).
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -379,7 +379,7 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management (currently in preview) recommendations to help protect your Event Hub-enabled resources.
 
-Planning a cloud-based Azure Multi-Factor Authentication deployment:
+Planning a cloud-based Azure AD Multi-Factor Authentication deployment:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -394,11 +394,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) configured to log into and configure Key Vault enabled resources. 
+**Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) configured to log into and configure Key Vault enabled resources. 
 
 Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
-Planning a cloud-based Azure Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Planning a cloud-based Azure AD Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 
@@ -442,7 +442,7 @@ What is the location condition in Azure Active Directory Conditional Access?: ht
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Azure role-based access control (Azure RBAC) to administrate sensitive resources.
 
  
 

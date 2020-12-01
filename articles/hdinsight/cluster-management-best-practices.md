@@ -43,7 +43,7 @@ Learn best practices for managing HDInsight clusters.
 
 | Error | More information |
 |---|---|
-| No quota | There are quotas for the number of quotas that you can create on your subscription in each region. For more information, see [Capacity planning: quotas](./hdinsight-capacity-planning.md). |
+| No quota | There are quotas for the number of cores that you can create on your subscription in each region. For more information, see [Capacity planning: quotas](./hdinsight-capacity-planning.md). |
 | No more IP addresses available | Each VNet has a limited number of IP addresses. When you create a HDInsight cluster, each node (including zookeeper and gateway nodes) uses some of these allotted IP addresses. When all of the IP addresses are in use, you will encounter this error.  |
 | Network security group (NSG) rules don't allow communication with HDInsight resource providers | If you use NSGs or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services. For more information, see [Network security group (NSG) service tags for Azure HDInsight](./hdinsight-service-tags.md) |
 | Reuse of cluster name | When you use a cluster name that you have used before, you need to wait X number of minutes before recreating the cluster. Otherwise you will see a message that the resource already exists. |

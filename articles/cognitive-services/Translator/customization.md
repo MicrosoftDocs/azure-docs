@@ -34,28 +34,6 @@ Given the appropriate type and amount of training data it is not uncommon to exp
 
 More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](./custom-translator/overview.md).
 
-
-## Microsoft Translator Hub
-
-> [!NOTE]
-> The legacy Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
-
-## Custom Translator versus Hub
-
-| Feature | Hub | Custom Translator |
-| ------- | :-: | :---------------: |
-|Customization Feature Status    | General Availability    | General Availability |
-| Text API version    | V2 only    | V3 only |
-| SMT customization    | Yes    | No |
-| NMT customization    | No    | Yes |
-| New unified Speech services customization    | No    | Yes |
-| [No Trace](https://www.aka.ms/notrace) | Yes    | Yes |
-
-## Collaborative Translations Framework
-
-> [!NOTE]
-> As of February 1, 2018, AddTranslation() and AddTranslationArray() are no longer available for use with Translator v2.0. These methods will fail and nothing will be written. Translator v3.0 does not support these methods.
-
 ## Next steps
 
 > [!div class="nextstepaction"]

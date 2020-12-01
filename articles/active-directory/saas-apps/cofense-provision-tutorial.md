@@ -34,7 +34,7 @@ This tutorial describes the steps you need to perform in both Cofense Recipient 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A standard operator account in Cofense PhishMe.
 
 ## Step 1. Plan your provisioning deployment
@@ -103,10 +103,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Cofense Recipient Sync in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cofense Recipient Sync for update operations.  Select the **Save** button to commit any changes.
 
-   |Attribute|Type|
-   |---|---|
+   |Attribute|Type|Supported for filtering|
+   |---|---|---|
+   |externalId|String|&check;|
    |userName|String|
-   |externalId|String|
    |active|Boolean|
    |displayName|String|
    |name.formatted|String|

@@ -25,6 +25,10 @@ This article shows examples of the following tasks:
 * Create child runs.
 * Tag and find runs.
 
+> [!TIP]
+> If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
+> If you're looking for information on monitoring models deployed as web services or IoT Edge modules, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+
 ## Prerequisites
 
 You'll need the following items:
@@ -270,7 +274,7 @@ creating a batch of runs is more efficient than creating them one by one.
 
 ### Submit child runs
 
-Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. 
+Child runs can also be submitted from a parent run. This allows you to create hierarchies of parent and child runs. You cannot create a parentless child run: even if the parent run does nothing but launch child runs, it's still necessary to create the hierarchy. The status of all runs are independent: a parent can be in the `"Completed"` successful state even if one or more child runs were canceled or failed.  
 
 You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common desire is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. The below code does the following:
 
@@ -320,6 +324,24 @@ The ``recursive = True`` argument allows you to query a nested tree of children 
 ```python
 print(parent_run.get_children())
 ```
+
+### Log to parent or root run
+
+You can use the `Run.parent` field to access the run that launched the current child run. A common use-case for this is when you wish to consolidate log results in a single place. Note that child runs execute asynchronously and there is no guarantee of ordering or synchronization beyond the ability of the parent to wait for its child runs to complete.
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## Tag and find runs
 

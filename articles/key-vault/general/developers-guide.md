@@ -73,7 +73,7 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 
 ## Manage keys, certificates, and secrets
 
-Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or RBAC (preview).
+Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or Azure RBAC (preview).
 
 **Keys APIs and SDKs**
 
@@ -98,7 +98,7 @@ Access to keys, secrets, and certificates is controlled by data plane. Data plan
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
 
-For more information about Key Vault data plane security, see [Key Vault Data Plane and access policies](./secure-your-key-vault.md#data-plane-and-access-policies) and [Key Vault Data Plane and RBAC(preview)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+For more information about Key Vault data plane security, see [Key Vault Data Plane and access policies](./secure-your-key-vault.md#data-plane-and-access-policies) and [Key Vault Data Plane and Azure RBAC (preview)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
 
 ### Code examples
 

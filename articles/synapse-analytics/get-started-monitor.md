@@ -26,8 +26,7 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 ## Integration
 
 1. Navigate to **Integration > Pipeline**. In this view, you can see every time a pipeline has run in your workspace. 
-1. Find the pipeline that you ran in the previous step and click on its **Pipeline name**.
-1. Now you can see how individual activities inside that pipeline run.
+1. Find the pipeline that you ran in the previous step and click on its **Pipeline name** to view the details.
 1. Click **Breadcrumb bar** near the top of Synapse Studio, click **All pipeline runs** to return to the previous view.
 
 ## Apache Spark Activities
