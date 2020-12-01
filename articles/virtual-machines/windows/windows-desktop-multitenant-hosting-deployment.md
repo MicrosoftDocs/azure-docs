@@ -19,7 +19,7 @@ For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Deskt
 >
 
 ## Deploying Windows 10 Image from Azure Marketplace 
-For Powershell, CLI and Azure Resource Manager template deployments, the Windows 10 image can be found with the following publishername, offer, sku.
+For PowerShell, CLI and Azure Resource Manager template deployments, the Windows 10 image can be found with the following publishername, offer, sku.
 
 | OS  |      PublisherName      |  Offer | Sku |
 |:----------|:-------------:|:------|:------|
@@ -44,7 +44,7 @@ if you are uploading a generalized Windows 10 VHD, please note Windows 10 does n
 Net user <username> /active:yes
 ```
 
-The following powershell snippet is to mark all administrator accounts as active, including the built-in administrator. This example is useful if the built-in administrator username is unknown.
+The following PowerShell snippet is to mark all administrator accounts as active, including the built-in administrator. This example is useful if the built-in administrator username is unknown.
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)
