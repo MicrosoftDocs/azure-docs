@@ -15,7 +15,7 @@ ms.date: 08/13/2020
 
 # Migrate to an Azure resource authoring key
 
-Language Understanding (LUIS) authoring authentication changed from an email account to an Azure resource. Existing LUIS users have been asked to go through the migration process (where they are asked to associate their LUIS apps to an authoring resource) since August 2019. Now, to continue authoring LUIS applications, existing users who have not yet migrated will need to switch to using a LUIS authoring resource.  
+Language Understanding (LUIS) authoring authentication changed from an email account to an Azure resource. Existing LUIS users have been asked to go through the migration process, where they are asked to associate their LUIS apps to an authoring resource, since August 2019. Now, to continue authoring LUIS applications, existing users who have not yet migrated will need to switch to using a LUIS authoring resource.  
 
 
 ## What is migration?
@@ -51,12 +51,6 @@ Migration has to be done from the [LUIS portal](www.luis.ai). If you create the 
 * You need to create a LUIS Azure authoring resource from the LUIS portal or from the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne). Creating an authoring resource from the LUIS portal is part of the migration flow that's discussed in the next section.
 * If you're a collaborator on applications, the applications won't automatically migrate. You will be prompted to export these apps while going through the migration flow. You can also use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner.
 * If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. An email template that has shows a list of all collaborators for each application is provided as part of the migration process so that they can be notified with the migration process.
-
-
-|Portal|Purpose|
-|--|--|
-|[Azure](https://azure.microsoft.com/free/cognitive-services)| Create prediction and authoring resources.<br> Assign contributors on resources.|
-|[LUIS](https://www.luis.ai)| Migrate to existing authoring resources.<br> Create new authoring resources in the migration flow.<br> Assign or unassign prediction and authoring resources to apps from the **Manage** > **Azure resources** page. <br> Move applications from one authoring resource to another.  |
 
 > [!Note]
 > Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
@@ -159,6 +153,14 @@ If you select the **Create New Authoring Resource** option and migration fails w
 * Your subscription might have 10 or more authoring resources per region, per subscription. If that's the case, you won't be able to create a new authoring resource.
 * Migrate by selecting the **Use Existing Authoring Resource** option and selecting one of the existing resources under your subscription.
 
+## Create new support request
+
+If you are having any issues with the migration that are not addressed in the troubleshooting section, please [create a support topic](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and provide the information below with the following fields:
+
+   * **Issue Type**: Technical
+   * **Subscription**: Choose a subscription from the dropdown list
+   * **Service**: Search and select "Cognitive Services"
+   * **Resource**: Choose a LUIS resource if there is an existing one. If not, select General question.
 
 ## Next steps
 
