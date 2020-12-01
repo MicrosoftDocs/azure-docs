@@ -11,7 +11,7 @@ ms.author: memildin
 manager: rkarlin
 author: memildin
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 ---
 # Azure Defender for SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,12 +35,14 @@ The following steps get you started with Azure Defender.
 
 ## Enable Azure Defender
 
-Azure Defender can be accessed through the [Azure portal](https://portal.azure.com). Enable Azure Defender by navigating to **Security center** under the **Security** heading for your server or managed instance.
+Azure Defender can be accessed through the [Azure portal](https://portal.azure.com). Enable Azure Defender by navigating to **Security Center** under the **Security** heading for your server or managed instance.
 
 > [!NOTE]
 > A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled Azure Defender for another server in the same resource group and region, then the existing storage account is used.
 >
 > The cost of Azure Defender is aligned with Azure Security Center standard tier pricing per node, where a node is the entire server or managed instance. You are thus paying only once for protecting all databases on the server or managed instance with Azure Defender. You can try Azure Defender out initially with a free trial.
+
+:::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="enable Azure Defender":::
 
 ## Start tracking vulnerabilities and investigating threat alerts
 
@@ -48,15 +50,19 @@ Click the **Vulnerability Assessment** card to view and manage vulnerability sca
 
 ## Manage Azure Defender settings
 
-To view and manage Azure Defender settings, navigate to **Security center** under the **Security** heading for your server or managed instance. On this page, you can enable or disable Azure Defender, and modify vulnerability assessment and Advanced Threat Protection settings for your entire server or managed instance.
+To view and manage Azure Defender settings, navigate to **Security Center** under the **Security** heading for your server or managed instance. On this page, you can enable or disable Azure Defender, and modify vulnerability assessment and Advanced Threat Protection settings for your entire server or managed instance.
+
+:::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="security server settings":::
 
 ## Manage Azure Defender settings for a database
 
-To override Azure Defender settings for a particular database, check the **Enable Azure Defender for SQL at the database level** checkbox. Use this option only if you have a particular requirement to receive separate Advanced Threat Protection alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the server or managed instance.
+To override Azure Defender settings for a particular database, check the **Enable Azure Defender for SQL at the database level** checkbox in your database **Security Center** settings. Use this option only if you have a particular requirement to receive separate Advanced Threat Protection alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the server or managed instance.
 
 Once the checkbox is selected, you can then configure the relevant settings for this database.
 
-Azure Defender for SQL settings for your server or managed instance can also be reached from the Azure Defender database pane. Click **Settings** in the main Azure Defender pane, and then click **View Azure Defender for SQL server settings**.
+:::image type="content" source="media/azure-defender-for-sql/enable-for-database-level.png" alt-text="enable Azure Defender at database level":::
+
+Azure Defender for SQL settings for your server or managed instance can also be reached from the Azure Defender database pane. Click **Settings** in the main Security Center pane, and then click **View Azure Defender for SQL server settings**.
 
 ## Next steps
 

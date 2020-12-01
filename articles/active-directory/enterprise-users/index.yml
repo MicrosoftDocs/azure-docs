@@ -9,7 +9,6 @@ metadata:
   description: Learn how to use groups, domaine names, and licenses to manage user authentication in your Azure AD organization.
   services: active-directory
   ms.service: active-directory
-  ms.subservice: enterprise-users
   manager: daveba
   ms.topic: landing-page
   ms.date: 10/19/2020

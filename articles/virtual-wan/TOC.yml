@@ -67,6 +67,10 @@
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Pricing concepts
     href: pricing-concepts.md
   - name: About NVA in a virtual hub

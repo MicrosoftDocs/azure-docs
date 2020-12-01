@@ -17,7 +17,7 @@ services: iot-central
 As a builder, you can enable integration of your Azure IoT Central application to other business systems. 
 
 
-For example, in a connected waste management solution you can optimize the dispatch of trash collections trucks. The optimization can be done based on IoT sensors data from connected waste bins. In your [IoT Central connected waste management application](./tutorial-connected-waste-management.md) you can configure rules and actions, and set it to trigger creating alerts in Dynamics Field Service. This scenario is accomplished by using Microsoft Flow, which will be configured directly in IoT Central for automating workflows across applications and services. Additionally, based on service activities in Field Service, information can be sent back to Azure IoT Central. 
+For example, in a connected waste management solution you can optimize the dispatch of trash collections trucks. The optimization can be done based on IoT sensors data from connected waste bins. In your [IoT Central connected waste management application](./tutorial-connected-waste-management.md) you can configure rules and actions, and set it to trigger creating alerts in Dynamics Field Service. This scenario is accomplished by using Power Automate, which will be configured directly in IoT Central for automating workflows across applications and services. Additionally, based on service activities in Field Service, information can be sent back to Azure IoT Central. 
 
 ## How to connect your Azure IoT Central application with Dynamics 365 Field Services 
 
