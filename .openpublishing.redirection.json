@@ -265,24 +265,24 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/virtual-machines/linux/powershell-samples.md",
-    "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
-    "redirect_document_id": false
+      "source_path": "articles/virtual-machines/linux/powershell-samples.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
     },
     {
-    "source_path": "articles/virtual-machines/windows/powershell-samples.md",
-    "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
-    "redirect_document_id": false
+      "source_path": "articles/virtual-machines/windows/powershell-samples.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
     },
     { 
-    "source_path": "articles/virtual-machines/linux/cli-samples.md",
-    "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
-    "redirect_document_id": false
+      "source_path": "articles/virtual-machines/linux/cli-samples.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
     },
     {
-    "source_path": "articles/virtual-machines/windows/cli-samples.md",
-    "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
-    "redirect_document_id": false
+      "source_path": "articles/virtual-machines/windows/cli-samples.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/network-watcher/connection-monitor-preview.md",
@@ -323,7 +323,7 @@
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
       "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
       "redirect_document_id": false
-    },
+    },  
     {
       "source_path": "articles/virtual-network/manage-ddos-protection.md",
       "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
