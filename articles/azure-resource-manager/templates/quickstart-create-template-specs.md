@@ -220,7 +220,7 @@ These options are shown below.
 
 ## Deploy template spec
 
-You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
+You can now deploy the template spec. Deploying the template spec is just like deploying the template it contains, except that you pass in the resource ID of the template spec in Azure PowerShell or Azure CLI. You use the same deployment commands, and if needed, pass in parameter values for the template spec.
 
 # [Portal](#tab/azure-portal)
 
@@ -235,7 +235,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
 
     You create a new resource group, and deploy the template within the template spec to the new resource group.
 
-1. Select ** Review + create**.
+1. Select **Review + create**.
 1. Select **Create**.
 
 # [PowerShell](#tab/azure-powershell)
