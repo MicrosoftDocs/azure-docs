@@ -50,6 +50,9 @@
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
+    - name: Migrate from EA reporting to Azure Resource Manager APIs
+      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
+
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -327,7 +330,7 @@
       - name: Azure Synapse Analytics
         href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Virtual machines
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
+        href: ../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2ftoc.json
     - name: View, Manage and Optimize after purchase
       items:
       - name: View reservations and utilization
