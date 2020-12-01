@@ -262,7 +262,7 @@ To manage access, you can add and remove users to the security groups you've set
 
 As a final step to secure your workspace, you should secure network access, using:
 - [Workspace firewall](./synapse-workspace-ip-firewall.md)
-- [Managed virtual network](./synapse-workspace-synapse-managed-vnet.md) 
+- [Managed virtual network](./synapse-workspace-managed-vnet.md) 
 - [Private endpoints](./synapse-workspace-managed-private-endpoints.md)
 - [Private Link](../../azure-sql/database/private-endpoint-overview.md)
 
