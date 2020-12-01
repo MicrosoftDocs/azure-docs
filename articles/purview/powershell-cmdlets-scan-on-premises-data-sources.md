@@ -32,7 +32,7 @@ The steps are described in the following sections of this article.
 
 You can associate a trigger with a scan. For more information see [Tutorial: Use the portal to scan Azure data sources](portal-scan-azure-data-sources.md#set-a-scan-trigger-and-work-with-scans)
 
-Depending on the data source type, there are  different sets of supported authentication mechanisms for the scan. See the authentication section of [Catalog client overview](catalog-client-overview.md) to get a list of authentication types supported by managed scanning using PowerShell.
+Depending on the data source type, there are  different sets of supported authentication mechanisms for the scan. To get a list of authentication types supported by managed scanning using PowerShell, see [Supported data sources and file types](sources-and-scans.md).
 
 > [!Note]
 > The user running the PowerShell cmdlets should be the catalog or

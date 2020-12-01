@@ -152,7 +152,7 @@ To do delegated authentication, you must have admin user credentials, as well as
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/copy-client-and-tenantid.png" alt-text="Image showing copying the client and tenant IDs":::
 
-1. Configure your scan in PowerShell. The script will prompt for credentials. You must have at least contributor Role and Azure Purview Data Source Administrator Role on the Azure subscription you intend to use.
+1. Configure your scan in PowerShell. The script will prompt for credentials. You must have at least contributor Role and Purview Data Source Administrator Role on the Azure subscription you intend to use.
 
     ```PowerShell
     # Purview Account Info

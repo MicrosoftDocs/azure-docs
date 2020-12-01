@@ -1,25 +1,30 @@
 ---
-title: Introduction to Azure Purview
+title: Introduction to Azure Purview (preview)
 description: This article provides an overview of Azure Purview, including its features and the problems it addresses. Azure Purview enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 11/30/2020
 ---
 
 # What is Azure Purview?
 
+> [!IMPORTANT]
+> Azure Purview is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Azure Purview is a new cloud service for use by data users. You use Azure Purview to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
 
-With the UI or Apache Atlas API, technical users can view metadata and the lineage of data assets in a central catalog.
+With the Purview UI or Apache Atlas API, technical users can view metadata and the lineage of data assets in a central catalog.
 
-Subject-matter experts, owners, and security administrators can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification and auto-labeling policies, based on metadata and content inspection.
+Subject-matter experts, data owners, and security administrators can annotate data assets to share their communal knowledge. They do so with the UI or at scale through automated classification and auto-labeling policies, based on metadata and content inspection.
 
 ## Discovery challenges for data consumers
 
-Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. For companies that want the most value from their information assets, this approach presents many challenges:
+Traditionally, discovering enterprise data sources has been an organic process based on communal knowledge. For companies that want the most value from their information assets, this approach presents many challenges:
 
 * Because there's no central location to register data sources, users might be unaware of a data source unless they come into contact with it as part of another process.
 * Unless users know the location of a data source, they can't connect to the data by using a client application. Data-consumption experiences require users to know the connection string or path.
@@ -45,7 +50,6 @@ Users who are responsible for ensuring the security of their organization's data
 * An organization's data is constantly growing, stored, and shared in new directions. The task of discovering, protecting, and governing your sensitive data is one that never ends. You want to make sure that your organization's content is being shared with the correct people, applications, and with the correct permissions.
 * Understanding the risk levels in your organization's data requires diving deep into your content, looking for keywords, RegEx patterns and/or and sensitive data types. Sensitive data types can include Credit Card numbers, Social Security numbers, or Bank Account numbers, to name a few. You must constantly monitor all data sources for sensitive content, as even the smallest amount of data loss can be critical to your organization.
 * Ensuring that your organization's continues to comply with corporate security policies is a challenging task as your content grows and changes, and as those requirements and policies are updated for changing digital realities. Security administrators are often tasked with ensuring data security in the quickest time possible.
-
 
 ## Azure Purview advantages
 

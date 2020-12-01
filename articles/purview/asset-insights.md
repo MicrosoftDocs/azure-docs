@@ -1,5 +1,5 @@
 ---
-title: Asset insights on your data in Azure Purview
+title: Asset insights on your data in Azure Purview (preview)
 description: This how-to guide describes how to view and use Purview Insights asset reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
@@ -96,4 +96,4 @@ The second graph in file-based source types is ***Files not associated with a re
 ## Next steps
 
 Learn more about Azure Purview insight reports with
-[Scan Insights](/scan-insights.md)
+[Scan Insights](./scan-insights.md)

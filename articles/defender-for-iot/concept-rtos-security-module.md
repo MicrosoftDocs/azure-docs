@@ -29,7 +29,7 @@ The Security Module for Azure RTOS runs in the background, and provides a seamle
 
 ## Azure RTOS NetX Duo
 
-Azure RTOS NetX Duo is an advanced, industrial-grade TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. Azure RTOS NetX Duo is a dual IPv4 and IPv6 network stack providing a rich set of protocols, including security and cloud. Learn more about [Azure RTOS NetX Duo](https://aka.ms/netxduo) solutions.
+Azure RTOS NetX Duo is an advanced, industrial-grade TCP/IP network stack designed specifically for deeply embedded real-time and IoT applications. Azure RTOS NetX Duo is a dual IPv4 and IPv6 network stack providing a rich set of protocols, including security and cloud. Learn more about [Azure RTOS NetX Duo](/azure/rtos/netx-duo/) solutions.
 
 The module offers the following features:
 
@@ -65,4 +65,3 @@ Security Module for Azure RTOS is provided as a free download for your IoT devic
 - Get started with Security Module for Azure RTOS [prerequisites and setup](quickstart-azure-rtos-security-module.md).
 - Learn more about Security Module for Azure RTOS [security alerts and recommendation support](concept-rtos-security-alerts-recommendations.md). 
 - Use the Security Module for Azure RTOS [reference API](azure-rtos-security-module-api.md).
-
