@@ -64,4 +64,4 @@ The **Glossary Insights** page displays the following areas:
 
 ## Next steps
 
-Learn more about Azure Purview insight reports through [Asset Insights](/asset-insights.md)
+Learn more about Azure Purview insight reports through [Asset Insights](./asset-insights.md)
