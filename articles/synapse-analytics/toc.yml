@@ -1101,7 +1101,7 @@
     - name: Visualize data with Apache Spark
       href: ./spark/apache-spark-data-visualization-tutorial.md
       displayname: machine learning
-    - name: Predict using the SQL Pool scoring wizard
+    - name: Use the scoring wizard for dedicated SQL pools
       href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       displayname: machine learning
     - name: Train a model code-free with Azure AutoML
