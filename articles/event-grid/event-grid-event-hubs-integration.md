@@ -22,7 +22,7 @@ This diagram depicts the workflow of the solution you build in this tutorial:
 In this article, you take the following steps:
 
 > [!div class="checklist"]
-> * Use an Azure Resource Manager template to deploy the infrastructure: an event hub, a storage account, a function app, a dedicateed SQL pool.
+> * Use an Azure Resource Manager template to deploy the infrastructure: an event hub, a storage account, a function app, a dedicated SQL pool.
 > * Create a table in the dedicated SQL pool.
 > * Add code to the function app.
 > * Subscribe to the event. 

@@ -11,7 +11,8 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 
 > [!WARNING]
->  This quickstart uses the current generally available (GA) azure-servicebus package. For a quickstart that uses the new azure-messaging-servicebus package that's in **preview**, see [Send and receive messages using azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
+>  This quickstart uses the old azure-servicebus packages. For a quickstart that uses the latest azure-messaging-servicebus package, see [Send and receive messages using azure-messaging-servicebus](service-bus-java-how-to-use-topics-subscriptions.md).
+
 
 ## Prerequisites
 
