@@ -1,3 +1,4 @@
+---
 title: storage analytics integration partners 
 titleSuffix: Azure Blob Storage Docs
 description: List of industry system integrators building customer solutions for Analytics with Azure Storage
@@ -12,7 +13,7 @@ ms.subservice: Blob Storage
 
 # Azure Storage Analytics system integration partners
 
-This article highlights Microsoft system integration partner companies building Analytics solutions with Azure Storage.
+This article highlights Microsoft system integration partner companies that are integrated with ADLS storage and cover workloads like Modern Data Warehouse, Advanced Analytics, Real-time analytics, etc. These partners are taking advantage of hierarchical name space in Azure Storage to optimize their solution and run it efficiently in Azure.
 
 ## System Integration partners
 | Partner | Description | Website/Product link |

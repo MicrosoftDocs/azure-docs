@@ -13,7 +13,7 @@ ms.subservice: Blob Storage
 
 # Azure Storage system integration partners for primary and secondary storage
 
-This article highlights Microsoft system integration partner companies building solutions with Azure Storage for primary and secondary storage
+This article highlights Microsoft system integration partner companies that deliver a NAS or SAN solution, on-premises, in Azure or hybrid. These solutions can enable customers to use the same solution in any of their environments.
 
 ## System Integration partners
 | Partner | Description | Website/Product link |

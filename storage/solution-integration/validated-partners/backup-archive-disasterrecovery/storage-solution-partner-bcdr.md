@@ -1,5 +1,5 @@
 ---
-title: storage bcdr integration partners 
+title: storage archive and bcdr integration partners 
 titleSuffix: Azure Blob Storage Docs
 description: List of industry system integrators building customer solutions for bcdr with Azure Storage
 keywords: Storage, Blob, bcdr, backup, desaster recovery, archive
@@ -11,9 +11,9 @@ ms.service: Storage
 ms.subservice: Blob Storage 
 ---
 
-# Azure Storage BCDR system integration partners
+# Azure Storage Archive and BCDR system integration partners
 
-This article highlights Microsoft system integration partner companies building BCDR solutions with Azure Storage.
+This article highlights Microsoft system integration partners that are integrated with Azure Storage and take advantage of scale and cost to effectively solve backup challenges, create a disaster recovery site or archive unused content for long-term retention. With all compliance standards Azure Storage holds, with WORM protection and lifecycle management, these solution can easily replace tape based backups or create offsite backup target for long-term retention in very efficient end economical way.
 
 ## System Integration partners
 | Partner | Description | Website/Product link |

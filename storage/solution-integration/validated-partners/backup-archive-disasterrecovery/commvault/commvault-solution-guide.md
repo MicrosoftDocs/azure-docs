@@ -17,7 +17,7 @@ This article provides a guide to integrating a Commvault infrastructure with Azu
 
 ## Reference Architecture for On-Premises to Azure and In-Azure deployments
 
-![Commvault to Azure Reference Architecture](../media/Commvault-diagram.png)
+![Commvault to Azure Reference Architecture](../media/commvault-diagram.png)
 
 Your existing Commvault deployment can easily integrate with Azure by adding an Azure Storage Account, or multiple accounts, as a Cloud Storage target. Commvault also allows you to recover backups from on-premises within Azure giving you a recovery-on-demand site in Azure.   
 
@@ -43,7 +43,7 @@ Whether leveraging Cloud resources to run Production, Test and Development, or a
 
 Azure Data Box provides a means to transfer your initial backup baseline to Azure without requiring additional bandwidth if the baseline transfer is estimated to take longer than you can tolerate. You can leverage the Data Transfer estimator when you create a storage account to estimate the time required to transfer your initial backup.
 
-![Azure Storage Data Transfer Estimator](../media/AzStorageTransferEstimator.png)
+![Azure Storage Data Transfer Estimator](../media/azstoragetransferestimator.png)
 
 Remember, you will require enough network capacity to support daily data transfers within the required transfer window (aka Backup window) without impacting Production applications. This section will outline the tools and techniques available to assess your network needs.
 
@@ -114,33 +114,33 @@ This section provides a brief guide to adding Azure Storage to an on-premises Co
 
 1. Open the Azure Portal, and search for "Storage Account"
  
-![Storage Accounts in the Azure Portal](../media/LocateStorageAccount.png)
+![Storage Accounts in the Azure Portal](../media/locatestorageaccount.png)
 
 2. Choose to Add an account, and select or create a Resource Group, provide a unique name, choose the region, select "Standard" Performance, always leave account kind as "Storage V2," choose the replication level which meets your SLAs, and the default tier your backup software will leverage. An Azure Storage account makes Hot, Cool, and Archive tiers available within a single account and Commvault policies allow you to leverage multiple tiers to effectively manage the lifecycle of your data. Proceed to the next step.
 
-![Creating a Storage Account](../media/AccountCreate1.png)
+![Creating a Storage Account](../media/accountcreate1.png)
 
 3. Stick with the default networking options for now and move on to "Data Protection." Here, you can choose to enable "Soft Delete" which allows you to recover an accidentally deleted Backup file within the defined retention period and offers protection against accidental or malicious deletion. 
 
-![Creating a Storage Account Part 2](../media/AccountCreate2.png)
+![Creating a Storage Account Part 2](../media/accountcreate2.png)
 
 4. Next, we recommend the default settings from the "Advanced" screen for Backup to Azure use cases.
 
-![Creating a Storage Account Part 3](../media/AccountCreate3.png) 
+![Creating a Storage Account Part 3](../media/accountcreate3.png) 
 
 5. Add tags for organization if you leverage tagging and create your account. You now have petabytes of on-demand storage at your disposal!
 
 6. Two quick steps are all that are now required before you can add the account to your Commvault environment. Navigate to the account you just created in the Azure Portal and select "Containers" under the "Blob Service" menu in the Portal blade. Add a new container and choose a meaningful name. Then, navigate to the "Access Keys" item under "Settings" and copy the "Storage account name" and one of the two access keys. You will need the Container name, Account Name, and Access Key in our next steps.
 
-![Creating a Container](../media/Container.png)
+![Creating a Container](../media/container.png)
 
-![Grab that Account Info](../media/accessKey.png)
+![Grab that Account Info](../media/accesskey.png)
 
 7. ***(Optional)*** You can add additional layers of security to your deployment.
     a. Configure Role Based Access to limit who can make changes to your Storage Account. [Learn more here](https://docs.microsoft.com/en-us/azure/storage/common/authorization-resource-provider?toc=/azure/storage/blobs/toc.json)
     b. Restrict access to the account to specific network segments with Storage Firewall to prevent access attempts from outside your corporate network.
 
-    ![Storage Firewall](../media/storageFirewall.png) 
+    ![Storage Firewall](../media/storagefirewall.png) 
 
     c. Set a [Delete Lock](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the Storage Account.
 
@@ -148,15 +148,15 @@ This section provides a brief guide to adding Azure Storage to an on-premises Co
 
 8. In the Commvault Command Center, navigate to "Manage" --> "Security" --> "Credential Manager." Choose a "Cloud Account," "Vendor Type" of Microsoft Azure Storage, select the "MediaAgent" which will transfer data to and from Azure, add the Storage Account Name and Access Key.
 
-![Commvault Credential](../media/commvaultCredential.png)
+![Commvault Credential](../media/commvaultcredential.png)
 
 9. Next, navigate to "Storage" --> "Cloud" in Commvault Command Center. Choose to "Add." Enter a friendly name for the Storage Account and then select "Microsoft Azure Storage" from the "Type" list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the Storage Tier to leverage within the Azure Storage account, and select the Credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.
 
-![Commvault Add Storage](../media/commvaultAddStorage.png)
+![Commvault Add Storage](../media/commvaultaddstorage.png)
 
 10. Finally, add your new Azure Storage resource to an existing or new Plan in Commvault Command Center via "Manage" --> "Plans" as a "Backup Destination."
 
-![Commvault Add Storage](../media/commvaultPlan.png)
+![Commvault Add Storage](../media/commvaultplan.png)
 
 11. ***(Optional)*** If you plan to leverage Azure as a Recovery site or Commvault to migrate servers and applications to Azure, it is a best practice to deploy a VSA Proxy in Azure. You can find detailed instructions [here].(https://documentation.commvault.com/commvault/v11/article?p=106208.htm)  
 
