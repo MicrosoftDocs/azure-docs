@@ -109,7 +109,7 @@ Your database server must allow Azure connections to be enabled. This will allow
     :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="register sources options" border="true":::
     
 > [!Note]
-> Currently Azure Purview has not yet supported VNET configuration. Therefore you cannot do IP whitelist in the Firewall settings.
+> Currently Azure Purview has not yet supported VNET configuration. Therefore you cannot do IP-based firewall settings.
 
 ## Register an Azure SQL Database Managed Instance data source
 
