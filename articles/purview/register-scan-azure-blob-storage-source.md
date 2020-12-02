@@ -88,7 +88,7 @@ It is required to get the Service Principal's application ID and secret:
 > If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
 
 1. Go into your storage account in [Azure portal](https://portal.azure.com)
-1. Navigate to **Settings > Firewalls and virtual networks** and
+1. Navigate to **Settings > Networking** and
 1. Choose **Selected Networks** under **Allow access from**
 1. In the **Firewall** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
 
