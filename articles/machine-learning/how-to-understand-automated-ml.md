@@ -3,7 +3,7 @@ title: Evaluate automated machine learning experiment results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and evaluate charts and metrics for each of your automated machine learning experiment runs. 
 services: machine-learning
-author: chgrego
+author: gregorybchris
 ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
@@ -28,7 +28,7 @@ In this article, learn how to evaluate and compare models trained during by your
 
 After your automated ML experiment completes, a history of the runs can be found using:
   - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
-  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py)
+  - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
 
 To view the run history and model evaluation metrics and charts in the studio:
 
@@ -111,7 +111,7 @@ Actual supported metric names are `average_precision_score_macro`, `average_prec
 
 ### Balanced accuracy
 
-Balanced accuracy is equivalent to the macro-averaged [recall](#recall-metric).
+Balanced accuracy is equivalent to the macro-averaged [recall](#recall).
 
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)
 
