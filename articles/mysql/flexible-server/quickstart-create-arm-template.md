@@ -83,7 +83,7 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
     "api": "2020-02-14-privatepreview",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"vnetId\": \"\", \"vnetName\": \"\", \"vnetResourceGroup\": \"\", \"subnetName\": \"\" }'), parameters('vnetData'))]",
+    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
     "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
   },
   "resources": [
@@ -94,8 +94,7 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]",
-        "capacity": "[parameters('vCores')]"
+        "tier": "[parameters('serverEdition')]"        
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -103,8 +102,8 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
         "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "VnetInjArgs": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "standbyCount": "[parameters('standbyCount')]",
+        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
+        "haEnabled": "[parameters('haEnabled')]",
         "storageProfile": {
           "storageMB": "[parameters('storageSizeMB')]",
           "backupRetentionDays": "[parameters('backupRetentionDays')]"
