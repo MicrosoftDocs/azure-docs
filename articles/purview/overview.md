@@ -12,9 +12,7 @@ ms.date: 11/30/2020
 # What is Azure Purview?
 
 > [!IMPORTANT]
-> Azure Purview is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Purview is a new cloud service for use by data users. You use Azure Purview to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms.
 

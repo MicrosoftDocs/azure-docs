@@ -12,9 +12,7 @@ ms.date: 12/01/2020
 # Tutorial: Browse assets in Azure Purview (preview) and view their lineage
 
 > [!IMPORTANT]
-> Azure Purview is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This tutorial shows you how to browse assets in Azure Purview and view their important details, such as lineage.
 

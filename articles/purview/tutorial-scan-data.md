@@ -12,9 +12,7 @@ ms.date: 12/01/2020
 # Tutorial: Scan data with Azure Purview (Preview)
 
 > [!IMPORTANT]
-> Azure Purview is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this *five-part tutorial series*, you'll learn the fundamentals of how to manage data governance across a data estate using Azure Purview (Preview). The data estate you create in this part of the tutorial is used for the rest of the series.
 
