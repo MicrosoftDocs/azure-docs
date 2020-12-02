@@ -82,23 +82,23 @@ Download and sign in to the Azure CLI.
 
 1. Paste the following under the `steps` key:
 
-  ```yml
-  name: Upgrade cluster node images
+      ```yml
+      name: Upgrade cluster node images
 
-  on:
-    schedule:
-      - cron: '0 3 */15 * *'
+      on:
+        schedule:
+          - cron: '0 3 */15 * *'
 
-  jobs:
-    upgrade-node:
-      runs-on: ubuntu-latest
+      jobs:
+        upgrade-node:
+          runs-on: ubuntu-latest
 
-      steps:
-        - name: Azure Login
-          uses: Azure/login@v1.1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-  ```
+          steps:
+            - name: Azure Login
+              uses: Azure/login@v1.1
+              with:
+                creds: ${{ secrets.AZURE_CREDENTIALS }}
+      ```
 
 1. From the Azure CLI, run the following command to generate a new username and password.
 
