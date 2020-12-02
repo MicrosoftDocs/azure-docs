@@ -150,7 +150,7 @@
           href: security/how-to-set-up-access-control.md
       - name: Data exfiltration protection
         items:
-         - name: Create and manage a workspace with data exfiltration portection
+         - name: Create and manage a workspace with data exfiltration protection
            href:  security/how-to-create-a-workspace-with-data-exfiltration-protection.md
       - name: Manage private endpoints
         items:
