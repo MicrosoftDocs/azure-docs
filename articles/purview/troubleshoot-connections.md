@@ -29,7 +29,7 @@ There are specific instructions for each source type:
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
 
-## Store your credential in your key vault and are you using the right secret name and version?
+## Storing your credential in your key vault and using the right secret name and version
 
 You must also store your credential in your Azure Key Vault instance and use the right secret name and version.
 
