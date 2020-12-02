@@ -1,6 +1,6 @@
 ---
 title: MAX in Azure Cosmos DB query language
-description: Learn about how the Max (MAX) SQL system function in Azure Cosmos DB
+description: Learn about the Max (MAX) SQL system function in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -12,7 +12,7 @@ ms.custom: query-reference
 # MAX (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Returns the maximum of the values in the expression.
+This aggregate function returns the maximum of the values in the expression.
   
 ## Syntax
   
@@ -40,7 +40,7 @@ FROM c
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). The arguments in `MAX` can number, string, boolean, or null. Any undefined values will be ignored.
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). The arguments in `MAX` can be number, string, boolean, or null. Any undefined values will be ignored.
 
 When comparing different types data, the following priority order is used (in descending order):
 

@@ -1,6 +1,6 @@
 ---
 title: AVG in Azure Cosmos DB query language
-description: Learn about how the Average (AVG ) SQL system function in Azure Cosmos DB
+description: Learn about the Average (AVG) SQL system function in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -12,7 +12,7 @@ ms.custom: query-reference
 # AVG (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Returns the average of the values in the expression.
+This aggregate function returns the average of the values in the expression.
   
 ## Syntax
   
@@ -40,7 +40,7 @@ FROM c
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). If any arguments in `AVG` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has `undefined` value, it will be not impact the `AVG` calculation.
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). If any arguments in `AVG` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will not impact the `AVG` calculation.
 
 ## Next steps
 

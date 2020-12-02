@@ -1,6 +1,6 @@
 ---
 title: SUM in Azure Cosmos DB query language
-description: Learn about how the Sum (SUM) SQL system function in Azure Cosmos DB
+description: Learn about the Sum (SUM) SQL system function in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -12,7 +12,7 @@ ms.custom: query-reference
 # SUM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Returns the sum of the values in the expression.
+This aggregate function returns the sum of the values in the expression.
   
 ## Syntax
   
@@ -40,7 +40,7 @@ FROM c
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). If any arguments in `SUM` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has `undefined` value, it will be not impact the `SUM` calculation.
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). If any arguments in `SUM` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will be not impact the `SUM` calculation.
 
 ## Next steps
 

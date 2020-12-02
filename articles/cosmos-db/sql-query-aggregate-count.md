@@ -1,6 +1,6 @@
 ---
 title: COUNT in Azure Cosmos DB query language
-description: Learn about how the Count (COUNT) SQL system function in Azure Cosmos DB
+description: Learn about the Count (COUNT) SQL system function in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -12,7 +12,7 @@ ms.custom: query-reference
 # COUNT (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Returns the count of the values in the expression.
+This system function returns the count of the values in the expression.
   
 ## Syntax
   
