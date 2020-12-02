@@ -86,5 +86,5 @@ The firewall rules take 5-10 minutes to get updated, after which indexers should
 ## Next Steps
 
 - [Configure Azure Storage firewalls](../storage/common/storage-network-security.md)
-- [Configure IP firewall for Cosmos DB](../cosmos-db/firewall-support.md)
+- [Configure IP firewall for Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Configure IP firewall for Azure SQL Server](../azure-sql/database/firewall-configure.md)

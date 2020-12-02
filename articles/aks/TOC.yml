@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS Cluster
+  - name: Deploy an AKS Cluster
     expanded: true
     items:
     - name: Use the Azure CLI
@@ -252,6 +252,8 @@
       href: kubernetes-service-principal.md
     - name: Use managed identities
       href: use-managed-identity.md
+    - name: Use AAD pod identity (preview)
+      href: use-azure-ad-pod-identity.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
