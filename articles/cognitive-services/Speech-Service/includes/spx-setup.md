@@ -114,12 +114,12 @@ docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCR
 
 ### Optional: Create a command line shortcut
 
-If you're running the the Speech CLI from a Docker container on Linux, macOS, or Git BASH for Windows, you can create a shortcut. 
+If you're running the the Speech CLI from a Docker container on Linux or macOS you can create a shortcut. 
 
 Follow these instructions to create a shortcut:
 1. Open `/.bash_profile` with your favorite text editor. For example:
    ```shell
-   nano /.bash_profile
+   nano ~/.bash_profile
    ```
 2. Next, add this function to your `/.bash_profile`. Make sure you update this function with the correct path to your mounted directory:
    ```shell   
@@ -129,7 +129,7 @@ Follow these instructions to create a shortcut:
    ```
 3. Source your profile:
    ```shell
-   source /.bash_profile
+   source ~/.bash_profile
    ```
 4. Now instead of running `sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`, you can just type `spx` followed by arguments. For example: 
    ```shell
