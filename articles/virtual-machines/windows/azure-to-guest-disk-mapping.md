@@ -1,5 +1,5 @@
 ---
-title: How to Map Azure Disks to Windows VM Guest Disks
+title: How to map Azure Disks to Windows VM guest disks
 description: How to determine the Azure Disks that underlay a Windows VM's guest disks.
 author: timbasham
 ms.service: virtual-machines-windows
@@ -68,7 +68,3 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 $vm.StorageProfile.DataDisks | ft
 ```
 ---
-
-## Next steps
-
-
