@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/02/2020
 ---
 
 # Understand Insights in Azure Purview
@@ -93,7 +93,9 @@ Inside the graphs, you can select **View more** to drill down further. On the de
 |**Find more information** |In the grid, select a specific classification to view additional information about the data sources, such as: </br>- Source types </br>- Subscription details </br>- Numbers of classified files or tables for the selected classification. | 
 |**Browse assets** | In the grid, select one or more classifications, and then above the filter, select **Browse assets** to view the relevant assets as a search result in the Purview catalog. | 
 
-### Labeling Insights
+For more information, see [Classification insights about your data from Azure Purview](classification-insights.md).
+
+### Sensitivity Labeling Insights
 
 This report provides details about the sensitivity labels found during a scan, as well as a drilldown to the labeled files themselves. It enables security administrators to ensure the security of information found in their organization's data estate. 
 
@@ -119,6 +121,32 @@ On the detailed labeling report, use the following methods to modify the data di
 |**Filter**     |   Use the **Filter by keyword**, **Sensitivity label**, **Subscription**, and **Source type** filters to filter the graphs to show data for specific content only.      |
 |**Find more information** |In the grid, select a specific label to view additional information about the data sources, such as: </br>- Source types </br>- Subscription details </br>- Numbers of labeled files or tables for the selected sensitivity label. | 
 |**Browse assets** | In the grid, select one or more sensitivity labels, and then above the filter, select **Browse assets** to view the relevant assets as a search result in the Purview catalog. | 
+
+For more information, see [Sensitivity label insights about your data in Azure Purview](sensitivity-insights.md).
+
+### File Extension Insights
+
+This report provides details about the file extensions, or file types, found during a scan, as well as a drilldown to the files themselves. 
+
+Use the File Extension Insights report  to understand how many files of each time you have, where those files are, and whether they are scannable for sensitive data.
+
+The following options are available for labeling insights:
+
+|Option  |Description  |
+|---------|---------|
+|**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+|**Unique file extensions found**     | Use the tile at the top to view the number of unique file extensions found across your content.       |
+|**Top file extensions**     |  Use the **Top file extensions** graph to view the most commonly found file extensions in your content.       |
+
+On the file extension analysis report, use any of the following steps to modify the data displayed:
+    
+|Option  |Description  |
+|---------|---------|
+|**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
+|**Filter**     |   Use the **Filter by keyword**, **Time period**, **File extension**, and **Sources**, and **Content scanning** filters to filter the graphs to show data for specific content only.      |
+
+
+For more information, see [File extension insights about your data from Azure Purview](file-extension-insights.md).
 
 ## Next steps
 

@@ -78,8 +78,7 @@ landingContent:
       links:
         - text: Scan SQL server on-premises
           url: register-scan-on-premises-sql-server.md
-        - text: Use PowerShell cmdlets to scan on-premises data sources
-          url: powershell-cmdlets-scan-on-premises-data-sources.md
+
   - title: Understand your data estate 
     linkLists:
     - linkListType: how-to-guide
