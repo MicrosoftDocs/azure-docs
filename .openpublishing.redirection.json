@@ -28503,6 +28503,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-concurrency.md",
+      "redirect_url": "/azure/storage/blobs/concurrency-manage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-configure-connection-string.md",
       "redirect_url": "/azure/storage/common/storage-configure-connection-string",
       "redirect_document_id": true
@@ -59853,6 +59858,11 @@
     {
       "source_path": "articles/media-services/latest/cli-create-transform.md",
       "redirect_url": "/azure/media-services/latest/how-to-create-transform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/security/access-control.md",
+      "redirect_url": "/azure/synapse-analytics/security/synapse-workspace-access-control-overview",
       "redirect_document_id": false
     }
   ]
