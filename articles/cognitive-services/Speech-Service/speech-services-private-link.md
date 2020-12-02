@@ -21,7 +21,7 @@ This article explains how to set up and use Private Link and private endpoints w
 > [!NOTE]
     > This article explains the specifics of setting up and using Private Link with Azure Cognitive Speech Services. Before proceeding further please get familiar with the general article on [using virtual netowrks with Cognitive Services](../cognitive-services-virtual-networks.md).
 
-# Create custom domain name
+## Create custom domain name
 
 Private endpoints require the usage of [Cognitive Services custom subdomain names](../cognitive-services-custom-subdomains.md). Use the instructions below to create the one for your Speech resource.
 
@@ -52,7 +52,7 @@ Before proceeding further run `Connect-AzAccount` to create a connection with Az
 > [!TIP]
 > The code below will **NOT** work in Azure Cloud Shell.
 
-**Verify custom domain name availability**
+## Verify custom domain name availability
 
 You need to check whether the custom domain your would like to use is free. We will use [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) method from Cognitive Services REST API. See comments in the code block below explaining the steps.
 
@@ -96,7 +96,7 @@ reason               : Sub domain name 'my-custom-name' is already used. Please 
 type                 :
 subdomainName        : my-custom-name
 ```
-**Enabling custom domain name**
+## Enabling custom domain name
 
 To enable custom domain name for the selected Speech Resource we use [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet. See comments in the code block below explaining the steps.
 
@@ -125,5 +125,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This section requires the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+***
 
 ## Next section
