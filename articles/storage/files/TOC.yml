@@ -39,8 +39,6 @@
       href: storage-snapshots-files.md
     - name: Development
       items:
-      - name: Manage concurrency
-        href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Shared key authentication
         href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
       - name: Shared access signatures (SAS)
