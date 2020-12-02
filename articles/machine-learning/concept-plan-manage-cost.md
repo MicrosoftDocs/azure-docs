@@ -61,7 +61,7 @@ When you create resources for an Azure Machine Learning workspace, resources for
  
 ### Costs might accrue after resource deletion
 
-Whe you delete Azure Machine Learning workspace in the Azure portal or with Azure CLI, the following resources continue to exist. They continue to accrue costs until you delete them.
+When you delete an Azure Machine Learning workspace in the Azure portal or with Azure CLI, the following resources continue to exist. They continue to accrue costs until you delete them.
 
 * Azure Container Registry
 * Azure Block Blob Storage
