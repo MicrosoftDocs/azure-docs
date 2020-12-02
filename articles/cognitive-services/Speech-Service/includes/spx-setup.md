@@ -54,9 +54,13 @@ Follow these steps to install the Speech CLI in a Docker container:
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> for your platform if it isn't already installed.
 2. In a new command prompt or terminal, type this command:
-    `docker pull msftspeech/spx`
+   ```shell   
+   docker pull msftspeech/spx
+   ```
 3. Type this command. You should see help information for Speech CLI:
-    `docker run -it --rm msftspeech/spx help`
+   ```shell 
+   docker run -it --rm msftspeech/spx help
+   ```
 
 ### Mount a directory in the container
 
@@ -86,11 +90,14 @@ you must mount a directory in the container to your filesystem where the Speech 
 
 On Windows, your commands will start like this:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx
+```
 
 On Linux or macOS, your commands will start similar to this:
-
-`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+```shell   
+sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx
+```
 
 > [!NOTE]
 > Replace `/ABSOLUTE_PATH` with the absolute path shown by the `pwd` command in the section above.
@@ -98,7 +105,9 @@ On Linux or macOS, your commands will start similar to this:
 To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+```shell
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
 
 > [!NOTE]
 > You cannot use your computer's microphone or speaker when you run Speech CLI within a Docker container.
