@@ -44,7 +44,7 @@ There are several reasons why this error message can occur:
 
 ## Solution
 
-### Process Overview:
+### Process overview
 
 1. Create and access a Repair VM.
 1. Free space on disk.
@@ -53,12 +53,12 @@ There are several reasons why this error message can occur:
 > [!NOTE]
 > When encountering this error, the Guest OS is not operational. Troubleshoot this issue in offline mode to resolve this issue.
 
-### Create and Access a Repair VM
+### Create and access a Repair VM
 
 1. Use steps 1-3 of the [VM Repair Commands](./repair-linux-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 1. Using SSH, connect to the Repair VM.
 
-### Free Up Space on the disk
+### Free up space on the disk
 
 To solve the issue:
 
