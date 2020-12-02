@@ -137,7 +137,7 @@ The following version 10 features are not yet available in version 11. If you re
 
 ## Steps to upgrade
 
-The following steps get you started on a code migration by walking through the first set of required tasks, especially in regards to client references.
+The following steps get you started on a code migration by walking through the first set of required tasks, especially with regard to client references.
 
 1. Install the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
 
