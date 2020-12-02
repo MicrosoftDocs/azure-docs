@@ -266,6 +266,8 @@
         - name: Overview
           displayname: cross-resource queries
           href: log-query/cross-workspace-query.md
+       - name: Query data in Azure Data Explorer using Azure Monitor
+         href: platform/azure-data-explorer-monitor-proxy.md
         - name: app expression
           href: log-query/app-expression.md
         - name: workspace expression
