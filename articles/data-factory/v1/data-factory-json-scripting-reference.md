@@ -3,8 +3,8 @@ title: Azure Data Factory - JSON Scripting Reference
 description: Provides JSON schemas for Data Factory entities.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory

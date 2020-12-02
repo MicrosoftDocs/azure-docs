@@ -46,6 +46,14 @@ Azure IoT Hub device SDK for .NET:
 * [API reference](/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [Module reference](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
+
+Azure IoT Hub device SDK for Embedded C (ANSI C - C99):
+* [Build the Embedded C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
+* [Source code](https://github.com/Azure/azure-sdk-for-c)
+* [Size chart](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#size-chart) for constrained devices.
+* [API reference](https://azuresdkdocs.blob.core.windows.net/$web/c/docs/1.0.0/index.html)
+
+
 Azure IoT Hub device SDK for C (ANSI C - C99):
 
 * Install from [apt-get, MBED, Arduino IDE or iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
