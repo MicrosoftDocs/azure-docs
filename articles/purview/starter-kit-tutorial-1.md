@@ -3,8 +3,8 @@ title: 'Tutorial: Scan data with Azure Purview (preview)'
 description: In this tutorial, you run a starter kit to set up a data estate, and then scan data from data sources into your Azure Purview catalog. 
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 11/24/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.

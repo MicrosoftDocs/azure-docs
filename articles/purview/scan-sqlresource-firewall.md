@@ -3,8 +3,8 @@ title: Scan storage accounts behind a firewall in Azure Purview
 description: Learn how to scan resources behind a firewall using the Azure Purview portal.
 author: sudhandkumar
 ms.author: kumarsud
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/16/2020
 ---

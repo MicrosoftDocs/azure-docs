@@ -3,8 +3,8 @@ title: Understand business glossary features in Azure Purview (preview)
 description: This article explains what business glossary is in Azure Purview.
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
 ---

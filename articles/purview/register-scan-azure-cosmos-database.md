@@ -3,8 +3,8 @@ title: 'How to scan Azure Cosmos Database (SQL API)'
 description: This how to guide describes details of how to scan Azure Cosmos Database (SQL API). 
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ---

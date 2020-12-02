@@ -47,6 +47,6 @@ To use an Azure Active Directory (Azure AD) as an [identity provider](authorizat
     * **Display name**: *name*
     * **Given name**: *given_name*
     * **Surname**: *family_name*
-    * **Email**: *unique_name*
+    * **Email**: *preferred_username*
 
 1. Select **Save**.

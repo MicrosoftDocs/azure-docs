@@ -3,8 +3,8 @@ title: Create a scan rule set
 description: Create a scan rule set in Azure Purview to quickly scan data sources in your organization.
 author: chandrakavya
 ms.author: kchandra
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/09/2020
 ---

@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: hophan
 ms.author: hophan
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
