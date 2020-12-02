@@ -58,29 +58,29 @@ Automated ML supports model evaluation metrics and charts for classification, re
 
 ### Metrics
 
-| Classification                                         | Objective | Range         | Regression/forecasting                                     | Objective | Range          |
-| ------------------------------------------------------ | --------- | ------------- | ---------------------------------------------------------- | --------- | -------------- |
-| [AUC_macro](#auc)                                      | Max       | [0, 1]        | [explained_variance](#explained-variance)                  | Max       | (-infinity, 1] |
-| [AUC_micro](#auc)                                      | Max       | [0, 1]        | [r2_score](#r2)                                            | Max       | (-infinity, 1] |
-| [AUC_weighted](#auc)                                   | Max       | [0, 1]        | [spearman_correlation](#spearman-correlation)              | Max       | [-1, 1]        |
-| [accuracy](#accuracy)                                  | Max       | [0, 1]        | [mean_absolute_error](#mean-absolute-error)                | Min       | [0, infinity)  |
-| [average_precision_score_macro](#average-precision)    | Max       | [0, 1]        | [normalized_mean_absolute_error](#mean-absolute-error)     | Min       | [0, infinity)  |
-| [average_precision_score_micro](#average-precision)    | Max       | [0, 1]        | [median_absolute_error](#median-absolute-error)            | Min       | [0, infinity)  |
-| [average_precision_score_weighted](#average-precision) | Max       | [0, 1]        | [normalized_median_absolute_error](#median-absolute-error) | Min       | [0, infinity)  |
-| [balanced_accuracy](#balanced-accuracy)                | Max       | [0, 1]        | [root_mean_squared_error](#rmse)                           | Min       | [0, infinity)  |
-| [f1_score_macro](#f1)                                  | Max       | [0, 1]        | [normalized_root_mean_squared_error](#rmse)                | Min       | [0, infinity)  |
-| [f1_score_micro](#f1)                                  | Max       | [0, 1]        | [root_mean_squared_log_error](#rmsle)                      | Min       | [0, infinity)  |
-| [f1_score_weighted](#f1)                               | Max       | [0, 1]        | [normalized_root_mean_squared_log_error](#rmsle)           | Min       | [0, infinity)  |
-| [log_loss](#log-loss)                                  | Min       | [0, infinity) | [mean_absolute_percentage_error](#mape)                    | Min       | [0, infinity)  |
-| [matthews_correlation](#matthews-correlation)          | Max       | [-1, 1]       |                                                            |           |                |
-| [norm_macro_recall](#normalized-macro-recall)          | Max       | [0, 1]        |                                                            |           |                |
-| [precision_score_macro](#precision)                    | Max       | [0, 1]        |                                                            |           |                |
-| [precision_score_micro](#precision)                    | Max       | [0, 1]        |                                                            |           |                |
-| [precision_score_weighted](#precision)                 | Max       | [0, 1]        |                                                            |           |                |
-| [recall_score_macro](#recall)                          | Max       | [0, 1]        |                                                            |           |                |
-| [recall_score_micro](#recall)                          | Max       | [0, 1]        |                                                            |           |                |
-| [recall_score_weighted](#recall)                       | Max       | [0, 1]        |                                                            |           |                |
-| [weighted_accuracy](#weighted-accuracy)                | Max       | [0, 1]        |                                                            |           |                |
+| Classification                                         | Objective | Range      | Regression/forecasting                                     | Objective | Range       |
+| ------------------------------------------------------ | --------- | ---------- | ---------------------------------------------------------- | --------- | ----------- |
+| [AUC_macro](#auc)                                      | Max       | `[0, 1]`   | [explained_variance](#explained-variance)                  | Max       | `(-inf, 1]` |
+| [AUC_micro](#auc)                                      | Max       | `[0, 1]`   | [r2_score](#r2)                                            | Max       | `(-inf, 1]` |
+| [AUC_weighted](#auc)                                   | Max       | `[0, 1]`   | [spearman_correlation](#spearman-correlation)              | Max       | `[-1, 1]`   |
+| [accuracy](#accuracy)                                  | Max       | `[0, 1]`   | [mean_absolute_error](#mean-absolute-error)                | Min       | `[0, inf)`  |
+| [average_precision_score_macro](#average-precision)    | Max       | `[0, 1]`   | [normalized_mean_absolute_error](#mean-absolute-error)     | Min       | `[0, inf)`  |
+| [average_precision_score_micro](#average-precision)    | Max       | `[0, 1]`   | [median_absolute_error](#median-absolute-error)            | Min       | `[0, inf)`  |
+| [average_precision_score_weighted](#average-precision) | Max       | `[0, 1]`   | [normalized_median_absolute_error](#median-absolute-error) | Min       | `[0, inf)`  |
+| [balanced_accuracy](#balanced-accuracy)                | Max       | `[0, 1]`   | [root_mean_squared_error](#rmse)                           | Min       | `[0, inf)`  |
+| [f1_score_macro](#f1)                                  | Max       | `[0, 1]`   | [normalized_root_mean_squared_error](#rmse)                | Min       | `[0, inf)`  |
+| [f1_score_micro](#f1)                                  | Max       | `[0, 1]`   | [root_mean_squared_log_error](#rmsle)                      | Min       | `[0, inf)`  |
+| [f1_score_weighted](#f1)                               | Max       | `[0, 1]`   | [normalized_root_mean_squared_log_error](#rmsle)           | Min       | `[0, inf)`  |
+| [log_loss](#log-loss)                                  | Min       | `[0, inf)` | [mean_absolute_percentage_error](#mape)                    | Min       | `[0, inf)`  |
+| [matthews_correlation](#matthews-correlation)          | Max       | `[-1, 1]`  |                                                            |           |             |
+| [norm_macro_recall](#normalized-macro-recall)          | Max       | `[0, 1]`   |                                                            |           |             |
+| [precision_score_macro](#precision)                    | Max       | `[0, 1]`   |                                                            |           |             |
+| [precision_score_micro](#precision)                    | Max       | `[0, 1]`   |                                                            |           |             |
+| [precision_score_weighted](#precision)                 | Max       | `[0, 1]`   |                                                            |           |             |
+| [recall_score_macro](#recall)                          | Max       | `[0, 1]`   |                                                            |           |             |
+| [recall_score_micro](#recall)                          | Max       | `[0, 1]`   |                                                            |           |             |
+| [recall_score_weighted](#recall)                       | Max       | `[0, 1]`   |                                                            |           |             |
+| [weighted_accuracy](#weighted-accuracy)                | Max       | `[0, 1]`   |                                                            |           |             |
 
 ## Classification metrics
 
@@ -132,7 +132,7 @@ For a single sample with true label `yt` in `{0, 1}` and estimated probability `
 
 ### Matthews correlation
 
-The Matthews correlation coefficient is a balanced measure of accuracy which can be used even if one class has many more samples than another. A coefficient of 1 indicates perfect prediction, 0 random prediction, and -1 inverse prediction.
+The Matthews correlation coefficient is a balanced measure of accuracy, which can be used even if one class has many more samples than another. A coefficient of 1 indicates perfect prediction, 0 random prediction, and -1 inverse prediction.
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)
 
 ### Normalized macro recall
@@ -187,7 +187,7 @@ For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass a
 
 Confusion matrices provide a visual intuition for how a machine learning model is making systematic errors in its predictions. The word "confusion" in the name comes from a model "confusing" or mislabeling samples. A cell at row `i` and column `j` in a confusion matrix contains the number of samples in the evaluation dataset that belong to class `C_i` and were classified by the model as class `C_j`.
 
-In the studio a darker cell indicates a higher number of samples. Selecting **Normalized** view in the dropdown will normalize over each matrix row to show the percent of class `C_i` predicted to be class `C_j`. The benefit of the default **Raw** view is that you can see whether imbalance in the distribution of actual classes caused the model to misclassify samples from the minority class, a common issue in imbalanced datasets.
+In the studio, a darker cell indicates a higher number of samples. Selecting **Normalized** view in the dropdown will normalize over each matrix row to show the percent of class `C_i` predicted to be class `C_j`. The benefit of the default **Raw** view is that you can see whether imbalance in the distribution of actual classes caused the model to misclassify samples from the minority class, a common issue in imbalanced datasets.
 
 The confusion matrix of a good model will have most samples along the diagonal.
 
@@ -227,7 +227,7 @@ The cumulative gains curve plots the percent of positive samples correctly class
 
 To calculate gain, first sort all samples from highest to lowest probability predicted by the model. Then take `x%` of the highest confidence predictions. Divide the number of positive samples detected in that `x%` by the total number of positive samples to get the gain. Cumulative gain is the percent of positive samples we detect when considering some percent of the data that is most likely to belong to the positive class.
 
-A perfect model will rank all positive samples above all negative samples giving a cumulative gains curve made up of two straight segments. The first is a line with slope `1 / x` from `(0, 0)` to `(x, 1)` where `x` is the fraction of samples that belong to the positive class (`1 / num_classes` if classes are balanced). The second is a horizontal line from `(x, 1)` to `(1, 1)`. In the first segment all positive samples are classified correctly and cumulative gain goes to `100%` within the first `x%` of samples considered.
+A perfect model will rank all positive samples above all negative samples giving a cumulative gains curve made up of two straight segments. The first is a line with slope `1 / x` from `(0, 0)` to `(x, 1)` where `x` is the fraction of samples that belong to the positive class (`1 / num_classes` if classes are balanced). The second is a horizontal line from `(x, 1)` to `(1, 1)`. In the first segment, all positive samples are classified correctly and cumulative gain goes to `100%` within the first `x%` of samples considered.
 
 The baseline random model will have a cumulative gains curve following `y = x` where for `x%` of samples considered only about `x%` of the total positive samples were detected. A perfect model will have a micro average curve that touches the top-left corner and a macro average line that has slope `1 / num_classes` until cumulative gain is 100% and then horizontal until the data percent is 100.
 
@@ -371,8 +371,8 @@ To view the interpretability dashboard in the studio:
 3. Select your experiment from the list of experiments
 4. In the table at the bottom of the page, select an AutoML run
 5. In the **Models** tab, select the **Algorithm name** for the model you want to explain
-6. In the **Explanations** tab you may see an explanation was already created if the model was the best
-7. To create a new explanation click **Explain model** and select the remote compute with which to compute explanations
+6. In the **Explanations** tab, you may see an explanation was already created if the model was the best
+7. To create a new explanation, click **Explain model** and select the remote compute with which to compute explanations
 
 For more information, see the documentation on [responsible AI offerings in automated ML](how-to-machine-learning-interpretability-automl.md).
 
