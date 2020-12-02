@@ -23,7 +23,7 @@ Known issues to be aware of when working with app provisioning. You can provide 
 
 **Unable to save after successful connection test**
 
-If you can successfully test a connection, but can’t save, then you've exceeded the allowable storage limit for credentials. To learn more, see [Problem saving administrator credentials](application-provisioning-config-problem-storage-limit.md).
+If you can successfully test a connection, but can’t save, then you've exceeded the allowable storage limit for credentials. To learn more, see [Problem saving administrator credentials](./user-provisioning.md).
 
 **Unable to save**
 

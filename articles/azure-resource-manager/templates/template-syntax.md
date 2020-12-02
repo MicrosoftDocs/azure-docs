@@ -1,15 +1,15 @@
 ---
 title: Template structure and syntax
-description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
+description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 12/01/2020
 ---
 
 # Understand the structure and syntax of ARM templates
 
-This article describes the structure of an Azure Resource Manager (ARM) template. It presents the different sections of a template and the properties that are available in those sections.
+This article describes the structure of an Azure Resource Manager template (ARM template). It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
+This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md).
 
 ## Template format
 
@@ -40,6 +40,62 @@ In its simplest structure, a template has the following elements:
 | [outputs](#outputs) |No |Values that are returned after deployment. |
 
 Each element has properties you can set. This article describes the sections of the template in greater detail.
+
+## Data types
+
+Within an ARM template, you can use these data types:
+
+* string
+* securestring
+* int
+* bool
+* object
+* secureObject
+* array
+
+The following template shows the format for the data types. Each type has a default value in the correct format.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "boolParameter": {
+        "type": "bool",
+        "defaultValue": true
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    }
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
+Secure string uses the same format as string, and secure object uses the same format as object. When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
+
+When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks.
+
+Objects start with a left brace and end with a right brace. Arrays start with a left bracket and end with a right bracket.
 
 ## Parameters
 
@@ -76,23 +132,11 @@ The available properties for a parameter are:
 | maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
 | description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
 
-For examples of how to use parameters, see [Parameters in Azure Resource Manager templates](template-parameters.md).
-
-### Data types
-
-For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
-
-When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks.
-
-Objects start with a left brace and end with a right brace. Arrays start with a left bracket and end with a right bracket.
-
-When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
-
-For samples of formatting data types, see [Parameter type formats](parameter-files.md#parameter-type-formats).
+For examples of how to use parameters, see [Parameters in ARM templates](template-parameters.md).
 
 ## Variables
 
-In the variables section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions.
+In the variables section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](#data-types).
 
 The following example shows the available options for defining a variable:
 
@@ -123,7 +167,7 @@ The following example shows the available options for defining a variable:
 
 For information about using `copy` to create several values for a variable, see [Variable iteration](copy-variables.md).
 
-For examples of how to use variables, see [Variables in Azure Resource Manager template](template-variables.md).
+For examples of how to use variables, see [Variables in ARM template](template-variables.md).
 
 ## Functions
 
@@ -168,7 +212,7 @@ When defining a user function, there are some restrictions:
 | output-type |Yes |Type of the output value. Output values support the same types as function input parameters. |
 | output-value |Yes |Template language expression that is evaluated and returned from the function. |
 
-For examples of how to use custom functions, see [User-defined functions in Azure Resource Manager template](template-user-defined-functions.md).
+For examples of how to use custom functions, see [User-defined functions in ARM template](template-user-defined-functions.md).
 
 ## Resources
 
@@ -234,11 +278,11 @@ You define resources with the following structure:
 |:--- |:--- |:--- |
 | condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [condition](conditional-resource-deployment.md). |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). To determine available values, see [template reference](/azure/templates/). For a child resource, the format of the type depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
-| apiVersion |Yes |Version of the REST API to use for creating the resource. To determine available values, see [template reference](/azure/templates/). |
+| apiVersion |Yes |Version of the REST API to use for creating the resource. When creating a new template, set this value to the latest version of the resource you're deploying. As long as the template works as needed, keep using the same API version. By continuing to use the same API version, you minimize the risk of a new API version changing how your template works. Consider updating the API version only when you want to use a new feature that is introduced in a later version. To determine available values, see [template reference](/azure/templates/). |
 | name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
 | comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](template-syntax.md#comments). |
 | location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md). |
-| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources aren't dependent on each other, they're deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that aren't defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Defining dependencies in Azure Resource Manager templates](define-resource-dependency.md). |
+| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources aren't dependent on each other, they're deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that aren't defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md). |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
@@ -273,9 +317,9 @@ The following example shows the structure of an output definition:
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md). |
 | value |No |Template language expression that is evaluated and returned as output value. Specify either **value** or **copy**. |
-| copy |No | Used to return more than one value for an output. Specify **value** or **copy**. For more information, see [Output iteration in Azure Resource Manager templates](copy-outputs.md). |
+| copy |No | Used to return more than one value for an output. Specify **value** or **copy**. For more information, see [Output iteration in ARM templates](copy-outputs.md). |
 
-For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
+For examples of how to use outputs, see [Outputs in ARM template](template-outputs.md).
 
 <a id="comments"></a>
 
@@ -302,7 +346,7 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
   ],
 ```
 
-In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom-right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect an ARM template and change the language mode. If you see **Azure Resource Manager Template** at the bottom-right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -404,7 +448,7 @@ To deploy templates with multi-line strings by using Azure CLI with version 2.3.
 ## Next steps
 
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
-* For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](template-functions.md).
-* To combine several templates during deployment, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
+* For details about the functions you can use from within a template, see [ARM template functions](template-functions.md).
+* To combine several templates during deployment, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
+* For recommendations about creating templates, see [ARM template best practices](template-best-practices.md).
 * For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.md).

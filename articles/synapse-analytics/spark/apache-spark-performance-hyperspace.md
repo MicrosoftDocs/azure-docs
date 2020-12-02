@@ -227,10 +227,9 @@ deptData.Write().Mode("overwrite").Parquet(deptLocation);
 Results in:
 
 ```console
-import org.apache.spark.sql.DataFrame  
 departments: Seq[(Int, String, String)] = List((10,Accounting,New York), (20,Research,Dallas), (30,Sales,Chicago), (40,Operations,Boston))  
 employees: Seq[(Int, String, Int)] = List((7369,SMITH,20), (7499,ALLEN,30), (7521,WARD,30), (7566,JONES,20), (7698,BLAKE,30), (7782,CLARK,10), (7788,SCOTT,20), (7839,KING,10), (7844,TURNER,30), (7876,ADAMS,20), (7900,JAMES,30), (7934,MILLER,10), (7902,FORD,20), (7654,MARTIN,30))  
-import spark.implicits._  
+
 empData: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
 deptData: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
 empLocation: String = /your-path/employees.parquet  
@@ -358,6 +357,7 @@ val hyperspace: Hyperspace = Hyperspace()
 :::zone pivot = "programming-language-python"
 
 ```python
+from hyperspace import *
 
 # Create an instance of Hyperspace
 hyperspace = Hyperspace(spark)
@@ -382,7 +382,6 @@ Hyperspace hyperspace = new Hyperspace(spark);
 Results in:
 
 ```console
-import com.microsoft.hyperspace._  
 hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyperspace@1432f740
 ```
 
@@ -452,7 +451,6 @@ var deptIndexConfig2 = new IndexConfig("deptIndex2", new string[] {"location"}, 
 Results in:
 
 ```console
-import com.microsoft.hyperspace.index.IndexConfig  
 empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empIndex; indexedColumns: deptid; includedColumns: empname]  
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
@@ -498,12 +496,6 @@ hyperspace.CreateIndex(deptDF, deptIndexConfig2);
 ```
 
 ::: zone-end
-
-Results in:
-
-```console
-import com.microsoft.hyperspace.index.Index
-```
 
 ## List indexes
 
@@ -1307,7 +1299,7 @@ The following cell shows an example with HTML. The highlighted section represent
 
 ```scala
 spark.conf.set("spark.hyperspace.explain.displayMode", "html")
-hyperspace.explain(eqJoin) { displayHTML }
+hyperspace.explain(eqJoin)(displayHTML(_))
 ```
 
 ::: zone-end
