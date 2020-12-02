@@ -349,10 +349,11 @@ add-on to get policy definitions and return compliance data.
 
 #### Resolution
 
-Register the `Microsoft.PolicyInsights` resource provider. For directions, see
+Register the `Microsoft.PolicyInsights` resource provider in the cluster subscription. For
+directions, see
 [Register a resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-### Scenario: The subscript is disabled
+### Scenario: The subscription is disabled
 
 #### Issue
 
