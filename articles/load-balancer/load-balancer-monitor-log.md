@@ -20,11 +20,10 @@ ms.author: allensu
 You can use different types of logs in Azure to manage and troubleshoot Basic Load Balancers. Some of these logs can be accessed through the portal. Logs can be streamed to an event hub or a Log Analytics workspace. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI.  You can learn more about the different types of logs from the list below.
 
 * **Activity logs:** You can use [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md) to view all activity being submitted to your Azure subscription(s), and their status. Activity logs are enabled by default, and can be viewed in the Azure portal.
-* **Alert event logs:** You can use this log to view alerts raised by the load balancer. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.
 * **Standard Load Balancer Metrics:** You can use this log to query the metrics exported as logs for your Standard Azure Load Balancer.
 
 > [!IMPORTANT]
-> **Health probe event logs are not currently functional and are listed in the [known issues for the Azure Load Balancer](whats-new.md#known-issues).** 
+> **Health Probe and Load Balancer Alert event logs are not currently functional and are listed in the [known issues for the Azure Load Balancer](whats-new.md#known-issues).** 
 
 > [!IMPORTANT]
 > Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md).
@@ -73,13 +72,9 @@ Sign in to the [Azure portal](https://portal.azure.com). If you don't already ha
     3. Select the **Log Analytics Workspace** in the pull-down box.
 
 
-8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
-   * **LoadBalancerAlertEvent**
+8.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to: **AllMetrics**
 
-9.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
-   * **AllMetrics**
-
-11. Verify everything looks correct and click **Save** at the top of the create **Diagnostic settings** pane.
+9. Verify everything looks correct and click **Save** at the top of the create **Diagnostic settings** pane.
 
 ## Activity log
 
@@ -104,29 +99,6 @@ After enabling AllMetrics in the diagnostic settings of your Standard Load Balan
 
 > [!TIP]
 > If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
-
-## Alert event log
-
-This log is only generated if you've enabled it on a per load balancer basis. The events are logged in JSON format and stored in the storage account you specified when you enabled the logging. These logs will be generated when an Azure Alert is fired The following example is of an event.
-
-```json
-{
-    "time": "2016-01-26T10:37:46.6024215Z",
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-    "category": "LoadBalancerAlertEvent",
-    "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-    "operationName": "LoadBalancerProbeHealthStatus",
-    "properties": {
-        "eventName": "Resource Limits Hit",
-        "eventDescription": "Ports exhausted",
-        "eventProperties": {
-            "public ip address": "40.117.227.32"
-        }
-    }
-}
-```
-
-The JSON output shows the *eventname* property, which will describe the reason for the load balancer created an alert. In this case, the alert generated was because of TCP port exhaustion caused by source IP NAT limits (SNAT).
 
 ## Stream to an event hub
 When diagnostic information is streamed to an event hub, it can be used for centralized log analysis in a third-party SIEM tool with Azure Monitor Integration. For more information, see [Stream Azure monitoring data to an event hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
