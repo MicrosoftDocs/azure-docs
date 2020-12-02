@@ -78,6 +78,10 @@ Where Private Link is available, use private endpoints to secure any resources b
 
 Make sure the prerequisites are fulfilled before provisioning Azure Database Migration Service on your virtual network, including the communication ports that need to be allowed. 
 
+Azure Database Migration Service does not not provide the capability to configure Service Endpoints.
+
+Azure Database Migration Service does not allow for its management endpoints to be secure to a private network with the Private Link service.
+
 - [Overview of prerequisites for using the Azure Database Migration Service](../../dms/pre-reqs.md)
 
    
@@ -85,10 +89,6 @@ Make sure the prerequisites are fulfilled before provisioning Azure Database Mig
 - [Understand Azure Private Link](../../private-link/private-link-overview.md)
 
 - [Understand Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
-
-Azure Database Migration Service does not not provide the capability to configure Service Endpoints.
-
-Azure Database Migration Service does not allow for its management endpoints to be secure to a private network with the Private Link service.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -185,14 +185,17 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39941).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Azure Database Migration service requires users to create an Application ID (service principle) and authentication key in Azure Active Directory for migrations to Azure SQL Database Managed Instance in 'Online' mode. This Application ID requires either the Contributor role at the subscription level (which is not recommended due to the excessive access permissions Contributor role would be granted) or creation of custom roles with specific permissions that Azure Database Migrations Service requires. 
 
-**Guidance**: Not applicable; Azure Database Migration Service does not use any identities or manage any secrets for identities.
+It is recommended to remove this Application ID once the migrations are complete.
 
-**Azure Security Center monitoring**: Not applicable
+- [How Application ID is used in the Online migration mode ](../../dms/tutorial-sql-server-managed-instance-online.md.) 
 
-**Responsibility**: Not applicable
+- [Custom roles for SQL Server to Azure SQL Managed Instance online migrations](../../dms/resource-custom-roles-sql-db-managed-instance.md)
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Customer
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
@@ -352,13 +355,10 @@ If GitHub is used, you can use native secret scanning feature to identify creden
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39949).
 
-**Guidance**: - [Azure Database Migration service requires customers to create an App ID for migrations to Azure SQL Database Managed Instance in 'Online' mode. See the tutorial here for details on how this App ID is used ](../../dms/tutorial-sql-server-managed-instance-online.md.) 
+**Guidance**: Azure Database Migration service requires users to create an Application ID (Service Principle) and authentication key in Azure Active Directory for migrations to Azure SQL Database Managed Instance in 'Online' mode. It is recommended to remove this Application ID once the migrations are complete.
 
-- [See documentation here for providing minimum required permissions to this App ID](../../dms/resource-custom-roles-sql-db-managed-instance.md)
-
-It is recommended this App ID is deleted once the migrations are complete.
-
-- [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overvie)
+- [How Application ID is used in the Online migration mode ](../../dms/tutorial-sql-server-managed-instance-online.md.) 
+- [Custom roles for SQL Server to Azure SQL Managed Instance online migrations](../../dms/resource-custom-roles-sql-db-managed-instance.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -386,7 +386,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Azure Database Migration Service is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
-- [What are Azure AD access reviews](/azure/active-directory/governance/access-reviews-overview) 
+- [What are Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) 
 
 - [What is Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md)
 
@@ -422,7 +422,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 - [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
 
-- [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -510,7 +510,7 @@ At the underlying infrastructure, Azure provides data in transit encryption by d
 
 - [Double encryption for Azure data in transit](../fundamentals/double-encryption.md#data-in-transit)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Shared
 
@@ -568,7 +568,7 @@ Azure Database Migration Service does not allow running an application or instal
 
 - [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -585,7 +585,7 @@ Azure Database Migration Service does not allow running an application or instal
 
 - [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -711,7 +711,7 @@ Note: Azure Database Migration Service does not produce or process DNS query log
 
 **Guidance**: Not Applicable; Azure Database Migration Service currently does not produce Azure resource logs.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -746,7 +746,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: Not Applicable; Azure Database Migration Service does not currently produce any security-related logs, and the customer is unable to set any log retention.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -760,7 +760,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 **Guidance**: Not Applicable; Azure Database Migration Service does not support configuring your own time synchronization sources. The Azure Database Migration service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
