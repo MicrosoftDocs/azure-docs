@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Microsoft 365 or Microsoft Intune.  
 
-If you have been made **eligible* for an administrative role, then you must *activate* the role assignment when you need to perform privileged actions. For example, if you occasionally manage Microsoft 365 features, your organization's privileged role administrators might not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they would make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
+If you have been made *eligible* for an administrative role, then you must *activate* the role assignment when you need to perform privileged actions. For example, if you occasionally manage Microsoft 365 features, your organization's privileged role administrators might not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they would make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
 
 This article is for administrators who need to activate their Azure AD role in Privileged Identity Management.
 
@@ -59,7 +59,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. After multi-factor authentication, select **Activete before proceeding**.
+1. After multi-factor authentication, select **Activate before proceeding**.
 
     ![Verify my identity with MFA before role activates](./media/pim-how-to-activate-role/activate-role-mfa-banner.png)
 
