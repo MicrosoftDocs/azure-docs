@@ -20,8 +20,8 @@ When you create a Cognitive Search service, you get:
 + A search engine that performs indexing and query execution
 + Persistent storage of search indexes that you create and manage
 + A query language for composing simple to complex queries
-+ AI-centered analysis of images and undifferentiated text during indexing for more searchable content
-+ Integration with Azure data through search indexers that automate data import and refresh
++ AI-centered analysis of images and raw text, creating searchable content
++ Integration with Azure data through search indexers to automate data import and refresh
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and a client app that sends query requests to a search index and handles the response.
 
