@@ -15,7 +15,9 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ---
-[!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-error-handling-introduction.md)]
+# Handle MSAL exceptions and errors in Java
+
+[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
 ## Error handling in Java
 
@@ -73,9 +75,9 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
         }
 ```
 
-[!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
 
-[!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
 ## Next steps
 

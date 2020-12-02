@@ -1,7 +1,7 @@
 ---
-title: Handle errors and exceptions in MSAL.NET/MSAL.js/MSAL for Python/MSAL4J/MSAL for iOS | Azure
+title: Handle errors and exceptions in MSAL for iOS
 titleSuffix: Microsoft identity platform
-description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL.NET/MSAL.js/MSAL for Python/MSAL4J/MSAL for iOS applications.
+description: Learn how to handle errors and exceptions, Conditional Access, and claims challenges in MSAL for iOS applications.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -15,9 +15,11 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ---
-[!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-error-handling-introduction.md)]
+# Handle MSAL exceptions and errors in iOS
 
-## Error handling in iOS/macOS
+[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
+
+## Error handling in iOS
 
 The complete list of MSAL for iOS and macOS errors is listed in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
 
@@ -223,7 +225,7 @@ The following Objective-C sample code demonstrates best practices for handling s
 
 ---
 
-[!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
 
 MSAL for iOS and macOS allows you to request specific claims in both interactive and silent token acquisition scenarios.
 
@@ -231,7 +233,7 @@ To request custom claims, specify `claimsRequest` in `MSALSilentTokenParameters`
 
 See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.md) for more info.
 
-[!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-error-handling-retries.md)]
+[!INCLUDE [Active directory error handling retries](../../../includes/active-directory-develop-error-handling-retries.md)]
 
 ## Next steps
 
