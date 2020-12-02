@@ -17,8 +17,6 @@ ms.author: pafarley
 
 In this quickstart, you'll use the Azure Face REST API with cURL to detect human faces in an image.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
-
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
