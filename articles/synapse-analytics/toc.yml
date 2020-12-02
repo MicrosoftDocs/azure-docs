@@ -583,7 +583,7 @@
         href: ./spark/spark-dotnet.md
     - name: Security
       items: 
-      - name: Securing credentials using TokenLibrary
+      - name: Secure credentials using TokenLibrary
         href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
     - name: Optimize performance
       items:
