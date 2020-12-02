@@ -23,13 +23,13 @@ A: Azure Synapse introduces a number of roles and scopes to assign them on that 
 
 Synapse RBAC roles:
 * Synapse Administrator
-* Synapse Contributor
-* Synapse Artifact Author
-* Synapse Artifact Reader
-* Synapse Compute Manager
-* Synapse Credential User
-* Synapse Managed Private Endpoint Administrator
-* Synapse Reader
+* Synapse SQL Administrator
+* Synapse Spark Administrator
+* Synapse Contributor (preview)
+* Synapse Artifact Publisher (preview)
+* Synapse Artifact User (preview)
+* Synapse Compute Operator (preview)
+* Synapse Credential User (preview)
 
 Synapse RBAC Scopes:
 * Workspace 
