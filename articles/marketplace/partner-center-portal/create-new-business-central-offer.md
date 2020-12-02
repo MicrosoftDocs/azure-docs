@@ -70,7 +70,9 @@ For **How do you want potential customers to interact with this listing offer?**
 
 ### Test drive
 
-Dynamics 365 Business Central offers do not support test drive. To remove test drive from your offer, clear the **Enable a test drive** check box.
+A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. To learn more, start with [What is test drive](../what-is-test-drive.md).
+
+To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
 
 ### Customer leads
 
@@ -131,15 +133,11 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 9. Description
 10. Screenshots/videos
 
-### Name
+### Marketplace details
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The **Name** you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
-### Short description
-
-Provide a short description of your offer, up to 100 characters. This description may be used in marketplace search results.
-
-### Description
+Provide a short description of your offer, up to 100 characters, for the **Search results summary**. This description may be used in marketplace search results.
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -147,23 +145,15 @@ Provide a short description of your offer, up to 100 characters. This descriptio
 
 [!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
-### Search keywords
+You can optionally enter up to three **Search keywords** to help customers find your offer in the marketplace. For best results, also use these keywords in your description.
 
-You can optionally enter up to three search keywords to help customers find your offer in the marketplace. For best results, also use these keywords in your description.
+If you want to let customers know what **Products your app works with**, enter up to three product names.
 
-### Products your app works with
+### Help/Privacy URLs
 
-If you want to let customers know that your app works with specific products, enter up to three product names here.
+Enter the **Help link for your app** (URL) where customers can learn more about your offer. Your Help URL cannot be the same as your Support URL.
 
-#### Help/Privacy URLs
-
-##### Help link for your app
-
-Enter the address (URL) where customers can learn more about your offer. Your Help URL cannot be the same as your Support URL.
-
-##### Privacy policy link
-
-Enter the address (URL) to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
+Enter the **Privacy policy link** (URL) to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
 ### Contact information
 
@@ -175,9 +165,18 @@ In the **Support contact** section, provide the **Support URL** where CSP partne
 
 Provide at least one (and up to three) related marketing documents here, such as white papers, brochures, checklists, or presentations, in PDF format.
 
-### Marketplace images
+### Marketplace media
 
-Provide a PNG file for the **Large** and **Small** logo. You can optionally replace these with different images later.
+Provide logos and images that will be used when showing your offer to customer. All images must be in PNG format.
+
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
+#### Logos
+
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
 - **Large** (from 216 x 216 to 350 x 350 px, required)
 - **Small** (48 x 48 px, optional)
@@ -188,20 +187,15 @@ These logos are used in different places in the listing:
 
 [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
->[!NOTE]
->If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
-
 #### Screenshots
 
-Add screenshots that show how your offer works. At least three screenshots are required, and you can add up to five. All screenshots must be 1280 x 720 pixels and in PNG format.
+Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels and in PNG format.
 
 #### Videos
 
 You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its address, and a thumbnail image of the video (1280 x 720 pixels).
 
-#### Additional marketplace listing resources
-
-[Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
 
 Select **Save draft** before continuing.
 

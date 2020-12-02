@@ -109,12 +109,12 @@ Select **Save draft** before continuing.
 
 ## Offer listing
 
-This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
+<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
 
-Define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.
+Define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.</strike>This is where you define details for your offer such as name, description, and images.
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, terms of use, and so on) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+> Provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
@@ -133,15 +133,11 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 9. Description
 10. Screenshots/videos
 
-### Name
+### Marketplace details
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The **Name** you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
-### Search results summary
-
-Provide a short description of your offer, up to 100 characters. This description may be used in marketplace search results.
-
-### Description
+Provide a short description of your offer, up to 100 characters, for the **Search results summary**. This description may be used in marketplace search results.
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -149,23 +145,15 @@ Provide a short description of your offer, up to 100 characters. This descriptio
 
 [!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
-### Search keywords
+You can optionally enter up to three **Search keywords** to help customers find your offer in the marketplace. For best results, also use these keywords in your description.
 
-You can optionally enter up to three search keywords to help customers find your offer in the marketplace. For best results, also use these keywords in your description.
+If you want to let customers know what **Products your app works with**, enter up to three product names.
 
-### Products your app works with
+### Help/Privacy URLs
 
-If you want to let customers know that your app works with specific products, enter up to three product names here.
+Enter the **Help link for your app** (URL) where customers can learn more about your offer. Your Help URL cannot be the same as your Support URL.
 
-#### Help/Privacy URLs
-
-##### Help link for your app
-
-Enter the address (URL) where customers can learn more about your offer. Your Help URL cannot be the same as your Support URL.
-
-##### Privacy policy link
-
-Enter the address (URL) to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
+Enter the **Privacy policy link** (URL) to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
 ### Contact information
 
@@ -177,7 +165,7 @@ In the **Support contact** section, provide the **Support URL** where CSP partne
 
 Provide at least one (and up to three) related marketing documents here, such as white papers, brochures, checklists, or presentations, in PDF format.
 
-### Marketplace images
+### Marketplace media
 
 Provide logos and images that will be used when showing your offer to customer. All images must be in PNG format.
 
@@ -186,7 +174,7 @@ Provide logos and images that will be used when showing your offer to customer. 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
-#### Store logos
+#### Logos
 
 Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
@@ -207,9 +195,7 @@ Add screenshots that show how your offer works. At least one screenshot is requi
 
 You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its address, and a thumbnail image of the video (1280 x 720 pixels).
 
-#### Additional marketplace listing resources
-
-[Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
 
 Select **Save draft** before continuing.
 
