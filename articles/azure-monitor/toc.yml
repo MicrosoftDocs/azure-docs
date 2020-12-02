@@ -274,8 +274,6 @@
           href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
-          - name: Query Azure Data Explorer with Azure Monitor
-          href: platform/azure-monitor-data-explorer-proxy.md
     - name: Data export
       items:
       - name: Workspace data export
