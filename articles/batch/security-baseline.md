@@ -183,6 +183,10 @@ For Azure Batch resource level monitoring,  use the Azure Batch APIs to monitor 
 
 **Responsibility**: Customer
 
+#### Azure Policy built-in definitions
+
+[!INCLUDE [microsoft.batch-2-3](../../includes/policy/standards/asb/rp-controls/microsoft.microsoft.batch-2-3.md)]
+
 ### 2.4: Collect security logs from operating systems
 
 **Guidance**: Azure Monitor collects metrics and diagnostic logs for resources in your Azure Batch account. Collect and consume this data in a variety of ways to monitor your Azure Batch account and diagnose issues. You can also configure metric alerts so you receive notifications when a metric reaches a specified value.
