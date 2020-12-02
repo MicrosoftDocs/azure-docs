@@ -105,7 +105,7 @@ System scan rule sets are Microsoft-defined scan rule sets that are automaticall
 
 ### Associate a scan with a system scan rule set
 
-When you [create a scan](starter-kit-tutorial-1.md#scan-data-into-the-catalog), you can choose to associate it with a system scan rule set as follows:
+When you [create a scan](tutorial-scan-data.md#scan-data-into-the-catalog), you can choose to associate it with a system scan rule set as follows:
 
 1. On the **Select a scan rule set** page, select the system scan rule set.
 
