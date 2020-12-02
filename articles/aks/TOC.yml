@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS Cluster
+  - name: Deploy an AKS Cluster
     expanded: true
     items:
     - name: Use the Azure CLI
