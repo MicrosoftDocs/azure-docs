@@ -4,8 +4,8 @@ description: Azure PowerShell Samples - Scripts to help you create and manage da
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
