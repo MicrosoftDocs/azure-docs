@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [JLL TRIRIGA Client support team](mailto:TRIRIGA_infra_support@jll2.onmicrosoft.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [JLL TRIRIGA Client support team](https://www.us.jll.com/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -124,11 +124,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure JLL TRIRIGA SSO
 
-To configure single sign-on on **JLL TRIRIGA** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [JLL TRIRIGA support team](mailto:TRIRIGA_infra_support@jll2.onmicrosoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **JLL TRIRIGA** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [JLL TRIRIGA support team](https://www.us.jll.com/contact-us). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create JLL TRIRIGA test user
 
-In this section, you create a user called Britta Simon in JLL TRIRIGA. Work with [JLL TRIRIGA support team](mailto:TRIRIGA_infra_support@jll2.onmicrosoft.com) to add the users in the JLL TRIRIGA platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in JLL TRIRIGA. Work with [JLL TRIRIGA support team](https://www.us.jll.com/contact-us) to add the users in the JLL TRIRIGA platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
