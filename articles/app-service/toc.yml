@@ -255,6 +255,8 @@
       href: troubleshoot-diagnostic-logs.md
     - name: Get resource events
       href: get-resource-events.md
+    - name: Route traffic
+      href: monitor-route-traffic.md      
     - name: Open SSH session to Linux container
       href: configure-linux-open-ssh-session.md
   - name: Manage app
