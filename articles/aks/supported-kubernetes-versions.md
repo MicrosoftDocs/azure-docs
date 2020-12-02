@@ -68,8 +68,9 @@ When a new minor version is introduced, the oldest minor version and patch relea
 And AKS releases 1.18.\*, it means that all the 1.15.\* versions will be removed and will be out of support in 30 days.
 
 > [!NOTE]
-> If customers run an unsupported Kubernetes version, they are asked to upgrade when they request support for the cluster.
-> Clusters that run unsupported Kubernetes releases are not covered by the [AKS support policies](./support-policies.md).
+> Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
+> requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the
+> [AKS support policies](./support-policies.md).
 
 In addition to the above, AKS supports a maximum of two **patch** releases of a given minor version. So given the following supported versions:
 
@@ -99,24 +100,18 @@ To install or update your version of `kubectl`, run `az aks install-cli`.
 
 You can reference upcoming version releases and deprecations on the [AKS Kubernetes Release Calendar](#aks-kubernetes-release-calendar).
 
-For new **minor** versions of Kubernetes:
-
+For new **minor** versions of Kubernetes
 1. AKS publishes a pre-announcement with the planned date of a new version release and respective old version deprecation on the [AKS Release notes](https://aka.ms/aks/releasenotes) at least 30 days prior to removal.
-
 2. AKS publishes a [service health notification](../service-health/service-health-overview.md) available to all users with AKS and portal access, and sends an email to the subscription administrators with the planned version removal dates.
+````
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+````
+3. Users have **30 days** from version removal to upgrade to a supported minor version release  to continue receiving support.
 
-   > [!Note]
-   > To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
-
-3. Users have **30 days** from version removal to upgrade to a supported minor version release to continue receiving support.
-
-For new **patch** versions of Kubernetes:
-
-* Because of the urgent nature of patch versions, these can be introduced into the service as they become available.
-
-* In general, AKS does not do broad communications for the release of new patch versions. However, AKS constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, AKS will notify users to upgrade to the newly available patch.
-
-* Users have **30 days** from the time a patch release is removed from AKS to upgrade into a  supported patch and continue receiving support.
+For new **patch** versions of Kubernetes
+  * Because of the urgent nature of patch versions, these can be introduced into the service as they become available.
+  * In general, AKS does not do broad communications for the release of new patch versions. However, AKS constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, AKS will notify users to upgrade to the newly available patch.
+  * Users have **30 days** from the time a patch release is removed from AKS to upgrade into a  supported patch and continue receiving support.
 
 ### Supported versions policy exceptions
 
@@ -124,7 +119,7 @@ AKS reserves the right to add or remove new/existing versions that have been ide
 
 Specific patch releases may be skipped, or rollout accelerated depending on the severity of the bug or security issue.
 
-## Azure portal and Azure CLI versions
+## Azure portal and CLI versions
 
 When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is defaulted to the N-1 minor version and latest patch. For example, if AKS supports *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e*, and *1.15.f*, the default version selected is *1.16.c*.
 
@@ -135,7 +130,7 @@ To find out what versions are currently available for your subscription and regi
 az aks get-versions --location eastus --output table
 ```
 
-## AKS Kubernetes release calendar
+## AKS Kubernetes Release Calendar
 
 For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
