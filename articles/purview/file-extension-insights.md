@@ -30,7 +30,7 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up and completed a scan on the test data in each data source
 
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md).
+For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
 
 ## Use Purview File extension insights
 

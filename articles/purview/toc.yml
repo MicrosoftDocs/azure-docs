@@ -28,8 +28,6 @@ items:
       href: starter-kit-tutorial-5.md
     - name: 6 - Catalog Insights
       href: starter-kit-tutorial-6.md    
-  - name: Scan Azure data sources
-    href: portal-scan-azure-data-sources.md
   - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
 #- name: Samples
@@ -110,10 +108,6 @@ items:
         href: powershell-register-scan-power-bi.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
-      - name: Use PowerShell cmdlets to scan on-premises data sources
-        href: powershell-cmdlets-scan-on-premises-data-sources.md
-      - name: Use PowerShell cmdlets to scan Azure data sources
-        href: powershell-cmdlets-scan-azure-data-sources.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
@@ -142,10 +136,6 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
-  - name: Security
-    items:
-    - name: Create a private endpoint
-      href: catalog-private-end-point.md
   - name: Insights
     items:
     - name: View asset insights
