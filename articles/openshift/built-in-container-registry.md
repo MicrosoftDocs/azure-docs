@@ -20,9 +20,9 @@ In this article, you'll configure the built-in container image registry for an A
 
 ## Before you begin
 
-This article assumed you have an existing ARO cluster. If you need an ARO cluster, see the ARO tutorial, [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster). Make sure to create the cluster with the `--pull-secret` argument to `az aro create`.  This is necessary to configure Azure Active Directory authentication and the built-in container registry.
+This article assumed you have an existing ARO cluster. If you need an ARO cluster, see the ARO tutorial, [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md). Make sure to create the cluster with the `--pull-secret` argument to `az aro create`.  This is necessary to configure Azure Active Directory authentication and the built-in container registry.
 
-Once you have your cluster, connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster).
+Once you have your cluster, connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](./tutorial-connect-cluster.md).
    * Be sure to follow the steps in "Install the OpenShift CLI" because we'll use the `oc` command later in this article.
    * Make note of the cluster console URL, which looks like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`. The values for `<random>` and `<region>` will be used later in this article.
    * Note the `kubeadmin` credentials. They will also be used later in this article.
