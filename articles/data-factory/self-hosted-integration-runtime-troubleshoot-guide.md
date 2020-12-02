@@ -752,7 +752,7 @@ Two possible reasons for this issue:
 - For reason 1, make sure the ADF server certificate and its certificate chain is trusted by the machine where the SHIR is installed.
 - For reason 2, either trust the replaced root CA on SHIR machine, or configure the proxy not to replace ADF server certificate.
 
-Refer to [this article](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
+Refer to [this article](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
 
 #### Additional info
 We are rolling out a new SSL certificate, which is signed from DigiCert, please check whether the DigiCert Global Root G2 is in the trusted root CA.

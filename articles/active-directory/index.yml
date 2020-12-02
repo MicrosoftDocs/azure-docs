@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 10/22/2020
+  ms.date: 12/01/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -33,9 +33,9 @@ highlightedContent:
     - title: Azure AD deployment checklist
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
-    - title: Add a subscription to your tenant
-      itemType: how-to-guide
-      url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+    - title: Build resilience into identity and access management with Azure AD
+      itemType: overview
+      url: ./fundamentals/resilience-overview.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -283,9 +283,9 @@ conceptualContent:
     - title: Roles
       links:
         - url: ./roles/groups-assign-role.md
-          itemType: how-to-guide
-          text:  Assign a role to a cloud group
-        - url: ./roles/custom-create.md
+          itemType: concept
+          text:  Understand Azure AD roles
+        - url: ./roles/concept-understand-roles.md
           itemType: how-to-guide
           text:  Create a custom role
         - url: ./roles/groups-view-assignments.md
