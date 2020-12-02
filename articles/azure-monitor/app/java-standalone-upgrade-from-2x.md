@@ -37,7 +37,7 @@ using different connection strings or different role names yet.
 Operation names in 3.0 have changed to generally provide a better aggregated view
 in the Application Insights Portal U/X.
 
-:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-3.0.png" alt-text="Operation names in 3.0":::
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-3-0.png" alt-text="Operation names in 3.0":::
 
 However, for some applications, you may still prefer the aggregated view in the U/X
 that was provided by the previous operation names, in which case you can use the
