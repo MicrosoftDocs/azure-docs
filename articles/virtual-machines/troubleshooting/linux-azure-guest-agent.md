@@ -14,7 +14,7 @@ ms.author: axelg
 ---
 # Troubleshooting Azure Linux Guest Agent
 
-[Azure Linux Guest Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) is a virtual machine (VM) agent. It enables the VM to communicate with the Fabric Controller (the underlying physical server on which VM is hosted) on IP address 168.63.129.16. This IP address is a virtual public IP address that facilitates the communication. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+[Azure Linux Guest Agent](../extensions/agent-linux.md) is a virtual machine (VM) agent. It enables the VM to communicate with the Fabric Controller (the underlying physical server on which VM is hosted) on IP address 168.63.129.16. This IP address is a virtual public IP address that facilitates the communication. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Checking agent status and version
 

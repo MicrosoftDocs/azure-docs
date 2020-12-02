@@ -40,12 +40,6 @@ By default, the routing preference for public IP address is set to the Microsoft
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Register the feature for your subscription
-The Routing Preference feature is currently in preview. Register the feature for your subscription as follows:
-```azurecli
-az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
-```
-
 ## Create a resource group
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:
 
