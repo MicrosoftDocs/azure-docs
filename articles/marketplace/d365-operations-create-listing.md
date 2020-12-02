@@ -11,12 +11,10 @@ ms.date: 10/19/2020
 
 # How to configure D365 for Operations offer listing details
 
-On the **Offer listing** page (select from the left-nav menu in Partner Center), you define the offer details such as offer name, description, links, and contacts.
-
-<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.</strike>
+<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.</strike>On the **Offer listing** page (select from the left-nav menu in Partner Center), define the offer details such as offer name, description, links, and contacts.
 
 > [!NOTE]
-> Your offer listing content, such as the description, documents, screenshots, and terms of use, doesn't have to be in English, as long as the offer description begins with the phrase, "This application is available only in \<non-English language>." You can also provide a web address to link to a site that offers content in a language other than the one that's used in the offer listing content.
+> Provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
