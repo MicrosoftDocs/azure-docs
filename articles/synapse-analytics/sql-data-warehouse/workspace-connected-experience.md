@@ -39,7 +39,7 @@ The following information will apply when using a dedicated SQL DW (formerly SQL
 
 - **Network security** If the Synapse workspace you enabled on your existing dedicated SQL pool (formerly SQL DW) is enabled for data infiltration protection. Create a managed private endpoint connection from the workspace to the logical SQL server. Approve the private endpoint connection request to allow communications between the server and workspace.
 - **Studio** SQL pools in the **Data hub** A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub. 
-- **creating a new dedicated SQL pool (formerly SQL DW)** New dedicated SQL pools can be created via the Synapse workspace and Studio after the workspace feature has been enabled and provisioning of a new pool will take place on the logical SQL server. The new resources will appear in the portal and Studio when provisioning completes.      
+- **Creating a new dedicated SQL pool (formerly SQL DW)** New dedicated SQL pools can be created via the Synapse workspace and Studio after the workspace feature has been enabled and provisioning of a new pool will take place on the logical SQL server. The new resources will appear in the portal and Studio when provisioning completes.      
 
 ## Next steps
 Enable [Synapse workspace features](workspace-connected-create.md) on your existing dedicated SQL pool (formerly SQL DW)
