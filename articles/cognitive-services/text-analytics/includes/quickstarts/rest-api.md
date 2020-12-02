@@ -47,7 +47,7 @@ The following cURL command are executed from a BASH shell. Edit these commands w
 
 ## Sentiment Analysis
 
-#### [version 3.1-preview](#tab/version-3-preview)
+#### [version 3.1-preview](#tab/version-3-1)
 
 > [!NOTE]
 > The below example includes a request for the Opinion Mining feature of Sentiment Analysis, which provides granular information about the opinions related to aspects (such as the attributes of products or services) in text.
@@ -150,7 +150,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/sen
 
 ## Language detection
 
-#### [version 3.1-preview](#tab/version-3-preview)
+#### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/languages/ \
@@ -221,7 +221,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/lan
 
 ## Named Entity Recognition (NER)
 
-#### [version 3.1-preview](#tab/version-3-preview)
+#### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/entities/recognition/general \
@@ -372,7 +372,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 
 ## Entity linking
 
-#### [version 3.1-preview](#tab/version-3-preview)
+#### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.3/entities/linking \
@@ -564,7 +564,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 ## Key phrase extraction
 
 
-#### [version 3.1-preview](#tab/version-3-preview)
+#### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.1/keyPhrases \
