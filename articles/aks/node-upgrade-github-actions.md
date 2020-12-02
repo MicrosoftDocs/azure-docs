@@ -218,3 +218,4 @@ jobs:
 [cluster-upgrades-article]: upgrade-cluster.md
 [system-pools]: use-system-pools.md
 [spot-pools]: spot-node-pool.md
+[use-multiple-node-pools]: use-multiple-node-pools.md
