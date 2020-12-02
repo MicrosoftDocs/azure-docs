@@ -568,21 +568,20 @@ field of the failed constraint. For details on _Non-compliant_ resources, see
 > Each compliance report in Azure Policy for your Kubernetes clusters include all violations within
 > the last 45 minutes. The timestamp indicates when a violation occurred.
 
-If the cluster subscription is registered with Azure Security Center, then Azure Security Center
-Kubernetes policies are applied on the cluster automatically.
+Some other considerations:
 
-When a deny policy is applied on cluster, any existing Kubernetes resources that are not compliant
-with the policy get re-scheduled to a different node. Then Gatekeeper blocks the resource creation.
+- If the cluster subscription is registered with Azure Security Center, then Azure Security Center
+  Kubernetes policies are applied on the cluster automatically.
 
-When a cluster has a deny policy that validates resources, the user will not see a rejection message
-when creating a deployment. Kubernetes does not report the errors from the lower, validating
-resource to the higher, containing resource. Use the `kubectl get events` command to see all of the
-errors.
+- When a deny policy is applied on cluster with existing Kubernetes resources, any preexisting
+  resource that is not compliant with the new policy continues to run. When the non-compliant
+  resource gets rescheduled on a different node the Gatekeeper blocks the resource creation.
 
-For example, consider a Kubernetes deployment that contains replicasets and pods. When a user
-executes `kubectl describe deployment $MY_DEPLOYMENT`, it does not return a rejection message as
-part of events. However, `kubectl describe replicasets.apps $MY_DEPLOYMENT` returns the events
-associated with rejection.
+- When a cluster has a deny policy that validates resources, the user will not see a rejection
+  message when creating a deployment. For example, consider a Kubernetes deployment that contains
+  replicasets and pods. When a user executes `kubectl describe deployment $MY_DEPLOYMENT`, it does
+  not return a rejection message as part of events. However,
+  `kubectl describe replicasets.apps $MY_DEPLOYMENT` returns the events associated with rejection.
 
 ## Logging
 
