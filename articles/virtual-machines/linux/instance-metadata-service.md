@@ -21,7 +21,7 @@ This information includes the SKU, storage, network configurations, and upcoming
 IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
 the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
 
-Azure's IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). It can only be accessed from within the VM. Communication between the VM and IMDS never leaves the host.
+IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). You can only access it from within the VM. Communication between the VM and IMDS never leaves the host.
 Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Security & Authentication
