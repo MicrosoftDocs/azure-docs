@@ -3,8 +3,8 @@ title: 'Register and scan an on-premises SQL server'
 description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR. 
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.

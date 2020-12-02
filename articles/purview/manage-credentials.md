@@ -3,8 +3,8 @@ title: Create and manage credentials for scans
 description: This article explains the steps to create and manage credentials in Azure Purview.
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
 ---
@@ -58,7 +58,8 @@ Credential type supported in Purview today:
 * SQL authentication : You will add the **password** as a secret in key vault
 * Account Key : You will add the **account key** as a secret in key vault
 
-Here is more information on how to add secrets to a key vault: (Insert key vault article)
+> [!Note]
+> You can find out more information on how to add secrets to a key vault at [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)
 
 After storing your secrets in your key vault, Create your new Credential by selecting +New from the Credentials command bar. Provide the required information, including selecting the Authentication method and a Key Vault instance from which to select a secret from. Once all the details have been filled in, click on create.
 

@@ -3,8 +3,8 @@ title: Sensitivity label reporting on your data in Azure Blob Storage
 description: This how-to guide describes how to view and use Purview sensitivity label reporting on your data in Azure Blob Storage. 
 author: batamig
 ms.author: bagol
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
@@ -33,7 +33,7 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up and completed a scan on the test data in each data source
 
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
+For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
 ## Use Purview Sensitivity labeling insights
 

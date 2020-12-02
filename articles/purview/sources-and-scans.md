@@ -3,8 +3,8 @@ title: Supported data sources and file types
 description: This article provides conceptual details about supported data sources and file types in Purview.
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ---
@@ -67,4 +67,4 @@ All 105 system classification rules apply to structured file formats. Only the M
 ## Next steps
 
 - [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md)
-- [Use the Purview portal to scan Azure data sources](portal-scan-azure-data-sources.md)
+- [Manage data sources in Azure Purview (Preview)](manage-data-sources.md)

@@ -3,8 +3,8 @@ title: Understanding resource sets
 description: This article explains what resource sets are and how Azure Purview creates them.
 author: yaronyg
 ms.author: yarong
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/19/2020
 ---

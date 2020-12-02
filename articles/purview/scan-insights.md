@@ -3,8 +3,8 @@ title: Scan insights on your data in Azure Purview
 description: This how-to guide describes how to view and use Purview Insights scan reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
 ---
@@ -25,7 +25,7 @@ Before getting started with Purview insights, make sure that you've completed th
 * Set up your Azure resources and populate the account with data.
 * Set up and complete a scan on the data source.
 
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) 
+For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
 
 ## Use Purview Scan Insights
 

@@ -103,6 +103,8 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 
 - Starting from Windows 10 1903 release, TPMs 1.2 are not used with hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
 
+- UPN changes are only supported starting Windows 10 2004 update. For devices prior to Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. To resolve this issue, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically). However, users signing in with Windows Hello for Business do not face this issue.
+
 ## Review controlled validation of hybrid Azure AD join
 
 When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the article [Introduction to device identity management in Azure Active Directory](overview.md).

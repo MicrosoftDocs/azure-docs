@@ -3,8 +3,8 @@ title: File extension reporting on your data using Purview Insights
 description: This how-to guide describes how to view and use the Purview Insights file extension reporting on your data.
 author: batamig
 ms.author: bagol
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
@@ -30,7 +30,7 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - Set up and completed a scan on the test data in each data source
 
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md).
+For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
 
 ## Use Purview File extension insights
 

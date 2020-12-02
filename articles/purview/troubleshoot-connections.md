@@ -1,10 +1,10 @@
 ---
-title: Create and manage credentials for scans
-description: This article explains the steps to create and manage credentials in Azure Purview.
+title: Troubleshoot your connections in Azure Purview
+description: This article explains the steps to troubleshoot your connections in Azure Purview.
 author: viseshag
 ms.author: viseshag
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
 ---

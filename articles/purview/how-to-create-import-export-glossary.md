@@ -3,8 +3,8 @@ title: How to create, import, and export glossary terms
 description: Learn how to create, import, and export glossary terms in Azure Purview.
 author: nayenama
 ms.author: nayenama
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/04/2020
 ---
