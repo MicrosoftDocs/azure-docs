@@ -27,7 +27,7 @@ The following table provides a list of compute environments supported by Data Fa
 | [Azure Machine Learning Studio (classic)](#azure-machine-learning-studio-classic-linked-service) | [Machine Learning Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (formerly SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure Function activity](control-flow-azure-function-activity.md)
 >  
@@ -493,7 +493,7 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 ## Azure Databricks linked service
 You can create **Azure Databricks linked service** to register Databricks workspace that you use to run the Databricks workloads(notebook, jar, python). 
 > [!IMPORTANT]
-> Databricks linked services supports [Instance pools](https://aka.ms/instance-pools). 
+> Databricks linked services supports [Instance pools](https://aka.ms/instance-pools) & System-assigned managed identity authentication.
 
 ### Example - Using new job cluster in Databricks
 
@@ -543,7 +543,8 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | name                 | Name of the Linked Service               | Yes   |
 | type                 | The type property should be set to: **Azure Databricks**. | Yes                                      |
 | domain               | Specify the Azure Region accordingly based on the region of the Databricks workspace. Example: https://eastus.azuredatabricks.net | Yes                                 |
-| accessToken          | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Yes                                       |
+| accessToken          | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | No                                       |
+| MSI          | Use Data Factory's managed identity (system-assigned) to authenticate to Azure Databricks. You do not need Access Token when using 'MSI' authentication  | No                                       |
 | existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You may need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
 | instancePoolId    | Instance Pool ID of an existing pool in databricks workspace.  | No  |
 | newClusterVersion    | The Spark version of the cluster. It creates a job cluster in databricks. | No  |
@@ -559,7 +560,7 @@ You create an Azure SQL linked service and use it with the [Stored Procedure Act
 
 ## Azure Synapse Analytics linked service
 
-You create an Azure Synapse Analytics (formerly SQL Data Warehouse) linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure Synapse Analytics (formerly SQL Data Warehouse) Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
+You create an Azure Synapse Analytics linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure Synapse Analytics Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) article for details about this linked service.
 
 ## SQL Server linked service
 

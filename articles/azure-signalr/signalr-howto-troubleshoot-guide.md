@@ -1,13 +1,13 @@
 ---
 title: "Troubleshooting guide for Azure SignalR Service"
-description: Learn 
+description: Learn how to troubleshoot common issues
 author: YanJin
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
 ---
-# Troubleshooting guide
+# Troubleshooting guide for Azure SignalR Service common issues
 
 This guidance is to provide useful troubleshooting guide based on the common issues customers met and resolved in the past years.
 
@@ -143,7 +143,7 @@ For ASP.NET SignalR, when the [client connection drops](#client_connection_drop)
 For **Free** instances, **Concurrent** connection count limit is 20
 For **Standard** instances, **concurrent** connection count limit **per unit** is 1 K, which means Unit100 allows 100-K concurrent connections.
 
-The connections include both client and server connections. check [here](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) for how connections are counted.
+The connections include both client and server connections. check [here](./signalr-concept-messages-and-connections.md#how-connections-are-counted) for how connections are counted.
 
 ## 500 Error when negotiate: Azure SignalR Service is not connected yet, please try again later.
 
@@ -157,7 +157,7 @@ Enable server-side trace to find out the error details when the server tries to 
 
 #### Enable server-side logging for ASP.NET Core SignalR
 
-Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) provided in the ASP.NET Core framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
+Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) provided in the ASP.NET Core framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {
@@ -342,3 +342,9 @@ Take ASP.NET Core one for example (ASP.NET one is similar):
 
 	* [ASP.NET JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
+## Next steps
+
+In this guide, you learned about how to handle the common issues. You could also learn more generic troubleshooting methods. 
+
+> [!div class="nextstepaction"]
+> [How to troubleshoot connectivity and message delivery issues](./signalr-howto-troubleshoot-method.md)

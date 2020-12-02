@@ -81,7 +81,8 @@ The following image shows an example of the private DNS entries required to acce
 
 :::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram of private link architecture":::
 
-## ARM template properties
+## How to Create Clusters?
+### Use ARM template properties
 
 The following JSON code snippet includes the two network properties you need to configure in your ARM template to create a private HDInsight cluster.
 
@@ -93,6 +94,13 @@ networkProperties: {
 ```
 
 For a complete template with many of the HDInsight enterprise security features, including Private Link, see [HDInsight enterprise security template](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+### Use Azure Powershell
+
+To use powershell see the example [here](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+
+### Use Azure CLI
+To use Azure CLI, see the example [here](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
 
 ## Next steps
 
