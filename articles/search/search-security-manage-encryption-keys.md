@@ -92,7 +92,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 ### Using Azure CLI
 
-+ If you have an [installation of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), you can run the following command to enable the required properties.
++ If you have an [installation of Azure CLI](/cli/azure/install-azure-cli), you can run the following command to enable the required properties.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -170,7 +170,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 ## 5 - Encrypt content
 
-To add a customer-managed key on an index, data source, skillset, indexer, or synonym map, you must use the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) or an SDK. The portal does not expose synonym maps or encryption properties. When you use a valid API indexes, data sources, skillsets, indexers, and synonym maps support a top-level **encryptionKey** property.
+To add a customer-managed key on an index, data source, skillset, indexer, or synonym map, you must use the [Search REST API](/rest/api/searchservice/) or an SDK. The portal does not expose synonym maps or encryption properties. When you use a valid API indexes, data sources, skillsets, indexers, and synonym maps support a top-level **encryptionKey** property.
 
 This example uses the REST API, with values for Azure Key Vault and Azure Active Directory:
 
@@ -193,7 +193,7 @@ This example uses the REST API, with values for Azure Key Vault and Azure Active
 
 ## Example: Index encryption
 
-Create an encrypted index using the [Create Index Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-index). Use the `encryptionKey` property to specify which encryption key to use.
+Create an encrypted index using the [Create Index Azure Cognitive Search REST API](/rest/api/searchservice/create-index). Use the `encryptionKey` property to specify which encryption key to use.
 > [!Note]
 > None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
 
@@ -236,7 +236,7 @@ You can now send the index creation request, and then start using the index norm
 
 ### Synonym map encryption
 
-Create an encrypted synonym map using the [Create Synonym Map Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Use the `encryptionKey` property to specify which encryption key to use.
+Create an encrypted synonym map using the [Create Synonym Map Azure Cognitive Search REST API](/rest/api/searchservice/create-synonym-map). Use the `encryptionKey` property to specify which encryption key to use.
 
 ```json
 {
@@ -260,7 +260,7 @@ You can now send the synonym map creation request, and then start using it norma
 
 ## Example: Data source encryption
 
-Create an encrypted data source using the [Create Data Source (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Use the `encryptionKey` property to specify which encryption key to use.
+Create an encrypted data source using the [Create Data Source (Azure Cognitive Search REST API)](/rest/api/searchservice/create-data-source). Use the `encryptionKey` property to specify which encryption key to use.
 
 ```json
 {
@@ -286,7 +286,7 @@ You can now send the data source creation request, and then start using it norma
 
 ## Example: Skillset encryption
 
-Create an encrypted skillset using the [Create Skillset Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Use the `encryptionKey` property to specify which encryption key to use.
+Create an encrypted skillset using the [Create Skillset Azure Cognitive Search REST API](/rest/api/searchservice/create-skillset). Use the `encryptionKey` property to specify which encryption key to use.
 
 ```json
 {
@@ -312,7 +312,7 @@ You can now send the skillset creation request, and then start using it normally
 
 ## Example: Indexer encryption
 
-Create an encrypted indexer using the [Create Indexer Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Use the `encryptionKey` property to specify which encryption key to use.
+Create an encrypted indexer using the [Create Indexer Azure Cognitive Search REST API](/rest/api/searchservice/create-indexer). Use the `encryptionKey` property to specify which encryption key to use.
 
 ```json
 {
