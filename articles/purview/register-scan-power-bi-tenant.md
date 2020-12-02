@@ -51,8 +51,7 @@ To set up authentication, create a security group and add the catalog's managed 
     ```
 
     > [!Important]
-    > 1. You need to be a Power BI Admin to see the tenant settings page.
-    > 1. You must also first request that your Power BI tenant be added to an allow list (contact [mailto:BabylonDiscussion@microsoft.com](mailto:BabylonDiscussion@microsoft.com)).
+    > You need to be a Power BI Admin to see the tenant settings page.
 
 1. Select **Developer settings** > **Allow service principals to use read-only Power BI APIs (Preview)**.
 1. Select **Specific security groups**.
