@@ -19,7 +19,7 @@ This article explains how to enable monitoring on existing Cloud Service (extend
 2. Select the Cloud Service (extended support) deployment you want to enable monitoring alerts for. 
 3. Select the **Alerts** blade. 
 
-        :::image type="content" source="media/enable-alerts-1.png" alt-text="Image shows selecting the Alerts tab in the Azure portal.":::
+    :::image type="content" source="media/enable-alerts-1.png" alt-text="Image shows selecting the Alerts tab in the Azure portal.":::
 
 4. Select the **New Alert** icon.
      :::image type="content" source="media/enable-alerts-2.png" alt-text="Image shows selecting the add new alert option.":::
@@ -30,7 +30,7 @@ This article explains how to enable monitoring on existing Cloud Service (extend
      :::image type="content" source="media/enable-alerts-4.png" alt-text="Image shows configuring signal logic.":::
 
      :::image type="content" source="media/enable-alerts-5.png" alt-text="Image shows configuring action group logic.":::
-     
+
 6. When you have finished setting up the monitoring rules and alerts, save the changes and you will begin to see the **Alerts** and **Metrics** sections in your Cloud Services (extended support) blade to populate over time.
 
 ## Next steps
