@@ -99,7 +99,7 @@ It is required to get the service principal's application ID and secret:
 
 ### Firewall settings
 
-Your database server must allow Azure connections to be enabled. This will allow Azure Purview to reach and connect the server. You can follow the How-to guide for [Connections from inside Azure](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure#connections-from-inside-azure).
+Your database server must allow Azure connections to be enabled. This will allow Azure Purview to reach and connect the server. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
 
 1. Navigate to your database account
 1. Select the server name in the **Overview** page
