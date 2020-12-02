@@ -24,7 +24,7 @@ We're also providing samples for C# and Python specifically for batch transcript
 ## Forward compatibility
 
 To ensure a smooth migration to v3, all entities from v2 can be also found on the v3 API under the same identity. If there was a result schema change (for example, transcriptions), the responses for a GET on v3 will be in the v3 schema and a GET on v2 would continue to be in the format at v2.
-Newly created entities on v3 **are not** available on v2 because their content cannot be expressed in v2 schema most of the time.
+Newly created entities on v3 **are not** available on v2 because their content can't be expressed in v2 schema most of the time.
 
 ## Breaking changes
 
@@ -33,11 +33,11 @@ The time it took internal and external teams to migrate from v2 to v3 varied bet
 
 ### Host name changes
 
-The host names have changed from {region}.cris.ai to {region}.api.cognitive.microsoft.com. In this change, the paths do no longer contain "api/" because it is part of the hostname. See the [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) for a full description of regions and paths.
+The host names have changed from {region}.cris.ai to {region}.api.cognitive.microsoft.com. In this change, the paths do no longer contain "api/" because it's part of the hostname. See the [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) for a full description of regions and paths.
 
 ### Identity of an entity
 
-The property `id` was replaced with `self`. In v2, an API user had to know how our paths on the API are being created. This was non extensible and forced unnecessary work to the user. To address this issue, we replaced the property `id` (uuid) with `self` (string) which is location of the entity (url). It will still be unique between all your entities and if `id` was stored as a string in existing code, a simple rename would be enough to support the new schema. You can now use the `self` content as url for all your REST calls for your entity (GET, PATCH, DELETE).
+The property `id` was replaced with `self`. In v2, an API user had to know how our paths on the API are being created. This was non-extensible and forced unnecessary work to the user. To address this issue, we replaced the property `id` (uuid) with `self` (string) which is location of the entity (url). It will still be unique between all your entities and if `id` was stored as a string in existing code, a simple rename would be enough to support the new schema. You can now use the `self` content as url for all your REST calls for your entity (GET, PATCH, DELETE).
 
 If the entity has additional functionality available under other paths, the are listed under `links`. A good example is a transcription, which has a separate method to get the content of the transcription.
 
@@ -76,7 +76,7 @@ Depending on your client implementation, it may not be enough to rename the prop
 
 ### Working with collections of entities
 
-Previously the v2 API returned all available entities in responses. To allow a more fine grained control over the expected response size, on v3 all responses of collections are paginated and support control over the count of returned entities and the offset of the page. This behavior makes it easy to predict the runtime of the response processor and it is consistent with other Azure APIs.
+Previously the v2 API returned all available entities in responses. To allow a more fine grained control over the expected response size, on v3 all responses of collections are paginated and support control over the count of returned entities and the offset of the page. This behavior makes it easy to predict the runtime of the response processor and it's consistent with other Azure APIs.
 
 The basic shape of the response is the same for all collections:
 
@@ -92,7 +92,7 @@ The basic shape of the response is the same for all collections:
 }
 ```
 
-The property `values` contains a subset of the available collection entities. The count and offset can be controlled by using the query parameters `skip` and `top`. When the `@nextLink` is not null, there is more data and the next batch of data can easily be retrieved by doing a GET on `$.@nextLink`.
+The property `values` contains a subset of the available collection entities. The count and offset can be controlled by using the query parameters `skip` and `top`. When the `@nextLink` is not null, there's more data available and the next batch of data can be retrieved by doing a GET on `$.@nextLink`.
 
 This change requires calling the speech in a loop until all elements have been returned.
 
@@ -101,9 +101,9 @@ This change requires calling the speech in a loop until all elements have been r
 A detailed description on how to create transcription can be found in our [Batch transcription How-to](./batch-transcription.md).
 
 The creation of transcriptions has been slightly changed on v3 to enable setting specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
-Also version v3 now supports multiple input files and therefor requires a list of urls and not a single url as required by v2. The property name was renamed from `recordingsUrl` to `contentUrls`. The functionality of analyzing sentiment in transcriptions has been removed on v3.
+Also version v3 now supports multiple input files and therefore requires a list of urls and not a single url as required by v2. The property name was renamed from `recordingsUrl` to `contentUrls`. The functionality of analyzing sentiment in transcriptions has been removed on v3.
 
-The new property `timeToLive` under `properties` can help to prune the existing completed entities in case the client provided clean ups fail or are unreliable. The `timeToLive` specifies a duration after which a completed entity gets automatically deleted. Set it to a higher value (for example `PT12H`) when you are continuously tracking, consuming, and deleting entities.
+The new property `timeToLive` under `properties` can help to prune the existing completed entities in case the client provided clean ups fail or are unreliable. The `timeToLive` specifies a duration after which a completed entity gets automatically deleted. Set it to a higher value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted.
 
 v2 transcription POST request body:
 
@@ -142,9 +142,9 @@ v3 transcription POST request body:
 
 ### Format of v3 transcription results
 
-The schema of transcription results has been slightly changed to align with the transcriptions created by real-time endpoints. An in-depth description of the new format can be found in the [Batch transcription How-to](./batch-transcription.md). The schema of the result is published on our [github sample](https://aka.ms/csspeech/samples) under 
+The schema of transcription results has been slightly changed to align with the transcriptions created by real-time endpoints. An in-depth description of the new format can be found in the [Batch transcription How-to](./batch-transcription.md). The schema of the result is published on our [GitHub sample](https://aka.ms/csspeech/samples) under "samples/batch/transcriptionresult_v3.schema.json".
 
-The property names are not properly camelCased, the values esp. for channel and speaker are using correct integer types. To align the format of durations with Azure, it is now in formatted as described in ISO 8601.
+The property names are now properly camel-cased and the values for channel and speaker are using correct integer types. To align the format of durations with Azure, it is now in formatted as described in ISO 8601.
 
 Sample of a v3 transcription result. The differences are described in the comments.
 
@@ -274,7 +274,7 @@ Then a GET on `$.links.files` would result in:
 }
 ```
 
-The kind indicates the format of content of the file. For transcriptions the files of kind `TranscriptionReport` are the summary of the job and files of the kind `Transcription` are the result of the job itself.
+The kind indicates the format of content of the file. For transcriptions, the files of kind `TranscriptionReport` are the summary of the job and files of the kind `Transcription` are the result of the job itself.
 
 ### Customizing models
 
@@ -317,7 +317,7 @@ v3 transcription:
 
 ### Accessing referenced entities
 
-In v2 referenced entities have always been inlined, e.g. the used models of an endpoint. The nesting of entities resulted in large responses and consumers rarely consumed the nested content. To shrink the response size and improve performance for all API users, the referenced entities are no longer inlined in the response. Instead a reference to the other entity is being used, which can directly be used for a subsequent GET because it's a url as well, following the same pattern as the `self` link.
+In v2 referenced entities have always been inlined, for example the used models of an endpoint. The nesting of entities resulted in large responses and consumers rarely consumed the nested content. To shrink the response size and improve performance for all API users, the referenced entities are no longer inlined in the response. Instead a reference to the other entity is being used, which can directly be used for a subsequent GET because it's a url as well, following the same pattern as the `self` link.
 
 v2 transcription:
 
@@ -445,14 +445,14 @@ v3 transcription entity
 }
 ```
 
-This change also enabled the usage of correct types on all explicitly named properties under `properties` (e.g. bool instead of string).
+This change also enabled the usage of correct types on all explicitly named properties under `properties` (for example bool instead of string).
 
 ### Response headers
 
 v3 no longer returns the header `Operation-Location` in addition to the header `Location` on POST requests. The value of both headers used to be the exact same. Now only `Location` is being returned.
 
-Because the new API version is now managed by Azure API management (APIM), the throttling related headers `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` are not longer contained in the response headers.
+Because the new API version is now managed by Azure API management (APIM), the throttling related headers `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` aren't contained in the response headers.
 
 ### Accuracy tests
 
-Accuracy tests have been renamed to evaluations because the new name describes better what they represent. The news paths are e.g. "https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations".
+Accuracy tests have been renamed to evaluations because the new name describes better what they represent. The news paths are for example "https://{region}.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations".
