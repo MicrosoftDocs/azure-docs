@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2020
+ms.date: 12/02/2020
 ms.author: memildin
 
 ---
@@ -20,6 +20,7 @@ ms.author: memildin
 This article explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
 To get visibility into the security posture of all subscriptions registered in the Azure AD tenant, an Azure role with sufficient read permissions is required to be assigned on the root management group.
+
 
 
 ## Grant tenant-wide permissions to yourself
