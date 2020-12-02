@@ -199,4 +199,4 @@ Use the following table to ensure that your related data file for pronunciations
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train your model](how-to-custom-speech-train-model.md)
-* [Deploy your model](how-to-custom-speech-deploy-model.md)
+* [Deploy your model](./how-to-custom-speech-train-model.md)
