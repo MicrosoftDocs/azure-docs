@@ -10,7 +10,7 @@ ms.date: 09/16/2020
 
 # Azure Monitor Logs Dedicated Clusters
 
-Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capability for Azure Monitor Logs customers. Customers with dedicated clusters can choose the workspaces to be hosted on these clusters.
+Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs customers. Customers with dedicated clusters can choose the workspaces to be hosted on these clusters.
 
 The capabilities that requires dedicated clusters are:
 
