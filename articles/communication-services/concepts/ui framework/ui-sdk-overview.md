@@ -71,7 +71,7 @@ Chat:
 
 UI Framework supports both ACS identity and M365/Teams identity. An ACS identity
 is always required to initialize the UI Framework for billing purposes.
-M365/Teams identity is optional use the Teams identity information during the
+M365/Teams identity is optional in order to enable the Teams identity information to be used during the
 communication experience.
 
 ## Customizability
