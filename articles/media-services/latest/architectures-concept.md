@@ -28,12 +28,6 @@ This solution is built on the Azure managed services: Media Services and Content
 
 See [Live streaming digital media](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) in the Azure Architecture center.
 
-## Instant Broadcasting on Serverless Architecture
-
-Simplify one-to-many real-time communication and updates using serverless code. This architecture uses Azure Functions, SignalR Service, a storage account, and a SQL database.
-
-See [Instant Broadcasting on Serverless Architecture](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture) in the Azure Architecture center.
-
 ## Video-on-demand digital media
 
 A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.
