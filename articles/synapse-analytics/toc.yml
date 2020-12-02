@@ -129,8 +129,13 @@
       - name: Access control
         items:
         - name: Overview
-          href: ./security/access-control.md
-          displayname: access, control
+          href: ./security/synapse-workspace-access-control-overview.md
+        - name: Synapse RBAC
+          href: ./security/synapse-workspace-synapse-rbac.md
+        - name: Synapse RBAC roles
+          href: ./security/synapse-workspace-synapse-rbac-roles.md
+        - name: Understand Synapse RBAC roles
+          href: ./security/synapse-workspace-understand-what-role-you-need.md  
         - name: Synapse workspace managed Identity
           href: ./security/synapse-workspace-managed-identity.md
   - name: How-to guides
@@ -143,11 +148,15 @@
       items:
       - name: Manage access control 
         items:
+        - name: Set up access control
+          href: ./security/how-to-set-up-access-control.md
+        - name: Review Synapse role assignments
+          href: ./security/how-to-review-synapse-rbac-role-assignments.md
+        - name: Manage Synapse role assignments
+          href: ./security/how-to-manage-synapse-rbac-role-assignments.md
         - name: Set up permissions for Azure Synapse workspace managed Identity
           href: security/how-to-grant-workspace-managed-identity-permissions.md
           displayname: grant
-        - name: Set up access control
-          href: security/how-to-set-up-access-control.md
       - name: Data exfiltration protection
         items:
          - name: Create and manage a workspace with data exfiltration protection
