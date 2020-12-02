@@ -30,7 +30,7 @@ The Azure SQL Database Managed Instance data source supports the following funct
     > [!Note]
     > Your organization must be able to allow public endpoint as **private endpoint is not yet supported** by Purview. If you use private endpoint, the scan will not be successful.
 
-### Set up authentication for a scan
+### Setting up authentication for a scan
 
 Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Purview supports today:
 
