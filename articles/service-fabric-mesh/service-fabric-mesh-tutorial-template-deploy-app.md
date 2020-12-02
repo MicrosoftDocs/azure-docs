@@ -103,7 +103,7 @@ To push an image to an ACR instance, you must first have a container image. If y
 >[!NOTE]
 > Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. 
 > 
-> These commands makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+> These commands makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
 
 Pull the Windows images:
 
