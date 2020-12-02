@@ -26,7 +26,7 @@ In this article, learn how to evaluate and compare models trained during by your
 
 ## View run results
 
-After your automated machine learning experiment completes, a history of the runs can be found using:
+After your automated ML experiment completes, a history of the runs can be found using:
   - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
   - A Jupyter notebook using the [RunDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py)
 
@@ -35,7 +35,7 @@ To view the run history and model evaluation metrics and charts in the studio:
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace
 1. In the left menu, select **Experiments**
 1. Select your experiment from the list of experiments
-1. In the table at the bottom of the page, select an AutoML run
+1. In the table at the bottom of the page, select an automated ML run
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate
 1. In the **Metrics** tab, use the checkboxes on the left to view metrics and charts
 
@@ -89,26 +89,38 @@ Automated ML supports model evaluation metrics and charts for classification, re
 ### AUC
 
 AUC is the area under the receiver operating characteristic (ROC) curve.
+
+Actual supported metric names are `AUC_macro`, `AUC_micro`, and `AUC_weighted`
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)
 
 ### Accuracy
 
 Accuracy is the ratio of predictions that exactly match the true class labels.
+
+Actual supported metric names are `AUC_macro`, `AUC_micro`, and `AUC_weighted`
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)
 
 ### Average precision
 
 Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight.
+
+Actual supported metric names are `average_precision_score_macro`, `average_precision_score_micro`, and `average_precision_score_weighted`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)
 
 ### Balanced accuracy
 
 Balanced accuracy is equivalent to the macro-averaged [recall](#recall-metric).
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)
 
 ### F1
 
 F1 is the harmonic mean of precision and recall. It is a good balanced measure of both false positives and false negatives. However, it does not take true negatives into account.
+
+Actual supported metric names are `f1_score_macro`, `f1_score_micro`, and `f1_score_weighted`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)
 
 ### Log loss
@@ -132,11 +144,17 @@ This is achieved by `norm_macro_recall := (recall_score_macro - R) / (1 - R)`, w
 ### Precision
 
 Precision is the ability of a model to avoid labeling negative samples as positive. Precision for binary classification is calculated as `precision = tp / (tp + fp)` where tp = number of true positives, fp = number of false positives.
+
+Actual supported metric names are `precision_score_macro`, `precision_score_micro`, and `precision_score_weighted`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)
 
 ### Recall
 
 Recall is the ability of a model to detect all positive samples. Recall for binary classification is calculated as `recall = tp / (tp + fn)` where tp = number of true positives, fn = number of false negatives.
+
+Actual supported metric names are `recall_score_macro`, `recall_score_micro`, and `recall_score_weighted`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)
 
 ### Weighted accuracy
@@ -271,21 +289,33 @@ Spearman is a rank-order correlation metric meaning that changes to predicted or
 ### Mean absolute error
 
 Mean absolute error is the expected value of absolute value of difference between the target and the prediction.
+
+Actual supported metric names are `mean_absolute_error` and `normalized_mean_absolute_error`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)
 
 ### Median absolute error
 
 Median absolute error is the median of all absolute differences between the target and the prediction. This loss is robust to outliers.
+
+Actual supported metric names are `median_absolute_error` and `normalized_median_absolute_error`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)
 
 ### RMSE
 
 Root mean squared error (RMSE) is the square root of the expected squared difference between the target and the prediction. For an unbiased estimator, RMSE is equal to the standard deviation.
+
+Actual supported metric names are `root_mean_squared_error` and `normalized_root_mean_squared_error`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)
 
 ### RMSLE
 
 Root mean squared log error (RMSLE) is the square root of the expected squared logarithmic error.
+
+Actual supported metric names are `root_mean_squared_log_error` and `normalized_root_mean_squared_log_error`.
+
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)
 
 ### MAPE
