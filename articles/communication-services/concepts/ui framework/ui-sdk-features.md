@@ -47,7 +47,7 @@ state interface for developers to build their own Components on top of.
 | Microphone Management | Pick the microphone to be used for calling. This control can be used at the start of a call or during to pick the device to be used.                                                                                                                                               | React | N/A     | N/A |
 | Camera Management     | Pick the camera to be used for video calling. This control can be used at the start of a call or during to pick the device to be used.                                                                                                                                             | React | N/A     | N/A |
 | Core Chat Unit        | Core initializing component for chat. Required component to then initialize other components on top of it. Handles core logic to provide Azure Communication Services tokens and initialize the chat client with the thread that it will join.                                     | React | N/A     | N/A |
-| Chat Input            | Input component that allows users to send messages to the chat thread. Input supports text, emojis and other Unicode characters including other alphabets.                                                                                                                         | React | N/A     | N/A |
+| Chat Input            | Input component that allows users to send messages to the chat thread. Input supports text, hyperlinks, emojis and other Unicode characters including other alphabets.                                                                                                                         | React | N/A     | N/A |
 | Chat Thread           | Thread components shows the user both received and sent messages with their sender information. The thread supports typing indicators and read receipts. The thread is scrollable to see chat history.                                                                             | React | N/A     | N/A |
 
 ## Customization Support
@@ -69,4 +69,3 @@ previous two releases.
 \*\*Note that Safari versions 13.1+ are supported. Outgoing video for Safari
 macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing
 is only supported on desktop iOS.
-
