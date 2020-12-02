@@ -30,23 +30,28 @@ The Azure portal uses the remote desktop Extension approach so you can enable re
 
     :::image type="content" source="media/remote-desktop-1.png" alt-text="Image shows selecting the Remote Desktop option in the Azure portal":::
 
-2. Choose whether you want to enable Remote Desktop for an individual role or for all roles, then change the value of the switcher to Enabled 
-
-3. Fill in the required fields for user name, password, expiry, and certificate (not required).
+2. Select **Add**
+3. Choose the roles you want to enable Remote Desktop for 
+4. Fill in the required fields for user name, password, expiry, and certificate (not required).
 
     :::image type="content" source="media/remote-desktop-2.png" alt-text="Image shows inputting the information required to connect to remote desktop.":::
 
-4. When you finish your configuration updates, select **Save**. It will take a few moments before your role instances are ready to receive connections.
+5. When you finish your configuration updates, select **Save**. It will take a few moments before your role instances are ready to receive connections.
 
 ## Connect to role instances with Remote Desktop enabled
 Once remote desktop is enabled on the roles, you can initiate a connection directly from the Azure portal.
 
 1. Click on **Roles and Instances** to open the instance settings.
+
+    :::image type="content" source="media/remote-desktop-3.png" alt-text="Image shows selecting the roles and instances option in the configuration blade.":::
+
 2. Select a role instance that has remote desktop configured.
 3. Click **Connect** to download an remote desktop connection file.
-4. Click **Open** and then **Connect** to start the connection.
- 
-    :::image type="content" source="media/remote-desktop-3.png" alt-text="Image shows selecting the worker role instance in the Azure portal.":::
+
+    :::image type="content" source="media/remote-desktop-4.png" alt-text="Image shows selecting the worker role instance in the Azure portal.":::
+    
+4. Open the file and to connect to the role instance using remote desktop.
+
 
 ## Next steps
 For more information, see [Frequently asked questions about Azure Cloud Services (extended support)](faq.md)

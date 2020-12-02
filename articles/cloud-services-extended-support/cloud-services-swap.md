@@ -27,11 +27,11 @@ You can swap deployments from the Cloud Services (extended support) dashboard.
 
 2.	In the overview blade, select **Swap**.
 
-    :::image type="content" source="media/cloud-services-swap1.png" alt-text="Image shows selecting the swap option from the Azure portal.":::
+    :::image type="content" source="media/cloud-services-swap-1.png" alt-text="Image shows selecting the swap option from the Azure portal.":::
 
 3.	A confirmation window will appear displaying the current Cloud Service deployment and list available ones that can be swapped. 
 
-    :::image type="content" source="media/cloud-services-swap2.png" alt-text="Image shows confirmation screen where user must OK to the VIP swap.":::
+    :::image type="content" source="media/cloud-services-swap-2.png" alt-text="Image shows confirmation screen where user must OK to the VIP swap.":::
  
 4.	Verify the information is correct and select **OK** to swap the deployments.
 

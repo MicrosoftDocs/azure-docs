@@ -31,7 +31,9 @@ Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microso
 
     :::image type="content" source="media/deploy-portal-1.png" alt-text="Image shows the all resources blade in the Azure portal.":::
  
-3.	In the Cloud Services (extended support) pane select **Add**.
+3.	In the Cloud Services (extended support) pane select **Create**.
+
+    :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows purchasing a cloud service from the marketplace.":::
 
 ## Configuring the Cloud Services (extended support) deployment
 
@@ -40,13 +42,18 @@ Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microso
     > [!NOTE]
     > The subscription used for deploying Cloud Services (extended support) needs to have one of the following roles (owner or contributor) assigned via Azure Resource Manager role based access control (RBAC). If your subscription does not have one of these roles, make sure it is added before proceeding further.
     
-6. Choose a resource group or create a new one.
-7. Enter the desired name for your Cloud Service (extended support) deployment.
-8. Select the region to deploy to. 
-9. Select your configuration (cscfg) file. You can use an existing configuration file or upload a new one.
-10. Select your service definition (csdef) file. You can use an existing definition file or upload a new one. 
-    :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows the basics tab in the Azure portal for creating a Cloud Service (extended support).":::
-11. Once all fields have been completed, move to the **Configuration** tab.
+2. Choose a resource group or create a new one.
+3. Enter the desired name for your Cloud Service (extended support) deployment.
+4. Select the region to deploy to.
+
+    :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the basics tab in the Azure portal for creating a Cloud Service (extended support).":::
+
+5. Select your configuration (cscfg) file. You can use an existing configuration file or upload a new one.
+6. Select your service definition (csdef) file. You can use an existing definition file or upload a new one. 
+
+    :::image type="content" source="media/deploy-portal-4.png" alt-text="Image shows the upload section of the basics tab during creation.":::
+
+7. Once all fields have been completed, move to the **Configuration** tab.
 
 ## Cloud Service configuration
 
@@ -65,9 +72,9 @@ Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microso
 
 4. (Optional) Start Cloud Service. Choose start or not start the service immediately after creation.
 
-5. Select the Key Vault associated with your cscfg file (based on the thumbprints). If any certificates are missing they can be uploaded now retrieved by selecting **Refresh** in the drop down. 
-
-    :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the configuration blade in the Azure portal when creating a Cloud Services (extended support).":::
+    :::image type="content" source="media/deploy-portal-5.png" alt-text="Image shows the configuration blade in the Azure portal when creating a Cloud Services (extended support).":::
+    
+1. Select the Key Vault associated with your cscfg file (based on the thumbprints). If any certificates are missing they can be uploaded now retrieved by selecting **Refresh** in the drop down. 
 
 6. Once all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your Cloud Service.
 
