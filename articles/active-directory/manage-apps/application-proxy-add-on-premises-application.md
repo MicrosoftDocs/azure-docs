@@ -82,6 +82,9 @@ To enable TLS 1.2:
 
 1. Restart the server.
 
+> [!Note]
+> Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. See [Azure TLS certificate changes](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes) for more information.
+
 ## Prepare your on-premises environment
 
 Start by enabling communication to Azure data centers to prepare your environment for Azure AD Application Proxy. If there's a firewall in the path, make sure it's open. An open firewall allows the connector to make HTTPS (TCP) requests to the Application Proxy.
