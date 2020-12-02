@@ -580,9 +580,6 @@
       href: change-drive-letter.md
     - name: Change availability set
       href: change-availability-set.md
-    - name: Export ARM template
-      displayName: Azure Resource Manager
-      href: download-template.md
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution
@@ -859,6 +856,8 @@
       href: find-unattached-disks.md
     - name: Find unattached disks - Portal
       href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Map Azure Disks to Guest Disks
+      href: azure-to-guest-disk-mapping.md
     - name: Disks FAQs
       href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Manage networking

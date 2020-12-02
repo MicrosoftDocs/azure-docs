@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -19,6 +19,31 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## November 2020
+
+### Azure portal experience
+
+We've fixed two bugs in the Azure portal user experience:
+
+- The Desktop application friendly name is no longer overwritten on the "Add VM" workflow.
+- The session host tab will now load if session hosts are part of scale sets.
+
+### FSLogix client, version 2009 
+
+We've released a new version of the FSLogix client with many fixes and improvements. Learn more at [our blog post](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+
+### RDP Shortpath public preview
+
+RDP Shortpath introduces direct connectivity to your Windows Virtual Desktop session host using point-to-site and site-to-site VPNs and ExpressRoute. It also introduces the URCP transport protocol. RDP Shortpath is designed to reduce latency and network hops in order to improve user experience. Learn more at [Windows Virtual Desktop RDP Shortpath](shortpath.md).
+
+### Az.DesktopVirtualization, version 2.0.1
+
+We've released version 2.0.1 of the Windows Virtual Desktop cmdlets. This update includes cmdlets that will let you manage MSIX App Attach. You can download the new version at [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+
+### Azure Advisor updates
+
+Azure Advisor now has a new recommendation for proximity guidance in Windows Virtual Desktop. Learn more at [the Azure website](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## October 2020
 
@@ -168,7 +193,6 @@ Here's what this change does for you:
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In this update, the Azure AD tenant on your Azure subscription authenticates your users and provides Azure RBAC controls for your admins.
-
 
 ### PowerShell support
 

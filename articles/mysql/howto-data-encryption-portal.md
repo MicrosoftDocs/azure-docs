@@ -39,7 +39,8 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
   * No expiration date
   * Not disabled
   * Perform **get**, **wrap**, **unwrap** operations
-  * recoverylevel attribute set to **Recoverable**.
+  * recoverylevel attribute set to **Recoverable** (this requires soft-delete enabled with retention period set to 90 days)
+  * Purge protection enabled
 
 You can verify the above attributes of the key by using the following command:
 

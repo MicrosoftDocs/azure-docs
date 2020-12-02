@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/download-template.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/download-template",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": false
@@ -28503,6 +28508,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-concurrency.md",
+      "redirect_url": "/azure/storage/blobs/concurrency-manage",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-configure-connection-string.md",
       "redirect_url": "/azure/storage/common/storage-configure-connection-string",
       "redirect_document_id": true
@@ -54301,6 +54311,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-analyze.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-thumb.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts/curl-print-text.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md",
       "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing",
       "redirect_document_id": false
@@ -59853,6 +59878,11 @@
     {
       "source_path": "articles/media-services/latest/cli-create-transform.md",
       "redirect_url": "/azure/media-services/latest/how-to-create-transform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/security/access-control.md",
+      "redirect_url": "/azure/synapse-analytics/security/synapse-workspace-access-control-overview",
       "redirect_document_id": false
     }
   ]
