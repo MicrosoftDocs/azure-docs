@@ -42,7 +42,12 @@ Enter the following command to see options for the recognize command:
 spx help recognize
 ```
 
-Now, let's use the Speech CLI to perform speech recognition using your system's default microphone. Run this command:
+Now, let's use the Speech CLI to perform speech recognition using your system's default microphone. 
+
+>[!WARNING]
+> If you are using a Docker container, this command will not work.
+
+Run this command:
 
 ```shell
 spx recognize --microphone

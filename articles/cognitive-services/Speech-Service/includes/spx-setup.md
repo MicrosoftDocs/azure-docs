@@ -138,8 +138,8 @@ Follow these instructions to create a shortcut:
    // Get some help
    spx help recognize
 
-   // Recognize speech from a microphone 
-   spx recognize --microphone
+   // Recognize speech from an audio file 
+   spx recognize --file /mounted/directory/file.wav
    ```
 
 > [!WARNING]
