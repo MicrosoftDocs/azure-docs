@@ -46,15 +46,14 @@ Follow this procedure to add a new Windows performance counter to collect. Pleas
 
 ### Linux performance counters
 
-![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux.png)
+![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux-1.png)
 
 Follow this procedure to add a new Linux performance counter to collect.
 
-1. By default, all configuration changes are automatically pushed to all agents.  For Linux agents, a configuration file is sent to the Fluentd data collector.  If you wish to modify this file manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines* and follow the guidance below.
-2. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  
-3. Click **+** or press **Enter** to add the counter to the list of other counters for the object.
-4. All counters for an object use the same **Sample Interval**.  The default is 10 seconds.  You change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
-5. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
+1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  
+1. Click **+** or press **Enter** to add the counter to the list of other counters for the object.
+1. All counters for an object use the same **Sample Interval**.  The default is 10 seconds.  You change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
+1. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
 
 #### Configure Linux performance counters in configuration file
 Instead of configuring Linux performance counters using the Azure portal, you have the option of editing configuration files on the Linux agent.  Performance metrics to collect are controlled by the configuration in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
