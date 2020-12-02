@@ -157,7 +157,7 @@ Next, you import a new term using the **Sensitivity level** template that you ha
 
    :::image type="content" source="./media/tutorial-import-create-glossary-terms/download-sample-csv-file.png" alt-text="Download sample csv file.":::
 
-1. A a template file is downloaded for you to edit and upload new glossary term with customer attributes. Open the CSV file you have downloaded. Add new terms and their appropriate values as new rows in the CSV file.
+1. A template file is downloaded for you to edit and upload new glossary term with customer attributes. Open the CSV file you've downloaded. Add new terms and their appropriate values as new rows in the CSV file.
 
    :::image type="content" source="./media/tutorial-import-create-glossary-terms/create-term-in-csv.png" alt-text="Create term in csv file.":::
 
