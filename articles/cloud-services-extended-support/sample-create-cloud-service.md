@@ -41,7 +41,7 @@ $cloudService = New-AzCloudService                                              
 ```
 
 
-## Create new Cloud Service with single role and RDP extension
+## Create new Cloud Service with single role and remote desktop extension
 
 ```powershell
 # Create role profile object

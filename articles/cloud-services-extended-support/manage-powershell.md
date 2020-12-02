@@ -145,18 +145,18 @@ Stop-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $clo
 
 
 ## VIP Swap deployment
-Process to define swappable relationship between two deployments and swap Virtual IP addresses.
-1.	Create first Cloud Services (extended support) deployment.
-2.	Get cloudServicesId of the first deployment.
-3.	Create second Cloud Services (extended support) deployment, but now by adding `-SwappableCloudServiceId` property to `New-AzCloudService` command. 
-4.	Get cloudServiceId for second deployment.
+Define a swappable relationship between two deployments.
+1.	Create a Cloud Services (extended support) deployment.
+2.	Get `cloudServicesId` of the first deployment.
+3.	Create a second Cloud Service (extended support) deployment, adding `-SwappableCloudServiceId` property to `New-AzCloudService` command. 
+4.	Get `cloudServiceId` for second deployment.
 5.	Perform VIP Swap.
 
     ```PowerShell
     Switch-AzCloudService -SourceCloudService $sourceCloudServiceId -TargetCloudService $targetCloudServiceId    
     ```
 
-To update the swappable relationship for a Cloud Service deployment, call update-AzCloudService command with `-SwappableCloudServiceId` property containing the Cloud Services Id of the newer deployment.
+To update the swappable relationship for a Cloud Service deployment, call the `update-AzCloudService` command with `-SwappableCloudServiceId` property containing the Cloud Services Id of the newer deployment.
 
 ## RDP using plugin or extension
 
@@ -170,8 +170,8 @@ To update the swappable relationship for a Cloud Service deployment, call update
     </Imports>
     ```
 
-2.	Create a self-signed PFX cert, define the RDP username & password & encrypt the password using certificate
-3.	Add settings for RDP in cscfg. Set plugin enabled properties to true. 
+2.	Create a self-signed PFX certificate, define the remote desktop username & password and encrypt the password using the certificate.
+3.	Add settings for remote desktop in the cscfg file and set the plugin enabled property to true. 
 
     ```PowerShell
     <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
@@ -188,23 +188,16 @@ To update the swappable relationship for a Cloud Service deployment, call update
         </Certificates>
         ```
 
-5.	Upload the certificate  to Key Vault and reference the Key Vault during CS create operation
+5.	Upload the certificate to a Key Vault and reference the Key Vault during the Cloud Service (extended support) create operation.
 6.	Create Cloud Services deployment
 
 ### RDP into role instance
-1.	Get the RDP file for your Cloud Service.
+1.	Get the remote desktop file needed to connect to your Cloud Service.
 
     ```PowerShell 
     Get-AzCloudServiceRoleInstanceRemoteDesktopFile -CloudServiceName $cloudServiceName -ResourceGroupName $resourceGroupName -RoleInstanceName $roleInstanceName OutFile "C:\temp\ContosoFrontEnd_IN_0.rdp"
     ```
-
-2.	Create RDP file. Italic values below define the value & it’s syntax that needs to be replaced. 
-    ```PowerShell
-    full address:s:cloudservicename.location.cloudapp.azure.com
-    username:s:defined_username
-    LoadBalanceInfo:s:Cookie: mstshash=RoleName#RoleInstanceName
-    ```
-3.	Double click & execute the file to connect to the VM. 
+2.	Open the file to connect to the role instance. 
 
 ## Next steps
-For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 
+For more information, see [Frequently asked questions about Azure Cloud Services (extended support)](faq.md)

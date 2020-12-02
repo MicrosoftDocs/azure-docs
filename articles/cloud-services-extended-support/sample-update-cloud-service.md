@@ -26,7 +26,7 @@ $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtensio
 $cloudService | Update-AzCloudService
 ```
 
-## Remove all extensions from Cloud Service
+## Remove all extensions from a Cloud Service
 ```powershell
 # Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
@@ -36,7 +36,7 @@ $cloudService.ExtensionProfileExtension = @()
 $cloudService | Update-AzCloudService
 ```
 
-## Remove RDP extension from Cloud Service
+## Remove the remote desktop extension from Cloud Service
 ```powershell
 # Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
