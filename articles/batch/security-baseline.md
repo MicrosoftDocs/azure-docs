@@ -473,11 +473,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use Azure Active Directory Role-based access control (RBAC) to control access to the management plane of Azure resources including Batch Account, Batch Pool(s), and Storage Accounts.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the management plane of Azure resources including Batch Account, Batch Pool(s), and Storage Accounts.
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -499,17 +499,13 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: For storage accounts associated with your Azure Batch account, it is recommended to allow Microsoft to manage encryption keys, however, you have the option to manage your own keys if required.
 
-Azure disk encryption can be used to help protect and safeguard your
-data to meet organizational security and compliance commitments. All managed disks, snapshots, images, and
-data written to existing disks are automatically encrypted-at-rest with
-platform-managed keys.
+Azure disk encryption can be used to help protect and safeguard your data to meet organizational security and compliance commitments. All managed disks, snapshots, images, and data written to existing disks are automatically encrypted-at-rest with platform-managed keys.
 
 - [How to manage encryption keys for Azure Storage Accounts](/azure/storage/common/storage-encryption-keys-portal)
 
 - [How to configure customer-managed encryption keys](/azure/storage/common/storage-encryption-keys-portal)
 
-How
-- [to create a pool with disk encryption enabled](disk-encryption.md)
+- [How to create a pool with disk encryption enabled](disk-encryption.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -821,9 +817,10 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 - [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Azure Key Vault](/azure/key-vault/quick-create-portal)
+- [How to create a Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+- [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
