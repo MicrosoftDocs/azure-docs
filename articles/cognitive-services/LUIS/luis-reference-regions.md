@@ -4,11 +4,12 @@ description: The region specified in the Azure portal is the same where you will
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 12/02/2020
 ---
+
 # Authoring and publishing regions and the associated keys
 
-Three authoring regions are supported by corresponding LUIS portals. To publish a LUIS app to more than one region, you need at least one key per region.
+LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app to more than one region, you need at least one key per region.
 
 <a name="luis-website"></a>
 
@@ -16,13 +17,14 @@ Three authoring regions are supported by corresponding LUIS portals. To publish 
 
 [!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
 
-LUIS has one portal you can use regardless of region, [www.luis.ai](www.luis.ai). You must still author and publish in the same region.
+LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.luis.ai). You must still author and publish in the same region.
 
 Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 <a name="regions-and-azure-resources"></a>
 
 ## Publishing regions and Azure resources
+
 The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS or Cognitive Service resource in **westus** and [add it to the app as a resource](luis-how-to-azure-subscription.md), the app is published in that region.
 
 ## Public apps
@@ -90,5 +92,3 @@ Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azu
 > [Prebuilt entities reference](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai
- [au.luis.ai]: https://au.luis.ai
- [eu.luis.ai]: https://eu.luis.ai
