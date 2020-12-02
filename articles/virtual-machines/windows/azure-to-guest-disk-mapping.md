@@ -10,7 +10,7 @@ ms.date: 11/17/2020
 ms.author: tibasham
 
 ---
-# How to Map Azure Disks to Windows VM guest disks
+# How to map Azure Disks to Windows VM guest disks
 
 You may need to determine the Azure Disks that back a VM's guest disks. In some scenarios, you can compare the disk or volume size to the size of the attached Azure Disks. In scenarios where there are multiple Azure Disks of the same size attached to the VM you need to use the Logical Unit Number (LUN) of the data disks. 
 
