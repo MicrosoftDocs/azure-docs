@@ -40,6 +40,7 @@ This article lists common troubleshooting issues in dedicated SQL pool (formerly
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Exporting empty strings using CETAS will result in NULL values in Parquet and ORC files. Note if you are exporting empty strings from columns with NOT NULL constraints, CETAS will result in rejected records and the export can potentially fail. | Remove empty strings or the offending column in the SELECT statement of your CETAS. |
+| Loading a value outside the range of 0-127 into a tinyint column for Parquet and ORC file format is not supported. | Specify a larger data type  for the target column.           |
 
 ## Performance
 

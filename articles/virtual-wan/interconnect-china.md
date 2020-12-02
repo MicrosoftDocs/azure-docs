@@ -17,7 +17,7 @@ When looking at common automotive, manufacturing, logistics industries, or other
 
 In most of the cases, customers are struggling with high latencies, low bandwidth, unstable connection, and high costs connecting to outside of China (for example, Europe or the United States).
 
-A reason for these struggles is the "Great Firewall of China", which protects the Chinese part of the Internet and filters traffic to China. Nearly all traffic running from China Mainland to outside of China, except the special administration zones like Hong Kong and Macau, passes the Great Firewall. The traffic running through Hong Kong and Macau does not hit the Great Firewall in full force, it is handled by a subset of the Great Firewall.
+A reason for these struggles is the "Great Firewall of China", which protects the Chinese part of the Internet and filters traffic to China. Nearly all traffic running from People's Republic of China to outside of China, except the special administration zones like Hong Kong and Macau, passes the Great Firewall. The traffic running through Hong Kong and Macau does not hit the Great Firewall in full force, it is handled by a subset of the Great Firewall.
 
 :::image type="content" source="./media/interconnect-china/provider.png" alt-text="Diagram shows provider interconnect.":::
 
@@ -68,13 +68,13 @@ The following list shows Internet Exchanges possible in Hong Kong:
 
 When using this connect, your next BGP hop for Microsoft Services must be Microsoft Autonomous System Number (AS#) 8075. If you use a single location or SDWAN solution, that would be the choice of connection.
 
-With the current changes regarding interconnects between mainland China and Hong Kong, most of these network providers build an MPLS bridge between mainland China and Hong Kong.
+With the current changes regarding interconnects between China and Hong Kong SAR, most of these network providers build an MPLS bridge between China and Hong Kong SAR.
 
 You can see that site-to-site VPN connections inside China are allowed and are mostly stable. The same applies for the site-to-site connections between branches in the rest of the world. Providers now create a VPN/SDWAN Aggregation on both sides and bridge via MPLS between them.
 
 :::image type="content" source="./media/interconnect-china/china-mpls-bridge.png" alt-text="Diagram shows China MPLS bridge.":::
 
-Either way, we still recommend that you have a second and regular internet breakout into the Chinese mainland. This is to split the traffic between enterprise traffic to cloud services like Microsoft 365 and Azure, and by-law regulated internet traffic.
+Either way, we still recommend that you have a second and regular internet breakout into China. This is to split the traffic between enterprise traffic to cloud services like Microsoft 365 and Azure, and by-law regulated internet traffic.
 
 A compliant network architecture within China could look like the following example:
 

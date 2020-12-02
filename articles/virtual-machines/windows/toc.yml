@@ -580,9 +580,6 @@
       href: change-drive-letter.md
     - name: Change availability set
       href: change-availability-set.md
-    - name: Export ARM template
-      displayName: Azure Resource Manager
-      href: download-template.md
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution

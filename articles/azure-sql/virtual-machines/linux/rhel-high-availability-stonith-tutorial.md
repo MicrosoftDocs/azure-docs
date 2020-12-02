@@ -1126,6 +1126,34 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
     sudo pcs resource move ag_cluster-clone <VM2> --master
     ```
 
+   You can also specify an additional option so that the temporary constraint that's created to move the resource to a desired node is disabled automatically, and you do not have to perform steps 2 and 3 below.
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master lifetime=30S
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master lifetime=30S
+    ```
+
+   Another alternative to automate steps 2 and 3 below which clear the temporary constraint in the resource move command itself is by combining multiple commands in a single line. 
+
+   **RHEL 7**
+
+    ```bash
+    sudo pcs resource move ag_cluster-master <VM2> --master && sleep 30 && pcs resource clear ag_cluster-master
+    ```
+
+   **RHEL 8**
+
+    ```bash
+    sudo pcs resource move ag_cluster-clone <VM2> --master && sleep 30 && pcs resource clear ag_cluster-clone
+    ```
+    
 2. If you check your constraints again, you'll see that another constraint was added because of the manual failover:
     
     **RHEL 7**
