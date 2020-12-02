@@ -96,7 +96,7 @@ You can add custom alert rules based on information detected by individual senso
 
 The alert message indicates that a user-defined rule triggered the alert.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="user defind rule":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="user defined rule":::
 
 To create a custom alert rule:
 
@@ -114,7 +114,7 @@ To create a custom alert rule:
 1. Indicate if the alert will include a PCAP file.
 1. Select **Save.**
 
-The rule is added to the Customized Alerts Rules list. where you can review basic rule parameters, the last time the rule was triggered, and more. You can also enable and disable the rule from the list.
+The rule is added to the Customized Alerts Rules list where you can review basic rule parameters, the last time the rule was triggered, and more. You can also enable and disable the rule from the list.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/image269.png" alt-text="customized alert":::
 

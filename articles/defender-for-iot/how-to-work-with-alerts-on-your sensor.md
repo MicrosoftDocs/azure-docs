@@ -1,5 +1,5 @@
 ---
-title: Work with alerts sensor
+title: Work with alerts on your sensor
 description: Work with alerts to help you enhance the security and operation of your network.
 author: shhazam-ms
 manager: rkarlin
