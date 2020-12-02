@@ -75,7 +75,6 @@ Sign in to the [Azure portal](https://portal.azure.com). If you don't already ha
 
 8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
    * **LoadBalancerAlertEvent**
-   * **LoadBalancerProbeHealthStatus**
 
 9.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
    * **AllMetrics**
