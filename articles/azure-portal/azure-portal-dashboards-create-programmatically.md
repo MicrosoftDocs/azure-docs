@@ -662,18 +662,20 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- These examples use the following: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Replace content in angled brackets with your values.
+- These examples use the following dashboard: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Replace content in angled brackets with your values.
 
 Run the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to create a dashboard:
 
 ```azurecli
-az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
 You can update a dashboard by using the [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) command:
 
 ```azurecli
-az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
 See the details of a dashboard by running the [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) command:

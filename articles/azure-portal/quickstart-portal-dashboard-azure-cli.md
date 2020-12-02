@@ -35,7 +35,8 @@ Select a subscription by using the [az account set](/cli/azure/account#az_accoun
 Create a virtual machine by using the [az vm create](/cli/azure/vm#az_vm_create) command:
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016datacenter --admin-username azureuser --admin-password 1StrongPassword$
+az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016datacenter \
+   --admin-username azureuser --admin-password 1StrongPassword$
 ```
 
 > [!Note]
@@ -72,7 +73,8 @@ You can now deploy the template from within Azure CLI.
 1. Run the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to deploy the template:
 
    ```azurecli
-   az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+   az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+      --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
 1. Check that the dashboard was created successfully by running the [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) command:
@@ -96,7 +98,8 @@ az portal dashboard list --resource-group myResourceGroup
 You can update a dashboard by using the [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) command:
 
 ```azurecli
-az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' --input-path portal-dashboard-template-testvm.json --location centralus
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
 Verify that you can see data about the virtual machine from within the Azure portal.
