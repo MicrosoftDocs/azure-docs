@@ -30,7 +30,7 @@ See [Live streaming digital media](https://docs.microsoft.com/azure/architecture
 
 ## Instant Broadcasting on Serverless Architecture
 
-Simplify one-to-many real-time communication and updates using serverless code. This architecture uses Azure Functions, SignalR Service, a storage account and a SQL database.
+Simplify one-to-many real-time communication and updates using serverless code. This architecture uses Azure Functions, SignalR Service, a storage account, and a SQL database.
 
 See [Instant Broadcasting on Serverless Architecture](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/instant-broadcasting-on-serverless-architecture) in the Azure Architecture center.
 
