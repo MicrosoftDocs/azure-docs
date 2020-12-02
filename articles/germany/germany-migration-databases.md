@@ -103,7 +103,7 @@ For more information the following tables below indicates T-SQL commands for man
 |[ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Use FAILOVER or FORCE_FAILOVER_ALLOW_DATA_LOSS to switch a secondary database to be primary to initiate failover  |
 |[ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Use REMOVE SECONDARY ON SERVER to terminate a data replication between a SQL Database and the specified secondary database.  |
  
-### Geo-Dr monitoring system views 
+### Active geo-replication monitoring system views 
  
 |Command |Description|
 |:--|:--| 
