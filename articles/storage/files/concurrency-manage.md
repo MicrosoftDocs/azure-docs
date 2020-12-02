@@ -274,20 +274,6 @@ The file service can be accessed using two different protocol endpoints – SMB 
 
 When an SMB client opens a file for delete, it marks the file as pending delete until all other SMB client open handles on that file are closed. While a file is marked as pending delete, any REST operation on that file will return status code 409 (Conflict) with error code SMBDeletePending. Status code 404 (Not Found) is not returned since it is possible for the SMB client to remove the pending deletion flag prior to closing the file. In other words, status code 404 (Not Found) is only expected when the file has been removed. Note that while a file is in an SMB pending delete state, it will not be included in the List Files results. Also, note that the REST Delete File and REST Delete Directory operations are committed atomically and do not result in a pending delete state.  
 
-For more information, see:  
-
-* [Managing File Locks](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
-
 ## Next steps
 
-For the complete sample application referenced in this blog:  
-
-* [Managing Concurrency using Azure Storage - Sample Application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
-
-For more information on Azure Storage see:  
-
-* [Microsoft Azure Storage Home Page](https://azure.microsoft.com/services/storage/)
-* [Introduction to Azure Storage](storage-introduction.md)
-* Storage Getting Started for [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md),  [Queues](../storage-dotnet-how-to-use-queues.md), and [Files](../storage-dotnet-how-to-use-files.md)
-* Storage Architecture – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
-
+* [Managing File Locks](https://msdn.microsoft.com/library/azure/dn194265.aspx)  

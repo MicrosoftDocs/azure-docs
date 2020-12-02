@@ -85,20 +85,6 @@ Note that the **Insert or Replace Entity** and **Insert or Merge Entity** operat
 
 In general developers using tables should rely on optimistic concurrency when developing scalable applications. If pessimistic locking is needed, one approach developers can take when accessing Tables is to assign a designated blob for each table and try to take a lease on the blob before operating on the table. This approach does require the application to ensure all data access paths obtain the lease prior to operating on the table. You should also note that the minimum lease time is 15 seconds which requires careful consideration for scalability.  
 
-For more information, see:  
-
-* [Operations on Entities](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
-
 ## Next steps
 
-For the complete sample application referenced in this blog:  
-
-* [Managing Concurrency using Azure Storage - Sample Application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
-
-For more information on Azure Storage see:  
-
-* [Microsoft Azure Storage Home Page](https://azure.microsoft.com/services/storage/)
-* [Introduction to Azure Storage](storage-introduction.md)
-* Storage Getting Started for [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md),  [Queues](../storage-dotnet-how-to-use-queues.md), and [Files](../storage-dotnet-how-to-use-files.md)
-* Storage Architecture – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
-
+* [Operations on Entities](https://msdn.microsoft.com/library/azure/dd179375.aspx)  

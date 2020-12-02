@@ -36,21 +36,7 @@ One scenario in which concurrency is a concern in the queueing service is where 
 
 The queue service does not have support for either optimistic or pessimistic concurrency and for this reason clients processing messages retrieved from a queue should ensure messages are processed in an idempotent manner. A last writer wins strategy is used for update operations such as SetQueueServiceProperties, SetQueueMetaData, SetQueueACL and UpdateMessage.  
 
-For more information, see:  
+## Next steps
 
 * [Queue Service REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [Get Messages](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
-
-## Next steps
-
-For the complete sample application referenced in this blog:  
-
-* [Managing Concurrency using Azure Storage - Sample Application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
-
-For more information on Azure Storage see:  
-
-* [Microsoft Azure Storage Home Page](https://azure.microsoft.com/services/storage/)
-* [Introduction to Azure Storage](storage-introduction.md)
-* Storage Getting Started for [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md),  [Queues](../storage-dotnet-how-to-use-queues.md), and [Files](../storage-dotnet-how-to-use-files.md)
-* Storage Architecture – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
-
