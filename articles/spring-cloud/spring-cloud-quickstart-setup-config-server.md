@@ -78,6 +78,9 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ---
 ::: zone-end
 
+> [!TIP]
+> If you are using a private repository for config server, please refer to our [tutorial](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-config-server) on setting up authentication.
+
 ## Troubleshooting of Azure Spring Cloud config server
 
 The following procedure explains how to troubleshoot config server settings.
