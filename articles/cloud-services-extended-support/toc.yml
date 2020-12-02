@@ -42,8 +42,8 @@
   items:
   - name: Enable Remote Desktop
     href: enable-rdp.md
-  - name: Enable Monitoring
-    href: enable-monitoring.md
+  - name: Enable Alerts
+    href: enable-alerts.md
   - name: Configure scaling
     href: configure-scaling.md
   - name: Swap Cloud Service deployments
