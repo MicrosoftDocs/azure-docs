@@ -178,4 +178,4 @@ In this tutorial, you learned how to:
 Advance to the next article to learn about different catalog insights.
 
 > [!div class="nextstepaction"]
-> [Understand Insights in Azure Purview](concepts-insights.md)
+> [Understand Insights in Azure Purview](concept-insights.md)
