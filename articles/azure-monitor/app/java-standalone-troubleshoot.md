@@ -15,16 +15,16 @@ This log file is the first place to check for hints to any issues you may be exp
 
 ## Upgrade from Application Insights Java 2.x SDK
 
-See [Upgrade from 2.x SDK](./upgrade-from-2x.md).
+See [Upgrade from 2.x SDK](./java-standalone-upgrade-from-2x.md).
 
 ## Upgrade from 3.0 Preview
 
-If you are upgrading from 3.0 Preview, please review all of the [configuration options](./java-standalone-config.md) carefully, as the json structure has completely changed in the 3.0 GA release.
+If upgrading from 3.0 Preview, please review all of the [configuration options](./java-standalone-config.md) carefully, as the json structure has completely changed in the 3.0 GA release.
 
 These changes include:
 
 1.  The configuration file name itself has changed from `ApplicationInsights.json` to `applicationinsights.json`.
-2.  The `instrumentationSettings` node is no longer present. All content inside of `instrumentationSettings` is moved to the root level. 
+2.  The `instrumentationSettings` node is no longer present. All content in `instrumentationSettings` is moved to the root level. 
 3.  Configuration nodes like `sampling`, `jmxMetrics`, `instrumentation` and `heartbeat` are moved out of `preview` to the root level.
 
 ## SSL Certificate Issues
