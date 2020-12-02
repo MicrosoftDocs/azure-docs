@@ -75,7 +75,12 @@ This article shows how to build a **Logic App (Preview)** resource by using the 
 
 1. Next, on the **Monitoring** tab, based on your selected hosting plan and pricing tier, [Application Insights](../azure-monitor/app/app-insights-overview.md), which makes diagnostics logging and tracing capability, You can either 
 
-1. After Azure validates your logic app's settings, on the **Review + create** tab, review the settings. select **Create**.
+1. After Azure validates your logic app's settings, on the **Review + create** tab, confirm these settings, and select **Create**.
+
+   For example:
+
+   ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
+
 
 ## Monitoring
 
