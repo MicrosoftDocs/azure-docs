@@ -83,7 +83,7 @@ The example below shows a sample query using prediction function. An additional 
 -- Query for ML predictions
 SELECT d.*, p.Score
 FROM PREDICT(MODEL = (SELECT Model FROM Models WHERE Id = 1),
-DATA = dbo.mytable AS d) WITH (Score float) AS p;
+DATA = dbo.mytable AS d, RUNTIME = ONNX) WITH (Score float) AS p;
 ```
 
 ## Next steps
