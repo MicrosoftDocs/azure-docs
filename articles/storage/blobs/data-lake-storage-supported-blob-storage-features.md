@@ -35,9 +35,9 @@ The following table shows how each Blob storage feature is supported with Data L
 |Lifecycle management policies (tiering)|Generally available|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Logging in Azure Monitor|Preview |Preview|[Monitoring Azure Storage](./monitor-blob-storage.md)|
-|Snapshots|Preview|Preview|[Blob snapshots](snapshots-overview.md)|
-|Static websites|Preview|Preview|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
-|Immutable storage|Preview|Preview|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
+|Snapshots|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Blob snapshots](snapshots-overview.md)|
+|Static websites|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
+|Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
 |Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](storage-blob-soft-delete.md)|
@@ -51,7 +51,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Object replication|Not yet supported|Not yet supported|[Configure object replication for block blobs](object-replication-configure.md)|
 |Blob versioning|Not yet supported|Not yet supported|[Enable and manage blob versioning](versioning-enable.md)|
 
-<div id="preview-form"><sup>2</sup>To use snapshots, immutable storage, or static websites with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
+<div id="preview-form"><sup>1</sup>To use snapshots, immutable storage, or static websites with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
 
 ## See also
 
