@@ -13,7 +13,7 @@ ms.subservice: Blob Storage
 
 # Azure Storage container system integration partners
 
-This article highlights Microsoft system integration partner companies container solutions with Azure Storage.
+This article highlights Microsoft system integration partner solutions that enable automation of container based solutions at scale.
 
 ## System Integration partners
 | Partner | Description | Website/Product link |

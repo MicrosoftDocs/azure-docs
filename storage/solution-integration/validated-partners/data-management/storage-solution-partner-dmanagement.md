@@ -13,7 +13,7 @@ ms.subservice: Blob Storage
 
 # Azure Storage data management system integration partners
 
-This article highlights Microsoft system integration partner companies building data management solutions with Azure Storage.
+This article highlights Microsoft system integration partner companies  integrated with Azure Storage that improve customer’s data management capabilities. These partner solutions can support storage assessment and reporting, platform-agnostic migration, replication, cloud tiering or data governance.
 
 ## System Integration partners
 | Partner | Description | Website/Product link |
