@@ -27,7 +27,7 @@ MSAL caches tokens and uses a silent token acquisition pattern. It also automati
 
 When using MSAL, token caching, refreshing, and silent acquisition is supported automatically. You can use simple patterns to acquire the tokens necessary for modern authentication. We support many languages, and you can find a sample that matches your language and scenario on our [Samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) page.
 
-### [C#](#tab/c#)
+### [C#](#tab/csharp)
 
 ```csharp
 try
@@ -161,6 +161,8 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     self.getContentWithToken()
 }
 ```
+
+---
 
 MSAL can in some cases proactively refresh tokens. When Microsoft Identity issues a long-lived token, it can send information to the client for the optimal time to refresh the token ("refresh\_in"). MSAL will proactively refresh the token based on this information. The app will continue to run while the old token is valid but will have a longer timeframe during which to make another successful token acquisition.
 
