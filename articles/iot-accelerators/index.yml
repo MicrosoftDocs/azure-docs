@@ -50,7 +50,7 @@ landingContent:
       - linkListType: quickstart
         links: 
           - text: Try a device simulation solution
-            url: quickstart-device-simulation-deploy.md
+            url: https://github.com/Azure/device-simulation-dotnet/blob/master/README.md
       - linkListType: tutorial
         links: 
           - text: Create and run an IoT device simulation

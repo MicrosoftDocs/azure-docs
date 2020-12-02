@@ -81,4 +81,4 @@ The cost of running a solution accelerator is the combined [cost of running the 
 To try out one of the IoT solution accelerators, check out the quickstarts:
 
 * [Try a connected factory solution](quickstart-connected-factory-deploy.md)
-* [Try a device simulation solution](quickstart-device-simulation-deploy.md)
+* [Try a device simulation solution](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)

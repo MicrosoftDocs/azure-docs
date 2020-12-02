@@ -51881,6 +51881,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/quickstart-device-simulation-deploy.md",
+      "redirect_url": "https://github.com/Azure/device-simulation-dotnet/blob/master/README.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mariadb/reference-stored-procedures",
       "redirect_document_id": false

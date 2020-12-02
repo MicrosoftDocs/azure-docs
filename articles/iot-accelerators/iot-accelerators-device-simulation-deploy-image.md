@@ -28,7 +28,7 @@ The steps in this how-to-guide show you how to:
 
 To complete the steps in this how-to guide, you need:
 
-* A deployed [Device Simulation](quickstart-device-simulation-deploy.md) instance.
+* A deployed [Device Simulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) instance.
 * Docker. Download the [Docker Community Edition](https://www.docker.com/products/docker-engine#/download) for your platform.
 * A [Docker Hub account](https://hub.docker.com/) where you can upload your Docker images. In your Docker Hub account, create a public repository called **device-simulation**.
 * A modified and tested [Device Simulation solution](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) on your local machine. For example, you can modify the solution to [Serialize telemetry using Protocol Buffers](iot-accelerators-device-simulation-protobuf.md).

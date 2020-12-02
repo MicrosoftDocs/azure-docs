@@ -64,4 +64,4 @@ If you're a hardware manufacturer, click **Become a Partner** to learn about par
 To try out one of the IoT solution accelerators, check out the quickstarts:
 
 * [Try a connected factory solution](quickstart-connected-factory-deploy.md)
-* [Try a device simulation solution](quickstart-device-simulation-deploy.md)
+* [Try a device simulation solution](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)
