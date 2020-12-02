@@ -14,7 +14,7 @@ same design assets used for Teams experiences.
 
 **ACS UI Framework** componentizes the communication experience powered by Azure
 Communication Services into discrete building blocks. At the most basic level,
-**Baser Components** wrap around existing Azure Communication SDKs and extend core SDK
+**Base Components** wrap around existing Azure Communication SDKs and extend core SDK
 functionality to perform basic actions from initializing our client SDKs to
 rendering video or enabling user controls for muting, video on/off, etc.
 **Base Components** are available across chat, calling and SMS clients.
