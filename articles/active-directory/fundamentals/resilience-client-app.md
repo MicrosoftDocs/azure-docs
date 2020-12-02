@@ -27,7 +27,7 @@ MSAL caches tokens and uses a silent token acquisition pattern. It also automati
 
 When using MSAL, token caching, refreshing, and silent acquisition is supported automatically. You can use simple patterns to acquire the tokens necessary for modern authentication. We support many languages, and you can find a sample that matches your language and scenario on our [Samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) page.
 
-### [C#](#tab/csharp)
+## [C#](#tab/csharp)
 
 ```csharp
 try
@@ -40,7 +40,7 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-### [Javascript](#tab/javascript)
+## [Javascript](#tab/javascript)
 
 ```javascript
 return myMSALObj.acquireTokenSilent(request).catch(error => {
@@ -61,7 +61,7 @@ return myMSALObj.acquireTokenSilent(request).catch(error => {
 ```
 
 
-### [Angular](#tab/angular)
+## [Angular](#tab/angular)
 
 ```javascript
 const requestObj = {
@@ -76,7 +76,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 });
 ```
 
-### [React](#tab/react)
+## [React](#tab/react)
 
 ```react
 if (msalInstance.getAccount()) {
@@ -105,8 +105,9 @@ if (msalInstance.getAccount()) {
     // user is not logged in, you will need to log them in to acquire a token
 }
 ```
-### [Java](#tab/java)
+## [Java](#tab/java)
 
+```java
 return new SilentAuthenticationCallback() {
     @Override
     public void onSuccess(IAuthenticationResult authenticationResult) {
@@ -119,8 +120,9 @@ return new SilentAuthenticationCallback() {
         displayError(exception);
     }
 };
+```
 
-### [Swift](#tab/swift)
+## [Swift](#tab/swift)
 ```swift
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 
