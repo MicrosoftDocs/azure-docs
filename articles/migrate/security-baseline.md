@@ -613,11 +613,14 @@ Azure Migrate does not allow running an application or installation of software 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41201).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable. Azure Migrate cannot be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
@@ -625,11 +628,11 @@ Azure Migrate does not allow running an application or installation of software 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41202).
 
 **Guidance**: Use Azure Conditional Access to limit users'
-ability to interact with Azure Resources Manager by configuring "Block
+ability to interact with Azure Resource Manager by configuring "Block
 access" for the "Microsoft Azure Management" App.
 
 How to configure
-- [Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -665,14 +668,6 @@ Migrate does not allow customers to install applications on the service.
 **Guidance**: Not
 applicable; Azure Migrate does not currently produce customer facing
 resource logs that can be used for threat detection.
-
- 
-
-Enable Azure Activity Log diagnostic settings and send the logs to
-a Log Analytics workspace. 
- 
-How to collect and analyze Azure activity logs in
-- [Log Analytics workspace in Azure Monitor](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -731,15 +726,15 @@ or process DNS query logs which would need to be enabled.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41184).
 
-**Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Migrate resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+**Guidance**: Azure Migrate currently does not produce Azure resource logs.
+
+Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Migrate resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-Azure Migrate currently does not produce Azure resource logs.
-
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1184,19 +1179,11 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-<<<<<<< HEAD
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
-
-- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
-
-- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
-=======
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
 - [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
->>>>>>> "Daily restage"
 
 - [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
