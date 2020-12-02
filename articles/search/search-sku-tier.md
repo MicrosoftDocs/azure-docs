@@ -19,7 +19,7 @@ When you [create a search service](search-create-service-portal.md), you choose 
 + Size and speed of partitions (physical storage)
 + Billable rate, a fixed cost that also flexes with the number of partitions and replicas in use
 
-Additionally, a few [premium features](#premium-features) have with tier requirements.
+Additionally, a few [premium features](#premium-features) come with tier requirements.
 
 ## Tier descriptions
 
@@ -29,13 +29,13 @@ The following screenshot from Azure portal shows the available tiers, minus pric
 
 ![Pricing tiers of Azure Cognitive Search](media/search-sku-tier/tiers.png "Pricing tiers of Azure Cognitive Search")
 
-**Free**, **Basic**, and **Standard** are the most common tiers. **Free** creates a limited search service for smaller projects, and for running tutorials and code samples. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
+**Free** creates a limited search service for smaller projects, like running tutorials and code samples. Internally, replicas and partitions are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
 
 **Basic** and **Standard** are the most commonly used billable tiers, with **Standard** being the default. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
 
 Some tiers are optimized for certain types of work. For example, **Standard 3 High Density (S3 HD)** is a *hosting mode* for S3, where the underlying hardware is optimized for a large number of smaller indexes and is intended for multitenancy scenarios. S3 HD has the same per-unit charge as S3, but the hardware is optimized for fast file reads on a large number of smaller indexes.
 
-**Storage Optimized** tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about the performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+**Storage Optimized** tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements. To learn more about the performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
 
 You can find out more about the various tiers on the [pricing page](https://azure.microsoft.com/pricing/details/search/), in the [Service limits in Azure Cognitive Search](search-limits-quotas-capacity.md) article, and on the portal page when you're provisioning a service.
 
