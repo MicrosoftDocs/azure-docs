@@ -19,7 +19,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 * Create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete on the key vault.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * In the created Azure Key Vault, create the key that will be used for the data encryption of the Azure Database for MySQL.
@@ -50,7 +50,8 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
   * No expiration date
   * Not disabled
   * Perform **get**, **wrap**, **unwrap** operations
-  * recoverylevel attribute set to **Recoverable**.
+  * recoverylevel attribute set to **Recoverable** (this requires soft-delete enabled with retention period set to 90 days)
+  * Purge protection enabled
 
 You can verify the above attributes of the key by using the following command:
 
