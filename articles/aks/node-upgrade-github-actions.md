@@ -51,8 +51,6 @@ This article also assumes you have a [GitHub][github] account to create your act
         - cron: '0 3 */15 * *'
     ```
 
-    In this schedule, we're telling the workflow to run twice a month (at every 15 days) at 3am.
-
 1. Create a new job using the below. This job is named `upgrade-node`, runs on an Ubuntu agent, and will connect to your Azure CLI account to execute the needed steps to upgrade the nodes.
 
     ```yml
@@ -84,23 +82,23 @@ Download and sign in to the Azure CLI.
 
 1. Paste the following under the `steps` key:
 
-    ```yml
-    name: Upgrade cluster node images
+  ```yml
+  name: Upgrade cluster node images
 
-    on:
-      schedule:
-        - cron: '0 3 */15 * *'
+  on:
+    schedule:
+      - cron: '0 3 */15 * *'
 
-    jobs:
-      upgrade-node:
-        runs-on: ubuntu-latest
+  jobs:
+    upgrade-node:
+      runs-on: ubuntu-latest
 
-        steps:
-          - name: Azure Login
-            uses: Azure/login@v1.1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-    ```
+      steps:
+        - name: Azure Login
+          uses: Azure/login@v1.1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+  ```
 
 1. From the Azure CLI, run the following command to generate a new username and password.
 
@@ -120,7 +118,7 @@ Download and sign in to the Azure CLI.
     }
     ```
 
-1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository. Click **Secrets** then, click on **New Repository Secret**. 
+1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository. Click **Secrets** then, click on **New Repository Secret**.
 1. For *Name*, use `AZURE_CREDENTIALS`.
 1.  For *Value*, add the entire contents from the output of the previous step where you created a new username and password.
 
@@ -128,7 +126,7 @@ Download and sign in to the Azure CLI.
 
 1. Click **Add Secret**.
 
-The CLI used by your action will be logged to your Azure account and ready to run commands. 
+The CLI used by your action will be logged to your Azure account and ready to run commands.
 
 To create the steps to execute Azure CLI commands.
 
