@@ -1,5 +1,5 @@
 ---
-title: How to Map Azure Disks to Linux VM Guest Disks
+title: How to map Azure Disks to Linux VM guest disks
 description: How to determine the Azure Disks that underlay a Linux VM's guest disks.
 author: timbasham
 ms.service: virtual-machines-linux
@@ -58,7 +58,3 @@ You can locate the LUN for an Azure Disk using the Azure portal, Azure CLI.
 ```azurecli-interactive
 az vm show -g myResourceGroup -n myVM --query "storageProfile.dataDisks"
 ```
-
-## Next steps
-
-
