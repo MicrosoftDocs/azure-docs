@@ -176,26 +176,26 @@ Once you create the commit, the workflow will be saved and ready for execution.
 
 You can run the workflow manually, in addition to the scheduled run, by adding a new `on` trigger called `workflow_dispatch`. The finished file should look like the YAML below:
 
-    ```yml
-    name: Upgrade cluster node images
+```yml
+name: Upgrade cluster node images
 
-    on:
-      schedule:
-        - cron: '0 3 */15 * *'
-      workflow_dispatch:
+on:
+  schedule:
+    - cron: '0 3 */15 * *'
+  workflow_dispatch:
 
-    jobs:
-      upgrade-node:
-        runs-on: ubuntu-latest
+jobs:
+  upgrade-node:
+    runs-on: ubuntu-latest
 
-        steps:
-          - name: Azure Login
-            uses: Azure/login@v1.1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
+    steps:
+      - name: Azure Login
+        uses: Azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-          # Code for upgrading one or more node pools
-    ```
+      # Code for upgrading one or more node pools
+```
 
 ## Next steps
 
