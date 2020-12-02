@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with creating policy definitions, the various SDK, and the add-on for Kubernetes.
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Policy
@@ -126,7 +126,7 @@ Follow these steps to troubleshoot your policy assignment's enforcement:
    or REST API, see
    [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Check that the assignment parameters and assignment scope are set correctly and that
-   **enforcementMode** is _Enabled_. 
+   **enforcementMode** is _Enabled_.
 1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
    - Mode 'all' for all resource types.
    - Mode 'indexed' if the policy definition checks for tags or location.
@@ -250,25 +250,6 @@ For a detailed narrative, see the following blog post:
 
 ## Add-on for Kubernetes general errors
 
-### Scenario: Add-on doesn't work with AKS clusters on version 1.19 (preview)
-
-#### Issue
-
-Version 1.19 clusters return this error via gatekeeper controller and policy webhook pods:
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### Cause
-
-AKS clusers on version 1.19 (preview) isn't yet compatible with the Azure Policy Add-on.
-
-#### Resolution
-
-Avoid using Kubernetes 1.19 (preview) with the Azure Policy Add-on. The add-on can be used with any
-supported generally available version such as 1.16, 1.17, or 1.18.
-
 ### Scenario: Add-on is unable to reach the Azure Policy service endpoint due to egress restrictions
 
 #### Issue
@@ -345,10 +326,20 @@ spec:
 
 #### Issue
 
-The add-on can reach the Azure Policy service endpoint, but sees the following error:
+The add-on can reach the Azure Policy service endpoint, but sees one of the following errors in
+add-on logs:
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+or
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### Cause
@@ -358,10 +349,11 @@ add-on to get policy definitions and return compliance data.
 
 #### Resolution
 
-Register the `Microsoft.PolicyInsights` resource provider. For directions, see
+Register the `Microsoft.PolicyInsights` resource provider in the cluster subscription. For
+directions, see
 [Register a resource provider](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-### Scenario: The subscript is disabled
+### Scenario: The subscription is disabled
 
 #### Issue
 
@@ -378,7 +370,7 @@ This error means the subscription was determined to be problematic and the featu
 
 #### Resolution
 
-Contact feature team `azuredg@microsoft.com` to investigate and resolve this issue. 
+Contact feature team `azuredg@microsoft.com` to investigate and resolve this issue.
 
 ## Next steps
 
