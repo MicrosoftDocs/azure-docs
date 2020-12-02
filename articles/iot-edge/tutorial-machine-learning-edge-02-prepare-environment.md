@@ -204,6 +204,10 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Since no edits were made, just close this page.
 
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
 In this article, we created an IoT Hub and configured a route to an Azure Storage account. Next, we will send data from a set of simulated devices through the IoT Hub into the storage account. Later in the tutorial, after we have configured our IoT Edge device and modules, we will revisit routes and look a little more at the routing query.

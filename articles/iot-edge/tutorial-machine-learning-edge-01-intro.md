@@ -87,6 +87,10 @@ The picture below illustrates the rough steps we follow in this tutorial:
 
 1. **Maintain and refine the model**. Our work is not done once the model is deployed. In many cases, we want to continue collecting data and periodically upload that data to the cloud. We can then use this data to retrain and refine our model, which we then can redeploy to IoT Edge.
 
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
 This tutorial is divided into the following sections:

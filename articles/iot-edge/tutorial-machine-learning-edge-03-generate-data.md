@@ -153,6 +153,10 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 1. There is no need to try to read or interpret the data right now; we will do it in next article.
 
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
 In this article, we used a .NET Core project to create a set of virtual IoT devices and send data through them to our IoT hub and into an Azure Storage container. This project simulates a real-world scenario where physical IoT devices send data to an IoT Hub and onward into a curated storage. This data includes sensor readings, operational settings, failure signals and modes, and so on. Once enough data has been collected, we use it to train models that predict the remaining useful life (RUL) for the device. We'll demonstrate this machine learning in the next article.

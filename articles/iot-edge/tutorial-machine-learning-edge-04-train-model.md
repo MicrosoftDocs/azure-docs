@@ -174,6 +174,10 @@ You can insert Python statements into the notebook for debugging, such as the `p
 
 You may have to delete previously created files and Azure resources if you need to redo the notebooks.
 
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
 In this article, we used two Jupyter Notebooks running in Azure Notebooks to use the data from the turbofan devices to train a remaining useful life (RUL) classifier, to save the classifier as a model, to create a container image, and to deploy and test the image as a web service.
