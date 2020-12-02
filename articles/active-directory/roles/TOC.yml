@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure AD roles
+  - name: What is Azure AD RBAC?
     href: custom-overview.md
+  - name: Understand Azure AD roles
+    href: concept-understand-roles.md
 - name: Quickstarts
   items:
   - name: Create unlimited app registrations
@@ -50,8 +52,6 @@
   - name: Custom roles
     expanded: true
     items: 
-    - name: Custom roles overview        
-      href: custom-overview.md
     - name: Create a custom role
       href: custom-create.md
     - name: View custom role assignments
