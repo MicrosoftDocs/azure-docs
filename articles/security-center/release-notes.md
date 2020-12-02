@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/01/2020
 ms.author: memildin
 
 ---
@@ -71,8 +71,7 @@ Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
 
 A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
 
-To assign yourself tenant-level permissions, follow the instructions in [Enable tenant-wide permissions for yourself](security-center-permissions.md#enable-tenant-wide-permissions-for-yourself).
-
+To assign yourself tenant-level permissions, follow the instructions in [Grant tenant-wide permissions for yourself](security-center-management-groups.md#grant-tenant-wide-permissions-for-yourself).
 
 ## November 2020
 

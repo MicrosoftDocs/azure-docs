@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 12/01/2020
 ms.author: memildin
 
 ---
@@ -81,6 +81,32 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
     - This setting isn't a global property and applies only to the currently logged in user.
 
 5. Perform the tasks you need to make at the elevated access. When you're done, set the switch back to **No**.
+
+
+### Grant tenant-wide permissions for yourself
+
+A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
+
+To assign yourself tenant-level permissions:
+
+1. As a Global Administrator user without an assignment on the root management group of the tenant, open Security Center's **Overview** page and select the **tenant-wide visibility** link in the banner. 
+
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Enable tenant-level permissions in Azure Security Center":::
+
+1. Select the new Azure role to be defined. 
+
+    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Form for defining the tenant-level permissions to be assigned to your user":::
+
+    > [!TIP]
+    > To understand the differences between the optional roles, use the table in [Roles and allowed actions](security-center-permissions.md#roles-and-allowed-actions).
+
+The organizational-wide view is achieved by granting roles on the root management group level of the tenant.  
+
+Learn more about the [Global Administrator role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles)
+
+
+
+
 
 
 ### Assign Azure roles to users
