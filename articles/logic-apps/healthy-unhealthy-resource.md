@@ -1,16 +1,16 @@
 ---
-title: Understand your logic app's health in Security Center
-description: Understand why Azure considers your logic app resource to be healthy or unhealthy.
+title: Set up logging to monitor logic apps in Azure Security Center
+description: Monitor the health of your Logic Apps resources in Azure Security Center by setting up diagnostic logging. 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/02/2020
 ---
 
-# Understand your logic app's health in Security Center
+# Set up logging to monitor logic apps in Azure Security Center
 
-When you monitor your Logic Apps resources in [Microsoft Azure Security Center](../security-center/security-center-introduction.md), you can [review the health status for your Logic Apps resources](#view-logic-apps-health-status). Azure shows the health status for a Logic Apps resource after you enable logging and correctly set up the logs' destination. This article explains how to configure diagnostic logging and make sure that all your logic apps are healthy resources.
+When you monitor your Logic Apps resources in [Microsoft Azure Security Center](../security-center/security-center-introduction.md), you can [review whether your logic apps are following the default policies](#view-logic-apps-health-status). Azure shows the health status for a Logic Apps resource after you enable logging and correctly set up the logs' destination. This article explains how to configure diagnostic logging and make sure that all your logic apps are healthy resources.
 
 > [!TIP]
 > To find the current status for the Logic Apps service, review the [Azure status page](https://status.azure.com/), which lists the status for different products and services in each available region.
@@ -61,65 +61,61 @@ If your [logic apps are listed as unhealthy in Security Center](#view-logic-apps
 
 If you use Log Analytics or Event Hubs as the destination for your Logic Apps diagnostic logs, check the following settings. 
 
-1. To confirm that you enabled diagnostic logs, check that the diagnostic settings `logs.enabled` field, is set to `true`. 
+1. To confirm that you enabled diagnostic logs, check that the diagnostic settings `logs.enabled` field is set to `true`. 
 1. To confirm that you haven't set a storage account as the destination instead, check that the `storageAccountId` field is set to `false`.
 
 For example:
 
 ```json
-                    "allOf": [
-                      {
-                        "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
-                        "equals": "true"
-                      },
-                      {
-                        "anyOf": [
-                          {
-                            "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
-                            "notEquals": "true"
-                          },
-                          {
-                            "field": "Microsoft.Insights/diagnosticSettings/storageAccountId",
-                            "exists": false
-                          }
-                        ]
-                      }
-                    ] 
-
+"allOf": [
+    {
+        "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
+        "equals": "true"
+    },
+    {
+        "anyOf": [
+            {
+                "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
+                "notEquals": "true"
+            },
+            {
+                "field": "Microsoft.Insights/diagnosticSettings/storageAccountId",
+                "exists": false
+            }
+        ]
+    }
+] 
 ```
 
 ### Storage accounts destinations
 
 If you use a storage account as the destination for your Logic Apps diagnostic logs, check the following settings.
 
-1. To confirm that you enabled diagnostic logs, check that the diagnostics settings `logs.enabled` field, is set to `true`.
+1. To confirm that you enabled diagnostic logs, check that the diagnostics settings `logs.enabled` field is set to `true`.
 1. To confirm that you enabled a retention policy for your diagnostic logs, check that the `retentionPolicy.enabled` field is set to `true`.
 1. To confirm you set a retention time of 0-365 days, check the `retentionPolicy.days` field is set to a number inclusively between 0 and 365.
 
 ```json
-                    "allOf": [
-                      {
-                        "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
-                        "equals": "true"
-                      },
-                      {
-                        "anyOf": [
-                          {
-                            "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
-                            "equals": "0"
-                          },
-                          {
-                            "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
-                            "equals": "[parameters('requiredRetentionDays')]"
-                          }
-                        ]
-                      },
-                      {
-                        "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
-                        "equals": "true"
-                      }
-                    ]
-                  },
- 
-
+"allOf": [
+    {
+        "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
+        "equals": "true"
+    },
+    {
+        "anyOf": [
+            {
+                "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
+                "equals": "0"
+            },
+            {
+                "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
+                "equals": "[parameters('requiredRetentionDays')]"
+            }
+          ]
+    },
+    {
+        "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
+        "equals": "true"
+    }
+]
 ```

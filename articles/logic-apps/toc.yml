@@ -48,8 +48,6 @@
     href: connect-virtual-network-vnet-isolated-environment-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
-  - name: Resource health status of logic apps
-    href: healthy-unhealthy-resource.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -348,6 +346,8 @@
         href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
         href: monitor-logic-apps-log-analytics.md
+      - name: Monitor logic apps in Azure Security Center
+        href: healthy-unhealthy-resource.md
       - name: Monitor B2B messages with Azure Monitor logs
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
