@@ -2,7 +2,7 @@
 title: Issues with a full OS disk on a Linux virtual machine
 description: How to resolve issues with a full OS disk on a Linux virtual machine
 author: v-miegge
-ms.author: timbasham
+ms.author: tibasham
 manager: dcscontentpm
 ms.service: virtual-machines
 ms.subservice: disks
