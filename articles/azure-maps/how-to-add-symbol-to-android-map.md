@@ -1,5 +1,5 @@
 ---
-title: Add a symbol layer to Android maps
+title: Add a symbol layer to a map using Azure Maps Android SDK
 description: Learn how to add a marker to a map. See an example that uses the Microsoft Azure Maps Android SDK to add a symbol layer that contains point-based data from a data source.
 author: anastasia-ms
 ms.author: v-stharr

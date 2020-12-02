@@ -1,5 +1,5 @@
 ---
-title: Getting started with Android map control
+title: Getting started with Azure Maps Android SDK
 description: Become familiar with the Microsoft Azure Maps Android SDK. See how to create a project in Android Studio, install the SDK, and create an interactive map.
 author: anastasia-ms
 ms.author: v-stharr
