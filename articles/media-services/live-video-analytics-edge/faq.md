@@ -189,7 +189,7 @@ With a gRPC extension, each session is for a single camera feed so there is no n
 
 ### Do all ProcessMediaStreams on a particular container run the same AI model? 
 
-No. Currenly, there can be at most one gRPC extension node in a graph instance, meaning for a given camera, there can only be one connection to the gRPC server.<br/>ProcessMediaStreams is called once per camera per extension node per session.  
+No. Currently, there can be at most one gRPC extension node in a graph instance, meaning for a given camera, there can only be one connection to the gRPC server.<br/>ProcessMediaStreams is called once per camera per extension node per session.  
 
 A session == end user calls stop/start on a graph instance, or perhaps there is a camera disconnect/reconnect. The goal is to persist one session if the camera is streaming video. Two cameras sending video for processing = two sessions. One camera going to a graph that has two gRPCExtension nodes == two sessions. Each session is a full duplex connection between Live Video Analytics and the gRPC Server. Each session can have a different model/pipeline. 
 
@@ -248,7 +248,7 @@ Any server-side gRPC features may be used provided the protobuf contract is fulf
 
 As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.  
 
-As an example, if you build a gRPC server using .net core, gRPC service adds logs under the **Grpc** category. To enable detailed logs from gRPC, configure the Grpc prefixes to the Debug level in your appsettings.json file by adding the following items to the LogLevel sub-section in Logging: 
+As an example, if you build a gRPC server using .Net core, gRPC service adds logs under the **Grpc** category. To enable detailed logs from gRPC, configure the Grpc prefixes to the Debug level in your appsettings.json file by adding the following items to the LogLevel sub-section in Logging: 
 
 ```
 { 
@@ -280,7 +280,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ``` 
 
-[Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) providse some guidance for gathering some diagnostic logs from a gRPC server. 
+[Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) provides some guidance for gathering some diagnostic logs from a gRPC server. 
 
 ### What happens when gRPC connection fails? Does it come back up automatically? 
 
@@ -318,7 +318,7 @@ To use your gRPC server with Live Video Analytics, shared memory can be used for
 
    > [!NOTE]
    > If you delay in acknowledging the receipt of the frame to Live Video Analytics for a long time, it can result in the shared memory becoming full and causing data drops.
-1. Store each frame in a data structure of your choice (list, array, etc) on the inferencing server.
+1. Store each frame in a data structure of your choice (list, array, and so on) on the inferencing server.
 1. You can then run your processing logic when you have the desired number of image frames.
 1. Return the inferencing result back to Live Video Analytics when ready.
 
