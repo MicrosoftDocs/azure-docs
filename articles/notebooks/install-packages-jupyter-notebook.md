@@ -1,6 +1,6 @@
 ---
-title: Install packages in Jupyter notebooks - Azure Notebooks Preview
-description: Learn how to install Python, R, and F# packages from within a Jupyter notebook running on Azure.
+title: Install packages in Jupyter Notebooks - Azure Notebooks Preview
+description: Learn how to install Python, R, and F# packages from within a Jupyter Notebook running on Azure.
 ms.topic: how-to
 ms.date: 12/04/2018
 ---
