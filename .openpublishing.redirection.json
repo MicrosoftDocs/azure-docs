@@ -1,8 +1,288 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-lamp.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-lamp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nsg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-wordpress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-encrypt-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-encrypt-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-mount-os-disk.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-mount-os-disk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-nlb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-nlb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-restart-by-tag.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-restart-by-tag",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-docker-host.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-docker-host",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-nginx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-collect-vm-details.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-collect-vm-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-iis.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-iis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-nsg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm-quick-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-encrypt-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-encrypt-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-nlb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-nlb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-nlb-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-oms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-encrypt-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/matlab-mdcs-cluster.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/matlab-mdcs-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/powershell-samples.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/powershell-samples.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "articles/virtual-machines/linux/cli-samples.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/cli-samples.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -10,27 +290,27 @@
       "redirect_url": "/azure/network-watcher/connection-monitor-overview",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-arm-client.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-template",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-network-performance-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/migrate-to-connection-monitor-preview-from-connection-monitor.md",
       "redirect_url": "/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic",
       "redirect_document_id": false
     },
-	{
+	  {
       "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
       "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
       "redirect_document_id": false
     },
-	{
+  	{
       "source_path": "articles/digital-twins/how-to-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
@@ -44,7 +324,7 @@
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
       "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
       "redirect_document_id": false
-    },
+    },  
     {
       "source_path": "articles/virtual-network/manage-ddos-protection.md",
       "redirect_url": "/azure/ddos-protection/manage-ddos-protection",
