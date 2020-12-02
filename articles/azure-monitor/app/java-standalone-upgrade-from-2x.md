@@ -6,18 +6,21 @@ ms.date: 11/25/2020
 
 ---
 
-# Upgrading from Application Insights Java SDK 2.x
+# Upgrading from Application Insights Java 2.x SDK
 
-If you're already using Application Insights Java SDK 2.x in your application, there is no need to remove it.
-The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java SDK 2.x,
-while suppressing any auto-collection performed by the Java SDK 2.x to prevent duplicate telemetry.
+If you're already using Application Insights Java 2.x SDK in your application, there is no need to remove it.
+The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java 2.x SDK,
+while suppressing any auto-collection performed by the Java 2.x SDK to prevent duplicate telemetry.
 
 If you were using Application Insights 2.x agent, you need to remove the `-javaagent:` JVM arg
 that was pointing to the 2.x agent.
 
+The rest of this document describes limitations and changes that you may encounter
+when upgrading from 2.x to 3.0, as well as some workarounds that you may find helpful.
+
 ## TelemetryInitializers and TelemetryProcessors
 
-Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent.
+Java 2.x SDK TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent.
 Many of the use cases that previously required these can be solved in 3.0
 by configuring [custom dimensions](./java-standalone-config.md#custom-dimensions)
 or configuring [telemetry processors](./java-standalone-telemetry-processors.md).
@@ -29,16 +32,9 @@ Currently, 3.0 only supports a single
 per running process. In particular, you can't have multiple tomcat web apps in the same tomcat deployment
 using different connection strings or different role names yet.
 
-## Operation name on dependencies
+## Operation names
 
-Previously in 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
-Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
-If you want to see the operation name for the request that is the parent of the dependency telemetry,
-you can write a Logs (Kusto) query to join from the dependency table to the request table.
-
-## Operation name on requests
-
-Request operation names in 3.0 have changed to generally provide a better aggregated view
+Operation names in 3.0 have changed to generally provide a better aggregated view
 in the Application Insights Portal U/X.
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-3.0.png" alt-text="Operation names in 3.0":::
@@ -48,7 +44,7 @@ that was provided by the previous operation names, in which case you can use the
 [telemetry processors](./java-standalone-telemetry-processors.md) (preview) feature in 3.0
 to replicate the previous behavior.
 
-### To prefix the operation name with the http method (`GET`, `POST`, etc.):
+### Prefix the operation name with the http method (`GET`, `POST`, etc.)
 
 In 2.x SDK, the operation names were prefixed by the http method (`GET`, `POST`, etc.), e.g
 
@@ -128,7 +124,7 @@ The telemetry processors perform the following actions (in order):
 }
 ```
 
-### To set the operation name to the full path
+### Set the operation name to the full path
 
 Also, in 2.x SDK, in some cases, the operation names contained the full path, e.g.
 
@@ -226,3 +222,19 @@ The telemetry processors perform the following actions (in order):
   }
 }
 ```
+
+## Dependency names
+
+Dependency names in 3.0 have also changed, again to generally provide a better aggregated view
+in the Application Insights Portal U/X.
+
+Again, for some applications, you may still prefer the aggregated view in the U/X
+that was provided by the previous dependency names, in which case you can use similar
+techniques as above to replicate the previous behavior.
+
+## Operation name on dependencies
+
+Previously in 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
+Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
+If you want to see the operation name for the request that is the parent of the dependency telemetry,
+you can write a Logs (Kusto) query to join from the dependency table to the request table.
