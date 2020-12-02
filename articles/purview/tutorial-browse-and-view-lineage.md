@@ -18,7 +18,7 @@ ms.date: 12/01/2020
 
 This tutorial shows you how to browse assets in Azure Purview and view their important details, such as lineage.
 
-This tutorial is *part 3 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 2: Navigate the Azure Purview (preview) home page and search for an asset](tutorial-asset-search.md).
+This tutorial is *part 3 of a five-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 2: Navigate the Azure Purview (preview) home page and search for an asset](tutorial-asset-search.md).
 
 In this tutorial, you will:
 

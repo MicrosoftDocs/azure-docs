@@ -18,7 +18,7 @@ ms.date: 12/01/2020
 
 In this tutorial, you become familiar with Azure Purview by navigating the features of the home page and searching for an asset in the catalog.
 
-This article is *part 2 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 1: Scan data with Azure Purview](tutorial-scan-data.md)
+This article is *part 2 of a five-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 1: Scan data with Azure Purview](tutorial-scan-data.md)
 
 In this tutorial, you will:
 
@@ -44,7 +44,7 @@ The following steps walk you through the Azure Purview home page.
 
    The top of the home page displays the name of your catalog and a set of catalog analytics. Included are the number of users, data assets, and glossary terms. In the summary, you can see that there are over 200 assets in total and 113 glossary terms. This number updates as your organization scans and adds more terms to Azure Purview.
 
-   :::image type="content" source="./media/starter-kit-tutorial-2/purview-home-page.png" alt-text="Screenshot showing the Azure Purview home page.":::
+   :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Screenshot showing the Azure Purview home page.":::
 
 1. Select **Browse assets** to see all of your assets.
 
@@ -66,13 +66,13 @@ Follow these steps to search for an asset and mark yourself as the owner:
 
 1. Select **View search results**. Because all of your assets begin with the name of your resource group, they all appear in the search results. Outside of this tutorial, you would search for specific asset names, not resource groups.
 
-    :::image type="content" source="./media/starter-kit-tutorial-2/search-suggestions.png" alt-text="Screenshot showing the list of catalog search suggestions.":::
+    :::image type="content" source="./media/tutorial-asset-search/search-suggestions.png" alt-text="Screenshot showing the list of catalog search suggestions.":::
 
 1. You can use the filters in the left navigation to filter by asset type, classification, contact, label, and glossary term.
 
 1. To search for a resource set, begin typing the name of the set. A list of search suggestions with the correct keywords will appear. You can also search for absolute names by putting them in quotation marks.
 
-   :::image type="content" source="media/starter-kit-tutorial-2/keyword-search.png" alt-text="Azure Purview keyword asset search":::
+   :::image type="content" source="media/tutorial-asset-search/keyword-search.png" alt-text="Azure Purview keyword asset search":::
 
 ## Edit an asset
 
@@ -80,11 +80,11 @@ Follow these steps to search for an asset and mark yourself as the owner:
 
 1. On the **Overview** tab, you can add a description.
 
-    :::image type="content" source="./media/starter-kit-tutorial-2/overview-tab.png" alt-text="Screenshot showing the Description field on the Overview tab.":::
+    :::image type="content" source="./media/tutorial-asset-search/overview-tab.png" alt-text="Screenshot showing the Description field on the Overview tab.":::
 
 1. Select the **Contacts** tab. Next to **Owners**, in **Select user or group**, start typing your corporate email address.
 
-    :::image type="content" source="./media/starter-kit-tutorial-2/contacts-tab.png" alt-text="Screenshot showing populated fields.":::
+    :::image type="content" source="./media/tutorial-asset-search/contacts-tab.png" alt-text="Screenshot showing populated fields.":::
 
     A name suggestion is automatically displayed.
 

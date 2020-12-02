@@ -17,7 +17,7 @@ ms.date: 12/01/2020
 
 A glossary is an important tool for maintaining and organizing your catalog. You build your glossary by defining new terms or importing a term list and then applying those terms to your assets.
 
-This tutorial is *part 5 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 4: Explore resource sets, details, schemas, and classifications in Azure Purview (preview)](tutorial-schemas-and-classifications.md).
+This tutorial is *part 5 of a five-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 4: Explore resource sets, details, schemas, and classifications in Azure Purview (preview)](tutorial-schemas-and-classifications.md).
 
 In this tutorial, you learn how to:
 

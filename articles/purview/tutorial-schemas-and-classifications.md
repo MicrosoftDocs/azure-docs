@@ -17,7 +17,7 @@ ms.date: 12/01/2020
 
 In this tutorial, you explore the key components of your catalog: resource sets, asset details, schemas, and classifications.
 
-This tutorial is *part 4 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 3: Browse assets in Azure Purview (preview) and view their lineage](tutorial-browse-and-view-lineage.md).
+This tutorial is *part 4 of a five-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 3: Browse assets in Azure Purview (preview) and view their lineage](tutorial-browse-and-view-lineage.md).
 
 In this tutorial, you learn how to:
 
