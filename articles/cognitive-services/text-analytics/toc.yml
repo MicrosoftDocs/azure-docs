@@ -12,7 +12,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: use the client library and REST API
+    - name: Use the client library and REST API
       href: quickstarts/text-analytics-sdk.md
 - name: Tutorials
   items:
