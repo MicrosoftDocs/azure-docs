@@ -17,7 +17,7 @@ Remote Desktop enables you to access the desktop of a role running in Azure. You
 You can enable a remote desktop connection in your role during development by including the remote desktop modules in your service definition or you can choose to enable remote desktop through the remote desktop extension. The preferred approach is to use the remote desktop extension as you can enable remote desktop even after the application is deployed without having to redeploy your application.
 
 ## How does the RDP Extension Work?
-The user passes their preferred username and password using the cscfg and csdef file in the public and private config sections. Cloud Services (extended support) does not do any validations on the backend. Cloud Services (extended support) encrypts the password and writes the configuration. Once the platform receives the SVD, the GuestAgent will see the extension and attempt to install it on the virtual machine instance. 
+The user passes their preferred username and password using the cscfg and csdef file in the public and private config sections. Cloud Services (extended support) does not do any validations on the backend. Cloud Services (extended support) encrypts the password and writes the configuration. Once the platform receives the configuration, the GuestAgent will see the extension and attempt to install it on the virtual machine instance. 
 
 Part of installation is setting the username and password of the virtual machine as per Group Policy restrictions. If username or password is not complex enough, the installation of the remote desktop extension will fail. If installation succeeds, then an RDP listener starts up on the role instance and waits for incoming remote desktop requests.  
 
