@@ -76,7 +76,7 @@ For example:
 ![Explicit Server Error in '/' Application](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## Diagnose issues by using the compute emulator
-You can use the Microsoft Azure compute emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
+You can use the Microsoft Azure Compute Emulator to diagnose and troubleshoot issues of missing dependencies and web.config errors.
 
 For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. To best simulate the Azure environment, use Windows Server 2008 R2 x64.
 

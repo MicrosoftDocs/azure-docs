@@ -59,7 +59,7 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
 CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. 
 
    >[!IMPORTANT] 
-   >Azure VMware Solution service does not provide a multitenant environment, and therefore hosting partners are not supported yet. 
+   >Azure VMware Solution service does not provide a multi-tenancy required. Hosting partners requiring it are not supported. 
 
 1. In **Partner Center**, select **CSP** to access the **Customers** area.
 
@@ -71,7 +71,7 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 
 1. Select **Azure plan** and then select **Add to cart**. 
 
-1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage).
+1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
 
 After configuring the Azure plan and the needed vSphere RBAC permissions are in place as a CSP, you'll engage Microsoft to enable the quota for an Azure plan subscription. Access Azure portal from Partner Center using **Admin On Behalf Of** (AOBO) procedure.
 
@@ -108,13 +108,16 @@ After configuring the Azure plan and the needed vSphere RBAC permissions are in 
    >[!IMPORTANT] 
    >If you already have an existing Azure VMware Solution, and you are requesting additional hosts, please note that we need five business days to allocate the hosts. 
 
-1. Once added to the Azure plan, and with quota enabled, the customer or the partner administrator can deploy an Azure VMware Solution Private Cloud through the Azure portal. Before you can provision your hosts, make sure that you register the **Microsoft.AVS** resource provider in the Azure portal.  
+1. If the subscription is managed by the service provider then their administration team must access Azure portal using again **Admin On Behalf Of** (AOBO) procedure from Partner Center. One in Azure portal launch a [Cloud Shell](../cloud-shell/overview.md) instance and register the **Microsoft.AVS** resource provider and proceed with the deployment of the Azure VMware Solution private cloud.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
    For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+
+1. If the subscription is managed directly by the customer the registration of the **Microsoft.AVS** resource provider must be done by an user with enough permissions in the subscription, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) for more details and ways to register the resource provider. 
+
 
 ## Next steps
 

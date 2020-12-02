@@ -47,7 +47,7 @@ Platform logs and metrics can be sent to the destinations in the following table
 
 ### Destination requirements
 
-Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions. The following table provides unique requirements for each destination including any regional restrictions.
+Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. The following table provides unique requirements for each destination including any regional restrictions.
 
 | Destination | Requirements |
 |:---|:---|

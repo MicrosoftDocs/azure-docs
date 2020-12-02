@@ -142,6 +142,39 @@ A: No you cannot. Attempting to enter a license type that incorrectly matches th
 
 A: It may take some time for your Red Hat Cloud Access subscription registration to propagate from Red Hat to Azure. If you are still seeing the error after one business day, contact Microsoft support.
 
+*Q: I have deployed a VM using a RHEL BYOS “Golden Image”. Can I convert the billing on these images from BYOS to PAYG?*
+
+A: No you cannot. Azure Hybrid Benefit supports conversion only on Pay-As-You-Go images.
+
+*Q: I have deployed a VM using a RHEL BYOS “Golden Image”. Can I convert the billing on these images from BYOS to PAYG?*
+
+A: No you cannot. Azure Hybrid Benefit supports conversion only on Pay-As-You-Go images.
+
+*Q: I have uploaded my own RHEL image from on-prem (via Azure Migrate, ASR or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
+
+A: No you cannot. The Azure Hybrid Benefit capability is available only to RHEL and SLES Marketplace images today. 
+
+*Q: I have uploaded my own RHEL image from on-prem (via Azure Migrate, ASR or otherwise) to Azure. Do I need to do anything to benefit from Azure Hybrid Benefit?*
+
+A: No you do not. RHEL images you upload are already considered BYOS, and you are only charged for Azure infrastructure costs. You are responsible for RHEL subscriptions costs just like you do for your on-premises environments. 
+
+*Q: Can I use Azure Hybrid Benefit on VMs deployed from Marketplace RHEL and SLES SAP images?*
+
+A: Yes, you can. You can use the license type of 'RHEL_BYOS' for RHEL VMs and 'SLES_BYOS' for conversions of VMs deployed from Marketplace RHEL and SLES SAP images.
+
+*Q: Can I use Azure Hybrid Benefit on Virtual Machine Scale Set(VMSS) for RHEL and SLES?*
+
+A: No, you cannot. VMSS are not in scope of Azure Hybrid Benefit today for RHEL and SLES currently.
+
+*Q: Can I use Azure Hybrid Benefit on Reserved Instances(RIs) for RHEL and SLES?*
+
+A: No, you cannot. RIs are not in scope of Azure Hybrid Benefit today for RHEL and SLES currently.
+
+*Q: Can I use Azure Hybrid Benefit on a Virtual Machine deployed for SQL Server on RHEL images?*
+
+A: No, you cannot. There is no plan for supporting these.
+ 
+
 ## Common issues
 This section contains a list of common issues that could be encountered and steps for mitigation.
 
@@ -150,4 +183,4 @@ This section contains a list of common issues that could be encountered and step
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | In order to use the benefit with RHEL VMs, you must first register your Azure subscription(s) with Red Hat Cloud Access. Visit this link to learn more about how to register your Azure subscriptions for Red Hat Cloud Access
 
 ## Next steps
-* Learn on how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit using [Azure CLI here.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)
+* Learn on how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit using [Azure CLI here.](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)

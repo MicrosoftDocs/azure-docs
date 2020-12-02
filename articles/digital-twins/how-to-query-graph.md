@@ -259,7 +259,7 @@ SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second,
 FROM DIGITALTWINS Factory
 JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)"
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
 ```
 
 Here is a similar query that queries the same set as above, but projects only the *Consumer.name* property as `consumerName`, and projects the complete *Factory* as a twin.
@@ -278,7 +278,7 @@ You can significantly reduce the number of queries you need by building an array
 
 For example, consider a scenario in which *Buildings* contain *Floors* and *Floors* contain *Rooms*. To search for rooms within a building that are hot, one way is to follow these steps.
 
-1. Find floors in the building based on `contains` relationship
+1. Find floors in the building based on the `contains` relationship.
 
     ```sql
     SELECT Floor

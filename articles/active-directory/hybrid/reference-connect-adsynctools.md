@@ -5,7 +5,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
@@ -23,7 +23,9 @@ To install the ADSyncTools PowerShell Module do the following:
 1.  Open Windows PowerShell with administrative priviledges
 2.  Type or copy and paste the following: 
 	``` powershell
-	Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
+	    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
 	```
 3.  Hit enter.
 4.  To verify the module was installed, enter or copy and paste the following"

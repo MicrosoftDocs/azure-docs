@@ -155,9 +155,9 @@
       href: security-center-network-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md
-  - name: Azure Defender alerts
+  - name: Learn about security alerts
     items:
-    - name: Azure Defender alerts overview
+    - name: Security alerts overview
       href: security-center-alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
@@ -249,7 +249,7 @@
       href: continuous-export.md
     - name: Download a CSV report of all alerts
       href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-  - name: Handle Azure Defender alerts
+  - name: Handle security alerts
     items:
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
@@ -284,8 +284,6 @@
     items:
     - name: General questions
       href: faq-general.md
-    - name: Billing questions
-      href: faq-billing.md
     - name: Permissions questions
       href: faq-permissions.md
     - name: Data collection and agent questions
