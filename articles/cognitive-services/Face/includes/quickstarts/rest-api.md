@@ -168,15 +168,19 @@ This operation takes a single detected face (source) and searches a set of other
 
 ### Detect faces for comparison
 
-First, you need to detect faces in images before you can compare them. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
+First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect faces](#detect-faces-in-an-image) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the group of faces from which to find a similar face.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="similar_group":::
 
 ### Find matches
 
 The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=detect_for_similar)]
 
 ### Print matches
 
