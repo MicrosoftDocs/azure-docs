@@ -29,16 +29,55 @@ Currently, 3.0 only supports a single
 per running process. In particular, you can't have multiple tomcat web apps in the same tomcat deployment
 using different connection strings or different role names yet.
 
-## HTTP request telemetry names
+## Operation name on dependencies
 
-HTTP request telemetry names in 3.0 have changed to generally provide a better aggregated view
+Previously in 2.x SDK, the operation name from the request telemetry was also set on the dependency telemetry.
+Application Insights Java 3.0 no longer populates operation name on dependency telemetry.
+If you want to see the operation name for the request that is the parent of the dependency telemetry,
+you can write a Logs (Kusto) query to join from the dependency table to the request table.
+
+## Operation name on requests
+
+Request operation names in 3.0 have changed to generally provide a better aggregated view
 in the Application Insights Portal U/X.
 
-However, for some applications, you may still prefer the aggregated view in the U/X
-that was provided by the previous telemetry names, in which case
-you can use the telemetry processors preview feature in 3.0 to return to the previous names.
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-3.0.png" alt-text="Operation names in 3.0":::
 
-### To prefix the telemetry name with the http method (`GET`, `POST`, etc.):
+However, for some applications, you may still prefer the aggregated view in the U/X
+that was provided by the previous operation names, in which case you can use the
+[telemetry processors](./java-standalone-telemetry-processors.md) (preview) feature in 3.0
+to replicate the previous behavior.
+
+### To prefix the operation name with the http method (`GET`, `POST`, etc.):
+
+In 2.x SDK, the operation names were prefixed by the http method (`GET`, `POST`, etc.), e.g
+
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Operation names prefixed by http method":::
+
+The snippet below configures 3 telemetry processors that combine to replicate the previous behavior.
+The telemetry processors perform the following actions (in order):
+
+1. The first telemetry processor is a span processor (has type `span`),
+   which means it applies to `requests` and `dependencies`.
+
+   It will match any span that has an attribute named `http.method` and has a span name that begins with `/`.
+
+   Then it will extract that span name into an attribute named `tempName`.
+
+2. The second telemetry processor is also a span processor.
+
+   It will match any span that has an attribute named `tempName`.
+
+   Then it will update the span name by concatenating the two attributes `http.method` and `tempName`,
+   separated by a space.
+
+3. The last telemetry processor is an attribute processor (has type `attribute`),
+   which means it applies to all telemetry which has attributes
+   (currently `requests`, `dependencies` and `traces`).
+
+   It will match any telemetry that has an attribute named `tempName`.
+
+   Then it will delete the attribute named `tempName`, so that it won't be reported as a custom dimension.
 
 ```
 {
@@ -89,7 +128,45 @@ you can use the telemetry processors preview feature in 3.0 to return to the pre
 }
 ```
 
-### To set the telemetry name to the full URL path
+### To set the operation name to the full path
+
+Also, in 2.x SDK, in some cases, the operation names contained the full path, e.g.
+
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Operation names with full path":::
+
+The snippet below configures 4 telemetry processors that combine to replicate the previous behavior.
+The telemetry processors perform the following actions (in order):
+
+1. The first telemetry processor is a span processor (has type `span`),
+   which means it applies to `requests` and `dependencies`.
+
+   It will match any span that has an attribute named `http.url`.
+
+   Then it will update the span name with the `http.url` attribute value.
+
+   This would be the end of it, except that `http.url` looks something like `http://host:port/path`,
+   and it's likely that you only want the `/path` part.
+
+2. The second telemetry processor is also a span processor.
+
+   It will match any span that has an attribute named `http.url`
+   (in other words, any span that the first processor matched).
+
+   Then it will extract the path portion of the span name into an attribute named `tempName`.
+
+3. The third telemetry processor is also a span processor.
+
+   It will match any span that has an attribute named `tempPath`.
+
+   Then it will update the span name from the attribute `tempPath`.
+
+4. The last telemetry processor is an attribute processor (has type `attribute`),
+   which means it applies to all telemetry which has attributes
+   (currently `requests`, `dependencies` and `traces`).
+
+   It will match any telemetry that has an attribute named `tempPath`.
+
+   Then it will delete the attribute named `tempPath`, so that it won't be reported as a custom dimension.
 
 ```
 {
@@ -100,7 +177,6 @@ you can use the telemetry processors preview feature in 3.0 to return to the pre
         "include": {
           "matchType": "strict",
           "attributes": [
-            { "key": "http.method" },
             { "key": "http.url" }
           ]
         },
@@ -113,7 +189,6 @@ you can use the telemetry processors preview feature in 3.0 to return to the pre
         "include": {
           "matchType": "strict",
           "attributes": [
-            { "key": "http.method" },
             { "key": "http.url" }
           ]
         },
