@@ -15,20 +15,18 @@ A dashboard in the Azure portal is a focused and organized view of your cloud re
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Start by selecting a subscription and a resource group.
-
-1. If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
+- If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
 Select a subscription by using the [az account set](/cli/azure/account#az_account_set) command:
 
-   ```azurecli
-   az account set --subscription 00000000-0000-0000-0000-000000000000
-   ```
+  ```azurecli
+  az account set --subscription 00000000-0000-0000-0000-000000000000
+  ```
 
-1. Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az_group_create) command or use an existing resource group:
+- Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az_group_create) command or use an existing resource group:
 
-   ```azurecli
-   az group create --name myResourceGroup --location centralus
-   ```
+  ```azurecli
+  az group create --name myResourceGroup --location centralus
+  ```
 
    A resource group is a logical container in which Azure resources are deployed and managed as a group.
 

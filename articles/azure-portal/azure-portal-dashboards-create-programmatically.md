@@ -3,7 +3,7 @@ title: Programmatically create Azure Dashboards
 description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
 services: azure-portal
 documentationcenter: ''
-author: adamabmsft
+author: mgblythe
 manager: mtillman
 
 
@@ -661,6 +661,8 @@ Now that you've seen an example of using a parameterized template to deploy a da
 Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- These examples use the following: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Replace content in angled brackets with your values.
 
 Run the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to create a dashboard:
 
