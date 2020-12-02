@@ -130,7 +130,7 @@ The CLI used by your action will be logged to your Azure account and ready to ru
 
 To create the steps to execute Azure CLI commands.
 
-1. Navigate to the **search page* on *GitHub marketplace* on the right-hand side of the screen and search *Azure CLI Action*. Choose *Azure CLI Action*.
+1. Navigate to the **search page** on *GitHub marketplace* on the right-hand side of the screen and search *Azure CLI Action*. Choose *Azure CLI Action by Azure*.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-cli-action.png" alt-text="Search result for 'Azure CLI Action' with first result being shown as made by Azure":::
 
