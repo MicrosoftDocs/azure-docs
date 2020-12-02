@@ -147,13 +147,11 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Assuming that the Microsoft Azure is configured as a provider in Software AG Cloud, navigate to `www.softwareag.cloud` and click on Login button and enter the environment name. In the next screen, click on "Log in with <IDP NAME>" link and enter the credentials. Once authenticated, you will be logged in and taken to the Software AG Cloud home page.
 
-
 * Go to Software AG Cloud Sign-on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Software AG Cloud tile in the My Apps, this will redirect to Software AG Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
+
 ## Next steps
 
-Once you configure Software AG Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Software AG Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -64,7 +64,7 @@ Data is sent to storage accounts every hour. The data export configuration creat
 
 The storage account blob path is *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such a case would be PT1H_#.json, where # is the incremental blob count.
 
-The storage account data format is [JSON lines](diagnostic-logs-append-blobs.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
+The storage account data format is [JSON lines](./resource-logs-blob-format.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
 
 [![Storage sample data](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
@@ -74,7 +74,7 @@ Log Analytics data export can write append blobs to immutable storage accounts w
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
 Considerations:
-1. 'Basic' event hub sku supports lower event size [limit](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
+1. 'Basic' event hub sku supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
 2. The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
 ## Prerequisites
@@ -113,6 +113,10 @@ If you have configured your Storage Account to allow access from selected networ
 ### Create or update data export rule
 A data export rule defines data to be exported for a set of tables to a single destination. You can create a rule for each destination.
 
+
+# [Azure portal](#tab/portal)
+
+N/A
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -199,6 +203,10 @@ Following is a sample body for the REST request for an event hub where event hub
 
 ## View data export configuration
 
+# [Azure portal](#tab/portal)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following command to view the configuration of a data export rule using CLI.
@@ -217,6 +225,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ---
 
 ## Disable an export rule
+
+# [Azure portal](#tab/portal)
+
+N/A
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -252,6 +264,10 @@ Content-type: application/json
 
 ## Delete an export rule
 
+# [Azure portal](#tab/portal)
+
+N/A
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the following command to delete a data export rule using CLI.
@@ -270,6 +286,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 ---
 
 ## View all data export rules in a workspace
+
+# [Azure portal](#tab/portal)
+
+N/A
 
 # [Azure CLI](#tab/azure-cli)
 

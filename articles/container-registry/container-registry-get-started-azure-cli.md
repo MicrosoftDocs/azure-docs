@@ -63,10 +63,16 @@ Take note of `loginServer` in the output, which is the fully qualified registry 
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command.
+Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command. Specify only the registry name when logging in with the Azure CLI. Don't use the login server name, which includes a domain suffix like `azurecr.io`. 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Example:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 The command returns a `Login Succeeded` message once completed.

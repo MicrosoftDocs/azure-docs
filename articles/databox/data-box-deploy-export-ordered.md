@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -76,7 +76,7 @@ Perform the following steps in the Azure portal to order a device.
 
    ![Select Data Box capacity](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. In **Order**, specify the **Basic** order details. Enter or select the following information and select **Next**.
+6. In **Order**, specify the **Basic** order details. Enter or select the following information.
 
     |Setting  |Value  |
     |---------|---------|
@@ -84,13 +84,13 @@ Perform the following steps in the Azure portal to order a device.
     |Resource group | The resource group you selected previously. |
     |Export order name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
 
-    ![Export order basics](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Export order basics](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Select **Next: Data Selection** to proceed.
 
 7. In **Data Selection**, select **Add storage account and export type**.
 
-    ![Add storage account and export type](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Add storage account and export type](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
 8. In **Select Export option**, specify the export option details. Enter or select the following information and select **Add**.
 
@@ -111,15 +111,88 @@ Perform the following steps in the Azure portal to order a device.
 
    To see an example of the xml input, see [Sample XML input](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. In **Data selection**, review your settings and select **Next: Security>**.
+9. In **Data selection**, review your settings and select **Next: Security>** to continue.
 
    ![Export order, Data selection](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
+    The **Security** screen lets you use your own encryption key and choose to use double encryption.
+
+    All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
+
+    ![Security screen of the Data Box import Order wizard](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
+
+    Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.
+
+    A customer-managed key doesn't affect how data on the device is encrypted. The key is only used to encrypt the device unlock passkey.
+
+    If you don't want to use a customer-managed key, skip to Step 16.
+
+    ![Security screen showing Encryption type settings](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
+   
+    ![Security screen, settings for a customer-managed key](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. On the **Select key from Azure Key Vault** screen, the subscription is automatically populated.
+
+    - For **Key vault**, you can select an existing key vault from the dropdown list.
+
+      ![Select key from Azure Key Vault screen](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - You can also select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
+
+      ![Create a new Azure Key Vault settings](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
+
+      ![New Azure Key Vault review screen](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. On the **Select key from Azure Key Vault** screen, you can select an existing key in the key vault.
+
+    ![Select existing key from Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    If you want to create a new key, select **Create new**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
+
+      ![Create a new key option](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      You'll be notified when the key has been created in your key vault.
+
+14. Select the **Version** of the key to use, and then choose **Select**.
+
+      ![New key created in key vault](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    If you want to create a new key version, select **Create new**.
+
+    ![Open a dialog box for creating a new key version](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    On the **Create new key** screen, choose settings for the new key version, and select **Create**.
+
+    ![Create a new key version](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    The **Encryption type** settings on the **Security** screen show your key vault and key.
+
+    ![Key and key vault for a customer-managed key](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
+
+    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
+
+    If you need to create a new managed identity, follow the guidance in [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Select a user identity](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    The user identity is shown in **Encryption type** settings.
+
+    You can collapse the **Encryption type** settings now.
+
+    ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. If you want to enable software-based double encryption, expand **Double encryption (for high-security environments)**, and select **Enable double encryption for the order**. 
 
     The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
 
-   
     > [!NOTE]
     > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
 

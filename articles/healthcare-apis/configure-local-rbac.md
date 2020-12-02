@@ -17,7 +17,7 @@ This article explains how to configure the Azure API for FHIR to use an external
 
 ## Add service principal
 
-Local RBAC allows you to use an external Azure Active Directory tenant with your FHIR server. In order to allow the RBAC system to check group memberships in this tenant, the Azure API for FHIR must have a service principal in the tenant. This service principal will get created automatically in tenants tied to subscriptions that have deployed the Azure API for FHIR, but in case your tenant has no subscription tied to it, a tenant administrator will need to create this service principal with one of the following commands:
+Local RBAC allows you to use an external Azure Active Directory tenant with your FHIR server. In order to allow the local RBAC system to check group memberships in this tenant, the Azure API for FHIR must have a service principal in the tenant. This service principal will get created automatically in tenants tied to subscriptions that have deployed the Azure API for FHIR, but in case your tenant has no subscription tied to it, a tenant administrator will need to create this service principal with one of the following commands:
 
 Using the `Az` PowerShell module:
 

@@ -5,8 +5,8 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
@@ -631,6 +631,14 @@ If you deploy a factory to production and realize there's a bug that needs to be
 See the video below an in-depth video tutorial on how to hot-fix your environments. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## Exposure control and feature flags
+
+When working on a team, there are instances where you may merge changes, but don't want them to be ran in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
+
+To learn how to set up a feature flag, see the below video tutorial:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## Best practices for CI/CD
 
