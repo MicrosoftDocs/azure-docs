@@ -1193,6 +1193,10 @@ For **Problem Type**, select **Management**. For **Category**, select **Instance
 
 ![Screenshot of Instance Metadata Service support](./media/instance-metadata-service/InstanceMetadata-support.png)
 
+## Product Feedback
+
+You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service here: https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627
+
 ## Next steps
 
 [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
