@@ -13,11 +13,11 @@ ms.date: 12/01/2020
 
 # Choose a pricing tier for Azure Cognitive Search
 
-When you [create an Azure Cognitive Search service](search-create-service-portal.md), you choose a pricing tier that's fixed for the lifetime of the service. The tier you select determines:
+When you [create a search service](search-create-service-portal.md), you choose a pricing tier that's fixed for the lifetime of the service. The tier you select locks in:
 
-+ Quantity of indexes and indexers (maximum limits)
-+ Size and speed of partitions (physical storage)
-+ Billable rate, which goes into effect as a fixed cost as soon as the service is provisioned
++ Hardware allocated to run the service (size and speed of partitions)
++ Quantity of indexes, indexers, and other objects (service maximum limits)
++ Billable rate, a fixed base cost that also flexes with the number of partitions and replicas in use
 
 Additionally, a few premium features (described below) are available on specific tiers.
 
@@ -57,7 +57,7 @@ Most features are available on every tier, including Free, but resource-intensiv
 
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
-+ Cost of the service itself, running 24x7, at minimum configuration (one partition and replica), at the base rate
++ [Cost of the service](#service-costs) itself, running 24x7, at minimum configuration (one partition and replica), at the base rate
 
 + Adding capacity (replicas or partitions), where costs increase at increments of the billable rate
 
