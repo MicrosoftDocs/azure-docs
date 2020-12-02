@@ -96,7 +96,7 @@ You can add custom alert rules based on information detected by individual senso
 
 The alert message indicates that a user-defined rule triggered the alert.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="user defind rule":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Customized alerts screenshot":::
 
 To create a custom alert rule:
 

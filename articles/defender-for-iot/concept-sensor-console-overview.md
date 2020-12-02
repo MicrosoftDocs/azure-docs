@@ -4,7 +4,7 @@ description: Use the console's features to gain visibility and insight into your
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/24/2020
+ms.date: 12/2/2020
 ms.service: azure
 ms.topic: conceptual
 ---
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 You can use the console's features to gain visibility and insight into your network perform forensics and device analysis, handle threats, forward information to partner systems, manage users.
 
-You may not have access to all of the features described in this guide. See [User roles and permissions](concept-user-roles-and-permissions.md) for details.
+You may not have access to all of the features described in this guide. 
 
 ## Console elements
 
