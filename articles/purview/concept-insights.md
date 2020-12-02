@@ -46,6 +46,25 @@ In Azure Purview, sensitivity labels are used to identify classification type ca
 
 Use the Labeling Insights report to identify the sensitivity labels found in your content and understand required actions, such as managing access to specific repositories or files.
 
+### File Extension Insights
+This report provides details about the file extensions, or file types, found during a scan, as well as a drilldown to the files themselves. It enables administrators to understand how many files of each time you have, where those files are, and whether they are scannable for sensitive data.
+
+1. On the left, select **File extensions** to view insights about the file types (extensions) found in your content, over a maximum of the last 30 days.
+
+    |Option  |Description  |
+    |---------|---------|
+    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+    |**Unique file extensions found**     | Use the tile at the top to view the number of unique file extensions found across your content.       |
+    |**Top file extensions**     |  Use the **Top file extensions** graph to view the most commonly found file extensions in your content.       |
+    
+1. Click **View more** to drill down further.
+
+    On the file extension analysis report, use any of the following steps to modify the data displayed:
+    
+    |Option  |Description  |
+    |---------|---------|
+    |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
+    |**Filter**     |   Use the **Filter by keyword**, **Time period**, **File extension**, and **Sources**, and **Content scanning** filters to filter the graphs to show data for specific content only.      |
 ## Next steps
 
 [Tutorial on how to view Insights in Purview](starter-kit-tutorial-6.md)
