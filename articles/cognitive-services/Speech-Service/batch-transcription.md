@@ -192,7 +192,7 @@ filter all returned files with `kind` == `Transcription` and  `name` == `{origin
 
 Each transcription result file has this format:
 
-```jsonc
+```json
 {
   "source": "...",                      // sas url of a given contentUrl or the path relative to the root of a given container
   "timestamp": "2020-06-16T09:30:21Z",  // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
