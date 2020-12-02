@@ -1,14 +1,14 @@
 ---
 title: Managing concurrency in Blob storage
 titleSuffix: Azure Storage
-description: 
+description: Learn how to manage multiple writers to a blob by implementing either optimistic or pessimistic concurrency in your application. Optimistic concurrency checks the ETag value for a blob and compares it to the ETag provided. Pessimistic concurrency uses an exclusive lease to lock the blob to other writers.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/01/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
@@ -32,7 +32,7 @@ You can opt to use either optimistic or pessimistic concurrency models to manage
 
 This article provides an overview of how Azure Storage simplifies development by providing first class support for all three of these concurrency strategies.  
 
-## Optimistic concurrency for blobs and containers
+## Optimistic concurrency
 
 Azure Storage assigns an identifier to every object stored. This identifier is updated every time an update operation is performed on an object. The identifier is returned to the client as part of an HTTP GET response using the ETag (entity tag) header that is defined within the HTTP protocol.
 
@@ -45,12 +45,13 @@ The outline of this process is as follows:
 1. If the current ETag value of the blob is a different version than the ETag in the **If-Match** conditional header in the request, Azure Storage returns HTTP status code 412 (Precondition Failed) to the client. This error indicates to the client that another process has updated the blob since the client retrieved it.
 1. If the current ETag value of the blob is the same version as the ETag in the **If-Match** conditional header in the request, Azure Storage performs the requested operation and updates the current ETag value of the blob.  
 
+The following code examples show how to construct an **If-Match** condition on the write request that checks the ETag value for a blob. Azure Storage evaluates whether the blob's current ETag is the same as the ETag provided on the request and performs the write operation only if the two ETag values match. If another process has updated the blob in the interim, then Azure Storage returns an HTTP 412 (Precondition Failed) status message.  
+
 # [\.NET v12](#tab/dotnet)
 
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstrateOptimisticConcurrencyBlob":::
 
 # [\.NET v11](#tab/dotnetv11)
-
-The following code shows how to construct an **If-Match AccessCondition** based on the ETag value that is accessed from the properties of a blob that was previously either retrieved or inserted. It then uses the **AccessCondition** object when it updates the blob: the **AccessCondition** object adds the **If-Match** header to the request. If another process has updated the blob, the Blob service returns an HTTP 412 (Precondition Failed) status message.  
 
 ```csharp
 public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
@@ -63,7 +64,7 @@ public void DemonstrateOptimisticConcurrencyBlob(string containerName, string bl
     CloudBlobContainer container = blobClient.GetContainerReference(containerName);
     container.CreateIfNotExists();
 
-    // Create test blob. The default strategy is last writer wins, so 
+    // Create test blob. The default strategy is last writer wins, so
     // write operation will overwrite existing blob if present.
     CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
     blockBlob.UploadText("Hello World!");
@@ -89,7 +90,7 @@ public void DemonstrateOptimisticConcurrencyBlob(string containerName, string bl
     {
         if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
         {
-            Console.WriteLine(@"Precondition failure as expected. 
+            Console.WriteLine(@"Precondition failure as expected.
                                 Blob's ETag does not match.");
         }
         else
@@ -111,13 +112,13 @@ To lock a blob for exclusive use, you can acquire a lease on it. When you acquir
 
 Leases enable different synchronization strategies to be supported, including exclusive write/shared read operations, exclusive write/exclusive read operations, and shared write/exclusive read operations. When a lease exists, Azure Storage enforces exclusive access to write operations for the lease holder. However, ensuring exclusivity for read operations requires the developer to make sure that all client applications use a lease ID and that only one client at a time has a valid lease ID. Read operations that do not include a lease ID result in shared reads.  
 
+The following code examples show how to acquire an exclusive lease on a blob, update the content of the blob by providing the lease ID, and then release the lease. If the lease is active and the lease ID is not provided on a write request, then the write operation fails with error code 412 (Precondition Failed).  
+
 # [\.NET v12](#tab/dotnet)
 
-
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstratePessimisticConcurrencyBlob":::
 
 # [\.NET v11](#tab/dotnetv11)
-
-The following code shows how to acquire an exclusive lease on a blob for 30 seconds, update the content of the blob, and release the lease. If there is already a valid lease on the blob when you try to acquire a new lease, Azure Storage returns HTTP error code 409 (Conflict). The code example uses an **AccessCondition** object to encapsulate the lease information when it makes a request to update the blob in Azure Storage.
 
 ```csharp
 public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)
@@ -155,7 +156,7 @@ public void DemonstratePessimisticConcurrencyBlob(string containerName, string b
     {
         if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
         {
-            Console.WriteLine(@"Precondition failure error as expected. 
+            Console.WriteLine(@"Precondition failure error as expected.
                                 Blob lease not provided.");
         }
         else
@@ -172,38 +173,12 @@ public void DemonstratePessimisticConcurrencyBlob(string containerName, string b
 
 ---
 
-If you attempt a write operation on a leased blob without passing the lease ID, the request fails with a 412 error. Note that if the lease expires before calling the **UploadText** method but you still pass the lease ID, the request also fails with a **412** error. For more information about managing lease expiry times and lease IDs, see the [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST documentation.  
-
 ## Pessimistic concurrency for containers
 
-Leases on containers enable the same synchronization strategies to be supported as on blobs (exclusive write / shared read, exclusive write / exclusive read and shared write / exclusive read) however unlike blobs the storage service only enforces exclusivity on delete operations. To delete a container with an active lease, a client must include the active lease ID with the delete request. All other container operations succeed on a leased container without including the lease ID in which case they are shared operations. If exclusivity of update (put or set) or read operations is required then developers should ensure all clients use a lease ID and that only one client at a time has a valid lease ID.  
-
-The following container operations can use leases to manage pessimistic concurrency:  
-
-* Delete Container
-* Get Container Properties
-* Get Container Metadata
-* Set Container Metadata
-* Get Container ACL
-* Set Container ACL
-* Lease Container  
-
-For more information, see:  
-
-* [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+Leases on containers enable the same synchronization strategies that are supported for blobs, including exclusive write/shared read, exclusive write/exclusive read and shared write/exclusive read. For containers, however, the exclusive lock is enforced only on delete operations. To delete a container with an active lease, a client must include the active lease ID with the delete request. All other container operations will succeed on a leased container without the lease ID.  
 
 ## Next steps
 
-For the complete sample application referenced in this blog:  
-
-* [Managing Concurrency using Azure Storage - Sample Application](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
-
-For more information on Azure Storage see:  
-
-* [Microsoft Azure Storage Home Page](https://azure.microsoft.com/services/storage/)
-* [Introduction to Azure Storage](storage-introduction.md)
-* Storage Getting Started for [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md),  [Queues](../storage-dotnet-how-to-use-queues.md), and [Files](../storage-dotnet-how-to-use-files.md)
-* Storage Architecture – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
-
+* [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations)
+* [Lease Container](/rest/api/storageservices/lease-container)
+* [Lease Blob](/rest/api/storageservices/lease-blob)
