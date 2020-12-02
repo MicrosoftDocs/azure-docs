@@ -410,12 +410,6 @@ Use cURL to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
 
 1. Copy the text to a console window and press Enter to execute the command:
 
-1. Run your script with this console command:
-
-    ```console
-    python predict.py
-    ```
-
 1. Review the prediction response, which is returned as JSON:
 
     ```console
