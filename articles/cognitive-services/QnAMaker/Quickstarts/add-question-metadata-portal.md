@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Add questions and answer in QnA Maker portal"
-description:  This quickstart shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
+title: "Add questions and answer in QnA Maker portal"
+description:  This article shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
 ---
 
-# Quickstart: Add questions and answer with QnA Maker portal
+# Add questions and answer with QnA Maker portal
 
 Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure search service.
 

@@ -32,7 +32,7 @@ If you want to create a group manually outside of creating an assessment, do the
 
 1. In the Azure Migrate project > **Overview**, click **Assess and migrate servers**. In **Azure Migrate: Server Assessment**, click **Groups**
     - If you haven't yet added the Azure Migrate: Server Assessment tool, click to add it. [Learn more](how-to-assess.md).
-    - If you haven't yet created an Azure Migrate project, [learn more](how-to-add-tool-first-time.md).
+    - If you haven't yet created an Azure Migrate project, [learn more](./create-manage-projects.md).
 
     ![Select groups](./media/how-to-create-a-group/select-groups.png)
 
@@ -84,4 +84,3 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
 ## Next steps
 
 Learn how to set up and use [dependency mapping](how-to-create-group-machine-dependencies.md) to create high confidence groups.
-

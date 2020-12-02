@@ -3,8 +3,8 @@ title: Data Factory - .NET API Change Log
 description: Describes breaking changes, feature additions, bug fixes, and so on, in a specific version of .NET API for the Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -70,7 +70,7 @@ Feature Additions:
 ### Feature Additions
 * Added new StorageFormat type [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) type to copy files in optimized row columnar (ORC) format.
 * Add [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) and PolyBaseSettings properties to SqlDWSink.
-  * Enables the use of PolyBase to copy data into Azure Synapse Analytics (formerly SQL Data Warehouse).
+  * Enables the use of PolyBase to copy data into Azure Synapse Analytics.
 
 ## Version 4.6.1
 ### Bug Fixes
