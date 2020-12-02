@@ -513,7 +513,7 @@ We create a [private DNS zone](../dns/private-dns-overview.md) attached to the V
 
 ### Private endpoints with the Speech Services
 
-See [Using Speech Services with private endpoints provided by Azure Private Link](Speech-Service/speech-services-private-link.md)
+See [Using Speech Services with private endpoints provided by Azure Private Link](Speech-Service/speech-services-private-link.md).
 
 When using private endpoints with the Speech Service, you must use a custom endpoint to call the Speech Service. You cannot use the global endpoint. The endpoint must follow this pattern: `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
 
