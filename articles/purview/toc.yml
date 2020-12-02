@@ -146,6 +146,10 @@ items:
     items:
     - name: Create a private endpoint
       href: catalog-private-end-point.md
+  - name: Monitor and logs
+    items:
+    - name: Monitor with Azure Monitor
+      href: how-to-monitor-with-azure-monitor.md
   - name: Insights
     items:
     - name: View asset insights
