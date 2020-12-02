@@ -1,6 +1,6 @@
 ---
 title: Create a Dynamics 365 for Operations offer on Microsoft AppSource.
-description: Learn how to create a Dynamics 365 for Operations offer in the commercial marketplace.
+description: Learn how to create a Dynamics 365 for Operations offer on Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

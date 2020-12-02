@@ -1,12 +1,12 @@
 ---
-title: Configure virtual machine offer listing details on Azure Marketplace
-description: Learn how to configure virtual machine offer listing details on Azure Marketplace.
+title: Configure Dynamics 365 for Operations offer listing details on Microsoft AppSource
+description: Learn how to configure Dynamics 365 for Operations offer listing details on Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/19/2020
+ms.date: 12/01/2020
 ---
 
 # How to configure virtual machine offer listing details
@@ -20,7 +20,7 @@ On the **Offer listing** page (select from the left-nav menu in Partner Center),
 
 ### Name
 
-The name that you enter here is shown to customers as the title of your offer listing. This field is auto-filled with the name that you entered in the **Offer alias** box when you created the offer. The name:
+The name you enter here is shown to customers as the title of your offer listing. This field is auto-filled with the name that you entered in the **Offer alias** box when you created the offer. The name:
 
 - Can include trademark and copyright symbols.
 - Must be 50 characters or less.

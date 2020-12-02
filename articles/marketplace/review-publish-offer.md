@@ -50,6 +50,10 @@ After all pages are complete and you have entered applicable testing notes,  sel
 | [Publish](#publish-phase) | We run a series of steps to verify that the preview offer is published live to the commercial marketplace. |
 |||
 
+For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
+
+For more information about testing instructions and completing a first publish in Microsoft AppSource, see [AppSource Dynamics 365 Finance and Operations functional validation](dynamics-365-finance-operations-functional-validation.md).
+
 ## Automated validation phase
 
 The first step in the publishing process is a set of automated validations. Each validation step corresponds to a feature you chose when you created the offer. Each validation check must be complete before the offer can advance to the next step in the publishing process.
