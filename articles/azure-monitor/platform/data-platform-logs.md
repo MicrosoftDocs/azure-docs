@@ -37,7 +37,7 @@ Once you create a Log Analytics workspace, you must configure different sources 
 
 
 ## Log Analytics workspaces
-Data collected by Azure Monitor Logs is stored in one more [Log Analytics workspaces](./design-logs-deployment.md). The workspace defines the geographic location of the data, access rights defining which users can access data, and configuration settings such as the pricing tier and data retention.  
+Data collected by Azure Monitor Logs is stored in one or more [Log Analytics workspaces](./design-logs-deployment.md). The workspace defines the geographic location of the data, access rights defining which users can access data, and configuration settings such as the pricing tier and data retention.  
 
 You must create at least one workspace to use Azure Monitor Logs. A single workspace may be sufficient for all of your monitoring data, or may choose to create multiple workspaces depending on your requirements. For example, you might have one workspace for your production data and another for testing. 
 
