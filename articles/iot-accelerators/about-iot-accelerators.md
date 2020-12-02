@@ -26,6 +26,9 @@ You can also use the solution accelerators as learning tools before building a c
 
 The application code in each solution accelerator includes a web app that lets you manage the solution accelerator.
 
+> [!NOTE]
+> The remote monitoring and predictive maintenance solutions have been removed from the [Azure IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) site. To learn more, see [What are Azure IoT solution accelerators? (previous version)](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md).
+
 ## Supported IoT scenarios
 
 Currently, there are two solution accelerators available for you to deploy:
@@ -45,9 +48,6 @@ Use the [Device Simulation solution accelerator](iot-accelerators-device-simulat
 You can use the device simulation web app to configure and run simulations:
 
 :::image type="content" source="./media/about-iot-accelerators/ds-dashboard-inline.png" alt-text="Screenshot that shows the device simulation solution dashboard." lightbox="./media/about-iot-accelerators/ds-dashboard-expanded.png":::
-
-> [!NOTE]
-> For information about the deprecated solution accelerators, see [What are Azure IoT solution accelerators? (deprecated)](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md) on the previous versions site.
 
 ## Design principles
 
