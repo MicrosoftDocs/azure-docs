@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 12/02/2020
 ---
 
 # Create a simple query in Azure Cognitive Search
