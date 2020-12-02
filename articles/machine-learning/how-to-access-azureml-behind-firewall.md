@@ -29,7 +29,7 @@ These UDRs enable the Batch service to communicate with compute nodes for task s
 
 * Download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
 
-* Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region:
+* Use the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region:
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"

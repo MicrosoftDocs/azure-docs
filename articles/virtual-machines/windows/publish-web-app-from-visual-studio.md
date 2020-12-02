@@ -20,7 +20,7 @@ In order to use Visual Studio to publish an ASP.NET project to an Azure VM, the 
 
 - The machine must be configured to run an ASP.NET web application and have WebDeploy installed. For more information, see [Create an ASP.NET VM with WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
-- The VM must have a DNS name configured. For more information, see [Create a fully qualified domain name in the Azure portal for a Windows VM](portal-create-fqdn.md).
+- The VM must have a DNS name configured. For more information, see [Create a fully qualified domain name in the Azure portal for a Windows VM](../create-fqdn.md).
 
 ## Publish your ASP.NET web app to the Azure VM using Visual Studio
 The following section describes how to publish an existing ASP.NET web application to an Azure virtual machine.
