@@ -42,7 +42,7 @@ Prefixes and suffixes can contain special characters that are supported in group
 
 #### Fixed strings
 
-You can use strings to make it easier to scan and differentiate groups in the global address list and in the left navigation links of group workloads. Some of the common prefixes are keywords like ‘Grp\_Name’ , ‘\#Name’, ‘\_Name’
+You can use strings to make it easier to scan and differentiate groups in the global address list and in the left navigation links of group workloads. Some of the common prefixes are keywords like ‘Grp\_Name’, ‘\#Name’, ‘\_Name’
 
 #### User attributes
 
@@ -74,7 +74,6 @@ Selected administrators can be exempted from these policies, across all group wo
 - Partner Tier 1 Support
 - Partner Tier 2 Support
 - User administrator
-- Directory writers
 
 ## Configure naming policy in Azure portal
 

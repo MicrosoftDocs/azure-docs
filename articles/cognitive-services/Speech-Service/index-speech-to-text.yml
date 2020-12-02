@@ -39,7 +39,7 @@ landingContent:
         - text: Change speech recognition source language
           url: how-to-specify-source-language.md
         - text: Improve accuracy with Custom Speech
-          url: how-to-custom-speech.md
+          url: ./custom-speech-overview.md
         - text: Use compressed audio input formats
           url: how-to-use-codec-compressed-audio-input-streams.md
     - linkListType: tutorial

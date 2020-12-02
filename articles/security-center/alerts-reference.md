@@ -1,5 +1,5 @@
 ---
-title: Reference table for all Azure Defender alerts in Azure Security Center
+title: Reference table for all security alerts in Azure Security Center
 description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard.
 services: security-center
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.author: memildin
 
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Azure Defender. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
+This article lists the security alerts you might get from Azure Security Center and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
 To learn how to respond to these alerts, see [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 

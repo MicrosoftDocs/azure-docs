@@ -593,6 +593,8 @@
         "articles/cdn/*.yml": "networking",
         "articles/bastion/*.md": "networking",
         "articles/bastion/*.yml": "networking",
+        "articles/ddos-protection/*.md": "networking",
+        "articles/ddos-protection/*.yml": "networking",      
         "articles/dns/*.md": "networking",
         "articles/dns/*.yml": "networking",
         "articles/expressroute/*.md": "networking",

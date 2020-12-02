@@ -481,6 +481,23 @@ Before and after conversion:
 
 ![Screenshot of the result after the certificate conversion.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
+### Self-hosted Integration Runtime version 5.x
+For the upgrade to version 5.x of Azure Data Factory Self-hosted integration runtime, we require **.NET framework runtime 4.7.2** or above. 
+In download page, there will be download links for the newest 4.x version and the newest two 5.x versions. 
+
+
+For ADF V2 customers:
+- If auto-update is on and you have already upgraded your .Net framework runtime to 4.7.2 or above, then the Self-hosted integration runtime will be auto upgraded to the newest 5.x version.
+- If auto- update is on and you have not upgraded your .Net framework runtime to 4.7.2 or above, then the Self-hosted integration runtime will not be auto upgraded to the newest 5.x version. The Self-hosted integration runtime will stay in current 4.x version. You can see a warning for .Net framework runtime upgrade in the portal and Self-hosted integration runtime client.
+- If auto- update is off and you have already upgraded your .Net framework runtime to 4.7.2 or above, you can manually download the newest 5.x and install in your machine.
+- If auto- update is off and you have not upgraded your .Net framework runtime to 4.7.2 or above. When you try to manually install SHIR 5.x and register the key, you will be required to upgrade your .Net framework runtime first.
+
+
+For ADF V1 customers:
+- Self-hosted integration runtime 5.X doesn’t support ADF V1.
+- The Self-hosted integration runtime will be auto upgraded to the newest version of 4.x. And the last version of 4.x will not expire. 
+- If you try to manually install Self-hosted integration runtime 5.x and register the key, you will be told that Self-hosted integration runtime 5.x doesn’t support V1.
+
 
 ## Self-hosted IR connectivity issues
 
@@ -776,7 +793,7 @@ There are two possible reasons for this issue:
 - For reason 1: Make sure that the Data Factory server certificate and its certificate chain are trusted by the machine where the self-hosted IR is installed.
 - For reason 2, either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace ADF server certificate.
 
-For more information about trusting a certificate on Windows, see [Installing the trusted root certificate](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+For more information about trusting a certificate on Windows, see [Installing the trusted root certificate](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
 #### Additional information
 We've rolled out a new SSL certificate, which is signed from DigiCert. Check to see whether the DigiCert Global Root G2 is in the trusted root CA.
@@ -797,6 +814,7 @@ You might notice other data factories (on different tenants) as you're attemptin
 #### Cause
 
 The self-hosted IR can't be shared across tenants.
+
 
 
 ## Next steps

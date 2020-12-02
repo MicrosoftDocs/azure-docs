@@ -177,4 +177,4 @@ After the module is installed, use the following steps to complete each task as 
 
 To get started with SSPR, see [Tutorial: Enable users to unlock their account or reset passwords using Azure Active Directory self-service password reset](tutorial-enable-sspr.md).
 
-If you or users have problems with SSPR, see [Troubleshoot self-service password reset](active-directory-passwords-troubleshoot.md)
+If you or users have problems with SSPR, see [Troubleshoot self-service password reset](./troubleshoot-sspr.md)

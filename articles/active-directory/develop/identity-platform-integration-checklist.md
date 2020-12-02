@@ -29,7 +29,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 ## Basics
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Read and understand the [Microsoft Platform Policies](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Read and understand the [Microsoft Platform Policies](/legal/microsoft-identity-platform/terms-of-use). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform.
 
 ## Ownership
 
