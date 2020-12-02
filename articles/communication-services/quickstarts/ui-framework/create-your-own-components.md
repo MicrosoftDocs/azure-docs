@@ -97,7 +97,7 @@ In the snippet below we initialize both the `CallingProvider` and the `ChatProvi
 
 Moving forward in this quickstart, we will only use the `ChatProvider` to build a chat experience.
 
-## Defining callSettings to start or join a call
+## Defining chatSettings to start or join a chat
 
 In order to start or join a call, `chatSettings` must be passed to the `ChatProvider` for it to correct initialize the chat experience.
 
@@ -128,7 +128,7 @@ Once imported, we will generate a simple thread that will connect to the Chat pr
 
 ```javascript
 
-const SimpleChatThread = (props: ChatMessagePropsFromContext): JSX.Element => {
+const SimpleChatThread  = (props: ChatMessagePropsFromContext): JSX.Element => {
     return(
         <div>
             {props.chatMessages?.map((message: ChatMessageWithStatus) => (
@@ -146,12 +146,12 @@ Now that we have our custom component ready, we will import it and add it to our
 
 ```javascript
 
-import {SimpleChatThread} from "./customComponent.tsx"
+import {SimpleChatThread } from "./customComponent.tsx"
 
 <Provider>
     <CommunicationsProvider accessToken = {"INSERT ACCESS TOKEN"}>
         <ChatProvider chatSettings={...}>
-            <customComponent />
+            <SimpleChatThread  />
         </ChatProvider>
     </CommunicationsProvider>
 </Provider>
