@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with GitHub | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and GitHub.
+title: 'Tutorial: Azure Active Directory integration with a GitHub Enterprise Cloud Organization | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and a GitHub Enterprise Cloud Organization.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,9 +13,9 @@ ms.date: 08/07/2020
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with a GitHub Enterprise Cloud Organization
 
-In this tutorial, you'll learn how to integrate GitHub with Azure Active Directory (Azure AD). When you integrate GitHub with Azure AD, you can:
+In this tutorial, you'll learn how to integrate a GitHub Enterprise Cloud **Organization** with Azure Active Directory (Azure AD). When you integrate a GitHub Enterprise Cloud Organization with Azure AD, you can:
 
 * Control in Azure AD who has access to your GitHub Enterprise Cloud Organization.
 * Manage access to your GitHub Enterprise Cloud Organization in one central location - the Azure portal.
@@ -24,7 +24,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 
 ## Prerequisites
 
-To configure Azure AD integration with GitHub, you need the following items:
+To configure Azure AD integration with a GitHub Enterprise Cloud Organization, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
@@ -47,7 +47,7 @@ To configure the integration of GitHub into Azure AD, you need to add GitHub fro
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **GitHub** in the search box.
-1. Select **GitHub** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **GitHub Enterprise Cloud - Organization** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for GitHub
 
