@@ -17,7 +17,7 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ## Gather self-hosted IR logs from Azure Data Factory
 
-For failed activities that are running on a self-hosted IR or shared IR, Azure Data Factory supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
+For failed activities that are running on a self-hosted IR or a shared IR, Azure Data Factory supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
 
 1. In Data Factory, select **Pipeline runs**.
 
@@ -36,10 +36,10 @@ For failed activities that are running on a self-hosted IR or shared IR, Azure D
     ![Screenshot of the "Share the self-hosted integration runtime (IR) logs with Microsoft" window.](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
 1. Select which logs you want to send. 
-    * For *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
-    * For *shared IR*, you can upload only logs that are related to the failed activity.
+    * For a *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
+    * For a *shared IR*, you can upload only logs that are related to the failed activity.
 
-1. When the logs are uploading, keep a record of the Report ID for later use if you need further assistance to solve the issue.
+1. When the logs are uploaded, keep a record of the Report ID for later use if you need further assistance to solve the issue.
 
     ![Screenshot of the displayed report ID in the upload progress window for the IR logs.](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
 
@@ -53,11 +53,11 @@ For failed activities that are running on a self-hosted IR or shared IR, Azure D
 
 #### Symptoms
 
-An "OutOfMemoryException" error occurs when you try to run a lookup activity with a linked IR or self-hosted IR.
+An OutOfMemoryException (OOM) error occurs when you try to run a lookup activity with a linked IR or a self-hosted IR.
 
 #### Cause
 
-A new activity can throw an OOM (OutOfMemory) error if the IR machine experiences momentary high memory usage. The issue might be caused by a large volume of concurrent activity, and the error is by design.
+A new activity can throw an OOM error if the IR machine experiences momentary high memory usage. The issue might be caused by a large volume of concurrent activity, and the error is by design.
 
 #### Resolution
 
@@ -68,7 +68,7 @@ Check the resource usage and concurrent activity execution on the IR node. Adjus
 
 #### Symptoms
 
-When you try to enable a Transport Layer Security (TLS)/Secure Sockets Layer (SSL) certificate (advanced) by choosing the certificate after you select **Self-hosted IR Configuration Manager** > **Remote access from intranet**, you get the following error:
+When you try to enable a Transport Layer Security (TLS)/Secure Sockets Layer (SSL) certificate (advanced) by choosing the certificate (after you select **Self-hosted IR Configuration Manager** > **Remote access from intranet**), you get the following error:
 
 "Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was 'abc.microsoft.com' but the remote endpoint provided DNS claim 'microsoft.com'. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity 'microsoft.com' as the Identity property of EndpointAddress when creating channel proxy."
 
