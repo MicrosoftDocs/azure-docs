@@ -445,7 +445,7 @@
       href: ./linux/ibm-db2-purescale-azure.md
     - name: Deployment
       href: ./linux/deploy-ibm-db2-purescale-azure.md
-  - name: Run containers
+  - name: Containers
     items:
     - name: Create Docker host
       href: https://github.com/Azure/azure-docker-extension/blob/master/README.md
@@ -453,6 +453,143 @@
       href: ./linux/docker-machine.md
     - name: Use Docker Compose
       href: ./linux/docker-compose-quickstart.md
+  - Visual Studio 
+    href: ./windows/using-visual-studio-vm.md
+  - name: Extensions
+    items:
+    - name: Overview
+      href: ./extensions/overview.md
+    - name: Linux 
+      items: 
+      - name: Linux features 
+        href: ./extensions/features-linux.md
+      - name: Linux VM Agent
+        href: ./extensions/agent-linux.md
+    - name: Windows
+      items:
+      - name: Windows features
+        href: ./extensions/features-windows.md
+      - name: Windows VM Agent
+        href: ./extensions/agent-windows.md
+    - name: Azure Disk Encryption
+      items:
+      - name: Linux
+        href: ./extensions/azure-disk-enc-linux.md
+      - name: Windows
+        href: ./extensions/azure-disk-enc-windows.md
+    - name: Azure Key Vault
+      items:
+      - name: Linux
+        href: ./extensions/key-vault-linux.md
+      - name: Windows
+        href: ./extensions/key-vault-windows.md
+    - name: Azure Backup for SQL Server
+      items:
+      - name: Azure Backup for SQL Server
+        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+    - name: Custom Script
+      items:
+      - name: Linux - version 2
+        href: ./extensions/custom-script-linux.md
+      - name: Windows
+        href: ./extensions/custom-script-windows.md
+    - name: IaaS antimalware for Windows
+      href: ./extensions/iaas-antimalware-windows.md
+    - name: VM snapshot
+      items:
+      - name: Linux
+        href: ./extensions/vmsnapshot-linux.md
+      - name: Windows
+        href: ./extensions/vmsnapshot-windows.md
+    - name: Network Watcher Extension
+      items:
+      - name: Linux
+        href: ./extensions/network-watcher-linux.md
+      - name: Windows
+        href: ./extensions/network-watcher-windows.md
+      - name: Update to latest version
+        href: ./extensions/network-watcher-update.md
+    - name: InfiniBand Drivers
+      items:
+      - name: Linux
+        href: ./extensions/hpc-compute-infiniband-linux.md
+      - name: Windows
+        href: ./extensions/hpc-compute-infiniband-windows.md
+    - name: NVIDIA GPU Drivers
+      items:
+      - name: Linux
+        href: ./extensions/hpccompute-gpu-linux.md
+      - name: Windows
+        href: ./extensions/hpccompute-gpu-windows.md
+    - name: AMD GPU Drivers
+      items:
+      - name: Windows
+        href: ./extensions/hpccompute-amd-gpu-windows.md
+    - name: Azure Monitor
+      items:
+      - name: Azure Monitor agent
+        href: ../azure-monitor/platform/azure-monitor-agent-overview.md?#install-the-azure-monitor-agent
+      - name: Diagnostics extension
+        items:
+        - name: Linux
+          href: ./extensions/diagnostics-linux.md
+        - name: Windows
+          href: ../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
+      - name: Log Analytics
+        items:
+        - name: Linux
+          href: ./extensions/oms-linux.md
+        - name: Windows
+          href: ./extensions/oms-windows.md
+      - name: Azure Monitor for VMs
+        items:
+        - name: Linux Dependency agent
+          href: ./extensions/agent-dependency-linux.md
+        - name: Windows Dependency agent
+          href: ./extensions/agent-dependency-windows.md
+    - name: PowerShell DSC
+      href: ./extensions/dsc-overview.md
+      items:
+      - name: DSC and Linux
+        href: ./extensions/dsc-linux.md
+      - name: DSC and Windows
+        href: ./extensions/dsc-windows.md
+      - name: Handle credentials
+        href: ./extensions/dsc-credentials.md
+      - name: Use templates
+        href: ./extensions/dsc-template.md
+    - name: Virtual machine access
+      href: ./extensions/vmaccess.md
+    - name: Third-party extensions
+      items:
+      - name: Chef
+        href: ./extensions/chef.md
+      - name: Stackify Retrace
+        href: ./extensions/stackify-retrace-linux.md
+      - name: Symantec
+        href: ./extensions/symantec.md
+    - name: Deprecated extensions
+      items:
+      - name: Log collector
+        href: ./extensions/log-collector.md
+      - name: Trend Micro Deep Security
+        href: ./extensions/trend.md
+      - name: Linux - version 1 (OSTC)
+        href: ./extensions/custom-script-linuxOstc.md
+    - name: Restrict extension installation
+      items:
+      - name: Linux
+        href: ./extensions/extensions-rmpolicy-howto-cli.md
+      - name: Windows
+        href: ./extensions/extensions-rmpolicy-howto-ps.md
+    - name: Update Linux agent
+      href: ./extensions/update-linux-agent.md
+    - name: Export extensions
+      href: ./extensions/export-templates.md
+    - name: Troubleshoot
+      href: ./extensions/troubleshoot.md
+    - name: Issues with Python 3-enabled Linux systems
+      href: ./extensions/issues-using-vm-extensions-python-3.md
 - name: Instances
   items:
   - name: Sizes
@@ -698,6 +835,11 @@
     - name: Use ARM template
       displayName: Azure Resource Manager template
       href: ./windows/ps-template.md
+  - name: Connect to Windows VMs 
+    href: ./windows/connect-logon.md
+    items:
+    - name: WinRM 
+      href: ./windows/winrm.md
   - name: Migrate from classic to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
@@ -710,7 +852,7 @@
       href: migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
       href: migration-classic-resource-manager-cli.md
-        - name: Migrate using PowerShell
+    - name: Migrate using PowerShell
       href: migration-classic-resource-manager-ps.md
     - name: Common migration errors
       href: migration-classic-resource-manager-errors.md
@@ -942,6 +1084,8 @@
         href: ./windows/capture-image-resource.md
     - name: Create a VM from a managed image
       href: ./windows/create-vm-generalized-managed.md
+    - name: Upload a Windows VHD and create a managed image
+      href: ./windows/upload-generalized-managed.md
   - name: Build image with Packer
     items: 
     - name: Linux
@@ -1606,141 +1750,6 @@
       href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Extensions
-  items:
-  - name: Overview
-    href: ./extensions/overview.md
-  - name: Linux 
-    items: 
-    - name: Linux features 
-      href: ./extensions/features-linux.md
-    - name: Linux VM Agent
-      href: ./extensions/agent-linux.md
-  - name: Windows
-    items:
-    - name: Windows features
-      href: ./extensions/features-windows.md
-    - name: Windows VM Agent
-      href: ./extensions/agent-windows.md
-  - name: Azure Disk Encryption
-    items:
-    - name: Linux
-      href: ./extensions/azure-disk-enc-linux.md
-    - name: Windows
-      href: ./extensions/azure-disk-enc-windows.md
-  - name: Azure Key Vault
-    items:
-    - name: Linux
-      href: ./extensions/key-vault-linux.md
-    - name: Windows
-      href: ./extensions/key-vault-windows.md
-  - name: Azure Backup for SQL Server
-    items:
-    - name: Azure Backup for SQL Server
-      href: ./extensions/backup-azure-sql-server-running-azure-vm.md
-  - name: Custom Script
-    items:
-    - name: Linux - version 2
-      href: ./extensions/custom-script-linux.md
-    - name: Windows
-      href: ./extensions/custom-script-windows.md
-  - name: IaaS antimalware for Windows
-    href: ./extensions/iaas-antimalware-windows.md
-  - name: VM snapshot
-    items:
-    - name: Linux
-      href: ./extensions/vmsnapshot-linux.md
-    - name: Windows
-      href: ./extensions/vmsnapshot-windows.md
-  - name: Network Watcher Extension
-    items:
-    - name: Linux
-      href: ./extensions/network-watcher-linux.md
-    - name: Windows
-      href: ./extensions/network-watcher-windows.md
-    - name: Update to latest version
-      href: ./extensions/network-watcher-update.md
-  - name: InfiniBand Drivers
-    items:
-    - name: Linux
-      href: ./extensions/hpc-compute-infiniband-linux.md
-    - name: Windows
-      href: ./extensions/hpc-compute-infiniband-windows.md
-  - name: NVIDIA GPU Drivers
-    items:
-    - name: Linux
-      href: ./extensions/hpccompute-gpu-linux.md
-    - name: Windows
-      href: ./extensions/hpccompute-gpu-windows.md
-  - name: AMD GPU Drivers
-    items:
-    - name: Windows
-      href: ./extensions/hpccompute-amd-gpu-windows.md
-  - name: Azure Monitor
-    items:
-    - name: Azure Monitor agent
-      href: ../azure-monitor/platform/azure-monitor-agent-overview.md?#install-the-azure-monitor-agent
-    - name: Diagnostics extension
-      items:
-      - name: Linux
-        href: ./extensions/diagnostics-linux.md
-      - name: Windows
-        href: ../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
-    - name: Log Analytics
-      items:
-      - name: Linux
-        href: ./extensions/oms-linux.md
-      - name: Windows
-        href: ./extensions/oms-windows.md
-    - name: Azure Monitor for VMs
-      items:
-      - name: Linux Dependency agent
-        href: ./extensions/agent-dependency-linux.md
-      - name: Windows Dependency agent
-        href: ./extensions/agent-dependency-windows.md
-  - name: PowerShell DSC
-    href: ./extensions/dsc-overview.md
-    items:
-    - name: DSC and Linux
-      href: ./extensions/dsc-linux.md
-    - name: DSC and Windows
-      href: ./extensions/dsc-windows.md
-    - name: Handle credentials
-      href: ./extensions/dsc-credentials.md
-    - name: Use templates
-      href: ./extensions/dsc-template.md
-  - name: Virtual machine access
-    href: ./extensions/vmaccess.md
-  - name: Third-party extensions
-    items:
-    - name: Chef
-      href: ./extensions/chef.md
-    - name: Stackify Retrace
-      href: ./extensions/stackify-retrace-linux.md
-    - name: Symantec
-      href: ./extensions/symantec.md
-  - name: Deprecated extensions
-    items:
-    - name: Log collector
-      href: ./extensions/log-collector.md
-    - name: Trend Micro Deep Security
-      href: ./extensions/trend.md
-    - name: Linux - version 1 (OSTC)
-      href: ./extensions/custom-script-linuxOstc.md
-  - name: Restrict extension installation
-    items:
-    - name: Linux
-      href: ./extensions/extensions-rmpolicy-howto-cli.md
-    - name: Windows
-      href: ./extensions/extensions-rmpolicy-howto-ps.md
-  - name: Update Linux agent
-    href: ./extensions/update-linux-agent.md
-  - name: Export extensions
-    href: ./extensions/export-templates.md
-  - name: Troubleshoot
-    href: ./extensions/troubleshoot.md
-  - name: Issues with Python 3-enabled Linux systems
-    href: ./extensions/issues-using-vm-extensions-python-3.md
 - name: Resources
   items:
   - name: Cloud adoption framework
