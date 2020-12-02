@@ -78,8 +78,6 @@ Although resource sets work well in most cases, you might encounter the  followi
 - Puts an asset into the wrong resource set
 - Incorrectly marks an asset as not being a resource set
 
-We have tools to help resolve these issues. If your catalog is having these challenges, email adcdisc@microsoft.com for advice.
-
 ## Next steps
 
 To get started with Data Catalog, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
