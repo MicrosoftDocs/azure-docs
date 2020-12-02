@@ -14,7 +14,7 @@ ms.custom:
 
 Remote desktop enables you to access a role instance running in a Cloud Service (extended support) deployment. You can use a remote desktop connection to troubleshoot and diagnose problems with your application while it is running.
 
-Remote Desktop can be enabled on your roles during development by including the remote desktop modules in your service definition file. Remote desktop can als obe enabled post deployment using the remote desktop extension. 
+Remote Desktop can be enabled on your roles during development by including the remote desktop modules in your service definition file. Remote desktop can also be enabled post deployment using the remote desktop extension. 
 
 ## Configure remote desktop from the Azure portal
 
