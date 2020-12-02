@@ -43,7 +43,7 @@ To view the run history and model evaluation metrics and charts in the studio:
 
 ## Charts/metrics overview
 
-Automated ML supports model evaluation metrics and charts for classification, regression, and forecasting tasks. Regression and forecasting metrics are the same. This section offers an overview of all metrics and charts supported by automated ML. Clicking on any of these will direct you to more details within this page. 
+Automated ML supports model evaluation metrics and charts for classification, regression, and forecasting tasks. Regression and forecasting metrics are the same. This section offers an overview of all metrics and charts supported by automated ML. Clicking on any of these links will direct you to more details within this page. 
 
 ### Charts
 
@@ -58,29 +58,29 @@ Automated ML supports model evaluation metrics and charts for classification, re
 
 ### Metrics
 
-| Classification                                         | Objective | Range    | Regression/forecasting                                     | Objective | Range     |
-| ------------------------------------------------------ | --------- | -------- | ---------------------------------------------------------- | --------- | --------- |
-| [AUC_macro](#auc)                                      | Max       | [0, 1]   | [explained_variance](#explained-variance)                  | Max       | (-inf, 1] |
-| [AUC_micro](#auc)                                      | Max       | [0, 1]   | [r2_score](#r2)                                            | Max       | (-inf, 1] |
-| [AUC_weighted](#auc)                                   | Max       | [0, 1]   | [spearman_correlation](#spearman-correlation)              | Max       | [-1, 1]   |
-| [accuracy](#accuracy)                                  | Max       | [0, 1]   | [mean_absolute_error](#mean-absolute-error)                | Min       | [0, inf)  |
-| [average_precision_score_macro](#average-precision)    | Max       | [0, 1]   | [normalized_mean_absolute_error](#mean-absolute-error)     | Min       | [0, inf)  |
-| [average_precision_score_micro](#average-precision)    | Max       | [0, 1]   | [median_absolute_error](#median-absolute-error)            | Min       | [0, inf)  |
-| [average_precision_score_weighted](#average-precision) | Max       | [0, 1]   | [normalized_median_absolute_error](#median-absolute-error) | Min       | [0, inf)  |
-| [balanced_accuracy](#balanced-accuracy)                | Max       | [0, 1]   | [root_mean_squared_error](#rmse)                           | Min       | [0, inf)  |
-| [f1_score_macro](#f1)                                  | Max       | [0, 1]   | [normalized_root_mean_squared_error](#rmse)                | Min       | [0, inf)  |
-| [f1_score_micro](#f1)                                  | Max       | [0, 1]   | [root_mean_squared_log_error](#rmsle)                      | Min       | [0, inf)  |
-| [f1_score_weighted](#f1)                               | Max       | [0, 1]   | [normalized_root_mean_squared_log_error](#rmsle)           | Min       | [0, inf)  |
-| [log_loss](#log-loss)                                  | Min       | [0, inf) | [mean_absolute_percentage_error](#mape)                    | Min       | [0, inf)  |
-| [matthews_correlation](#matthews-correlation)          | Max       | [-1, 1]  |                                                            |           |           |
-| [norm_macro_recall](#normalized-macro-recall)          | Max       | [0, 1]   |                                                            |           |           |
-| [precision_score_macro](#precision)                    | Max       | [0, 1]   |                                                            |           |           |
-| [precision_score_micro](#precision)                    | Max       | [0, 1]   |                                                            |           |           |
-| [precision_score_weighted](#precision)                 | Max       | [0, 1]   |                                                            |           |           |
-| [recall_score_macro](#recall)                          | Max       | [0, 1]   |                                                            |           |           |
-| [recall_score_micro](#recall)                          | Max       | [0, 1]   |                                                            |           |           |
-| [recall_score_weighted](#recall)                       | Max       | [0, 1]   |                                                            |           |           |
-| [weighted_accuracy](#weighted-accuracy)                | Max       | [0, 1]   |                                                            |           |           |
+| Classification                                         | Objective | Range         | Regression/forecasting                                     | Objective | Range          |
+| ------------------------------------------------------ | --------- | ------------- | ---------------------------------------------------------- | --------- | -------------- |
+| [AUC_macro](#auc)                                      | Max       | [0, 1]        | [explained_variance](#explained-variance)                  | Max       | (-infinity, 1] |
+| [AUC_micro](#auc)                                      | Max       | [0, 1]        | [r2_score](#r2)                                            | Max       | (-infinity, 1] |
+| [AUC_weighted](#auc)                                   | Max       | [0, 1]        | [spearman_correlation](#spearman-correlation)              | Max       | [-1, 1]        |
+| [accuracy](#accuracy)                                  | Max       | [0, 1]        | [mean_absolute_error](#mean-absolute-error)                | Min       | [0, infinity)  |
+| [average_precision_score_macro](#average-precision)    | Max       | [0, 1]        | [normalized_mean_absolute_error](#mean-absolute-error)     | Min       | [0, infinity)  |
+| [average_precision_score_micro](#average-precision)    | Max       | [0, 1]        | [median_absolute_error](#median-absolute-error)            | Min       | [0, infinity)  |
+| [average_precision_score_weighted](#average-precision) | Max       | [0, 1]        | [normalized_median_absolute_error](#median-absolute-error) | Min       | [0, infinity)  |
+| [balanced_accuracy](#balanced-accuracy)                | Max       | [0, 1]        | [root_mean_squared_error](#rmse)                           | Min       | [0, infinity)  |
+| [f1_score_macro](#f1)                                  | Max       | [0, 1]        | [normalized_root_mean_squared_error](#rmse)                | Min       | [0, infinity)  |
+| [f1_score_micro](#f1)                                  | Max       | [0, 1]        | [root_mean_squared_log_error](#rmsle)                      | Min       | [0, infinity)  |
+| [f1_score_weighted](#f1)                               | Max       | [0, 1]        | [normalized_root_mean_squared_log_error](#rmsle)           | Min       | [0, infinity)  |
+| [log_loss](#log-loss)                                  | Min       | [0, infinity) | [mean_absolute_percentage_error](#mape)                    | Min       | [0, infinity)  |
+| [matthews_correlation](#matthews-correlation)          | Max       | [-1, 1]       |                                                            |           |                |
+| [norm_macro_recall](#normalized-macro-recall)          | Max       | [0, 1]        |                                                            |           |                |
+| [precision_score_macro](#precision)                    | Max       | [0, 1]        |                                                            |           |                |
+| [precision_score_micro](#precision)                    | Max       | [0, 1]        |                                                            |           |                |
+| [precision_score_weighted](#precision)                 | Max       | [0, 1]        |                                                            |           |                |
+| [recall_score_macro](#recall)                          | Max       | [0, 1]        |                                                            |           |                |
+| [recall_score_micro](#recall)                          | Max       | [0, 1]        |                                                            |           |                |
+| [recall_score_weighted](#recall)                       | Max       | [0, 1]        |                                                            |           |                |
+| [weighted_accuracy](#weighted-accuracy)                | Max       | [0, 1]        |                                                            |           |                |
 
 ## Classification metrics
 
@@ -132,14 +132,14 @@ For a single sample with true label `yt` in `{0, 1}` and estimated probability `
 
 ### Matthews correlation
 
-The Matthews correlation coefficient is a balanced measure of accuracy which can be used even if there are very different numbers of each class. A coefficient of 1 indicates perfect prediction, 0 random prediction, and -1 inverse prediction.
+The Matthews correlation coefficient is a balanced measure of accuracy which can be used even if one class has many more samples than another. A coefficient of 1 indicates perfect prediction, 0 random prediction, and -1 inverse prediction.
 > Based on the [scikit-learn implementation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)
 
 ### Normalized macro recall
 
 Normalized macro recall is recall macro-averaged and normalized so that random performance has a score of 0 and perfect performance has a score of 1.
 
-This is achieved by `norm_macro_recall := (recall_score_macro - R) / (1 - R)`, where `R` is the expected value of `recall_score_macro` for random predictions (i.e., `R = 0.5` for binary classification and `R = (1 / C)` for C-class classification problems).
+The metric is calculated with `norm_macro_recall := (recall_score_macro - R) / (1 - R)`, where `R` is the expected value of `recall_score_macro` for random predictions (`R = 0.5` for binary classification and `R = (1 / C)` for C-class classification problems).
 
 ### Precision
 
@@ -170,7 +170,7 @@ Many classification metrics are defined for binary classification on two classes
 - **Micro** - Calculate the metric globally by counting the total true positives, false negatives, and false positives (independent of classes).
 - **Weighted** - Calculate the metric for each class and take the weighted average based on the number of samples per class.
 
-While each averaging method has its benefits, one common consideration when selecting the appropriate method is class imbalance. If the number of samples per class is not even across all classes it might be more informative to use a macro average where minority classes are given equal weighting to majority classes.
+While each averaging method has its benefits, one common consideration when selecting the appropriate method is class imbalance. If classes have different numbers of samples, it might be more informative to use a macro average where minority classes are given equal weighting to majority classes.
 
 ## Binary vs. multiclass classification metrics
 
@@ -187,7 +187,7 @@ For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass a
 
 Confusion matrices provide a visual intuition for how a machine learning model is making systematic errors in its predictions. The word "confusion" in the name comes from a model "confusing" or mislabeling samples. A cell at row `i` and column `j` in a confusion matrix contains the number of samples in the evaluation dataset that belong to class `C_i` and were classified by the model as class `C_j`.
 
-In the studio a darker cell indicates a higher number of samples. Selecting **Normalized** view in the dropdown will normalize over each matrix row to show the percent of class `C_i` predicted to be class `C_j`. The benefit of the default **Raw** view is that you can see whether imbalanace in the distribution of actual classes caused the model to misclassify samples from the minority class, a common issue in imbalanced datasets.
+In the studio a darker cell indicates a higher number of samples. Selecting **Normalized** view in the dropdown will normalize over each matrix row to show the percent of class `C_i` predicted to be class `C_j`. The benefit of the default **Raw** view is that you can see whether imbalance in the distribution of actual classes caused the model to misclassify samples from the minority class, a common issue in imbalanced datasets.
 
 The confusion matrix of a good model will have most samples along the diagonal.
 
@@ -203,7 +203,7 @@ The receiver operating characteristic (ROC) curve plots the relationship between
 
 The area under the curve (AUC) can be interpreted as the proportion of correctly classified samples. More precisely, the AUC is the probability that the classifier ranks a randomly chosen positive sample higher than a randomly chosen negative sample. The shape of the curve gives an intuition for relationship between TPR and FPR as a function of the classification threshold or decision boundary.
 
-A curve that approaches the top left corner of the chart is approaching a 100% TPR and 0% FPR, the best possible model. A random model would produce an ROC curve along the `y = x` line from the bottom left corner to the top right. A worse than random model would have an ROC curve that dips below the `y = x` line.
+A curve that approaches the top-left corner of the chart is approaching a 100% TPR and 0% FPR, the best possible model. A random model would produce an ROC curve along the `y = x` line from the bottom-left corner to the top-right. A worse than random model would have an ROC curve that dips below the `y = x` line.
 
 #### ROC curve for a good model
 ![ROC curve for a good model](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
@@ -225,11 +225,11 @@ The precision-recall curve plots the relationship between precision and recall a
 
 The cumulative gains curve plots the percent of positive samples correctly classified as a function of the percent of samples considered where we consider samples in the order of predicted probability.
 
-To calculate gain, first sort all samples from highest to lowest probability predicted by the model. Then take `x%` of the highest confidence predictions. Divide the number of positive samples detected in that `x%` by the total number of positive samples to get the gain. Cumulative gain is the percent of positive samples we detect when considering some percent of the data that is most likely to belong to the postive class.
+To calculate gain, first sort all samples from highest to lowest probability predicted by the model. Then take `x%` of the highest confidence predictions. Divide the number of positive samples detected in that `x%` by the total number of positive samples to get the gain. Cumulative gain is the percent of positive samples we detect when considering some percent of the data that is most likely to belong to the positive class.
 
-A perfect model will rank all positive samples above all negative samples giving a cumulative gains curve made up of two straight segments. The first is a line with slope `1 / x` from `(0, 0)` to `(x, 1)` where `x` is the fraction of samples that belong to the postive class (`1 / num_classes` if classes are balanced). The second is a horizontal line from `(x, 1)` to `(1, 1)`. In the first segment all positive samples are classified correctly and cumulative gain goes to `100%` within the first `x%` of samples considered.
+A perfect model will rank all positive samples above all negative samples giving a cumulative gains curve made up of two straight segments. The first is a line with slope `1 / x` from `(0, 0)` to `(x, 1)` where `x` is the fraction of samples that belong to the positive class (`1 / num_classes` if classes are balanced). The second is a horizontal line from `(x, 1)` to `(1, 1)`. In the first segment all positive samples are classified correctly and cumulative gain goes to `100%` within the first `x%` of samples considered.
 
-The baseline random model will have a cumulative gains curve following `y = x` where for `x%` of samples considered only about `x%` of the total positive samples were detected. A perfect model will have a micro average curve that touches the top left corner and a macro average line that has slope `1 / num_classes` until cumulative gain is 100% and then horizontal until the data percent is 100.
+The baseline random model will have a cumulative gains curve following `y = x` where for `x%` of samples considered only about `x%` of the total positive samples were detected. A perfect model will have a micro average curve that touches the top-left corner and a macro average line that has slope `1 / num_classes` until cumulative gain is 100% and then horizontal until the data percent is 100.
 
 #### Cumulative gains curve for a good model
 ![Cumulative gains curve for a good model](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-good.png)
@@ -241,7 +241,7 @@ The baseline random model will have a cumulative gains curve following `y = x` w
 
 The lift curve shows how many times better a model performs compared to a random model. Lift is defined as the ratio of cumulative gain to the cumulative gain of a random model.
 
-This relative performance takes into account the fact that classification gets harder as you increase the number of classes. (A random model incorrectly predicts a higher fraction of samples from a dataset with ten classes compared to a dataset with two classes)
+This relative performance takes into account the fact that classification gets harder as you increase the number of classes. (A random model incorrectly predicts a higher fraction of samples from a dataset with 10 classes compared to a dataset with two classes)
 
 The baseline lift curve is the `y = 1` line where the model performance is consistent with that of a random model. In general, the lift curve for a good model will be higher on that chart and farther from the x-axis, showing that when the model is most confident in its predictions it performs many times better than random guessing.
 
@@ -253,7 +253,7 @@ The baseline lift curve is the `y = 1` line where the model performance is consi
 
 ### Calibration curve
 
-The calibration curve plots a model's confidence in its predictions against the proportion of positive samples at each confidence level. A well-calibrated model will correctly classify 100% of the predictions to which it assigns 100% confidence, 50% of the predictions it assigns 50% confidence, 20% of the predictions it assigns a 20% confidence, and so on. A perfectly calibrated model will have a calibration curve following the `y = x` line where the model perfecly predicts the probability that samples belong to each class.
+The calibration curve plots a model's confidence in its predictions against the proportion of positive samples at each confidence level. A well-calibrated model will correctly classify 100% of the predictions to which it assigns 100% confidence, 50% of the predictions it assigns 50% confidence, 20% of the predictions it assigns a 20% confidence, and so on. A perfectly calibrated model will have a calibration curve following the `y = x` line where the model perfectly predicts the probability that samples belong to each class.
 
 An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample and the calibration curve will look similar to backward "S". An under-confident model will assign a lower probability on average to the class it predicts and the associated calibration curve will look similar to an "S". The calibration curve does not depict a model's ability to classify correctly, but instead its ability to correctly assign confidence to its predictions. A bad model can still have a good calibration curve if the model correctly assigns low confidence and high uncertainty.
 
@@ -328,13 +328,13 @@ Normalizing regression and forecasting metrics enables comparison between models
 
 While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
 
-When evaluating a forecasting model on timeseries data automated ML takes extra steps to ensure that normalization happens per time series ID (grain) as each time series will likely have a different distribution of target values.
+When evaluating a forecasting model on time series data automated ML takes extra steps to ensure that normalization happens per time series ID (grain) as each time series will likely have a different distribution of target values.
 
 ## Regression/forecasting charts
 
 ## Residuals
 
-The residuals chart is a histogram of the prediction errors (residuals). The is calculated as `y_predicted - y_true` for all samples and then displayed as a histogram to show model bias.
+The residuals chart is a histogram of the prediction errors (residuals). Residuals are calculated as `y_predicted - y_true` for all samples and then displayed as a histogram to show model bias.
 
 In this example, note that both models are slightly biased to predict lower than the actual value. This is not uncommon for a dataset with a skewed distribution of actual targets, but indicates worse model performance. A good model will have a residuals distribution that peaks at zero with few residuals at the extremes. A worse model will have a spread out residuals distribution with fewer samples around zero.
 
@@ -371,9 +371,9 @@ To view the interpretability dashboard in the studio:
 3. Select your experiment from the list of experiments
 4. In the table at the bottom of the page, select an AutoML run
 5. In the **Models** tab, select the **Algorithm name** for the model you want to explain
-6. In the **Expanations** tab you may see an explanation was already created if the model was the best
+6. In the **Explanations** tab you may see an explanation was already created if the model was the best
 7. To create a new explanation click **Explain model** and select the remote compute with which to compute explanations
 
-For more details please see the documentation on [responsible AI offerings in automated ML](how-to-machine-learning-interpretability-automl.md).
+For more information, see the documentation on [responsible AI offerings in automated ML](how-to-machine-learning-interpretability-automl.md).
 
 > Note: The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
