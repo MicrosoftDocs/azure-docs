@@ -12,11 +12,10 @@ ms.topic: how-to
 ms.date: 08/13/2020
 
 ---
-
 # Migrate to an Azure resource authoring key
 
 > [!IMPORTANT]
->  Starting December 3rd, existing LUIS users must complete the migration process to continue authoring LUIS applications. 
+>  Starting December 3rd, existing LUIS users must complete the migration process to continue authoring LUIS applications.
 
 Language Understanding (LUIS) authoring authentication has changed from an email account to an Azure resource. Use this article to learn how to migrate your account, if you haven't migrated yet.  
 
@@ -32,7 +31,7 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 
 ## Notes before you migrate
 
-* Migration can't be reversed. 
+* Migration can't be reversed.
 * If you have signed-in to more than one [LUIS regional portal](./luis-reference-regions#luis-authoring-regions), you will be asked to migrate in multiple regions at once.
 * Applications will automatically migrate with you if you're the owner of the application.
 * The owner can't choose a subset of apps to migrate, and the process isn't reversible.
@@ -64,13 +63,13 @@ Migration has to be done from the [LUIS portal](https://www.luis.ai). If you cre
 1. When you sign-in to the [LUIS portal](https://www.luis.ai), an Azure migration window will open with the steps for migration. If you dismiss it, you wont be able to proceed with authoring your LUIS applications, and the only action displayed will be to continue with the migration.
 
     > [!div class="mx-imgBorder"]
-    > ![Migration Window Intro](./media/migrate-authoring-key/prompt-when-migrating-2.png)
+    > ![Migration Window Intro](./media/migrate-authoring-key/notify-azure-migration.png)
 
-2. If you have collaborators on any your apps, a list of application names owned by you will be shown, along with the authoring region and collaborator emails on each application. We recommend sending your collaborators an email notifying them about the migration by selecting the **send** button on the left of the application name.
-A `*` symbol will appear next to the application name if a collaborator has a prediction resource assigned to your application. 
+2. If you have collaborators on any your apps, a list of application names owned by you will be shown, along with the authoring region and collaborator emails on each application. We recommend sending your collaborators an email notifying them about the migration by clicking on the **send** symbol button on the left of the application name.
+A `*` symbol will appear next to the application name if a collaborator has a prediction resource assigned to your application. After migration, these apps will still have these prediction resources assigned to them even though the collaborators will not have access to author your applications. However, this assignment will be broken if the owner of the prediction resource [regenerated the keys](./luis-how-to-azure-subscription#regenerate-an-azure-key) from the Azure portal.  
 
    > [!div class="mx-imgBorder"]
-   > ![Notify collaborators](./media/migrate-authoring-key/prompt-when-migrating-2.png)
+   > ![Notify collaborators](./media/migrate-authoring-key/notify-azure-migration-collabs.png)
 
 
    For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it. The email template includes the exact app ID and app name.
@@ -89,27 +88,27 @@ A `*` symbol will appear next to the application name if a collaborator has a pr
    > After you migrate your account to Azure, your apps will no longer be available to collaborators.
 
 3. If you're a collaborator on any apps, a list of application names shared with you is shown along with the authoring region and owner emails on each application. It is recommend to export a copy of the apps by clicking on the export button on the left of the application name. You can import these apps back after you migrate, because they won't be automatically migrated with you.
-A `*` symbol will appear next to the application name if you have a prediction resource assigned to an application. This means that your prediction resource will still be used on these applications even though you will no longer have access to author these apps. However, If you [regenerate the keys](./luis-how-to-azure-subscription#regenerate-an-azure-key), your application will need to be updated before it can use the prediction resource.  
+A `*` symbol will appear next to the application name if you have a prediction resource assigned to an application. After migration, your prediction resource will still be assigned to these applications even though you will no longer have access to author these apps. If you want to break the assignment between your prediction resource and the application, you will need to go to Azure portal and [regenerate the keys](./luis-how-to-azure-subscription#regenerate-an-azure-key).
 
    > [!div class="mx-imgBorder"]
-   > ![Export your applications.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
+   > ![Export your applications.](./media/migrate-authoring-key/notify-azure-migration-collabs.png)
 
 
 4. In the window for migrating regions, you will be asked to migrate your applications to an Azure resource in the same region they were authored in. LUIS has three authoring regions, and previously had [different authoring portals](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions). The window will show the regions where your owned applications were authored.
 
    > [!div class="mx-imgBorder"]
-   > ![Multi region migration.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
+   > ![Multi region migration.](./media/migrate-authoring-key/migration-regional-flow.png)
 
 5. For each region, choose to create a new LUIS authoring resource, or to migrate to an existing one using the buttons.
 
    > [!div class="mx-imgBorder"]
-   > ![choose to create or existing authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
+   > ![choose to create or existing authoring resource](./media/migrate-authoring-key/migration-multiregional-createnewresource.png)
 
    Provide the following information:
 
    * **Tenant Name**: The tenant that your Azure subscription is associated with. By default this is set to the tenant you're currently using. You can switch tenants by closing this window and selecting the avatar in the top right of the screen, containing your initials. Click on **Migrate to Azure** to re-open the window.
    * **Azure Subscription Name**: The subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the drop-down list.
-   * **Authoring Resource Name**: A custom name that you choose. It's used as part of the URL for your authoring and prediction endpoint queries. If you are creating a new authoring resource, note that the resource name can only include alphanumeric characters, `-`, and can’t start or end with `-`. If any other symbols are included in the name, 
+   * **Authoring Resource Name**: A custom name that you choose. It's used as part of the URL for your authoring and prediction endpoint queries. If you are creating a new authoring resource, note that the resource name can only include alphanumeric characters, `-`, and can’t start or end with `-`. If any other symbols are included in the name,
  resource creation and migration will fail.
    * **Azure Resource Group Name**: A custom resource group name that you choose from the drop-down list. Resource groups allow you to group Azure resources for access and management. If you currently do not have a resource group in your subscription, you will not be allowed to create one in the LUIS portal. Go to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) to create one then go to LUIS to continue the sign-in process.
 
@@ -122,7 +121,7 @@ After the migration process, all your LUIS apps for which you're the owner will 
 The **My Apps** list shows the apps migrated to the new authoring resource. Before you access your apps, select **Choose a different authoring resource** to select the subscription and authoring resource to view the apps that can be authored.
 
  > [!div class="mx-imgBorder"]
- > ![select subscription and authoring resource](./media/create-app-in-portal-select-subscription-luis-resource.png)
+ > ![select subscription and authoring resource](./media/migrate-authoring-key/select-sub-and-resource.png)
 
 
 If you plan to edit your apps programmatically, you'll need the authoring key values. These values are displayed on the **Manage** > **Azure Resources** page in the LUIS portal. They're also available in the Azure portal on the resource's **Keys** page. You can also create more authoring resources and assign them from the same page.
@@ -146,8 +145,10 @@ You can add contributors to the authoring resource from the Azure portal, on the
 
 If you cannot find your Azure subscription in the drop-down list:
 * Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/cognitive-services/).
-* Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants from the avatar to the left of your initials on this toolbar:
-![Toolbar where you can switch tenants](./media/migrate-authoring-key/switch-user-tenant.png)
+* Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants selecting the avatar in the top right of the screen, containing your initials.
+
+  > [!div class="mx-imgBorder"]
+  > ![Page for managing authoring resources](./media/migrate-authoring-key/switch-directories.png)
 
 If you have an existing authoring resource but can't find it when you select the **Use Existing Authoring Resource** option:
 * Your resource was probably created in a different region than the one your are trying to migrate in.
