@@ -74,7 +74,7 @@ To delete the workspace along with these dependent resources, use the SDK:
 ws.delete(delete_dependent_resources=True)
 ```
 
-If you have attached other compute resources to your workspace (like Azure Kubernetes Service or VMs) you must delete them separately in [Azure portal](https://portal.azure.com).
+If you create Azure Kubernetes Service (AKS) in your workspace, or if you attach any compute resources to your workspace you must delete them separately in [Azure portal](https://portal.azure.com).
 
 ### Using Monetary Credit with Azure Machine Learning
 
