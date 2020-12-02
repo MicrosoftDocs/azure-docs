@@ -34,7 +34,7 @@ No. The regional endpoint will continue to work for new and existing Cognitive S
 ## What if an SDK asks me for the region for a resource?
 
 > [!WARNING]
-> The Speech Services **do not** support custom subdomains at this time. Please use the regional endpoints when using the Speech Services and associated SDKs.
+> Speech Services use custom subdomains with [private endpoints](Speech-Service/speech-services-private-link.md) **only**. In all other cases use **regional endpoints** with Speech Services and associated SDKs.
 
 Regional endpoints and custom subdomain names are both supported and can be used interchangeably. However, the full endpoint is required.
 
