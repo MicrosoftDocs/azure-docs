@@ -162,7 +162,7 @@ In this phase, Purview must be created and configured for a very small set of us
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Gather & agree on requirements|Discussion with all stakeholders to gather a full set of requirements. Different personas must participate to agree on a subset of requirements to complete for each phase of the project.|1 Week|
-|Set up the starter kit|Go through [Purview Quick Start](create-catalog-portal.md) and set up the [Purview Starter Kit](starter-kit-tutorial-1.md) to demo Purview to all stakeholders.|1 Day|
+|Set up the starter kit|Go through [Purview Quick Start](create-catalog-portal.md) and set up the [Purview Starter Kit](tutorial-scan-data.md) to demo Purview to all stakeholders.|1 Day|
 |Navigating Purview|Understand how to use Purview from the home page.|1 Day|
 |Configure ADF for lineage|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|1 Day|
 |Scan a data source such as Azure Data Lake Storage|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|2 Day|
@@ -261,5 +261,5 @@ Additional hardening steps can be taken:
 
 ## Next steps
 
-- [Tutorial: Run the starter kit and scan data](starter-kit-tutorial-1.md)
-- [Tutorial: Navigate the home page and search for an asset](starter-kit-tutorial-2.md)
+- [Tutorial: Run the starter kit and scan data](tutorial-scan-data.md)
+- [Tutorial: Navigate the home page and search for an asset](tutorial-asset-search.md)

@@ -174,7 +174,7 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 
 1. Set the Role to **Storage Blob Data Reader** and enter your Azure Purview account name for **Select**. Then, select **Save** to give this role assignment to your Purview account.
 
-   :::image type="content" source="media/starter-kit-tutorial-1/add-role-assignment.png" alt-text="Add role assignment":::
+   :::image type="content" source="media/tutorial-scan-data/add-role-assignment.png" alt-text="Add role assignment":::
 
 1. Repeat the previous steps for Azure Data Lake Storage Gen2.
 
@@ -182,23 +182,23 @@ A Managed Identity with the same name as your Azure Purview account is automatic
 
 1. Select **Sources** on your catalog's webpage, and select **Register**. Then, select **Azure Blob Storage** and **Continue**.
 
-   :::image type="content" source="media/starter-kit-tutorial-1/add-blob-storage.png" alt-text="Register blob storage resource":::
+   :::image type="content" source="media/tutorial-scan-data/add-blob-storage.png" alt-text="Register blob storage resource":::
 
 1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Blob storage account that you previously created with the starter kit. The account has the name `<YourResourceGroupName>adcblob`. Select **Finish**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob storage data source." border="true":::
+   :::image type="content" source="./media/tutorial-scan-data/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob storage data source." border="true":::
 
 1. On the **Data sources** map view, select **New scan** on the Azure Blob Storage tile.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/select-setup-scan.png" alt-text="Screenshot showing how to select a scan setup from a data source." border="true":::
+   :::image type="content" source="./media/tutorial-scan-data/select-setup-scan.png" alt-text="Screenshot showing how to select a scan setup from a data source." border="true":::
 
 1. On the **Scan** page, enter a scan name, select your Managed Identity from the **Credential** dropdown, and **Continue**.
 
-   :::image type="content" source="media/starter-kit-tutorial-1/scan-blob.png" alt-text="Scan blob storage in Azure Purview":::
+   :::image type="content" source="media/tutorial-scan-data/scan-blob.png" alt-text="Scan blob storage in Azure Purview":::
 
 1. You can scope your scan to individual blobs. In this tutorial, keep all assets checked to scan everything and **Continue**.
 
-   :::image type="content" source="media/starter-kit-tutorial-1/scope-your-scan.png" alt-text="Scope your storage scan":::
+   :::image type="content" source="media/tutorial-scan-data/scope-your-scan.png" alt-text="Scope your storage scan":::
 
 1. Select the default scan rule set, and **Continue**.
 
@@ -219,4 +219,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to navigate the home page and search for an asset.
 
 > [!div class="nextstepaction"]
-> [Navigate the home page and search for an asset](starter-kit-tutorial-2.md)
+> [Navigate the home page and search for an asset](tutorial-asset-search.md)

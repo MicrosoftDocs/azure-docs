@@ -90,4 +90,4 @@ You should be able to export terms from glossary as long as the selected terms b
 
 ## Next steps
 
-Follow the [Tutorial: Create and import glossary terms](starter-kit-tutorial-5.md) to learn more.
+Follow the [Tutorial: Create and import glossary terms](tutorial-import-create-glossary-terms.md) to learn more.

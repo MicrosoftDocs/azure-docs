@@ -18,7 +18,7 @@ ms.date: 12/01/2020
 
 This tutorial shows you how to browse assets in Azure Purview and view their important details, such as lineage.
 
-This tutorial is *part 3 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 2: Navigate the Azure Purview (preview) home page and search for an asset](starter-kit-tutorial-2.md).
+This tutorial is *part 3 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 2: Navigate the Azure Purview (preview) home page and search for an asset](tutorial-asset-search.md).
 
 In this tutorial, you will:
 
@@ -29,7 +29,7 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-* Complete [Tutorial: Navigate the Azure Purview (preview) home page and search for an asset](starter-kit-tutorial-2.md).
+* Complete [Tutorial: Navigate the Azure Purview (preview) home page and search for an asset](tutorial-asset-search.md).
 
 ## Sign in to Azure
 
@@ -49,7 +49,7 @@ This section shows you how to browse your Azure Purview catalog.
 
 1. To explore the various Azure Data Lake Gen2-type assets available in your catalog, select the **Azure Data Lake Gen2** tile.
 
-   :::image type="content" source="./media/starter-kit-tutorial-3/browse-by-asset-type.png" alt-text="Screenshot showing the Browse by asset type page with Azure Data Lake Gen2 selected.":::
+   :::image type="content" source="./media/tutorial-browse-and-view-lineage/browse-by-asset-type.png" alt-text="Screenshot showing the Browse by asset type page with Azure Data Lake Gen2 selected.":::
 
 1. If there are multiple assets, you can select the **Name** column header to sort the assets alphabetically. In this tutorial, there is only one Azure Data Lake Storage Gen2 asset.
 
@@ -57,7 +57,7 @@ This section shows you how to browse your Azure Purview catalog.
 
 1. Select the **Contoso_GrossProfit_{N}.ssv** resource set. If this asset doesn't exist in your catalog, choose another one.
 
-   :::image type="content" source="media/starter-kit-tutorial-3/view-adls-assets.png" alt-text="List of Azure Data Lake Storage Gen2 resources":::
+   :::image type="content" source="media/tutorial-browse-and-view-lineage/view-adls-assets.png" alt-text="List of Azure Data Lake Storage Gen2 resources":::
 
 ## View the lineage of assets
 
@@ -67,7 +67,7 @@ On the asset details page, explore the source of the data.
 
    The asset you selected is displayed. The lineage information that you see shows that this resource set was copied from your Azure Blob storage account to Azure Data Lake Storage Gen2.
 
-   :::image type="content" source="./media/starter-kit-tutorial-3/view-lineage.png" alt-text="Screenshot showing the Lineage view for the asset.":::
+   :::image type="content" source="./media/tutorial-browse-and-view-lineage/view-lineage.png" alt-text="Screenshot showing the Lineage view for the asset.":::
 
 1. Select the blob asset on this page, and select the **Switch to asset** link.
 
@@ -89,4 +89,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about resource sets, asset details, schemas, and classifications.
 
 > [!div class="nextstepaction"]
-> [Resource sets, asset details, schemas, and classifications](starter-kit-tutorial-4.md)
+> [Resource sets, asset details, schemas, and classifications](tutorial-schemas-and-classifications.md)

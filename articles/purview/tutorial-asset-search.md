@@ -18,7 +18,7 @@ ms.date: 12/01/2020
 
 In this tutorial, you become familiar with Azure Purview by navigating the features of the home page and searching for an asset in the catalog.
 
-This article is *part 2 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 1: Scan data with Azure Purview](starter-kit-tutorial-1.md)
+This article is *part 2 of a six-part tutorial series* in which you learn the fundamentals of how to manage data governance across a data estate using Azure Purview. This tutorial builds on the work you completed in [Part 1: Scan data with Azure Purview](tutorial-scan-data.md)
 
 In this tutorial, you will:
 
@@ -30,7 +30,7 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-* Complete [Tutorial: Scan data with Azure Purview](starter-kit-tutorial-1.md).
+* Complete [Tutorial: Scan data with Azure Purview](tutorial-scan-data.md).
 
 ## Sign in to Azure
 
@@ -70,6 +70,10 @@ Follow these steps to search for an asset and mark yourself as the owner:
 
 1. You can use the filters in the left navigation to filter by asset type, classification, contact, label, and glossary term.
 
+1. To search for a resource set, begin typing the name of the set. A list of search suggestions with the correct keywords will appear. You can also search for absolute names by putting them in quotation marks.
+
+   :::image type="content" source="media/starter-kit-tutorial-2/keyword-search.png" alt-text="Azure Purview keyword asset search":::
+
 ## Edit an asset
 
 1. Select one of the assets from your search results. Then select **Edit**
@@ -101,4 +105,4 @@ Before you move on to the next tutorial in this series, take some additional tim
 Advance to the next tutorial to learn how to browse for assets in Azure Purview and discover asset lineage.
 
 > [!div class="nextstepaction"]
-> [Browse assets and view their lineage](starter-kit-tutorial-3.md)
+> [Browse assets and view their lineage](tutorial-browse-and-view-lineage.md)

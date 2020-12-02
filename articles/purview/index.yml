@@ -44,22 +44,22 @@ landingContent:
           - text: Download Starter kit
             url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
           - text: 1 - Run starter kit and scan data 
-            url: starter-kit-tutorial-1.md
+            url: tutorial-scan-data.md
           - text: 2 - Home page and search
-            url: starter-kit-tutorial-2.md
+            url: tutorial-asset-search.md
           - text: 3 - Browse and lineage 
-            url: starter-kit-tutorial-3.md
+            url: tutorial-browse-and-view-lineage.md
           - text: 4 - Resource sets, assets, schemas, classifications 
-            url: starter-kit-tutorial-4.md
+            url: tutorial-schemas-and-classifications.md
           - text: 5 - Glossary terms
-            url: starter-kit-tutorial-5.md
+            url: tutorial-import-create-glossary-terms.md
   # Card
   - title: Scan Azure data sources
     linkLists:
       - linkListType: tutorial
         links:
           - text: 1 - Run starter kit and scan data 
-            url: starter-kit-tutorial-1.md
+            url: tutorial-scan-data.md
       - linkListType: how-to-guide
         links:
           - text: Scan Azure SQL Database
@@ -97,9 +97,9 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: 4 - Resource sets, assets, schemas, classifications
-          url: starter-kit-tutorial-4.md
+          url: tutorial-schemas-and-classifications.md
         - text: 5 - Glossary terms
-          url: starter-kit-tutorial-5.md
+          url: tutorial-import-create-glossary-terms.md
     - linkListType: how-to-guide
       links:
         - text: Create, edit, & delete custom classifications and rules
@@ -111,7 +111,7 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: 3 - Browse and lineage
-          url: starter-kit-tutorial-3.md
+          url: tutorial-browse-and-view-lineage.md
     - linkListType: how-to-guide
       links:
         - text: Browse by asset type

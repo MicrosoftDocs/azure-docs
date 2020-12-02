@@ -17,17 +17,15 @@ items:
   - name: Starter kit
     items: 
     - name: 1 - Scan data
-      href: starter-kit-tutorial-1.md
+      href: tutorial-scan-data.md
     - name: 2 - Home page and search
-      href: starter-kit-tutorial-2.md
+      href: tutorial-asset-search.md
     - name: 3 - Browse and lineage
-      href: starter-kit-tutorial-3.md
+      href: tutorial-browse-and-view-lineage.md
     - name: 4 - Resource sets, assets, schemas, classifications
-      href: starter-kit-tutorial-4.md
+      href: tutorial-schemas-and-classifications.md
     - name: 5 - Glossary terms
-      href: starter-kit-tutorial-5.md
-    - name: 6 - Catalog Insights
-      href: starter-kit-tutorial-6.md    
+      href: tutorial-import-create-glossary-terms.md
   - name: Scan Azure data sources
     href: portal-scan-azure-data-sources.md
   - name: Register and scan an on-prem SQL server
