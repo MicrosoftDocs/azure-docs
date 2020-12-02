@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/download-template.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/download-template",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": false
