@@ -122,7 +122,6 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Managed Applications  | No | No | No |  |
 |Maps  | No | No | No |  |
 |Media Services | Yes | Yes | No |  |
-|Microsoft Flow | No | No | No |  |
 |Microsoft Managed Desktop | No | No | No |  |
 |Microsoft PowerApps | No | No | No |  |
 |Microsoft Social Engagement | No | No | No |  |
@@ -133,6 +132,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Notification Hubs | Yes | No | No |  |
 |Open Datasets | No | No | No |  |
 |Policy | No | No | No |  |
+|Power Automate | No | No | No |  |
 |Power BI Embedded | Yes | Yes | No |  |
 |Private Link | No | No | No |  |
 |Project Spool Communication Platform | No | No | No |  |
@@ -185,7 +185,7 @@ The services and solutions in the following table store their data in a Log Anal
 
 | Product/Service | Description |
 |:---|:---|
-| [Azure Automation](../automation/index.yml) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../automation/change-tracking/overview.md) and [Update Management](../automation/update-management/update-mgmt-overview.md). |
+| [Azure Automation](../automation/index.yml) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../automation/change-tracking/overview.md) and [Update Management](../automation/update-management/overview.md). |
 | [Azure Information Protection ](/azure/information-protection/) | Classify and optionally protect documents and emails. See [Central reporting for Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](../security-center/index.yml) | Collect and analyze security events and perform threat analysis. See [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Connects to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](../sentinel/connect-data-sources.md). |
@@ -241,4 +241,3 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 - Complete a [tutorial on writing a log query to analyze data in Azure Monitor Logs](learn/tutorial-resource-logs.md).
 - Complete a [tutorial on creating a metrics chart to analyze data in Azure Monitor Metrics](learn/tutorial-metrics-explorer.md).
 
- 

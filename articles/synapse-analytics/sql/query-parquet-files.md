@@ -1,19 +1,19 @@
 ---
-title: Query Parquet files using serverless SQL pool (preview)
-description: In this article, you'll learn how to query Parquet files using serverless SQL pool (preview).
+title: Query Parquet files using serverless SQL pool
+description: In this article, you'll learn how to query Parquet files using serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Query Parquet files using serverless SQL pool (preview) in Azure Synapse Analytics
+# Query Parquet files using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using serverless SQL pool (preview) that will read Parquet files.
+In this article, you'll learn how to write a query using serverless SQL pool that will read Parquet files.
 
 ## Quickstart example
 
@@ -30,7 +30,13 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Make sure that you access this file. If your file is protected with SAS key or custom Azure identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
+> A mismatch between the text encoding in the PARQUET file and the collation may cause unexpected conversion errors.
+> You can easily change the default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### Data source usage
 
@@ -62,6 +68,14 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> Make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) for all string columns in `WITH` clause or set some UTF-8 collation at database level.
+> Mismatch between text encoding in the file and string column collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> You can easily set collation on the colum types using the following definition:
+>    `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
 
 In the following sections you can see how to query various types of PARQUET files.
 

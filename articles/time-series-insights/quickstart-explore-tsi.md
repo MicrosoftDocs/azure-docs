@@ -122,9 +122,9 @@ Now that you've completed the quickstart, clean up the resources that you create
 You're ready to create your own Azure Time Series Insights Gen2 environment. To start:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights Gen2 environment](time-series-insights-update-plan.md)
+> [Plan your Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md)
 
 Learn to use the demo and its features:
 
 > [!div class="nextstepaction"]
-> [The Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md)
+> [The Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md)

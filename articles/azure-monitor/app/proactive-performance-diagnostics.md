@@ -171,11 +171,10 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Profiler](profiler.md) 
 * [snapshot debugger](./snapshot-debugger.md)
-* [Analytics](../log-query/get-started-portal.md)
+* [Analytics](../log-query/log-analytics-tutorial.md)
 * [Analytics smart diagnostics](../log-query/log-query-overview.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](../platform/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)
-

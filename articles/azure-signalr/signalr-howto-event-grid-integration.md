@@ -14,11 +14,11 @@ ms.author: chenyl
 
 Azure Event Grid is a fully managed event routing service that provides uniform event consumption using a pub-sub model. In this guide, you use the Azure CLI to create an Azure SignalR Service, subscribe to connection events, then deploy a sample web application to receive the events. Finally, you can connect and disconnect and see the event payload in the sample application.
 
-If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
+ - The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
 
 ## Create a resource group
 

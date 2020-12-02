@@ -29,7 +29,7 @@ Not enough quota is available to process this command
 
 ## Cause
 
-Error 1816 occurs when you reach the upper limit of concurrent open handles allowed for a file, on the computer where the file share is being mounted. For more information, see the [Azure Storage performance and scalability checklist](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+Error 1816 occurs when you reach the upper limit of concurrent open handles allowed for a file, on the computer where the file share is being mounted. For more information, see the [Azure Storage performance and scalability checklist](../blobs/storage-performance-checklist.md).
 
 ## Resolution
 
@@ -39,7 +39,7 @@ Reduce the number of concurrent open handles by closing some handles.
 
 ### Install the latest Azure PowerShell module
 
-* [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 ### Connect to Azure:
 
