@@ -46,6 +46,7 @@ With this announcement, **Azure Defender for SQL** now protects your databases a
 Azure Defender for SQL includes vulnerability assessment capabilities. The vulnerability assessment tool includes the following advanced features:
 
 - **Baseline configuration** (New!) to intelligently refine the results of vulnerability scans to those that might represent real security issues. After you've established your baseline security state, the vulnerability assessment tool only reports deviations from that baseline state. Results that match the baseline are considered as passing subsequent scans. This lets you and your analysts focus your attention where it matters.
+- **Detailed benchmark information** to help you *understand* the discovered findings, and why they relate to your resources.
 - **Remediation scripts** to help you mitigate identified risks.
 
 Learn more about [Azure Defender for SQL](defender-for-sql-introduction.md).
