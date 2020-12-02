@@ -55,7 +55,7 @@ To configure Bizagi Studio for Digital Process Automation to support provisionin
    ![Screenshot of Bizagi, with OAuth 2 Applications highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/admin.png)
 
 3. Select **Add**.
-4. For **Grant Type**, select **Bearer token**. For **Allowed Scope** select **API** and **USER SYNC**. Then select **Save**.
+4. For **Grant Type**, select **Bearer token**. For **Allowed Scope**, select **API** and **USER SYNC**. Then select **Save**.
 
    ![Screenshot of Register Application, with Grant Type and Allowed Scope highlighted.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/token.png)
 
@@ -65,7 +65,7 @@ To configure Bizagi Studio for Digital Process Automation to support provisionin
 
 ## Add the application from the Azure AD gallery
 
-To start managing provisioning to Bizagi Studio for Digital Process Automation, add the app from the Azure AD application gallery. If you have previously set up Bizagi Studio for Digital Process Automation for single sign-on (SSO), you can use the same application. When you're initially testing the integration, however, you should create a separate app. For more information, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+To start managing provisioning to Bizagi Studio for Digital Process Automation, add the app from the Azure AD application gallery. If you have previously set up Bizagi Studio for Digital Process Automation for single sign-on, you can use the same application. When you're initially testing the integration, however, you should create a separate app. For more information, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## Define who is in scope for provisioning 
 
