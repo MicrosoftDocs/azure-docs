@@ -57,15 +57,6 @@ Azure Purview is the focus of all product innovation in the catalog solution spa
 
 Yes, we support many Azure Purview accounts per subscription and per tenant.
 
-<!--### What resources exist that can help me learn about Azure Purview?
-
-- **Docs:** [Azure Purview documentation](overview.md)
-- **Discussions:** For email support to customers by program managers and Friends of Azure, contact BabylonBabylonDiscussion@Microsoft.com.
-- **Teams site:** Friends of Azure Purview
-- **Sandbox environment for Azure Purview:** To get access to the [sandbox environment](https://aka.ms/babylondemo), request access to the Sandbox Security Group.
-- **Microsoft Stream:** View the most recent Azure Purview [demo](https://msit.microsoftstream.com/video/b332a1ff-0400-aa75-8884-f1ea68ead103).
--->
-
 ### Can I run ADC Gen 1 and Azure Purview in parallel?
 
 Yes. Both are independent services.
@@ -129,16 +120,19 @@ Yes, ARM template is available
 <!--### Does Azure Purview support guest users in AAD?-->
 
 ### I'm already using Atlas, can I easily move to Azure Purview?
+
 Azure Purview is compatible with Atlas API. If you are migrating from Atlas, it's recommended to scan your data sources first using Azure Purview. Once the assets are available in your account, you can use similar Atlas APIs to integrate such as updating assets or adding custom lineage. Azure Purview modifies the Search API to use Azure Search so you should be able to use Advance Search.
 
 ### Can I create multiple catalogs in my tenant?
-Yes, you can create multiple Azure Purview accounts per subscription and per tenant. You can review the limits page
-https://docs.microsoft.com/azure/purview/how-to-manage-quotas?branch=release-preview-babylon
-Additional recommendation on when you should or should not have multiple accounts are documented in our Best Practice guide:
-https://docs.microsoft.com/azure/purview/deployment-best-practices
+
+Yes, you can create multiple Azure Purview accounts per subscription and per tenant. You can review the limits page [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md).
+
+Additional recommendation on when you should or should not have multiple accounts are documented in our [Azure Purview deployment best practices](deployment-best-practices.md).
 
 ### Can I register multiple tenants within a single Azure Purview account?
+
 No, currently in order to scan another tenant's data source, you need to create a separate Azure Purview account in that tenant.
 
 ### Does Azure Purview support column level lineage?
+
 Yes, Azure Purview supports column level lineage.

@@ -8,23 +8,23 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Purview account - Portal
+  - name: Create a Purview account - Azure portal
     href: create-catalog-portal.md
-  - name: Create a Purview account - Azure PowerShell/Azure CLI
+  - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
 - name: Tutorials
   items:
   - name: Starter kit
     items: 
-    - name: 1 - Scan data
+    - name: Scan data
       href: tutorial-scan-data.md
-    - name: 2 - Home page and search
+    - name: Navigate home page and search
       href: tutorial-asset-search.md
-    - name: 3 - Browse and lineage
+    - name: Browse assets and view lineage
       href: tutorial-browse-and-view-lineage.md
-    - name: 4 - Resource sets, assets, schemas, classifications
+    - name: Explore resource sets, assets, schemas, classifications
       href: tutorial-schemas-and-classifications.md
-    - name: 5 - Glossary terms
+    - name: Create glossary terms
       href: tutorial-import-create-glossary-terms.md
   - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md

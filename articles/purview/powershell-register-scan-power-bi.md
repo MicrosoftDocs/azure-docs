@@ -83,7 +83,7 @@ Now that you've given the catalog permissions to connect to the Admin API of you
     $azuretenantId = '<Tenant Id>'
     $azuresubscriptionId = '<Tenant Id>'
     $azureResourceGroupName = '<Resource Group Name>'
-    $azureBabylonAccountName = '<Catalog Name>'
+    $azurePurviewAccountName = '<Catalog Name>'
     $createCatalog = $false #Change to true if you need a new catalog to be created
     $azureCatalogLocation = 'East Us' #The region of your account
     $dataSourceName = 'pbi-msi-datasource01' #provide a unique data source name
@@ -96,10 +96,10 @@ Now that you've given the catalog permissions to connect to the Admin API of you
     If ($createCatalog -eq $true)
     {
       Connect-AzAccount -Tenant $azuretenantId -SubscriptionId $azuresubscriptionId
-      Set-AzDataCatalog -ResourceGroupName $azureResourceGroupName -Name $azureBabylonAccountName -Location $azureCatalogLocation
+      Set-AzDataCatalog -ResourceGroupName $azureResourceGroupName -Name $azurePurviewAccountName -Location $azureCatalogLocation
     }
 
-    Set-AzDataCatalogSessionSettings -DataCatalogSession -UserAuthentication -TenantId $azuretenantId  -DataCatalogAccountName $azureBabylonAccountName
+    Set-AzDataCatalogSessionSettings -DataCatalogSession -UserAuthentication -TenantId $azuretenantId  -DataCatalogAccountName $azurePurviewAccountName
 
     Set-AzDataCatalogDataSource -Name $dataSourceName -AccountType PowerBI  -Tenant $azuretenantId
 
@@ -158,7 +158,7 @@ To do delegated authentication, you must have admin user credentials, as well as
     $azuretenantId = '<Tenant Id>'
     $azuresubscriptionId = '<Tenant Id>'
     $azureResourceGroupName = '<Resource Group Name>'
-    $azureBabylonAccountName = '<Catalog Name>'
+    $azurePurviewAccountName = '<Catalog Name>'
     $createCatalog = $false
     $azureCatalogLocation = 'East Us' #The region of your account
     $dataSourceName = 'pbi-delegated-datasource01' #provide a unique data source name
@@ -178,10 +178,10 @@ To do delegated authentication, you must have admin user credentials, as well as
     If($createCatalog -eq $true)
     {
       Connect-AzAccount -Tenant $azuretenantId -SubscriptionId $azuresubscriptionId
-      Set-AzDataCatalog -ResourceGroupName $azureResourceGroupName -Name $azureBabylonAccountName -Location $azureCatalogLocation
+      Set-AzDataCatalog -ResourceGroupName $azureResourceGroupName -Name $azurePurviewAccountName -Location $azureCatalogLocation
     }
 
-    Set-AzDataCatalogSessionSettings -DataCatalogSession -UserAuthentication -TenantId $azuretenantId   -DataCatalogAccountName $azureBabylonAccountName
+    Set-AzDataCatalogSessionSettings -DataCatalogSession -UserAuthentication -TenantId $azuretenantId   -DataCatalogAccountName $azurePurviewAccountName
 
     Set-AzDataCatalogDataSource -Name $dataSourceName -AccountType PowerBI -Tenant $powerBITenantIdToScan
 

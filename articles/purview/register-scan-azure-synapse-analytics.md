@@ -35,15 +35,15 @@ There are three ways to set up authentication for Azure blob storage:
 
 ### Managed Identity (Recommended) 
    
-Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in Azure Synapse Analytics (formerly SQL DW) with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
 
 Example SQL syntax to create user and grant permission:
 
       ```sql
-      CREATE USER [BabylonManagedIdentity] FROM EXTERNAL PROVIDER
+      CREATE USER [PurviewManagedIdentity] FROM EXTERNAL PROVIDER
       GO
 
-      EXEC sp_addrolemember 'db_owner', [BabylonManagedIdentity]
+      EXEC sp_addrolemember 'db_owner', [PurviewManagedIdentity]
       GO
       ```
 

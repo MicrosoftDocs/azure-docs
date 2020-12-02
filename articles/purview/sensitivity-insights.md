@@ -47,7 +47,7 @@ Purview uses the same classifications, also known as sensitive information types
 
 **To view sensitivity labeling insights:**
 
-1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
+1. Go to the **Azure Purview** home page.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
 
