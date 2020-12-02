@@ -40,7 +40,10 @@ optimizing their application size.
 Understanding these requirements will help you pick the right SDK:
 
 1. **How much customization do you require?** Azure Communication core SDKs do not have a UX and are designed so you can build whatever UX you want. Base components, and composites provide UI assets at the the cost of reduced customization.
-1. **Do you require Meeting features?** The Meeting system has several unique capabilities not currently available in the core Azure SDKs, such as blurred backgrounds. However the meeting system is not very customizable at this time.
+1. **Do you require Meeting features?** The Meeting system has several unique capabilities not currently available in the core Azure SDKs, such as blurred backgrounds. 
+3. **What platforms are you targeting?** Differant platforms have differant capabilities.
+
+Details about feature availability in the varied [UI SDKs is available here](ui-sdk-features.md), but key trade-offs are summarized below.
 
 |SDK|Implementation Complexity|	Customization Ability|	Calling|	Chat|	SMS|	Meetings
 |--|--|-|-|-|-|-|
