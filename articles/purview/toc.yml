@@ -26,8 +26,6 @@ items:
       href: tutorial-schemas-and-classifications.md
     - name: 5 - Glossary terms
       href: tutorial-import-create-glossary-terms.md
-  - name: Scan Azure data sources
-    href: portal-scan-azure-data-sources.md
   - name: Register and scan an on-prem SQL server
     href: register-scan-on-premises-sql-server.md
 #- name: Samples
