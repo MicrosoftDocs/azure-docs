@@ -34,7 +34,7 @@ To install certificates on Cloud Service roles, users need to add the certificat
 
 5. Select **Generate / Import**
 
-    :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image shows selecting the generate/ importe option":::
+    :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image shows selecting the generate/ import option":::
 
 4.	Add the certificate details associated with the role to the cscfg file.
 
