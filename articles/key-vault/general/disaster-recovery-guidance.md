@@ -25,10 +25,7 @@ If individual components within the key vault service fail, alternate components
 
 In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (*failed over*) to a secondary region except in the case of the Brazil South region. When the primary region is available again, requests are routed back (*failed back*) to the primary region. Again, you don't need to take any action because this happens automatically.
 
-In the case of Brazil South region, the customer must plan for the recovery of their Azure Key Vaults in a region failure scenario. Customers can follow the steps mentioned on this page:
-https://docs.microsoft.com/en-us/azure/key-vault/general/backup
-
-to backup and restore their Azure Key Vault to a region of their choice. 
+In the Brazil South region, you must plan for the recovery of your Azure key vaults in a region failure scenario. To back up and restore your Azure key vault to a region of your choice, complete the steps that are detailed in [Azure Key Vault backup](backup.md). 
 
 Through this high availability design, Azure Key Vault requires no downtime for maintenance activities.
 
