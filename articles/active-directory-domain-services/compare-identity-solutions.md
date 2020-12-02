@@ -76,7 +76,7 @@ The following table outlines some of the features you may need for your organiza
 | **Secure LDAP (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP read**                                     | **&#x2713;** | **&#x2713;** |
 | **LDAP write**                                    | **&#x2713;** (within the managed domain) | **&#x2713;** |
-| **Geo-distributed deployments**                   | **&#x2715;** | **&#x2713;** |
+| **Geo-distributed deployments**                   | **&#x2713;** | **&#x2713;** |
 
 ## Azure AD DS and Azure AD
 
