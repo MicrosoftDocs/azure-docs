@@ -81,7 +81,7 @@ A CSV text file is used to store comma-separated (CSV) tabular data (numbers and
 1. Select **Save**. 
 1. In the **Users** pane, view the list of added students. 
 
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="List of added users in the "Users" pane":::
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="List of added users in the Users pane":::
 
 ## Send invitations to users
 
