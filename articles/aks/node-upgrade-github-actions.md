@@ -42,7 +42,7 @@ This article also assumes you have a [GitHub][github] account to create your act
 1. Navigate to your repository on GitHub
 1. Click on the **Actions** tab at the top of the page.
 1. If you already set up a workflow in this repository, you'll be directed to the list of completed runs, in this case, click on the **New Workflow** button. If this is your first workflow in the repository, GitHub will present you with some project templates, click on the **Set up a workflow yourself** link below the description text.
-1. Change the workflow `name` and `on` tags similar to the below. GH Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to run every 15 days at 3am.
+1. Change the workflow `name` and `on` tags similar to the below. GitHub Actions use the same [POSIX cron syntax][cron-syntax] as any Linux-based system. In this schedule, we're telling the workflow to run every 15 days at 3am.
 
     ```yml
     name: Upgrade cluster node images
@@ -71,14 +71,14 @@ This article also assumes you have a [GitHub][github] account to create your act
 
 In the `steps` key, you'll define all the work the workflow will execute to upgrade the nodes.
 
-The first step is to download and sign in to the Azure CLI.
+Download and sign in to the Azure CLI.
 
 1. On the right-hand side of the GitHub Actions screen, find the *marketplace search bar* and type **"Azure Login"**.
 1. You'll get as a result, an Action called **Azure Login** published **by Azure**:
 
       :::image type="content" source="media/node-upgrade-github-actions/azure-login-search.png" alt-text="Search results showing two lines, the first action is called 'Azure Login' and the second 'Azure Container Registry Login'":::
 
-1. Click on **Azure Login**. Then, on the new screen that shows up, click the **copy icon** in the top right of the code sample.
+1. Click on **Azure Login**. On the next screen, click the **copy icon** in the top right of the code sample.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-login.png" alt-text="Azure Login action result pane with code sample below, red square around a copy icon highlights the click spot":::
 
@@ -120,20 +120,23 @@ The first step is to download and sign in to the Azure CLI.
     }
     ```
 
-1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository and click on **Secrets**, once there, click on **New Repository Secret** name it `AZURE_CREDENTIALS`.
-1. Add the entire contents from the output of the previous step where you created a new username and password.
+1. **In a new browser window** navigate to your GitHub repository and open the **Settings** tab of the repository. Click **Secrets** then, click on **New Repository Secret**. 
+1. For *Name*, use `AZURE_CREDENTIALS`.
+1.  For *Value*, add the entire contents from the output of the previous step where you created a new username and password.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-credential-secret.png" alt-text="Form showing AZURE_CREDENTIALS as secret title, and the output of the executed command pasted as JSON":::
 
 1. Click **Add Secret**.
 
-Now that you added the login step, your CLI will be logged to your Azure account and ready to receive new commands. You'll create the steps to execute Azure CLI commands.
+The CLI used by your action will be logged to your Azure account and ready to run commands. 
 
-1. Go back to the *GitHub marketplace* **search page** on the right-hand side of the screen and type *"Azure CLI Action"*. And click on the first result made **by Azure**
+To create the steps to execute Azure CLI commands.
+
+1. Navigate to the **search page* on *GitHub marketplace* on the right-hand side of the screen and search *Azure CLI Action*. Choose *Azure CLI Action*.
 
     :::image type="content" source="media/node-upgrade-github-actions/azure-cli-action.png" alt-text="Search result for 'Azure CLI Action' with first result being shown as made by Azure":::
 
-1. As you did with the previous steps, click the copy button on the *GitHub marketplace result* and paste the contents of the action in the main editor, below the *Azure Login* step, you'll have a file similar to the file below.
+1. Click the copy button on the *GitHub marketplace result* and paste the contents of the action in the main editor, below the *Azure Login* step, similar to the following:
 
     ```yml
     name: Upgrade cluster node images
@@ -158,12 +161,12 @@ Now that you added the login step, your CLI will be logged to your Azure account
     ```
 
     > [!TIP]
-    > You can decouple the `-g` and `-n` parameters from the command by adding them to secrets like you did in the previous steps. If that's the case, replace the `{resourceGroupName}` and `{aksClusterName}` placeholders by their secret counterparts `${{secrets.RESOURCE_GROUP_NAME}}` and `${{secrets.AKS_CLUSTER_NAME}}`
+    > You can decouple the `-g` and `-n` parameters from the command by adding them to secrets similar to the previous steps. Replace the `{resourceGroupName}` and `{aksClusterName}` placeholders by their secret counterparts, for example `${{secrets.RESOURCE_GROUP_NAME}}` and `${{secrets.AKS_CLUSTER_NAME}}`
 
-1. Rename the file to `upgrade-node-images` by typing on the top text input next to the **Cancel** button.
+1. Rename the file to `upgrade-node-images`.
 1. Click **Start Commit**, add a message title, and save the workflow.
 
-After the commit, the workflow will be saved and ready for execution.
+Once you create the commit, the workflow will be saved and ready for execution.
 
 > [!NOTE]
 > To upgrade a single node pool instead of all node pools on the cluster, add the `--name` parameter to the `az aks nodepool upgrade` command to specify the node pool name. For example:
@@ -171,7 +174,7 @@ After the commit, the workflow will be saved and ready for execution.
 > inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
 > ```
 
-## Running manually
+## Run the GitHub Action manually
 
 You can run the workflow manually, in addition to the scheduled run, by adding a new `on` trigger called `workflow_dispatch`. The finished file should look like the YAML below:
 
