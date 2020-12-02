@@ -63,8 +63,7 @@ There are several reasons why this error message can occur:
 To solve the issue:
 
 - Resize the disk up to 1 TB if it is not already at the maximum size of 1 TB.
-- Perform a disk cleanup.
-- De-fragment the drive.
+- Free up disk space.
 
 1. Check if the disk is full. If the disk size is below 1 TB, expand it up to a maximum of 1 TB [using Azure CLI](../linux/expand-disks.md).
 1. If the disk is already 1 TB, you will need to free up disk space.
