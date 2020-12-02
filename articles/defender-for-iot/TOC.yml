@@ -179,8 +179,8 @@
       href: how-to-work-with-maps.md
     - name: Work with alerts detected by a sensor
       items:
-      - name: Work with alert sensor
-        href: how-to-work-with-alerts-sensor.md
+      - name: Work with alert on your sensor
+        href: how-to-work-with-alerts-on-your-sensor.md
       - name: Views alerts
         href: how-to-view-alerts.md
       - name: View information provided in alerts
@@ -193,14 +193,10 @@
         href: how-to-accelerate-alert-incident-response.md
       - name: Forward alert information to partners
         href: how-to-forward-alert-information-to-partners.md
-      - name: Customized alert rules
-        href: how-to-customized-alert-rules.md
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Enrich asset information
       items: 
-      - name: Configure DNS servers for reverse lookup resolution
-        href: how-to-configure-dns-servers-for-reverse-lookup-resolution.md
       - name: Working with asset notifications
         href: how-to-working-with-device-notifications.md
       - name: Enhance port and VLAN names resolution
@@ -241,8 +237,6 @@
       href: how-to-set-up-snmp-mib-monitoring.md
     - name: Setup active directory
       href: how-to-setup-active-directory.md
-    - name: Adjust system properties
-      href: how-to-adjust-system-properties.md
     - name: Manage proprietary protocols (Horizon)
       href: how-to-manage-proprietary-protocols.md  
   - name: Device builder
@@ -314,7 +308,7 @@
     - name: Azure Security Center documentation
       href: ../security-center/
     - name: Azure security documentation 
-      href: ../security/
+      href: https://docs.microsoft.com/azure/security/
     - name: Azure RTOS security module on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module
     - name: Azure IoT Security, Privacy, & Compliance blog
