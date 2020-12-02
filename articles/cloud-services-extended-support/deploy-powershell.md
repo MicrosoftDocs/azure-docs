@@ -12,7 +12,7 @@ ms.custom:
 
 # Create a Cloud Service (extended support) using Azure PowerShell
 
-This article shows how to use the `Az.CloudService` PowerShell module to deploy a Cloud Service (extended support) in Azure that has multiple roles (WebRole and WorkerRole) and RDP extension. 
+This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole) and RDP extension. 
 
 > [!IMPORTANT]
 > Cloud Services (extended support) is currently in public preview.
@@ -28,7 +28,7 @@ Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microso
 
 ## Create a Resource Group
 
-Create an Azure resource group using  `New-AzResourceGroup`.
+Create a new resource group.
 
 ```powershell
 New-AzResourceGroup -Name 'ContosoOrg' -Location 'East US'
@@ -36,7 +36,7 @@ New-AzResourceGroup -Name 'ContosoOrg' -Location 'East US'
 
 ## Create a Key Vault
 
-Create a Key Vault that will be used to store certificates associated to the Cloud Service roles.The Key Vault must use a unique name.
+Create a Key Vault that will be used to store certificates associated to the Cloud Service roles.The Key Vault name must be unique.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoOrg' -Location 'East US' -EnabledForDeployment
@@ -59,7 +59,7 @@ Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ResourceGroupName 'Cont
 ## Add a certificate to the Key Vault
 
 > [!NOTE]
-> The certificate thumbprint needs to be added in Cloud Service configuration (cscfg) file for deployment on Cloud Service roles.
+> The certificate thumbprint needs to be added in the Cloud Service configuration (cscfg) file.
 
 ```powershell
 $policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
@@ -71,7 +71,7 @@ Add-AzKeyVaultCertificate -VaultName 'ContosoKeyVault' -Name 'ContosoCert' -Cert
 Create a storage account and container that will be used to store the Cloud Service package (cspkg).
 
 > [!NOTE]
-> You must use a unique name for storage account name.
+> The storage account name must be unique.
 
 ```powershell
 $storageAccount = New-AzStorageAccount -ResourceGroupName 'ContosoOrg' -Name 'contosostorageaccount' -Location 'East US' -SkuName 'Standard_RAGRS' -Kind 'StorageV2'
@@ -80,7 +80,7 @@ $container = New-AzStorageContainer -Name 'contosocontainer' -Context $storageAc
 
 ## Upload the Cloud Service package (cspkg) to the storage account
 
-Upload the Cloud Service package (cspkg) to the storage account. Later the SAS URL of the package will be generated which will be used for creating Cloud Service.
+Upload the Cloud Service package (cspkg) to the storage account. The SAS URL of the package will be generated which will be used for creating the Cloud Service.
 
 ```powershell
 $cspkgFilePath = '<Path to cspkg file>'
@@ -89,10 +89,10 @@ $blob = Set-AzStorageBlobContent -File $cspkgFilePath -Container 'contosocontain
 
 ## Create a virtual network
 
-Create a virtual network and virtual network subnet as per configuration defined in Cloud Service configuration (cscfg). For this example, we have defined single virtual network subnet for both Cloud Service roles (WebRole and WorkerRole).
+Create a virtual network and subnet as per configuration defined in the Cloud Service configuration (cscfg). For this example, we have defined single virtual network and subnet for both Cloud Service roles (WebRole and WorkerRole).
 
 > [!NOTE]
-> Virtual Network name and Virtual Network Subnet name should be same as defined in Cloud Service configuration (cscfg) file.
+> Virtual network and subnet name must be same as defined in Cloud Service configuration (cscfg) file.
 
 ```powershell
 $subnet = New-AzVirtualNetworkSubnetConfig -Name 'ContosoSubnet' -AddressPrefix '10.0.0.0/24'
@@ -109,7 +109,7 @@ $publicIp = New-AzPublicIpAddress -Name 'ContosoPublicIP' -ResourceGroupName 'Co
 
 ## Create an OS profile
 
-Create an OS Profile in-memory object. OS Profile specifies the certificates which are associated to Cloud Service roles. Over here you will use the certificates that were created in previous steps.
+Create an OS profile in-memory object. The OS profile specifies the certificates that are associated to the Cloud Service roles.
 
 ```powershell
 $certificate = Get-AzKeyVaultCertificate -VaultName 'ContosoKeyVault' -Name 'ContosoCert'
@@ -118,7 +118,7 @@ $secretGroup = New-AzCloudServiceVaultSecretGroupObject -Id $keyVault.ResourceId
 
 ## Create a role profile
 
-Create a Role Profile in-memory object. Role profile defines role's sku specific properties such as name, capacity and tier. For this example, we have defined two roles: WebRole and WorkerRole.
+Create a role profile in-memory object. Role profile defines the role's sku specific properties such as name, capacity and tier. For this example, we have defined two roles: WebRole and WorkerRole.
 
 > [!NOTE]
 > Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file.
@@ -131,7 +131,7 @@ $roles = @($role1, $role2)
 
 ## Create a network profile
 
-Create a Network Profile in-memory object. Network profile specifies the load balancer related configuration including the public IP address.
+Create a network profile in-memory object. Network profile specifies the load balancer configuration including the public IP address.
 
 ```powershell
 $feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFE' -PublicIPAddressId $publicIp.Id
@@ -140,7 +140,7 @@ $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'C
 
 ## Create an extension profile
 
-Create an Extension Profile in-memory object that you want to add to your Cloud Service. For this example we will add RDP extension and Geneva monitoring extension.
+Create an extension profile in-memory object that you want to add to your Cloud Service. For this example we will add remote desktop extension and Geneva monitoring extension.
 
 ```powershell
 # RDP extension
@@ -155,7 +155,7 @@ $extensions = @($rdpExtension, $genevaExtension)
 
 ## (Optional) Add tags to your Cloud Service
 
-Define Tags as PowerShell hash table which you want to add to your Cloud Service.
+We can define tags as a PowerShell hash table and add then to the Cloud Service.
 
 ```powershell
 $tag=@{"Owner" = "Contoso"; "Client" = "PowerShell"}
@@ -194,13 +194,11 @@ $cloudService = New-AzCloudService `
 
 ## Get Remote desktop file
 
-Get the RDP file using Get-AzCloudServiceRoleInstanceRemoteDesktopFile. Log in into the role instance using the credentials specified while creating RDP extension.<br>
-
-In this example RDP extension is installed on all role instances, thus you can get RDP file for any of the role instances. In below command we are downloading RDP file for WebRole instance 0.
+Get the remote desktop  file using `Get-AzCloudServiceRoleInstanceRemoteDesktopFile`. Sign in to the role instance using the credentials specified when the remote desktop extension was applied. 
 
 ```powershell
 Get-AzCloudServiceRoleInstanceRemoteDesktopFile -ResourceGroupName "ContosoOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "WebRole_IN_0" -OutFile "C:\temp\WebRole_IN_0.rdp"
 ```
 
 ## Next steps
-For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 
+For more information, see [Frequently asked questions about Cloud services (extended support)](faq.md)

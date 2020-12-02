@@ -15,7 +15,7 @@ ms.custom:
 This tutorial explains how to create a Cloud Service (extended support) deployment using ARM templates. 
 
 ## Before you begin
-When creating a Cloud Service (extended support) deployment using ARM templates, the template and other artifacts (cscfg/ csdef/ cspkg) need to be kept in sync in order to have seemless deployments. Prior to deploying, review the below information related to the configuration requirements. 
+When creating a Cloud Service (extended support) deployment using ARM templates, the template and other artifacts (cscfg/ csdef/ cspkg) need to be kept in sync. Prior to deploying, review the below information related to the configuration requirements. 
 
 ### Package
 - Parameter name: `packageUrl`
@@ -24,9 +24,9 @@ When creating a Cloud Service (extended support) deployment using ARM templates,
 
 ### Configuration
 
-- Configuration can be specified either as string XML or URL format. 
-- If using XML format, the parameter name is `configuration` and specifies the XML service configuration (cscfg) for the Cloud Service in string format.
-- If using URL format, the parameter name is `configurationUrl` and specifies the URL that refers to the location of the service configuration (cscfg) in the blob service. The service package URL can be a Shared Access Signature (SAS) URI from any storage account. 
+- Configuration can be specified either as XML string or URL format. 
+- If using XML format, the parameter name is `configuration` and specifies the XML service configuration (cscfg) file for the Cloud Service in string format.
+- If using URL format, the parameter name is `configurationUrl` and specifies the URL that refers to the location of the service configuration (cscfg) file in the blob service. The service package URL can be a Shared Access Signature (SAS) URI from any storage account. 
      
 
 ### Roles
@@ -57,7 +57,7 @@ When creating a Cloud Service (extended support) deployment using ARM templates,
 3. Ensure required resources are available and added to the template. 
     - Make sure the required resources are defined and reflected in the `cloudservices` resource section. 
     - The `dependsOn` clause defines the order.
-4. Create the Cloud Service (extended support) deployment using PowerShell and the template file and parameter file.
+4. Create the Cloud Service (extended support) deployment using PowerShell, template file and parameter file.
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg” -TemplateParameterFile "file path to your parameters file" -TemplateFile "file path to your template file”  
     ```

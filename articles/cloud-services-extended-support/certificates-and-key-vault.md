@@ -12,13 +12,13 @@ ms.custom:
 
 # Store and use certificates in Azure Cloud Services (extended support)
 
-To install certificates on your Cloud Service roles, users need to add the certificates to a Key Vault and reference the certificate thumbprints in the cscfg and osProfile.
+To install certificates on Cloud Service roles, users need to add the certificates to an Azure Key Vault and reference the certificate thumbprints in the cscfg and osProfile.
 
 ## Upload a certificate to Key Vault 
 
-1.	Login to the Azure portal and navigate to your Key Vault. If you do not have Key Vault set up, you can opt to create one in the same window.
+1.	Sign in to the Azure portal and navigate to the desired Key Vault. If you do not have Key Vault set up, you can opt to create one in this same window.
 
-2.	Ensure your Access policies include the following properties:
+2.	Ensure the access policies include the following properties:
     - **Enable access to Azure Virtual Machines for deployment**
     - **Enable access to Azure Resource Manager for template deployment** 
 

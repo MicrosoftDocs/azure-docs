@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: 
 ---
-
+ 
 # Available sizes for Azure Cloud Services (extended support)
 
-This article describes the available virtual machine sizes for Cloud Services (extended support) role instances.   
+This article describes the available virtual machine sizes for Cloud Services (extended support) instances.   
 
 | SKU Family |  ACU/ Core | 
 |---|---|
@@ -26,13 +26,14 @@ This article describes the available virtual machine sizes for Cloud Services (e
 |[G](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#g-series) | 180-240* |
 |[H](https://docs.microsoft.com/azure/virtual-machines/h-series) | 290 - 300* | 
 
-ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost. The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
+>[!NOTE]
+> ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost. The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
-## Configure sizes for Cloud Services  
+## Configure sizes for Cloud Services (extended support)
 
-You can specify the Virtual Machine size of a role instance as part of the service model described by the service definition file. The size of the role determines the number of CPU cores, memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirements. 
+You can specify the virtual machine size of a role instance as part of the service model in the service definition file. The size of the role determines the number of CPU cores, memory capacity and the local file system size that is allocated. Choose the role size based on your application's resource requirements. 
 
-For example, setting the role size to `Standard_D2` for a Web Role instance: 
+For example, setting the role size to `Standard_D2` for a web role instance: 
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2"> 
@@ -41,11 +42,11 @@ For example, setting the role size to `Standard_D2` for a Web Role instance:
 
 ## Change the size of an existing role
 
-To change the size of an existing role, change the VM size in your service definition file (as shown above), repackage your Cloud Service, and redeploy it. 
+To change the size of an existing role, change the virtual machine size in the service definition file (csdef), repackage your Cloud Service and redeploy it. 
 
 ## Get a list of available sizes 
 
-Use the following PowerShell command to get a list of available sizes.
+The following PowerShell command to retrieves a list of available virtual machine sizes that can be utilized.
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel 
